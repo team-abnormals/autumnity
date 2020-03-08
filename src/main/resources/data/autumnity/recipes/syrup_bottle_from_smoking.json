@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "autumnity:sap_bottle"
+  },
+  "result": "autumnity:syrup_bottle",
+  "experience": 0.35,
+  "cookingtime": 100
+}

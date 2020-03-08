@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "autumnity:snail_slime_block"
+    }
+  ],
+  "result": {
+    "item": "autumnity:snail_slime",
+    "count": 9
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "2"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "3"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 2
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "4"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 2
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "5"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 3
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "6"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 3
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "7"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 4
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "8"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 4
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "9"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 5
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "10"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 5
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "11"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 6
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:pancake"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:pancake",
+          "properties": {
+            "pancakes": "12"
+          }
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ]
+}

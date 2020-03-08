@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "autumnity:block/maple_log" },
+        "axis=z":   { "model": "autumnity:block/maple_log", "x": 90 },
+        "axis=x":   { "model": "autumnity:block/maple_log", "x": 90, "y": 90 }
+    }
+}

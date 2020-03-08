@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "autumnity:maple_planks"
+    }
+  ],
+  "result": {
+    "item": "autumnity:maple_button"
+  }
+}

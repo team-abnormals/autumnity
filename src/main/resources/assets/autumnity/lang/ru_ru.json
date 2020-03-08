@@ -1,0 +1,72 @@
+{
+  "block.autumnity.snail_slime": "Улиточная слизь",
+  "block.autumnity.snail_slime_block": "Улиточный блок слизи",
+  "block.autumnity.pancake": "Pancake",
+  
+  "block.autumnity.maple_log": "Кленовое бревно",
+  "block.autumnity.maple_wood": "Клён",
+  "block.autumnity.stripped_maple_log": "Обтёсанное кленовое бревно",
+  "block.autumnity.stripped_maple_wood": "Обтёсанная кленовая древесина",
+  "block.autumnity.sappy_maple_log": "Кленовое бревно с живицей",
+  "block.autumnity.sappy_maple_wood": "Клён  с живицей",
+  
+  "block.autumnity.maple_leaves": "Кленовые листья",
+  "block.autumnity.yellow_maple_leaves": "Жёлтые кленовые листья",
+  "block.autumnity.orange_maple_leaves": "Оранжевые кленовые листья",
+  "block.autumnity.red_maple_leaves": "Красные кленовые листья",
+  
+  "block.autumnity.maple_sapling": "Саженец клёна",
+  "block.autumnity.yellow_maple_sapling": "Саженец жёлтого клёна",
+  "block.autumnity.orange_maple_sapling": "Саженец оранжевого клёна",
+  "block.autumnity.red_maple_sapling": "Саженец красного клёна",
+  
+  "block.autumnity.potted_maple_sapling": "Саженец клёна в горшке",
+  "block.autumnity.potted_yellow_maple_sapling": "Саженец жёлтого клёна в горшке",
+  "block.autumnity.potted_orange_maple_sapling": "Саженец оранжевого клёна в горшке",
+  "block.autumnity.potted_red_maple_sapling": "Саженец красного клёна в горшке",
+  
+  "block.autumnity.yellow_maple_leaf_carpet": "Ковер из желтых кленовых листьев",
+  "block.autumnity.orange_maple_leaf_carpet": "Ковер из оранжевых кленовых листьев",
+  "block.autumnity.red_maple_leaf_carpet": "Ковер из красных кленовых листьев",
+  
+  "block.autumnity.maple_planks": "Кленовые доски",
+  "block.autumnity.maple_stairs": "Кленовые ступеньки",
+  "block.autumnity.maple_slab": "Кленовая плита",
+  "block.autumnity.maple_pressure_plate": "Кленовая нажимная плита",
+  "block.autumnity.maple_button": "Кленовая кнопка",
+  "block.autumnity.maple_fence": "Кленовый забор",
+  "block.autumnity.maple_fence_gate": "Кленовая калитка",
+  "block.autumnity.maple_door": "Кленовая дверь",
+  "block.autumnity.maple_trapdoor": "Кленовый люк",
+  
+  "item.autumnity.maple_boat": "Кленовая лодка",
+  "item.autumnity.sap_bottle": "Бутылка живицы",
+  "item.autumnity.syrup_bottle": "Кленовый сироп",
+  "item.autumnity.snail_spawn_egg": "Яицо призыва улитки",
+  "item.autumnity.snail_shell_piece": "Часть ракушки улитки",
+  "item.autumnity.snail_shell_chestplate": "Улиточный нагрудник",
+  
+  "entity.autumnity.boat": "Лодка",
+  "entity.autumnity.snail": "Улитка",
+  
+  "effect.autumnity.sturdiness": "Недвижимость",
+  
+  "item.minecraft.potion.effect.sturdiness": "Зелье недвежимости",
+  "item.minecraft.splash_potion.effect.sturdiness": "Взрывное зелье недвижимости",
+  "item.minecraft.lingering_potion.effect.sturdiness": "Туманное зелье недвижимости",
+  "item.minecraft.tipped_arrow.effect.sturdiness": "Стрела недвижимости",
+  
+  "biome.autumnity.maple_forest": "Кленовый лес",
+  
+  "subtitles.entity.snail.eat": "Улитка ест",
+  "subtitles.entity.snail.hurt": "Улитке больно",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Кленовая вертикальная плита",
+  "block.autumnity.vertical_maple_planks": "Вертикальные кленовые доски",
+  "block.autumnity.maple_bookshelf": "Кленовая книжная полка",
+  "block.autumnity.maple_ladder": "Кленовая лестница",
+  "block.autumnity.maple_leaf_carpet": "Ковер из кленовых листьев"
+}

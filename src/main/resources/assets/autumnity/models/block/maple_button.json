@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "autumnity:block/maple_planks"
+    }
+}

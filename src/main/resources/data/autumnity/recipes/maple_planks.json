@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "autumnity:maple_logs"
+    }
+  ],
+  "result": {
+    "item": "autumnity:maple_planks",
+    "count": 4
+  }
+}

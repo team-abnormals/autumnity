@@ -1,0 +1,72 @@
+{
+  "block.autumnity.snail_slime": "Snail Slime",
+  "block.autumnity.snail_slime_block": "Snail Slime Block",
+  "block.autumnity.pancake": "Pancake",
+  
+  "block.autumnity.maple_log": "Maple Log",
+  "block.autumnity.maple_wood": "Maple Wood",
+  "block.autumnity.stripped_maple_log": "Stripped Maple Log",
+  "block.autumnity.stripped_maple_wood": "Stripped Maple Wood",
+  "block.autumnity.sappy_maple_log": "Sappy Maple Log",
+  "block.autumnity.sappy_maple_wood": "Sappy Maple Wood",
+  
+  "block.autumnity.maple_leaves": "Maple Leaves",
+  "block.autumnity.yellow_maple_leaves": "Yellow Maple Leaves",
+  "block.autumnity.orange_maple_leaves": "Orange Maple Leaves",
+  "block.autumnity.red_maple_leaves": "Red Maple Leaves",
+  
+  "block.autumnity.maple_sapling": "Maple Sapling",
+  "block.autumnity.yellow_maple_sapling": "Yellow Maple Sapling",
+  "block.autumnity.orange_maple_sapling": "Orange Maple Sapling",
+  "block.autumnity.red_maple_sapling": "Red Maple Sapling",
+  
+  "block.autumnity.potted_maple_sapling": "Potted Maple Sapling",
+  "block.autumnity.potted_yellow_maple_sapling": "Potted Yellow Maple Sapling",
+  "block.autumnity.potted_orange_maple_sapling": "Potted Orange Maple Sapling",
+  "block.autumnity.potted_red_maple_sapling": "Potted Red Maple Sapling",
+  
+  "block.autumnity.yellow_maple_leaf_carpet": "Yellow Maple Leaf Carpet",
+  "block.autumnity.orange_maple_leaf_carpet": "Orange Maple Leaf Carpet",
+  "block.autumnity.red_maple_leaf_carpet": "Red Maple Leaf Carpet",
+  
+  "block.autumnity.maple_planks": "Maple Planks",
+  "block.autumnity.maple_stairs": "Maple Stairs",
+  "block.autumnity.maple_slab": "Maple Slab",
+  "block.autumnity.maple_pressure_plate": "Maple Pressure Plate",
+  "block.autumnity.maple_button": "Maple Button",
+  "block.autumnity.maple_fence": "Maple Fence",
+  "block.autumnity.maple_fence_gate": "Maple Fence Gate",
+  "block.autumnity.maple_door": "Maple Door",
+  "block.autumnity.maple_trapdoor": "Maple Trapdoor",
+  
+  "item.autumnity.maple_boat": "Maple Boat",
+  "item.autumnity.sap_bottle": "Sap Bottle",
+  "item.autumnity.syrup_bottle": "Syrup Bottle",
+  "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
+  "item.autumnity.snail_shell_piece": "Snail Shell Piece",
+  "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
+  
+  "entity.autumnity.boat": "Boat",
+  "entity.autumnity.snail": "Snail",
+  
+  "effect.autumnity.sturdiness": "Sturdiness",
+  
+  "item.minecraft.potion.effect.sturdiness": "Potion of Sturdiness",
+  "item.minecraft.splash_potion.effect.sturdiness": "Splash Potion of Sturdiness",
+  "item.minecraft.lingering_potion.effect.sturdiness": "Lingering Potion of Sturdiness",
+  "item.minecraft.tipped_arrow.effect.sturdiness": "Arrow of Sturdiness",
+  
+  "biome.autumnity.maple_forest": "Maple Forest",
+  
+  "subtitles.entity.snail.eat": "Snail Eats",
+  "subtitles.entity.snail.hurt": "Snail Hurts",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Maple Vertical Slab",
+  "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
+  "block.autumnity.maple_bookshelf": "Maple Bookshelf",
+  "block.autumnity.maple_ladder": "Maple Ladder",
+  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet"
+}

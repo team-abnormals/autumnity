@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "autumnity:block/stripped_maple_log_top",
+        "side": "autumnity:block/sappy_maple_log"
+    }
+}

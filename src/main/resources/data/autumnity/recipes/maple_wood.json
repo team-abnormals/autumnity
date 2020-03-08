@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "autumnity:maple_log"
+    }
+  },
+  "result": {
+    "item": "autumnity:maple_wood",
+    "count": 3
+  }
+}

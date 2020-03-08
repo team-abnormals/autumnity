@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "pancakes=1": { "model": "autumnity:block/pancake_pancakes1" },
+		"pancakes=2": { "model": "autumnity:block/pancake_pancakes2" },
+		"pancakes=3": { "model": "autumnity:block/pancake_pancakes3" },
+		"pancakes=4": { "model": "autumnity:block/pancake_pancakes4" },
+		"pancakes=5": { "model": "autumnity:block/pancake_pancakes5" },
+		"pancakes=6": { "model": "autumnity:block/pancake_pancakes6" },
+		"pancakes=7": { "model": "autumnity:block/pancake_pancakes7" },
+		"pancakes=8": { "model": "autumnity:block/pancake_pancakes8" },
+		"pancakes=9": { "model": "autumnity:block/pancake_pancakes9" },
+		"pancakes=10": { "model": "autumnity:block/pancake_pancakes10" },
+		"pancakes=11": { "model": "autumnity:block/pancake_pancakes11" },
+		"pancakes=12": { "model": "autumnity:block/pancake_pancakes12" }
+    }
+}

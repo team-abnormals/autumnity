@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "slippery=false":  { "model": "autumnity:block/snail_slime_block" },
+        "slippery=true":  { "model": "autumnity:block/snail_slime_block_slippery" }
+    }
+}

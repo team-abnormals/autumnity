@@ -25,27 +25,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod("autumnity")
 public class Autumnity
 {
-	/*
-	 * TODO:
-	 * - Vanilla compatibility
-	 * - Orange mushrooms
-	 * - Pancakes
-	 * - Flower pots
-	 * - Ladder breaking speed with axes
-	 * - Maple forest variants
-	 * - Sturdiness effect?
-	 * - Register stuff when other mod not installed?
-	 * 
-	 * Maple Stuff:
-	 * 
-	 * - Maple Sign
-	 *
-	 * - Maple Chest
-	 * - Maple Crate?
-	 * 
-	 * - Crafting Recipes
-	 */
-	
 	private static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
 
 	public Autumnity()

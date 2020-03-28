@@ -15,25 +15,23 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModPotions
 {
-	public static final Potion STURDINESS = new Potion("sturdiness", new EffectInstance(ModEffects.STURDINESS, 3600));
-	public static final Potion LONG_STURDINESS = new Potion("sturdiness", new EffectInstance(ModEffects.STURDINESS, 9600));
+	public static Potion EXTENSION;
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event)
 	{
-		registerPotion(STURDINESS, "sturdiness");
-		registerPotion(LONG_STURDINESS, "long_sturdiness");
+		EXTENSION = registerPotion(new Potion("extension", new EffectInstance(ModEffects.EXTENSION, 1)), "extension");
 	}
 	
-	private static void registerPotion(Potion potion, String name)
+	private static Potion registerPotion(Potion potion, String name)
 	{
 		potion.setRegistryName(Reference.location(name));
 		ForgeRegistries.POTION_TYPES.register(potion);
+		return potion;
 	}
 	
 	public static void setupBrewingRecipes()
 	{
-		PotionBrewing.addMix(Potions.AWKWARD, ModBlocks.SNAIL_SLIME.asItem(), STURDINESS);
-		PotionBrewing.addMix(STURDINESS, Items.REDSTONE, LONG_STURDINESS);
+		PotionBrewing.addMix(Potions.AWKWARD, ModBlocks.SNAIL_SLIME.get().asItem(), EXTENSION);
 	}
 }

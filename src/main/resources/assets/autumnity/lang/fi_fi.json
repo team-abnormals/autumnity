@@ -1,0 +1,76 @@
+{
+  "block.autumnity.snail_slime": "Kotilon lima",
+  "block.autumnity.snail_slime_block": "Kotilon limakuutio",
+  "block.autumnity.pancake": "Pannukakku",
+  
+  "block.autumnity.orange_mushroom": "Oranssi sieni",
+  "block.autumnity.orange_wall_mushroom": "Oranssi seinäsieni",
+  
+  "block.autumnity.maple_log": "Vaahterahalko",
+  "block.autumnity.maple_wood": "Vaahterapuu",
+  "block.autumnity.stripped_maple_log": "Kuorittu vaahterahalko",
+  "block.autumnity.stripped_maple_wood": "Kuorittu vaahterapuu",
+  "block.autumnity.sappy_maple_log": "Mahlainen vaahterahalko",
+  "block.autumnity.sappy_maple_wood": "Mahlainen vaahterapuu",
+  
+  "block.autumnity.maple_planks": "Vaahteralankut",
+  "block.autumnity.maple_stairs": "Vaahteraportaat",
+  "block.autumnity.maple_slab": "Vaahteralaatta",
+  "block.autumnity.maple_pressure_plate": "Vaahterapainelaatta",
+  "block.autumnity.maple_button": "Vaahteranappi",
+  "block.autumnity.maple_fence": "Vaahtera-aita",
+  "block.autumnity.maple_fence_gate": "Vaahteraportti",
+  "block.autumnity.maple_door": "Vaahteraovi",
+  "block.autumnity.maple_trapdoor": "Vaahteraluukku",
+  
+  "block.autumnity.maple_leaves": "Vaahteralehdet",
+  "block.autumnity.yellow_maple_leaves": "Keltaiset vaahteralehdet",
+  "block.autumnity.orange_maple_leaves": "Oranssit vaahteralehdet",
+  "block.autumnity.red_maple_leaves": "Punaiset vaahteralehdet",
+  
+  "block.autumnity.maple_sapling": "Vaahteran taimi",
+  "block.autumnity.yellow_maple_sapling": "Keltaisen vaahteran taimi",
+  "block.autumnity.orange_maple_sapling": "Oranssin vaahteran taimi",
+  "block.autumnity.red_maple_sapling": "Punaisen vaahteran taimi",
+  
+  "block.autumnity.potted_maple_sapling": "Istutettu vaahteran taimi",
+  "block.autumnity.potted_yellow_maple_sapling": "Istutettu keltaisen vaahteran taimi",
+  "block.autumnity.potted_orange_maple_sapling": "Istutettu oranssin vaahteran taimi",
+  "block.autumnity.potted_red_maple_sapling": "Istutettu punaisen vaahteran taimi",
+  
+  "block.autumnity.yellow_maple_leaf_carpet": "Yellow Maple Leaf Carpet",
+  "block.autumnity.orange_maple_leaf_carpet": "Orange Maple Leaf Carpet",
+  "block.autumnity.red_maple_leaf_carpet": "Red Maple Leaf Carpet",
+  
+  "item.autumnity.maple_boat": "Vaahteravene",
+  "item.autumnity.sap_bottle": "Mahlapullo",
+  "item.autumnity.syrup_bottle": "Siirappipullo",
+  "item.autumnity.snail_spawn_egg": "Luo kotilo",
+  "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
+  "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
+  
+  "entity.autumnity.boat": "Vene",
+  "entity.autumnity.snail": "Kotilo",
+  
+  "effect.autumnity.sturdiness": "Sturdiness",
+  
+  "item.minecraft.potion.effect.sturdiness": "Potion of Sturdiness",
+  "item.minecraft.splash_potion.effect.sturdiness": "Splash Potion of Sturdiness",
+  "item.minecraft.lingering_potion.effect.sturdiness": "Lingering Potion of Sturdiness",
+  "item.minecraft.tipped_arrow.effect.sturdiness": "Arrow of Sturdiness",
+  
+  "biome.autumnity.maple_forest": "Vaahterametsä",
+  "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",
+  
+  "subtitles.entity.snail.eat": "Kotilo syö",
+  "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Maple Vertical Slab",
+  "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
+  "block.autumnity.maple_bookshelf": "Maple Bookshelf",
+  "block.autumnity.maple_ladder": "Maple Ladder",
+  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet"
+}

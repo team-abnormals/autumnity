@@ -19,6 +19,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -69,27 +70,30 @@ public class ModItems
 		}
 	};
 
-	public static final Item MAPLE_BOAT = new ModBoatItem(ModBoatEntity.BoatType.MAPLE, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION));
-	public static final Item SAP_BOTTLE = new Item((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).group(ItemGroup.MATERIALS));
-	public static final Item SYRUP_BOTTLE = new SyrupBottleItem((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).maxStackSize(16).group(ItemGroup.FOOD).food(ModFoods.SYRUP_BOTTLE));
-	public static final Item SNAIL_SPAWN_EGG = new SpawnEggItem(ModEntities.SNAIL, 7355937, 14727558, (new Item.Properties()).group(ItemGroup.MISC));
-	public static final Item SNAIL_SHELL_PIECE = new Item((new Item.Properties()).group(ItemGroup.MATERIALS));
-	public static final Item SNAIL_SHELL_CHESTPLATE = new SnailShellChestplateItem(SNAIL_SHELL_MATERIAL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT));
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	
+	public static Item MAPLE_BOAT;
+	public static Item SAP_BOTTLE;
+	public static Item SYRUP_BOTTLE;
+	public static Item SNAIL_SPAWN_EGG;
+	public static Item SNAIL_SHELL_PIECE;
+	public static Item SNAIL_SHELL_CHESTPLATE;
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
-		registerItem(MAPLE_BOAT, "maple_boat");
-		registerItem(SAP_BOTTLE, "sap_bottle");
-		registerItem(SYRUP_BOTTLE, "syrup_bottle");
-		registerItem(SNAIL_SPAWN_EGG, "snail_spawn_egg");
-		registerItem(SNAIL_SHELL_PIECE, "snail_shell_piece");
-		registerItem(SNAIL_SHELL_CHESTPLATE, "snail_shell_chestplate");
+		MAPLE_BOAT = registerItem(new ModBoatItem(ModBoatEntity.BoatType.MAPLE, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)), "maple_boat");
+		SAP_BOTTLE = registerItem(new Item((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).group(ItemGroup.MATERIALS)), "sap_bottle");
+		SYRUP_BOTTLE = registerItem(new SyrupBottleItem((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).maxStackSize(16).group(ItemGroup.FOOD).food(ModFoods.SYRUP_BOTTLE)), "syrup_bottle");
+		SNAIL_SPAWN_EGG = registerItem(new SpawnEggItem(ModEntities.SNAIL, 7355937, 14727558, (new Item.Properties()).group(ItemGroup.MISC)), "snail_spawn_egg");
+		SNAIL_SHELL_PIECE = registerItem(new Item((new Item.Properties()).group(ItemGroup.MATERIALS)), "snail_shell_piece");
+		SNAIL_SHELL_CHESTPLATE = registerItem(new SnailShellChestplateItem(SNAIL_SHELL_MATERIAL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)), "snail_shell_chestplate");
 	}
 
-	private static void registerItem(Item item, String name)
+	private static Item registerItem(Item item, String name)
 	{
 		item.setRegistryName(Reference.location(name));
 		ForgeRegistries.ITEMS.register(item);
+		return item;
 	}
 }

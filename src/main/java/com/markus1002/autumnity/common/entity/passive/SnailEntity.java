@@ -62,8 +62,13 @@ public class SnailEntity extends AnimalEntity
 	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Boolean> HIDING = EntityDataManager.createKey(SnailEntity.class, DataSerializers.BOOLEAN);
 	private int slimeAmount = 0;
+
 	private float hideTicks;
 	private float prevHideTicks;
+
+	private float shakeTicks;
+	private float prevShakeTicks;
+
 	private static final Predicate<LivingEntity> ENEMY_MATCHER = (livingentity) -> {
 		if (livingentity == null)
 		{
@@ -152,6 +157,16 @@ public class SnailEntity extends AnimalEntity
 			{
 				this.hideTicks = MathHelper.clamp(this.hideTicks - 0.5F, 0, 3);
 			}
+
+			this.prevShakeTicks = this.shakeTicks;
+			if (this.shakeTicks > 0)
+			{
+				this.shakeTicks = MathHelper.clamp(this.shakeTicks - 1, 0, 20);
+			}
+			else
+			{
+				this.shakeTicks = MathHelper.clamp(this.shakeTicks + 1, -20, 0);
+			}	
 		}
 	}
 
@@ -217,7 +232,7 @@ public class SnailEntity extends AnimalEntity
 				int i = MathHelper.floor(this.posX);
 				int j = MathHelper.floor(this.posY);
 				int k = MathHelper.floor(this.posZ);
-				BlockState blockstate = ModBlocks.SNAIL_SLIME.getDefaultState();
+				BlockState blockstate = ModBlocks.SNAIL_SLIME.get().getDefaultState();
 
 				for(int l = 0; l < 4; ++l)
 				{
@@ -337,6 +352,10 @@ public class SnailEntity extends AnimalEntity
 				this.setHiding(true);
 				this.spitOutItem();
 			}
+			else
+			{
+				this.shakeTicks = this.rand.nextInt(2) == 0 ? -10 : 10;
+			}
 			return super.attackEntityFrom(source, amount);
 		}
 
@@ -425,6 +444,18 @@ public class SnailEntity extends AnimalEntity
 	public float getHideTicks()
 	{
 		return this.hideTicks;
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public float getShakingAnimationScale(float partialTicks)
+	{
+		return MathHelper.lerp(partialTicks, this.prevShakeTicks, this.shakeTicks) / 10.0F;
+	}
+	
+	@OnlyIn(Dist.CLIENT)
+	public float getShakeTicks()
+	{
+		return this.shakeTicks;
 	}
 
 	protected void registerData()

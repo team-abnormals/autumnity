@@ -145,7 +145,7 @@ public class ModBoatEntity extends BoatEntity
 		{
 		case MAPLE:
 		default:
-			return ModBlocks.MAPLE_PLANKS;
+			return ModBlocks.MAPLE_PLANKS.get();
 		}
 	}
 

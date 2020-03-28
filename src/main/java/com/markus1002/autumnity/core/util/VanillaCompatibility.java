@@ -5,7 +5,6 @@ import com.markus1002.autumnity.common.dispenser.DispenseModBoatBehavior;
 import com.markus1002.autumnity.common.entity.item.boat.ModBoatEntity;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.markus1002.autumnity.core.util.compatibility.Quark;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -30,58 +29,53 @@ public class VanillaCompatibility
 {
 	public static void setupVanillaCompatibility()
 	{
-		registerCompostable(ModBlocks.MAPLE_LEAVES.asItem(), 0.3F);
-		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.asItem(), 0.3F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAVES.asItem(), 0.3F);
-		registerCompostable(ModBlocks.RED_MAPLE_LEAVES.asItem(), 0.3F);
+		registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAVES.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.RED_MAPLE_LEAVES.get().asItem(), 0.3F);
+
+		registerCompostable(ModBlocks.MAPLE_SAPLING.get(), 0.3F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING.get(), 0.3F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
+		registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
+
+		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get(), 0.35F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.35F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.35F);
+		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.35F);
+
+		registerFlammable(ModBlocks.MAPLE_LOG.get(), 5, 5);
+		registerFlammable(ModBlocks.MAPLE_WOOD.get(), 5, 5);
+		registerFlammable(ModBlocks.STRIPPED_MAPLE_LOG.get(), 5, 5);
+		registerFlammable(ModBlocks.STRIPPED_MAPLE_WOOD.get(), 5, 5);
+		registerFlammable(ModBlocks.SAPPY_MAPLE_LOG.get(), 5, 5);
+		registerFlammable(ModBlocks.SAPPY_MAPLE_WOOD.get(), 5, 5);
+
+		registerFlammable(ModBlocks.MAPLE_PLANKS.get(), 5, 20);
+		registerFlammable(ModBlocks.MAPLE_STAIRS.get(), 5, 20);
+		registerFlammable(ModBlocks.MAPLE_SLAB.get(), 5, 20);
+
+		registerFlammable(ModBlocks.MAPLE_FENCE.get(), 5, 20);
+		registerFlammable(ModBlocks.MAPLE_FENCE_GATE.get(), 5, 20);
+
+		registerFlammable(ModBlocks.MAPLE_LEAVES.get(), 30, 60);
+		registerFlammable(ModBlocks.YELLOW_MAPLE_LEAVES.get(), 30, 60);
+		registerFlammable(ModBlocks.ORANGE_MAPLE_LEAVES.get(), 30, 60);
+		registerFlammable(ModBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
+
+		registerFlammable(ModBlocks.MAPLE_LEAF_CARPET.get(), 30, 60);
+		registerFlammable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 30, 60);
+		registerFlammable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
+		registerFlammable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
+
+		registerStrippable(ModBlocks.MAPLE_LOG.get(), ModBlocks.STRIPPED_MAPLE_LOG.get());
+		registerStrippable(ModBlocks.MAPLE_WOOD.get(), ModBlocks.STRIPPED_MAPLE_WOOD.get());
 		
-		registerCompostable(ModBlocks.MAPLE_SAPLING, 0.3F);
-		registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING, 0.3F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING, 0.3F);
-		registerCompostable(ModBlocks.RED_MAPLE_SAPLING, 0.3F);
-		
-		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET, 0.35F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET, 0.35F);
-		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET, 0.35F);
-		
-		registerFlammable(ModBlocks.MAPLE_LOG, 5, 5);
-		registerFlammable(ModBlocks.MAPLE_WOOD, 5, 5);
-		registerFlammable(ModBlocks.STRIPPED_MAPLE_LOG, 5, 5);
-		registerFlammable(ModBlocks.STRIPPED_MAPLE_WOOD, 5, 5);
-		registerFlammable(ModBlocks.SAPPY_MAPLE_LOG, 5, 5);
-		registerFlammable(ModBlocks.SAPPY_MAPLE_WOOD, 5, 5);
-		
-		registerFlammable(ModBlocks.MAPLE_LEAVES, 30, 60);
-		registerFlammable(ModBlocks.YELLOW_MAPLE_LEAVES, 30, 60);
-		registerFlammable(ModBlocks.ORANGE_MAPLE_LEAVES, 30, 60);
-		registerFlammable(ModBlocks.RED_MAPLE_LEAVES, 30, 60);
-		
-        registerFlammable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET, 30, 60);
-        registerFlammable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET, 30, 60);
-        registerFlammable(ModBlocks.RED_MAPLE_LEAF_CARPET, 30, 60);
-        
-		registerFlammable(ModBlocks.MAPLE_PLANKS, 5, 20);
-		registerFlammable(ModBlocks.MAPLE_STAIRS, 5, 20);
-		registerFlammable(ModBlocks.MAPLE_SLAB, 5, 20);
-		
-		registerFlammable(ModBlocks.MAPLE_FENCE, 5, 20);
-		registerFlammable(ModBlocks.MAPLE_FENCE_GATE, 5, 20);
-		
-		registerStrippable(ModBlocks.MAPLE_LOG, ModBlocks.STRIPPED_MAPLE_LOG);
-		registerStrippable(ModBlocks.MAPLE_WOOD, ModBlocks.STRIPPED_MAPLE_WOOD);
-		
+		registerFlammable(ModBlocks.MAPLE_VERTICAL_SLAB.get(), 5, 20);
+		registerFlammable(ModBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
+		registerFlammable(ModBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
+
 		DispenserBlock.registerDispenseBehavior(ModItems.MAPLE_BOAT, new DispenseModBoatBehavior(ModBoatEntity.BoatType.MAPLE));
-		
-		if (Quark.isInstalled())
-		{
-	        registerFlammable(ModBlocks.MAPLE_LEAF_CARPET, 30, 60);
-	        
-			registerFlammable(ModBlocks.MAPLE_VERTICAL_SLAB, 5, 20);
-			registerFlammable(ModBlocks.VERTICAL_MAPLE_PLANKS, 5, 20);
-			registerFlammable(ModBlocks.MAPLE_BOOKSHELF, 30, 20);
-			
-	        registerCompostable(ModBlocks.MAPLE_LEAF_CARPET, 0.35F);
-		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -92,26 +86,26 @@ public class VanillaCompatibility
 
 		blockcolors.register((state, reader, pos, tintIndex) -> {
 			return reader != null && pos != null ? BiomeColors.getFoliageColor(reader, pos) : FoliageColors.getDefault();
-		}, ModBlocks.MAPLE_LEAVES, ModBlocks.MAPLE_LEAF_CARPET);
+		}, ModBlocks.MAPLE_LEAVES.get(), ModBlocks.MAPLE_LEAF_CARPET.get());
 
 		blockcolors.register((state, reader, pos, tintIndex) -> {
 			return 12665871;
-		}, ModBlocks.RED_MAPLE_LEAVES, ModBlocks.RED_MAPLE_LEAF_CARPET);
+		}, ModBlocks.RED_MAPLE_LEAVES.get(), ModBlocks.RED_MAPLE_LEAF_CARPET.get());
 
 		blockcolors.register((state, reader, pos, tintIndex) -> {
 			return 16745768;
-		}, ModBlocks.ORANGE_MAPLE_LEAVES, ModBlocks.ORANGE_MAPLE_LEAF_CARPET);
+		}, ModBlocks.ORANGE_MAPLE_LEAVES.get(), ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get());
 
 		blockcolors.register((state, reader, pos, tintIndex) -> {
 			return 16760576;
-		}, ModBlocks.YELLOW_MAPLE_LEAVES, ModBlocks.YELLOW_MAPLE_LEAF_CARPET);
+		}, ModBlocks.YELLOW_MAPLE_LEAVES.get(), ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
 
 		itemcolors.register((stack, tintIndex) -> {
 			BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().getDefaultState();
 			return blockcolors.getColor(blockstate, (IEnviromentBlockReader)null, (BlockPos)null, tintIndex);
-		}, ModBlocks.MAPLE_LEAVES, ModBlocks.RED_MAPLE_LEAVES, ModBlocks.ORANGE_MAPLE_LEAVES, ModBlocks.YELLOW_MAPLE_LEAVES,
-				ModBlocks.MAPLE_LEAF_CARPET, ModBlocks.RED_MAPLE_LEAF_CARPET, ModBlocks.ORANGE_MAPLE_LEAF_CARPET,
-				ModBlocks.YELLOW_MAPLE_LEAF_CARPET);
+		}, ModBlocks.MAPLE_LEAVES.get(), ModBlocks.RED_MAPLE_LEAVES.get(), ModBlocks.ORANGE_MAPLE_LEAVES.get(), ModBlocks.YELLOW_MAPLE_LEAVES.get(),
+				ModBlocks.MAPLE_LEAF_CARPET.get(), ModBlocks.RED_MAPLE_LEAF_CARPET.get(), ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(),
+				ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
 	}
 
 	public static void registerCompostable(IItemProvider itemIn, float chance)

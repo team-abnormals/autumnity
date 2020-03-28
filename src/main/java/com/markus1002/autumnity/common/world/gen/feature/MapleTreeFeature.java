@@ -3,6 +3,7 @@ package com.markus1002.autumnity.common.world.gen.feature;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import com.mojang.datafixers.Dynamic;
 
@@ -16,15 +17,15 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 {
-	private final BlockState trunk;
-	private final BlockState leaf;
+	private final Supplier<BlockState> trunk;
+	private final Supplier<BlockState> leaf;
 
-	public MapleTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn, boolean doBlockNotifyIn, Block trunkIn, Block leafIn, Block sapling)
+	public MapleTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn, boolean doBlockNotifyIn, Supplier<Block> trunkIn, Supplier<Block> leafIn, Supplier<Block> sapling)
 	{
 		super(configFactoryIn, doBlockNotifyIn);
-		this.trunk = trunkIn.getDefaultState();
-		this.leaf = leafIn.getDefaultState();
-	    this.setSapling((net.minecraftforge.common.IPlantable)sapling);
+		this.trunk = () -> trunkIn.get().getDefaultState();
+		this.leaf = () -> leafIn.get().getDefaultState();
+	    this.setSapling((net.minecraftforge.common.IPlantable)sapling.get());
 	}
 
 	public boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox p_208519_5_)
@@ -86,7 +87,7 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 						{
 							if (isAirOrLeaves(worldIn, blockpos1) || func_214576_j(worldIn, blockpos1))
 							{
-								this.setLogState(changedBlocks, worldIn, blockpos1, this.leaf, p_208519_5_);
+								this.setLogState(changedBlocks, worldIn, blockpos1, this.leaf.get(), p_208519_5_);
 							}
 						}
 					}
@@ -96,7 +97,7 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 				{
 					if (isAirOrLeaves(worldIn, position.up(i2)))
 					{
-						this.setLogState(changedBlocks, worldIn, position.up(i2), this.trunk, p_208519_5_);
+						this.setLogState(changedBlocks, worldIn, position.up(i2), this.trunk.get(), p_208519_5_);
 					}
 				}
 

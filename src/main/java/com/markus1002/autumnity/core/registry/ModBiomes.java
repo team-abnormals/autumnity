@@ -1,6 +1,8 @@
 package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.world.biome.MapleForestBiome;
+import com.markus1002.autumnity.common.world.biome.MapleForestHillsBiome;
+import com.markus1002.autumnity.common.world.biome.PumpkinFieldsBiome;
 import com.markus1002.autumnity.core.util.Reference;
 
 import net.minecraft.world.biome.Biome;
@@ -17,15 +19,19 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-	public static final Biome MAPLE_FOREST = new MapleForestBiome();
+	public static Biome MAPLE_FOREST;
+	public static Biome MAPLE_FOREST_HILLS;
+	public static Biome PUMPKIN_FIELDS;
 
 	@SubscribeEvent
 	public static void registerBiomes(RegistryEvent.Register<Biome> event)
 	{
-		addBiome(MAPLE_FOREST, "maple_forest", 8, true, BiomeType.COOL, Type.FOREST, Type.OVERWORLD);
+		MAPLE_FOREST = registerBiome(new MapleForestBiome(), "maple_forest", 6, true, BiomeType.COOL, Type.FOREST, Type.OVERWORLD);
+		MAPLE_FOREST_HILLS = registerBiome(new MapleForestHillsBiome(), "maple_forest_hills", 4, true, BiomeType.COOL, Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
+		PUMPKIN_FIELDS = registerBiome(new PumpkinFieldsBiome(), "pumpkin_fields", 6, true, BiomeType.COOL, Type.PLAINS, Type.OVERWORLD, Type.SPARSE, Type.RARE);
 	}
 
-	private static void addBiome(Biome biome, String name, int weight, boolean canGenerate, BiomeType biomeType, Type... types)
+	private static Biome registerBiome(Biome biome, String name, int weight, boolean canGenerate, BiomeType biomeType, Type... types)
 	{
 		biome.setRegistryName(Reference.location(name));
 		ForgeRegistries.BIOMES.register(biome);
@@ -35,5 +41,6 @@ public class ModBiomes
 			BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
 		}
 		BiomeManager.addSpawnBiome(biome);
+		return biome;
 	}
 }

@@ -2,7 +2,6 @@ package com.markus1002.autumnity.common.item;
 
 import javax.annotation.Nullable;
 
-import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.util.Reference;
 
 import net.minecraft.entity.Entity;
@@ -28,7 +27,6 @@ public class SnailShellChestplateItem extends ArmorItem
 		if (player.isSneaking())
 		{
 			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 2, false, false, true));
-			player.addPotionEffect(new EffectInstance(ModEffects.STURDINESS, 10, 0, false, false, true));
 		}
 	}
 	

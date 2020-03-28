@@ -1,14 +1,12 @@
 package com.markus1002.autumnity.core;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModFeatures;
+import com.markus1002.autumnity.core.registry.ModItems;
 import com.markus1002.autumnity.core.registry.ModParticles;
 import com.markus1002.autumnity.core.registry.ModPotions;
 import com.markus1002.autumnity.core.util.EventHandler;
-import com.markus1002.autumnity.core.util.Reference;
 import com.markus1002.autumnity.core.util.VanillaCompatibility;
 
 import net.minecraft.world.biome.Biome;
@@ -25,13 +23,19 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod("autumnity")
 public class Autumnity
 {
-	private static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
-
+	/*
+	 * TODO:
+	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
+	 */
+	
 	public Autumnity()
 	{
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::particleSetup);
+        ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		
 		MinecraftForge.EVENT_BUS.register(new EventHandler());

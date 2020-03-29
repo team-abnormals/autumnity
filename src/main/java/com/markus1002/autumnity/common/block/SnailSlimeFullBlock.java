@@ -14,7 +14,6 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -35,11 +34,6 @@ public class SnailSlimeFullBlock extends BreakableBlock
 	{
 		super(properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(SLIPPERY, Boolean.valueOf(false)));
-	}
-
-	public BlockRenderLayer getRenderLayer()
-	{
-		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
@@ -86,13 +80,13 @@ public class SnailSlimeFullBlock extends BreakableBlock
 
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
 	{
-		if (entityIn.isSneaking())
+		if (entityIn.isShiftKeyDown())
 		{
 			super.onFallenUpon(worldIn, pos, entityIn, fallDistance);
 		}
 		else
 		{
-			entityIn.fall(fallDistance, 0.0F);
+			entityIn.onLivingFall(fallDistance, 0.0F);
 		}
 	}
 
@@ -102,7 +96,7 @@ public class SnailSlimeFullBlock extends BreakableBlock
 		{
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D)
 			{
-				if (!entityIn.isSneaking())
+				if (!entityIn.isShiftKeyDown())
 				{
 					entityIn.setMotionMultiplier(state, new Vec3d(1.0D, (double)0.0F, 1.0D));
 				}

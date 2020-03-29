@@ -3,32 +3,27 @@ package com.markus1002.autumnity.common.world.gen.feature;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import com.mojang.datafixers.Dynamic;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
-public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
+public class MapleTreeFeature extends AbstractTreeFeature<TreeFeatureConfig>
 {
-	private final Supplier<BlockState> trunk;
-	private final Supplier<BlockState> leaf;
-
-	public MapleTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn, boolean doBlockNotifyIn, Supplier<Block> trunkIn, Supplier<Block> leafIn, Supplier<Block> sapling)
+	public MapleTreeFeature(Function<Dynamic<?>, ? extends TreeFeatureConfig> config)
 	{
-		super(configFactoryIn, doBlockNotifyIn);
-		this.trunk = () -> trunkIn.get().getDefaultState();
-		this.leaf = () -> leafIn.get().getDefaultState();
-	    this.setSapling((net.minecraftforge.common.IPlantable)sapling.get());
+		super(config);
 	}
 
-	public boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox p_208519_5_)
+	@Override
+	protected boolean func_225557_a_(IWorldGenerationReader worldIn, Random rand, BlockPos position, Set<BlockPos> changedBlocks, Set<BlockPos> p_225557_5_, MutableBoundingBox p_208519_5_, TreeFeatureConfig config)
 	{
 		int i = rand.nextInt(2) + 5;
 
@@ -48,7 +43,7 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 					k = 2;
 				}
 
-				BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+				BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 
 				for(int l = position.getX() - k; l <= position.getX() + k && flag; ++l)
 				{
@@ -72,7 +67,7 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 			{
 				return false;
 			}
-			else if ((isSoil(worldIn, position.down(), getSapling())) && position.getY() < worldIn.getMaxHeight() - i - 1)
+			else if ((isSoil(worldIn, position.down(), config.getSapling())) && position.getY() < worldIn.getMaxHeight() - i - 1)
 			{
 				this.setDirtAt(worldIn, position.down(), position);
 
@@ -85,9 +80,9 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 						double d0 = blockpos1.distanceSq(blockpos.getX(), blockpos.getY(), blockpos.getZ(), false);
 						if (d0 <= (double)(2.35F * 2.35F) || (d0 <= (double)(2.5F * 2.5F) && rand.nextInt(2) > 0))
 						{
-							if (isAirOrLeaves(worldIn, blockpos1) || func_214576_j(worldIn, blockpos1))
+							if (isAirOrLeaves(worldIn, blockpos1))
 							{
-								this.setLogState(changedBlocks, worldIn, blockpos1, this.leaf.get(), p_208519_5_);
+								this.setLogState(changedBlocks, worldIn, blockpos1, config.leavesProvider.getBlockState(rand, position), p_208519_5_);
 							}
 						}
 					}
@@ -97,7 +92,7 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 				{
 					if (isAirOrLeaves(worldIn, position.up(i2)))
 					{
-						this.setLogState(changedBlocks, worldIn, position.up(i2), this.trunk.get(), p_208519_5_);
+						this.setLogState(changedBlocks, worldIn, position.up(i2), config.trunkProvider.getBlockState(rand, position), p_208519_5_);
 					}
 				}
 
@@ -112,5 +107,22 @@ public class MapleTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 		{
 			return false;
 		}
+	}
+
+	protected final void setLogState(Set<BlockPos> changedBlocks, IWorldWriter worldIn, BlockPos pos, BlockState p_208520_4_, MutableBoundingBox p_208520_5_)
+	{
+
+		this.func_208521_b(worldIn, pos, p_208520_4_);
+		p_208520_5_.expandTo(new MutableBoundingBox(pos, pos));
+		if (BlockTags.LOGS.contains(p_208520_4_.getBlock()))
+		{
+
+			changedBlocks.add(pos.toImmutable());
+		}
+	}
+
+	private void func_208521_b(IWorldWriter p_208521_1_, BlockPos p_208521_2_, BlockState p_208521_3_)
+	{
+		p_208521_1_.setBlockState(p_208521_2_, p_208521_3_, 18);
 	}
 }

@@ -34,7 +34,7 @@ public class ModBoatEntity extends BoatEntity
 
 	public ModBoatEntity(World worldIn, double x, double y, double z)
 	{
-		this(ModEntities.BOAT, worldIn);
+		this(ModEntities.BOAT.get(), worldIn);
 		this.setPosition(x, y, z);
 		this.setMotion(Vec3d.ZERO);
 		this.prevPosX = x;
@@ -44,7 +44,7 @@ public class ModBoatEntity extends BoatEntity
 	
 	public ModBoatEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
 	{
-		super(ModEntities.BOAT, worldIn);
+		super(ModEntities.BOAT.get(), worldIn);
 	}
 	
 	protected void registerData()
@@ -91,7 +91,6 @@ public class ModBoatEntity extends BoatEntity
 						return;
 					}
 
-					this.fall(this.fallDistance, 1.0F);
 					if (!this.world.isRemote && !this.removed)
 					{
 						this.remove();
@@ -130,7 +129,7 @@ public class ModBoatEntity extends BoatEntity
 		{
 		case MAPLE:
 		default:
-			return ModItems.MAPLE_BOAT;
+			return ModItems.MAPLE_BOAT.get();
 		}
 	}
 

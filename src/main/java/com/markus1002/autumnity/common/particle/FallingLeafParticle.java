@@ -41,15 +41,15 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 		}
 		else
 		{
+			this.move(this.motionX, this.motionY, this.motionZ);
+			this.motionY -= (double)0.002F;
+			this.motionY = Math.max(this.motionY, (double)-0.1F);
+			
 			this.prevParticleAngle = this.particleAngle;
 			if (!this.onGround)
 			{
 				this.particleAngle += (float)Math.PI * this.rotSpeed * 1.6F;
 			}
-
-			this.move(this.motionX, this.motionY, this.motionZ);
-			this.motionY -= (double)0.002F;
-			this.motionY = Math.max(this.motionY, (double)-0.1F);
 		}
 	}
 

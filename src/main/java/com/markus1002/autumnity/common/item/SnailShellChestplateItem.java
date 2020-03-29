@@ -24,16 +24,16 @@ public class SnailShellChestplateItem extends ArmorItem
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
 	{
-		if (player.isSneaking())
+		if (player.isShiftKeyDown())
 		{
 			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 2, false, false, true));
 		}
 	}
-	
+
 	@Override
-    @Nullable
-    public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type)
-    {
-        return Reference.location("textures/models/armor/snail_shell_layer_1.png").toString();
-    }
+	@Nullable
+	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type)
+	{
+		return Reference.location("textures/models/armor/snail_shell_layer_1.png").toString();
+	}
 }

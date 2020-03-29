@@ -1,99 +1,51 @@
 package com.markus1002.autumnity.client.renderer.entity.model;
 
+import com.google.common.collect.ImmutableList;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
-import com.mojang.blaze3d.platform.GlStateManager;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class SnailModel<T extends SnailEntity> extends EntityModel<T>
+public class SnailModel<T extends SnailEntity> extends AgeableModel<T>
 {
-	private final RendererModel body;
-	private final RendererModel hideBody;
-	private final RendererModel shell;
-	private final RendererModel eye1;
-	private final RendererModel eye2;
-	private final RendererModel tentacle1;
-	private final RendererModel tentacle2;
+	private final ModelRenderer body;
+	private final ModelRenderer hideBody;
+	private final ModelRenderer shell;
+	private final ModelRenderer eye1;
+	private final ModelRenderer eye2;
+	private final ModelRenderer tentacle1;
+	private final ModelRenderer tentacle2;
 
 	public SnailModel()
 	{
 		this.textureWidth = 64;
 		this.textureHeight = 64;
-		this.body = new RendererModel(this, 0, 0);
+		this.body = new ModelRenderer(this);
 		this.body.setRotationPoint(0.0F, 24.0F, -9.0F);
 		this.body.addBox(-4.0F, 0.0F, 0.0F, 8, 18, 6, 0.0F);
-		this.hideBody = new RendererModel(this, 0, 0);
+		this.hideBody = new ModelRenderer(this);
 		this.hideBody.setRotationPoint(0.0F, 24.0F, -6.0F);
 		this.hideBody.addBox(-4.0F, 0.0F, 0.0F, 8, 12, 6, 0.0F);
-		this.eye1 = new RendererModel(this, 28, 0);
+		this.eye1 = new ModelRenderer(this, 28, 0);
 		this.eye1.setRotationPoint(2.5F, 18.0F, -7.0F);
 		this.eye1.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
-		this.eye2 = new RendererModel(this, 28, 0);
+		this.eye2 = new ModelRenderer(this, 28, 0);
 		this.eye2.mirror = true;
 		this.eye2.setRotationPoint(-2.5F, 18.0F, -7.0F);
 		this.eye2.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
-		this.tentacle1 = new RendererModel(this, 28, 9);
+		this.tentacle1 = new ModelRenderer(this, 28, 9);
 		this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F);
 		this.tentacle1.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
-		this.tentacle2 = new RendererModel(this, 28, 9);
+		this.tentacle2 = new ModelRenderer(this, 28, 9);
 		this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F);
 		this.tentacle2.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
-		this.shell = new RendererModel(this, 0, 24);
+		this.shell = new ModelRenderer(this, 0, 24);
 		this.shell.setRotationPoint(0.0F, 7.0F, -1.0F);
 		this.shell.addBox(-4.5F, 0.0F, 0.0F, 9, 14, 14, 0.0F);
-	}
-
-	public void render(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-	{
-		this.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-
-		if (this.isChild)
-		{
-			GlStateManager.pushMatrix();
-			GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-			GlStateManager.translatef(0.0F, 24.0F * scale, 0.0F);
-			if (entityIn.getHideTicks() == 0)
-			{
-				this.body.render(scale);
-			}
-			else
-			{
-				this.hideBody.render(scale);
-			}
-			if (entityIn.getHideTicks() < 3)
-			{
-				this.eye1.render(scale);
-				this.eye2.render(scale);
-			}
-			this.tentacle1.render(scale);
-			this.tentacle2.render(scale);
-			this.shell.render(scale);
-			GlStateManager.popMatrix();
-		}
-		else
-		{
-			if (entityIn.getHideTicks() == 0)
-			{
-				this.body.render(scale);
-			}
-			else
-			{
-				this.hideBody.render(scale);
-			}
-			if (entityIn.getHideTicks() < 3)
-			{
-				this.eye1.render(scale);
-				this.eye2.render(scale);
-			}
-			this.tentacle1.render(scale);
-			this.tentacle2.render(scale);
-			this.shell.render(scale);
-		}
 	}
 
 	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick)
@@ -108,24 +60,9 @@ public class SnailModel<T extends SnailEntity> extends EntityModel<T>
 		this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F + f1);
 		this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F + f1);
 		this.shell.setRotationPoint(0.0F, 7.0F, -1.0F - f1);
-
-		/*
-		if (entityIn.getHiding())
-		{
-			this.tentacle1.setRotationPoint(3.0F, 22.0F, -6.0F);
-			this.tentacle2.setRotationPoint(-3.0F, 22.0F, -6.0F);
-			this.shell.setRotationPoint(0.0F, 7.0F, -4.0F);
-		}
-		else
-		{
-			this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F);
-			this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F);
-			this.shell.setRotationPoint(0.0F, 7.0F, -1.0F);
-		}
-		 */
 	}
 
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
 	{
 		boolean flag = entityIn.getHideTicks() == 0;
 
@@ -158,5 +95,39 @@ public class SnailModel<T extends SnailEntity> extends EntityModel<T>
 			this.tentacle1.rotateAngleY = 0.0F;
 			this.tentacle2.rotateAngleY = 0.0F;
 		}
+		
+
+		if (entityIn.getHideTicks() == 0)
+		{
+			this.body.showModel = true;
+			this.hideBody.showModel = false;
+		}
+
+		else
+		{
+			this.body.showModel = false;
+			this.hideBody.showModel = true;
+		}
+
+		if (entityIn.getHideTicks() < 3)
+		{
+			this.eye1.showModel = true;
+			this.eye2.showModel = true;
+		}
+		else
+		{
+			this.eye1.showModel = false;
+			this.eye2.showModel = false;
+		}
+	}
+	
+	protected Iterable<ModelRenderer> getHeadParts()
+	{
+		return ImmutableList.of();
+	}
+
+	protected Iterable<ModelRenderer> getBodyParts()
+	{
+		return ImmutableList.of(this.body, this.hideBody, this.eye1, this.eye2, this.tentacle1, this.tentacle2, this.shell);
 	}
 }

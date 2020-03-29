@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -62,30 +63,36 @@ public class PancakeBlock extends Block
 		}
 	}
 
-	public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (!worldIn.isRemote)
+		if (worldIn.isRemote)
 		{
-			return this.eatCake(worldIn, pos, state, player, itemstack);
+			if (this.eatCake(worldIn, pos, state, player, itemstack) == ActionResultType.SUCCESS)
+			{
+				return ActionResultType.SUCCESS;
+			}
+
+			if (itemstack.isEmpty())
+			{
+				return ActionResultType.CONSUME;
+			}
 		}
-		else
-		{
-			return this.eatCake(worldIn, pos, state, player, itemstack) || itemstack.isEmpty();
-		}
+
+		return this.eatCake(worldIn, pos, state, player, itemstack);
 	}
 
-	private boolean eatCake(IWorld worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack)
+	private ActionResultType eatCake(IWorld worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack)
 	{
 		int i = state.get(PANCAKES);
 		if (!player.canEat(false) || (i < 11 && itemstack.getItem() == this.asItem()))
 		{
-			return false;
+			return ActionResultType.PASS;
 		}
 		else
 		{
-		    ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
-		    player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
+			ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
+			player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
 			player.getFoodStats().addStats(4, 0.3F);
 			if (i > 1)
 			{
@@ -96,7 +103,7 @@ public class PancakeBlock extends Block
 				worldIn.removeBlock(pos, false);
 			}
 
-			return true;
+			return ActionResultType.SUCCESS;
 		}
 	}
 

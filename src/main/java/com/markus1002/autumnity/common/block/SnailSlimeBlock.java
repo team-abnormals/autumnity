@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -31,11 +30,6 @@ public class SnailSlimeBlock extends Block
 	public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side)
 	{
 		return side.getAxis() != Direction.Axis.Y && adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
-	}
-
-	public BlockRenderLayer getRenderLayer()
-	{
-		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)

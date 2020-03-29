@@ -13,17 +13,15 @@ import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.FireBlock;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.FoliageColors;
-import net.minecraft.world.IEnviromentBlockReader;
 import net.minecraft.world.biome.BiomeColors;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class VanillaCompatibility
 {
@@ -39,10 +37,10 @@ public class VanillaCompatibility
 		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
 		registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
 
-		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get(), 0.35F);
-		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.35F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.35F);
-		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.35F);
+		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get(), 0.3F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.3F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.3F);
+		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.3F);
 
 		registerFlammable(ModBlocks.MAPLE_LOG.get(), 5, 5);
 		registerFlammable(ModBlocks.MAPLE_WOOD.get(), 5, 5);
@@ -75,34 +73,62 @@ public class VanillaCompatibility
 		registerFlammable(ModBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
 		registerFlammable(ModBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
 
-		DispenserBlock.registerDispenseBehavior(ModItems.MAPLE_BOAT, new DispenseModBoatBehavior(ModBoatEntity.BoatType.MAPLE));
+		DispenserBlock.registerDispenseBehavior(ModItems.MAPLE_BOAT.get(), new DispenseModBoatBehavior(ModBoatEntity.BoatType.MAPLE));
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	public static void setupVanillaCompatibilityClient()
 	{
+		RenderTypeLookup.setRenderLayer(ModBlocks.SNAIL_SLIME.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(ModBlocks.SNAIL_SLIME_BLOCK.get(), RenderType.getTranslucent());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_DOOR.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_TRAPDOOR.get(), RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_LEAVES.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.YELLOW_MAPLE_LEAVES.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.ORANGE_MAPLE_LEAVES.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.RED_MAPLE_LEAVES.get(), RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.YELLOW_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.ORANGE_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.RED_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_YELLOW_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_ORANGE_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_RED_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_LADDER.get(), RenderType.getCutoutMipped());
+		
+		
 		BlockColors blockcolors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemcolors = Minecraft.getInstance().getItemColors();
 
-		blockcolors.register((state, reader, pos, tintIndex) -> {
-			return reader != null && pos != null ? BiomeColors.getFoliageColor(reader, pos) : FoliageColors.getDefault();
+		blockcolors.register((state, world, pos, tintIndex) -> {
+			return world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault();
 		}, ModBlocks.MAPLE_LEAVES.get(), ModBlocks.MAPLE_LEAF_CARPET.get());
 
-		blockcolors.register((state, reader, pos, tintIndex) -> {
+		blockcolors.register((state, world, pos, tintIndex) -> {
 			return 12665871;
 		}, ModBlocks.RED_MAPLE_LEAVES.get(), ModBlocks.RED_MAPLE_LEAF_CARPET.get());
 
-		blockcolors.register((state, reader, pos, tintIndex) -> {
+		blockcolors.register((state, world, pos, tintIndex) -> {
 			return 16745768;
 		}, ModBlocks.ORANGE_MAPLE_LEAVES.get(), ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get());
 
-		blockcolors.register((state, reader, pos, tintIndex) -> {
+		blockcolors.register((state, world, pos, tintIndex) -> {
 			return 16760576;
 		}, ModBlocks.YELLOW_MAPLE_LEAVES.get(), ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
 
 		itemcolors.register((stack, tintIndex) -> {
 			BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().getDefaultState();
-			return blockcolors.getColor(blockstate, (IEnviromentBlockReader)null, (BlockPos)null, tintIndex);
+			return blockcolors.getColor(blockstate, null, null, tintIndex);
 		}, ModBlocks.MAPLE_LEAVES.get(), ModBlocks.RED_MAPLE_LEAVES.get(), ModBlocks.ORANGE_MAPLE_LEAVES.get(), ModBlocks.YELLOW_MAPLE_LEAVES.get(),
 				ModBlocks.MAPLE_LEAF_CARPET.get(), ModBlocks.RED_MAPLE_LEAF_CARPET.get(), ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(),
 				ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get());

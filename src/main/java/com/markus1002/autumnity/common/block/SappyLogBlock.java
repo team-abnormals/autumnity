@@ -12,6 +12,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -29,12 +30,12 @@ public class SappyLogBlock extends LogBlock
 		this.saplessBlock = saplessBlockIn;
 	}
 
-	public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		ItemStack itemstack = player.getHeldItem(handIn);
 		if (itemstack.isEmpty())
 		{
-			return true;
+			return ActionResultType.PASS;
 		}
 		else
 		{
@@ -45,7 +46,7 @@ public class SappyLogBlock extends LogBlock
 				{
 					if (!player.abilities.isCreativeMode)
 					{
-						ItemStack itemstack2 = new ItemStack(ModItems.SAP_BOTTLE);
+						ItemStack itemstack2 = new ItemStack(ModItems.SAP_BOTTLE.get());
 						itemstack.shrink(1);
 						if (itemstack.isEmpty())
 						{
@@ -65,10 +66,10 @@ public class SappyLogBlock extends LogBlock
 					worldIn.setBlockState(pos, saplessBlock.getDefaultState().with(RotatedPillarBlock.AXIS, state.get(RotatedPillarBlock.AXIS)), 11);
 				}
 
-				return true;
+				return ActionResultType.SUCCESS;
 			}
 
-			return false;
+			return ActionResultType.PASS;
 		}
 	}
 }

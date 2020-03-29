@@ -74,9 +74,13 @@ public class SnailEntity extends AnimalEntity
 		{
 			return false;
 		}
+		else if (livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST) != null && livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.SNAIL_SHELL_CHESTPLATE.get())
+		{
+			return false;
+		}
 		else if (livingentity instanceof PlayerEntity)
 		{
-			return !livingentity.isSneaking() && !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
+			return !livingentity.isShiftKeyDown() && !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
 		}
 		else
 		{
@@ -93,7 +97,7 @@ public class SnailEntity extends AnimalEntity
 
 	public SnailEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
 	{
-		super(ModEntities.SNAIL, worldIn);
+		super(ModEntities.SNAIL.get(), worldIn);
 	}
 
 	protected void registerGoals()
@@ -177,7 +181,6 @@ public class SnailEntity extends AnimalEntity
 			this.isJumping = false;
 			this.moveStrafing = 0.0F;
 			this.moveForward = 0.0F;
-			this.randomYawVelocity = 0.0F;
 		}
 
 		super.livingTick();
@@ -229,16 +232,16 @@ public class SnailEntity extends AnimalEntity
 		{
 			if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this))
 			{
-				int i = MathHelper.floor(this.posX);
-				int j = MathHelper.floor(this.posY);
-				int k = MathHelper.floor(this.posZ);
+				int i = MathHelper.floor(this.getPosX());
+				int j = MathHelper.floor(this.getPosY());
+				int k = MathHelper.floor(this.getPosZ());
 				BlockState blockstate = ModBlocks.SNAIL_SLIME.get().getDefaultState();
 
 				for(int l = 0; l < 4; ++l)
 				{
-					i = MathHelper.floor(this.posX + (double)((float)(l % 2 * 2 - 1) * 0.25F));
-					j = MathHelper.floor(this.posY);
-					k = MathHelper.floor(this.posZ + (double)((float)(l / 2 % 2 * 2 - 1) * 0.25F));
+					i = MathHelper.floor(this.getPosX() + (double)((float)(l % 2 * 2 - 1) * 0.25F));
+					j = MathHelper.floor(this.getPosY());
+					k = MathHelper.floor(this.getPosZ() + (double)((float)(l / 2 % 2 * 2 - 1) * 0.25F));
 					BlockPos blockpos = new BlockPos(i, j, k);
 					if (this.getSlimeAmount() > 0 && this.world.isAirBlock(blockpos) && blockstate.isValidPosition(this.world, blockpos))
 					{
@@ -264,7 +267,7 @@ public class SnailEntity extends AnimalEntity
 				double d0 = (double)(-this.rand.nextFloat()) * 0.2D;
 				Vec3d vec3d1 = new Vec3d(((double)this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double)this.rand.nextFloat() - 0.5D) * 0.2D);
 				vec3d1 = vec3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
-				vec3d1 = vec3d1.add(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ);
+				vec3d1 = vec3d1.add(this.getPosX(), this.getPosY() + (double)this.getEyeHeight(), this.getPosZ());
 				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vec3d1.x, vec3d1.y, vec3d1.z, vec3d.x, vec3d.y + 0.05D, vec3d.z);
 			}
 		}
@@ -275,7 +278,7 @@ public class SnailEntity extends AnimalEntity
 		super.onGrowingAdult();
 		if (!this.isChild() && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT))
 		{
-			this.entityDropItem(ModItems.SNAIL_SHELL_PIECE, 1);
+			this.entityDropItem(ModItems.SNAIL_SHELL_PIECE.get(), 1);
 		}
 	}
 
@@ -368,7 +371,7 @@ public class SnailEntity extends AnimalEntity
 		{
 			if (!this.world.isRemote)
 			{
-				ItemEntity itementity = new ItemEntity(this.world, this.posX + this.getLookVec().x, this.posY + this.getEyeHeight(), this.posZ + this.getLookVec().z, itemstack);
+				ItemEntity itementity = new ItemEntity(this.world, this.getPosX() + this.getLookVec().x, this.getPosY() + this.getEyeHeight(), this.getPosZ() + this.getLookVec().z, itemstack);
 				itementity.setPickupDelay(40);
 				itementity.setThrowerId(this.getUniqueID());
 				this.world.addEntity(itementity);
@@ -498,7 +501,7 @@ public class SnailEntity extends AnimalEntity
 
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
-		return ModEntities.SNAIL.create(this.world);
+		return ModEntities.SNAIL.get().create(this.world);
 	}
 
 	public IPacket<?> createSpawnPacket()
@@ -658,7 +661,7 @@ public class SnailEntity extends AnimalEntity
 		protected Vec3d findMushroom()
 		{
 			Random random = SnailEntity.this.getRNG();
-			BlockPos blockpos = new BlockPos(SnailEntity.this.posX, SnailEntity.this.getBoundingBox().minY, SnailEntity.this.posZ);
+			BlockPos blockpos = new BlockPos(SnailEntity.this.getPosX(), SnailEntity.this.getBoundingBox().minY, SnailEntity.this.getPosZ());
 
 			for(int i = 0; i < 10; ++i)
 			{

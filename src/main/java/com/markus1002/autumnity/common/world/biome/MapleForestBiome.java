@@ -7,7 +7,6 @@ import com.markus1002.autumnity.core.registry.ModEntities;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
@@ -23,9 +22,9 @@ public final class MapleForestBiome extends Biome
 	public MapleForestBiome()
 	{
 		super((new Biome.Builder()).surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG).precipitation(Biome.RainType.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).waterColor(4159204).waterFogColor(329011).parent((String)null));
-		this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
-		this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
@@ -45,7 +44,7 @@ public final class MapleForestBiome extends Biome
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.COW, 8, 4, 4));
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.WOLF, 5, 4, 4));
-		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL, 12, 1, 2));
+		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 12, 1, 2));
 		this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
 		this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
 		this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
@@ -60,18 +59,19 @@ public final class MapleForestBiome extends Biome
 	@Nullable
 	public static Biome getMutationForBiome(Biome biome)
 	{
-		return ModBiomes.MAPLE_FOREST_HILLS;
+		return ModBiomes.MAPLE_FOREST_HILLS.get();
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public int getGrassColor(BlockPos pos)
+	public int getGrassColor(double posX, double posZ)
 	{
 		return 0x9AB839;
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public int getFoliageColor(BlockPos pos)
+	public int getFoliageColor()
 	{
 		return 0x9FC944;
+
 	}
 }

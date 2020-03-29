@@ -9,47 +9,39 @@ import com.markus1002.autumnity.core.util.Reference;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-	public static final EntityType<ModBoatEntity> BOAT = EntityType.Builder.<ModBoatEntity>create(ModBoatEntity::new, EntityClassification.MISC)
+	public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, Reference.MOD_ID);
+	
+	public static RegistryObject<EntityType<ModBoatEntity>> BOAT = ENTITIES.register("boat", () -> EntityType.Builder.<ModBoatEntity>create(ModBoatEntity::new, EntityClassification.MISC)
 			.size(1.375F, 0.5625F)
-			.setTrackingRange(64)
+			.setTrackingRange(80)
 			.setShouldReceiveVelocityUpdates(true)
 			.setUpdateInterval(3)
-			.setCustomClientFactory((FMLPlayMessages.SpawnEntity spawnEntity, World worldIn) -> new ModBoatEntity(spawnEntity, worldIn))
-			.build(Reference.location("boat").toString());
+			.build(Reference.location("boat").toString()));
 
-	public static final EntityType<SnailEntity> SNAIL = EntityType.Builder.<SnailEntity>create(SnailEntity::new, EntityClassification.CREATURE)
+	public static RegistryObject<EntityType<SnailEntity>> SNAIL = ENTITIES.register("snail", () -> EntityType.Builder.<SnailEntity>create(SnailEntity::new, EntityClassification.CREATURE)
 			.size(0.8F, 0.9F)
 			.setTrackingRange(64)
 			.setShouldReceiveVelocityUpdates(true)
 			.setUpdateInterval(3)
-			.build(Reference.location("snail").toString());
-
-	@SubscribeEvent
-	public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
-	{
-		registerEntity(BOAT, "boat");
-		registerEntity(SNAIL, "snail");
-	}
+			.build(Reference.location("snail").toString()));
 
 	public static void setupEntitySpawns(Biome biome)
 	{
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL, 4, 2, 3));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 4, 2, 3));
 		}
 	}
 
@@ -61,8 +53,8 @@ public class ModEntities
 	@OnlyIn(Dist.CLIENT)
 	public static void setupEntitiesClient()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(ModBoatEntity.class, ModBoatRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(SnailEntity.class, SnailRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends ModBoatEntity>)BOAT.get(), ModBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SnailEntity>)SNAIL.get(), SnailRenderer::new);
 	}
 
 	private static void registerEntity(EntityType<?> entity, String name)

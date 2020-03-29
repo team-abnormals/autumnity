@@ -1,5 +1,6 @@
 package com.markus1002.autumnity.core;
 
+import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModFeatures;
@@ -26,6 +27,7 @@ public class Autumnity
 	/*
 	 * TODO:
 	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
+	 * - Snail shell chestplate knockback
 	 */
 	
 	public Autumnity()
@@ -33,8 +35,11 @@ public class Autumnity
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::particleSetup);
+        
         ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModBiomes.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		
@@ -63,5 +68,6 @@ public class Autumnity
 	private void particleSetup(ParticleFactoryRegisterEvent event)
 	{
         ModParticles.registerFactories();
+        ModBiomes.setupBiomes();
 	}
 }

@@ -41,7 +41,7 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 	}
 
 	@Override
-	public boolean func_220074_n(BlockState state)
+	public boolean isTransparent(BlockState state)
 	{
 		return state.get(TYPE) != VerticalSlabType.DOUBLE;
 	}
@@ -66,7 +66,9 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = context.getWorld().getBlockState(blockpos);
 		if(blockstate.getBlock() == this)
+		{
 			return blockstate.with(TYPE, VerticalSlabType.DOUBLE).with(WATERLOGGED, false);
+		}
 
 		IFluidState fluid = context.getWorld().getFluidState(blockpos);
 		BlockState retState = getDefaultState().with(WATERLOGGED, fluid.getFluid() == Fluids.WATER);
@@ -80,7 +82,9 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 	{
 		Direction direction = context.getFace();
 		if(direction.getAxis() != Axis.Y)
+		{
 			return direction;
+		}
 
 		Vec3d vec = context.getHitVec().subtract(new Vec3d(context.getPos())).subtract(0.5, 0, 0.5);
 		double angle = Math.atan2(vec.x, vec.z) * -180.0 / Math.PI;
@@ -92,8 +96,7 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 	{
 		ItemStack itemstack = useContext.getItem();
 		VerticalSlabType slabtype = state.get(TYPE);
-		return slabtype != VerticalSlabType.DOUBLE && itemstack.getItem() == this.asItem() && useContext.replacingClickedOnBlock() &&
-				(useContext.getFace() == slabtype.direction && getDirectionForPlacement(useContext) == slabtype.direction);
+		return slabtype != VerticalSlabType.DOUBLE && itemstack.getItem() == this.asItem() && useContext.replacingClickedOnBlock() && (useContext.getFace() == slabtype.direction && getDirectionForPlacement(useContext) == slabtype.direction);
 	}
 
 	@Nonnull
@@ -122,7 +125,9 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 	public BlockState updatePostPlacement(@Nonnull BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos)
 	{
 		if(stateIn.get(WATERLOGGED))
+		{
 			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		}
 
 		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
@@ -151,7 +156,9 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 			this.direction = direction;
 
 			if(direction == null)
+			{
 				shape = VoxelShapes.fullCube();
+			}
 			else
 			{
 				double min = 0;
@@ -163,7 +170,9 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 				}
 
 				if(direction.getAxis() == Axis.X)
+				{
 					shape = Block.makeCuboidShape(min, 0, 0, max, 16, 16);
+				}
 				else shape = Block.makeCuboidShape(0, 0, min, 16, 16, max);
 			}
 		}
@@ -184,8 +193,12 @@ public class VerticalSlabBlock extends Block implements IWaterLoggable
 		public static VerticalSlabType fromDirection(Direction direction)
 		{
 			for(VerticalSlabType type : VerticalSlabType.values())
+			{
 				if(type.direction != null && direction == type.direction)
+				{
 					return type;
+				}
+			}
 
 			return null;
 		}

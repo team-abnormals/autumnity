@@ -1,8 +1,10 @@
 package com.markus1002.autumnity.core.util;
 
-import com.markus1002.autumnity.common.block.WallOrangeMushroomBlock;
+import java.util.UUID;
+
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
+import com.markus1002.autumnity.core.registry.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -10,17 +12,19 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -31,6 +35,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EventHandler
 {
+	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
+	
 	@SubscribeEvent
 	public void handleBlockRightClick(PlayerInteractEvent.RightClickBlock event)
 	{
@@ -40,22 +46,6 @@ public class EventHandler
 		BlockState blockstate = world.getBlockState(blockpos);
 
 		boolean flag = false;
-		/*
-		for(Direction direction : Direction.values())
-		{
-			BlockState blockstate1 = world.getBlockState(blockpos.offset(direction));
-			if (direction == Direction.UP && blockstate1.getBlock() == ModBlocks.ORANGE_MUSHROOM)
-			{
-				flag = true;
-				break;
-			}
-			else if (direction != Direction.UP && blockstate1.getBlock() == ModBlocks.ORANGE_WALL_MUSHROOM && blockstate1.get(WallOrangeMushroomBlock.HORIZONTAL_FACING) == direction)
-			{
-				flag = true;
-				break;
-			}
-		}
-		*/
 
 		if ((flag || world.getRandom().nextInt(4) == 0) && event.getItemStack().getItem() instanceof AxeItem)
 		{
@@ -87,12 +77,24 @@ public class EventHandler
 		{
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty())
 			{
-				if (event.getWorld().getBiome(new BlockPos(livingentity)) == ModBiomes.PUMPKIN_FIELDS && event.getWorld().getRandom().nextFloat() < 0.05F)
+				if (event.getWorld().getBiome(new BlockPos(livingentity)) == ModBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F)
 				{
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
 				}
 			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onEntityUpdate(LivingUpdateEvent event)
+	{
+		LivingEntity entity = event.getEntityLiving();
+		
+		entity.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
+		if(entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isShiftKeyDown())
+		{
+			entity.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(KNOCKBACK_MODIFIER);
 		}
 	}
 

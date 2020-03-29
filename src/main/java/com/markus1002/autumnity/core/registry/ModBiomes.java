@@ -9,38 +9,29 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-	public static Biome MAPLE_FOREST;
-	public static Biome MAPLE_FOREST_HILLS;
-	public static Biome PUMPKIN_FIELDS;
+	public static final DeferredRegister<Biome> BIOMES = new DeferredRegister<>(ForgeRegistries.BIOMES, Reference.MOD_ID);
 
-	@SubscribeEvent
-	public static void registerBiomes(RegistryEvent.Register<Biome> event)
-	{
-		MAPLE_FOREST = registerBiome(new MapleForestBiome(), "maple_forest", 6, true, BiomeType.COOL, Type.FOREST, Type.OVERWORLD);
-		MAPLE_FOREST_HILLS = registerBiome(new MapleForestHillsBiome(), "maple_forest_hills", 4, true, BiomeType.COOL, Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
-		PUMPKIN_FIELDS = registerBiome(new PumpkinFieldsBiome(), "pumpkin_fields", 6, true, BiomeType.COOL, Type.PLAINS, Type.OVERWORLD, Type.SPARSE, Type.RARE);
-	}
+	public static RegistryObject<Biome> MAPLE_FOREST = BIOMES.register("maple_forest", () -> new MapleForestBiome());
+	public static RegistryObject<Biome> MAPLE_FOREST_HILLS = BIOMES.register("maple_forest_hills", () -> new MapleForestHillsBiome());
+	public static RegistryObject<Biome> PUMPKIN_FIELDS = BIOMES.register("pumpkin_fields", () -> new PumpkinFieldsBiome());
 
-	private static Biome registerBiome(Biome biome, String name, int weight, boolean canGenerate, BiomeType biomeType, Type... types)
-	{
-		biome.setRegistryName(Reference.location(name));
-		ForgeRegistries.BIOMES.register(biome);
-		BiomeDictionary.addTypes(biome, types);
-		if (canGenerate)
-		{
-			BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
-		}
-		BiomeManager.addSpawnBiome(biome);
-		return biome;
-	}
+    public static void setupBiomes()
+    {
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.get(), 6));
+        BiomeDictionary.addTypes(MAPLE_FOREST.get(), Type.FOREST, Type.OVERWORLD);
+        
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST_HILLS.get(), 4));
+        BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
+        
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.get(), 1));
+        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.FOREST, Type.OVERWORLD, Type.SPARSE, Type.RARE);
+    }
 }

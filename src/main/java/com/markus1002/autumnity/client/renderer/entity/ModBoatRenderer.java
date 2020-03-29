@@ -2,11 +2,17 @@ package com.markus1002.autumnity.client.renderer.entity;
 
 import com.markus1002.autumnity.common.entity.item.boat.ModBoatEntity;
 import com.markus1002.autumnity.core.util.Reference;
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 
+import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.Quaternion;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.model.BoatModel;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,7 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class ModBoatRenderer<T extends ModBoatEntity> extends EntityRenderer<T>
 {
 	private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[]{Reference.location("textures/entity/boat/maple.png")};
-	protected final BoatModel field_76998_a = new BoatModel();
+	protected final BoatModel modelBoat = new BoatModel();
 
 	public ModBoatRenderer(EntityRendererManager renderManagerIn)
 	{
@@ -24,74 +30,41 @@ public class ModBoatRenderer<T extends ModBoatEntity> extends EntityRenderer<T>
 		this.shadowSize = 0.8F;
 	}
 
-	public void doRender(T entity, double x, double y, double z, float entityYaw, float partialTicks)
+	public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn)
 	{
-		GlStateManager.pushMatrix();
-		this.setupTranslation(x, y, z);
-		this.setupRotation(entity, entityYaw, partialTicks);
-		this.bindEntityTexture(entity);
-		if (this.renderOutlines)
-		{
-			GlStateManager.enableColorMaterial();
-			GlStateManager.setupSolidRenderingTextureCombine(this.getTeamColor(entity));
-		}
-
-		this.field_76998_a.render(entity, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-		if (this.renderOutlines)
-		{
-			GlStateManager.tearDownSolidRenderingTextureCombine();
-			GlStateManager.disableColorMaterial();
-		}
-
-		GlStateManager.popMatrix();
-		super.doRender(entity, x, y, z, entityYaw, partialTicks);
-	}
-
-	public void setupRotation(T entityIn, float entityYaw, float partialTicks)
-	{
-		GlStateManager.rotatef(180.0F - entityYaw, 0.0F, 1.0F, 0.0F);
+		matrixStackIn.push();
+		matrixStackIn.translate(0.0D, 0.375D, 0.0D);
+		matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
 		float f = (float)entityIn.getTimeSinceHit() - partialTicks;
 		float f1 = entityIn.getDamageTaken() - partialTicks;
-		if (f1 < 0.0F)
-		{
+		if (f1 < 0.0F) {
 			f1 = 0.0F;
 		}
 
 		if (f > 0.0F)
 		{
-			GlStateManager.rotatef(MathHelper.sin(f) * f * f1 / 10.0F * (float)entityIn.getForwardDirection(), 1.0F, 0.0F, 0.0F);
+			matrixStackIn.rotate(Vector3f.XP.rotationDegrees(MathHelper.sin(f) * f * f1 / 10.0F * (float)entityIn.getForwardDirection()));
 		}
 
 		float f2 = entityIn.getRockingAngle(partialTicks);
-		if (!MathHelper.epsilonEquals(f2, 0.0F)) {
-			GlStateManager.rotatef(entityIn.getRockingAngle(partialTicks), 1.0F, 0.0F, 1.0F);
+		if (!MathHelper.epsilonEquals(f2, 0.0F))
+		{
+			matrixStackIn.rotate(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), entityIn.getRockingAngle(partialTicks), true));
 		}
 
-		GlStateManager.scalef(-1.0F, -1.0F, 1.0F);
-	}
-	
-	public void setupTranslation(double x, double y, double z)
-	{
-		GlStateManager.translatef((float)x, (float)y + 0.375F, (float)z);
+		matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
+		matrixStackIn.rotate(Vector3f.YP.rotationDegrees(90.0F));
+		this.modelBoat.setRotationAngles(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
+		IVertexBuilder ivertexbuilder = bufferIn.getBuffer(this.modelBoat.getRenderType(this.getEntityTexture(entityIn)));
+		this.modelBoat.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+		IVertexBuilder ivertexbuilder1 = bufferIn.getBuffer(RenderType.getWaterMask());
+		this.modelBoat.func_228245_c_().render(matrixStackIn, ivertexbuilder1, packedLightIn, OverlayTexture.NO_OVERLAY);
+		matrixStackIn.pop();
+		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 	}
 
-	protected ResourceLocation getEntityTexture(T entity)
+	public ResourceLocation getEntityTexture(T entity)
 	{
 		return BOAT_TEXTURES[entity.getModBoatType().ordinal()];
-	}
-
-	public boolean isMultipass()
-	{
-		return true;
-	}
-
-	public void renderMultipass(T entityIn, double x, double y, double z, float entityYaw, float partialTicks)
-	{
-		GlStateManager.pushMatrix();
-		this.setupTranslation(x, y, z);
-		this.setupRotation(entityIn, entityYaw, partialTicks);
-		this.bindEntityTexture(entityIn);
-		this.field_76998_a.renderMultipass(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-		GlStateManager.popMatrix();
 	}
 }

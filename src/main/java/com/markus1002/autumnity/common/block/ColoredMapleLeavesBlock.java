@@ -11,11 +11,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class AutumnalLeavesBlock extends LeavesBlock
+public class ColoredMapleLeavesBlock extends LeavesBlock
 {
 	private final int color;
 
-	public AutumnalLeavesBlock(Properties properties, int colorIn)
+	public ColoredMapleLeavesBlock(Properties properties, int colorIn)
 	{
 		super(properties);
 		this.color = colorIn;
@@ -30,7 +30,7 @@ public class AutumnalLeavesBlock extends LeavesBlock
 		double d1 = (color >> 8 & 255) / 255.0F;
 		double d2 = (color & 255) / 255.0F;
 
-		if (rand.nextInt(64) == 0)
+		if (rand.nextInt(100) == 0)
 		{
 			BlockPos blockpos = pos.down();
 			if (worldIn.isAirBlock(blockpos))

@@ -3,9 +3,6 @@
   "block.autumnity.snail_slime_block": "Kotilon limakuutio",
   "block.autumnity.pancake": "Pannukakku",
   
-  "block.autumnity.orange_mushroom": "Oranssi sieni",
-  "block.autumnity.orange_wall_mushroom": "Oranssi seinäsieni",
-  
   "block.autumnity.maple_log": "Vaahterahalko",
   "block.autumnity.maple_wood": "Vaahterapuu",
   "block.autumnity.stripped_maple_log": "Kuorittu vaahterahalko",
@@ -52,12 +49,10 @@
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
   
-  "effect.autumnity.sturdiness": "Sturdiness",
-  
-  "item.minecraft.potion.effect.sturdiness": "Potion of Sturdiness",
-  "item.minecraft.splash_potion.effect.sturdiness": "Splash Potion of Sturdiness",
-  "item.minecraft.lingering_potion.effect.sturdiness": "Lingering Potion of Sturdiness",
-  "item.minecraft.tipped_arrow.effect.sturdiness": "Arrow of Sturdiness",
+  "item.minecraft.potion.effect.extension": "Potion of Extension",
+  "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
+  "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
+  "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
   
   "biome.autumnity.maple_forest": "Vaahterametsä",
   "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",
@@ -72,5 +67,8 @@
   "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
   "block.autumnity.maple_bookshelf": "Maple Bookshelf",
   "block.autumnity.maple_ladder": "Maple Ladder",
-  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet"
+  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet",
+  
+  "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
+  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
 }

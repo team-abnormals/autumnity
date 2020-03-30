@@ -27,7 +27,6 @@ public class Autumnity
 	/*
 	 * TODO:
 	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
-	 * - Snail shell chestplate knockback
 	 */
 	
 	public Autumnity()
@@ -38,7 +37,6 @@ public class Autumnity
         
         ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModBiomes.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
@@ -51,6 +49,7 @@ public class Autumnity
 	{
 		VanillaCompatibility.setupVanillaCompatibility();
 		ModPotions.setupBrewingRecipes();
+        ModBiomes.setupBiomes();
 		
 		for(Biome biome : ForgeRegistries.BIOMES.getValues())
 		{
@@ -68,6 +67,5 @@ public class Autumnity
 	private void particleSetup(ParticleFactoryRegisterEvent event)
 	{
         ModParticles.registerFactories();
-        ModBiomes.setupBiomes();
 	}
 }

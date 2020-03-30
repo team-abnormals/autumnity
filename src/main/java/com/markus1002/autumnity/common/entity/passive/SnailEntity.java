@@ -97,7 +97,7 @@ public class SnailEntity extends AnimalEntity
 
 	public SnailEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
 	{
-		super(ModEntities.SNAIL.get(), worldIn);
+		super(ModEntities.SNAIL, worldIn);
 	}
 
 	protected void registerGoals()
@@ -501,7 +501,7 @@ public class SnailEntity extends AnimalEntity
 
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
-		return ModEntities.SNAIL.get().create(this.world);
+		return ModEntities.SNAIL.create(this.world);
 	}
 
 	public IPacket<?> createSpawnPacket()

@@ -49,13 +49,16 @@
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
   
-  "item.minecraft.potion.effect.extension": "Potion of Extension",
-  "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
-  "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
-  "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
+  "effect.autumnity.extension": "Pidentäminen",
+  
+  "item.minecraft.potion.effect.extension": "Pidentämisen taikajuoma",
+  "item.minecraft.splash_potion.effect.extension": "Roiskahtava pidentämisen taikajuoma",
+  "item.minecraft.lingering_potion.effect.extension": "Viipyvä pidentämisen taikajuoma",
+  "item.minecraft.tipped_arrow.effect.extension": "Pidentämisen nuoli",
   
   "biome.autumnity.maple_forest": "Vaahterametsä",
   "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",
+  "biome.autumnity.pumpkin_fields": "Kurpitsatasanko",
   
   "subtitles.entity.snail.eat": "Kotilo syö",
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",

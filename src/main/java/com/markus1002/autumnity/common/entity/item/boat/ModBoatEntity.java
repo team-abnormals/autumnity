@@ -34,7 +34,7 @@ public class ModBoatEntity extends BoatEntity
 
 	public ModBoatEntity(World worldIn, double x, double y, double z)
 	{
-		this(ModEntities.BOAT.get(), worldIn);
+		this(ModEntities.BOAT, worldIn);
 		this.setPosition(x, y, z);
 		this.setMotion(Vec3d.ZERO);
 		this.prevPosX = x;
@@ -44,7 +44,7 @@ public class ModBoatEntity extends BoatEntity
 	
 	public ModBoatEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
 	{
-		super(ModEntities.BOAT.get(), worldIn);
+		super(ModEntities.BOAT, worldIn);
 	}
 	
 	protected void registerData()

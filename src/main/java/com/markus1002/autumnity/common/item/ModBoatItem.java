@@ -41,7 +41,6 @@ public class ModBoatItem extends Item
       else
       {
          Vec3d vec3d = playerIn.getLook(1.0F);
-         double d0 = 5.0D;
          List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(vec3d.scale(5.0D)).grow(1.0D), field_219989_a);
          if (!list.isEmpty())
          {

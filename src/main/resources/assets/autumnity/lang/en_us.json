@@ -2,6 +2,7 @@
   "block.autumnity.snail_slime": "Snail Slime",
   "block.autumnity.snail_slime_block": "Snail Slime Block",
   "block.autumnity.pancake": "Pancake",
+  "block.autumnity.foul_berry_bush": "Foul Berry Bush",
   
   "block.autumnity.maple_log": "Maple Log",
   "block.autumnity.maple_wood": "Maple Wood",
@@ -46,12 +47,15 @@
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
+  "item.autumnity.foul_berries": "Foul Berries",
   
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
+  "_comment": "(Not implemented yet) Mobs with this effect smell so bad that neutral mobs don't want attack them. The effect is obtained from walking through a foul berry bush.",
+  "effect.autumnity.stench": "Stench",
   
   "item.minecraft.potion.effect.extension": "Potion of Extension",
   "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",

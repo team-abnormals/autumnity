@@ -19,20 +19,24 @@ public class SyrupBottleItem extends Item
 	{
 		super.onItemUseFinish(stack, worldIn, entityLiving);
 
-		if (entityLiving instanceof PlayerEntity)
+		if (stack.isEmpty())
 		{
-			PlayerEntity player = (PlayerEntity) entityLiving;
-			if (!player.abilities.isCreativeMode && !stack.isEmpty())
-			{
-				if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE)))
-				{
-					player.dropItem(new ItemStack(Items.GLASS_BOTTLE), false);
-				}
-				return stack;
-			}
+			return new ItemStack(Items.GLASS_BOTTLE);
 		}
+		else
+		{
+			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode)
+			{
+				ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
+				PlayerEntity playerentity = (PlayerEntity)entityLiving;
+				if (!playerentity.inventory.addItemStackToInventory(itemstack))
+				{
+					playerentity.dropItem(itemstack, false);
+				}
+			}
 
-		return new ItemStack(Items.GLASS_BOTTLE);
+			return stack;
+		}
 	}
 
 	public UseAction getUseAction(ItemStack stack)

@@ -19,7 +19,7 @@ public class ExtensionEffect extends InstantEffect
 	{
 		for(EffectInstance effect : entityLivingBaseIn.getActivePotionEffects())
 		{
-			entityLivingBaseIn.addPotionEffect(new EffectInstance(effect.getPotion(), effect.getDuration() + 160 + 160 * (amplifier + 1), effect.getAmplifier(), effect.isAmbient(), effect.doesShowParticles(), effect.isShowIcon()));
+			entityLivingBaseIn.addPotionEffect(new EffectInstance(effect.getPotion(), effect.getDuration() + 180 + 180 * (amplifier + 1), effect.getAmplifier(), effect.isAmbient(), effect.doesShowParticles(), effect.isShowIcon()));
 		}
 	}
 }

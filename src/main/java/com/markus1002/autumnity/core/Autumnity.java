@@ -27,6 +27,7 @@ public class Autumnity
 	/*
 	 * TODO:
 	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
+	 * - Burning times
 	 */
 	
 	public Autumnity()

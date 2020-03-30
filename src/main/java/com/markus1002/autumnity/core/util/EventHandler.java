@@ -45,9 +45,7 @@ public class EventHandler
 		BlockPos blockpos = event.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
 
-		boolean flag = false;
-
-		if ((flag || world.getRandom().nextInt(4) == 0) && event.getItemStack().getItem() instanceof AxeItem)
+		if (world.getRandom().nextInt(4) == 0 && event.getItemStack().getItem() instanceof AxeItem)
 		{
 			Block block = blockstate.getBlock();
 

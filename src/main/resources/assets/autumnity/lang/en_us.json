@@ -7,6 +7,7 @@
   "block.autumnity.maple_wood": "Maple Wood",
   "block.autumnity.stripped_maple_log": "Stripped Maple Log",
   "block.autumnity.stripped_maple_wood": "Stripped Maple Wood",
+  "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Sappy Maple Log",
   "block.autumnity.sappy_maple_wood": "Sappy Maple Wood",
   
@@ -49,6 +50,7 @@
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
   
+  "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
   
   "item.minecraft.potion.effect.extension": "Potion of Extension",
@@ -72,6 +74,7 @@
   "block.autumnity.maple_ladder": "Maple Ladder",
   "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet",
   
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
   "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
 }

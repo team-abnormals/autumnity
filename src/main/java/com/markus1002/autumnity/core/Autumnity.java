@@ -27,7 +27,12 @@ public class Autumnity
 	/*
 	 * TODO:
 	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
-	 * - Burning times
+	 * - Nautilus snail
+	 * - Snake snail
+	 * - Quark feeding thing
+	 * - Configurable biome weights
+	 * - Beehives on maple trees
+	 * - Stripped wood
 	 */
 	
 	public Autumnity()

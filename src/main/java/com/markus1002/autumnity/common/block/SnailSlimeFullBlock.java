@@ -28,7 +28,6 @@ public class SnailSlimeFullBlock extends BreakableBlock
 {
 	public static final BooleanProperty SLIPPERY = BooleanProperty.create("slippery");
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 1.0D, 0.0D, 16.0D, 14.0D, 16.0D);
-	protected static final VoxelShape SLIPPERY_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
 	public SnailSlimeFullBlock(Properties properties)
 	{
@@ -118,7 +117,7 @@ public class SnailSlimeFullBlock extends BreakableBlock
 	{
 		return state.get(SLIPPERY) ? 0.98F : 0.6F;
 	}
-
+	
 	public boolean isStickyBlock(BlockState state)
 	{
 		return !state.get(SLIPPERY);

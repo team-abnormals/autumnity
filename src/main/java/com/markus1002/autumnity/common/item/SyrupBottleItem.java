@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 public class SyrupBottleItem extends Item
@@ -42,5 +44,15 @@ public class SyrupBottleItem extends Item
 	public UseAction getUseAction(ItemStack stack)
 	{
 		return UseAction.DRINK;
+	}
+
+	public SoundEvent func_225520_U__()
+	{
+		return SoundEvents.field_226141_eV_;
+	}
+
+	public SoundEvent func_225519_S__()
+	{
+		return SoundEvents.field_226141_eV_;
 	}
 }

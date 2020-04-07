@@ -3,6 +3,7 @@ package com.markus1002.autumnity.core.registry;
 import com.markus1002.autumnity.common.world.biome.MapleForestBiome;
 import com.markus1002.autumnity.common.world.biome.MapleForestHillsBiome;
 import com.markus1002.autumnity.common.world.biome.PumpkinFieldsBiome;
+import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.util.Reference;
 
 import net.minecraft.world.biome.Biome;
@@ -25,13 +26,13 @@ public class ModBiomes
 
     public static void setupBiomes()
     {
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.get(), 6));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.get(), Config.COMMON.mapleForestWeight.get()));
         BiomeDictionary.addTypes(MAPLE_FOREST.get(), Type.FOREST, Type.OVERWORLD);
         
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST_HILLS.get(), 4));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST_HILLS.get(), Config.COMMON.mapleForestHillsWeight.get()));
         BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
         
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.get(), 1));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.get(), Config.COMMON.pumpkinFieldsWeight.get()));
         BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.FOREST, Type.OVERWORLD, Type.SPARSE, Type.RARE);
     }
 }

@@ -2,28 +2,39 @@ package com.markus1002.autumnity.core.util;
 
 import java.util.UUID;
 
+import com.markus1002.autumnity.common.entity.passive.SnailEntity;
+import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
+import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
+import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -36,7 +47,7 @@ import net.minecraftforge.fml.common.Mod;
 public class EventHandler
 {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
-	
+
 	@SubscribeEvent
 	public void handleBlockRightClick(PlayerInteractEvent.RightClickBlock event)
 	{
@@ -68,6 +79,24 @@ public class EventHandler
 	}
 
 	@SubscribeEvent
+	public void onEntityJoinWorld(EntityJoinWorldEvent event)
+	{
+		if(!event.getWorld().isRemote)
+		{
+			Entity entity = event.getEntity();
+
+			if(entity instanceof PillagerEntity)
+			{
+				((PillagerEntity) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((CreatureEntity)entity, SnailEntity.class, true));
+			}
+			else if(entity instanceof MooshroomEntity)
+			{
+				((MooshroomEntity) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((CreatureEntity)entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntityPredicates.CAN_AI_TARGET::test));
+			}
+		}
+	}
+
+	@SubscribeEvent
 	public void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
 	{
 		LivingEntity livingentity = event.getEntityLiving();
@@ -83,16 +112,31 @@ public class EventHandler
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
 		LivingEntity entity = event.getEntityLiving();
-		
+
 		entity.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
 		if(entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isShiftKeyDown())
 		{
 			entity.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(KNOCKBACK_MODIFIER);
+		}
+		
+		if (entity instanceof MobEntity && Config.COMMON.neutralMobs.get().contains(entity.getType().getRegistryName().toString()))
+		{
+			MobEntity mobentity = (MobEntity) entity;
+			
+			if (mobentity.getAttackTarget() != null && mobentity.getAttackTarget().isPotionActive(ModEffects.STENCH))
+			{
+				mobentity.setAttackTarget(null);
+			}
+			
+			if (mobentity.getRevengeTarget() != null && mobentity.getRevengeTarget().isPotionActive(ModEffects.STENCH))
+			{
+				mobentity.setRevengeTarget(null);
+			}
 		}
 	}
 

@@ -50,6 +50,10 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 			{
 				this.particleAngle += (float)Math.PI * this.rotSpeed * 1.6F;
 			}
+			else
+			{
+				this.motionY = 0.0D;
+			}
 		}
 	}
 

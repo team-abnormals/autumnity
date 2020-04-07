@@ -9,13 +9,15 @@ import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEntity>>
 {
-	private static final ResourceLocation SNAIL_TEXTURES = Reference.location("textures/entity/snail.png");
+	private static final ResourceLocation SNAIL_TEXTURES = Reference.location("textures/entity/snail/snail.png");
+	// private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = Reference.location("textures/entity/snail/nautilus_snail.png");
 
 	public SnailRenderer(EntityRendererManager renderManagerIn)
 	{
@@ -24,6 +26,17 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 
 	public ResourceLocation getEntityTexture(SnailEntity entity)
 	{
+		/*
+		String s = TextFormatting.getTextWithoutFormattingCodes(entity.getName().getString().toLowerCase());
+		if (s != null)
+		{
+			if ("nautilus".equals(s))
+			{
+				return NAUTILUS_SNAIL_TEXTURES;
+			}
+		}
+		*/
+
 		return SNAIL_TEXTURES;
 	}
 

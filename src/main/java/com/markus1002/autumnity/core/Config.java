@@ -20,7 +20,6 @@ public class Config
         public final ForgeConfigSpec.ConfigValue<List<String>> slipperySnailSlimeBlocks;
         public final ForgeConfigSpec.ConfigValue<List<String>> neutralMobs;
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
-		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestHillsWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
 
         Common(ForgeConfigSpec.Builder builder)
@@ -49,10 +48,7 @@ public class Config
                     .define("Neutral Mobs", Lists.newArrayList("minecraft:spider", "minecraft:cave_spider", "minecraft:enderman", "minecraft:wolf", "minecraft:bee", "minecraft:dolphin", "minecraft:zombie_pigman", "minecraft:llama", "minecraft:trader_llama", "minecraft:polar_bear", "minecraft:panda", "minecraft:iron_golem", "upgrade_aquatic:pike", "upgrade_aquatic:lionfish", "endergetic:booflo"));
             mapleForestWeight = builder
                     .comment("The greater the number the more common the biome is.")
-                    .define("Maple Forest Weight", 5);
-            mapleForestHillsWeight = builder
-                    .comment("The greater the number the more common the biome is.")
-                    .define("Maple Forest Hills Weight", 3);
+                    .define("Maple Forest Weight", 8);
             pumpkinFieldsWeight = builder
                     .comment("The greater the number the more common the biome is.")
                     .define("Pumpkin Fields Weight", 1);

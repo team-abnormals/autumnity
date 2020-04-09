@@ -1,7 +1,5 @@
 package com.markus1002.autumnity.common.world.biome;
 
-import javax.annotation.Nullable;
-
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModEntities;
 
@@ -55,9 +53,8 @@ public final class MapleForestBiome extends Biome
 		this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
 	}
 
-	@Nullable
-	public static Biome getMutationForBiome(Biome biome)
-	{
+	public Biome getHill(net.minecraft.world.gen.INoiseRandom rand)
+    {
 		return ModBiomes.MAPLE_FOREST_HILLS.get();
 	}
 

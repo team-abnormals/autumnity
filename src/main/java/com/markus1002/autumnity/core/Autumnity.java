@@ -32,7 +32,6 @@ public class Autumnity
 	 * - Quark feeding thing
 	 * - Configurable biome weights
 	 * - Beehives on maple trees
-	 * - Stripped wood
 	 */
 	
 	public Autumnity()

@@ -1,5 +1,6 @@
 package com.markus1002.autumnity.common.world.biome;
 
+import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModEntities;
 
 import net.minecraft.entity.EntityClassification;
@@ -50,6 +51,11 @@ public final class PumpkinFieldsBiome extends Biome
 		this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
 	}
 
+	public Biome getHill(net.minecraft.world.gen.INoiseRandom rand)
+    {
+		return rand.random(3) == 0 ? ModBiomes.MAPLE_FOREST_HILLS.get() : ModBiomes.MAPLE_FOREST.get();
+	}
+	
 	@OnlyIn(Dist.CLIENT)
 	public int getGrassColor(double posX, double posZ)
 	{

@@ -24,10 +24,7 @@ public class Config
 
         Common(ForgeConfigSpec.Builder builder)
         {
-            builder.comment("Autumnity settings").push("common");
-            mapleTreeBiomes = builder
-                    .comment("A list of biomes where maple trees can naturally generate. The list doesn't include maple forests.")
-                    .define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
+            builder.push("snail");
             snailSpawnBiomes = builder
                     .comment("A list of biomes where snails can spawn. The list doesn't include maple forests.")
                     .define("Snail Spawn Biomes", Lists.newArrayList());
@@ -43,15 +40,22 @@ public class Config
             slipperySnailSlimeBlocks = builder
                     .comment("A list of blocks that make snail slime blocks slippery when placed next to them.")
                     .define("Slippery Snail Slime Blocks", Lists.newArrayList("minecraft:wet_sponge"));
-            neutralMobs = builder
-                    .comment("A list of mobs that do not attack mobs that have the stench effect. This list should only include neutral mobs.")
-                    .define("Neutral Mobs", Lists.newArrayList("minecraft:spider", "minecraft:cave_spider", "minecraft:enderman", "minecraft:wolf", "minecraft:bee", "minecraft:dolphin", "minecraft:zombie_pigman", "minecraft:llama", "minecraft:trader_llama", "minecraft:polar_bear", "minecraft:panda", "minecraft:iron_golem", "upgrade_aquatic:pike", "upgrade_aquatic:lionfish", "endergetic:booflo"));
+            builder.pop();
+            builder.push("biomes");
+            mapleTreeBiomes = builder
+                    .comment("A list of biomes where maple trees can naturally generate. The list doesn't include maple forests.")
+                    .define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
             mapleForestWeight = builder
                     .comment("The greater the number the more common the biome is.")
-                    .define("Maple Forest Weight", 8);
+                    .define("Maple Forest Weight", 6);
             pumpkinFieldsWeight = builder
                     .comment("The greater the number the more common the biome is.")
                     .define("Pumpkin Fields Weight", 1);
+            builder.pop();
+            builder.push("miscellaneous");
+            neutralMobs = builder
+                    .comment("A list of mobs that do not attack mobs that have the stench effect. This list should only include neutral mobs.")
+                    .define("Neutral Mobs", Lists.newArrayList("minecraft:spider", "minecraft:cave_spider", "minecraft:enderman", "minecraft:wolf", "minecraft:bee", "minecraft:dolphin", "minecraft:zombie_pigman", "minecraft:llama", "minecraft:trader_llama", "minecraft:polar_bear", "minecraft:panda", "minecraft:iron_golem", "upgrade_aquatic:pike", "upgrade_aquatic:lionfish", "endergetic:booflo"));
             builder.pop();
         }
     }

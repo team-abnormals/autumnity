@@ -30,8 +30,6 @@ public class Autumnity
 	 * - Nautilus snail
 	 * - Snake snail
 	 * - Quark feeding thing
-	 * - Configurable biome weights
-	 * - Beehives on maple trees
 	 */
 	
 	public Autumnity()

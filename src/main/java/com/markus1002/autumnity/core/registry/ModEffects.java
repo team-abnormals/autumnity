@@ -20,7 +20,7 @@ public class ModEffects
 	public static void registerEffects(RegistryEvent.Register<Effect> event)
 	{
 		EXTENSION = registerEffect(new ExtensionEffect(), "extension");
-		// STENCH = registerEffect(new StenchEffect(), "stench");
+		STENCH = registerEffect(new StenchEffect(), "stench");
 	}
 	
 	private static Effect registerEffect(Effect effect, String name)

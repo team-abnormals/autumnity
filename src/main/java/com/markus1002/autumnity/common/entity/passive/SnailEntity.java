@@ -69,6 +69,8 @@ public class SnailEntity extends AnimalEntity
 	private float shakeTicks;
 	private float prevShakeTicks;
 
+	private boolean canBreed = true;
+
 	private static final Predicate<LivingEntity> ENEMY_MATCHER = (livingentity) -> {
 		if (livingentity == null)
 		{
@@ -339,7 +341,10 @@ public class SnailEntity extends AnimalEntity
 			}
 		}
 
-		return super.processInteract(player, hand);
+		this.canBreed = false;
+		boolean flag = super.processInteract(player, hand);
+		this.canBreed = true;
+		return flag;
 	}
 
 	public boolean attackEntityFrom(DamageSource source, float amount)
@@ -454,7 +459,7 @@ public class SnailEntity extends AnimalEntity
 	{
 		return MathHelper.lerp(partialTicks, this.prevShakeTicks, this.shakeTicks) / 10.0F;
 	}
-	
+
 	@OnlyIn(Dist.CLIENT)
 	public float getShakeTicks()
 	{
@@ -490,7 +495,7 @@ public class SnailEntity extends AnimalEntity
 
 	public boolean isBreedingItem(ItemStack stack)
 	{
-		return false;
+		return this.canBreed ? this.isSnailBreedingItem(stack) : false;
 	}
 
 	private boolean isSnailBreedingItem(ItemStack stack)

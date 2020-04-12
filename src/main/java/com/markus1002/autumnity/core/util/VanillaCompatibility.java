@@ -80,6 +80,8 @@ public class VanillaCompatibility
 	{
 		RenderTypeLookup.setRenderLayer(ModBlocks.SNAIL_SLIME.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(ModBlocks.SNAIL_SLIME_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(ModBlocks.FOUL_BERRY_BUSH.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.TALL_FOUL_BERRY_BUSH.get(), RenderType.getCutoutMipped());
 		
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_DOOR.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_TRAPDOOR.get(), RenderType.getCutoutMipped());

@@ -4,6 +4,8 @@ import java.util.function.Supplier;
 
 import com.markus1002.autumnity.common.block.BookshelfBlock;
 import com.markus1002.autumnity.common.block.ColoredMapleLeavesBlock;
+import com.markus1002.autumnity.common.block.FoulBerryBushBlock;
+import com.markus1002.autumnity.common.block.FoulBerryBushPipsBlock;
 import com.markus1002.autumnity.common.block.LeafCarpetBlock;
 import com.markus1002.autumnity.common.block.MapleLeavesBlock;
 import com.markus1002.autumnity.common.block.ModDoorBlock;
@@ -16,6 +18,7 @@ import com.markus1002.autumnity.common.block.PancakeBlock;
 import com.markus1002.autumnity.common.block.SappyLogBlock;
 import com.markus1002.autumnity.common.block.SnailSlimeBlock;
 import com.markus1002.autumnity.common.block.SnailSlimeFullBlock;
+import com.markus1002.autumnity.common.block.TallFoulBerryBushBlock;
 import com.markus1002.autumnity.common.block.VerticalSlabBlock;
 import com.markus1002.autumnity.common.block.trees.MapleTree;
 import com.markus1002.autumnity.common.block.trees.OrangeMapleTree;
@@ -53,6 +56,9 @@ public class ModBlocks
 	public static final RegistryObject<Block> SNAIL_SLIME = registerBlock("snail_slime", ItemGroup.MISC, () -> new SnailSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().doesNotBlockMovement().sound(SoundType.SLIME)), -1);
 	public static final RegistryObject<Block> SNAIL_SLIME_BLOCK = registerBlock("snail_slime_block", ItemGroup.DECORATIONS, () -> new SnailSlimeFullBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().sound(SoundType.SLIME)), -1);
 	public static final RegistryObject<Block> PANCAKE = registerBlock("pancake", ItemGroup.FOOD, () -> new PancakeBlock(Block.Properties.create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), -1);
+	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = registerBlock("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+	public static final RegistryObject<Block> FOUL_BERRY_BUSH = registerBlock("foul_berry_bush", () -> new FoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+	public static final RegistryObject<Block> TALL_FOUL_BERRY_BUSH = registerBlock("tall_foul_berry_bush", () -> new TallFoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 
 	// Maple Stuff
 	public static final RegistryObject<Block> MAPLE_LOG = registerBlock("maple_log", ItemGroup.BUILDING_BLOCKS, () -> new LogBlock(MaterialColor.ORANGE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), -1);
@@ -87,7 +93,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = registerBlock("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.0F)));
 	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = registerBlock("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.RED).hardnessAndResistance(0.0F)));
 
-	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = registerCompatibilityBlock("quark", "maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
+	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = registerBlock("maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = registerBlock("yellow_maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
 	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_CARPET = registerBlock("orange_maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.ORANGE_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = registerBlock("red_maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.RED).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
@@ -103,7 +109,7 @@ public class ModBlocks
 		RegistryObject<T> block = BLOCKS.register(name, supplier);
 		return block;
 	}
-	
+
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, ItemGroup group, Supplier<? extends T> supplier, int burnTime)
 	{
 		RegistryObject<T> block = BLOCKS.register(name, supplier);

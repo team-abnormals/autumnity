@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "autumnity:block/foul_berry_bush_stage3_top"
+    }
+}

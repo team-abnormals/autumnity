@@ -2,13 +2,27 @@
   "block.autumnity.snail_slime": "Улиточная слизь",
   "block.autumnity.snail_slime_block": "Улиточный блок слизи",
   "block.autumnity.pancake": "Pancake",
+  "block.autumnity.foul_berry_bush_pips": "Foul Berry Pips",
+  "block.autumnity.foul_berry_bush": "Foul Berry Bush",
+  "block.autumnity.tall_foul_berry_bush": "Tall Foul Berry Bush",
   
   "block.autumnity.maple_log": "Кленовое бревно",
   "block.autumnity.maple_wood": "Клён",
   "block.autumnity.stripped_maple_log": "Обтёсанное кленовое бревно",
   "block.autumnity.stripped_maple_wood": "Обтёсанная кленовая древесина",
+  "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Кленовое бревно с живицей",
   "block.autumnity.sappy_maple_wood": "Клён  с живицей",
+  
+  "block.autumnity.maple_planks": "Кленовые доски",
+  "block.autumnity.maple_stairs": "Кленовые ступеньки",
+  "block.autumnity.maple_slab": "Кленовая плита",
+  "block.autumnity.maple_pressure_plate": "Кленовая нажимная плита",
+  "block.autumnity.maple_button": "Кленовая кнопка",
+  "block.autumnity.maple_fence": "Кленовый забор",
+  "block.autumnity.maple_fence_gate": "Кленовая калитка",
+  "block.autumnity.maple_door": "Кленовая дверь",
+  "block.autumnity.maple_trapdoor": "Кленовый люк",
   
   "block.autumnity.maple_leaves": "Кленовые листья",
   "block.autumnity.yellow_maple_leaves": "Жёлтые кленовые листья",
@@ -24,24 +38,17 @@
   "block.autumnity.potted_yellow_maple_sapling": "Саженец жёлтого клёна в горшке",
   "block.autumnity.potted_orange_maple_sapling": "Саженец оранжевого клёна в горшке",
   "block.autumnity.potted_red_maple_sapling": "Саженец красного клёна в горшке",
-  
+
+  "block.autumnity.maple_leaf_carpet": "Ковер из кленовых листьев"
   "block.autumnity.yellow_maple_leaf_carpet": "Ковер из желтых кленовых листьев",
   "block.autumnity.orange_maple_leaf_carpet": "Ковер из оранжевых кленовых листьев",
   "block.autumnity.red_maple_leaf_carpet": "Ковер из красных кленовых листьев",
   
-  "block.autumnity.maple_planks": "Кленовые доски",
-  "block.autumnity.maple_stairs": "Кленовые ступеньки",
-  "block.autumnity.maple_slab": "Кленовая плита",
-  "block.autumnity.maple_pressure_plate": "Кленовая нажимная плита",
-  "block.autumnity.maple_button": "Кленовая кнопка",
-  "block.autumnity.maple_fence": "Кленовый забор",
-  "block.autumnity.maple_fence_gate": "Кленовая калитка",
-  "block.autumnity.maple_door": "Кленовая дверь",
-  "block.autumnity.maple_trapdoor": "Кленовый люк",
-  
   "item.autumnity.maple_boat": "Кленовая лодка",
   "item.autumnity.sap_bottle": "Бутылка живицы",
   "item.autumnity.syrup_bottle": "Кленовый сироп",
+  "item.autumnity.foul_berries": "Foul Berries",
+  "item.autumnity.foul_berry_pips": "Foul Berry Pips",
   "item.autumnity.snail_spawn_egg": "Яицо призыва улитки",
   "item.autumnity.snail_shell_piece": "Часть ракушки улитки",
   "item.autumnity.snail_shell_chestplate": "Улиточный нагрудник",
@@ -49,14 +56,19 @@
   "entity.autumnity.boat": "Лодка",
   "entity.autumnity.snail": "Улитка",
   
-  "effect.autumnity.sturdiness": "Недвижимость",
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Extension",
+  "_comment": "(Not implemented yet) Mobs with this effect smell so bad that neutral mobs don't want attack them. The effect is obtained from walking through a foul berry bush.",
+  "effect.autumnity.stench": "Stench",
   
-  "item.minecraft.potion.effect.sturdiness": "Зелье недвежимости",
-  "item.minecraft.splash_potion.effect.sturdiness": "Взрывное зелье недвижимости",
-  "item.minecraft.lingering_potion.effect.sturdiness": "Туманное зелье недвижимости",
-  "item.minecraft.tipped_arrow.effect.sturdiness": "Стрела недвижимости",
+  "item.minecraft.potion.effect.extension": "Potion of Extension",
+  "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
+  "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
+  "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
   
   "biome.autumnity.maple_forest": "Кленовый лес",
+  "biome.autumnity.maple_forest_hills": "Maple Forest Hills",
+  "biome.autumnity.pumpkin_fields": "Pumpkin Fields",
   
   "subtitles.entity.snail.eat": "Улитка ест",
   "subtitles.entity.snail.hurt": "Улитке больно",
@@ -68,5 +80,8 @@
   "block.autumnity.vertical_maple_planks": "Вертикальные кленовые доски",
   "block.autumnity.maple_bookshelf": "Кленовая книжная полка",
   "block.autumnity.maple_ladder": "Кленовая лестница",
-  "block.autumnity.maple_leaf_carpet": "Ковер из кленовых листьев"
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
+  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
 }

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "age=0": { "model": "autumnity:block/foul_berry_bush_stage0" },
+        "age=1": { "model": "autumnity:block/foul_berry_bush_stage1" }
+    }
+}

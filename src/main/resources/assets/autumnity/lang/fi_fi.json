@@ -2,6 +2,8 @@
   "block.autumnity.snail_slime": "Kotilon lima",
   "block.autumnity.snail_slime_block": "Kotilon limakuutio",
   "block.autumnity.pancake": "Pannukakku",
+  "block.autumnity.foul_berry_bush": "Lemumarjapensas",
+  "block.autumnity.tall_foul_berry_bush": "Pitkä lemumarjapensas",
   
   "block.autumnity.maple_log": "Vaahterahalko",
   "block.autumnity.maple_wood": "Vaahterapuu",
@@ -45,6 +47,7 @@
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
+  "item.autumnity.foul_berries": "Lemumarjoja",
   
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
@@ -55,6 +58,7 @@
   "item.minecraft.splash_potion.effect.extension": "Roiskahtava pidentämisen taikajuoma",
   "item.minecraft.lingering_potion.effect.extension": "Viipyvä pidentämisen taikajuoma",
   "item.minecraft.tipped_arrow.effect.extension": "Pidentämisen nuoli",
+  "effect.autumnity.stench": "Löyhkä",
   
   "biome.autumnity.maple_forest": "Vaahterametsä",
   "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",

@@ -2,13 +2,27 @@
   "block.autumnity.snail_slime": "Bave d'escargot",
   "block.autumnity.snail_slime_block": "Bloc de bave d'escargot",
   "block.autumnity.pancake": "Pancake",
+  "block.autumnity.foul_berry_bush_pips": "Foul Berry Pips",
+  "block.autumnity.foul_berry_bush": "Foul Berry Bush",
+  "block.autumnity.tall_foul_berry_bush": "Tall Foul Berry Bush",
   
   "block.autumnity.maple_log": "Buche d'érable",
   "block.autumnity.maple_wood": "Bois d'érable",
   "block.autumnity.stripped_maple_log": "Bûche d'érable écorcée",
   "block.autumnity.stripped_maple_wood": "Bois d'érable écorcé",
+  "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Bûche d'érable dégoulinante",
   "block.autumnity.sappy_maple_wood": "Bois d'érable dégoulinant",
+  
+  "block.autumnity.maple_planks": "Planches d'érable",
+  "block.autumnity.maple_stairs": "Escalier en érable",
+  "block.autumnity.maple_slab": "Dalle en érable",
+  "block.autumnity.maple_pressure_plate": "Plaque de pression en érable",
+  "block.autumnity.maple_button": "Bouton en érable",
+  "block.autumnity.maple_fence": "Barrière en érable",
+  "block.autumnity.maple_fence_gate": "Portillon en érable",
+  "block.autumnity.maple_door": "Porte en érable",
+  "block.autumnity.maple_trapdoor": "Trappe en érable",
   
   "block.autumnity.maple_leaves": "Feuilles d'érable",
   "block.autumnity.yellow_maple_leaves": "Feuilles d'érable jaunes",
@@ -21,27 +35,20 @@
   "block.autumnity.red_maple_sapling": "Pousse d'érable rouge",
   
   "block.autumnity.potted_maple_sapling": "Pousse d'érable en pot",
-  "block.autumnity.potted_yellow_maple_sapling": "Pousse d'érable jaune en pot"",
-  "block.autumnity.potted_orange_maple_sapling": "Pousse d'érable orange en pot"",
-  "block.autumnity.potted_red_maple_sapling": "Pousse d'érable rouge en pot"",
+  "block.autumnity.potted_yellow_maple_sapling": "Pousse d'érable jaune en pot",
+  "block.autumnity.potted_orange_maple_sapling": "Pousse d'érable orange en pot",
+  "block.autumnity.potted_red_maple_sapling": "Pousse d'érable rouge en pot",
   
+  "block.autumnity.maple_leaf_carpet": "Tapis en feuille d'érable"
   "block.autumnity.yellow_maple_leaf_carpet": "Tapis de feuille d'érable jaune",
   "block.autumnity.orange_maple_leaf_carpet": "Tapis de feuille d'érable orange",
   "block.autumnity.red_maple_leaf_carpet": "Tapis de feuille d'érable rouge",
   
-  "block.autumnity.maple_planks": "Planches d'érable",
-  "block.autumnity.maple_stairs": "Escalier en érable",
-  "block.autumnity.maple_slab": "Dalle en érable",
-  "block.autumnity.maple_pressure_plate": "Plaque de pression en érable",
-  "block.autumnity.maple_button": "Bouton en érable",
-  "block.autumnity.maple_fence": "Barrière en érable",
-  "block.autumnity.maple_fence_gate": "Portillon en érable",
-  "block.autumnity.maple_door": "Porte en érable",
-  "block.autumnity.maple_trapdoor": "Trappe en érable",
-  
   "item.autumnity.maple_boat": "Bateau en érable",
   "item.autumnity.sap_bottle": "Bouteille de sève",
   "item.autumnity.syrup_bottle": "Bouteille de sirop",
+  "item.autumnity.foul_berries": "Foul Berries",
+  "item.autumnity.foul_berry_pips": "Foul Berry Pips",
   "item.autumnity.snail_spawn_egg": "Oeuf d'apparition d'escargot",
   "item.autumnity.snail_shell_piece": "Morceau de coquille d'escargot",
   "item.autumnity.snail_shell_chestplate": "Armure en coquille d'ecargot",
@@ -49,14 +56,19 @@
   "entity.autumnity.boat": "Bateau",
   "entity.autumnity.snail": "Escargot",
   
-  "effect.autumnity.sturdiness": "Solidité",
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Extension",
+  "_comment": "(Not implemented yet) Mobs with this effect smell so bad that neutral mobs don't want attack them. The effect is obtained from walking through a foul berry bush.",
+  "effect.autumnity.stench": "Stench",
   
-  "item.minecraft.potion.effect.sturdiness": "Potion de solidité",
-  "item.minecraft.splash_potion.effect.sturdiness": "Éclaboussure de potion de solidité",
-  "item.minecraft.lingering_potion.effect.sturdiness": "Potion de solidité persistente",
-  "item.minecraft.tipped_arrow.effect.sturdiness": "Flêche de solidité",
+  "item.minecraft.potion.effect.extension": "Potion of Extension",
+  "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
+  "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
+  "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
   
   "biome.autumnity.maple_forest": "Forêt d'érable",
+  "biome.autumnity.maple_forest_hills": "Maple Forest Hills",
+  "biome.autumnity.pumpkin_fields": "Pumpkin Fields",
   
   "subtitles.entity.snail.eat": "Escargot qui mange",
   "subtitles.entity.snail.hurt": "Escargot blessé",
@@ -68,5 +80,8 @@
   "block.autumnity.vertical_maple_planks": "Planches d'érable verticales",
   "block.autumnity.maple_bookshelf": "Bibliothèque en érable",
   "block.autumnity.maple_ladder": "Échelle en érable",
-  "block.autumnity.maple_leaf_carpet": "Tapis en feuille d'érable"
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
+  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
 }

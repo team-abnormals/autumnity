@@ -2,7 +2,9 @@
   "block.autumnity.snail_slime": "Snail Slime",
   "block.autumnity.snail_slime_block": "Snail Slime Block",
   "block.autumnity.pancake": "Pancake",
+  "block.autumnity.foul_berry_bush_pips": "Foul Berry Pips",
   "block.autumnity.foul_berry_bush": "Foul Berry Bush",
+  "block.autumnity.tall_foul_berry_bush": "Tall Foul Berry Bush",
   
   "block.autumnity.maple_log": "Maple Log",
   "block.autumnity.maple_wood": "Maple Wood",
@@ -37,6 +39,7 @@
   "block.autumnity.potted_orange_maple_sapling": "Potted Orange Maple Sapling",
   "block.autumnity.potted_red_maple_sapling": "Potted Red Maple Sapling",
   
+  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet",
   "block.autumnity.yellow_maple_leaf_carpet": "Yellow Maple Leaf Carpet",
   "block.autumnity.orange_maple_leaf_carpet": "Orange Maple Leaf Carpet",
   "block.autumnity.red_maple_leaf_carpet": "Red Maple Leaf Carpet",
@@ -44,10 +47,11 @@
   "item.autumnity.maple_boat": "Maple Boat",
   "item.autumnity.sap_bottle": "Sap Bottle",
   "item.autumnity.syrup_bottle": "Syrup Bottle",
+  "item.autumnity.foul_berries": "Foul Berries",
+  "item.autumnity.foul_berry_pips": "Foul Berry Pips",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
-  "item.autumnity.foul_berries": "Foul Berries",
   
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
@@ -76,7 +80,6 @@
   "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
   "block.autumnity.maple_bookshelf": "Maple Bookshelf",
   "block.autumnity.maple_ladder": "Maple Ladder",
-  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",

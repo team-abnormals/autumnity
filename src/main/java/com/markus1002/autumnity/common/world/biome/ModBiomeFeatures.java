@@ -1,14 +1,19 @@
 package com.markus1002.autumnity.common.world.biome;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModFeatures;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
@@ -26,11 +31,13 @@ public class ModBiomeFeatures
 	private static final BlockState YELLOW_MAPLE_LEAVES = ModBlocks.YELLOW_MAPLE_LEAVES.get().getDefaultState();
 	private static final BlockState ORANGE_MAPLE_LEAVES = ModBlocks.ORANGE_MAPLE_LEAVES.get().getDefaultState();
 	private static final BlockState RED_MAPLE_LEAVES = ModBlocks.RED_MAPLE_LEAVES.get().getDefaultState();
+	private static final BlockState TALL_FOUL_BERRY_BUSH = ModBlocks.TALL_FOUL_BERRY_BUSH.get().getDefaultState().with(SweetBerryBushBlock.AGE, Integer.valueOf(3));
 
 	public static final TreeFeatureConfig MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.YELLOW_MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.ORANGE_MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.RED_MAPLE_SAPLING.get()).build();
+	public static final BlockClusterFeatureConfig TALL_FOUL_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(TALL_FOUL_BERRY_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).func_227317_b_().build();
 
 	public static void addMapleFeatures(Biome biomeIn)
 	{
@@ -43,6 +50,7 @@ public class ModBiomeFeatures
 
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LUSH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModFeatures.FALLEN_LEAVES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(64))));
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(TALL_FOUL_BERRY_BUSH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 	}
 
 	public static void addPumpkinFieldsFeatures(Biome biomeIn)

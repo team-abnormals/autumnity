@@ -57,7 +57,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			else if (worldIn.isAirBlock(pos.up()))
 			{
 				TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)ModBlocks.TALL_FOUL_BERRY_BUSH.get();
-				tallfoulberrybush.placeAt(worldIn, pos, 2);
+				tallfoulberrybush.placeAt(worldIn, pos, 0, 2);
 			}
 			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
 		}
@@ -95,7 +95,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		else if (worldIn.isAirBlock(pos.up()))
 		{
 			TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)ModBlocks.TALL_FOUL_BERRY_BUSH.get();
-			tallfoulberrybush.placeAt(worldIn, pos, 2);
+			tallfoulberrybush.placeAt(worldIn, pos, 0, 2);
 		}
 	}
 }

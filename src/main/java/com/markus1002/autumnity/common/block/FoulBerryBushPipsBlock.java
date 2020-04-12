@@ -9,8 +9,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
 import net.minecraft.block.IGrowable;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -46,6 +50,14 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 		}
 	}
 	
+	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+	{
+		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
+		{
+			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
+		}
+	}
+	
 	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
 	{
 		return true;
@@ -53,7 +65,7 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
 	{
-		return false;
+		return true;
 	}
 
 	@Override

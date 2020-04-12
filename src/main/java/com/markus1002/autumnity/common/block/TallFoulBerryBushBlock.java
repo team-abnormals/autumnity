@@ -31,6 +31,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -43,7 +44,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	public TallFoulBerryBushBlock(Properties properties)
 	{
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)).with(HALF, DoubleBlockHalf.LOWER));
+		this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, Integer.valueOf(0)));
 	}
 
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
@@ -98,8 +99,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 		}
 		else if (i > 1)
 		{
-			int j = 2 + worldIn.rand.nextInt(2);
-			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), j + (flag ? 2 : 0)));
+			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), 2 + worldIn.rand.nextInt(2)));
 			worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
 			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i - 1)), 2);
 			setHalfState(worldIn, pos, state, i - 1);
@@ -109,6 +109,17 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 		{
 			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
 		}
+	}
+
+	public void placeAt(IWorld worldIn, BlockPos pos, int flags)
+	{
+		this.placeAt(worldIn, pos, 3, flags);
+	}
+	
+	public void placeAt(IWorld worldIn, BlockPos pos, int age, int flags)
+	{
+		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, Integer.valueOf(age)), flags);
+		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(AGE, Integer.valueOf(age)), flags);
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)

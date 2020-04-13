@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "autumnity:foul_berries"
+    }
+  },
+  "result": {
+    "item": "autumnity:foul_berry_sack"
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        },
+        {
+        	"type": "quark:flag",
+        	"flag": "berry_sack"
+        }
+      ]
+    }
+  ]
+}

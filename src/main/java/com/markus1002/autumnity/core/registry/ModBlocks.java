@@ -103,6 +103,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> VERTICAL_MAPLE_PLANKS = registerCompatibilityBlock("quark", "vertical_maple_planks", ItemGroup.BUILDING_BLOCKS, () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), -1);
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = registerCompatibilityBlock("quark", "maple_bookshelf", ItemGroup.BUILDING_BLOCKS, () -> new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), 300);
 	public static final RegistryObject<Block> MAPLE_LADDER = registerCompatibilityBlock("quark", "maple_ladder", ItemGroup.DECORATIONS, () -> new ModLadderBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE).sound(SoundType.LADDER)), 300);
+	public static final RegistryObject<Block> FOUL_BERRY_SACK = registerCompatibilityBlock("quark", "foul_berry_sack", ItemGroup.DECORATIONS, () -> new Block(Block.Properties.create(Material.WOOL, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), -1);
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<? extends T> supplier)
 	{

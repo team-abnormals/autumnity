@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEntity>>
 {
 	private static final ResourceLocation SNAIL_TEXTURES = Reference.location("textures/entity/snail/snail.png");
-	// private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = Reference.location("textures/entity/snail/nautilus_snail.png");
+	private static final ResourceLocation SNAKE_SNAIL_TEXTURES = Reference.location("textures/entity/snail/snake_snail.png");
 
 	public SnailRenderer(EntityRendererManager renderManagerIn)
 	{
@@ -26,16 +26,14 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 
 	public ResourceLocation getEntityTexture(SnailEntity entity)
 	{
-		/*
 		String s = TextFormatting.getTextWithoutFormattingCodes(entity.getName().getString().toLowerCase());
 		if (s != null)
 		{
-			if ("nautilus".equals(s))
+			if ("snake".equals(s) || "snake snail".equals(s) || "snakeblock".equals(s) || "snake block".equals(s))
 			{
-				return NAUTILUS_SNAIL_TEXTURES;
+				return SNAKE_SNAIL_TEXTURES;
 			}
 		}
-		*/
 
 		return SNAIL_TEXTURES;
 	}

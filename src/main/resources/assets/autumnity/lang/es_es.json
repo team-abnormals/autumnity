@@ -1,0 +1,88 @@
+{
+  "block.autumnity.snail_slime": "Baba de caracol",
+  "block.autumnity.snail_slime_block": "Bloque de baba",
+  "block.autumnity.pancake": "Tortita",
+  "block.autumnity.foul_berry_bush_pips": "Pepitas de bayas repugnantes",
+  "block.autumnity.foul_berry_bush": "Arbusto de bayas repugnantes",
+  "block.autumnity.tall_foul_berry_bush": "Arbusto de bayas repugnantes alto",
+  
+  "block.autumnity.maple_log": "Tronco de arce",
+  "block.autumnity.maple_wood": "Tronco de arce",
+  "block.autumnity.stripped_maple_log": "Tronco de arce sin corteza",
+  "block.autumnity.stripped_maple_wood": "Madera de arce sin corteza",
+  "_comment": "Refers to the sap dripping out of the wood",
+  "block.autumnity.sappy_maple_log": "Tronco de arce lleno de savia",
+  "block.autumnity.sappy_maple_wood": "Tronco de arce lleno de savia",
+  
+  "block.autumnity.maple_planks": "Madera de arce",
+  "block.autumnity.maple_stairs": "Escaleras de arce",
+  "block.autumnity.maple_slab": "Losa de arce",
+  "block.autumnity.maple_pressure_plate": "Placa de presión de arce",
+  "block.autumnity.maple_button": "Botón de arce",
+  "block.autumnity.maple_fence": "Valla de arce",
+  "block.autumnity.maple_fence_gate": "Puerta de valla de arce",
+  "block.autumnity.maple_door": "Puerta de arce",
+  "block.autumnity.maple_trapdoor": "Trampilla de arce",
+  
+  "block.autumnity.maple_leaves": "Hojas de arce",
+  "block.autumnity.yellow_maple_leaves": "Hojas de arce amarillas",
+  "block.autumnity.orange_maple_leaves": "Hojas de arce naranjas",
+  "block.autumnity.red_maple_leaves": "Hojas de arce rojas",
+  
+  "block.autumnity.maple_sapling": "Brote de arce",
+  "block.autumnity.yellow_maple_sapling": "Brote de arce amarillo",
+  "block.autumnity.orange_maple_sapling": "Brote de arce naranja",
+  "block.autumnity.red_maple_sapling": "Brote de arce rojo",
+  
+  "block.autumnity.potted_maple_sapling": "Maceta con brote de arce",
+  "block.autumnity.potted_yellow_maple_sapling": "Maceta con brote de arce amarillo",
+  "block.autumnity.potted_orange_maple_sapling": "Maceta con brote de arce naranja",
+  "block.autumnity.potted_red_maple_sapling": "Maceta con brote de arce rojo",
+  
+  "block.autumnity.maple_leaf_carpet": "Alfombra de hojas de arce",
+  "block.autumnity.yellow_maple_leaf_carpet": "Alfombra de hojas de arce amarillas",
+  "block.autumnity.orange_maple_leaf_carpet": "Alfombra de hojas de arce naranjas",
+  "block.autumnity.red_maple_leaf_carpet": "Alfombra de hojas de arce rojas",
+  
+  "item.autumnity.maple_boat": "Barca de arce",
+  "item.autumnity.sap_bottle": "Frasco con savia",
+  "item.autumnity.syrup_bottle": "Frasco con jarabe",
+  "item.autumnity.foul_berries": "Bayas repugnantes",
+  "item.autumnity.foul_berry_pips": "Pepitas de bayas repugnantes",
+  "item.autumnity.snail_spawn_egg": "Generar caracol",
+  "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
+  "item.autumnity.snail_shell_chestplate": "Peto de caparazón de caracol",
+  
+  "entity.autumnity.boat": "Barca",
+  "entity.autumnity.snail": "Caracol",
+  
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Extensión",
+  "_comment": "(Not implemented yet) Mobs with this effect smell so bad that neutral mobs don't want attack them. The effect is obtained from walking through a foul berry bush.",
+  "effect.autumnity.stench": "Hedor",
+  
+  "item.minecraft.potion.effect.extension": "Poción de extensión",
+  "item.minecraft.splash_potion.effect.extension": "Poción de extensión arrojadiza",
+  "item.minecraft.lingering_potion.effect.extension": "Poción de extensión persistente",
+  "item.minecraft.tipped_arrow.effect.extension": "Flecha de extensión",
+  
+  "biome.autumnity.maple_forest": "Bosque de arce",
+  "biome.autumnity.maple_forest_hills": "Colinas de bosque de arce",
+  "biome.autumnity.pumpkin_fields": "Campo de calabazas",
+  
+  "subtitles.entity.snail.eat": "Caracol come",
+  "subtitles.entity.snail.hurt": "Caracol herido",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Losa vertical de arce",
+  "block.autumnity.vertical_maple_planks": "Madera vertical de arce",
+  "block.autumnity.maple_bookshelf": "Librería de arce",
+  "block.autumnity.maple_ladder": "Escalera de mano de arce",
+  "block.autumnity.foul_berry_sack": "Saco de bayas repugnantes",
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Protección a hurtadillas",
+  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol"
+}

@@ -1,7 +1,7 @@
 package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.potion.ExtensionEffect;
-import com.markus1002.autumnity.common.potion.StenchEffect;
+import com.markus1002.autumnity.common.potion.AntiHealingEffect;
 import com.markus1002.autumnity.core.util.Reference;
 
 import net.minecraft.potion.Effect;
@@ -14,13 +14,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModEffects
 {
 	public static Effect EXTENSION;
-	public static Effect STENCH;
+	public static Effect ANTI_HEALING;
 
 	@SubscribeEvent
 	public static void registerEffects(RegistryEvent.Register<Effect> event)
 	{
 		EXTENSION = registerEffect(new ExtensionEffect(), "extension");
-		STENCH = registerEffect(new StenchEffect(), "stench");
+		ANTI_HEALING = registerEffect(new AntiHealingEffect(), "anti_healing");
 	}
 	
 	private static Effect registerEffect(Effect effect, String name)

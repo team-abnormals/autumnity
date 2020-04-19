@@ -21,6 +21,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -36,6 +37,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -123,20 +125,14 @@ public class EventHandler
 		{
 			entity.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(KNOCKBACK_MODIFIER);
 		}
-		
-		if (entity instanceof MobEntity && Config.COMMON.neutralMobs.get().contains(entity.getType().getRegistryName().toString()))
+	}
+
+	@SubscribeEvent
+	public void onLivingHeal(LivingHealEvent event)
+	{
+		if (event.getEntityLiving().isPotionActive(ModEffects.ANTI_HEALING))
 		{
-			MobEntity mobentity = (MobEntity) entity;
-			
-			if (mobentity.getAttackTarget() != null && mobentity.getAttackTarget().isPotionActive(ModEffects.STENCH))
-			{
-				mobentity.setAttackTarget(null);
-			}
-			
-			if (mobentity.getRevengeTarget() != null && mobentity.getRevengeTarget().isPotionActive(ModEffects.STENCH))
-			{
-				mobentity.setRevengeTarget(null);
-			}
+			event.setCanceled(true);
 		}
 	}
 

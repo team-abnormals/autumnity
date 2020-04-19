@@ -49,6 +49,7 @@
   "item.autumnity.syrup_bottle": "Syrup Bottle",
   "item.autumnity.foul_berries": "Foul Berries",
   "item.autumnity.foul_berry_pips": "Foul Berry Pips",
+  "item.autumnity.foul_berry_leaf": "Foul Berry Leaf",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
@@ -58,13 +59,17 @@
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
-  "_comment": "(Not implemented yet) Mobs with this effect smell so bad that neutral mobs don't want attack them. The effect is obtained from walking through a foul berry bush.",
-  "effect.autumnity.stench": "Stench",
+  "effect.autumnity.anti_healing": "Anti-healing",
   
   "item.minecraft.potion.effect.extension": "Potion of Extension",
   "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
   "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
   "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
+  
+  "item.minecraft.potion.effect.anti_healing": "Potion of Anti-healing",
+  "item.minecraft.splash_potion.effect.anti_healing": "Splash Potion of Anti-healing",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Lingering Potion of Anti-healing",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Arrow of Anti-healing",
   
   "biome.autumnity.maple_forest": "Maple Forest",
   "biome.autumnity.maple_forest_hills": "Maple Forest Hills",

@@ -3,6 +3,7 @@ package com.markus1002.autumnity.common.block;
 import java.util.Random;
 
 import com.markus1002.autumnity.core.registry.ModBlocks;
+import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
 
 import net.minecraft.block.Block;
@@ -13,6 +14,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -23,6 +27,8 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class FoulBerryBushBlock extends BushBlock implements IGrowable
 {
@@ -45,6 +51,25 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		return SHAPES[state.get(AGE)];
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
+	{
+		if (stateIn.get(AGE) == 1 && rand.nextInt(5) == 0)
+		{
+			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
+			Vec3d vec3d = voxelshape.getBoundingBox().getCenter();
+			double d0 = (double)pos.getX() + vec3d.x;
+			double d1 = (double)pos.getZ() + vec3d.z;
+
+			int i = ModEffects.ANTI_HEALING.getLiquidColor();
+			double d2 = (double)(i >> 16 & 255) / 255.0D;
+			double d3 = (double)(i >> 8 & 255) / 255.0D;
+			double d4 = (double)(i >> 0 & 255) / 255.0D;
+
+			worldIn.addParticle(ParticleTypes.ENTITY_EFFECT, d0 + (double)(rand.nextFloat() / 5.0F), (double)pos.getY() + (0.5D - (double)rand.nextFloat()), d1 + (double)(rand.nextFloat() / 5.0F), d2, d3, d4);
+		}
+	}
+	
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
 	{
 		super.tick(state, worldIn, pos, rand);
@@ -68,6 +93,10 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
 			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
+			if (!worldIn.isRemote && state.get(AGE) == 1)
+			{
+				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.ANTI_HEALING, 200));
+			}
 		}
 	}
 

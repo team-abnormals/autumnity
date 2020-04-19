@@ -12,13 +12,12 @@ public class Config
 {
     public static class Common
     {
-        public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
         public final ForgeConfigSpec.ConfigValue<List<String>> snailSpawnBiomes;
         public final ForgeConfigSpec.ConfigValue<List<String>> snailBreedingItems;
         public final ForgeConfigSpec.ConfigValue<List<String>> snailFood;
         public final ForgeConfigSpec.ConfigValue<List<String>> snailBlockFood;
         public final ForgeConfigSpec.ConfigValue<List<String>> slipperySnailSlimeBlocks;
-        public final ForgeConfigSpec.ConfigValue<List<String>> neutralMobs;
+        public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
 
@@ -51,11 +50,6 @@ public class Config
             pumpkinFieldsWeight = builder
                     .comment("The greater the number the more common the biome is.")
                     .define("Pumpkin Fields Weight", 1);
-            builder.pop();
-            builder.push("miscellaneous");
-            neutralMobs = builder
-                    .comment("A list of mobs that do not attack mobs that have the stench effect. This list should only include neutral mobs.")
-                    .define("Neutral Mobs", Lists.newArrayList("minecraft:spider", "minecraft:cave_spider", "minecraft:enderman", "minecraft:wolf", "minecraft:bee", "minecraft:dolphin", "minecraft:zombie_pigman", "minecraft:llama", "minecraft:trader_llama", "minecraft:polar_bear", "minecraft:panda", "minecraft:iron_golem", "upgrade_aquatic:pike", "upgrade_aquatic:lionfish", "endergetic:booflo"));
             builder.pop();
         }
     }

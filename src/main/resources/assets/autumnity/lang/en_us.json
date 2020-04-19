@@ -50,6 +50,7 @@
   "item.autumnity.foul_berries": "Foul Berries",
   "item.autumnity.foul_berry_pips": "Foul Berry Pips",
   "item.autumnity.foul_berry_leaf": "Foul Berry Leaf",
+  "item.autumnity.foul_berry_pie": "Foul Berry Pie",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
@@ -59,6 +60,7 @@
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
+  "_comment": "This effect prevents all healing.",
   "effect.autumnity.anti_healing": "Anti-healing",
   
   "item.minecraft.potion.effect.extension": "Potion of Extension",

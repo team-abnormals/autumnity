@@ -29,6 +29,7 @@ public class VanillaCompatibility
 	{
 		registerCompostable(ModItems.FOUL_BERRIES.get(), 0.3F);
 		registerCompostable(ModItems.FOUL_BERRY_PIPS.get(), 0.3F);
+		registerCompostable(ModItems.FOUL_BERRY_LEAF.get(), 0.3F);
 		
 		registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
@@ -117,6 +118,7 @@ public class VanillaCompatibility
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_RED_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
 		
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_LADDER.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_FOUL_BERRIES.get(), RenderType.getCutoutMipped());
 		
 		
 		BlockColors blockcolors = Minecraft.getInstance().getBlockColors();

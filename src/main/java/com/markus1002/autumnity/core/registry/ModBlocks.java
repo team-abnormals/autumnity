@@ -89,9 +89,9 @@ public class ModBlocks
 	public static final RegistryObject<Block> RED_MAPLE_SAPLING = registerBlock("red_maple_sapling", ItemGroup.DECORATIONS, () -> new ModSaplingBlock(new RedMapleTree(), Block.Properties.create(Material.PLANTS, MaterialColor.RED).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), -1);
 
 	public static final RegistryObject<Block> POTTED_MAPLE_SAPLING = registerBlock("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_YELLOW_MAPLE_SAPLING = registerBlock("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = registerBlock("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = registerBlock("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.RED).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_YELLOW_MAPLE_SAPLING = registerBlock("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = registerBlock("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = registerBlock("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 
 	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = registerBlock("maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = registerBlock("yellow_maple_leaf_carpet", ItemGroup.DECORATIONS, () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), -1);
@@ -104,6 +104,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = registerCompatibilityBlock("quark", "maple_bookshelf", ItemGroup.BUILDING_BLOCKS, () -> new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), 300);
 	public static final RegistryObject<Block> MAPLE_LADDER = registerCompatibilityBlock("quark", "maple_ladder", ItemGroup.DECORATIONS, () -> new ModLadderBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE).sound(SoundType.LADDER)), 300);
 	public static final RegistryObject<Block> FOUL_BERRY_SACK = registerCompatibilityBlock("quark", "foul_berry_sack", ItemGroup.DECORATIONS, () -> new Block(Block.Properties.create(Material.WOOL, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), -1);
+	public static final RegistryObject<Block> POTTED_FOUL_BERRIES = registerBlock("potted_foul_berries", () -> new FlowerPotBlock(ModList.get().isLoaded("quark") ? FOUL_BERRY_BUSH.get() : null, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<? extends T> supplier)
 	{

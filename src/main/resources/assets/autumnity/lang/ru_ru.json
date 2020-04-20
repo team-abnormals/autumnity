@@ -88,6 +88,7 @@
   "block.autumnity.maple_bookshelf": "Кленовая книжная полка",
   "block.autumnity.maple_ladder": "Кленовая лестница",
   "block.autumnity.foul_berry_sack": "Foul Berry Sack",
+  "block.autumnity.potted_foul_berries": "Potted Foul Berries",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",

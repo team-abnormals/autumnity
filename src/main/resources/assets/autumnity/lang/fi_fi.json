@@ -39,10 +39,10 @@
   "block.autumnity.potted_orange_maple_sapling": "Istutettu oranssin vaahteran taimi",
   "block.autumnity.potted_red_maple_sapling": "Istutettu punaisen vaahteran taimi",
 
-  "block.autumnity.maple_leaf_carpet": "Maple Leaf Carpet",
-  "block.autumnity.yellow_maple_leaf_carpet": "Yellow Maple Leaf Carpet",
-  "block.autumnity.orange_maple_leaf_carpet": "Orange Maple Leaf Carpet",
-  "block.autumnity.red_maple_leaf_carpet": "Red Maple Leaf Carpet",
+  "block.autumnity.maple_leaf_carpet": "Vaahteralehtimatto",
+  "block.autumnity.yellow_maple_leaf_carpet": "Keltainen vaahteralehtimatto",
+  "block.autumnity.orange_maple_leaf_carpet": "Oranssi vaahteralehtimatto",
+  "block.autumnity.red_maple_leaf_carpet": "Punainen vaahteralehtimatto",
   
   "item.autumnity.maple_boat": "Vaahteravene",
   "item.autumnity.sap_bottle": "Mahlapullo",
@@ -83,13 +83,14 @@
   
   "_comment": "Quark Stuff",
   
-  "block.autumnity.maple_vertical_slab": "Maple Vertical Slab",
-  "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
+  "block.autumnity.maple_vertical_slab": "Kohtisuora vaahteralaatta",
+  "block.autumnity.vertical_maple_planks": "Kohtisuorat vaahteralankut",
   "block.autumnity.maple_bookshelf": "Vaahterakirjahylly",
   "block.autumnity.maple_ladder": "Vaahteratikas",
   "block.autumnity.foul_berry_sack": "Lemumarjasäkki",
+  "block.autumnity.potted_foul_berries": "Istutetut lemumarjat",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
-  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
+  "advancements.husbandry.sneaky_protection.title": "Panssari hidastelijalle",
+  "advancements.husbandry.sneaky_protection.description": "Rakenna kotilon kuoripanssari"
 }

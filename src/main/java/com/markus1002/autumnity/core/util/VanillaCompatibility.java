@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Items;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.biome.BiomeColors;
@@ -30,6 +31,7 @@ public class VanillaCompatibility
 		registerCompostable(ModItems.FOUL_BERRIES.get(), 0.3F);
 		registerCompostable(ModItems.FOUL_BERRY_PIPS.get(), 0.3F);
 		registerCompostable(ModItems.FOUL_BERRY_LEAF.get(), 0.3F);
+	    registerCompostable(ModItems.FOUL_BERRY_PIE.get(), 1.0F);
 		
 		registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);

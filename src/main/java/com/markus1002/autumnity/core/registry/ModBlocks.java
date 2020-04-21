@@ -104,7 +104,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = registerCompatibilityBlock("quark", "maple_bookshelf", ItemGroup.BUILDING_BLOCKS, () -> new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), 300);
 	public static final RegistryObject<Block> MAPLE_LADDER = registerCompatibilityBlock("quark", "maple_ladder", ItemGroup.DECORATIONS, () -> new ModLadderBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE).sound(SoundType.LADDER)), 300);
 	public static final RegistryObject<Block> FOUL_BERRY_SACK = registerCompatibilityBlock("quark", "foul_berry_sack", ItemGroup.DECORATIONS, () -> new Block(Block.Properties.create(Material.WOOL, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), -1);
-	public static final RegistryObject<Block> POTTED_FOUL_BERRIES = registerBlock("potted_foul_berries", () -> new FlowerPotBlock(ModList.get().isLoaded("quark") ? FOUL_BERRY_BUSH.get() : null, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_FOUL_BERRIES = registerBlock("potted_foul_berries", () -> new FlowerPotBlock(FOUL_BERRY_BUSH.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<? extends T> supplier)
 	{

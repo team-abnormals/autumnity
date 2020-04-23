@@ -16,7 +16,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -34,6 +36,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowable
 {
@@ -64,6 +68,25 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 		}
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
+	{
+		if (rand.nextInt(10) == 0)
+		{
+			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
+			Vec3d vec3d = voxelshape.getBoundingBox().getCenter();
+			double d0 = (double)pos.getX() + vec3d.x;
+			double d1 = (double)pos.getZ() + vec3d.z;
+
+			int i = ModEffects.ANTI_HEALING.getLiquidColor();
+			double d2 = (double)(i >> 16 & 255) / 255.0D;
+			double d3 = (double)(i >> 8 & 255) / 255.0D;
+			double d4 = (double)(i >> 0 & 255) / 255.0D;
+
+			worldIn.addParticle(ParticleTypes.ENTITY_EFFECT, d0 + (double)(rand.nextFloat() / 5.0F), (double)pos.getY() + (0.5D - (double)rand.nextFloat()), d1 + (double)(rand.nextFloat() / 5.0F), d2, d3, d4);
+		}
+	}
+
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
 	{
 		super.tick(state, worldIn, pos, rand);
@@ -82,9 +105,9 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
 			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
-			if (!worldIn.isRemote && state.get(AGE) > 1)
+			if (!worldIn.isRemote)
 			{
-				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.STENCH, 800));
+				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.ANTI_HEALING, 400));
 			}
 		}
 	}
@@ -115,7 +138,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	{
 		this.placeAt(worldIn, pos, 3, flags);
 	}
-	
+
 	public void placeAt(IWorld worldIn, BlockPos pos, int age, int flags)
 	{
 		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, Integer.valueOf(age)), flags);

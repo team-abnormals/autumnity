@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Items;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.biome.BiomeColors;
@@ -29,23 +30,25 @@ public class VanillaCompatibility
 	{
 		registerCompostable(ModItems.FOUL_BERRIES.get(), 0.3F);
 		registerCompostable(ModItems.FOUL_BERRY_PIPS.get(), 0.3F);
+		registerCompostable(ModItems.FOUL_BERRY_LEAF.get(), 0.3F);
+	    registerCompostable(ModItems.FOUL_BERRY_PIE.get(), 1.0F);
 		
 		registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.RED_MAPLE_LEAVES.get().asItem(), 0.3F);
 
-		registerCompostable(ModBlocks.MAPLE_SAPLING.get(), 0.3F);
-		registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING.get(), 0.3F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
+		registerCompostable(ModBlocks.MAPLE_SAPLING.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
 
-		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get(), 0.3F);
-		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.3F);
-		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.3F);
-		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.3F);
+		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
 		
-		registerCompostable(ModBlocks.FOUL_BERRY_SACK.get(), 1.0F);
+		registerCompostable(ModBlocks.FOUL_BERRY_SACK.get().asItem(), 1.0F);
 
 		registerFlammable(ModBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		registerFlammable(ModBlocks.FOUL_BERRY_BUSH.get(), 60, 100);
@@ -117,6 +120,7 @@ public class VanillaCompatibility
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_RED_MAPLE_SAPLING.get(), RenderType.getCutoutMipped());
 		
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_LADDER.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_FOUL_BERRIES.get(), RenderType.getCutoutMipped());
 		
 		
 		BlockColors blockcolors = Minecraft.getInstance().getBlockColors();

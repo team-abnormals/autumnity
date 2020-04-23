@@ -46,7 +46,7 @@ public class ModEntities
 	{
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL, 4, 2, 3));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL, 8, 1, 2));
 		}
 	}
 

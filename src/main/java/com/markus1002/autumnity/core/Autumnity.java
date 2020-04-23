@@ -24,14 +24,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod("autumnity")
 public class Autumnity
 {
-	/*
-	 * TODO:
-	 * - Berries that make undead mobs not attack you (foul berries?) (foulness effect)
-	 * - Nautilus snail
-	 * - Snake snail
-	 * - Quark feeding thing
-	 */
-	
 	public Autumnity()
 	{
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

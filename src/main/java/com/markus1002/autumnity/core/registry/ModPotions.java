@@ -16,11 +16,15 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModPotions
 {
 	public static Potion EXTENSION;
+	public static Potion ANTI_HEALING;
+	public static Potion LONG_ANTI_HEALING;
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event)
 	{
 		EXTENSION = registerPotion(new Potion("extension", new EffectInstance(ModEffects.EXTENSION, 1)), "extension");
+		ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.ANTI_HEALING, 3600)), "anti_healing");
+		LONG_ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.ANTI_HEALING, 9600)), "long_anti_healing");
 	}
 	
 	private static Potion registerPotion(Potion potion, String name)
@@ -33,5 +37,9 @@ public class ModPotions
 	public static void setupBrewingRecipes()
 	{
 		PotionBrewing.addMix(Potions.AWKWARD, ModBlocks.SNAIL_SLIME.get().asItem(), EXTENSION);
+		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUL_BERRY_LEAF.get(), ANTI_HEALING);
+		PotionBrewing.addMix(ANTI_HEALING, Items.REDSTONE, LONG_ANTI_HEALING);
+		PotionBrewing.addMix(ANTI_HEALING, Items.FERMENTED_SPIDER_EYE, Potions.REGENERATION);
+		PotionBrewing.addMix(LONG_ANTI_HEALING, Items.FERMENTED_SPIDER_EYE, Potions.LONG_REGENERATION);
 	}
 }

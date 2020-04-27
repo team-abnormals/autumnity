@@ -52,11 +52,13 @@
   "item.autumnity.foul_berry_leaf": "Hoja de bayas repugnantes",
   "item.autumnity.foul_berry_pie": "Tarta de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
+  "item.autumnity.spatter_spawn_egg": "Generar salpicado",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Peto de caparazón de caracol",
   
   "entity.autumnity.boat": "Barca",
   "entity.autumnity.snail": "Caracol",
+  "entity.autumnity.spatter": "Salpicado",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",
@@ -92,5 +94,7 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección a hurtadillas",
-  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol"
+  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol.",
+  "advancements.husbandry.snail_paradise.title": "Paraíso para caracoles",
+  "advancements.husbandry.snail_paradise.description": "Haz que un caracol se reproduzca en un campo de champiñones."
 }

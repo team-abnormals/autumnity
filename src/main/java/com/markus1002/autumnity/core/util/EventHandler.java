@@ -3,7 +3,6 @@ package com.markus1002.autumnity.core.util;
 import java.util.UUID;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
-import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEffects;
@@ -21,7 +20,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.PrioritizedGoal;
+import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -149,5 +148,9 @@ public class EventHandler
 	@SubscribeEvent
 	public void onVillagerTradesEvent(VillagerTradesEvent event)
 	{
+		if (event.getType() == VillagerProfession.BUTCHER)
+		{
+			event.getTrades().get(4).add(new TradeHelper.EmeraldForItemsTrade(ModItems.FOUL_BERRIES.get(), 10, 12, 30));
+		}
 	}
 }

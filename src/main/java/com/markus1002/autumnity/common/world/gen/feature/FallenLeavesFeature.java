@@ -25,7 +25,9 @@ public class FallenLeavesFeature extends Feature<NoFeatureConfig>
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
 	{
 		int i = 0;
-		BlockState blockstate = rand.nextInt(4) > 0 ? ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState() : ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState();
+		
+		int j = rand.nextInt(4);
+		BlockState blockstate = j == 0 ? ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState() : j == 1 ? ModBlocks.RED_MAPLE_LEAF_CARPET.get().getDefaultState() : ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
 
 		for(int x = -3; x <= 3; ++x)
 		{

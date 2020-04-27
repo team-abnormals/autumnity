@@ -2,7 +2,7 @@
   "block.autumnity.snail_slime": "Kotilon lima",
   "block.autumnity.snail_slime_block": "Kotilon limakuutio",
   "block.autumnity.pancake": "Pannukakku",
-  "block.autumnity.foul_berry_bush_pips": "Lemumarjan siemen",
+  "block.autumnity.foul_berry_bush_pips": "Lemumarjan siemenet",
   "block.autumnity.foul_berry_bush": "Lemumarjapensas",
   "block.autumnity.tall_foul_berry_bush": "Pitkä lemumarjapensas",
   
@@ -24,10 +24,10 @@
   "block.autumnity.maple_door": "Vaahteraovi",
   "block.autumnity.maple_trapdoor": "Vaahteraluukku",
   
-  "block.autumnity.maple_leaves": "Vaahteralehdet",
-  "block.autumnity.yellow_maple_leaves": "Keltaiset vaahteralehdet",
-  "block.autumnity.orange_maple_leaves": "Oranssit vaahteralehdet",
-  "block.autumnity.red_maple_leaves": "Punaiset vaahteralehdet",
+  "block.autumnity.maple_leaves": "Vaahteranlehdet",
+  "block.autumnity.yellow_maple_leaves": "Keltaiset vaahteranlehdet",
+  "block.autumnity.orange_maple_leaves": "Oranssit vaahteranlehdet",
+  "block.autumnity.red_maple_leaves": "Punaiset vaahteranlehdet",
   
   "block.autumnity.maple_sapling": "Vaahteran taimi",
   "block.autumnity.yellow_maple_sapling": "Keltaisen vaahteran taimi",
@@ -39,10 +39,10 @@
   "block.autumnity.potted_orange_maple_sapling": "Istutettu oranssin vaahteran taimi",
   "block.autumnity.potted_red_maple_sapling": "Istutettu punaisen vaahteran taimi",
 
-  "block.autumnity.maple_leaf_carpet": "Vaahteralehtimatto",
-  "block.autumnity.yellow_maple_leaf_carpet": "Keltainen vaahteralehtimatto",
-  "block.autumnity.orange_maple_leaf_carpet": "Oranssi vaahteralehtimatto",
-  "block.autumnity.red_maple_leaf_carpet": "Punainen vaahteralehtimatto",
+  "block.autumnity.maple_leaf_carpet": "Vaahteranlehtimatto",
+  "block.autumnity.yellow_maple_leaf_carpet": "Keltainen vaahteranlehtimatto",
+  "block.autumnity.orange_maple_leaf_carpet": "Oranssi vaahteranlehtimatto",
+  "block.autumnity.red_maple_leaf_carpet": "Punainen vaahteranlehtimatto",
   
   "item.autumnity.maple_boat": "Vaahteravene",
   "item.autumnity.sap_bottle": "Mahlapullo",

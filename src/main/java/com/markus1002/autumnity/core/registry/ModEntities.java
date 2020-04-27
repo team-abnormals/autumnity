@@ -2,7 +2,9 @@ package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.client.renderer.entity.ModBoatRenderer;
 import com.markus1002.autumnity.client.renderer.entity.SnailRenderer;
+import com.markus1002.autumnity.client.renderer.entity.SpatterRenderer;
 import com.markus1002.autumnity.common.entity.item.boat.ModBoatEntity;
+import com.markus1002.autumnity.common.entity.monster.SpatterEntity;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.util.Reference;
@@ -34,12 +36,20 @@ public class ModEntities
 			.setShouldReceiveVelocityUpdates(true)
 			.setUpdateInterval(3)
 			.build(Reference.location("snail").toString());
+	
+	public static final EntityType<SpatterEntity> SPATTER = EntityType.Builder.<SpatterEntity>create(SpatterEntity::new, EntityClassification.MONSTER)
+			.size(0.6F, 1.7F)
+			.setTrackingRange(64)
+			.setShouldReceiveVelocityUpdates(true)
+			.setUpdateInterval(3)
+			.build(Reference.location("spatter").toString());
 
 	@SubscribeEvent
 	public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
 	{
 		registerEntity(BOAT, "boat");
 		registerEntity(SNAIL, "snail");
+		registerEntity(SPATTER, "spatter");
 	}
 	
 	public static void setupEntitySpawns(Biome biome)
@@ -60,6 +70,7 @@ public class ModEntities
 	{
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends ModBoatEntity>)BOAT, ModBoatRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SnailEntity>)SNAIL, SnailRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SpatterEntity>)SPATTER, SpatterRenderer::new);
 	}
 
 	private static void registerEntity(EntityType<?> entity, String name)

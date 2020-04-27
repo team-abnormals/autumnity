@@ -1,0 +1,55 @@
+{
+  "parent": "minecraft:husbandry/breed_an_animal",
+  "display": {
+    "icon": {
+      "item": "minecraft:mushroom_stew"
+    },
+    "title": {
+      "translate": "advancements.husbandry.snail_paradise.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.snail_paradise.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "minecraft:mushroom_fields": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "parent": {
+          "type": "autumnity:snail"
+        },
+		"child": {
+		  "location": {
+            "biome": "minecraft:mushroom_fields"
+		  }
+		}
+      }
+    },
+    "minecraft:mushroom_field_shore": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "parent": {
+          "type": "autumnity:snail"
+        },
+		"child": {
+		  "location": {
+            "biome": "minecraft:mushroom_field_shore"
+		  }
+		}
+      }
+    }
+  },
+  "requirements": [
+    [
+      "minecraft:mushroom_fields",
+	  "minecraft:mushroom_field_shore"
+    ]
+  ]
+}

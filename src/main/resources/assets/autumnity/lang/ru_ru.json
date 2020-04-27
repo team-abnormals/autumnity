@@ -1,8 +1,8 @@
 {
-  "block.autumnity.snail_slime": "Слизь улитки",
-  "block.autumnity.snail_slime_block": "Улиточно-слизьневый блок",
-  "block.autumnity.pancake": "Блины",
-  "block.autumnity.foul_berry_bush_pips": "Семена кислых ягод",
+  "block.autumnity.snail_slime": "Улиточная слизь",
+  "block.autumnity.snail_slime_block": "Улиточный блок слизи",
+  "block.autumnity.pancake": "Блинчик",
+  "block.autumnity.foul_berry_bush_pips": "Косточки кислых ягод",
   "block.autumnity.foul_berry_bush": "Куст кислых ягод",
   "block.autumnity.tall_foul_berry_bush": "Высокий куст кислых ягод",
   
@@ -12,7 +12,7 @@
   "block.autumnity.stripped_maple_wood": "Обтёсанная кленовая древесина",
   "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Кленовое бревно с живицей",
-  "block.autumnity.sappy_maple_wood": "Клён с живицей",
+  "block.autumnity.sappy_maple_wood": "Клён  с живицей",
   
   "block.autumnity.maple_planks": "Кленовые доски",
   "block.autumnity.maple_stairs": "Кленовые ступеньки",
@@ -38,8 +38,8 @@
   "block.autumnity.potted_yellow_maple_sapling": "Саженец жёлтого клёна в горшке",
   "block.autumnity.potted_orange_maple_sapling": "Саженец оранжевого клёна в горшке",
   "block.autumnity.potted_red_maple_sapling": "Саженец красного клёна в горшке",
-
-  "block.autumnity.maple_leaf_carpet": "Ковер из кленовых листьев"
+  
+  "block.autumnity.maple_leaf_carpet": "Ковер из кленовых листьев",
   "block.autumnity.yellow_maple_leaf_carpet": "Ковер из желтых кленовых листьев",
   "block.autumnity.orange_maple_leaf_carpet": "Ковер из оранжевых кленовых листьев",
   "block.autumnity.red_maple_leaf_carpet": "Ковер из красных кленовых листьев",
@@ -48,12 +48,12 @@
   "item.autumnity.sap_bottle": "Бутылка живицы",
   "item.autumnity.syrup_bottle": "Кленовый сироп",
   "item.autumnity.foul_berries": "Кислые ягоды",
-  "item.autumnity.foul_berry_pips": "Семена кислых ягод",
-  "item.autumnity.foul_berry_leaf": "Лист кислых ягод",
+  "item.autumnity.foul_berry_pips": "Косточки кислых ягод",
+  "item.autumnity.foul_berry_leaf": "Ягодный лист",
   "item.autumnity.foul_berry_pie": "Пирог из кислых ягод",
-  "item.autumnity.snail_spawn_egg": "Яйцо призыва улитки",
-  "item.autumnity.snail_shell_piece": "Кусочек старой раковины",
-  "item.autumnity.snail_shell_chestplate": "Нагрудник из раковины улитки",
+  "item.autumnity.snail_spawn_egg": "Яицо призыва улитки",
+  "item.autumnity.snail_shell_piece": "Часть ракушки улитки",
+  "item.autumnity.snail_shell_chestplate": "Улиточный нагрудник",
   
   "entity.autumnity.boat": "Лодка",
   "entity.autumnity.snail": "Улитка",
@@ -61,24 +61,24 @@
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Продление",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.anti_healing": "Анти-регенерация",
+  "effect.autumnity.anti_healing": "Анти-исцеление",
   
   "item.minecraft.potion.effect.extension": "Зелье продления",
   "item.minecraft.splash_potion.effect.extension": "Взрывное зелье продления",
   "item.minecraft.lingering_potion.effect.extension": "Туманное зелье продления",
   "item.minecraft.tipped_arrow.effect.extension": "Стрела продления",
   
-  "item.minecraft.potion.effect.anti_healing": "Зелье анти-регенерации",
-  "item.minecraft.splash_potion.effect.anti_healing": "Взрывное зелье анти-регенерации",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Туманное зелье анти-регенерации",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Стрела анти-регенерации",
+  "item.minecraft.potion.effect.anti_healing": "Зелье анти-исцеления",
+  "item.minecraft.splash_potion.effect.anti_healing": "Взрывное зелье анти-исцеления",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Туманное зелье анти-исцеления",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Стрела анти-исцеления",
   
   "biome.autumnity.maple_forest": "Кленовый лес",
-  "biome.autumnity.maple_forest_hills": "Холмы кленового леса",
-  "biome.autumnity.pumpkin_fields": "Тыквенная равнина",
+  "biome.autumnity.maple_forest_hills": "Холмистый кленовый лес",
+  "biome.autumnity.pumpkin_fields": "Тыквенные поля",
   
   "subtitles.entity.snail.eat": "Улитка ест",
-  "subtitles.entity.snail.hurt": "Улитке получает урон",
+  "subtitles.entity.snail.hurt": "Улитке больно",
   
   
   "_comment": "Quark Stuff",
@@ -87,10 +87,10 @@
   "block.autumnity.vertical_maple_planks": "Вертикальные кленовые доски",
   "block.autumnity.maple_bookshelf": "Кленовая книжная полка",
   "block.autumnity.maple_ladder": "Кленовая лестница",
-  "block.autumnity.foul_berry_sack": "Foul Berry Sack",
-  "block.autumnity.potted_foul_berries": "Potted Foul Berries",
+  "block.autumnity.foul_berry_sack": "Мешок кислых ягод",
+  "block.autumnity.potted_foul_berries": "Кислые ягоды в горшке",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Улиточная защите",
-  "advancements.husbandry.sneaky_protection.description": "Создайте нагрудник из раковины улитки"
+  "advancements.husbandry.sneaky_protection.title": "Крадущаяся защита",
+  "advancements.husbandry.sneaky_protection.description": "Создайте улиточный нагрудник"
 }

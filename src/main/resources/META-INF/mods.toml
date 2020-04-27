@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[29,)"
-issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/autumnity/issues"
+issueTrackerURL="https://github.com/Markus1002/Autumnity/issues"
 [[mods]]
 modId="autumnity"
 version="1.2.0"

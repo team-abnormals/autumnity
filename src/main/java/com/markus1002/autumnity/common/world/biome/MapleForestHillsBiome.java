@@ -25,12 +25,11 @@ public final class MapleForestHillsBiome extends Biome
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
 		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addDoubleFlowers(this);
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		ModBiomeFeatures.addMapleFeatures(this);
-		DefaultBiomeFeatures.addDefaultFlowers(this);
+	    DefaultBiomeFeatures.addDefaultFlowers(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
 		DefaultBiomeFeatures.addSprings(this);

@@ -30,6 +30,7 @@ import com.markus1002.autumnity.core.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.PressurePlateBlock;
@@ -59,7 +60,9 @@ public class ModBlocks
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = registerBlock("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH = registerBlock("foul_berry_bush", () -> new FoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> TALL_FOUL_BERRY_BUSH = registerBlock("tall_foul_berry_bush", () -> new TallFoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
-
+	public static final RegistryObject<Block> AUTUMN_CROCUS = registerBlock("autumn_crocus", ItemGroup.DECORATIONS, () -> new FlowerBlock(ModEffects.ANTI_HEALING, 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), -1);
+	public static final RegistryObject<Block> POTTED_AUTUMN_CROCUS = registerBlock("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	
 	// Maple Stuff
 	public static final RegistryObject<Block> MAPLE_LOG = registerBlock("maple_log", ItemGroup.BUILDING_BLOCKS, () -> new LogBlock(MaterialColor.ORANGE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), -1);
 	public static final RegistryObject<Block> MAPLE_WOOD = registerBlock("maple_wood", ItemGroup.BUILDING_BLOCKS, () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), -1);

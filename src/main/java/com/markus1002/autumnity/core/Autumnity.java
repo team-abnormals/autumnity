@@ -5,6 +5,7 @@ import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModFeatures;
 import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.ModPaintings;
 import com.markus1002.autumnity.core.registry.ModParticles;
 import com.markus1002.autumnity.core.registry.ModPotions;
 import com.markus1002.autumnity.core.util.EventHandler;
@@ -33,6 +34,7 @@ public class Autumnity
         ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModBiomes.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModPaintings.PAINTINGS.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		

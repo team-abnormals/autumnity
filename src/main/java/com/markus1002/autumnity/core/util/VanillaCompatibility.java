@@ -32,6 +32,7 @@ public class VanillaCompatibility
 		registerCompostable(ModItems.FOUL_BERRY_PIPS.get(), 0.3F);
 		registerCompostable(ModItems.FOUL_BERRY_LEAF.get(), 0.3F);
 	    registerCompostable(ModItems.FOUL_BERRY_PIE.get(), 1.0F);
+	    registerCompostable(ModBlocks.AUTUMN_CROCUS.get().asItem(), 0.65F);
 		
 		registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
@@ -53,6 +54,7 @@ public class VanillaCompatibility
 		registerFlammable(ModBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		registerFlammable(ModBlocks.FOUL_BERRY_BUSH.get(), 60, 100);
 		registerFlammable(ModBlocks.TALL_FOUL_BERRY_BUSH.get(), 60, 100);
+		registerFlammable(ModBlocks.AUTUMN_CROCUS.get(), 60, 100);
 		
 		registerFlammable(ModBlocks.MAPLE_LOG.get(), 5, 5);
 		registerFlammable(ModBlocks.MAPLE_WOOD.get(), 5, 5);
@@ -95,6 +97,8 @@ public class VanillaCompatibility
 		RenderTypeLookup.setRenderLayer(ModBlocks.FOUL_BERRY_BUSH_PIPS.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(ModBlocks.FOUL_BERRY_BUSH.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(ModBlocks.TALL_FOUL_BERRY_BUSH.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.AUTUMN_CROCUS.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_AUTUMN_CROCUS.get(), RenderType.getCutoutMipped());
 		
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_DOOR.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(ModBlocks.MAPLE_TRAPDOOR.get(), RenderType.getCutoutMipped());

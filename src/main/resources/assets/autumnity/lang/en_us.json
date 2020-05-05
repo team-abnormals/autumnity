@@ -1,10 +1,14 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Snail Slime",
   "block.autumnity.snail_slime_block": "Snail Slime Block",
   "block.autumnity.pancake": "Pancake",
   "block.autumnity.foul_berry_bush_pips": "Foul Berry Pips",
   "block.autumnity.foul_berry_bush": "Foul Berry Bush",
   "block.autumnity.tall_foul_berry_bush": "Tall Foul Berry Bush",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Autumn Crocus",
+  "block.autumnity.potted_autumn_crocus": "Potted Autumn Crocus",
   
   "block.autumnity.maple_log": "Maple Log",
   "block.autumnity.maple_wood": "Maple Wood",
@@ -58,6 +62,7 @@
   
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
+  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
   "entity.autumnity.spatter": "Spatter",
   
   "_comment": "This effect extends the duration of active potion effects.",
@@ -94,7 +99,5 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
-  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate",
-  "advancements.husbandry.snail_paradise.title": "Snail Paradise",
-  "advancements.husbandry.snail_paradise.description": "Breed a snail in a mushroom field"
+  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
 }

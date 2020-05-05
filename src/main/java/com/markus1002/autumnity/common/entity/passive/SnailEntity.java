@@ -1,6 +1,7 @@
 package com.markus1002.autumnity.common.entity.passive;
 
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
@@ -31,10 +32,13 @@ import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.CowEntity;
+import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
@@ -45,6 +49,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -86,7 +91,7 @@ public class SnailEntity extends AnimalEntity
 		}
 		else
 		{
-			return !(livingentity instanceof SnailEntity);
+			return !(livingentity instanceof SnailEntity) && !(livingentity instanceof MooshroomEntity);
 		}
 	};
 
@@ -109,9 +114,10 @@ public class SnailEntity extends AnimalEntity
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
 		this.goalSelector.addGoal(3, new SnailEntity.FollowFoodGoal());
 		this.goalSelector.addGoal(4, new SnailEntity.EatMushroomsGoal());
-		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.5D));
-		this.goalSelector.addGoal(6, new SnailEntity.WatchGoal());
-		this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(5, new SnailEntity.EatMooshroomMushroomsGoal());
+		this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 0.5D));
+		this.goalSelector.addGoal(7, new SnailEntity.WatchGoal());
+		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
 	}
 
 	protected void registerAttributes()
@@ -701,6 +707,113 @@ public class SnailEntity extends AnimalEntity
 		private boolean isBlockMushroom(BlockPos pos)
 		{
 			return Config.COMMON.snailBlockFood.get().contains(SnailEntity.this.world.getBlockState(pos).getBlock().getRegistryName().toString());
+		}
+	}
+
+	public class EatMooshroomMushroomsGoal extends Goal
+	{
+		private MooshroomEntity targetMooshroom;
+		private int delayCounter;
+
+		public EatMooshroomMushroomsGoal()
+		{
+			super();
+		}
+
+		public boolean shouldExecute()
+		{
+			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0)
+			{
+				List<MooshroomEntity> list = SnailEntity.this.world.getEntitiesWithinAABB(MooshroomEntity.class, SnailEntity.this.getBoundingBox().grow(8.0D, 4.0D, 8.0D));
+				MooshroomEntity mooshroom = null;
+				double d0 = Double.MAX_VALUE;
+
+				for(MooshroomEntity mooshroom1 : list)
+				{
+					if (mooshroom1.getGrowingAge() >= 0)
+					{
+						double d1 = SnailEntity.this.getDistanceSq(mooshroom1);
+						if (!(d1 > d0))
+						{
+							d0 = d1;
+							mooshroom = mooshroom1;
+						}
+					}
+				}
+
+				if (mooshroom == null)
+				{
+					return false;
+				}
+				else
+				{
+					this.targetMooshroom = mooshroom;
+					return true;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public boolean shouldContinueExecuting()
+		{
+			if (!this.targetMooshroom.isAlive())
+			{
+				return false;
+			}
+			else if (!SnailEntity.this.canMove())
+			{
+				return false;
+			}
+			else if (SnailEntity.this.getSlimeAmount() > 0)
+			{
+				return false;
+			}
+			else
+			{
+				double d0 = this.targetMooshroom.getDistanceSq(SnailEntity.this);
+				return !(d0 > 256.0D);
+			}
+		}
+
+		public void startExecuting()
+		{
+			this.delayCounter = 0;
+		}
+
+		public void resetTask()
+		{
+			this.targetMooshroom = null;
+		}
+
+		public void tick()
+		{
+			if (--this.delayCounter <= 0)
+			{
+				this.delayCounter = 10;
+				SnailEntity.this.getNavigator().tryMoveToEntityLiving(this.targetMooshroom, 0.5D);
+			}
+
+			if (this.targetMooshroom != null && this.targetMooshroom.isAlive())
+			{
+				double d0 = this.targetMooshroom.getDistanceSq(SnailEntity.this);
+				if (d0 < 2.0D)
+				{
+					if (this.targetMooshroom.getMooshroomType() == MooshroomEntity.Type.BROWN)
+					{
+						SnailEntity.this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
+					}
+					else
+					{
+						SnailEntity.this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
+					}
+
+					SnailEntity.this.setEatingTime(192);
+					this.targetMooshroom.attackEntityFrom(DamageSource.causeMobDamage(SnailEntity.this), 0.0F);
+				}
+			}
 		}
 	}
 

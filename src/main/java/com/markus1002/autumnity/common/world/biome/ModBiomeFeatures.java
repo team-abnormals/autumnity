@@ -12,11 +12,13 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
@@ -32,12 +34,20 @@ public class ModBiomeFeatures
 	private static final BlockState ORANGE_MAPLE_LEAVES = ModBlocks.ORANGE_MAPLE_LEAVES.get().getDefaultState();
 	private static final BlockState RED_MAPLE_LEAVES = ModBlocks.RED_MAPLE_LEAVES.get().getDefaultState();
 	private static final BlockState TALL_FOUL_BERRY_BUSH = ModBlocks.TALL_FOUL_BERRY_BUSH.get().getDefaultState().with(SweetBerryBushBlock.AGE, Integer.valueOf(3));
+	private static final BlockState AUTUMN_CROCUS = ModBlocks.AUTUMN_CROCUS.get().getDefaultState();
+	private static final BlockState ROSE_BUSH = Blocks.ROSE_BUSH.getDefaultState();
+	private static final BlockState OXEYE_DAISY = Blocks.OXEYE_DAISY.getDefaultState();
+	private static final BlockState CORNFLOWER = Blocks.CORNFLOWER.getDefaultState();
 
 	public static final TreeFeatureConfig MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.YELLOW_MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.ORANGE_MAPLE_SAPLING.get()).build();
 	public static final TreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).setSapling((net.minecraftforge.common.IPlantable)ModBlocks.RED_MAPLE_SAPLING.get()).build();
 	public static final BlockClusterFeatureConfig TALL_FOUL_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(TALL_FOUL_BERRY_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).func_227317_b_().build();
+	public static final BlockClusterFeatureConfig AUTUMN_CROCUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(AUTUMN_CROCUS), new SimpleBlockPlacer())).tries(64).build();
+	public static final BlockClusterFeatureConfig ROSE_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(ROSE_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();
+	public static final BlockClusterFeatureConfig OXEYE_DAISY_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(OXEYE_DAISY), new SimpleBlockPlacer())).tries(64).build();
+	public static final BlockClusterFeatureConfig CORNFLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(CORNFLOWER), new SimpleBlockPlacer())).tries(64).build();
 
 	public static void addMapleFeatures(Biome biomeIn)
 	{
@@ -48,6 +58,7 @@ public class ModBiomeFeatures
 				ModFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).func_227227_a_(0.2F)),
 				ModFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(ROSE_BUSH_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LUSH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModFeatures.FALLEN_LEAVES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(64))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(TALL_FOUL_BERRY_BUSH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
@@ -62,7 +73,7 @@ public class ModBiomeFeatures
 				ModFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).func_227227_a_(0.2F)),
 				ModFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.PLAINS_FLOWER_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_32.configure(new NoiseDependant(-0.8D, 15, 4))));
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.FLOWER.withConfiguration(OXEYE_DAISY_CONFIG), Feature.FLOWER.withConfiguration(CORNFLOWER_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.NOISE_HEIGHTMAP_32.configure(new NoiseDependant(-0.8D, 15, 4))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.PUMPKIN_PATCH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(4))));
 

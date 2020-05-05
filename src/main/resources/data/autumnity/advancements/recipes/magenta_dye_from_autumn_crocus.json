@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:magenta_dye_from_autumn_crocus"
+    ]
+  },
+  "criteria": {
+    "has_autumn_crocus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "autumnity:autumn_crocus"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:magenta_dye_from_autumn_crocus"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_autumn_crocus",
+      "has_the_recipe"
+    ]
+  ]
+}

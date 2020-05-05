@@ -1,0 +1,96 @@
+{
+  "block.autumnity.snail_slime": "Šneèí sliz",
+  "block.autumnity.snail_slime_block": "Blok šneèího slizu",
+  "block.autumnity.pancake": "Lívanec",
+  "block.autumnity.foul_berry_bush_pips": "Jadérka z trpkých bobulí",
+  "block.autumnity.foul_berry_bush": "Keø trpkých bobulí",
+  "block.autumnity.tall_foul_berry_bush": "Vysoký keø trpkých bobulí",
+  
+  "block.autumnity.maple_log": "Javorový kmen",
+  "block.autumnity.maple_wood": "Javorové døevo",
+  "block.autumnity.stripped_maple_log": "Oloupaný javorový kmen",
+  "block.autumnity.stripped_maple_wood": "Oloupané javorové døevo",
+  "_comment": "Odkazuje na mízu které kape z kmene",
+  "block.autumnity.sappy_maple_log": "Javorový kmen ze kterého kape míza",
+  "block.autumnity.sappy_maple_wood": "Javorové døevo ze kterého kape míza",
+  
+  "block.autumnity.maple_planks": "Javorová prkna",
+  "block.autumnity.maple_stairs": "Javorové schody",
+  "block.autumnity.maple_slab": "Javorový pùlblok",
+  "block.autumnity.maple_pressure_plate": "Javorová nášlapná deska",
+  "block.autumnity.maple_button": "Javorové tlaèítko",
+  "block.autumnity.maple_fence": "Javorový plot",
+  "block.autumnity.maple_fence_gate": "Javorová branka",
+  "block.autumnity.maple_door": "Javorové dveøe",
+  "block.autumnity.maple_trapdoor": "Javorový poklop",
+  
+  "block.autumnity.maple_leaves": "Javorové listí",
+  "block.autumnity.yellow_maple_leaves": "Žluté javorové listí",
+  "block.autumnity.orange_maple_leaves": "Oranžové javorové listí",
+  "block.autumnity.red_maple_leaves": "Èervené javorové listí",
+  
+  "block.autumnity.maple_sapling": "Sazenice javoru",
+  "block.autumnity.yellow_maple_sapling": "Žlutá sazenice javoru",
+  "block.autumnity.orange_maple_sapling": "Oranžová sazenice javoru",
+  "block.autumnity.red_maple_sapling": "Èervená sazenice javoru",
+  
+  "block.autumnity.potted_maple_sapling": "Sazenice javoru v kvìtináèi",
+  "block.autumnity.potted_yellow_maple_sapling": "Žlutá sazenice javoru v kvìtináèi",
+  "block.autumnity.potted_orange_maple_sapling": "Oranžová sazenice javoru v kvìtináèi",
+  "block.autumnity.potted_red_maple_sapling": "Èervená sazenice javoru v kvìtináèi",
+  
+  "block.autumnity.maple_leaf_carpet": "Koberec z javorového listí",
+  "block.autumnity.yellow_maple_leaf_carpet": "Koberec ze žlutého javorového listí",
+  "block.autumnity.orange_maple_leaf_carpet": "Koberec z oranžového javorového listí",
+  "block.autumnity.red_maple_leaf_carpet": "Koberec z èerveného javorového listí",
+  
+  "item.autumnity.maple_boat": "Javorový èlun",
+  "item.autumnity.sap_bottle": "Lahvièka mízy",
+  "item.autumnity.syrup_bottle": "Lahvièka javorového sirupu",
+  "item.autumnity.foul_berries": "Trpké bobule",
+  "item.autumnity.foul_berry_pips": "Jadérka trpkých bobulí",
+  "item.autumnity.foul_berry_leaf": "List trpkých bobulí",
+  "item.autumnity.foul_berry_pie": "Koláè z trpkých bobulí",
+  "item.autumnity.snail_spawn_egg": "Vajíèko se šnekem",
+  "item.autumnity.snail_shell_piece": "Kousek šneèí ulity",
+  "item.autumnity.snail_shell_chestplate": "Brnìní ze šneèí ulity",
+  
+  "entity.autumnity.boat": "Èlun",
+  "entity.autumnity.snail": "Šnek",
+  
+  "_comment": "Tento efekt prodlužuje trvání ostatních.",
+  "effect.autumnity.extension": "Prodloužení",
+  "_comment": "Tento efekt znemožòuje jakékoli zvýšení zdraví",
+  "effect.autumnity.anti_healing": "Anti-léèení",
+  
+  "item.minecraft.potion.effect.extension": "Lektvar prodloužení",
+  "item.minecraft.splash_potion.effect.extension": "Vrhací lektvar prodloužení",
+  "item.minecraft.lingering_potion.effect.extension": "Doznívající lektvar prodloužení",
+  "item.minecraft.tipped_arrow.effect.extension": "Šíp prodloužení",
+  
+  "item.minecraft.potion.effect.anti_healing": "Lektvar anti-léèení",
+  "item.minecraft.splash_potion.effect.anti_healing": "Vrhací lektvar anti-léèení",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Doznívající lektvar anti-léèení",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Šíp anti-léèení",
+  
+  "biome.autumnity.maple_forest": "Javorový les",
+  "biome.autumnity.maple_forest_hills": "Javorový les v horách",
+  "biome.autumnity.pumpkin_fields": "Dýòová louka",
+  
+  "subtitles.entity.snail.eat": "Šnek jí",
+  "subtitles.entity.snail.hurt": "Šnek zranìn",
+  
+  
+  "_comment": "Vìci z Quarku",
+  
+  "block.autumnity.maple_vertical_slab": "Svislý javorový pùlblok",
+  "block.autumnity.vertical_maple_planks": "Svislé javorové prkna",
+  "block.autumnity.maple_bookshelf": "Javorová knihovna",
+  "block.autumnity.maple_ladder": "Javorový žebøík",
+  "block.autumnity.foul_berry_sack": "Pytel plný trpkých bobulí",
+  "block.autumnity.potted_foul_berries": "Trpké bobule v kvìtináèi",
+  
+  "_comment": "Jméno odkazuje na to že se hráè musí plížit aby aktivoval speciální schopnosti tohoto brnìní.",
+  "advancements.husbandry.sneaky_protection.title": "Plíživá obrana",
+  "advancements.husbandry.sneaky_protection.description": "Vytvoø brnìní ze šneèí ulity."
+}

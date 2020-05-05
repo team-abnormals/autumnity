@@ -1,10 +1,14 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Baba de caracol",
   "block.autumnity.snail_slime_block": "Bloque de baba",
   "block.autumnity.pancake": "Hot cake",
   "block.autumnity.foul_berry_bush_pips": "Pepitas de bayas repugnantes",
   "block.autumnity.foul_berry_bush": "Arbusto de bayas repugnantes",
   "block.autumnity.tall_foul_berry_bush": "Arbusto de bayas repugnantes alto",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Narciso de otoño",
+  "block.autumnity.potted_autumn_crocus": "Maceta con narciso de otoño",
   
   "block.autumnity.maple_log": "Tronco de arce",
   "block.autumnity.maple_wood": "Tronco de arce",
@@ -52,13 +56,14 @@
   "item.autumnity.foul_berry_leaf": "Hoja de bayas repugnantes",
   "item.autumnity.foul_berry_pie": "Pastel de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
-  "item.autumnity.spatter_spawn_egg": "Generar salpicado",
+  "item.autumnity.spatter_spawn_egg": "Generar rociador",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Pechera de caparazón de caracol",
   
   "entity.autumnity.boat": "Bote",
   "entity.autumnity.snail": "Caracol",
-  "entity.autumnity.spatter": "Salpicado",
+  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
+  "entity.autumnity.spatter": "Rociador",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",
@@ -94,7 +99,5 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección sigilosa",
-  "advancements.husbandry.sneaky_protection.description": "Construye una pechera de caparazón de caracol.",
-  "advancements.husbandry.snail_paradise.title": "Paraíso para caracoles",
-  "advancements.husbandry.snail_paradise.description": "Haz que un caracol se reproduzca en un campo fúngico."
+  "advancements.husbandry.sneaky_protection.description": "Construye una pechera de caparazón de caracol."
 }

@@ -55,7 +55,7 @@ public class SpatterEntity extends CreeperEntity
 		{
 			for(EffectInstance effectinstance : collection)
 			{
-				if (effectinstance.getPotion() != ModEffects.ANTI_HEALING)
+				if (effectinstance.getPotion() != ModEffects.LIFE_STASIS)
 				{
 					areaeffectcloudentity.addEffect(new EffectInstance(effectinstance));
 				}
@@ -69,7 +69,7 @@ public class SpatterEntity extends CreeperEntity
 
 		if (!flag)
 		{
-			areaeffectcloudentity.addEffect(new EffectInstance(new EffectInstance(ModEffects.ANTI_HEALING, 1200)));
+			areaeffectcloudentity.addEffect(new EffectInstance(new EffectInstance(ModEffects.LIFE_STASIS, 1200)));
 		}
 
 		this.world.addEntity(areaeffectcloudentity);
@@ -77,7 +77,7 @@ public class SpatterEntity extends CreeperEntity
 
 	public boolean isPotionApplicable(EffectInstance potioneffectIn)
 	{
-		return potioneffectIn.getPotion() == ModEffects.ANTI_HEALING ? false : super.isPotionApplicable(potioneffectIn);
+		return potioneffectIn.getPotion() == ModEffects.LIFE_STASIS ? false : super.isPotionApplicable(potioneffectIn);
 	}
 
 	public IPacket<?> createSpawnPacket()

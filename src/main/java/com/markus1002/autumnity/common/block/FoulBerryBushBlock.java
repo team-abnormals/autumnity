@@ -61,7 +61,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			double d0 = (double)pos.getX() + vec3d.x;
 			double d1 = (double)pos.getZ() + vec3d.z;
 
-			int i = ModEffects.ANTI_HEALING.getLiquidColor();
+			int i = ModEffects.LIFE_STASIS.getLiquidColor();
 			double d2 = (double)(i >> 16 & 255) / 255.0D;
 			double d3 = (double)(i >> 8 & 255) / 255.0D;
 			double d4 = (double)(i >> 0 & 255) / 255.0D;
@@ -95,7 +95,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
 			if (!worldIn.isRemote && state.get(AGE) == 1)
 			{
-				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.ANTI_HEALING, 200));
+				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.LIFE_STASIS, 200));
 			}
 		}
 	}

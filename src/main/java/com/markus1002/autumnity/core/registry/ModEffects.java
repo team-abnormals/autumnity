@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.common.potion.AntiHealingEffect;
+import com.markus1002.autumnity.common.potion.LifeStasisEffect;
 import com.markus1002.autumnity.common.potion.ExtensionEffect;
 import com.markus1002.autumnity.core.util.Reference;
 
@@ -17,11 +17,11 @@ public class ModEffects
 	public static final DeferredRegister<Effect> EFFECTS = new DeferredRegister<>(ForgeRegistries.POTIONS, Reference.MOD_ID);
 	
 	public static Effect EXTENSION = new ExtensionEffect().setRegistryName("extension");
-	public static Effect ANTI_HEALING = new AntiHealingEffect().setRegistryName("anti_healing");
+	public static Effect LIFE_STASIS = new LifeStasisEffect().setRegistryName("life_stasis");
 
 	@SubscribeEvent
 	public static void registerEffects(RegistryEvent.Register<Effect> event)
 	{
-    	event.getRegistry().registerAll(EXTENSION, ANTI_HEALING);
+    	event.getRegistry().registerAll(EXTENSION, LIFE_STASIS);
 	}
 }

@@ -7,6 +7,7 @@ import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.ModPotions;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,11 +30,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.RegistryEvent.MissingMappings;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
@@ -49,6 +53,19 @@ public class EventHandler
 {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
 
+	@SubscribeEvent
+	public void onEffectRemap(MissingMappings<Effect> event)
+	{
+		for (MissingMappings.Mapping<Effect> mapping : event.getMappings())
+		{
+			if (mapping.key.toString() == "autumnity:anti_healing")
+			{
+				mapping.remap(ModEffects.LIFE_STASIS);
+				break;
+			}
+		}
+	}
+	
 	@SubscribeEvent
 	public void handleBlockRightClick(PlayerInteractEvent.RightClickBlock event)
 	{
@@ -129,7 +146,7 @@ public class EventHandler
 	@SubscribeEvent
 	public void onLivingHeal(LivingHealEvent event)
 	{
-		if (event.getEntityLiving().isPotionActive(ModEffects.ANTI_HEALING))
+		if (event.getEntityLiving().isPotionActive(ModEffects.LIFE_STASIS))
 		{
 			event.setCanceled(true);
 		}

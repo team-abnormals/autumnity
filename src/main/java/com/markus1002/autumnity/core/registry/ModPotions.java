@@ -23,8 +23,8 @@ public class ModPotions
 	public static void registerPotions(RegistryEvent.Register<Potion> event)
 	{
 		EXTENSION = registerPotion(new Potion("extension", new EffectInstance(ModEffects.EXTENSION, 1)), "extension");
-		ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.ANTI_HEALING, 3600)), "anti_healing");
-		LONG_ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.ANTI_HEALING, 9600)), "long_anti_healing");
+		ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.LIFE_STASIS, 3600)), "anti_healing");
+		LONG_ANTI_HEALING = registerPotion(new Potion("anti_healing", new EffectInstance(ModEffects.LIFE_STASIS, 9600)), "long_anti_healing");
 	}
 	
 	private static Potion registerPotion(Potion potion, String name)

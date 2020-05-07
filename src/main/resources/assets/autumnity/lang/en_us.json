@@ -68,7 +68,7 @@
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.anti_healing": "Anti-healing",
+  "effect.autumnity.life_stasis": "Life Stasis",
   
   "item.minecraft.potion.effect.extension": "Potion of Extension",
   "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",

@@ -1,10 +1,14 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Baba de caracol",
   "block.autumnity.snail_slime_block": "Bloque de baba",
   "block.autumnity.pancake": "Tortita",
   "block.autumnity.foul_berry_bush_pips": "Pepitas de bayas repugnantes",
   "block.autumnity.foul_berry_bush": "Arbusto de bayas repugnantes",
   "block.autumnity.tall_foul_berry_bush": "Arbusto de bayas repugnantes alto",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Narciso de otoño",
+  "block.autumnity.potted_autumn_crocus": "Maceta con narciso de otoño",
   
   "block.autumnity.maple_log": "Tronco de arce",
   "block.autumnity.maple_wood": "Tronco de arce",
@@ -52,16 +56,19 @@
   "item.autumnity.foul_berry_leaf": "Hoja de bayas repugnantes",
   "item.autumnity.foul_berry_pie": "Tarta de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
+  "item.autumnity.spatter_spawn_egg": "Generar rociador",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Peto de caparazón de caracol",
   
   "entity.autumnity.boat": "Barca",
   "entity.autumnity.snail": "Caracol",
+  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
+  "entity.autumnity.spatter": "Rociador",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.anti_healing": "Anticuración",
+  "effect.autumnity.life_stasis": "Estasis vital",
   
   "item.minecraft.potion.effect.extension": "Poción de extensión",
   "item.minecraft.splash_potion.effect.extension": "Poción de extensión arrojadiza",
@@ -92,5 +99,5 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección a hurtadillas",
-  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol"
+  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol."
 }

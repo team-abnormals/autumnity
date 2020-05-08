@@ -56,14 +56,11 @@
   "item.autumnity.foul_berry_leaf": "Lemumarjan lehti",
   "item.autumnity.foul_berry_pie": "Lemumarjapiirakka",
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
-  "item.autumnity.spatter_spawn_egg": "Luo roisku",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
   
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
-  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
-  "entity.autumnity.spatter": "Roisku",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Pidentäminen",

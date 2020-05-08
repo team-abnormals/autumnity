@@ -56,14 +56,11 @@
   "item.autumnity.foul_berry_leaf": "Foul Berry Leaf",
   "item.autumnity.foul_berry_pie": "Foul Berry Pie",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
-  "item.autumnity.spatter_spawn_egg": "Spatter Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
   
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
-  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
-  "entity.autumnity.spatter": "Spatter",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",

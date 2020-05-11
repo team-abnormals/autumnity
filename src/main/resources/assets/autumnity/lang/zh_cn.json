@@ -1,10 +1,14 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "蜗牛粘液球",
   "block.autumnity.snail_slime_block": "蜗牛粘液块",
   "block.autumnity.pancake": "枫糖煎饼",
   "block.autumnity.foul_berry_bush_pips": "秽莓种子",
   "block.autumnity.foul_berry_bush": "秽莓丛",
   "block.autumnity.tall_foul_berry_bush": "高大秽莓灌木",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Autumn Crocus",
+  "block.autumnity.potted_autumn_crocus": "Potted Autumn Crocus",
   
   "block.autumnity.maple_log": "枫木原木",
   "block.autumnity.maple_wood": "枫木",
@@ -52,18 +56,16 @@
   "item.autumnity.foul_berry_leaf": "秽莓叶",
   "item.autumnity.foul_berry_pie": "秽莓派",
   "item.autumnity.snail_spawn_egg": "蜗牛刷怪蛋",
-  "item.autumnity.spatter_spawn_egg": "Spatter Spawn Egg",
   "item.autumnity.snail_shell_piece": "蜗牛壳碎片",
   "item.autumnity.snail_shell_chestplate": "蜗牛壳胸甲",
   
   "entity.autumnity.boat": "船",
   "entity.autumnity.snail": "蜗牛",
-  "entity.autumnity.spatter": "Spatter",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "延长",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.anti_healing": "禁疗",
+  "effect.autumnity.life_stasis": "Life Stasis",
   
   "item.minecraft.potion.effect.extension": "延长药水",
   "item.minecraft.splash_potion.effect.extension": "喷溅型延长药水",
@@ -94,7 +96,6 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "潜行保护",
-  "advancements.husbandry.sneaky_protection.description": "制作出一件蜗牛壳胸甲",
-  "advancements.husbandry.snail_paradise.title": "蜗牛天堂",
-  "advancements.husbandry.snail_paradise.description": "在蘑菇地喂养一只蜗牛"
+  "advancements.husbandry.sneaky_protection.description": "制作出一件蜗牛壳胸甲"
+
 }

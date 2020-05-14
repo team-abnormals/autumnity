@@ -21,3 +21,9 @@ description='''An autumn-themed mod with new biomes and friendly snails.'''
     versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"
+[[dependencies.autumnity]]
+    modId="abnormals_core"
+    mandatory=true
+    versionRange="[1.0.2,)"
+    ordering="AFTER"
+    side="BOTH"

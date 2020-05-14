@@ -1,52 +1,41 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.client.renderer.entity.ModBoatRenderer;
 import com.markus1002.autumnity.client.renderer.entity.SnailRenderer;
-import com.markus1002.autumnity.common.entity.item.boat.ModBoatEntity;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
+import com.markus1002.autumnity.core.Autumnity;
 import com.markus1002.autumnity.core.Config;
-import com.markus1002.autumnity.core.util.Reference;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-	public static final EntityType<ModBoatEntity> BOAT = EntityType.Builder.<ModBoatEntity>create(ModBoatEntity::new, EntityClassification.MISC)
-			.size(1.375F, 0.5625F)
-			.setTrackingRange(80)
-			.setShouldReceiveVelocityUpdates(true)
-			.setUpdateInterval(3)
-			.build(Reference.location("boat").toString());
+	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 
-	public static final EntityType<SnailEntity> SNAIL = EntityType.Builder.<SnailEntity>create(SnailEntity::new, EntityClassification.CREATURE)
-			.size(0.8F, 0.9F)
-			.setTrackingRange(64)
-			.setShouldReceiveVelocityUpdates(true)
-			.setUpdateInterval(3)
-			.build(Reference.location("snail").toString());
+	public static final RegistryObject<EntityType<SnailEntity>> SNAIL = HELPER.createLivingEntity("snail", SnailEntity::new, EntityClassification.CREATURE, 0.8F, 0.9F);
 
-	@SubscribeEvent
-	public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
-	{
-		registerEntity(BOAT, "boat");
-		registerEntity(SNAIL, "snail");
-	}
-	
 	public static void setupEntitySpawns(Biome biome)
 	{
+		if (biome == ModBiomes.MAPLE_FOREST.get())
+		{
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 8, 1, 2));
+		}
+		else if (biome == ModBiomes.PUMPKIN_FIELDS.get())
+		{
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 12, 1, 2));
+		}
+
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL, 8, 1, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 8, 1, 2));
 		}
 	}
 
@@ -58,13 +47,6 @@ public class ModEntities
 	@OnlyIn(Dist.CLIENT)
 	public static void setupEntitiesClient()
 	{
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends ModBoatEntity>)BOAT, ModBoatRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SnailEntity>)SNAIL, SnailRenderer::new);
-	}
-
-	private static void registerEntity(EntityType<?> entity, String name)
-	{
-		entity.setRegistryName(Reference.location(name));
-		ForgeRegistries.ENTITIES.register(entity);
+		RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SnailEntity>)SNAIL.get(), SnailRenderer::new);
 	}
 }

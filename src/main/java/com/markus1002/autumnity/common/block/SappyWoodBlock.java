@@ -1,7 +1,7 @@
 package com.markus1002.autumnity.common.block;
 
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.teamabnormals.abnormals_core.common.blocks.wood.StrippedLogBlock;
+import com.teamabnormals.abnormals_core.common.blocks.wood.StrippedWoodBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,11 +20,11 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class SappyLogBlock extends StrippedLogBlock
+public class SappyWoodBlock extends StrippedWoodBlock
 {
 	private final Block saplessBlock;
 
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties)
+	public SappyWoodBlock(RegistryObject<Block> saplessBlockIn, Properties properties)
 	{
 		super(properties);
 		this.saplessBlock = saplessBlockIn.get();

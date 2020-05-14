@@ -27,6 +27,8 @@
   "block.autumnity.maple_fence_gate": "Vaahteraportti",
   "block.autumnity.maple_door": "Vaahteraovi",
   "block.autumnity.maple_trapdoor": "Vaahteraluukku",
+  "block.autumnity.maple_sign": "Vaahterakyltti",
+  "block.autumnity.maple_wall_sign": "Vaahteraseinäkyltti",
   
   "block.autumnity.maple_leaves": "Vaahteranlehdet",
   "block.autumnity.yellow_maple_leaves": "Keltaiset vaahteranlehdet",

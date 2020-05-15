@@ -1,18 +1,22 @@
 package com.markus1002.autumnity.common.block;
 
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.teamabnormals.abnormals_core.common.blocks.wood.StrippedLogBlock;
+import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.LogBlock;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -20,13 +24,13 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class SappyLogBlock extends StrippedLogBlock
+public class SappyLogBlock extends LogBlock
 {
 	private final Block saplessBlock;
 
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties)
+	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, MaterialColor verticalColorIn, Properties properties)
 	{
-		super(properties);
+		super(verticalColorIn, properties);
 		this.saplessBlock = saplessBlockIn.get();
 	}
 
@@ -70,6 +74,23 @@ public class SappyLogBlock extends StrippedLogBlock
 			}
 
 			return ActionResultType.PASS;
+		}
+	}
+	
+	@Override
+	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items)
+	{
+		if(ItemStackUtils.isInGroup(this.asItem(), group))
+		{
+			int targetIndex = ItemStackUtils.findIndexOfItem(Items.SPONGE, items);
+			if(targetIndex != -1)
+			{
+				items.add(targetIndex, new ItemStack(this));
+			}
+			else
+			{
+				super.fillItemGroup(group, items);
+			}
 		}
 	}
 }

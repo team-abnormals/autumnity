@@ -1,0 +1,102 @@
+{
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+  "block.autumnity.snail_slime": "Schneckenschleim",
+  "block.autumnity.snail_slime_block": "Schneckenschleim Block",
+  "block.autumnity.pancake": "Pfannkuchen",
+  "block.autumnity.foul_berry_bush_pips": "Faule Beerenkerne",
+  "block.autumnity.foul_berry_bush": "Fauler Beerenbusch",
+  "block.autumnity.tall_foul_berry_bush": "Hoher Fauler Beerenbusch",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Herbst Krokus",
+  "block.autumnity.potted_autumn_crocus": "Getopfter Herbst Krokus",
+  
+  "block.autumnity.maple_log": "Ahornstamm",
+  "block.autumnity.maple_wood": "Ahornholz",
+  "block.autumnity.stripped_maple_log": "Entrindeter Ahornstamm",
+  "block.autumnity.stripped_maple_wood": "Entrindetes Ahornholz",
+  "_comment": "Refers to the sap dripping out of the wood",
+  "block.autumnity.sappy_maple_log": "Saftiger Ahornstamm",
+  "block.autumnity.sappy_maple_wood": "Saftiges Ahornholz",
+  
+  "block.autumnity.maple_planks": "Ahornholzbretter",
+  "block.autumnity.maple_stairs": "Ahornholztreppe",
+  "block.autumnity.maple_slab": "Ahornholzstufe",
+  "block.autumnity.maple_pressure_plate": "Ahorn Druckplatte",
+  "block.autumnity.maple_button": "Ahornholzknopf",
+  "block.autumnity.maple_fence": "Ahornholzzaun",
+  "block.autumnity.maple_fence_gate": "Ahornholzzauntor",
+  "block.autumnity.maple_door": "Ahornholztür",
+  "block.autumnity.maple_trapdoor": "Ahornholzfalltür",
+  "block.autumnity.maple_sign": "Ahornholzschild",
+  "block.autumnity.maple_wall_sign": "Ahornholzschild",
+  
+  "block.autumnity.maple_leaves": "Ahornblätter",
+  "block.autumnity.yellow_maple_leaves": "Gelbe Ahornblätter",
+  "block.autumnity.orange_maple_leaves": "Orangene Ahornblätter",
+  "block.autumnity.red_maple_leaves": "Rote Ahornblätter",
+  
+  "block.autumnity.maple_sapling": "Ahornsetzling",
+  "block.autumnity.yellow_maple_sapling": "Gelber Ahornsetzling",
+  "block.autumnity.orange_maple_sapling": "Oranger Ahornsetzling",
+  "block.autumnity.red_maple_sapling": "Roter Ahornsetzling",
+  
+  "block.autumnity.potted_maple_sapling": "Getopfter Ahornsetzling",
+  "block.autumnity.potted_yellow_maple_sapling": "Getopfter Gelber Ahornsetzling",
+  "block.autumnity.potted_orange_maple_sapling": "Getopfter Orangener Ahornsetzling",
+  "block.autumnity.potted_red_maple_sapling": "Getopfter Roter Ahornsetzling",
+  
+  "block.autumnity.maple_leaf_carpet": "Ahornblatt Teppich",
+  "block.autumnity.yellow_maple_leaf_carpet": "Gelber Ahornblatt Teppich",
+  "block.autumnity.orange_maple_leaf_carpet": "Orangener Ahornblatt Teppich",
+  "block.autumnity.red_maple_leaf_carpet": "Roter Ahornblatt Teppich",
+  
+  "item.autumnity.maple_boat": "Ahornholzboot",
+  "item.autumnity.sap_bottle": "Saftpflasche",
+  "item.autumnity.syrup_bottle": "Sirupflasche",
+  "item.autumnity.foul_berries": "Faule Beeren",
+  "item.autumnity.foul_berry_pips": "Faule Beerenkerne",
+  "item.autumnity.foul_berry_leaf": "Faule Beerenblätter",
+  "item.autumnity.foul_berry_pie": "Fauler Beerentorte",
+  "item.autumnity.snail_spawn_egg": "Schnecken-Spawn-Ei",
+  "item.autumnity.snail_shell_piece": "Schneckenpanzerstück",
+  "item.autumnity.snail_shell_chestplate": "Schneckenpanzer Brustplatte",
+  
+  "entity.autumnity.boat": "Boot",
+  "entity.autumnity.snail": "Schnecke",
+  
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Verlängerung",
+  "_comment": "This effect prevents all healing.",
+  "effect.autumnity.life_stasis": "Lebens Stase",
+  
+  "item.minecraft.potion.effect.extension": "Trank der Verlängerung",
+  "item.minecraft.splash_potion.effect.extension": "Wurftrank der Verlängerung",
+  "item.minecraft.lingering_potion.effect.extension": "Verweiltrank der Verlängerung",
+  "item.minecraft.tipped_arrow.effect.extension": "Pfeil der Verlängerung",
+  
+  "item.minecraft.potion.effect.anti_healing": "Trank der Anti-Heilung",
+  "item.minecraft.splash_potion.effect.anti_healing": "Wurftrank der Anti-Heilung",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Verweiltrank der Anti-Heilung",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Pfeil der Anti-Heilung",
+  
+  "biome.autumnity.maple_forest": "Ahornwald",
+  "biome.autumnity.maple_forest_hills": "Ahornwaldhügel",
+  "biome.autumnity.pumpkin_fields": "Kürbisfelder",
+  
+  "subtitles.entity.snail.eat": "Schnecke isst",
+  "subtitles.entity.snail.hurt": "Schnecke verletzt",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Ahorn Vertikal Stufe",
+  "block.autumnity.vertical_maple_planks": "Vertikale Ahornbretter",
+  "block.autumnity.maple_bookshelf": "Ahornholz Bücherregal",
+  "block.autumnity.maple_ladder": "Ahornholz Leiter",
+  "block.autumnity.foul_berry_sack": "Fauler Beeren Sack",
+  "block.autumnity.potted_foul_berries": "Getopfte Faule Beeren",
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",
+  "advancements.husbandry.sneaky_protection.description": "Bau eine Schneckenpanzer Brustplatte"
+}

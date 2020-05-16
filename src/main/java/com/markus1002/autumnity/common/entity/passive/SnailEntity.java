@@ -32,7 +32,6 @@ import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -49,9 +48,9 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -131,6 +130,11 @@ public class SnailEntity extends AnimalEntity
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
 	{
 		return sizeIn.height * 0.5F;
+	}
+
+	public ItemStack getPickedResult(RayTraceResult target)
+	{
+		return new ItemStack(ModItems.SNAIL_SPAWN_EGG.get());
 	}
 
 	@Nullable

@@ -27,6 +27,8 @@
   "block.autumnity.maple_fence_gate": "Puerta de valla de arce",
   "block.autumnity.maple_door": "Puerta de arce",
   "block.autumnity.maple_trapdoor": "Trampilla de arce",
+  "block.autumnity.maple_sign": "Cartel de arce",
+  "block.autumnity.maple_wall_sign": "Cartel de arce en pared",
   
   "block.autumnity.maple_leaves": "Hojas de arce",
   "block.autumnity.yellow_maple_leaves": "Hojas de arce amarillas",
@@ -56,14 +58,11 @@
   "item.autumnity.foul_berry_leaf": "Hoja de bayas repugnantes",
   "item.autumnity.foul_berry_pie": "Tarta de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
-  "item.autumnity.spatter_spawn_egg": "Generar rociador",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Peto de caparazón de caracol",
   
   "entity.autumnity.boat": "Barca",
   "entity.autumnity.snail": "Caracol",
-  "_comment": "A creeper variant that leaves a lingering cloud of anti-healing after exploding.",
-  "entity.autumnity.spatter": "Rociador",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",

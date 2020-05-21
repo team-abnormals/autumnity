@@ -365,6 +365,8 @@ public class SnailEntity extends AnimalEntity
 		}
 		else
 		{
+			boolean flag = super.attackEntityFrom(source, amount);
+			
 			if (!this.world.isRemote)
 			{
 				this.setHiding(true);
@@ -374,9 +376,9 @@ public class SnailEntity extends AnimalEntity
 			{
 				this.shakeTicks = this.rand.nextInt(2) == 0 ? -10 : 10;
 			}
-			return super.attackEntityFrom(source, amount);
+			
+			return flag;
 		}
-
 	}
 
 	private void spitOutItem()

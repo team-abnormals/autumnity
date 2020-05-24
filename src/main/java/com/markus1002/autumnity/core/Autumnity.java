@@ -12,9 +12,14 @@ import com.markus1002.autumnity.core.util.VanillaCompatibility;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -32,9 +37,14 @@ public class Autumnity
 	{
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         
-        modEventBus.addListener(this::setup);
-        modEventBus.addListener(this::clientSetup);
-        modEventBus.addListener(this::particleSetup);
+		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
+			modEventBus.addListener(EventPriority.LOWEST, this::clientSetup);
+	        modEventBus.addListener(EventPriority.LOWEST, this::particleSetup);
+
+		});
+		
+		modEventBus.addListener(EventPriority.LOWEST, this::commonSetup);
         
         REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
@@ -48,7 +58,7 @@ public class Autumnity
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	private void setup(final FMLCommonSetupEvent event)
+	private void commonSetup(final FMLCommonSetupEvent event)
 	{
 		VanillaCompatibility.setupVanillaCompatibility();
 		ModPotions.setupBrewingRecipes();
@@ -70,5 +80,12 @@ public class Autumnity
 	private void particleSetup(ParticleFactoryRegisterEvent event)
 	{
         ModParticles.registerFactories();
+	}
+	
+
+	@OnlyIn(Dist.CLIENT)
+	private void registerItemColors(ColorHandlerEvent.Item event)
+	{
+		REGISTRY_HELPER.processSpawnEggColors(event);
 	}
 }

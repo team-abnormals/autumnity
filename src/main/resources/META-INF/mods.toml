@@ -3,10 +3,10 @@ loaderVersion="[31,)"
 issueTrackerURL="https://github.com/Markus1002/Autumnity/issues"
 [[mods]]
 modId="autumnity"
-version="1.3.0"
+version="1.3.1"
 displayName="Autumnity"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/autumnity"
-credits="Markus1002, Translators: mARRSSSSSS, H4Mm3r_, TUsama, peehpeh, F4zzer, agent0M, Wizqok, Additional credits: five"
+credits="Five and Snake"
 authors="Markus1002"
 description='''An autumn-themed mod with new biomes and friendly snails.'''
 [[dependencies.autumnity]]

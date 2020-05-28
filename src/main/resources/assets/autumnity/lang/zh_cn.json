@@ -7,8 +7,8 @@
   "block.autumnity.foul_berry_bush": "秽莓丛",
   "block.autumnity.tall_foul_berry_bush": "高大秽莓灌木",
   "_comment": "A flower that generates in Maple Forests.",
-  "block.autumnity.autumn_crocus": "Autumn Crocus",
-  "block.autumnity.potted_autumn_crocus": "Potted Autumn Crocus",
+  "block.autumnity.autumn_crocus": "秋番红花",
+  "block.autumnity.potted_autumn_crocus": "盆栽秋番红花",
   
   "block.autumnity.maple_log": "枫木原木",
   "block.autumnity.maple_wood": "枫木",
@@ -27,6 +27,8 @@
   "block.autumnity.maple_fence_gate": "枫木栅栏门",
   "block.autumnity.maple_door": "枫木门",
   "block.autumnity.maple_trapdoor": "枫木活板门",
+  "block.autumnity.maple_sign": "橡木告示牌",
+  "block.autumnity.maple_wall_sign": "墙上的枫木告示牌",
   
   "block.autumnity.maple_leaves": "枫叶",
   "block.autumnity.yellow_maple_leaves": "黄色枫叶",
@@ -63,14 +65,14 @@
   "entity.autumnity.snail": "蜗牛",
   
   "_comment": "This effect extends the duration of active potion effects.",
-  "effect.autumnity.extension": "延长",
+  "effect.autumnity.extension": "延时",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.life_stasis": "Life Stasis",
+  "effect.autumnity.life_stasis": "生命阻滞",
   
-  "item.minecraft.potion.effect.extension": "延长药水",
-  "item.minecraft.splash_potion.effect.extension": "喷溅型延长药水",
-  "item.minecraft.lingering_potion.effect.extension": "滞留型延长药水",
-  "item.minecraft.tipped_arrow.effect.extension": "延长之箭",
+  "item.minecraft.potion.effect.extension": "延时药水",
+  "item.minecraft.splash_potion.effect.extension": "喷溅型延时药水",
+  "item.minecraft.lingering_potion.effect.extension": "滞留型延时药水",
+  "item.minecraft.tipped_arrow.effect.extension": "延时之箭",
   
   "item.minecraft.potion.effect.anti_healing": "禁疗药水",
   "item.minecraft.splash_potion.effect.anti_healing": "喷溅型禁疗药水",

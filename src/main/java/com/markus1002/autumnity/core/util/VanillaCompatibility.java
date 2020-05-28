@@ -1,8 +1,6 @@
 package com.markus1002.autumnity.core.util;
 
 import com.google.common.collect.Maps;
-import com.markus1002.autumnity.common.dispenser.DispenseModBoatBehavior;
-import com.markus1002.autumnity.common.entity.item.boat.ModBoatEntity;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModItems;
 
@@ -10,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
-import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.FireBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
@@ -19,7 +16,6 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Items;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.biome.BiomeColors;
@@ -79,15 +75,10 @@ public class VanillaCompatibility
 		registerFlammable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 30, 60);
 		registerFlammable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
 		registerFlammable(ModBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
-
-		registerStrippable(ModBlocks.MAPLE_LOG.get(), ModBlocks.STRIPPED_MAPLE_LOG.get());
-		registerStrippable(ModBlocks.MAPLE_WOOD.get(), ModBlocks.STRIPPED_MAPLE_WOOD.get());
 		
 		registerFlammable(ModBlocks.MAPLE_VERTICAL_SLAB.get(), 5, 20);
 		registerFlammable(ModBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
 		registerFlammable(ModBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
-
-		DispenserBlock.registerDispenseBehavior(ModItems.MAPLE_BOAT.get(), new DispenseModBoatBehavior(ModBoatEntity.BoatType.MAPLE));
 	}
 
 	public static void setupVanillaCompatibilityClient()

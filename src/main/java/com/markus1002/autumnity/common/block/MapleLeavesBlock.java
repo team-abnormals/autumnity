@@ -3,15 +3,15 @@ package com.markus1002.autumnity.common.block;
 import java.util.Random;
 
 import com.markus1002.autumnity.core.registry.ModParticles;
+import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class MapleLeavesBlock extends LeavesBlock
+public class MapleLeavesBlock extends AbnormalsLeavesBlock
 {
 	public MapleLeavesBlock(Properties properties)
 	{

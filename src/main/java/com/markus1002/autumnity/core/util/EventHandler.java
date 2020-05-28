@@ -7,12 +7,9 @@ import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.markus1002.autumnity.core.registry.ModPotions;
+import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -26,23 +23,16 @@ import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.EntityPredicates;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent.MissingMappings;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -62,36 +52,6 @@ public class EventHandler
 			{
 				mapping.remap(ModEffects.LIFE_STASIS);
 				break;
-			}
-		}
-	}
-	
-	@SubscribeEvent
-	public void handleBlockRightClick(PlayerInteractEvent.RightClickBlock event)
-	{
-		PlayerEntity playerentity = event.getPlayer();
-		World world = playerentity.getEntityWorld();
-		BlockPos blockpos = event.getPos();
-		BlockState blockstate = world.getBlockState(blockpos);
-
-		if (world.getRandom().nextInt(4) == 0 && event.getItemStack().getItem() instanceof AxeItem)
-		{
-			Block block = blockstate.getBlock();
-
-			if (block == ModBlocks.MAPLE_LOG.get() || block == ModBlocks.MAPLE_WOOD.get())
-			{
-				Block block1 = block == ModBlocks.MAPLE_LOG.get() ? ModBlocks.SAPPY_MAPLE_LOG.get() : ModBlocks.SAPPY_MAPLE_WOOD.get();
-				world.playSound(playerentity, blockpos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-				if (!world.isRemote)
-				{
-					world.setBlockState(blockpos, block1.getDefaultState().with(RotatedPillarBlock.AXIS, blockstate.get(RotatedPillarBlock.AXIS)), 11);
-					if (playerentity != null)
-					{
-						event.getItemStack().damageItem(1, playerentity, (p_220040_1_) -> {
-							p_220040_1_.sendBreakAnimation(event.getHand());
-						});
-					}
-				}
 			}
 		}
 	}
@@ -155,11 +115,11 @@ public class EventHandler
 	@SubscribeEvent
 	public void onWandererTradesEvent(WandererTradesEvent event)
 	{
-		event.getGenericTrades().add(new TradeHelper.ItemsForEmeraldsTrade(ModBlocks.MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeHelper.ItemsForEmeraldsTrade(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeHelper.ItemsForEmeraldsTrade(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeHelper.ItemsForEmeraldsTrade(ModBlocks.RED_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeHelper.ItemsForEmeraldsTrade(ModBlocks.SNAIL_SLIME.get().asItem(), 4, 1, 5, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.RED_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.SNAIL_SLIME.get().asItem(), 4, 1, 5, 1));
 	}
 
 	@SubscribeEvent
@@ -167,7 +127,7 @@ public class EventHandler
 	{
 		if (event.getType() == VillagerProfession.BUTCHER)
 		{
-			event.getTrades().get(4).add(new TradeHelper.EmeraldForItemsTrade(ModItems.FOUL_BERRIES.get(), 10, 12, 30));
+			event.getTrades().get(4).add(new TradeUtils.EmeraldsForItemsTrade(ModItems.FOUL_BERRIES.get(), 10, 12, 30));
 		}
 	}
 }

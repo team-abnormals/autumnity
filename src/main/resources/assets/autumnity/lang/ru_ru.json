@@ -1,10 +1,14 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Улиточная слизь",
   "block.autumnity.snail_slime_block": "Улиточный блок слизи",
   "block.autumnity.pancake": "Блинчик",
   "block.autumnity.foul_berry_bush_pips": "Косточки кислых ягод",
   "block.autumnity.foul_berry_bush": "Куст кислых ягод",
   "block.autumnity.tall_foul_berry_bush": "Высокий куст кислых ягод",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Осений крокус",
+  "block.autumnity.potted_autumn_crocus": "Осений крокус в горшке",
   
   "block.autumnity.maple_log": "Кленовое бревно",
   "block.autumnity.maple_wood": "Клён",
@@ -12,7 +16,7 @@
   "block.autumnity.stripped_maple_wood": "Обтёсанная кленовая древесина",
   "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Кленовое бревно с живицей",
-  "block.autumnity.sappy_maple_wood": "Клён  с живицей",
+  "block.autumnity.sappy_maple_wood": "Клён с живицей",
   
   "block.autumnity.maple_planks": "Кленовые доски",
   "block.autumnity.maple_stairs": "Кленовые ступеньки",
@@ -23,6 +27,8 @@
   "block.autumnity.maple_fence_gate": "Кленовая калитка",
   "block.autumnity.maple_door": "Кленовая дверь",
   "block.autumnity.maple_trapdoor": "Кленовый люк",
+  "block.autumnity.maple_sign": "Кленовая табличка",
+  "block.autumnity.maple_wall_sign": "Кленовая табличка",
   
   "block.autumnity.maple_leaves": "Кленовые листья",
   "block.autumnity.yellow_maple_leaves": "Жёлтые кленовые листья",
@@ -61,7 +67,7 @@
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Продление",
   "_comment": "This effect prevents all healing.",
-  "effect.autumnity.anti_healing": "Анти-исцеление",
+  "effect.autumnity.life_stasis": "Анти-исцеление",
   
   "item.minecraft.potion.effect.extension": "Зелье продления",
   "item.minecraft.splash_potion.effect.extension": "Взрывное зелье продления",

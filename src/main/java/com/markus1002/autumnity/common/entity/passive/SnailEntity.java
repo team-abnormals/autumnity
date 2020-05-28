@@ -32,7 +32,6 @@ import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -49,9 +48,9 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -66,6 +65,7 @@ public class SnailEntity extends AnimalEntity
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = (new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION)).setSaved(false);
 	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Boolean> HIDING = EntityDataManager.createKey(SnailEntity.class, DataSerializers.BOOLEAN);
+	private int hidingTime = 0;
 	private int slimeAmount = 0;
 
 	private float hideTicks;
@@ -104,7 +104,7 @@ public class SnailEntity extends AnimalEntity
 
 	public SnailEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
 	{
-		super(ModEntities.SNAIL, worldIn);
+		super(ModEntities.SNAIL.get(), worldIn);
 	}
 
 	protected void registerGoals()
@@ -131,6 +131,11 @@ public class SnailEntity extends AnimalEntity
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
 	{
 		return sizeIn.height * 0.5F;
+	}
+
+	public ItemStack getPickedResult(RayTraceResult target)
+	{
+		return new ItemStack(ModItems.SNAIL_SPAWN_EGG.get());
 	}
 
 	@Nullable
@@ -202,10 +207,10 @@ public class SnailEntity extends AnimalEntity
 			}
 		}
 
-		ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
-		if (!itemstack.isEmpty())
+		if (!this.world.isRemote && this.isAlive())
 		{
-			if (!this.world.isRemote)
+			ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+			if (!itemstack.isEmpty())
 			{
 				if (this.isFoodItem(itemstack))
 				{
@@ -234,11 +239,8 @@ public class SnailEntity extends AnimalEntity
 					this.spitOutItem();
 				}
 			}
-		}
 
-		if (!this.world.isRemote && this.getSlimeAmount() > 0)
-		{
-			if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this))
+			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this))
 			{
 				int i = MathHelper.floor(this.getPosX());
 				int j = MathHelper.floor(this.getPosY());
@@ -257,6 +259,11 @@ public class SnailEntity extends AnimalEntity
 						this.setSlimeAmount(this.getSlimeAmount() - 1);
 					}
 				}
+			}
+
+			if (this.hidingTime > 0)
+			{
+				this.hidingTime--;
 			}
 		}
 	}
@@ -361,8 +368,11 @@ public class SnailEntity extends AnimalEntity
 		}
 		else
 		{
+			boolean flag = super.attackEntityFrom(source, amount);
+
 			if (!this.world.isRemote)
 			{
+				this.hidingTime = 160 + rand.nextInt(200);
 				this.setHiding(true);
 				this.spitOutItem();
 			}
@@ -370,9 +380,9 @@ public class SnailEntity extends AnimalEntity
 			{
 				this.shakeTicks = this.rand.nextInt(2) == 0 ? -10 : 10;
 			}
-			return super.attackEntityFrom(source, amount);
-		}
 
+			return flag;
+		}
 	}
 
 	private void spitOutItem()
@@ -512,7 +522,7 @@ public class SnailEntity extends AnimalEntity
 
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
-		return ModEntities.SNAIL.create(this.world);
+		return ModEntities.SNAIL.get().create(this.world);
 	}
 
 	public IPacket<?> createSpawnPacket()
@@ -550,6 +560,7 @@ public class SnailEntity extends AnimalEntity
 
 		public void startExecuting()
 		{
+			SnailEntity.this.hidingTime = 100 + rand.nextInt(100);
 			SnailEntity.this.setHiding(true);
 		}
 
@@ -568,7 +579,7 @@ public class SnailEntity extends AnimalEntity
 
 		public boolean shouldExecute()
 		{
-			return SnailEntity.this.getRevengeTarget() == null && SnailEntity.this.rand.nextInt(100) == 0;
+			return SnailEntity.this.getRevengeTarget() == null && SnailEntity.this.hidingTime <= 0;
 		}
 
 		public void startExecuting()

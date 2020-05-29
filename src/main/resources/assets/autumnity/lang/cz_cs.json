@@ -1,4 +1,5 @@
 {
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Šneèí sliz",
   "block.autumnity.snail_slime_block": "Blok šneèího slizu",
   "block.autumnity.pancake": "Lívanec",
@@ -61,7 +62,7 @@
   "_comment": "Tento efekt prodlužuje trvání ostatních.",
   "effect.autumnity.extension": "Prodloužení",
   "_comment": "Tento efekt znemožòuje jakékoli zvýšení zdraví",
-  "effect.autumnity.anti_healing": "Anti-léèení",
+  "effect.autumnity.life_stasis": "Anti-léèení",
   
   "item.minecraft.potion.effect.extension": "Lektvar prodloužení",
   "item.minecraft.splash_potion.effect.extension": "Vrhací lektvar prodloužení",

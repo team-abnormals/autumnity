@@ -1,0 +1,102 @@
+{
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+  "block.autumnity.snail_slime": "Gliemežu gļotas",
+  "block.autumnity.snail_slime_block": "Gliemežu gļotu bloks",
+  "block.autumnity.pancake": "Pankūka",
+  "block.autumnity.foul_berry_bush_pips": "Netīro ogu kauliņi",
+  "block.autumnity.foul_berry_bush": "Netīro ogu krūms",
+  "block.autumnity.tall_foul_berry_bush": "Garš netīro ogu krūms",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Rudens krokuss",
+  "block.autumnity.potted_autumn_crocus": "Rudens krokuss podā",
+  
+  "block.autumnity.maple_log": "Kļavas baļķis",
+  "block.autumnity.maple_wood": "Kļavas koks",
+  "block.autumnity.stripped_maple_log": "Nomizots kļavas baļķis",
+  "block.autumnity.stripped_maple_wood": "Nomizots kļavas koks",
+  "_comment": "Refers to the sap dripping out of the wood",
+  "block.autumnity.sappy_maple_log": "Sulains kļavas baļķis",
+  "block.autumnity.sappy_maple_wood": "Sulains kļavas koks",
+  
+  "block.autumnity.maple_planks": "Kļavas dēļi",
+  "block.autumnity.maple_stairs": "Kļavas kāpnes",
+  "block.autumnity.maple_slab": "Kļavas plāksne",
+  "block.autumnity.maple_pressure_plate": "Kļavas spiediena plāksne",
+  "block.autumnity.maple_button": "Kļavas poga",
+  "block.autumnity.maple_fence": "Kļavas žogs",
+  "block.autumnity.maple_fence_gate": "Kļavas žogu vārti",
+  "block.autumnity.maple_door": "Kļavas durvis",
+  "block.autumnity.maple_trapdoor": "Kļavas lūka",
+  "block.autumnity.maple_sign": "Kļavas zīme",
+  "block.autumnity.maple_wall_sign": "Kļavas sienas zīme",
+  
+  "block.autumnity.maple_leaves": "Kļavu lapas",
+  "block.autumnity.yellow_maple_leaves": "Dzelteno kļavu lapas",
+  "block.autumnity.orange_maple_leaves": "Oranžo kļavu lapas",
+  "block.autumnity.red_maple_leaves": "Sarkano kļavu lapas",
+  
+  "block.autumnity.maple_sapling": "Kļavas stāds",
+  "block.autumnity.yellow_maple_sapling": "Sarkanās kļavas stāds",
+  "block.autumnity.orange_maple_sapling": "Oranžās kļavas stāds",
+  "block.autumnity.red_maple_sapling": "Sarkanās kļavas stāds",
+  
+  "block.autumnity.potted_maple_sapling": "Kļavas stāds podā",
+  "block.autumnity.potted_yellow_maple_sapling": "Dzeltenās kļavas stāds podā",
+  "block.autumnity.potted_orange_maple_sapling": "Oranžās kļavas stāds podā",
+  "block.autumnity.potted_red_maple_sapling": "Sarkanās kļavas stāds podā",
+  
+  "block.autumnity.maple_leaf_carpet": "Kļavu lapu paklājs",
+  "block.autumnity.yellow_maple_leaf_carpet": "Dzelteno kļavu lapu paklājs",
+  "block.autumnity.orange_maple_leaf_carpet": "Oranžo kļavu lapu paklājs",
+  "block.autumnity.red_maple_leaf_carpet": "Sarkano kļavu lapu paklājs",
+  
+  "item.autumnity.maple_boat": "Kļavas laiva",
+  "item.autumnity.sap_bottle": "Kļavu sulas pudele",
+  "item.autumnity.syrup_bottle": "Kļavu sīrupa pudele",
+  "item.autumnity.foul_berries": "Netīrās ogas",
+  "item.autumnity.foul_berry_pips": "Netīro ogu kauliņi",
+  "item.autumnity.foul_berry_leaf": "Netīro ogu lapa",
+  "item.autumnity.foul_berry_pie": "Netīro ogu pīrāgs",
+  "item.autumnity.snail_spawn_egg": "Gliemeža radīšanas ola",
+  "item.autumnity.snail_shell_piece": "Gliemeža čaulas gabals",
+  "item.autumnity.snail_shell_chestplate": "Gliemeža čaulas bruņas",
+  
+  "entity.autumnity.boat": "Laiva",
+  "entity.autumnity.snail": "Gliemezis",
+  
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Paildzināšana",
+  "_comment": "This effect prevents all healing.",
+  "effect.autumnity.life_stasis": "Dzīvības stāze",
+  
+  "item.minecraft.potion.effect.extension": "Paildzināšanas dzira",
+  "item.minecraft.splash_potion.effect.extension": "Šļasktoša paildzināšanas dzira",
+  "item.minecraft.lingering_potion.effect.extension": "Ilgstoša paildzināšanas dzira",
+  "item.minecraft.tipped_arrow.effect.extension": "Paildzināšanas bulta",
+  
+  "item.minecraft.potion.effect.anti_healing": "Dzīvības stāzes dzira",
+  "item.minecraft.splash_potion.effect.anti_healing": "Šļasktoša dzīvības stāzes dzira",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Ilgstoša dzīvības stāzes dzira",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Dzīvības stāzes bulta",
+  
+  "biome.autumnity.maple_forest": "Kļavu mežs",
+  "biome.autumnity.maple_forest_hills": "Kļavu mežu kalni",
+  "biome.autumnity.pumpkin_fields": "Ķirbju lauki",
+  
+  "subtitles.entity.snail.eat": "Gliemezis ēd",
+  "subtitles.entity.snail.hurt": "Gliemezis savainojas",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Vertikāla kļavas plāksne",
+  "block.autumnity.vertical_maple_planks": "Vertikāli kļavas dēļi",
+  "block.autumnity.maple_bookshelf": "Kļavas grāmatu plaukts",
+  "block.autumnity.maple_ladder": "Kļavu kāpnes",
+  "block.autumnity.foul_berry_sack": "Netīro ogu bundulis",
+  "block.autumnity.potted_foul_berries": "Netīrās ogas podā",
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Lavīšanās aizsardzība",
+  "advancements.husbandry.sneaky_protection.description": "Izveido gliemeža čaulas bruņas"
+}

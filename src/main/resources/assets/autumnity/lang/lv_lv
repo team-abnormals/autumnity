@@ -51,8 +51,8 @@
   "block.autumnity.red_maple_leaf_carpet": "Sarkano kļavu lapu paklājs",
   
   "item.autumnity.maple_boat": "Kļavas laiva",
-  "item.autumnity.sap_bottle": "Kļavu sulas pudele", // Translated from "(Maple) sap bottle"
-  "item.autumnity.syrup_bottle": "Kļavu sīrupa pudele", // Translated from "(Maple) syrup bottle"
+  "item.autumnity.sap_bottle": "Kļavu sulas pudele",
+  "item.autumnity.syrup_bottle": "Kļavu sīrupa pudele",
   "item.autumnity.foul_berries": "Netīrās ogas",
   "item.autumnity.foul_berry_pips": "Netīro ogu kauliņi",
   "item.autumnity.foul_berry_leaf": "Netīro ogu lapa",

@@ -11,12 +11,12 @@
   "block.autumnity.potted_autumn_crocus": "Maceta con narciso de otoño",
   
   "block.autumnity.maple_log": "Tronco de arce",
-  "block.autumnity.maple_wood": "Tronco de arce",
+  "block.autumnity.maple_wood": "Leño de arce",
   "block.autumnity.stripped_maple_log": "Tronco de arce sin corteza",
-  "block.autumnity.stripped_maple_wood": "Madera de arce sin corteza",
+  "block.autumnity.stripped_maple_wood": "Leño de arce sin corteza",
   "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Tronco de arce lleno de savia",
-  "block.autumnity.sappy_maple_wood": "Tronco de arce lleno de savia",
+  "block.autumnity.sappy_maple_wood": "Leño de arce lleno de savia",
   
   "block.autumnity.maple_planks": "Madera de arce",
   "block.autumnity.maple_stairs": "Escaleras de arce",
@@ -55,7 +55,7 @@
   "item.autumnity.syrup_bottle": "Frasco de jarabe",
   "item.autumnity.foul_berries": "Bayas repugnantes",
   "item.autumnity.foul_berry_pips": "Pepitas de bayas repugnantes",
-  "item.autumnity.foul_berry_leaf": "Hoja de bayas repugnantes",
+  "item.autumnity.foul_berry_leaf": "Hoja de baya repugnante",
   "item.autumnity.foul_berry_pie": "Pastel de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
@@ -79,8 +79,8 @@
   "item.minecraft.lingering_potion.effect.anti_healing": "Poción persistente de anticuración",
   "item.minecraft.tipped_arrow.effect.anti_healing": "Flecha de anticuración",
   
-  "biome.autumnity.maple_forest": "Bosque de arce",
-  "biome.autumnity.maple_forest_hills": "Colinas de bosque de arce",
+  "biome.autumnity.maple_forest": "Bosque de arces",
+  "biome.autumnity.maple_forest_hills": "Colinas de bosque de arces",
   "biome.autumnity.pumpkin_fields": "Campo de calabazas",
   
   "subtitles.entity.snail.eat": "Caracol comiendo",

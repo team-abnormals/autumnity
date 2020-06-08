@@ -125,9 +125,9 @@ public class EventHandler
 	@SubscribeEvent
 	public void onVillagerTradesEvent(VillagerTradesEvent event)
 	{
-		if (event.getType() == VillagerProfession.BUTCHER)
+		if (event.getType() == VillagerProfession.FARMER)
 		{
-			event.getTrades().get(4).add(new TradeUtils.EmeraldsForItemsTrade(ModItems.FOUL_BERRIES.get(), 10, 12, 30));
+			event.getTrades().get(2).add(new TradeUtils.ItemsForEmeraldsTrade(ModItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
 		}
 	}
 }

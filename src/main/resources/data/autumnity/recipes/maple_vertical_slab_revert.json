@@ -20,8 +20,8 @@
           "modid": "quark"
         },
         {
-        	"type": "quark:flag",
-        	"flag": "vertical_slabs"
+          "type": "abnormals_core:quark_flag",
+          "flag": "vertical_slabs"
         }
       ]
     }

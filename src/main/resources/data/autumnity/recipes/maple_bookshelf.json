@@ -25,8 +25,8 @@
           "modid": "quark"
         },
         {
-        	"type": "quark:flag",
-        	"flag": "variant_bookshelves"
+          "type": "abnormals_core:quark_flag",
+          "flag": "variant_bookshelves"
         }
       ]
     }

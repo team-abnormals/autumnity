@@ -38,7 +38,7 @@ public class VanillaCompatibility
 		registerCompostable(ModBlocks.MAPLE_SAPLING.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 0.3F);
-		registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
+		registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get().asItem(), 0.3F);
 
 		registerCompostable(ModBlocks.MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
 		registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);

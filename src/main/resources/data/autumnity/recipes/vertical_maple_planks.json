@@ -23,8 +23,8 @@
           "modid": "quark"
         },
         {
-        	"type": "quark:flag",
-        	"flag": "vertical_planks"
+          "type": "abnormals_core:quark_flag",
+          "flag": "vertical_planks"
         }
       ]
     }

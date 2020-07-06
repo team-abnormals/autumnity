@@ -33,6 +33,7 @@ public class Autumnity
 {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(Reference.MOD_ID);
 	
+	// Test
 	public Autumnity()
 	{
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

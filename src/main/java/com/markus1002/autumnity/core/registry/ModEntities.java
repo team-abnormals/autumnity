@@ -24,18 +24,14 @@ public class ModEntities
 
 	public static void setupEntitySpawns(Biome biome)
 	{
-		if (biome == ModBiomes.MAPLE_FOREST.get())
+		if (biome == ModBiomes.MAPLE_FOREST.get() || biome == ModBiomes.MAPLE_FOREST_HILLS.get() || biome == ModBiomes.PUMPKIN_FIELDS.get())
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 8, 1, 2));
-		}
-		else if (biome == ModBiomes.PUMPKIN_FIELDS.get())
-		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 12, 1, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 12, 2, 2));
 		}
 
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 8, 1, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 10, 2, 2));
 		}
 	}
 

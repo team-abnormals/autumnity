@@ -1,0 +1,102 @@
+{
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+  "block.autumnity.snail_slime": "Barnacle Goop",
+  "block.autumnity.snail_slime_block": "Cube o' Barnacle Goop",
+  "block.autumnity.pancake": "Flapjack",
+  "block.autumnity.foul_berry_bush_pips": "Stinkin' Land Caper Bits",
+  "block.autumnity.foul_berry_bush": "Stinkin' Land Caper Shrub",
+  "block.autumnity.tall_foul_berry_bush": "Mighty Stinkin' Land Caper Shrub",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "Flower o' Fall",
+  "block.autumnity.potted_autumn_crocus": "Captive Flower o' Fall",
+  
+  "block.autumnity.maple_log": "Log o' Maple",
+  "block.autumnity.maple_wood": "Maple Timber",
+  "block.autumnity.stripped_maple_log": "Bare Maple Timber",
+  "block.autumnity.stripped_maple_wood": "Bare Maple Wood",
+  "_comment": "Refers to the sap dripping out of the wood",
+  "block.autumnity.sappy_maple_log": "Drippin' Log o' Maple",
+  "block.autumnity.sappy_maple_wood": "Drippin' Maple Timber",
+  
+  "block.autumnity.maple_planks": "Planks o' Maple",
+  "block.autumnity.maple_stairs": "Stairs o' Maple",
+  "block.autumnity.maple_slab": "Slab o' Maple",
+  "block.autumnity.maple_pressure_plate": "Maple Booby Trap",
+  "block.autumnity.maple_button": "Knob o' Maple",
+  "block.autumnity.maple_fence": "Picket o' Maple Timber",
+  "block.autumnity.maple_fence_gate": "Picket Gate o' Maple Timber",
+  "block.autumnity.maple_door": "Door o' Maple",
+  "block.autumnity.maple_trapdoor": "Hatch o' Maple",
+  "block.autumnity.maple_sign": "Seal ov Maple",
+  "block.autumnity.maple_wall_sign": "Hung Seal ov Maple",
+  
+  "block.autumnity.maple_leaves": "Leaves o' Maple",
+  "block.autumnity.yellow_maple_leaves": "Yeller Leaves o' Maple",
+  "block.autumnity.orange_maple_leaves": "Orange Leaves o' Maple",
+  "block.autumnity.red_maple_leaves": "Bloody Leaves o' Maple",
+  
+  "block.autumnity.maple_sapling": "Maple Meager shrub",
+  "block.autumnity.yellow_maple_sapling": "Yeller Maple Meager shrub",
+  "block.autumnity.orange_maple_sapling": "Orange Maple Meager shrub",
+  "block.autumnity.red_maple_sapling": "Bloody Maple Meager shrub",
+  
+  "block.autumnity.potted_maple_sapling": "Captive Maple Meager shrub",
+  "block.autumnity.potted_yellow_maple_sapling": "Captive Yeller Maple Meager shrub",
+  "block.autumnity.potted_orange_maple_sapling": "Captured Orange Maple Meager shrub",
+  "block.autumnity.potted_red_maple_sapling": "Captured Bloody Maple Meager shrub",
+  
+  "block.autumnity.maple_leaf_carpet": "Fallen Leaves o' Maple",
+  "block.autumnity.yellow_maple_leaf_carpet": "Fallen Yeller Leaves o' Maple",
+  "block.autumnity.orange_maple_leaf_carpet": "Fallen Orange Leaves o' Maple",
+  "block.autumnity.red_maple_leaf_carpet": "Fallen Bloody Leaves o' Maple",
+  
+  "item.autumnity.maple_boat": "Maple'n Vessel",
+  "item.autumnity.sap_bottle": "Bottle o' Tree Sap",
+  "item.autumnity.syrup_bottle": "Bottle o' Flapjack Juice",
+  "item.autumnity.foul_berries": "Stinkin' Land Capers",
+  "item.autumnity.foul_berry_pips": "Stinkin' Land Caper Bits",
+  "item.autumnity.foul_berry_leaf": "Stinkin' Land Caper Leaf",
+  "item.autumnity.foul_berry_pie": "Stinkin' Caper Pie",
+  "item.autumnity.snail_spawn_egg": "Landlubbin' Barnacle Cackle Fruit",
+  "item.autumnity.snail_shell_piece": "Chunk o' Barnacle",
+  "item.autumnity.snail_shell_chestplate": "Cuirass o' Barnacle Shell",
+  
+  "entity.autumnity.boat": "Vesesl",
+  "entity.autumnity.snail": "Landlubbin' Barnacle",
+  
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "Dilly Dallyin'",
+  "_comment": "This effect prevents all healing.",
+  "effect.autumnity.life_stasis": "Cleaved to th' Brisket",
+  
+  "item.minecraft.potion.effect.extension": "Grog o' Dilly Dallyin'",
+  "item.minecraft.splash_potion.effect.extension": "Grenade o' Dilly Dallyin'",
+  "item.minecraft.lingering_potion.effect.extension": "Bottled Fog o' Dilly Dallyin'",
+  "item.minecraft.tipped_arrow.effect.extension": "Bolt o' Dilly Dallyin'",
+  
+  "item.minecraft.potion.effect.anti_healing": "Grog o' Cleavin'",
+  "item.minecraft.splash_potion.effect.anti_healing": "Grenade o' Cleavin'",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Bottled Fog o' Cleavin'",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o' Cleavin'",
+  
+  "biome.autumnity.maple_forest": "Woods o' Fall",
+  "biome.autumnity.maple_forest_hills": "Woods o' Fall 'ills",
+  "biome.autumnity.pumpkin_fields": "Gourd Squash Flat",
+  
+  "subtitles.entity.snail.eat": "Landlubbin' Barnacle snackin'",
+  "subtitles.entity.snail.hurt": "Landlubbin' Barnackle hurtin'",
+  
+  
+  "_comment": "Quark Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "Standin' Slab o' Maple",
+  "block.autumnity.vertical_maple_planks": "Planks o' Maple be standin'",
+  "block.autumnity.maple_bookshelf": "Maple Shelv o' Knowledge",
+  "block.autumnity.maple_ladder": "Maple Climbin' Planks",
+  "block.autumnity.foul_berry_sack": "Bag o' Stinkin' Land Capers",
+  "block.autumnity.potted_foul_berries": "Captive Stinkin' Land Capers",
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "Batten Down the Hatches!",
+  "advancements.husbandry.sneaky_protection.description": "Make yerrself a cuirass o' barnacle shell"
+}

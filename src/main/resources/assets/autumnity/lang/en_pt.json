@@ -15,7 +15,7 @@
   "block.autumnity.stripped_maple_log": "Bare Maple Timber",
   "block.autumnity.stripped_maple_wood": "Bare Maple Wood",
   "_comment": "Refers to the sap dripping out of the wood",
-  "block.autumnity.sappy_maple_log": "Drippin\' Log o\' Maple",
+  "block.autumnity.sappy_maple_log": "Drippin'' Log o'' Maple",
   "block.autumnity.sappy_maple_wood": "Drippin' Maple Timber",
   
   "block.autumnity.maple_planks": "Planks o' Maple",
@@ -69,18 +69,18 @@
   "_comment": "This effect prevents all healing.",
   "effect.autumnity.life_stasis": "Cleaved to th' Brisket",
   
-  "item.minecraft.potion.effect.extension": "Grog o\' Dilly Dallyin\'",
-  "item.minecraft.splash_potion.effect.extension": "Grenade o\' Dilly Dallyin\'",
-  "item.minecraft.lingering_potion.effect.extension": "Bottled Fog o\' Dilly Dallyin\'",
-  "item.minecraft.tipped_arrow.effect.extension": "Bolt o\' Dilly Dallyin\'",
+  "item.minecraft.potion.effect.extension": "Grog o'' Dilly Dallyin''",
+  "item.minecraft.splash_potion.effect.extension": "Grenade o'' Dilly Dallyin''",
+  "item.minecraft.lingering_potion.effect.extension": "Bottled Fog o'' Dilly Dallyin''",
+  "item.minecraft.tipped_arrow.effect.extension": "Bolt o'' Dilly Dallyin''",
   
-  "item.minecraft.potion.effect.anti_healing": "Grog o\' Cleavin\'",
-  "item.minecraft.splash_potion.effect.anti_healing": "Grenade o\' Cleavin\'",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Bottled Fog o\' Cleavin\'",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o\' Cleavin\'",
+  "item.minecraft.potion.effect.anti_healing": "Grog o'' Cleavin''",
+  "item.minecraft.splash_potion.effect.anti_healing": "Grenade o'' Cleavin''",
+  "item.minecraft.lingering_potion.effect.anti_healing": "Bottled Fog o'' Cleavin''",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o' Cleavin'",
   
   "biome.autumnity.maple_forest": "Woods o' Fall",
-  "biome.autumnity.maple_forest_hills": "Woods o\' Fall \'ills",
+  "biome.autumnity.maple_forest_hills": "Woods o'' Fall ''ills",
   "biome.autumnity.pumpkin_fields": "Gourd Squash Flat",
   
   "subtitles.entity.snail.eat": "Landlubbin' Barnacle snackin'",
@@ -89,11 +89,11 @@
   
   "_comment": "Quark Stuff",
   
-  "block.autumnity.maple_vertical_slab": "Standin\' Slab o\' Maple",
-  "block.autumnity.vertical_maple_planks": "Standin\' Planks o\' Maple",
+  "block.autumnity.maple_vertical_slab": "Standin'' Slab o'' Maple",
+  "block.autumnity.vertical_maple_planks": "Standin'' Planks o'' Maple",
   "block.autumnity.maple_bookshelf": "Maple Shelv o' Knowledge",
   "block.autumnity.maple_ladder": "Maple Climbin' Planks",
-  "block.autumnity.foul_berry_sack": "Bag o\' Stinkin\' Land Capers",
+  "block.autumnity.foul_berry_sack": "Bag o'' Stinkin'' Land Capers",
   "block.autumnity.potted_foul_berries": "Captive Stinkin' Land Capers",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",

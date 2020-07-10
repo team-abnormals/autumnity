@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Dynamic;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
@@ -13,11 +13,12 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
-public class MapleTreeFeature extends AbstractTreeFeature<TreeFeatureConfig>
+public class MapleTreeFeature extends AbstractTreeFeature<BaseTreeFeatureConfig>
 {
-	public MapleTreeFeature(Function<Dynamic<?>, ? extends TreeFeatureConfig> config)
+	public MapleTreeFeature(Function<Dynamic<?>, ? extends BaseTreeFeatureConfig> config)
 	{
 		super(config);
 	}

@@ -8,10 +8,10 @@ import com.markus1002.autumnity.core.Config;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
@@ -22,7 +22,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModFeatures
 {
-	public static final Feature<TreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(TreeFeatureConfig::func_227338_a_);
+	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig::func_227338_a_);
 	public static final Feature<NoFeatureConfig> FALLEN_LEAVES = new FallenLeavesFeature(NoFeatureConfig::deserialize);
 
 	@SubscribeEvent

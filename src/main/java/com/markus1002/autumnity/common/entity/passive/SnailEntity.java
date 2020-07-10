@@ -19,9 +19,11 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.Pose;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.LookController;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.BreedGoal;
@@ -45,6 +47,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
@@ -62,7 +65,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public class SnailEntity extends AnimalEntity
 {
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
-	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = (new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION)).setSaved(false);
+	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
 	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Boolean> HIDING = EntityDataManager.createKey(SnailEntity.class, DataSerializers.BOOLEAN);
 	private int hidingTime = 0;
@@ -120,12 +123,9 @@ public class SnailEntity extends AnimalEntity
 		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
 	}
 
-	protected void registerAttributes()
+	public static AttributeModifierMap.MutableAttribute registerAttributes()
 	{
-		super.registerAttributes();
-		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(18.0D);
-		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-		this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+		return MobEntity.func_233666_p_().func_233815_a_(Attributes.MAX_HEALTH, 18.0D).func_233815_a_(Attributes.MOVEMENT_SPEED, 0.25D).func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
@@ -297,7 +297,7 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
-	public boolean processInteract(PlayerEntity player, Hand hand)
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand)
 	{
 		if (!this.getHiding() && !this.isEating())
 		{
@@ -316,7 +316,7 @@ public class SnailEntity extends AnimalEntity
 							this.setEatingTime(192);
 						}
 						this.consumeItemFromStack(player, itemstack);
-						return true;
+						return ActionResultType.SUCCESS;
 					}
 				}
 				else if (this.isSnailBreedingItem(itemstack))
@@ -348,16 +348,16 @@ public class SnailEntity extends AnimalEntity
 							}
 						}
 
-						return true;
+						return ActionResultType.SUCCESS;
 					}
 				}
 			}
 		}
 
 		this.canBreed = false;
-		boolean flag = super.processInteract(player, hand);
+		ActionResultType result = super.func_230254_b_(player, hand);
 		this.canBreed = true;
-		return flag;
+		return result;
 	}
 
 	public boolean attackEntityFrom(DamageSource source, float amount)
@@ -435,10 +435,10 @@ public class SnailEntity extends AnimalEntity
 
 		if (!this.world.isRemote)
 		{
-			this.getAttribute(SharedMonsterAttributes.ARMOR).removeModifier(HIDING_ARMOR_BONUS_MODIFIER);
+			this.getAttribute(Attributes.ARMOR).removeModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			if (hiding)
 			{
-				this.getAttribute(SharedMonsterAttributes.ARMOR).applyModifier(HIDING_ARMOR_BONUS_MODIFIER);
+				this.getAttribute(Attributes.ARMOR).func_233767_b_(HIDING_ARMOR_BONUS_MODIFIER);
 			}
 		}
 	}

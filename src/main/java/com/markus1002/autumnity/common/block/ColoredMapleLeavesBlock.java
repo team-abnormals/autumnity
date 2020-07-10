@@ -1,6 +1,5 @@
 package com.markus1002.autumnity.common.block;
 
-import java.util.Properties;
 import java.util.Random;
 
 import com.markus1002.autumnity.core.registry.ModParticles;

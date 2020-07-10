@@ -46,13 +46,13 @@ public class SyrupBottleItem extends Item
 		return UseAction.DRINK;
 	}
 
-	public SoundEvent func_225520_U__()
+	public SoundEvent getDrinkSound()
 	{
-		return SoundEvents.field_226141_eV_;
+		return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
 	}
 
-	public SoundEvent func_225519_S__()
+	public SoundEvent getEatSound()
 	{
-		return SoundEvents.field_226141_eV_;
+		return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
 	}
 }

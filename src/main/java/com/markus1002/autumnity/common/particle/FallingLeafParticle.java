@@ -5,8 +5,8 @@ import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.SpriteTexturedParticle;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particles.BasicParticleType;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -15,7 +15,7 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 {
 	private final float rotSpeed;
 
-	private FallingLeafParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn)
+	private FallingLeafParticle(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn)
 	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
 		this.particleScale *= 1.2F;
@@ -67,7 +67,7 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 			this.spriteSet = sprite;
 		}
 
-		public Particle makeParticle(BasicParticleType typeIn, World worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed)
+		public Particle makeParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed)
 		{
 			FallingLeafParticle particle = new FallingLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
 			particle.setColor((float)xSpeed, (float)ySpeed, (float)zSpeed);

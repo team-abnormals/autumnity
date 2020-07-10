@@ -24,7 +24,7 @@ public class SnailShellChestplateItem extends ArmorItem
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
 	{
-		if (player.isShiftKeyDown())
+		if (player.isSneaking())
 		{
 			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 2, false, false, true));
 		}

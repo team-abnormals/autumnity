@@ -51,7 +51,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -87,7 +87,7 @@ public class SnailEntity extends AnimalEntity
 		}
 		else if (livingentity instanceof PlayerEntity)
 		{
-			return !livingentity.isShiftKeyDown() && !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
+			return !livingentity.isSneaking() && !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
 		}
 		else
 		{
@@ -276,14 +276,14 @@ public class SnailEntity extends AnimalEntity
 
 			for(int i = 0; i < 6; ++i)
 			{
-				Vec3d vec3d = new Vec3d(((double)this.rand.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double)this.rand.nextFloat() - 0.5D) * 0.1D);
-				vec3d = vec3d.rotatePitch(-this.rotationPitch * ((float)Math.PI / 180F));
-				vec3d = vec3d.rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F));
+				Vector3d vector3d = new Vector3d(((double)this.rand.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double)this.rand.nextFloat() - 0.5D) * 0.1D);
+				vector3d = vector3d.rotatePitch(-this.rotationPitch * ((float)Math.PI / 180F));
+				vector3d = vector3d.rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F));
 				double d0 = (double)(-this.rand.nextFloat()) * 0.2D;
-				Vec3d vec3d1 = new Vec3d(((double)this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double)this.rand.nextFloat() - 0.5D) * 0.2D);
-				vec3d1 = vec3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
-				vec3d1 = vec3d1.add(this.getPosX(), this.getPosY() + (double)this.getEyeHeight(), this.getPosZ());
-				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vec3d1.x, vec3d1.y, vec3d1.z, vec3d.x, vec3d.y + 0.05D, vec3d.z);
+				Vector3d vector3d1 = new Vector3d(((double)this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double)this.rand.nextFloat() - 0.5D) * 0.2D);
+				vector3d1 =vector3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
+				vector3d1 = vector3d1.add(this.getPosX(), this.getPosY() + (double)this.getEyeHeight(), this.getPosZ());
+				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vector3d1.x, vector3d1.y, vector3d1.z, vector3d.x, vector3d.y + 0.05D, vector3d.z);
 			}
 		}
 	}
@@ -655,7 +655,7 @@ public class SnailEntity extends AnimalEntity
 
 		protected boolean canMoveToMushroom()
 		{
-			Vec3d vec3d = this.findMushroom();
+			Vector3d vec3d = this.findMushroom();
 			if (vec3d == null)
 			{
 				return false;
@@ -680,7 +680,7 @@ public class SnailEntity extends AnimalEntity
 		}
 
 		@Nullable
-		protected Vec3d findMushroom()
+		protected Vector3d findMushroom()
 		{
 			Random random = SnailEntity.this.getRNG();
 			BlockPos blockpos = new BlockPos(SnailEntity.this.getPosX(), SnailEntity.this.getBoundingBox().minY, SnailEntity.this.getPosZ());
@@ -690,7 +690,7 @@ public class SnailEntity extends AnimalEntity
 				BlockPos blockpos1 = blockpos.add(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
 				if (this.isBlockMushroom(blockpos1))
 				{
-					return new Vec3d((double)blockpos1.getX(), (double)blockpos1.getY(), (double)blockpos1.getZ());
+					return new Vector3d((double)blockpos1.getX(), (double)blockpos1.getY(), (double)blockpos1.getZ());
 				}
 			}
 
@@ -701,7 +701,7 @@ public class SnailEntity extends AnimalEntity
 		{
 			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0)
 			{
-				BlockPos blockpos = new BlockPos(SnailEntity.this);
+				BlockPos blockpos = SnailEntity.this.func_233580_cy_();
 
 				if (this.isBlockMushroom(blockpos))
 				{

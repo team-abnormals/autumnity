@@ -6,7 +6,6 @@ import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLogBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.util.ActionResultType;
@@ -21,10 +20,9 @@ public class MapleLogBlock extends AbnormalsLogBlock
 {
 	private final Supplier<Block> sappyBlock;
 	
-	public MapleLogBlock(Supplier<Block> strippedBlock, Supplier<Block> sappyBlock, MaterialColor verticalColor, Properties properties)
+	public MapleLogBlock(Supplier<Block> strippedBlock, Supplier<Block> sappyBlock, Properties properties)
 	{
-		super(strippedBlock, verticalColor, properties);
-
+		super(strippedBlock, properties);
 		this.sappyBlock = sappyBlock;
 	}
 

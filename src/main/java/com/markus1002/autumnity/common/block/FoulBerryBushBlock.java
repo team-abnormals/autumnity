@@ -16,14 +16,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -57,9 +56,9 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		if (stateIn.get(AGE) == 1 && rand.nextInt(5) == 0)
 		{
 			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
-			Vec3d vec3d = voxelshape.getBoundingBox().getCenter();
-			double d0 = (double)pos.getX() + vec3d.x;
-			double d1 = (double)pos.getZ() + vec3d.z;
+			Vector3d vector3d = voxelshape.getBoundingBox().getCenter();
+			double d0 = (double)pos.getX() + vector3d.x;
+			double d1 = (double)pos.getZ() + vector3d.z;
 
 			int i = ModEffects.LIFE_STASIS.getLiquidColor();
 			double d2 = (double)(i >> 16 & 255) / 255.0D;
@@ -70,9 +69,8 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		}
 	}
 	
-	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
+	public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
 	{
-		super.tick(state, worldIn, pos, rand);
 		if (worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0))
 		{
 			if (state.get(AGE) == 0)
@@ -92,7 +90,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 	{
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
-			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
+			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
 			if (!worldIn.isRemote && state.get(AGE) == 1)
 			{
 				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.LIFE_STASIS, 200));

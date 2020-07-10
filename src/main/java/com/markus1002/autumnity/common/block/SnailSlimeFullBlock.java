@@ -9,16 +9,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BreakableBlock;
 import net.minecraft.entity.Entity;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
@@ -66,8 +66,8 @@ public class SnailSlimeFullBlock extends BreakableBlock
 
 	public final boolean doesBlockMakeSlippery(BlockPos blockPos, Block block, IBlockReader iBlockReader)
 	{
-		IFluidState ifluidstate = iBlockReader.getFluidState(blockPos);
-		if (Config.COMMON.slipperySnailSlimeBlocks.get().contains(block.getRegistryName().toString()) || ifluidstate.isTagged(FluidTags.WATER))
+		FluidState fluidstate = iBlockReader.getFluidState(blockPos);
+		if (Config.COMMON.slipperySnailSlimeBlocks.get().contains(block.getRegistryName().toString()) || fluidstate.isTagged(FluidTags.WATER))
 		{
 			return true;
 		}
@@ -79,7 +79,7 @@ public class SnailSlimeFullBlock extends BreakableBlock
 
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
 	{
-		if (entityIn.isShiftKeyDown())
+		if (entityIn.isSneaking())
 		{
 			super.onFallenUpon(worldIn, pos, entityIn, fallDistance);
 		}
@@ -95,9 +95,9 @@ public class SnailSlimeFullBlock extends BreakableBlock
 		{
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D)
 			{
-				if (!entityIn.isShiftKeyDown())
+				if (!entityIn.isSneaking())
 				{
-					entityIn.setMotionMultiplier(state, new Vec3d(1.0D, (double)0.0F, 1.0D));
+					entityIn.setMotionMultiplier(state, new Vector3d(1.0D, (double)0.0F, 1.0D));
 				}
 			}
 			else

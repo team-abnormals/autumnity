@@ -5,9 +5,7 @@ import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.LogBlock;
 import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
@@ -24,13 +22,13 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class SappyLogBlock extends LogBlock
+public class SappyLogBlock extends RotatedPillarBlock
 {
 	private final Block saplessBlock;
 
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, MaterialColor verticalColorIn, Properties properties)
+	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties)
 	{
-		super(verticalColorIn, properties);
+		super(properties);
 		this.saplessBlock = saplessBlockIn.get();
 	}
 

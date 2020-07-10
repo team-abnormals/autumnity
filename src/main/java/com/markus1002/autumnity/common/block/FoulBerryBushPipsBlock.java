@@ -14,9 +14,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -40,9 +40,8 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 		return new ItemStack(ModItems.FOUL_BERRY_PIPS.get());
 	}
 	
-	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random)
+	public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random)
 	{
-		super.tick(state, worldIn, pos, random);
 		if (worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt(4) == 0))
 		{
 			worldIn.setBlockState(pos, ModBlocks.FOUL_BERRY_BUSH.get().getDefaultState(), 2);
@@ -54,7 +53,7 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 	{
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
-			entityIn.setMotionMultiplier(state, new Vec3d((double)0.8F, 0.75D, (double)0.8F));
+			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
 		}
 	}
 	

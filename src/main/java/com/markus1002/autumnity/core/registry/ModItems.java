@@ -65,6 +65,12 @@ public class ModItems
 		{
 			return 0.0F;
 		}
+
+		@Override
+		public float func_230304_f_()
+		{
+			return 0.0F;
+		}
 	};
 
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;

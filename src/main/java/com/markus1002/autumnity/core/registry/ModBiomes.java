@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-	public static final DeferredRegister<Biome> BIOMES = new DeferredRegister<>(ForgeRegistries.BIOMES, Reference.MOD_ID);
+	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Reference.MOD_ID);
 
 	public static final RegistryObject<Biome> MAPLE_FOREST = BIOMES.register("maple_forest", () -> new MapleForestBiome());
 	public static final RegistryObject<Biome> MAPLE_FOREST_HILLS = BIOMES.register("maple_forest_hills", () -> new MapleForestHillsBiome());

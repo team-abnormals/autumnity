@@ -2,34 +2,35 @@ package com.markus1002.autumnity.common.world.gen.feature;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
-import com.mojang.serialization.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.AbstractTreeFeature;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
-public class MapleTreeFeature extends AbstractTreeFeature<BaseTreeFeatureConfig>
+public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig>
 {
-	public MapleTreeFeature(Function<Dynamic<?>, ? extends BaseTreeFeatureConfig> config)
+	public MapleTreeFeature(Codec<BaseTreeFeatureConfig> config)
 	{
 		super(config);
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader worldIn, Random rand, BlockPos position, Set<BlockPos> changedBlocks, Set<BlockPos> p_225557_5_, MutableBoundingBox p_208519_5_, TreeFeatureConfig config)
+	public boolean func_230362_a_(ISeedReader worldIn, StructureManager manager, ChunkGenerator generator, Random rand, BlockPos position, BaseTreeFeatureConfig config)
 	{
 		int i = rand.nextInt(2) + 5;
 
 		boolean flag = true;
-		if (position.getY() >= 1 && position.getY() + i + 1 <= worldIn.getMaxHeight())
+		
+		if (position.getY() >= 1 && position.getY() + i + 1 <= worldIn.getHeight())
 		{
 			for(int j = position.getY(); j <= position.getY() + 1 + i; ++j)
 			{
@@ -50,8 +51,9 @@ public class MapleTreeFeature extends AbstractTreeFeature<BaseTreeFeatureConfig>
 				{
 					for(int i1 = position.getZ() - k; i1 <= position.getZ() + k && flag; ++i1)
 					{
-						if (j >= 0 && j < worldIn.getMaxHeight()) {
-							if (!func_214587_a(worldIn, blockpos$mutableblockpos.setPos(l, j, i1)))
+						if (j >= 0 && j < worldIn.getHeight())
+						{
+							if (!func_236410_c_(worldIn, blockpos$mutableblockpos.setPos(l, j, i1)))
 							{
 								flag = false;
 							}

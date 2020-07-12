@@ -25,7 +25,7 @@
   "block.autumnity.maple_button": "Knob o' Maple",
   "block.autumnity.maple_fence": "Picket o' Maple Timber",
   "block.autumnity.maple_fence_gate": "Picket Gate o' Maple Timber",
-  "block.autumnity.maple_door": "Door o' Maple",
+  "block.autumnity.maple_door": "Door o' Maple Timber",
   "block.autumnity.maple_trapdoor": "Hatch o' Maple",
   "block.autumnity.maple_sign": "Seal o' Maple",
   "block.autumnity.maple_wall_sign": "Hung Seal o' Maple",
@@ -50,7 +50,7 @@
   "block.autumnity.orange_maple_leaf_carpet": "Fallen Orange Leaves o' Maple",
   "block.autumnity.red_maple_leaf_carpet": "Fallen Bloody Leaves o' Maple",
   
-  "item.autumnity.maple_boat": "Vessel o' Maple",
+  "item.autumnity.maple_boat": "Vessel o' Maple Timber",
   "item.autumnity.sap_bottle": "Bottle o' Tree Sap",
   "item.autumnity.syrup_bottle": "Bottle o' Flapjack Juice",
   "item.autumnity.foul_berries": "Stinkin' Land Capers",
@@ -77,7 +77,7 @@
   "item.minecraft.potion.effect.anti_healing": "Grog o'' Cleavin''",
   "item.minecraft.splash_potion.effect.anti_healing": "Grenade o'' Cleavin''",
   "item.minecraft.lingering_potion.effect.anti_healing": "Bottled Fog o'' Cleavin''",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o' Cleavin'",
+  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o'' Cleavin''",
   
   "biome.autumnity.maple_forest": "Woods o' Fall",
   "biome.autumnity.maple_forest_hills": "Woods o'' Fall ''ills",

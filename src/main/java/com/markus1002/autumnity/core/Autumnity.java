@@ -69,6 +69,7 @@ public class Autumnity
 			ModFeatures.setupBiomeFeatures(biome);
 			ModEntities.setupEntitySpawns(biome);
 		}
+		ModEntities.registerAttributes();
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event)

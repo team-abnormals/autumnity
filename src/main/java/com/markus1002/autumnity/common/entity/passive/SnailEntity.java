@@ -59,7 +59,6 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 public class SnailEntity extends AnimalEntity
@@ -98,16 +97,11 @@ public class SnailEntity extends AnimalEntity
 		}
 	};
 
-	public SnailEntity(EntityType<? extends AnimalEntity> type, World worldIn)
+	public SnailEntity(EntityType<? extends SnailEntity> type, World worldIn)
 	{
 		super(type, worldIn);
 		this.lookController = new SnailEntity.LookHelperController();
 		this.moveController = new SnailEntity.MoveHelperController();
-	}
-
-	public SnailEntity(FMLPlayMessages.SpawnEntity packet, World worldIn)
-	{
-		super(ModEntities.SNAIL.get(), worldIn);
 	}
 
 	protected void registerGoals()
@@ -125,7 +119,10 @@ public class SnailEntity extends AnimalEntity
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes()
 	{
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.MAX_HEALTH, 18.0D).func_233815_a_(Attributes.MOVEMENT_SPEED, 0.25D).func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
+		return MobEntity.func_233666_p_()
+				.func_233815_a_(Attributes.MAX_HEALTH, 18.0D)
+				.func_233815_a_(Attributes.MOVEMENT_SPEED, 0.25D)
+				.func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
@@ -159,6 +156,7 @@ public class SnailEntity extends AnimalEntity
 		return ModSoundEvents.ENTITY_SNAIL_EAT;
 	}
 
+	@Override
 	public void tick()
 	{
 		super.tick();
@@ -297,6 +295,7 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
+	@Override
 	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand)
 	{
 		if (!this.getHiding() && !this.isEating())
@@ -482,6 +481,7 @@ public class SnailEntity extends AnimalEntity
 		return this.shakeTicks;
 	}
 
+	@Override
 	protected void registerData()
 	{
 		super.registerData();
@@ -489,6 +489,7 @@ public class SnailEntity extends AnimalEntity
 		this.dataManager.register(HIDING, false);
 	}
 
+	@Override
 	public void writeAdditional(CompoundNBT compound)
 	{
 		super.writeAdditional(compound);
@@ -496,6 +497,7 @@ public class SnailEntity extends AnimalEntity
 		compound.putBoolean("Hiding", this.getHiding());
 	}
 
+	@Override
 	public void readAdditional(CompoundNBT compound)
 	{
 		super.readAdditional(compound);
@@ -525,6 +527,7 @@ public class SnailEntity extends AnimalEntity
 		return ModEntities.SNAIL.get().create(this.world);
 	}
 
+	@Override
 	public IPacket<?> createSpawnPacket()
 	{
 		return NetworkHooks.getEntitySpawningPacket(this);

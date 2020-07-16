@@ -32,10 +32,10 @@ public class Config
                     .define("Snail Breeding Items", Lists.newArrayList("minecraft:mushroom_stew", "minecraft:suspicious_stew"));
             snailFood = builder
                     .comment("A list of items that can be fed to snails to produce snail slime.")
-                    .define("Snail Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:mushroom_stem", "minecraft:brown_mushroom_block", "minecraft:red_mushroom_block", "quark:glowshroom", "quark:glowshroom_stem", "quark:glowshroom_block"));
+                    .define("Snail Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "minecraft:mushroom_stem", "minecraft:brown_mushroom_block", "minecraft:red_mushroom_block", "quark:glowshroom", "quark:glowshroom_stem", "quark:glowshroom_block"));
             snailBlockFood = builder
                     .comment("A list of blocks snails can eat to produce snail slime.")
-                    .define("Snail Block Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "quark:glowshroom"));
+                    .define("Snail Block Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "quark:glowshroom"));
             slipperySnailSlimeBlocks = builder
                     .comment("A list of blocks that make snail slime blocks slippery when placed next to them.")
                     .define("Slippery Snail Slime Blocks", Lists.newArrayList("minecraft:wet_sponge"));

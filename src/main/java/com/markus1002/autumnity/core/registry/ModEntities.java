@@ -8,6 +8,7 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -45,4 +46,9 @@ public class ModEntities
 	{
 		RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends SnailEntity>)SNAIL.get(), SnailRenderer::new);
 	}
+	
+    public static void registerAttributes()
+    {
+    	GlobalEntityTypeAttributes.put(SNAIL.get(), SnailEntity.registerAttributes().func_233813_a_());
+    }
 }

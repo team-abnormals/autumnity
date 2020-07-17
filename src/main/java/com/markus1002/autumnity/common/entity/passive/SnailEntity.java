@@ -40,6 +40,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
@@ -63,6 +64,8 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class SnailEntity extends AnimalEntity
 {
+	private static final String[] FOOD_ITEMS = new String[]{"minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "quark:glowshroom"};
+
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
 	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);

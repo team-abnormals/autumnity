@@ -20,13 +20,10 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
-import net.minecraft.world.gen.feature.TwoLayerFeature;
-import net.minecraft.world.gen.foliageplacer.PineFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.NoiseDependant;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
 public class ModBiomeFeatures
 {
@@ -41,10 +38,10 @@ public class ModBiomeFeatures
 	private static final BlockState OXEYE_DAISY = Blocks.OXEYE_DAISY.getDefaultState();
 	private static final BlockState CORNFLOWER = Blocks.CORNFLOWER.getDefaultState();
 
-	public static final BaseTreeFeatureConfig MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), new PineFoliagePlacer(1, 0, 1, 0, 3, 1), new StraightTrunkPlacer(6, 5, 0), new TwoLayerFeature(1, 0, 1))).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), new PineFoliagePlacer(1, 0, 1, 0, 3, 1), new StraightTrunkPlacer(6, 5, 0), new TwoLayerFeature(1, 0, 1))).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), new PineFoliagePlacer(1, 0, 1, 0, 3, 1), new StraightTrunkPlacer(6, 5, 0), new TwoLayerFeature(1, 0, 1))).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), new PineFoliagePlacer(1, 0, 1, 0, 3, 1), new StraightTrunkPlacer(6, 5, 0), new TwoLayerFeature(1, 0, 1))).func_236700_a_().build();
+	public static final BaseTreeFeatureConfig MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
+	public static final BaseTreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
+	public static final BaseTreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
+	public static final BaseTreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
 	public static final BlockClusterFeatureConfig TALL_FOUL_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(TALL_FOUL_BERRY_BUSH), new DoublePlantBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).func_227317_b_().build();
 	public static final BlockClusterFeatureConfig AUTUMN_CROCUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(AUTUMN_CROCUS), new SimpleBlockPlacer())).tries(64).build();
 	public static final BlockClusterFeatureConfig ROSE_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(ROSE_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();

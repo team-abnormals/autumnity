@@ -8,11 +8,11 @@ import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
-import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModItems;
 import com.markus1002.autumnity.core.registry.ModSoundEvents;
+import com.markus1002.autumnity.core.registry.ModTags;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -64,8 +64,6 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class SnailEntity extends AnimalEntity
 {
-	private static final String[] FOOD_ITEMS = new String[]{"minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "quark:glowshroom"};
-
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
 	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);
@@ -510,8 +508,7 @@ public class SnailEntity extends AnimalEntity
 
 	private boolean isFoodItem(ItemStack stack)
 	{
-		Item item = stack.getItem();
-		return Config.COMMON.snailFood.get().contains(item.getRegistryName().toString());
+		return Ingredient.fromTag(ModTags.SNAIL_FOODS).test(stack);
 	}
 
 	public boolean isBreedingItem(ItemStack stack)
@@ -521,8 +518,7 @@ public class SnailEntity extends AnimalEntity
 
 	private boolean isSnailBreedingItem(ItemStack stack)
 	{
-		Item item = stack.getItem();
-		return Config.COMMON.snailBreedingItems.get().contains(item.getRegistryName().toString());
+		return Ingredient.fromTag(ModTags.SNAIL_BREEDING_ITEMS).test(stack);
 	}
 
 	public AgeableEntity createChild(AgeableEntity ageable)
@@ -613,7 +609,7 @@ public class SnailEntity extends AnimalEntity
 
 		protected boolean isTempting(ItemStack stack)
 		{
-			return SnailEntity.this.isFoodItem(stack) || SnailEntity.this.isSnailBreedingItem(stack);
+			return Ingredient.fromTag(ModTags.SNAIL_TEMPTATION_ITEMS).test(stack);
 		}
 	}
 
@@ -723,7 +719,7 @@ public class SnailEntity extends AnimalEntity
 
 		private boolean isBlockMushroom(BlockPos pos)
 		{
-			return Config.COMMON.snailBlockFood.get().contains(SnailEntity.this.world.getBlockState(pos).getBlock().getRegistryName().toString());
+			return ModTags.SNAIL_BLOCK_FOODS.contains(SnailEntity.this.world.getBlockState(pos).getBlock());
 		}
 	}
 

@@ -14,4 +14,5 @@ public class ModTags
 	public static final INamedTag<Block> SLIPPERY_SNAIL_SLIME_BLOCKS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":slippery_snail_slime_blocks");
 	public static final INamedTag<Item> SNAIL_FOODS = ItemTags.makeWrapperTag(Reference.MOD_ID + ":snail_foods");
 	public static final INamedTag<Item> SNAIL_BREEDING_ITEMS = ItemTags.makeWrapperTag(Reference.MOD_ID + ":snail_breeding_items");
+	public static final INamedTag<Item> SNAIL_TEMPTATION_ITEMS = ItemTags.makeWrapperTag(Reference.MOD_ID + ":snail_temptation_items");
 }

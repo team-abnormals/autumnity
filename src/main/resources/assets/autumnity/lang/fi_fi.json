@@ -87,7 +87,7 @@
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
   
   
-  "_comment": "Quark Stuff",
+  "_comment": "Compat Stuff",
   
   "block.autumnity.maple_vertical_slab": "Kohtisuora vaahteralaatta",
   "block.autumnity.vertical_maple_planks": "Kohtisuorat vaahteralankut",
@@ -95,6 +95,9 @@
   "block.autumnity.maple_ladder": "Vaahteratikas",
   "block.autumnity.foul_berry_sack": "Lemumarjasäkki",
   "block.autumnity.potted_foul_berries": "Istutetut lemumarjat",
+  "block.autumnity.maple_beehive": "Keinotekoinen vaahteramehiläispesä",
+  "block.autumnity.maple_chest": "Vaahtera-arkku",
+  "block.autumnity.maple_trapped_chest": "Ansoitettu vaahtera-arkku",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Panssari hidastelijalle",

@@ -13,10 +13,6 @@ public class Config
     public static class Common
     {
         public final ForgeConfigSpec.ConfigValue<List<String>> snailSpawnBiomes;
-        public final ForgeConfigSpec.ConfigValue<List<String>> snailBreedingItems;
-        public final ForgeConfigSpec.ConfigValue<List<String>> snailFood;
-        public final ForgeConfigSpec.ConfigValue<List<String>> snailBlockFood;
-        public final ForgeConfigSpec.ConfigValue<List<String>> slipperySnailSlimeBlocks;
         public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
@@ -27,18 +23,6 @@ public class Config
             snailSpawnBiomes = builder
                     .comment("A list of biomes where snails can spawn. The list doesn't include maple forests.")
                     .define("Snail Spawn Biomes", Lists.newArrayList());
-            snailBreedingItems = builder
-                    .comment("A list of items that can be used to breed snails.")
-                    .define("Snail Breeding Items", Lists.newArrayList("minecraft:mushroom_stew", "minecraft:suspicious_stew"));
-            snailFood = builder
-                    .comment("A list of items that can be fed to snails to produce snail slime.")
-                    .define("Snail Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "quark:glowshroom"));
-            snailBlockFood = builder
-                    .comment("A list of blocks snails can eat to produce snail slime.")
-                    .define("Snail Block Food", Lists.newArrayList("minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:crimson_fungus", "minecraft:warped_fungus", "quark:glowshroom"));
-            slipperySnailSlimeBlocks = builder
-                    .comment("A list of blocks that make snail slime blocks slippery when placed next to them.")
-                    .define("Slippery Snail Slime Blocks", Lists.newArrayList("minecraft:wet_sponge"));
             builder.pop();
             builder.push("biomes");
             mapleTreeBiomes = builder

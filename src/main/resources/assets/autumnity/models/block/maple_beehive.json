@@ -1,0 +1,10 @@
+{
+    "parent": "block/orientable_with_bottom",
+    "textures": {
+        "particle": "autumnity:block/maple_beehive_side",
+        "bottom": "autumnity:block/maple_beehive_end",
+        "top": "autumnity:block/maple_beehive_end",
+        "front": "autumnity:block/maple_beehive_front",
+        "side": "autumnity:block/maple_beehive_side"
+    }
+}

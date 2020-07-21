@@ -61,6 +61,8 @@
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
   
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "When sneaking:",
+  
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
   

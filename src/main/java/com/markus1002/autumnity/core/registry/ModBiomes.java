@@ -20,9 +20,9 @@ public class ModBiomes
 {
 	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Reference.MOD_ID);
 
-	public static final RegistryObject<Biome> MAPLE_FOREST = BIOMES.register("maple_forest", () -> new MapleForestBiome());
-	public static final RegistryObject<Biome> MAPLE_FOREST_HILLS = BIOMES.register("maple_forest_hills", () -> new MapleForestHillsBiome());
-	public static final RegistryObject<Biome> PUMPKIN_FIELDS = BIOMES.register("pumpkin_fields", () -> new PumpkinFieldsBiome());
+	public static final RegistryObject<Biome> MAPLE_FOREST = BIOMES.register("maple_forest", MapleForestBiome::new);
+	public static final RegistryObject<Biome> MAPLE_FOREST_HILLS = BIOMES.register("maple_forest_hills", MapleForestHillsBiome::new);
+	public static final RegistryObject<Biome> PUMPKIN_FIELDS = BIOMES.register("pumpkin_fields", PumpkinFieldsBiome::new);
 
     public static void setupBiomes()
     {

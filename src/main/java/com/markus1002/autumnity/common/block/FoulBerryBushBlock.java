@@ -15,7 +15,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -60,7 +59,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			double d0 = (double)pos.getX() + vector3d.x;
 			double d1 = (double)pos.getZ() + vector3d.z;
 
-			int i = ModEffects.LIFE_STASIS.getLiquidColor();
+			int i = ModEffects.FOUL_TASTE.getLiquidColor();
 			double d2 = (double)(i >> 16 & 255) / 255.0D;
 			double d3 = (double)(i >> 8 & 255) / 255.0D;
 			double d4 = (double)(i >> 0 & 255) / 255.0D;
@@ -91,10 +90,6 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
 			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
-			if (!worldIn.isRemote && state.get(AGE) == 1)
-			{
-				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(ModEffects.LIFE_STASIS, 200));
-			}
 		}
 	}
 

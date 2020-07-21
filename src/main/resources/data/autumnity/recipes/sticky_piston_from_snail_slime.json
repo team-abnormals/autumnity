@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "sticky_piston",
+  "pattern": [
+    "S",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "S": {
+      "item": "autumnity:snail_slime"
+    }
+  },
+  "result": {
+    "item": "minecraft:sticky_piston"
+  }
+}

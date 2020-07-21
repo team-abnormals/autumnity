@@ -22,11 +22,7 @@
       "functions": [
         {
           "function": "minecraft:set_count",
-          "count": {
-            "min": 4.0,
-            "max": 6.0,
-            "type": "minecraft:uniform"
-          }
+		  "count": 4
         },
         {
           "function": "minecraft:apply_bonus",
@@ -59,11 +55,7 @@
       "functions": [
         {
           "function": "minecraft:set_count",
-          "count": {
-            "min": 2.0,
-            "max": 3.0,
-            "type": "minecraft:uniform"
-          }
+		  "count": 2
         },
         {
           "function": "minecraft:apply_bonus",
@@ -74,82 +66,7 @@
           }
         }
       ]
-    },
-	{
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
-            }
-          ],
-          "name": "autumnity:foul_berry_leaf"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "autumnity:tall_foul_berry_bush",
-          "properties": {
-            "age": "1",
-			"half": "lower"
-          }
-        }
-      ]
-	},
-	{
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
-            }
-          ],
-          "name": "autumnity:foul_berry_leaf"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "autumnity:tall_foul_berry_bush",
-          "properties": {
-            "age": "2",
-			"half": "lower"
-          }
-        }
-      ]
-	},
-	{
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
-            }
-          ],
-          "name": "autumnity:foul_berry_leaf"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "autumnity:tall_foul_berry_bush",
-          "properties": {
-            "age": "3",
-			"half": "lower"
-          }
-        }
-      ]
-	}
+    }
   ],
   "functions": [
     {

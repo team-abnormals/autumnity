@@ -3,6 +3,7 @@ package com.markus1002.autumnity.core.util;
 import java.util.UUID;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
+import com.markus1002.autumnity.common.item.ModFoods;
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEffects;
@@ -23,14 +24,15 @@ import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Food;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.EntityPredicates;
-import net.minecraftforge.event.RegistryEvent.MissingMappings;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -43,19 +45,6 @@ public class EventHandler
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
 
 	@SubscribeEvent
-	public void onEffectRemap(MissingMappings<Effect> event)
-	{
-		for (MissingMappings.Mapping<Effect> mapping : event.getMappings())
-		{
-			if (mapping.key.toString() == "autumnity:anti_healing")
-			{
-				mapping.remap(ModEffects.LIFE_STASIS);
-				break;
-			}
-		}
-	}
-
-	@SubscribeEvent
 	public void onEntityJoinWorld(EntityJoinWorldEvent event)
 	{
 		if(!event.getWorld().isRemote)
@@ -64,11 +53,11 @@ public class EventHandler
 
 			if(entity instanceof PillagerEntity)
 			{
-				((PillagerEntity) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((CreatureEntity)entity, SnailEntity.class, true));
+				((CreatureEntity) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((CreatureEntity)entity, SnailEntity.class, true));
 			}
 			else if(entity instanceof MooshroomEntity)
 			{
-				((MooshroomEntity) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((CreatureEntity)entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntityPredicates.CAN_AI_TARGET::test));
+				((CreatureEntity) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((CreatureEntity)entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntityPredicates.CAN_AI_TARGET::test));
 			}
 		}
 	}
@@ -103,11 +92,24 @@ public class EventHandler
 	}
 
 	@SubscribeEvent
-	public void onLivingHeal(LivingHealEvent event)
+	public void onLivingEntityUseItemFinish(LivingEntityUseItemEvent.Finish event)
 	{
-		if (event.getEntityLiving().isPotionActive(ModEffects.LIFE_STASIS))
+		ItemStack itemstack = event.getItem();
+		if (event.getEntityLiving().isPotionActive(ModEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
-			event.setCanceled(true);
+			Food food = itemstack.getItem().getFood();
+			if (food != ModFoods.FOUL_BERRIES && food != ModFoods.FOUL_BERRY_PIE)
+			{
+				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+				EffectInstance effect = player.getActivePotionEffect(ModEffects.FOUL_TASTE);
+
+				player.getFoodStats().addStats((int) (food.getHealing() * 0.5F), 0.0F);
+				player.removePotionEffect(ModEffects.FOUL_TASTE);
+				if (effect.getAmplifier() > 0)
+				{
+					player.addPotionEffect(new EffectInstance(ModEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
+				}
+			}
 		}
 	}
 

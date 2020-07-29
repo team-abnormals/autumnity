@@ -1,7 +1,7 @@
 modLoader="javafml"
 loaderVersion="[31,)"
-issueTrackerURL="https://github.com/Markus1002/Autumnity/issues"
-license="https://github.com/minecraftabnormals/The-Endergetic-Expansion/blob/master/LICENSE.txt"
+issueTrackerURL="https://github.com/minecraftabnormals/Autumnity/issues"
+license="https://github.com/minecraftabnormals/Autumnity/blob/master/LICENSE.txt"
 
 [[mods]]
 modId="autumnity"

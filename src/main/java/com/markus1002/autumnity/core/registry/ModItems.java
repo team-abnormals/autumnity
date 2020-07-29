@@ -4,7 +4,7 @@ import com.markus1002.autumnity.common.item.ModFoods;
 import com.markus1002.autumnity.common.item.SnailShellChestplateItem;
 import com.markus1002.autumnity.common.item.SyrupBottleItem;
 import com.markus1002.autumnity.core.Autumnity;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockNamedItem;
@@ -80,7 +80,6 @@ public class ModItems
 	public static final RegistryObject<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).maxStackSize(16).group(ItemGroup.FOOD).food(ModFoods.SYRUP_BOTTLE)));
 	public static final RegistryObject<Item> FOUL_BERRIES = HELPER.createItem("foul_berries", ModList.get().isLoaded("berry_good") ? () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(ModFoods.FOUL_BERRIES)) : () -> new BlockNamedItem(ModBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(ModFoods.FOUL_BERRIES)));
 	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new BlockNamedItem(ModBlocks.FOUL_BERRY_BUSH_PIPS.get(), (new Item.Properties()).group(ModList.get().isLoaded("berry_good") ? ItemGroup.MISC : null)));
-	public static final RegistryObject<Item> FOUL_BERRY_LEAF = HELPER.createItem("foul_berry_leaf", () -> new Item((new Item.Properties()).group(ItemGroup.BREWING)));
 	public static final RegistryObject<Item> FOUL_BERRY_PIE = HELPER.createItem("foul_berry_pie", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(ModFoods.FOUL_BERRY_PIE)));
 	public static final RegistryObject<Item> SNAIL_SPAWN_EGG = HELPER.createSpawnEggItem("snail", () -> ModEntities.SNAIL.get(), 7355937, 14727558);
 	public static final RegistryObject<Item> SNAIL_SHELL_PIECE = HELPER.createItem("snail_shell_piece", () -> new Item((new Item.Properties()).group(ItemGroup.MATERIALS)));

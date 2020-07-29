@@ -55,29 +55,25 @@
   "item.autumnity.syrup_bottle": "Siirappipullo",
   "item.autumnity.foul_berries": "Lemumarjoja",
   "item.autumnity.foul_berry_pips": "Lemumarjan siemenet",
-  "item.autumnity.foul_berry_leaf": "Lemumarjan lehti",
   "item.autumnity.foul_berry_pie": "Lemumarjapiirakka",
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
+  
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "Hiipiessä:",
   
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Pidentäminen",
-  "_comment": "This effect prevents all healing.",
-  "effect.autumnity.life_stasis": "Elpymättömyys",
+  "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
+  "effect.autumnity.foul_taste": "Iljettävä maku",
   
   "item.minecraft.potion.effect.extension": "Pidentämisen taikajuoma",
   "item.minecraft.splash_potion.effect.extension": "Roiskahtava pidentämisen taikajuoma",
   "item.minecraft.lingering_potion.effect.extension": "Viipyvä pidentämisen taikajuoma",
   "item.minecraft.tipped_arrow.effect.extension": "Pidentämisen nuoli",
-  
-  "item.minecraft.potion.effect.anti_healing": "Elpymättömyyden taikajuoma",
-  "item.minecraft.splash_potion.effect.anti_healing": "Roiskahtava elpymättömyyden taikajuoma",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Viipyvä elpymättömyyden taikajuoma",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Elpymättömyyden nuoli",
   
   "biome.autumnity.maple_forest": "Vaahterametsä",
   "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",

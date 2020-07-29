@@ -22,7 +22,7 @@
           "modid": "quark"
         },
         {
-        	"type": "quark:flag",
+        	"type": "abnormals_core:flag",
         	"flag": "berry_sack"
         }
       ]

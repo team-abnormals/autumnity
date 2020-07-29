@@ -1,7 +1,7 @@
 package com.markus1002.autumnity.common.block;
 
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
+import com.minecraftabnormals.abnormals_core.core.utils.ItemStackUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

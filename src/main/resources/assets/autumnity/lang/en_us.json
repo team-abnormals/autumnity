@@ -55,7 +55,6 @@
   "item.autumnity.syrup_bottle": "Syrup Bottle",
   "item.autumnity.foul_berries": "Foul Berries",
   "item.autumnity.foul_berry_pips": "Foul Berry Pips",
-  "item.autumnity.foul_berry_leaf": "Foul Berry Leaf",
   "item.autumnity.foul_berry_pie": "Foul Berry Pie",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
@@ -75,11 +74,6 @@
   "item.minecraft.splash_potion.effect.extension": "Splash Potion of Extension",
   "item.minecraft.lingering_potion.effect.extension": "Lingering Potion of Extension",
   "item.minecraft.tipped_arrow.effect.extension": "Arrow of Extension",
-  
-  "item.minecraft.potion.effect.anti_healing": "Potion of Anti-healing",
-  "item.minecraft.splash_potion.effect.anti_healing": "Splash Potion of Anti-healing",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Lingering Potion of Anti-healing",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Arrow of Anti-healing",
   
   "biome.autumnity.maple_forest": "Maple Forest",
   "biome.autumnity.maple_forest_hills": "Maple Forest Hills",

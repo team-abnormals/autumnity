@@ -2,7 +2,7 @@ package com.markus1002.autumnity.common.block;
 
 import java.util.function.Supplier;
 
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.WoodBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

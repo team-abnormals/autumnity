@@ -3,7 +3,7 @@ package com.markus1002.autumnity.core.util;
 import com.google.common.collect.Maps;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.minecraftabnormals.abnormals_core.core.utils.DataUtils;
+import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -52,10 +52,10 @@ public class ModBiomeFeatures
 	{
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
 				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				Feature.field_236291_c_.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
-				Feature.field_236291_c_.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
-				Feature.field_236291_c_.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
-				Feature.field_236291_c_.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
+				ModFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
+				ModFeatures.MAPLE_TREE.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
+				ModFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
+				ModFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(ROSE_BUSH_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LUSH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
@@ -67,10 +67,10 @@ public class ModBiomeFeatures
 	{
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
 				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				Feature.field_236291_c_.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
-				Feature.field_236291_c_.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
-				Feature.field_236291_c_.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
-				Feature.field_236291_c_.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
+				ModFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
+				ModFeatures.MAPLE_TREE.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
+				ModFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
+				ModFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.FLOWER.withConfiguration(OXEYE_DAISY_CONFIG), Feature.FLOWER.withConfiguration(CORNFLOWER_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.NOISE_HEIGHTMAP_32.configure(new NoiseDependant(-0.8D, 15, 4))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));

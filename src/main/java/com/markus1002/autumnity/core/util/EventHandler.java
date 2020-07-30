@@ -8,7 +8,7 @@ import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
-import com.minecraftabnormals.abnormals_core.core.utils.TradeUtils;
+import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.CreatureEntity;

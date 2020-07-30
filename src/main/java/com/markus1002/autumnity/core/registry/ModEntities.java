@@ -4,7 +4,7 @@ import com.markus1002.autumnity.client.renderer.entity.SnailRenderer;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.core.Autumnity;
 import com.markus1002.autumnity.core.Config;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -31,7 +31,7 @@ public class ModEntities
 		}
 
 		// Temporary
-		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()) || Config.COMMON.mapleTreeBiomes.get().contains(biome.getRegistryName().toString()))
+		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
 			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 10, 2, 2));
 		}

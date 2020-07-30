@@ -9,7 +9,7 @@ import com.markus1002.autumnity.core.registry.ModPotions;
 import com.markus1002.autumnity.core.util.EventHandler;
 import com.markus1002.autumnity.core.util.Reference;
 import com.markus1002.autumnity.core.util.VanillaCompatibility;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;

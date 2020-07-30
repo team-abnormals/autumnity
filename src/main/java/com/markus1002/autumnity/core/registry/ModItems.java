@@ -4,7 +4,7 @@ import com.markus1002.autumnity.common.item.ModFoods;
 import com.markus1002.autumnity.common.item.SnailShellChestplateItem;
 import com.markus1002.autumnity.common.item.SyrupBottleItem;
 import com.markus1002.autumnity.core.Autumnity;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockNamedItem;

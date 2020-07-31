@@ -48,6 +48,8 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
@@ -217,6 +219,11 @@ public class SnailEntity extends AnimalEntity
 					{
 						this.setSlimeAmount(this.rand.nextInt(3) + 5);
 
+						if (Ingredient.fromTag(ModTags.SNAIL_GLOWING_ITEMS).test(itemstack))
+						{
+							this.addPotionEffect(new EffectInstance(Effects.GLOWING, 200, 0));
+						}
+						
 						Item item = itemstack.getItem();
 						ItemStack itemstack1 = itemstack.onItemUseFinish(this.world, this);
 						if (!itemstack1.isEmpty())

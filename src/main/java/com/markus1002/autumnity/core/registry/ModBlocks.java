@@ -16,7 +16,6 @@ import com.markus1002.autumnity.common.block.trees.OrangeMapleTree;
 import com.markus1002.autumnity.common.block.trees.RedMapleTree;
 import com.markus1002.autumnity.common.block.trees.YellowMapleTree;
 import com.markus1002.autumnity.core.Autumnity;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
@@ -40,6 +39,7 @@ import com.teamabnormals.abnormals_core.common.blocks.wood.WoodPressurePlateBloc
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodSlabBlock;
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodStairsBlock;
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodTrapDoorBlock;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -60,8 +60,8 @@ public class ModBlocks
 {
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 
-	public static final RegistryObject<Block> SNAIL_SLIME = HELPER.createBlock("snail_slime", () -> new SnailSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().doesNotBlockMovement().sound(SoundType.SLIME)), ItemGroup.MISC);
-	public static final RegistryObject<Block> SNAIL_SLIME_BLOCK = HELPER.createBlock("snail_slime_block", () -> new SnailSlimeFullBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().sound(SoundType.SLIME)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SNAIL_SLIME = HELPER.createBlock("snail_slime", () -> new SnailSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().doesNotBlockMovement().sound(SoundType.field_226947_m_)), ItemGroup.MISC);
+	public static final RegistryObject<Block> SNAIL_SLIME_BLOCK = HELPER.createBlock("snail_slime_block", () -> new SnailSlimeFullBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PANCAKE = HELPER.createBlock("pancake", () -> new PancakeBlock(Block.Properties.create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), ItemGroup.FOOD);
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = HELPER.createBlockNoItem("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH = HELPER.createBlockNoItem("foul_berry_bush", () -> new FoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));

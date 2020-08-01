@@ -1,5 +1,30 @@
 {
-    "variants": {
-        "": { "model": "autumnity:block/snail_slime" }
+  "variants": {
+    "facing=down": {
+      "model": "autumnity:block/snail_slime",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "autumnity:block/snail_slime",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "autumnity:block/snail_slime",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "autumnity:block/snail_slime",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "autumnity:block/snail_slime"
+    },
+    "facing=west": {
+      "model": "autumnity:block/snail_slime",
+      "x": 90,
+      "y": 270
     }
+  }
 }

@@ -27,7 +27,7 @@ public class ModEntities
 	{
 		if (biome == ModBiomes.MAPLE_FOREST.get() || biome == ModBiomes.MAPLE_FOREST_HILLS.get() || biome == ModBiomes.PUMPKIN_FIELDS.get())
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 12, 2, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 16, 2, 2));
 		}
 		
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))

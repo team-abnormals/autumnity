@@ -219,9 +219,13 @@ public class SnailEntity extends AnimalEntity
 					{
 						this.setSlimeAmount(this.rand.nextInt(3) + 5);
 
-						if (Ingredient.fromTag(ModTags.SNAIL_GLOWING_ITEMS).test(itemstack))
+						if (Ingredient.fromTag(ModTags.SNAIL_GLOWING_FOODS).test(itemstack))
 						{
 							this.addPotionEffect(new EffectInstance(Effects.GLOWING, 200, 0));
+						}
+						if (Ingredient.fromTag(ModTags.SNAIL_SPEEDING_FOODS).test(itemstack))
+						{
+							this.addPotionEffect(new EffectInstance(Effects.SPEED, 320, 2));
 						}
 						
 						Item item = itemstack.getItem();

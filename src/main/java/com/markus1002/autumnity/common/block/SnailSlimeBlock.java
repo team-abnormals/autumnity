@@ -104,7 +104,7 @@ public class SnailSlimeBlock extends DirectionalBlock
 		Direction direction = state.get(FACING);
 		BlockPos blockpos = pos.offset(direction.getOpposite());
 		BlockState blockstate = worldIn.getBlockState(blockpos);
-		return blockstate.isSolidSide(worldIn, blockpos, direction);
+		return Block.doesSideFillSquare(blockstate.getCollisionShape(worldIn, blockpos), direction);
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)

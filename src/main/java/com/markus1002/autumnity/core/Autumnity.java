@@ -1,14 +1,13 @@
 package com.markus1002.autumnity.core;
 
+import com.markus1002.autumnity.core.other.EventHandler;
+import com.markus1002.autumnity.core.other.VanillaCompatibility;
 import com.markus1002.autumnity.core.registry.ModBiomes;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModFeatures;
 import com.markus1002.autumnity.core.registry.ModPaintings;
 import com.markus1002.autumnity.core.registry.ModParticles;
 import com.markus1002.autumnity.core.registry.ModPotions;
-import com.markus1002.autumnity.core.util.EventHandler;
-import com.markus1002.autumnity.core.util.Reference;
-import com.markus1002.autumnity.core.util.VanillaCompatibility;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.world.biome.Biome;

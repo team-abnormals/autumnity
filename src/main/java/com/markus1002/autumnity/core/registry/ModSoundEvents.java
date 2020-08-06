@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

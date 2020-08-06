@@ -1,4 +1,4 @@
-package com.markus1002.autumnity.core.util;
+package com.markus1002.autumnity.core.other;
 
 import java.util.UUID;
 
@@ -102,8 +102,11 @@ public class EventHandler
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(ModEffects.FOUL_TASTE);
-
-				player.getFoodStats().addStats((int) (food.getHealing() * 0.5F), 0.0F);
+				
+				int i = food.getHealing();
+				int j = i == 1 ? i : (int) (i * 0.5F);
+				
+				player.getFoodStats().addStats(j, 0.0F);
 				player.removePotionEffect(ModEffects.FOUL_TASTE);
 				if (effect.getAmplifier() > 0)
 				{

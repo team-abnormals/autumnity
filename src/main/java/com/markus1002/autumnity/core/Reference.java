@@ -1,4 +1,4 @@
-package com.markus1002.autumnity.core.util;
+package com.markus1002.autumnity.core;
 
 import net.minecraft.util.ResourceLocation;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
 
 import net.minecraft.client.util.ITooltipFlag;

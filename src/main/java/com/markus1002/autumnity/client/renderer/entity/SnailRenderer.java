@@ -2,7 +2,7 @@ package com.markus1002.autumnity.client.renderer.entity;
 
 import com.markus1002.autumnity.client.renderer.entity.model.SnailModel;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import net.minecraft.client.renderer.entity.EntityRendererManager;

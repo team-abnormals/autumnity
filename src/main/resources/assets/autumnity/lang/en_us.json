@@ -97,5 +97,8 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
-  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate"
+  "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate",
+  
+  "advancements.husbandry.diverse_diet.title": "A Diverse Diet",
+  "advancements.husbandry.diverse_diet.description": "Feed a snail every type of mushroom and fungus"
 }

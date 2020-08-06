@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.core.Config;
-import com.markus1002.autumnity.core.registry.ModTags;
+import com.markus1002.autumnity.core.other.ModTags;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

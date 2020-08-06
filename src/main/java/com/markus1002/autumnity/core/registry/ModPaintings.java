@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.entity.item.PaintingType;
 import net.minecraftforge.fml.RegistryObject;

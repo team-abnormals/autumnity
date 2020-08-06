@@ -8,11 +8,12 @@ import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
+import com.markus1002.autumnity.core.other.ModCriteriaTriggers;
+import com.markus1002.autumnity.core.other.ModTags;
 import com.markus1002.autumnity.core.registry.ModBlocks;
 import com.markus1002.autumnity.core.registry.ModEntities;
 import com.markus1002.autumnity.core.registry.ModItems;
 import com.markus1002.autumnity.core.registry.ModSoundEvents;
-import com.markus1002.autumnity.core.registry.ModTags;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -36,6 +37,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -325,6 +327,7 @@ public class SnailEntity extends AnimalEntity
 							itemstack1.setCount(1);
 							this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack1);
 							this.setEatingTime(192);
+							ModCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayerEntity) player, itemstack1); 
 						}
 						this.consumeItemFromStack(player, itemstack);
 						return ActionResultType.SUCCESS;

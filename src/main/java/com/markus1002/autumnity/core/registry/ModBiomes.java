@@ -4,7 +4,7 @@ import com.markus1002.autumnity.common.world.biome.MapleForestBiome;
 import com.markus1002.autumnity.common.world.biome.MapleForestHillsBiome;
 import com.markus1002.autumnity.common.world.biome.PumpkinFieldsBiome;
 import com.markus1002.autumnity.core.Config;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;

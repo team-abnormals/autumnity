@@ -1,7 +1,7 @@
 package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.particle.FallingLeafParticle;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.particles.BasicParticleType;

@@ -1,6 +1,6 @@
-package com.markus1002.autumnity.core.registry;
+package com.markus1002.autumnity.core.other;
 
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

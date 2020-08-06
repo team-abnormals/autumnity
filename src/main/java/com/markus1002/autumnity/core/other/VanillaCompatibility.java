@@ -1,4 +1,4 @@
-package com.markus1002.autumnity.core.util;
+package com.markus1002.autumnity.core.other;
 
 import com.google.common.collect.Maps;
 import com.markus1002.autumnity.core.registry.ModBlocks;

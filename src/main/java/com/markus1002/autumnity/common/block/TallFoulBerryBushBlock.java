@@ -3,7 +3,6 @@ package com.markus1002.autumnity.common.block;
 import java.util.Random;
 
 import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModEffects;
 import com.markus1002.autumnity.core.registry.ModItems;
 
 import net.minecraft.block.Block;
@@ -17,6 +16,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -76,7 +77,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			double d0 = (double)pos.getX() + vector3d.x;
 			double d1 = (double)pos.getZ() + vector3d.z;
 
-			int i = ModEffects.FOUL_TASTE.getLiquidColor();
+			int i = Effects.POISON.getLiquidColor();
 			double d2 = (double)(i >> 16 & 255) / 255.0D;
 			double d3 = (double)(i >> 8 & 255) / 255.0D;
 			double d4 = (double)(i >> 0 & 255) / 255.0D;
@@ -101,7 +102,12 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	{
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
-			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+			LivingEntity livingentity = ((LivingEntity) entityIn);
+			livingentity.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON))
+			{
+				livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 120));
+			}
 		}
 	}
 

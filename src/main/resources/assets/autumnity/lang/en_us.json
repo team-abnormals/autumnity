@@ -55,7 +55,6 @@
   "item.autumnity.syrup_bottle": "Syrup Bottle",
   "item.autumnity.foul_berries": "Foul Berries",
   "item.autumnity.foul_berry_pips": "Foul Berry Pips",
-  "item.autumnity.foul_berry_pie": "Foul Berry Pie",
   "item.autumnity.snail_spawn_egg": "Snail Spawn Egg",
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
@@ -98,7 +97,8 @@
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",
   "advancements.husbandry.sneaky_protection.description": "Construct a snail shell chestplate",
-  
-  "advancements.husbandry.diverse_diet.title": "A Diverse Diet",
-  "advancements.husbandry.diverse_diet.description": "Feed a snail every type of mushroom and fungus"
+  "advancements.husbandry.fungivore_diet.title": "A Fungivore Diet",
+  "advancements.husbandry.fungivore_diet.description": "Feed a snail every type of mushroom and fungus",
+  "advancements.husbandry.finally_some_good_food.title": "Finally, Some Good Food",
+  "advancements.husbandry.finally_some_good_food.description": "Eat something better after eating foul berries"
 }

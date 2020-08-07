@@ -5,10 +5,10 @@
       "item": "minecraft:crimson_fungus"
     },
     "title": {
-      "translate": "advancements.husbandry.diverse_diet.title"
+      "translate": "advancements.husbandry.fungivore_diet.title"
     },
     "description": {
-      "translate": "advancements.husbandry.diverse_diet.description"
+      "translate": "advancements.husbandry.fungivore_diet.description"
     },
     "frame": "challenge",
     "show_toast": true,

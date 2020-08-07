@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 public class RedMapleTree extends Tree
 {
 	@Nullable
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean p_225546_2_)
+	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn)
 	{
 		return ModFeatures.MAPLE_TREE.withConfiguration(ModBiomeFeatures.RED_MAPLE_TREE_CONFIG);
 	}

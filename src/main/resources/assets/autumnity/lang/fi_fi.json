@@ -55,7 +55,6 @@
   "item.autumnity.syrup_bottle": "Siirappipullo",
   "item.autumnity.foul_berries": "Lemumarjoja",
   "item.autumnity.foul_berry_pips": "Lemumarjan siemenet",
-  "item.autumnity.foul_berry_pie": "Lemumarjapiirakka",
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
@@ -97,5 +96,9 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Panssari hidastelijalle",
-  "advancements.husbandry.sneaky_protection.description": "Rakenna kotilon kuoripanssari"
+  "advancements.husbandry.sneaky_protection.description": "Rakenna kotilon kuoripanssari",
+  "advancements.husbandry.fungivore_diet.title": "Sienipainoinen ruokavalio",
+  "advancements.husbandry.fungivore_diet.description": "Syötä kotilolle jokaista sienilajia",
+  "advancements.husbandry.finally_some_good_food.title": "Viimeinkin hyvää ruokaa",
+  "advancements.husbandry.finally_some_good_food.description": "Syö jotain hyvää syötyäsi lemumarjoja"
 }

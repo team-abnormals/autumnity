@@ -25,6 +25,7 @@ import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
 import net.minecraft.item.ItemStack;
@@ -98,13 +99,13 @@ public class EventHandler
 		if (event.getEntityLiving().isPotionActive(ModEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
-			if (food != ModFoods.FOUL_BERRIES && food != ModFoods.FOUL_BERRY_PIE)
+			if (food != ModFoods.FOUL_BERRIES)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(ModEffects.FOUL_TASTE);
 				
 				int i = food.getHealing();
-				int j = i == 1 ? i : (int) (i * 0.5F);
+				int j = i == 1 ? i : (int) (i * 0.4F);
 				
 				player.getFoodStats().addStats(j, 0.0F);
 				player.removePotionEffect(ModEffects.FOUL_TASTE);
@@ -112,6 +113,8 @@ public class EventHandler
 				{
 					player.addPotionEffect(new EffectInstance(ModEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
 				}
+				
+				ModCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
 			}
 		}
 	}

@@ -23,7 +23,6 @@ public class VanillaCompatibility
 	{
 		DataUtils.registerCompostable(0.3F, ModItems.FOUL_BERRIES.get());
 		DataUtils.registerCompostable(0.3F, ModItems.FOUL_BERRY_PIPS.get());
-	    DataUtils.registerCompostable(1.0F, ModItems.FOUL_BERRY_PIE.get());
 	    DataUtils.registerCompostable(0.65F, ModBlocks.AUTUMN_CROCUS.get().asItem());
 		
 		DataUtils.registerCompostable(0.3F, ModBlocks.MAPLE_LEAVES.get().asItem());

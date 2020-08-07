@@ -92,7 +92,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		{
 			LivingEntity livingentity = ((LivingEntity) entityIn);
 			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
-			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON))
+			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON) && !livingentity.isSneaking())
 			{
 				livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 120));
 			}

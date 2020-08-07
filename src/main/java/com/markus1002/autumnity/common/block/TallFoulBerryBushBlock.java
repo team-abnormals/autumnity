@@ -120,8 +120,8 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			return ActionResultType.PASS;
 		}
 		else if (i > 1)
-		{
-			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), 2));
+		{ 
+			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), flag ? 2 : 1));
 			worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
 			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i - 1)), 2);
 			setHalfState(worldIn, pos, state, i - 1);

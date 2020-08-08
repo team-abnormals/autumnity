@@ -21,26 +21,26 @@ public class VanillaCompatibility
 {
 	public static void setupVanillaCompatibility()
 	{
-		DataUtils.registerCompostable(0.3F, ModItems.FOUL_BERRIES.get());
-		DataUtils.registerCompostable(0.3F, ModItems.FOUL_BERRY_PIPS.get());
-	    DataUtils.registerCompostable(0.65F, ModBlocks.AUTUMN_CROCUS.get().asItem());
+		DataUtils.registerCompostable(ModItems.FOUL_BERRIES.get(), 0.3F);
+		DataUtils.registerCompostable(ModItems.FOUL_BERRY_PIPS.get(), 0.3F);
+	    DataUtils.registerCompostable(ModBlocks.AUTUMN_CROCUS.get().asItem(), 0.65F);
 		
-		DataUtils.registerCompostable(0.3F, ModBlocks.MAPLE_LEAVES.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.ORANGE_MAPLE_LEAVES.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.RED_MAPLE_LEAVES.get().asItem());
+		DataUtils.registerCompostable(ModBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.ORANGE_MAPLE_LEAVES.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.RED_MAPLE_LEAVES.get().asItem(), 0.3F);
 
-		DataUtils.registerCompostable(0.3F, ModBlocks.MAPLE_SAPLING.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.RED_MAPLE_SAPLING.get().asItem());
+		DataUtils.registerCompostable(ModBlocks.MAPLE_SAPLING.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.RED_MAPLE_SAPLING.get().asItem(), 0.3F);
 
-		DataUtils.registerCompostable(0.3F, ModBlocks.MAPLE_LEAF_CARPET.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().asItem());
-		DataUtils.registerCompostable(0.3F, ModBlocks.RED_MAPLE_LEAF_CARPET.get().asItem());
+		DataUtils.registerCompostable( ModBlocks.MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(ModBlocks.RED_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
 		
-		DataUtils.registerCompostable(1.0F, ModBlocks.FOUL_BERRY_SACK.get().asItem());
+		DataUtils.registerCompostable(ModBlocks.FOUL_BERRY_SACK.get().asItem(), 1.0F);
 
 		DataUtils.registerFlammable(ModBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		DataUtils.registerFlammable(ModBlocks.FOUL_BERRY_BUSH.get(), 60, 100);

@@ -229,7 +229,7 @@ public class SnailEntity extends AnimalEntity
 						{
 							this.addPotionEffect(new EffectInstance(Effects.SPEED, 320, 2));
 						}
-						
+
 						Item item = itemstack.getItem();
 						ItemStack itemstack1 = itemstack.onItemUseFinish(this.world, this);
 						if (!itemstack1.isEmpty())
@@ -386,8 +386,11 @@ public class SnailEntity extends AnimalEntity
 
 			if (!this.world.isRemote)
 			{
-				this.hidingTime = 160 + rand.nextInt(200);
-				this.setHiding(true);
+				if (!this.isAIDisabled())
+				{
+					this.hidingTime = 160 + rand.nextInt(200);
+					this.setHiding(true);
+				}
 				this.spitOutItem();
 			}
 			else

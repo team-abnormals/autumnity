@@ -3,7 +3,6 @@ package com.markus1002.autumnity.core.other;
 import java.util.UUID;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
-import com.markus1002.autumnity.common.item.ModFoods;
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 import com.markus1002.autumnity.core.registry.AutumnityEffects;
@@ -99,7 +98,7 @@ public class AutumnityEvents
 		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
-			if (food != ModFoods.FOUL_BERRIES)
+			if (food != AutumnityFoods.FOUL_BERRIES)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE);

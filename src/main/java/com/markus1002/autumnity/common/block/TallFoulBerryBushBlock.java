@@ -2,8 +2,8 @@ package com.markus1002.autumnity.common.block;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -52,7 +52,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
 	{
-		return new ItemStack(ModItems.FOUL_BERRIES.get());
+		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
@@ -121,7 +121,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 		}
 		else if (i > 1)
 		{ 
-			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), flag ? 2 : 1));
+			spawnAsEntity(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
 			worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
 			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i - 1)), 2);
 			setHalfState(worldIn, pos, state, i - 1);
@@ -175,14 +175,14 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	{
 		if (state.get(HALF) == DoubleBlockHalf.UPPER)
 		{
-			if (worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.TALL_FOUL_BERRY_BUSH.get())
+			if (worldIn.getBlockState(pos.down()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get())
 			{
 				worldIn.setBlockState(pos.down(), worldIn.getBlockState(pos.down()).with(AGE, Integer.valueOf(age)), 2);
 			}
 		}
 		else
 		{
-			if (worldIn.getBlockState(pos.up()).getBlock() == ModBlocks.TALL_FOUL_BERRY_BUSH.get())
+			if (worldIn.getBlockState(pos.up()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get())
 			{
 				worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos.up()).with(AGE, Integer.valueOf(age)), 2);
 			}

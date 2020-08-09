@@ -2,8 +2,8 @@ package com.markus1002.autumnity.common.block;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -37,14 +37,14 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 	
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
 	{
-		return new ItemStack(ModItems.FOUL_BERRY_PIPS.get());
+		return new ItemStack(AutumnityItems.FOUL_BERRY_PIPS.get());
 	}
 	
 	public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random)
 	{
 		if (worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt(4) == 0))
 		{
-			worldIn.setBlockState(pos, ModBlocks.FOUL_BERRY_BUSH.get().getDefaultState(), 2);
+			worldIn.setBlockState(pos, AutumnityBlocks.FOUL_BERRY_BUSH.get().getDefaultState(), 2);
 			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
 		}
 	}
@@ -70,6 +70,6 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable
 	@Override
 	public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state)
 	{
-		worldIn.setBlockState(pos, ModBlocks.FOUL_BERRY_BUSH.get().getDefaultState(), 2);
+		worldIn.setBlockState(pos, AutumnityBlocks.FOUL_BERRY_BUSH.get().getDefaultState(), 2);
 	}
 }

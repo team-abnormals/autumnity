@@ -2,8 +2,8 @@ package com.markus1002.autumnity.common.block;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -42,7 +42,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
 	{
-		return new ItemStack(ModItems.FOUL_BERRIES.get());
+		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
@@ -79,7 +79,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			}
 			else if (worldIn.isAirBlock(pos.up()))
 			{
-				TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)ModBlocks.TALL_FOUL_BERRY_BUSH.get();
+				TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get();
 				tallfoulberrybush.placeAt(worldIn, pos, 0, 2);
 			}
 			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
@@ -122,7 +122,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 		}
 		else if (worldIn.isAirBlock(pos.up()))
 		{
-			TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)ModBlocks.TALL_FOUL_BERRY_BUSH.get();
+			TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get();
 			tallfoulberrybush.placeAt(worldIn, pos, 0, 2);
 		}
 	}

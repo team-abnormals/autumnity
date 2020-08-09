@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModParticles
+public class AutumnityParticles
 {
 	public static final BasicParticleType FALLING_LEAF = new BasicParticleType(false);
 

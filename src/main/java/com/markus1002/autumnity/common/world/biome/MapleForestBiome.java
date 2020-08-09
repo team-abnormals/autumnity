@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.common.world.biome;
 
-import com.markus1002.autumnity.core.registry.ModBiomes;
+import com.markus1002.autumnity.core.registry.AutumnityBiomes;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -49,7 +49,7 @@ public final class MapleForestBiome extends Biome
 
 	public Biome getHill(net.minecraft.world.gen.INoiseRandom rand)
 	{
-		return ModBiomes.MAPLE_FOREST_HILLS.get();
+		return AutumnityBiomes.MAPLE_FOREST_HILLS.get();
 	}
 
 	@OnlyIn(Dist.CLIENT)

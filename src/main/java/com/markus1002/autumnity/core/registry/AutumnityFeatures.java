@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModFeatures
+public class AutumnityFeatures
 {
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig.field_236676_a_);
 	public static final Feature<NoFeatureConfig> FALLEN_LEAVES = new FallenLeavesFeature(NoFeatureConfig.field_236558_a_);

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModSoundEvents
+public class AutumnitySoundEvents
 {
 	public static final SoundEvent ENTITY_SNAIL_EAT = new SoundEvent(Reference.location("entity.snail.eat"));
 	public static final SoundEvent ENTITY_SNAIL_HURT = new SoundEvent(Reference.location("entity.snail.hurt"));

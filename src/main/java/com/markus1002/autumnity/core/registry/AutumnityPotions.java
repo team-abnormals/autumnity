@@ -12,14 +12,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModPotions
+public class AutumnityPotions
 {
 	public static Potion EXTENSION;
 
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> event)
 	{
-		EXTENSION = registerPotion(new Potion("extension", new EffectInstance(ModEffects.EXTENSION, 1)), "extension");
+		EXTENSION = registerPotion(new Potion("extension", new EffectInstance(AutumnityEffects.EXTENSION, 1)), "extension");
 	}
 	
 	private static Potion registerPotion(Potion potion, String name)
@@ -31,6 +31,6 @@ public class ModPotions
 	
 	public static void setupBrewingRecipes()
 	{
-		PotionBrewing.addMix(Potions.AWKWARD, ModBlocks.SNAIL_SLIME.get().asItem(), EXTENSION);
+		PotionBrewing.addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_SLIME.get().asItem(), EXTENSION);
 	}
 }

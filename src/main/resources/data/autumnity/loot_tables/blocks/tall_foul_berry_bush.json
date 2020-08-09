@@ -14,24 +14,6 @@
           "condition": "minecraft:block_state_property",
           "block": "autumnity:tall_foul_berry_bush",
           "properties": {
-			"half": "lower"
-          }
-        }
-      ]
-    },
-    {
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "autumnity:foul_berries"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "autumnity:tall_foul_berry_bush",
-          "properties": {
             "age": "3",
 			"half": "lower"
           }
@@ -40,7 +22,7 @@
       "functions": [
         {
           "function": "minecraft:set_count",
-		  "count": 3
+		  "count": 4
         },
         {
           "function": "minecraft:apply_bonus",
@@ -73,7 +55,7 @@
       "functions": [
         {
           "function": "minecraft:set_count",
-		  "count": 1
+		  "count": 2
         },
         {
           "function": "minecraft:apply_bonus",

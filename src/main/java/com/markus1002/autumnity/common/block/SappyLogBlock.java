@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.common.block;
 
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
 
 import net.minecraft.block.Block;
@@ -48,7 +48,7 @@ public class SappyLogBlock extends RotatedPillarBlock
 				{
 					if (!player.abilities.isCreativeMode)
 					{
-						ItemStack itemstack2 = new ItemStack(ModItems.SAP_BOTTLE.get());
+						ItemStack itemstack2 = new ItemStack(AutumnityItems.SAP_BOTTLE.get());
 						itemstack.shrink(1);
 						if (itemstack.isEmpty())
 						{

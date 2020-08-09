@@ -2,7 +2,7 @@ package com.markus1002.autumnity.common.world.gen.feature;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.block.Block;
@@ -168,6 +168,6 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig>
 	
 	public static boolean isValidGround(IWorld world, BlockPos pos)
 	{
-		return world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (IPlantable)ModBlocks.MAPLE_SAPLING.get());
+		return world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (IPlantable)AutumnityBlocks.MAPLE_SAPLING.get());
 	}
 }

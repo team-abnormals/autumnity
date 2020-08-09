@@ -17,7 +17,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEntities
+public class AutumnityEntities
 {
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 
@@ -25,14 +25,14 @@ public class ModEntities
 
 	public static void setupEntitySpawns(Biome biome)
 	{
-		if (biome == ModBiomes.MAPLE_FOREST.get() || biome == ModBiomes.MAPLE_FOREST_HILLS.get() || biome == ModBiomes.PUMPKIN_FIELDS.get())
+		if (biome == AutumnityBiomes.MAPLE_FOREST.get() || biome == AutumnityBiomes.MAPLE_FOREST_HILLS.get() || biome == AutumnityBiomes.PUMPKIN_FIELDS.get())
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 16, 2, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(AutumnityEntities.SNAIL.get(), 16, 2, 2));
 		}
 		
 		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.SNAIL.get(), 10, 2, 2));
+			addEntitySpawn(biome, EntityClassification.CREATURE, new Biome.SpawnListEntry(AutumnityEntities.SNAIL.get(), 10, 2, 2));
 		}
 	}
 

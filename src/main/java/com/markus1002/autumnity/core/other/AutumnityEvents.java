@@ -4,10 +4,10 @@ import java.util.UUID;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.common.item.ModFoods;
-import com.markus1002.autumnity.core.registry.ModBiomes;
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModEffects;
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityBiomes;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityEffects;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
 import net.minecraft.block.Blocks;
@@ -41,7 +41,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class EventHandler
+public class AutumnityEvents
 {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
 
@@ -71,7 +71,7 @@ public class EventHandler
 		{
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty())
 			{
-				if (event.getWorld().getBiome(livingentity.func_233580_cy_()) == ModBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F)
+				if (event.getWorld().getBiome(livingentity.func_233580_cy_()) == AutumnityBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F)
 				{
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
@@ -86,7 +86,7 @@ public class EventHandler
 		LivingEntity entity = event.getEntityLiving();
 
 		entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
-		if(entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isSneaking())
+		if(entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isSneaking())
 		{
 			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).func_233767_b_(KNOCKBACK_MODIFIER);
 		}
@@ -96,25 +96,25 @@ public class EventHandler
 	public void onLivingEntityUseItemFinish(LivingEntityUseItemEvent.Finish event)
 	{
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().isPotionActive(ModEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
+		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
 			if (food != ModFoods.FOUL_BERRIES)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-				EffectInstance effect = player.getActivePotionEffect(ModEffects.FOUL_TASTE);
+				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE);
 				
 				int i = food.getHealing();
-				int j = i == 1 ? i : (int) (i * 0.4F);
+				int j = i == 1 ? i : (int) (i * 0.5F);
 				
 				player.getFoodStats().addStats(j, 0.0F);
-				player.removePotionEffect(ModEffects.FOUL_TASTE);
+				player.removePotionEffect(AutumnityEffects.FOUL_TASTE);
 				if (effect.getAmplifier() > 0)
 				{
-					player.addPotionEffect(new EffectInstance(ModEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
+					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
 				}
 				
-				ModCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
+				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
 			}
 		}
 	}
@@ -122,11 +122,11 @@ public class EventHandler
 	@SubscribeEvent
 	public void onWandererTradesEvent(WandererTradesEvent event)
 	{
-		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.RED_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
-		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(ModBlocks.SNAIL_SLIME.get().asItem(), 4, 1, 5, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.RED_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
+		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.SNAIL_SLIME.get().asItem(), 4, 1, 5, 1));
 	}
 
 	@SubscribeEvent
@@ -134,7 +134,7 @@ public class EventHandler
 	{
 		if (event.getType() == VillagerProfession.FARMER)
 		{
-			event.getTrades().get(2).add(new TradeUtils.ItemsForEmeraldsTrade(ModItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
+			event.getTrades().get(2).add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
 		}
 	}
 }

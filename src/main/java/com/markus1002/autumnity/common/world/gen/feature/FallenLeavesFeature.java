@@ -2,7 +2,7 @@ package com.markus1002.autumnity.common.world.gen.feature;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.block.BlockState;
@@ -26,7 +26,7 @@ public class FallenLeavesFeature extends Feature<NoFeatureConfig>
 		int i = 0;
 		
 		int j = rand.nextInt(4);
-		BlockState blockstate = j == 0 ? ModBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState() : j == 1 ? ModBlocks.RED_MAPLE_LEAF_CARPET.get().getDefaultState() : ModBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
+		BlockState blockstate = j == 0 ? AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState() : j == 1 ? AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().getDefaultState() : AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
 
 		for(int x = -3; x <= 3; ++x)
 		{

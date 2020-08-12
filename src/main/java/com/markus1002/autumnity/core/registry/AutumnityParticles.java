@@ -1,7 +1,7 @@
 package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.particle.FallingLeafParticle;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.particles.BasicParticleType;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModParticles
+public class AutumnityParticles
 {
 	public static final BasicParticleType FALLING_LEAF = new BasicParticleType(false);
 

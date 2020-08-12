@@ -2,7 +2,7 @@ package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.potion.ExtensionEffect;
 import com.markus1002.autumnity.common.potion.FoulTasteEffect;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.potion.Effect;
 import net.minecraftforge.event.RegistryEvent;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEffects
+public class AutumnityEffects
 {
 	public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, Reference.MOD_ID);
 	

@@ -56,7 +56,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModBlocks
+public class AutumnityBlocks
 {
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 
@@ -66,7 +66,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = HELPER.createBlockNoItem("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH = HELPER.createBlockNoItem("foul_berry_bush", () -> new FoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> TALL_FOUL_BERRY_BUSH = HELPER.createBlockNoItem("tall_foul_berry_bush", () -> new TallFoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
-	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new AbnormalsFlowerBlock(ModEffects.FOUL_TASTE, 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new AbnormalsFlowerBlock(AutumnityEffects.FOUL_TASTE, 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> POTTED_AUTUMN_CROCUS = HELPER.createBlockNoItem("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 	
 	// Maple Stuff
@@ -105,10 +105,10 @@ public class ModBlocks
 	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 
-	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = HELPER.createBlock("maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = HELPER.createBlock("yellow_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_CARPET = HELPER.createBlock("orange_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.ORANGE_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = HELPER.createBlock("red_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.LEAVES, MaterialColor.RED).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = HELPER.createBlock("maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.CARPET).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = HELPER.createBlock("yellow_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.CARPET, MaterialColor.YELLOW_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_CARPET = HELPER.createBlock("orange_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.CARPET, MaterialColor.ORANGE_TERRACOTTA).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = HELPER.createBlock("red_maple_leaf_carpet", () -> new LeafCarpetBlock(Block.Properties.create(Material.CARPET, MaterialColor.RED).notSolid().hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
 
 	// Compat
 	public static final RegistryObject<Block> MAPLE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "maple_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);

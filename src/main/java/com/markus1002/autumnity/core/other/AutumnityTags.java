@@ -1,6 +1,6 @@
-package com.markus1002.autumnity.core.registry;
+package com.markus1002.autumnity.core.other;
 
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -8,7 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
 
-public class ModTags
+public class AutumnityTags
 {
 	public static final INamedTag<Block> SNAIL_BLOCK_FOODS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":snail_foods");
 	public static final INamedTag<Block> SLIPPERY_SNAIL_SLIME_BLOCKS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":slippery_snail_slime_blocks");

@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.core.Config;
-import com.markus1002.autumnity.core.registry.ModTags;
+import com.markus1002.autumnity.core.other.AutumnityTags;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -68,7 +68,7 @@ public class SnailSlimeFullBlock extends BreakableBlock
 	public final boolean doesBlockMakeSlippery(BlockPos blockPos, Block block, IBlockReader iBlockReader)
 	{
 		FluidState fluidstate = iBlockReader.getFluidState(blockPos);
-		if (ModTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.isTagged(FluidTags.WATER))
+		if (AutumnityTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.isTagged(FluidTags.WATER))
 		{
 			return true;
 		}

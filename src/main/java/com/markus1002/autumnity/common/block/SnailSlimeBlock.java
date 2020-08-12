@@ -42,16 +42,7 @@ public class SnailSlimeBlock extends DirectionalBlock
 	{
 		if (adjacentBlockState.getBlock() == this)
 		{
-			switch(state.get(FACING).getAxis())
-			{
-			case X:
-			default:
-				return side.getAxis() != Direction.Axis.X ? true : super.isSideInvisible(state, adjacentBlockState, side);
-			case Z:
-				return side.getAxis() != Direction.Axis.Z ? true : super.isSideInvisible(state, adjacentBlockState, side);
-			case Y:
-				return side.getAxis() != Direction.Axis.Y ? true : super.isSideInvisible(state, adjacentBlockState, side);
-			}
+			return adjacentBlockState.get(FACING) == state.get(FACING);
 		}
 
 		return super.isSideInvisible(state, adjacentBlockState, side);
@@ -104,7 +95,7 @@ public class SnailSlimeBlock extends DirectionalBlock
 		Direction direction = state.get(FACING);
 		BlockPos blockpos = pos.offset(direction.getOpposite());
 		BlockState blockstate = worldIn.getBlockState(blockpos);
-		return blockstate.isSolidSide(worldIn, blockpos, direction);
+		return Block.doesSideFillSquare(blockstate.getCollisionShape(worldIn, blockpos), direction);
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)

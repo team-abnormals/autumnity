@@ -1,0 +1,69 @@
+{
+  "parent": "minecraft:husbandry/breed_an_animal",
+  "display": {
+    "icon": {
+      "item": "minecraft:crimson_fungus"
+    },
+    "title": {
+      "translate": "advancements.husbandry.fungivore_diet.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.fungivore_diet.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "criteria": {
+    "brown_mushroom": {
+      "trigger": "autumnity:feed_snail",
+      "conditions": {
+        "item": {
+          "item": "minecraft:brown_mushroom"
+        }
+      }
+    },
+    "red_mushroom": {
+      "trigger": "autumnity:feed_snail",
+      "conditions": {
+        "item": {
+          "item": "minecraft:red_mushroom"
+        }
+      }
+    },
+    "warped_fungus": {
+      "trigger": "autumnity:feed_snail",
+      "conditions": {
+        "item": {
+          "item": "minecraft:warped_fungus"
+        }
+      }
+    },
+    "crimson_fungus": {
+      "trigger": "autumnity:feed_snail",
+      "conditions": {
+        "item": {
+          "item": "minecraft:crimson_fungus"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brown_mushroom"
+    ],
+    [
+      "red_mushroom"
+    ],
+    [
+      "warped_fungus"
+    ],
+    [
+      "crimson_fungus"
+    ]
+  ]
+}

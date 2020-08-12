@@ -2,9 +2,8 @@ package com.markus1002.autumnity.common.block;
 
 import java.util.Random;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModEffects;
-import com.markus1002.autumnity.core.registry.ModItems;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,6 +16,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -51,7 +52,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
 	{
-		return new ItemStack(ModItems.FOUL_BERRIES.get());
+		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
@@ -76,7 +77,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			double d0 = (double)pos.getX() + vector3d.x;
 			double d1 = (double)pos.getZ() + vector3d.z;
 
-			int i = ModEffects.FOUL_TASTE.getLiquidColor();
+			int i = Effects.POISON.getLiquidColor();
 			double d2 = (double)(i >> 16 & 255) / 255.0D;
 			double d3 = (double)(i >> 8 & 255) / 255.0D;
 			double d4 = (double)(i >> 0 & 255) / 255.0D;
@@ -101,7 +102,12 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	{
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
 		{
-			entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+			LivingEntity livingentity = ((LivingEntity) entityIn);
+			livingentity.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON) && !livingentity.isSneaking())
+			{
+				livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 120));
+			}
 		}
 	}
 
@@ -114,8 +120,8 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			return ActionResultType.PASS;
 		}
 		else if (i > 1)
-		{
-			spawnAsEntity(worldIn, pos, new ItemStack(ModItems.FOUL_BERRIES.get(), 2));
+		{ 
+			spawnAsEntity(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
 			worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
 			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i - 1)), 2);
 			setHalfState(worldIn, pos, state, i - 1);
@@ -169,14 +175,14 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	{
 		if (state.get(HALF) == DoubleBlockHalf.UPPER)
 		{
-			if (worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.TALL_FOUL_BERRY_BUSH.get())
+			if (worldIn.getBlockState(pos.down()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get())
 			{
 				worldIn.setBlockState(pos.down(), worldIn.getBlockState(pos.down()).with(AGE, Integer.valueOf(age)), 2);
 			}
 		}
 		else
 		{
-			if (worldIn.getBlockState(pos.up()).getBlock() == ModBlocks.TALL_FOUL_BERRY_BUSH.get())
+			if (worldIn.getBlockState(pos.up()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get())
 			{
 				worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos.up()).with(AGE, Integer.valueOf(age)), 2);
 			}

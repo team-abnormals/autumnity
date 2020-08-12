@@ -8,11 +8,12 @@ import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
-import com.markus1002.autumnity.core.registry.ModBlocks;
-import com.markus1002.autumnity.core.registry.ModEntities;
-import com.markus1002.autumnity.core.registry.ModItems;
-import com.markus1002.autumnity.core.registry.ModSoundEvents;
-import com.markus1002.autumnity.core.registry.ModTags;
+import com.markus1002.autumnity.core.other.AutumnityCriteriaTriggers;
+import com.markus1002.autumnity.core.other.AutumnityTags;
+import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityEntities;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
+import com.markus1002.autumnity.core.registry.AutumnitySoundEvents;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -36,6 +37,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -86,7 +88,7 @@ public class SnailEntity extends AnimalEntity
 		{
 			return false;
 		}
-		else if (livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST) != null && livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.SNAIL_SHELL_CHESTPLATE.get())
+		else if (livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST) != null && livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())
 		{
 			return false;
 		}
@@ -135,19 +137,19 @@ public class SnailEntity extends AnimalEntity
 
 	public ItemStack getPickedResult(RayTraceResult target)
 	{
-		return new ItemStack(ModItems.SNAIL_SPAWN_EGG.get());
+		return new ItemStack(AutumnityItems.SNAIL_SPAWN_EGG.get());
 	}
 
 	@Nullable
 	protected SoundEvent getDeathSound()
 	{
-		return ModSoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
 	}
 
 	@Nullable
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return ModSoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
 	}
 
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
@@ -156,7 +158,7 @@ public class SnailEntity extends AnimalEntity
 
 	public SoundEvent getEatSound(ItemStack itemStackIn)
 	{
-		return ModSoundEvents.ENTITY_SNAIL_EAT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_EAT;
 	}
 
 	@Override
@@ -219,15 +221,15 @@ public class SnailEntity extends AnimalEntity
 					{
 						this.setSlimeAmount(this.rand.nextInt(3) + 5);
 
-						if (Ingredient.fromTag(ModTags.SNAIL_GLOWING_FOODS).test(itemstack))
+						if (Ingredient.fromTag(AutumnityTags.SNAIL_GLOWING_FOODS).test(itemstack))
 						{
 							this.addPotionEffect(new EffectInstance(Effects.GLOWING, 200, 0));
 						}
-						if (Ingredient.fromTag(ModTags.SNAIL_SPEEDING_FOODS).test(itemstack))
+						if (Ingredient.fromTag(AutumnityTags.SNAIL_SPEEDING_FOODS).test(itemstack))
 						{
 							this.addPotionEffect(new EffectInstance(Effects.SPEED, 320, 2));
 						}
-						
+
 						Item item = itemstack.getItem();
 						ItemStack itemstack1 = itemstack.onItemUseFinish(this.world, this);
 						if (!itemstack1.isEmpty())
@@ -255,7 +257,7 @@ public class SnailEntity extends AnimalEntity
 				int i = MathHelper.floor(this.getPosX());
 				int j = MathHelper.floor(this.getPosY());
 				int k = MathHelper.floor(this.getPosZ());
-				BlockState blockstate = ModBlocks.SNAIL_SLIME.get().getDefaultState();
+				BlockState blockstate = AutumnityBlocks.SNAIL_SLIME.get().getDefaultState();
 
 				for(int l = 0; l < 4; ++l)
 				{
@@ -282,7 +284,7 @@ public class SnailEntity extends AnimalEntity
 	{
 		if ((this.getEatingTime() + 1) % 12 == 0 && !this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty())
 		{
-			this.playSound(ModSoundEvents.ENTITY_SNAIL_EAT, 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT, 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 
 			for(int i = 0; i < 6; ++i)
 			{
@@ -303,7 +305,7 @@ public class SnailEntity extends AnimalEntity
 		super.onGrowingAdult();
 		if (!this.isChild() && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT))
 		{
-			this.entityDropItem(ModItems.SNAIL_SHELL_PIECE.get(), 1);
+			this.entityDropItem(AutumnityItems.SNAIL_SHELL_PIECE.get(), 1);
 		}
 	}
 
@@ -325,6 +327,7 @@ public class SnailEntity extends AnimalEntity
 							itemstack1.setCount(1);
 							this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack1);
 							this.setEatingTime(192);
+							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayerEntity) player, itemstack1); 
 						}
 						this.consumeItemFromStack(player, itemstack);
 						return ActionResultType.SUCCESS;
@@ -383,8 +386,11 @@ public class SnailEntity extends AnimalEntity
 
 			if (!this.world.isRemote)
 			{
-				this.hidingTime = 160 + rand.nextInt(200);
-				this.setHiding(true);
+				if (!this.isAIDisabled())
+				{
+					this.hidingTime = 160 + rand.nextInt(200);
+					this.setHiding(true);
+				}
 				this.spitOutItem();
 			}
 			else
@@ -519,7 +525,7 @@ public class SnailEntity extends AnimalEntity
 
 	private boolean isFoodItem(ItemStack stack)
 	{
-		return Ingredient.fromTag(ModTags.SNAIL_FOODS).test(stack);
+		return Ingredient.fromTag(AutumnityTags.SNAIL_FOODS).test(stack);
 	}
 
 	public boolean isBreedingItem(ItemStack stack)
@@ -529,12 +535,12 @@ public class SnailEntity extends AnimalEntity
 
 	private boolean isSnailBreedingItem(ItemStack stack)
 	{
-		return Ingredient.fromTag(ModTags.SNAIL_BREEDING_ITEMS).test(stack);
+		return Ingredient.fromTag(AutumnityTags.SNAIL_BREEDING_ITEMS).test(stack);
 	}
 
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
-		return ModEntities.SNAIL.get().create(this.world);
+		return AutumnityEntities.SNAIL.get().create(this.world);
 	}
 
 	@Override
@@ -620,7 +626,7 @@ public class SnailEntity extends AnimalEntity
 
 		protected boolean isTempting(ItemStack stack)
 		{
-			return Ingredient.fromTag(ModTags.SNAIL_TEMPTATION_ITEMS).test(stack);
+			return Ingredient.fromTag(AutumnityTags.SNAIL_TEMPTATION_ITEMS).test(stack);
 		}
 	}
 
@@ -730,7 +736,7 @@ public class SnailEntity extends AnimalEntity
 
 		private boolean isBlockMushroom(BlockPos pos)
 		{
-			return ModTags.SNAIL_BLOCK_FOODS.contains(SnailEntity.this.world.getBlockState(pos).getBlock());
+			return AutumnityTags.SNAIL_BLOCK_FOODS.contains(SnailEntity.this.world.getBlockState(pos).getBlock());
 		}
 	}
 

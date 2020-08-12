@@ -1,14 +1,13 @@
 package com.markus1002.autumnity.core;
 
-import com.markus1002.autumnity.core.registry.ModBiomes;
-import com.markus1002.autumnity.core.registry.ModEntities;
-import com.markus1002.autumnity.core.registry.ModFeatures;
-import com.markus1002.autumnity.core.registry.ModPaintings;
-import com.markus1002.autumnity.core.registry.ModParticles;
-import com.markus1002.autumnity.core.registry.ModPotions;
-import com.markus1002.autumnity.core.util.EventHandler;
-import com.markus1002.autumnity.core.util.Reference;
-import com.markus1002.autumnity.core.util.VanillaCompatibility;
+import com.markus1002.autumnity.core.other.AutumnityEvents;
+import com.markus1002.autumnity.core.other.VanillaCompatibility;
+import com.markus1002.autumnity.core.registry.AutumnityBiomes;
+import com.markus1002.autumnity.core.registry.AutumnityEntities;
+import com.markus1002.autumnity.core.registry.AutumnityFeatures;
+import com.markus1002.autumnity.core.registry.AutumnityPaintings;
+import com.markus1002.autumnity.core.registry.AutumnityParticles;
+import com.markus1002.autumnity.core.registry.AutumnityPotions;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.world.biome.Biome;
@@ -49,38 +48,38 @@ public class Autumnity
         REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
-        ModBiomes.BIOMES.register(modEventBus);
-        ModPaintings.PAINTINGS.register(modEventBus);
+        AutumnityBiomes.BIOMES.register(modEventBus);
+        AutumnityPaintings.PAINTINGS.register(modEventBus);
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
+		MinecraftForge.EVENT_BUS.register(new AutumnityEvents());
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	private void commonSetup(final FMLCommonSetupEvent event)
 	{
 		VanillaCompatibility.setupVanillaCompatibility();
-		ModPotions.setupBrewingRecipes();
-        ModBiomes.setupBiomes();
+		AutumnityPotions.setupBrewingRecipes();
+        AutumnityBiomes.setupBiomes();
 		
 		for(Biome biome : ForgeRegistries.BIOMES.getValues())
 		{
-			ModFeatures.setupBiomeFeatures(biome);
-			ModEntities.setupEntitySpawns(biome);
+			AutumnityFeatures.setupBiomeFeatures(biome);
+			AutumnityEntities.setupEntitySpawns(biome);
 		}
-		ModEntities.registerAttributes();
+		AutumnityEntities.registerAttributes();
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event)
 	{
-		ModEntities.setupEntitiesClient();
+		AutumnityEntities.setupEntitiesClient();
 		VanillaCompatibility.setupVanillaCompatibilityClient();
 	}
 	
 	private void particleSetup(ParticleFactoryRegisterEvent event)
 	{
-        ModParticles.registerFactories();
+        AutumnityParticles.registerFactories();
 	}
 	
 

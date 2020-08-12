@@ -4,7 +4,7 @@ import com.markus1002.autumnity.common.world.biome.MapleForestBiome;
 import com.markus1002.autumnity.common.world.biome.MapleForestHillsBiome;
 import com.markus1002.autumnity.common.world.biome.PumpkinFieldsBiome;
 import com.markus1002.autumnity.core.Config;
-import com.markus1002.autumnity.core.util.Reference;
+import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -16,7 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModBiomes
+public class AutumnityBiomes
 {
 	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Reference.MOD_ID);
 

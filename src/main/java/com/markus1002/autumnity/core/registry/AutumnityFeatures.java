@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModFeatures
+public class AutumnityFeatures
 {
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig.field_236676_a_);
 	public static final Feature<NoFeatureConfig> FALLEN_LEAVES = new FallenLeavesFeature(NoFeatureConfig.field_236558_a_);
@@ -42,7 +42,7 @@ public class ModFeatures
 	{
 		if (Config.COMMON.mapleTreeBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addBiomeFeature(biome, GenerationStage.Decoration.VEGETAL_DECORATION, MAPLE_TREE.withConfiguration(ModBiomeFeatures.MAPLE_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.05F, 1))));
+			addBiomeFeature(biome, GenerationStage.Decoration.VEGETAL_DECORATION, MAPLE_TREE.withConfiguration(ModBiomeFeatures.MAPLE_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.01F, 1))));
 		}
 	}
 

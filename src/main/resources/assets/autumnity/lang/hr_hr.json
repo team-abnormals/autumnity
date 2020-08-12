@@ -1,0 +1,104 @@
+{
+    "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+    "block.autumnity.snail_slime": "Puževa sluz",
+    "block.autumnity.snail_slime_block": "Blok puževe sluzi",
+    "block.autumnity.pancake": "Palačinka",
+    "block.autumnity.foul_berry_bush_pips": "Sjemenke odvratne bobice",
+    "block.autumnity.foul_berry_bush": "Grm odvratne bobice",
+    "block.autumnity.tall_foul_berry_bush": "Visoki grm odvratne bobice",
+    "_comment1": "A flower that generates in Maple Forests.",
+    "block.autumnity.autumn_crocus": "Jesenski šafran",
+    "block.autumnity.potted_autumn_crocus": "Jesenski šafran u lončanici",
+    
+    "block.autumnity.maple_log": "Trupac javora",
+    "block.autumnity.maple_wood": "Drvo javora",
+    "block.autumnity.stripped_maple_log": "Oguljeni trupac javora",
+    "block.autumnity.stripped_maple_wood": "Oguljeno drvo javora",
+    "_comment2": "Refers to the sap dripping out of the wood",
+    "block.autumnity.sappy_maple_log": "Smolasti trupac javora",
+    "block.autumnity.sappy_maple_wood": "Smolasto drvo javora",
+    
+    "block.autumnity.maple_planks": "Daske od javora",
+    "block.autumnity.maple_stairs": "Stube od javora",
+    "block.autumnity.maple_slab": "Ploča od javora",
+    "block.autumnity.maple_pressure_plate": "Nagazna ploča od javora",
+    "block.autumnity.maple_button": "Gumb od javora",
+    "block.autumnity.maple_fence": "Ograda od javora",
+    "block.autumnity.maple_fence_gate": "Vrata za ogradu od javora",
+    "block.autumnity.maple_door": "Vrata od javora",
+    "block.autumnity.maple_trapdoor": "Podna vrata od javora",
+    "block.autumnity.maple_sign": "Znak od javora",
+    "block.autumnity.maple_wall_sign": "Zidni znak od javora",
+    
+    "block.autumnity.maple_leaves": "Lišce javora",
+    "block.autumnity.yellow_maple_leaves": "Žuto lišće javora",
+    "block.autumnity.orange_maple_leaves": "Narančasto lišće javora",
+    "block.autumnity.red_maple_leaves": "Crveno lišće javora",
+    
+    "block.autumnity.maple_sapling": "Mlado javora",
+    "block.autumnity.yellow_maple_sapling": "Mlado žutog javora",
+    "block.autumnity.orange_maple_sapling": "Mlado narančastog javora",
+    "block.autumnity.red_maple_sapling": "Mlado crvenog javora",
+    
+    "block.autumnity.potted_maple_sapling": "Mlado javora u lončanici",
+    "block.autumnity.potted_yellow_maple_sapling": "Mlado žutog javora u lončanici",
+    "block.autumnity.potted_orange_maple_sapling": "Mlado narančastog javora u lončanici",
+    "block.autumnity.potted_red_maple_sapling": "Mlado crvenog javora u lončanici",
+    
+    "block.autumnity.maple_leaf_carpet": "Tepih od lišća javora",
+    "block.autumnity.yellow_maple_leaf_carpet": "Tepih od lišća žutog javora",
+    "block.autumnity.orange_maple_leaf_carpet": "Tepih od lišća narančastog javora",
+    "block.autumnity.red_maple_leaf_carpet": "Tepih od lišća crvenog javora",
+    
+    "item.autumnity.maple_boat": "čamac od javora",
+    "item.autumnity.sap_bottle": "Bočica smole",
+    "item.autumnity.syrup_bottle": "Bočica sirupa",
+    "item.autumnity.foul_berries": "Odvratne bobice",
+    "item.autumnity.foul_berry_pips": "Sjemenke odvratne bobice",
+    "item.autumnity.snail_spawn_egg": "Jaje za stvaranje puža",
+    "item.autumnity.snail_shell_piece": "Komad puževe kućice",
+    "item.autumnity.snail_shell_chestplate": "Prsni oklop od puževe kućice",
+
+    "item.autumnity.snail_shell_chestplate.whenSneaking": "Kada se šuljaš:",
+    
+    "entity.autumnity.boat": "Čamac",
+    "entity.autumnity.snail": "Puž",
+    
+    "_comment3": "This effect extends the duration of active potion effects.",
+    "effect.autumnity.extension": "Produljenje",
+    "_comment4": "When the effect is active eating food will replenish 50% more food points than normally.",
+    "effect.autumnity.foul_taste": "Odvratan okus",
+    
+    "item.minecraft.potion.effect.extension": "Napitak produljenja",
+    "item.minecraft.splash_potion.effect.extension": "Prskajući napitak produljenja",
+    "item.minecraft.lingering_potion.effect.extension": "Dugotrajni napitak produljenja",
+    "item.minecraft.tipped_arrow.effect.extension": "Strijela produljenja",
+        
+    "biome.autumnity.maple_forest": "Javorova šuma",
+    "biome.autumnity.maple_forest_hills": "Planine javorove šume",
+    "biome.autumnity.pumpkin_fields": "Polja bundeva",
+    
+    "subtitles.entity.snail.eat": "Puž jede",
+    "subtitles.entity.snail.hurt": "Puž je ozlijeđen",
+    
+    
+    "_comment5": "Compat Stuff",
+    
+    "block.autumnity.maple_vertical_slab": "Okomite ploče od javora",
+    "block.autumnity.vertical_maple_planks": "Okomite daske od javora",
+    "block.autumnity.maple_bookshelf": "Polica s knjigama od javora",
+    "block.autumnity.maple_ladder": "Ljestve od javora",
+    "block.autumnity.foul_berry_sack": "Vreća odvratnih bobica",
+    "block.autumnity.potted_foul_berries": "Odvratne bobice u lončanici",
+    "block.autumnity.maple_beehive": "Košnica od javora",
+    "block.autumnity.maple_chest": "Škrinja od javora",
+    "block.autumnity.maple_trapped_chest": "Škrinja sa zamkom od javora",
+    
+    "_comment6": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+    "advancements.husbandry.sneaky_protection.title": "Šuljajuća zaštita",
+    "advancements.husbandry.sneaky_protection.description": "Konstruiraj prsni oklop od puževe kućice",
+    "advancements.husbandry.fungivore_diet.title": "Gljivasta dijeta",
+    "advancements.husbandry.fungivore_diet.description": "Nahrani puža svim vrstama gljiva",
+    "advancements.husbandry.finally_some_good_food.title": "Napokon, neka dobra hrana",
+    "advancements.husbandry.finally_some_good_food.description": "Pojedi nešto dobro nakon jedenja odvratnih bobica"
+  }

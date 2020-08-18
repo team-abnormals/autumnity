@@ -25,7 +25,7 @@ public final class MapleForestBiome extends Biome
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		ModBiomeFeatures.addMapleFeatures(this);
+		AutumnityBiomeFeatures.addMapleFeatures(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
@@ -62,6 +62,5 @@ public final class MapleForestBiome extends Biome
 	public int getFoliageColor()
 	{
 		return 0x9FC944;
-
 	}
 }

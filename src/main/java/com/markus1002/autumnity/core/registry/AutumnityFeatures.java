@@ -1,6 +1,6 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.common.world.biome.ModBiomeFeatures;
+import com.markus1002.autumnity.common.world.biome.AutumnityBiomeFeatures;
 import com.markus1002.autumnity.common.world.gen.feature.FallenLeavesFeature;
 import com.markus1002.autumnity.common.world.gen.feature.MapleTreeFeature;
 import com.markus1002.autumnity.core.Config;
@@ -42,7 +42,7 @@ public class AutumnityFeatures
 	{
 		if (Config.COMMON.mapleTreeBiomes.get().contains(biome.getRegistryName().toString()))
 		{
-			addBiomeFeature(biome, GenerationStage.Decoration.VEGETAL_DECORATION, MAPLE_TREE.withConfiguration(ModBiomeFeatures.MAPLE_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.01F, 1))));
+			addBiomeFeature(biome, GenerationStage.Decoration.VEGETAL_DECORATION, MAPLE_TREE.withConfiguration(AutumnityBiomeFeatures.MAPLE_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.01F, 1))));
 		}
 	}
 

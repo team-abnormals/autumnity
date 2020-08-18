@@ -26,7 +26,7 @@ public final class PumpkinFieldsBiome extends Biome
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		ModBiomeFeatures.addPumpkinFieldsFeatures(this);
+		AutumnityBiomeFeatures.addPumpkinFieldsFeatures(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
 		DefaultBiomeFeatures.addSprings(this);
@@ -61,6 +61,5 @@ public final class PumpkinFieldsBiome extends Biome
 	public int getFoliageColor()
 	{
 		return 0x9FC944;
-
 	}
 }

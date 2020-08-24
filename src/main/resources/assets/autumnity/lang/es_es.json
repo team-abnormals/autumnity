@@ -55,29 +55,24 @@
   "item.autumnity.syrup_bottle": "Frasco con jarabe",
   "item.autumnity.foul_berries": "Bayas repugnantes",
   "item.autumnity.foul_berry_pips": "Pepitas de bayas repugnantes",
-  "item.autumnity.foul_berry_leaf": "Hoja de baya repugnante",
-  "item.autumnity.foul_berry_pie": "Tarta de bayas repugnantes",
   "item.autumnity.snail_spawn_egg": "Generar caracol",
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Peto de caparazón de caracol",
+
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "Estando agachado:",
   
   "entity.autumnity.boat": "Barca",
   "entity.autumnity.snail": "Caracol",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",
-  "_comment": "This effect prevents all healing.",
-  "effect.autumnity.life_stasis": "Estasis vital",
+  "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
+  "effect.autumnity.foul_taste": "Sabor repugnante",
   
   "item.minecraft.potion.effect.extension": "Poción de extensión",
   "item.minecraft.splash_potion.effect.extension": "Poción de extensión arrojadiza",
   "item.minecraft.lingering_potion.effect.extension": "Poción de extensión persistente",
   "item.minecraft.tipped_arrow.effect.extension": "Flecha de extensión",
-  
-  "item.minecraft.potion.effect.anti_healing": "Poción de anticuración",
-  "item.minecraft.splash_potion.effect.anti_healing": "Poción de anticuración arrojadiza",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Poción de anticuración persistente",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Flecha de anticuración",
   
   "biome.autumnity.maple_forest": "Bosque de arces",
   "biome.autumnity.maple_forest_hills": "Colinas de bosque de arces",
@@ -87,7 +82,7 @@
   "subtitles.entity.snail.hurt": "Caracol herido",
   
   
-  "_comment": "Quark Stuff",
+  "_comment": "Compat Stuff",
   
   "block.autumnity.maple_vertical_slab": "Losa vertical de arce",
   "block.autumnity.vertical_maple_planks": "Madera vertical de arce",
@@ -95,8 +90,15 @@
   "block.autumnity.maple_ladder": "Escalera de mano de arce",
   "block.autumnity.foul_berry_sack": "Saco de bayas repugnantes",
   "block.autumnity.potted_foul_berries": "Maceta con bayas repugnantes",
+  "block.autumnity.maple_beehive": "Apiario de arce",
+  "block.autumnity.maple_chest": "Cofre de arce",
+  "block.autumnity.maple_trapped_chest": "Cofre trampa de arce",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección a hurtadillas",
-  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol."
+  "advancements.husbandry.sneaky_protection.description": "Construye un peto de caparazón de caracol",
+  "advancements.husbandry.fungivore_diet.title": "Una dieta fungívora",
+  "advancements.husbandry.fungivore_diet.description": "Alimenta a un caracol con un hongo y champiñón de cada tipo",
+  "advancements.husbandry.finally_some_good_food.title": "Al fin, una buena comida",
+  "advancements.husbandry.finally_some_good_food.description": "Come algo que sea bueno tras ingerir bayas repugnantes"
 }

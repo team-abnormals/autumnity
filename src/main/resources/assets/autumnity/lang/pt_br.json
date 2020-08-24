@@ -1,104 +1,104 @@
 {
   "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
-  "block.autumnity.snail_slime": "Baba de Caracol",
-  "block.autumnity.snail_slime_block": "Bloco de Baba de Caracol",
+  "block.autumnity.snail_slime": "Gosma de caracol",
+  "block.autumnity.snail_slime_block": "Bloco de gosma de caracol",
   "block.autumnity.pancake": "Panqueca",
-  "block.autumnity.foul_berry_bush_pips": "Sementes de Cereja-de-Pombo",
-  "block.autumnity.foul_berry_bush": "Arbusto de Cereja-de-Pombo",
-  "block.autumnity.tall_foul_berry_bush": "Arbusto Alto de Cereja-de-Pombo",
+  "block.autumnity.foul_berry_bush_pips": "Sementes de bagas nojentas",
+  "block.autumnity.foul_berry_bush": "Arbusto de bagas nojentas",
+  "block.autumnity.tall_foul_berry_bush": "Arbusto alto de bagas nojentas",
   "_comment": "A flower that generates in Maple Forests.",
-  "block.autumnity.autumn_crocus": "Açafrão-do-Prado",
-  "block.autumnity.potted_autumn_crocus": "Vaso de Açafrão-do-Prado",
-  
-  "block.autumnity.maple_log": "Tronco de Bordo",
-  "block.autumnity.maple_wood": "Madeira de Bordo",
-  "block.autumnity.stripped_maple_log": "Tronco de Bordo Descascado",
-  "block.autumnity.stripped_maple_wood": "Madeira de Bordo Descascada",
+  "block.autumnity.autumn_crocus": "Açafrão-do-prado",
+  "block.autumnity.potted_autumn_crocus": "Vaso de açafrão-do-prado",
+
+  "block.autumnity.maple_log": "Tronco de bordo",
+  "block.autumnity.maple_wood": "Madeira de bordo",
+  "block.autumnity.stripped_maple_log": "Tronco de bordo descascado",
+  "block.autumnity.stripped_maple_wood": "Madeira de bordo descascada",
   "_comment": "Refers to the sap dripping out of the wood",
-  "block.autumnity.sappy_maple_log": "Tronco de Bordo com Seiva",
-  "block.autumnity.sappy_maple_wood": "Madeira de Bordo com Seive",
-  
-  "block.autumnity.maple_planks": "Tabua de Bordo",
-  "block.autumnity.maple_stairs": "Escada de Bordo",
-  "block.autumnity.maple_slab": "Laje de Bordo",
-  "block.autumnity.maple_pressure_plate": "Placa de Pressão de Bordo",
-  "block.autumnity.maple_button": "Botão de Bordo",
-  "block.autumnity.maple_fence": "Cerca de Bordo",
-  "block.autumnity.maple_fence_gate": "Portão de Bordo",
-  "block.autumnity.maple_door": "Porta de Bordo",
-  "block.autumnity.maple_trapdoor": "Alçapão de Bordo",
-  "block.autumnity.maple_sign": "Placa de Bordo",
-  "block.autumnity.maple_wall_sign": "Placa de Parede de Bordo",
-  
-  "block.autumnity.maple_leaves": "Folhas de Bordo",
-  "block.autumnity.yellow_maple_leaves": "Folhas de Bordo Amarelo",
-  "block.autumnity.orange_maple_leaves": "Folhas de Bordo Laranja",
-  "block.autumnity.red_maple_leaves": "Folhas de Bordo Vermelho",
-  
-  "block.autumnity.maple_sapling": "Muda de Bordo",
-  "block.autumnity.yellow_maple_sapling": "Muda de Bordo Amarelo",
-  "block.autumnity.orange_maple_sapling": "Muda de Bordo Laranja",
-  "block.autumnity.red_maple_sapling": "Muda de Bordo Vermelho",
-  
-  "block.autumnity.potted_maple_sapling": "Vaso de Muda de Bordo",
-  "block.autumnity.potted_yellow_maple_sapling": "Vaso de Muda de Bordo Amarelo",
-  "block.autumnity.potted_orange_maple_sapling": "Vaso de Muda de Bordo Laranja",
-  "block.autumnity.potted_red_maple_sapling": "Vaso de Muda de Bordo Vermelho",
-  
-  "block.autumnity.maple_leaf_carpet": "Tapete de Bordo",
-  "block.autumnity.yellow_maple_leaf_carpet": "Tapete de Bordo Amarelo",
-  "block.autumnity.orange_maple_leaf_carpet": "Tapete de Bordo Laranja",
-  "block.autumnity.red_maple_leaf_carpet": "Tapete de Bordo Vermelho",
-  
-  "item.autumnity.maple_boat": "Bote de Dordo",
-  "item.autumnity.sap_bottle": "Garrafa de Seiva",
-  "item.autumnity.syrup_bottle": "Garrafa de Xarope,
-  "item.autumnity.foul_berries": "Cereja-de-Pombo",
-  "item.autumnity.foul_berry_pips": "Semented de Cereja-de-Pombo",
-  "item.autumnity.snail_spawn_egg": "Ovo de Gerador de Caracol",
-  "item.autumnity.snail_shell_piece": "Pedaço de Concha de Caracol",
-  "item.autumnity.snail_shell_chestplate": "Peitoral de Concha de Caracol",
-  
-  "item.autumnity.snail_shell_chestplate.whenSneaking": "Quando Agachado:",
-  
+  "block.autumnity.sappy_maple_log": "Tronco de bordo com seiva",
+  "block.autumnity.sappy_maple_wood": "Madeira de bordo com seiva",
+
+  "block.autumnity.maple_planks": "Tábuas de bordo",
+  "block.autumnity.maple_stairs": "Escada de bordo",
+  "block.autumnity.maple_slab": "Laje de bordo",
+  "block.autumnity.maple_pressure_plate": "Placa de pressão de bordo",
+  "block.autumnity.maple_button": "Botão de bordo",
+  "block.autumnity.maple_fence": "Cerca de bordo",
+  "block.autumnity.maple_fence_gate": "Portão de bordo",
+  "block.autumnity.maple_door": "Porta de bordo",
+  "block.autumnity.maple_trapdoor": "Alçapão de bordo",
+  "block.autumnity.maple_sign": "Placa de bordo",
+  "block.autumnity.maple_wall_sign": "Placa de bordo de parede",
+
+  "block.autumnity.maple_leaves": "Folhas de bordo",
+  "block.autumnity.yellow_maple_leaves": "Folhas de bordo amarelas",
+  "block.autumnity.orange_maple_leaves": "Folhas de bordo laranja",
+  "block.autumnity.red_maple_leaves": "Folhas de bordo vermelhas",
+
+  "block.autumnity.maple_sapling": "Muda de bordo",
+  "block.autumnity.yellow_maple_sapling": "Muda de bordo amarelo",
+  "block.autumnity.orange_maple_sapling": "Muda de bordo laranja",
+  "block.autumnity.red_maple_sapling": "Muda de bordo vermelho",
+
+  "block.autumnity.potted_maple_sapling": "Muda de bordo envasada",
+  "block.autumnity.potted_yellow_maple_sapling": "Muda de bordo amarelo envasada",
+  "block.autumnity.potted_orange_maple_sapling": "Muda de bordo laranja envasada",
+  "block.autumnity.potted_red_maple_sapling": "Muda de bordo vermelho envasada",
+
+  "block.autumnity.maple_leaf_carpet": "Tapete de folhas de bordo",
+  "block.autumnity.yellow_maple_leaf_carpet": "Tapete de folhas de bordo amarelo",
+  "block.autumnity.orange_maple_leaf_carpet": "Tapete de folhas de bordo laranja",
+  "block.autumnity.red_maple_leaf_carpet": "Tapete de folhas de bordo vermelho",
+
+  "item.autumnity.maple_boat": "Bote de bordo",
+  "item.autumnity.sap_bottle": "Frasco de seiva",
+  "item.autumnity.syrup_bottle": "Frasco de xarope de bordo",
+  "item.autumnity.foul_berries": "Cereja-de-pombo",
+  "item.autumnity.foul_berry_pips": "Sementes de cereja-de-pombo",
+  "item.autumnity.snail_spawn_egg": "Ovo gerador de caracol",
+  "item.autumnity.snail_shell_piece": "Pedaço de concha de caracol",
+  "item.autumnity.snail_shell_chestplate": "Peitoral de concha de caracol",
+
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "Quando agachado:",
+
   "entity.autumnity.boat": "Bote",
   "entity.autumnity.snail": "Caracol",
-  
+
   "_comment": "This effect extends the duration of active potion effects.",
-  "effect.autumnity.extension": "Amplificação",
+  "effect.autumnity.extension": "Extensão",
   "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
-  "effect.autumnity.foul_taste": "Gosto Desagradável",
-  
-  "item.minecraft.potion.effect.extension": "Poção de Amplificação",
-  "item.minecraft.splash_potion.effect.extension": "Poção Arremessavel de Amplificação",
-  "item.minecraft.lingering_potion.effect.extension": "Poção Prolongada de Amplificação",
-  "item.minecraft.tipped_arrow.effect.extension": "Flecha de Amplificação",
-  
-  "biome.autumnity.maple_forest": "Floresta de Bordo",
-  "biome.autumnity.maple_forest_hills": "Colinas da Floresta de Bordo",
-  "biome.autumnity.pumpkin_fields": "Campos de Abóbora",
-  
+  "effect.autumnity.foul_taste": "Gosto horrível",
+
+  "item.minecraft.potion.effect.extension": "Poção de extensão",
+  "item.minecraft.splash_potion.effect.extension": "Poção arremessável de extensão",
+  "item.minecraft.lingering_potion.effect.extension": "Poção prolongada de extensão",
+  "item.minecraft.tipped_arrow.effect.extension": "Flecha de extensão",
+
+  "biome.autumnity.maple_forest": "Floresta de bordo",
+  "biome.autumnity.maple_forest_hills": "Colinas da floresta de bordo",
+  "biome.autumnity.pumpkin_fields": "Campos de abóbora",
+
   "subtitles.entity.snail.eat": "Caracol come",
   "subtitles.entity.snail.hurt": "Caracol ferido",
-  
-  
+
+
   "_comment": "Compat Stuff",
-  
-  "block.autumnity.maple_vertical_slab": "Laje de Bordo Vertical",
-  "block.autumnity.vertical_maple_planks": "Tábua de Bordo Vertical",
-  "block.autumnity.maple_bookshelf": "Estante de Bordo",
-  "block.autumnity.maple_ladder": "Escada de Bordo",
-  "block.autumnity.foul_berry_sack": "Saco de Cereja-de-Pombo",
-  "block.autumnity.potted_foul_berries": "Vaso de Cereja-de-Pombo",
-  "block.autumnity.maple_beehive": "Colméia Artificial de Bordo",
-  "block.autumnity.maple_chest": "Baú de Bordo",
-  "block.autumnity.maple_trapped_chest": "Baú de Bordo com Armadilha",
-  
+
+  "block.autumnity.maple_vertical_slab": "Laje de bordo vertical",
+  "block.autumnity.vertical_maple_planks": "Tábua de bordo vertical",
+  "block.autumnity.maple_bookshelf": "Estante de bordo",
+  "block.autumnity.maple_ladder": "Escada de bordo",
+  "block.autumnity.foul_berry_sack": "Saco de cereja-de-pombo",
+  "block.autumnity.potted_foul_berries": "Vaso de cereja-de-pombo",
+  "block.autumnity.maple_beehive": "Colmeia artificial de bordo",
+  "block.autumnity.maple_chest": "Baú de bordo",
+  "block.autumnity.maple_trapped_chest": "Baú de bordo com armadilha",
+
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Proteção Furtiva",
-  "advancements.husbandry.sneaky_protection.description": "Construir um Peitoral de Concha de Caracol",
-  "advancements.husbandry.fungivore_diet.title": "Dieta Fungívora",
-  "advancements.husbandry.fungivore_diet.description": "Alimente um Caracol com todos os tipos de cogumelos e fungos",
+  "advancements.husbandry.sneaky_protection.title": "Proteção furtiva",
+  "advancements.husbandry.sneaky_protection.description": "Construir um peitoral de concha de caracol",
+  "advancements.husbandry.fungivore_diet.title": "Dieta fungívora",
+  "advancements.husbandry.fungivore_diet.description": "Alimente um caracol com todos os tipos de cogumelos e fungos",
   "advancements.husbandry.finally_some_good_food.title": "Finalmente, uma comida boa",
-  "advancements.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer Cereja-de-Pombo"
+  "advancements.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer bagas nojentas"
 }

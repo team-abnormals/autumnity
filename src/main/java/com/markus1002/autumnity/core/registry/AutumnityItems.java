@@ -65,9 +65,9 @@ public class AutumnityItems
 		{
 			return 0.0F;
 		}
-
+		
 		@Override
-		public float func_230304_f_()
+		public float getKnockbackResistance()
 		{
 			return 0.0F;
 		}

@@ -49,6 +49,6 @@ public class AutumnityEntities
 	
     public static void registerAttributes()
     {
-    	GlobalEntityTypeAttributes.put(SNAIL.get(), SnailEntity.registerAttributes().func_233813_a_());
+    	GlobalEntityTypeAttributes.put(SNAIL.get(), SnailEntity.registerAttributes().create());
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.advancements.criterion.AbstractCriterionTrigger;
 import net.minecraft.advancements.criterion.CriterionInstance;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityPredicate.AndPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.advancements.criterion.NBTPredicate;
@@ -29,14 +30,14 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 		return ID;
 	}
 
-	public FeedSnailTrigger.Instance func_230241_b_(JsonObject p_230241_1_, EntityPredicate.AndPredicate p_230241_2_, ConditionArrayParser p_230241_3_)
+	public FeedSnailTrigger.Instance deserializeTrigger(JsonObject json, AndPredicate entityPredicate, ConditionArrayParser conditionsParser)
 	{
-		return new FeedSnailTrigger.Instance(p_230241_2_, ItemPredicate.deserialize(p_230241_1_.get("item")));
+		return new FeedSnailTrigger.Instance(entityPredicate, ItemPredicate.deserialize(json.get("item")));
 	}
 
 	public void trigger(ServerPlayerEntity player, ItemStack item)
 	{
-		this.func_235959_a_(player, (p_226325_1_) -> {
+		this.triggerListeners(player, (p_226325_1_) -> {
 			return p_226325_1_.test(item);
 		});
 	}
@@ -53,12 +54,12 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 
 		public static FeedSnailTrigger.Instance any()
 		{
-			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.field_234582_a_, ItemPredicate.ANY);
+			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY_AND, ItemPredicate.ANY);
 		}
 
 		public static FeedSnailTrigger.Instance forItem(IItemProvider p_203913_0_)
 		{
-			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.field_234582_a_, new ItemPredicate((ITag<Item>)null, p_203913_0_.asItem(), MinMaxBounds.IntBound.UNBOUNDED, MinMaxBounds.IntBound.UNBOUNDED, EnchantmentPredicate.field_226534_b_, EnchantmentPredicate.field_226534_b_, (Potion)null, NBTPredicate.ANY));
+			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY_AND, new ItemPredicate((ITag<Item>)null, p_203913_0_.asItem(), MinMaxBounds.IntBound.UNBOUNDED, MinMaxBounds.IntBound.UNBOUNDED, EnchantmentPredicate.enchantments, EnchantmentPredicate.enchantments, (Potion)null, NBTPredicate.ANY));
 		}
 
 		public boolean test(ItemStack item)
@@ -68,7 +69,7 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 
 		public JsonObject func_230240_a_(ConditionArraySerializer p_230240_1_)
 		{
-			JsonObject jsonobject = super.func_230240_a_(p_230240_1_);
+			JsonObject jsonobject = super.serialize(p_230240_1_);
 			jsonobject.add("item", this.item.serialize());
 			return jsonobject;
 		}

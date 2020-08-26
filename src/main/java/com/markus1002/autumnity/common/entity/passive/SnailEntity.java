@@ -125,9 +125,9 @@ public class SnailEntity extends AnimalEntity
 	public static AttributeModifierMap.MutableAttribute registerAttributes()
 	{
 		return MobEntity.func_233666_p_()
-				.func_233815_a_(Attributes.MAX_HEALTH, 18.0D)
-				.func_233815_a_(Attributes.MOVEMENT_SPEED, 0.25D)
-				.func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
+				.createMutableAttribute(Attributes.MAX_HEALTH, 18.0D)
+				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
+				.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
@@ -455,7 +455,7 @@ public class SnailEntity extends AnimalEntity
 			this.getAttribute(Attributes.ARMOR).removeModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			if (hiding)
 			{
-				this.getAttribute(Attributes.ARMOR).func_233767_b_(HIDING_ARMOR_BONUS_MODIFIER);
+				this.getAttribute(Attributes.ARMOR).applyNonPersistentModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			}
 		}
 	}
@@ -720,7 +720,7 @@ public class SnailEntity extends AnimalEntity
 		{
 			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0)
 			{
-				BlockPos blockpos = SnailEntity.this.func_233580_cy_();
+				BlockPos blockpos = SnailEntity.this.getPosition();
 
 				if (this.isBlockMushroom(blockpos))
 				{

@@ -36,13 +36,17 @@ public class MapleLogBlock extends RotatedPillarBlock
 
 	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult result)
 	{
-		if(player.getHeldItem(hand).getItem() instanceof AxeItem)
+		ItemStack stack = player.getHeldItem(hand);
+		if(stack.getItem() instanceof AxeItem)
 		{
 			world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			if (!world.isRemote)
 			{
 				BlockState strippedState = world.getRandom().nextInt(4) == 0 ? this.sappyBlock.get().getDefaultState() : this.block.get().getDefaultState();
 				world.setBlockState(pos, BlockUtils.transferAllBlockStates(state, strippedState));
+				stack.damageItem(1, player, (playerIn) -> {
+					playerIn.sendBreakAnimation(hand);
+				});
 			}
 			return ActionResultType.SUCCESS;
 		}

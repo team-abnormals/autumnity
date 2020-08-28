@@ -2,6 +2,7 @@ package com.markus1002.autumnity.core.registry;
 
 import com.markus1002.autumnity.common.world.biome.AutumnityBiomeFeatures;
 import com.markus1002.autumnity.common.world.gen.feature.FallenLeavesFeature;
+import com.markus1002.autumnity.common.world.gen.feature.FallenLeavesMapleTreeFeature;
 import com.markus1002.autumnity.common.world.gen.feature.MapleTreeFeature;
 import com.markus1002.autumnity.core.Config;
 
@@ -22,13 +23,15 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AutumnityFeatures
 {
-	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig.field_236676_a_);
+	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig.CODEC_BASE_TREE_FEATURE_CONFIG);
+	public static final Feature<BaseTreeFeatureConfig> FALLEN_LEAVES_MAPLE_TREE = new FallenLeavesMapleTreeFeature(BaseTreeFeatureConfig.CODEC_BASE_TREE_FEATURE_CONFIG);
 	public static final Feature<NoFeatureConfig> FALLEN_LEAVES = new FallenLeavesFeature(NoFeatureConfig.field_236558_a_);
 
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
 	{
 		registerFeature(MAPLE_TREE, "maple_tree");
+		registerFeature(FALLEN_LEAVES_MAPLE_TREE, "fallen_leaves_maple_tree");
 		registerFeature(FALLEN_LEAVES, "fallen_leaves");
 	}
 

@@ -70,7 +70,7 @@ public class AutumnityEvents
 		{
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty())
 			{
-				if (event.getWorld().getBiome(livingentity.func_233580_cy_()) == AutumnityBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F)
+				if (event.getWorld().getBiome(livingentity.getPosition()) == AutumnityBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F)
 				{
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
@@ -87,7 +87,7 @@ public class AutumnityEvents
 		entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
 		if(entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isSneaking())
 		{
-			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).func_233767_b_(KNOCKBACK_MODIFIER);
+			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).applyNonPersistentModifier(KNOCKBACK_MODIFIER);
 		}
 	}
 

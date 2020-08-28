@@ -38,10 +38,10 @@ public class AutumnityBiomeFeatures
 	private static final BlockState OXEYE_DAISY = Blocks.OXEYE_DAISY.getDefaultState();
 	private static final BlockState CORNFLOWER = Blocks.CORNFLOWER.getDefaultState();
 
-	public static final BaseTreeFeatureConfig MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
-	public static final BaseTreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), null, null, null)).func_236700_a_().build();
+	public static final BaseTreeFeatureConfig MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
+	public static final BaseTreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
+	public static final BaseTreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
+	public static final BaseTreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
 	public static final BlockClusterFeatureConfig TALL_FOUL_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(TALL_FOUL_BERRY_BUSH), new DoublePlantBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).func_227317_b_().build();
 	public static final BlockClusterFeatureConfig AUTUMN_CROCUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(AUTUMN_CROCUS), new SimpleBlockPlacer())).tries(64).build();
 	public static final BlockClusterFeatureConfig ROSE_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(ROSE_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();
@@ -52,14 +52,14 @@ public class AutumnityBiomeFeatures
 	{
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
 				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				AutumnityFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
-				AutumnityFeatures.MAPLE_TREE.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
-				AutumnityFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
+				AutumnityFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.3F),
+				AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
+				AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
 				AutumnityFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(ROSE_BUSH_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LUSH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
-		// biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.FALLEN_LEAVES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(64))));
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.FALLEN_LEAVES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(32))));
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(TALL_FOUL_BERRY_BUSH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 	}
 
@@ -67,7 +67,7 @@ public class AutumnityBiomeFeatures
 	{
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
 				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				AutumnityFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.4F),
+				AutumnityFeatures.MAPLE_TREE.withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.3F),
 				AutumnityFeatures.MAPLE_TREE.withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
 				AutumnityFeatures.MAPLE_TREE.withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
 				AutumnityFeatures.MAPLE_TREE.withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));

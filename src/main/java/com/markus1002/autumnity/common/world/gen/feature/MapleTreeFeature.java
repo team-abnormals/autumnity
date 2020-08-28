@@ -31,9 +31,9 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig>
 	}
 
 	@Override
-	public boolean func_230362_a_(ISeedReader worldIn, StructureManager manager, ChunkGenerator generator, Random rand, BlockPos position, BaseTreeFeatureConfig config)
+	public boolean func_230362_a_(ISeedReader worldIn, StructureManager manager, ChunkGenerator generator, Random random, BlockPos position, BaseTreeFeatureConfig config)
 	{
-		int i = rand.nextInt(2) + 5;
+		int i = random.nextInt(2) + 5;
 
 		boolean flag = true;
 		if (position.getY() >= 1 && position.getY() + i + 1 <= worldIn.getHeight())
@@ -86,11 +86,11 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig>
 					for(BlockPos blockpos1 : BlockPos.getAllInBoxMutable(blockpos.add(-2, -1, -2), blockpos.add(2, 3, 2)))
 					{
 						double d0 = blockpos1.distanceSq(blockpos.getX(), blockpos.getY(), blockpos.getZ(), false);
-						if (d0 <= (double)(2.35F * 2.35F) || (d0 <= (double)(2.5F * 2.5F) && rand.nextInt(2) > 0))
+						if (d0 <= (double)(2.35F * 2.35F) || (d0 <= (double)(2.5F * 2.5F) && random.nextInt(2) > 0))
 						{
 							if (isAirOrLeaves(worldIn, blockpos1))
 							{
-								this.placeLeafAt(worldIn, blockpos1, rand, config);
+								this.placeLeafAt(worldIn, blockpos1, random, config);
 							}
 						}
 					}
@@ -100,7 +100,7 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig>
 				{
 					if (isAirOrLeaves(worldIn, position.up(i2)))
 					{
-						this.placeLogAt(worldIn, position.up(i2), rand, config);
+						this.placeLogAt(worldIn, position.up(i2), random, config);
 					}
 				}
 

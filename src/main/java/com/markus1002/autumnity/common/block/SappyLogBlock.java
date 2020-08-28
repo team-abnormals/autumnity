@@ -83,7 +83,7 @@ public class SappyLogBlock extends RotatedPillarBlock
 			int targetIndex = ItemStackUtils.findIndexOfItem(Items.STRIPPED_DARK_OAK_LOG, items);
 			if(targetIndex != -1)
 			{
-				items.add(targetIndex, new ItemStack(this));
+				items.add(targetIndex + 1, new ItemStack(this));
 			}
 			else
 			{

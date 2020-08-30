@@ -37,7 +37,7 @@ public class FallenLeavesFeature extends Feature<NoFeatureConfig>
 					for(int y = -3; y <= 3; ++y)
 					{
 						BlockPos blockpos = pos.add(x, y, z);
-						if (rand.nextInt(5) > 0 && worldIn.isAirBlock(blockpos) && blockpos.getY() < worldIn.getHeight() && worldIn.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK)
+						if (rand.nextInt(3) > 0 && worldIn.isAirBlock(blockpos) && blockpos.getY() < worldIn.getHeight() && worldIn.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK)
 						{
 							worldIn.setBlockState(blockpos, blockstate, 2);
 							++i;

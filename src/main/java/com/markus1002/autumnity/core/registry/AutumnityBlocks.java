@@ -3,6 +3,7 @@ package com.markus1002.autumnity.core.registry;
 import com.markus1002.autumnity.common.block.ColoredMapleLeavesBlock;
 import com.markus1002.autumnity.common.block.FoulBerryBushBlock;
 import com.markus1002.autumnity.common.block.FoulBerryBushPipsBlock;
+import com.markus1002.autumnity.common.block.LargePumpkinSliceBlock;
 import com.markus1002.autumnity.common.block.MapleLeavesBlock;
 import com.markus1002.autumnity.common.block.MapleLogBlock;
 import com.markus1002.autumnity.common.block.MapleWoodBlock;
@@ -69,6 +70,7 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> TALL_FOUL_BERRY_BUSH = HELPER.createBlockNoItem("tall_foul_berry_bush", () -> new TallFoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new AbnormalsFlowerBlock(AutumnityEffects.FOUL_TASTE, 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> POTTED_AUTUMN_CROCUS = HELPER.createBlockNoItem("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> LARGE_PUMPKIN_SLICE = HELPER.createBlock("large_pumpkin_slice", () -> new LargePumpkinSliceBlock(Block.Properties.create(Material.GOURD, MaterialColor.ADOBE).hardnessAndResistance(1.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
 	
 	// Maple Stuff
 	public static final RegistryObject<Block> STRIPPED_MAPLE_LOG = HELPER.createBlock("stripped_maple_log", () -> new StrippedLogBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);

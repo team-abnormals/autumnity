@@ -8,6 +8,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -27,21 +28,27 @@ public class LargePumpkinFeature extends Feature<NoFeatureConfig>
 	public boolean func_230362_a_(ISeedReader worldIn, StructureManager manager, ChunkGenerator generator, Random rand, BlockPos blockpos, NoFeatureConfig p_230362_6_)
 	{
 		int i = 0;
+		int j = 0;
+		boolean spooky = rand.nextInt(60) == 0 ? true : false;
+		
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
-		for(int j = 0; j < 64; ++j)
+		for(int k = 0; k < 64; ++k)
 		{
 			blockpos$mutable.func_239621_a_(blockpos, rand.nextInt(10) - rand.nextInt(10), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(10) - rand.nextInt(10));
-			if (rand.nextInt(6) == 0 && checkPositions(worldIn, blockpos$mutable))
+			if (j <= 2 && rand.nextInt(8) == 0 && !spooky && checkPositions(worldIn, blockpos$mutable))
 			{
 				createLargePumpkinHalf(worldIn, blockpos$mutable, Half.BOTTOM);
 				createLargePumpkinHalf(worldIn, blockpos$mutable.up(), Half.TOP);
 
+				++j;
 				++i;
 			}
 			else if (isAirOrReplaceable(worldIn, blockpos$mutable) && worldIn.getBlockState(blockpos$mutable.down()).getBlock() == Blocks.GRASS_BLOCK)
 			{
-				worldIn.setBlockState(blockpos$mutable, Blocks.PUMPKIN.getDefaultState(), 2);
+				BlockState blockstate = spooky ? Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)) : Blocks.PUMPKIN.getDefaultState();
+				
+				worldIn.setBlockState(blockpos$mutable, blockstate, 2);
 
 				++i;
 			}

@@ -13,6 +13,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 
 public class LargePumpkinSliceBlock extends Block
 {
@@ -32,7 +33,6 @@ public class LargePumpkinSliceBlock extends Block
 
 	public BlockState getStateForPlacement(BlockItemUseContext context)
 	{
-		Direction direction = context.getFace();
 		BlockPos blockpos = context.getPos();
 		BlockState bottomblock = context.getWorld().getBlockState(blockpos.down());
 		BlockState topblock = context.getWorld().getBlockState(blockpos.up());
@@ -46,9 +46,34 @@ public class LargePumpkinSliceBlock extends Block
 			return this.getDefaultState().with(FACING, topblock.get(FACING)).with(HALF, Half.BOTTOM);
 		}
 		
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing()).with(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(context.getHitVec().y - (double)blockpos.getY() > 0.5D)) ? Half.BOTTOM : Half.TOP);
+		return this.getDefaultState().with(FACING, getFacing(context)).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float)Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP);
 	}
 
+	private static Direction getFacing(BlockItemUseContext context)
+	{
+		float f = MathHelper.wrapDegrees(context.getPlacementYaw());
+		Direction direction = context.getPlacementHorizontalFacing();
+		
+		if (direction == Direction.SOUTH && f > 0)
+		{
+			return Direction.WEST;
+		}
+		else if (direction == Direction.WEST && f > 90)
+		{
+			return Direction.NORTH;
+		}
+		else if (direction == Direction.NORTH && f < 0)
+		{
+			return Direction.EAST;
+		}
+		else if (direction == Direction.EAST && f > -90)
+		{
+			return Direction.SOUTH;
+		}
+		
+		return direction;
+	}
+	
 	public BlockState rotate(BlockState state, Rotation rot)
 	{
 		return state.with(FACING, rot.rotate(state.get(FACING)));

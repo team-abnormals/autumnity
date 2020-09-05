@@ -5,6 +5,7 @@ import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -41,17 +42,21 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		if (itemstack.getItem() == Items.SHEARS)
 		{
 			Direction direction = hit.getFace();
-			Direction direction1 = state.get(FACING);
+			Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : hit.getFace();
+			Direction direction2 = state.get(FACING);
 
-			if (canCarve(direction, direction1))
+			if (canCarve(direction1, direction2))
 			{
 				if (!worldIn.isRemote)
 				{
-					CarvedSide carvedside = direction.getAxis() == Axis.X ? CarvedSide.X : CarvedSide.Z;
-					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState().with(CarvedLargePumpkinSliceBlock.FACING, direction1).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
+					CarvedSide carvedside = direction1.getAxis() == Axis.X ? CarvedSide.X : CarvedSide.Z;
+					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState().with(CarvedLargePumpkinSliceBlock.FACING, direction2).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
 
 					worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					worldIn.setBlockState(pos, blockstate, 11);
+		            ItemEntity itementity = new ItemEntity(worldIn, (double)pos.getX() + 0.5D + (double)direction1.getXOffset() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction1.getZOffset() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+		            itementity.setMotion(0.05D * (double)direction1.getXOffset() + worldIn.rand.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getZOffset() + worldIn.rand.nextDouble() * 0.02D);
+		            worldIn.addEntity(itementity);
 					itemstack.damageItem(1, player, (p_220282_1_) -> {
 						p_220282_1_.sendBreakAnimation(handIn);
 					});
@@ -79,6 +84,6 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 			return this.getDefaultState().with(FACING, topblock.get(FACING)).with(HALF, Half.BOTTOM);
 		}
 
-		return this.getDefaultState().with(FACING, getFacing(context).getOpposite()).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float)Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP);
+		return this.getDefaultState().with(FACING, getFacing(context)).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float)Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP);
 	}
 }

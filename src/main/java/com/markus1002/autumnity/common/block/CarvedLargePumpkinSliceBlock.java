@@ -83,6 +83,6 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 			return this.getDefaultState().with(FACING, topblock.get(FACING)).with(HALF, Half.BOTTOM).with(CARVED_SIDE, carvedside);
 		}
 
-		return this.getDefaultState().with(FACING, getFacing(context).getOpposite()).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float)Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP).with(CARVED_SIDE, carvedside);
+		return this.getDefaultState().with(FACING, getFacing(context)).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float)Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP).with(CARVED_SIDE, carvedside);
 	}
 }

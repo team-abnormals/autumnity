@@ -29,19 +29,19 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block
 
 		if (f > -2 && f <= 0)
 		{
-			return Direction.SOUTH;
+			return Direction.NORTH;
 		}
 		else if (f > 0 && f <= 2)
 		{
-			return Direction.WEST;
+			return Direction.EAST;
 		}
 		else if (f > 2)
 		{
-			return Direction.NORTH;
+			return Direction.SOUTH;
 		}
 		else
 		{
-			return Direction.EAST;
+			return Direction.WEST;
 		}
 	}
 

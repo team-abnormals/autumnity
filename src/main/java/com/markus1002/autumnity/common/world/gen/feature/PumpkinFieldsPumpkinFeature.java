@@ -18,9 +18,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
-public class LargePumpkinFeature extends Feature<NoFeatureConfig>
+public class PumpkinFieldsPumpkinFeature extends Feature<NoFeatureConfig>
 {
-	public LargePumpkinFeature(Codec<NoFeatureConfig> config)
+	public PumpkinFieldsPumpkinFeature(Codec<NoFeatureConfig> config)
 	{
 		super(config);
 	}
@@ -29,7 +29,7 @@ public class LargePumpkinFeature extends Feature<NoFeatureConfig>
 	{
 		int i = 0;
 		int j = 0;
-		boolean spooky = rand.nextInt(60) == 0 ? true : false;
+		boolean spooky = rand.nextInt(100) == 0 ? true : false;
 		
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 

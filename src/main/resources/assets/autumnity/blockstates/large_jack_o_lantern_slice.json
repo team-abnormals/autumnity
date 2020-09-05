@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "half=bottom,facing=east,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_northeast_x"
+    },
+    "half=bottom,facing=north,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_northwest_x"
+    },
+    "half=bottom,facing=west,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_southwest_x"
+    },
+    "half=bottom,facing=south,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_southeast_x"
+    },
+    "half=top,facing=east,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_northeast_x"
+    },
+    "half=top,facing=north,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_northwest_x"
+    },
+    "half=top,facing=west,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_southwest_x"
+    },
+    "half=top,facing=south,carved_side=x": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_southeast_x"
+    },
+    "half=bottom,facing=east,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_northeast_z"
+    },
+    "half=bottom,facing=north,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_northwest_z"
+    },
+    "half=bottom,facing=west,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_southwest_z"
+    },
+    "half=bottom,facing=south,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_bottom_southeast_z"
+    },
+    "half=top,facing=east,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_northeast_z"
+    },
+    "half=top,facing=north,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_northwest_z"
+    },
+    "half=top,facing=west,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_southwest_z"
+    },
+    "half=top,facing=south,carved_side=z": {
+      "model": "autumnity:block/large_jack_o_lantern_slice_top_southeast_z"
+    }
+  }
+}

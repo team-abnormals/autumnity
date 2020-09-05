@@ -3,8 +3,8 @@ package com.markus1002.autumnity.core.registry;
 import com.markus1002.autumnity.common.world.biome.AutumnityBiomeFeatures;
 import com.markus1002.autumnity.common.world.gen.feature.FallenLeavesFeature;
 import com.markus1002.autumnity.common.world.gen.feature.FallenLeavesMapleTreeFeature;
-import com.markus1002.autumnity.common.world.gen.feature.LargePumpkinFeature;
 import com.markus1002.autumnity.common.world.gen.feature.MapleTreeFeature;
+import com.markus1002.autumnity.common.world.gen.feature.PumpkinFieldsPumpkinFeature;
 import com.markus1002.autumnity.core.Config;
 
 import net.minecraft.world.biome.Biome;
@@ -27,7 +27,7 @@ public class AutumnityFeatures
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new MapleTreeFeature(BaseTreeFeatureConfig.CODEC_BASE_TREE_FEATURE_CONFIG);
 	public static final Feature<BaseTreeFeatureConfig> FALLEN_LEAVES_MAPLE_TREE = new FallenLeavesMapleTreeFeature(BaseTreeFeatureConfig.CODEC_BASE_TREE_FEATURE_CONFIG);
 	public static final Feature<NoFeatureConfig> FALLEN_LEAVES = new FallenLeavesFeature(NoFeatureConfig.field_236558_a_);
-	public static final Feature<NoFeatureConfig> LARGE_PUMPKIN = new LargePumpkinFeature(NoFeatureConfig.field_236558_a_);
+	public static final Feature<NoFeatureConfig> PUMPKIN_FIELDS_PUMPKIN = new PumpkinFieldsPumpkinFeature(NoFeatureConfig.field_236558_a_);
 
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
@@ -35,7 +35,7 @@ public class AutumnityFeatures
 		registerFeature(MAPLE_TREE, "maple_tree");
 		registerFeature(FALLEN_LEAVES_MAPLE_TREE, "fallen_leaves_maple_tree");
 		registerFeature(FALLEN_LEAVES, "fallen_leaves");
-		registerFeature(LARGE_PUMPKIN, "lage_pumpkin");
+		registerFeature(PUMPKIN_FIELDS_PUMPKIN, "pumpkin_fields_pumpkin");
 	}
 
 	private static void registerFeature(Feature<?> feature, String name)

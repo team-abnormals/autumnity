@@ -9,7 +9,9 @@ import com.markus1002.autumnity.core.registry.AutumnityEffects;
 import com.markus1002.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -28,14 +30,23 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.EntityPredicates;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -66,6 +77,7 @@ public class AutumnityEvents
 	public void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
 	{
 		LivingEntity livingentity = event.getEntityLiving();
+		
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity)
 		{
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty())
@@ -102,17 +114,17 @@ public class AutumnityEvents
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE);
-				
+
 				int i = food.getHealing();
 				int j = i == 1 ? i : (int) (i * 0.5F);
-				
+
 				player.getFoodStats().addStats(j, 0.0F);
 				player.removePotionEffect(AutumnityEffects.FOUL_TASTE);
 				if (effect.getAmplifier() > 0)
 				{
 					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
 				}
-				
+
 				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
 			}
 		}
@@ -134,6 +146,47 @@ public class AutumnityEvents
 		if (event.getType() == VillagerProfession.FARMER)
 		{
 			event.getTrades().get(2).add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
+		}
+	}
+
+	@SubscribeEvent
+	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event)
+	{
+		ItemStack itemstack = event.getItemStack();
+		if (itemstack.getItem() == Items.TORCH)
+		{
+			World world = event.getWorld();
+			BlockPos blockpos = event.getPos();
+			BlockState blockstate = event.getWorld().getBlockState(event.getPos());
+			PlayerEntity player = event.getPlayer();
+
+            boolean flag = !player.getHeldItemMainhand().doesSneakBypassUse(world, blockpos, player) || !player.getHeldItemOffhand().doesSneakBypassUse(world, blockpos, player);
+            boolean flag1 = player.isSecondaryUseActive() && flag;
+            
+			if (blockstate.getBlock() == Blocks.CARVED_PUMPKIN && !flag1)
+			{
+				Direction direction = event.getFace();
+				Direction direction1 = blockstate.get(CarvedPumpkinBlock.FACING);
+
+				if (direction == direction1)
+				{
+					if (!world.isRemote)
+					{
+						BlockState blockstate1 = Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction1);
+						world.setBlockState(blockpos, blockstate1, 11);
+						
+						world.playSound((PlayerEntity)null, blockpos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+						if (!event.getPlayer().abilities.isCreativeMode)
+						{
+							itemstack.shrink(1);
+						}
+					}
+
+	                player.swingArm(event.getHand());
+					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
+					event.setUseItem(Result.DENY);
+				}
+			}
 		}
 	}
 }

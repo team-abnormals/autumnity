@@ -1,4 +1,4 @@
-package com.markus1002.autumnity.common.particle;
+package com.markus1002.autumnity.client.particle;
 
 import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.particle.IParticleFactory;
@@ -19,8 +19,7 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
 		this.particleScale *= 1.2F;
-		int i = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
-		this.maxAge = (int)Math.max((float)i * 1.8F, 2.0F);
+		this.maxAge = 80;
 		this.rotSpeed = ((float)Math.random() - 0.5F) * 0.1F;
 		this.particleAngle = (float)Math.random() * ((float)Math.PI * 2F);
 	}
@@ -35,7 +34,7 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		if (this.age++ >= this.maxAge)
+		if (this.age >= this.maxAge)
 		{
 			this.setExpired();
 		}
@@ -53,6 +52,11 @@ public class FallingLeafParticle extends SpriteTexturedParticle
 			else
 			{
 				this.motionY = 0.0D;
+			}
+			
+			if (this.onGround || this.posY < 0)
+			{
+				this.age++;
 			}
 		}
 	}

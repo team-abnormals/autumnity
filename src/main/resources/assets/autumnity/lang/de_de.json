@@ -9,6 +9,7 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Herbstzeitlose",
   "block.autumnity.potted_autumn_crocus": "Eingetopfte Herbstzeitlose",
+  "block.autumnity.large_pumpkin_slice": "Große Kürbisscheibe",
   
   "block.autumnity.maple_log": "Ahornstamm",
   "block.autumnity.maple_wood": "Ahornholz",
@@ -57,7 +58,7 @@
   "item.autumnity.foul_berry_pips": "Faulbeerkerne",
   "item.autumnity.snail_spawn_egg": "Schnecken-Spawn-Ei",
   "item.autumnity.snail_shell_piece": "Schneckenhausstück",
-  "item.autumnity.snail_shell_chestplate": "Schneckenhausharnisch",
+  "item.autumnity.snail_shell_chestplate": "Schneckenhaus",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Beim Schleichen:",
   
@@ -96,9 +97,9 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",
-  "advancements.husbandry.sneaky_protection.description": "Bau einen Schneckenhausharnisch",
+  "advancements.husbandry.sneaky_protection.description": "Bau ein Schneckenhaus",
   "advancements.husbandry.fungivore_diet.title": "Eine Diät des Fungusfressers",
-  "advancements.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jede Pilze",
+  "advancements.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jeden Pilz",
   "advancements.husbandry.finally_some_good_food.title": "Schließlich, gutes Essen",
   "advancements.husbandry.finally_some_good_food.description": "Iss etwas gut, nach du Faulbeeren isst"
 }

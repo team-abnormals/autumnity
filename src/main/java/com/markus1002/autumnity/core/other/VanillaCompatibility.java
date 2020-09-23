@@ -24,6 +24,8 @@ public class VanillaCompatibility
 		DataUtils.registerCompostable(AutumnityItems.FOUL_BERRIES.get(), 0.3F);
 		DataUtils.registerCompostable(AutumnityItems.FOUL_BERRY_PIPS.get(), 0.3F);
 	    DataUtils.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get().asItem(), 0.65F);
+	    
+	    DataUtils.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get().asItem(), 0.65F);
 		
 		DataUtils.registerCompostable(AutumnityBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
 		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);

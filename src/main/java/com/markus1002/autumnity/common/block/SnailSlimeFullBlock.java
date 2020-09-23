@@ -3,7 +3,6 @@ package com.markus1002.autumnity.common.block;
 import javax.annotation.Nullable;
 
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
-import com.markus1002.autumnity.core.Config;
 import com.markus1002.autumnity.core.other.AutumnityTags;
 
 import net.minecraft.block.Block;

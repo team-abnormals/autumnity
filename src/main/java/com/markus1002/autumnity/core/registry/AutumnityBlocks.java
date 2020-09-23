@@ -1,5 +1,6 @@
 package com.markus1002.autumnity.core.registry;
 
+import com.markus1002.autumnity.common.block.AutumnCrocusBlock;
 import com.markus1002.autumnity.common.block.CarvedLargePumpkinSliceBlock;
 import com.markus1002.autumnity.common.block.ColoredMapleLeavesBlock;
 import com.markus1002.autumnity.common.block.FoulBerryBushBlock;
@@ -21,7 +22,6 @@ import com.markus1002.autumnity.common.block.trees.YellowMapleTree;
 import com.markus1002.autumnity.core.Autumnity;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
-import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
 import com.teamabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.teamabnormals.abnormals_core.common.blocks.LeafCarpetBlock;
@@ -45,6 +45,7 @@ import com.teamabnormals.abnormals_core.common.blocks.wood.WoodTrapDoorBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.PressurePlateBlock;
@@ -52,8 +53,11 @@ import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -69,7 +73,7 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = HELPER.createBlockNoItem("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH = HELPER.createBlockNoItem("foul_berry_bush", () -> new FoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
 	public static final RegistryObject<Block> TALL_FOUL_BERRY_BUSH = HELPER.createBlockNoItem("tall_foul_berry_bush", () -> new TallFoulBerryBushBlock(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
-	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new AbnormalsFlowerBlock(AutumnityEffects.FOUL_TASTE, 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new AutumnCrocusBlock(() -> AutumnityEffects.FOUL_TASTE.get(), 16, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> POTTED_AUTUMN_CROCUS = HELPER.createBlockNoItem("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 	public static final RegistryObject<Block> LARGE_PUMPKIN_SLICE = HELPER.createBlock("large_pumpkin_slice", () -> new LargePumpkinSliceBlock(Block.Properties.create(Material.GOURD, MaterialColor.ADOBE).hardnessAndResistance(1.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> CARVED_LARGE_PUMPKIN_SLICE = HELPER.createBlock("carved_large_pumpkin_slice", () -> new CarvedLargePumpkinSliceBlock(Block.Properties.create(Material.GOURD, MaterialColor.ADOBE).hardnessAndResistance(1.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
@@ -98,10 +102,10 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> MAPLE_TRAPDOOR = HELPER.createBlock("maple_trapdoor", () -> new WoodTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).notSolid().hardnessAndResistance(3.0F).sound(SoundType.WOOD)), ItemGroup.REDSTONE);
 	public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> SIGNS = HELPER.createSignBlock("maple", MaterialColor.ORANGE_TERRACOTTA);
 
-	public static final RegistryObject<Block> RED_MAPLE_LEAVES = HELPER.createBlock("red_maple_leaves", () -> new ColoredMapleLeavesBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().harvestTool(ToolType.HOE).sound(SoundType.PLANT), 12665871), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_MAPLE_LEAVES = HELPER.createBlock("orange_maple_leaves", () -> new ColoredMapleLeavesBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().harvestTool(ToolType.HOE).sound(SoundType.PLANT), 16745768), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_MAPLE_LEAVES = HELPER.createBlock("yellow_maple_leaves", () -> new ColoredMapleLeavesBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().harvestTool(ToolType.HOE).sound(SoundType.PLANT), 16766735), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(Block.Properties.create(Material.LEAVES).notSolid().hardnessAndResistance(0.2F).tickRandomly().harvestTool(ToolType.HOE).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_MAPLE_LEAVES = HELPER.createBlock("red_maple_leaves", () -> new ColoredMapleLeavesBlock(createLeaves(), 12665871), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_MAPLE_LEAVES = HELPER.createBlock("orange_maple_leaves", () -> new ColoredMapleLeavesBlock(createLeaves(), 16745768), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_MAPLE_LEAVES = HELPER.createBlock("yellow_maple_leaves", () -> new ColoredMapleLeavesBlock(createLeaves(), 16766735), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(createLeaves()), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new AbnormalsSaplingBlock(new RedMapleTree(), Block.Properties.create(Material.PLANTS, MaterialColor.RED).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_MAPLE_SAPLING = HELPER.createBlock("orange_maple_sapling", () -> new AbnormalsSaplingBlock(new OrangeMapleTree(), Block.Properties.create(Material.PLANTS, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
@@ -127,4 +131,16 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> POTTED_FOUL_BERRIES = HELPER.createBlockNoItem("potted_foul_berries", () -> new FlowerPotBlock(FOUL_BERRY_BUSH.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
 	public static final RegistryObject<Block> MAPLE_BEEHIVE = HELPER.createCompatBlock("buzzier_bees", "maple_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final Pair<RegistryObject<AbnormalsChestBlock>, RegistryObject<AbnormalsTrappedChestBlock>> MAPLE_CHESTS = HELPER.createCompatChestBlocks("maple", MaterialColor.ORANGE_TERRACOTTA);
+	
+	public static Block.Properties createLeaves() {
+		return Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE).setAllowsSpawn(AutumnityBlocks::allowsSpawnOnLeaves).setSuffocates(AutumnityBlocks::isntSolid).setBlocksVision(AutumnityBlocks::isntSolid);
+	}
+	
+	private static Boolean allowsSpawnOnLeaves(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+		return entity == EntityType.OCELOT || entity == EntityType.PARROT;
+	}
+	
+	private static boolean isntSolid(BlockState state, IBlockReader reader, BlockPos pos) {
+		return false;
+	}
 }

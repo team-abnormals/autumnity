@@ -107,22 +107,22 @@ public class AutumnityEvents
 	public void onLivingEntityUseItemFinish(LivingEntityUseItemEvent.Finish event)
 	{
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
+		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
 			if (food != AutumnityFoods.FOUL_BERRIES)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE);
+				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 
 				int i = food.getHealing();
 				int j = i == 1 ? i : (int) (i * 0.5F);
 
 				player.getFoodStats().addStats(j, 0.0F);
-				player.removePotionEffect(AutumnityEffects.FOUL_TASTE);
+				player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 				if (effect.getAmplifier() > 0)
 				{
-					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
+					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
 				}
 
 				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 

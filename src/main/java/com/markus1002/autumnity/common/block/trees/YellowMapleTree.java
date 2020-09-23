@@ -16,6 +16,6 @@ public class YellowMapleTree extends Tree
 	@Nullable
 	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn)
 	{
-		return AutumnityFeatures.MAPLE_TREE.withConfiguration(AutumnityBiomeFeatures.YELLOW_MAPLE_TREE_CONFIG);
+		return AutumnityFeatures.MAPLE_TREE.get().withConfiguration(AutumnityBiomeFeatures.YELLOW_MAPLE_TREE_CONFIG);
 	}
 }

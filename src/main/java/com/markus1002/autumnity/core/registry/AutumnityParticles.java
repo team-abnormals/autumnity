@@ -4,35 +4,33 @@ import com.markus1002.autumnity.client.particle.FallingLeafParticle;
 import com.markus1002.autumnity.core.Reference;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.ParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AutumnityParticles
 {
-	public static final BasicParticleType FALLING_LEAF = new BasicParticleType(false);
+	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Reference.MOD_ID);
 
-	@OnlyIn(Dist.CLIENT)
-	public static void registerFactories()
-	{
-		Minecraft.getInstance().particles.registerFactory(FALLING_LEAF, FallingLeafParticle.Factory::new);
-	}
+	public static final RegistryObject<BasicParticleType> FALLING_LEAF = PARTICLES.register("falling_leaf", () -> new BasicParticleType(false));
 	
-    @SubscribeEvent
-    public static void registerParticles(RegistryEvent.Register<ParticleType<?>> event)
-    {
-    	registerParticle(FALLING_LEAF, "falling_leaf");
-	}
-	
-	private static void registerParticle(ParticleType<?> particle, String name)
-	{
-		particle.setRegistryName(Reference.location(name));
-		ForgeRegistries.PARTICLE_TYPES.register(particle);
+	@Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegisterParticleFactories {
+		
+		@SubscribeEvent(priority = EventPriority.LOWEST)
+		public static void registerParticleTypes(ParticleFactoryRegisterEvent event) {
+			ParticleManager manager = Minecraft.getInstance().particles;
+			if (FALLING_LEAF.isPresent()) {
+				manager.registerFactory(FALLING_LEAF.get(), FallingLeafParticle.Factory::new);
+			}
+		}
 	}
 }

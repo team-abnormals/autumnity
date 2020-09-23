@@ -110,7 +110,7 @@ public class AutumnityEvents
 		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
-			if (food != AutumnityFoods.FOUL_BERRIES)
+			if (food != AutumnityFoods.FOUL_BERRIES && itemstack.getItem() != Items.SUSPICIOUS_STEW)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
@@ -125,7 +125,11 @@ public class AutumnityEvents
 					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
 				}
 
-				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
+				if (player instanceof ServerPlayerEntity) {
+					ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
+					if (!event.getEntityLiving().getEntityWorld().isRemote())
+						AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
+				}
 			}
 		}
 	}

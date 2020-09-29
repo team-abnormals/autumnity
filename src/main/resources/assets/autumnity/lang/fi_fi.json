@@ -9,9 +9,14 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Syysmyrkkylilja",
   "block.autumnity.potted_autumn_crocus": "Istutettu syysmyrkkylilja",
+  
   "block.autumnity.large_pumpkin_slice": "Suuren kurpitsan pala",
   "block.autumnity.carved_large_pumpkin_slice": "Kaiverrettu suuren kurpitsan pala",
   "block.autumnity.large_jack_o_lantern_slice": "Suuren kurpitsalyhdyn pala",
+  "block.autumnity.soul_jack_o_lantern": "Sielukurpitsalyhty",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "Suuren sielukurpitsalyhdyn pala",
+  "block.autumnity.redstone_jack_o_lantern": "Redstone-kurpitsalyhty",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Suuren redstone-kurpitsalyhdyn pala",
   
   "block.autumnity.maple_log": "Vaahterahalko",
   "block.autumnity.maple_wood": "Vaahterapuu",
@@ -58,6 +63,7 @@
   "item.autumnity.syrup_bottle": "Siirappipullo",
   "item.autumnity.foul_berries": "Lemumarjoja",
   "item.autumnity.foul_berry_pips": "Lemumarjan siemenet",
+  "item.autumnity.pumpkin_bread": "Kurpitsaleipä",
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
@@ -87,11 +93,11 @@
   
   "_comment": "Compat Stuff",
   
-  "block.autumnity.maple_vertical_slab": "Kohtisuora vaahteralaatta",
+  "block.autumnity.maple_vertical_slab": "Pystysuora vaahteralaatta",
   "block.autumnity.vertical_maple_planks": "Kohtisuorat vaahteralankut",
   "block.autumnity.maple_bookshelf": "Vaahterakirjahylly",
   "block.autumnity.maple_ladder": "Vaahteratikas",
-  "block.autumnity.foul_berry_sack": "Lemumarjasäkki",
+  "block.autumnity.foul_berry_sack": "Säkki lemumarjoja",
   "block.autumnity.potted_foul_berries": "Istutetut lemumarjat",
   "block.autumnity.maple_beehive": "Keinotekoinen vaahteramehiläispesä",
   "block.autumnity.maple_chest": "Vaahtera-arkku",

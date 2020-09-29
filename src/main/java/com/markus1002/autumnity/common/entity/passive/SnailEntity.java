@@ -143,13 +143,13 @@ public class SnailEntity extends AnimalEntity
 	@Nullable
 	protected SoundEvent getDeathSound()
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
 	@Nullable
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
@@ -158,7 +158,7 @@ public class SnailEntity extends AnimalEntity
 
 	public SoundEvent getEatSound(ItemStack itemStackIn)
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_EAT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_EAT.get();
 	}
 
 	@Override
@@ -284,7 +284,7 @@ public class SnailEntity extends AnimalEntity
 	{
 		if ((this.getEatingTime() + 1) % 12 == 0 && !this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty())
 		{
-			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT, 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT.get(), 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 
 			for(int i = 0; i < 6; ++i)
 			{
@@ -293,7 +293,7 @@ public class SnailEntity extends AnimalEntity
 				vector3d = vector3d.rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F));
 				double d0 = (double)(-this.rand.nextFloat()) * 0.2D;
 				Vector3d vector3d1 = new Vector3d(((double)this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double)this.rand.nextFloat() - 0.5D) * 0.2D);
-				vector3d1 =vector3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
+				vector3d1 = vector3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
 				vector3d1 = vector3d1.add(this.getPosX(), this.getPosY() + (double)this.getEyeHeight(), this.getPosZ());
 				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vector3d1.x, vector3d1.y, vector3d1.z, vector3d.x, vector3d.y + 0.05D, vector3d.z);
 			}

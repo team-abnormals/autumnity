@@ -31,6 +31,6 @@ public class AutumnityBiomes
         
         BiomeDictionary.addTypes(MAPLE_FOREST.get(), Type.FOREST, Type.OVERWORLD);
         BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
-        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.FOREST, Type.OVERWORLD, Type.SPARSE, Type.RARE);
+        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.PLAINS, Type.OVERWORLD, Type.SPARSE, Type.RARE);
     }
 }

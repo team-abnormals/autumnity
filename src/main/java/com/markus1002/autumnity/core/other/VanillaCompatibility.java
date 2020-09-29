@@ -1,18 +1,15 @@
 package com.markus1002.autumnity.core.other;
 
-import com.google.common.collect.Maps;
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 import com.markus1002.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.biome.BiomeColors;
@@ -23,26 +20,28 @@ public class VanillaCompatibility
 	{
 		DataUtils.registerCompostable(AutumnityItems.FOUL_BERRIES.get(), 0.3F);
 		DataUtils.registerCompostable(AutumnityItems.FOUL_BERRY_PIPS.get(), 0.3F);
-	    DataUtils.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get().asItem(), 0.65F);
+		DataUtils.registerCompostable(AutumnityItems.PUMPKIN_BREAD.get(), 0.85F);
+	    DataUtils.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get(), 0.65F);
 	    
-	    DataUtils.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get().asItem(), 0.65F);
+	    DataUtils.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get(), 0.65F);
+	    DataUtils.registerCompostable(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get(), 0.65F);
 		
-		DataUtils.registerCompostable(AutumnityBlocks.MAPLE_LEAVES.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAVES.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.MAPLE_LEAVES.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAVES.get(), 0.3F);
 
-		DataUtils.registerCompostable(AutumnityBlocks.MAPLE_SAPLING.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_SAPLING.get().asItem(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.MAPLE_SAPLING.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
 
-		DataUtils.registerCompostable( AutumnityBlocks.MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
-		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().asItem(), 0.3F);
+		DataUtils.registerCompostable( AutumnityBlocks.MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtils.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.3F);
 		
-		DataUtils.registerCompostable(AutumnityBlocks.FOUL_BERRY_SACK.get().asItem(), 1.0F);
+		DataUtils.registerCompostable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 1.0F);
 
 		DataUtils.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		DataUtils.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH.get(), 60, 100);
@@ -73,6 +72,7 @@ public class VanillaCompatibility
 		DataUtils.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
 		DataUtils.registerFlammable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
 		
+		DataUtils.registerFlammable(AutumnityBlocks.MAPLE_BEEHIVE.get(), 5, 20);
 		DataUtils.registerFlammable(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get(), 5, 20);
 		DataUtils.registerFlammable(AutumnityBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
 		DataUtils.registerFlammable(AutumnityBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
@@ -141,11 +141,5 @@ public class VanillaCompatibility
 		}, AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(),
 				AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(),
 				AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
-	}
-
-	public static void registerStrippable(Block log, Block stripped)
-	{
-		AxeItem.BLOCK_STRIPPING_MAP = Maps.newHashMap(AxeItem.BLOCK_STRIPPING_MAP);
-		AxeItem.BLOCK_STRIPPING_MAP.put(log, stripped);
 	}
 }

@@ -14,7 +14,6 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -28,7 +27,6 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 	public LargePumpkinSliceBlock(Properties properties)
 	{
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(HALF, Half.BOTTOM));
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
@@ -49,7 +47,7 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 			{
 				if (!worldIn.isRemote)
 				{
-					CarvedSide carvedside = direction1.getAxis() == Axis.X ? CarvedSide.X : CarvedSide.Z;
+					CarvedSide carvedside = CarvedSide.getCarvedSide(direction1.getAxis());
 					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState().with(CarvedLargePumpkinSliceBlock.FACING, direction2).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
 
 					worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);

@@ -80,7 +80,7 @@ public class SappyLogBlock extends RotatedPillarBlock
 	{
 		if(ItemStackUtils.isInGroup(this.asItem(), group))
 		{
-			int targetIndex = ItemStackUtils.findIndexOfItem(Items.STRIPPED_DARK_OAK_LOG, items);
+			int targetIndex = ItemStackUtils.findIndexOfItem(Items.STRIPPED_WARPED_STEM, items);
 			if(targetIndex != -1)
 			{
 				items.add(targetIndex + 1, new ItemStack(this));

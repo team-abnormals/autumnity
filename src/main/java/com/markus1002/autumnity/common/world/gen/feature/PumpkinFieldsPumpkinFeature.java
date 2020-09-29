@@ -2,7 +2,10 @@ package com.markus1002.autumnity.common.world.gen.feature;
 
 import java.util.Random;
 
+import com.markus1002.autumnity.common.block.AbstractLargePumpkinSliceBlock;
+import com.markus1002.autumnity.common.block.CarvedLargePumpkinSliceBlock;
 import com.markus1002.autumnity.common.block.LargePumpkinSliceBlock;
+import com.markus1002.autumnity.common.block.properties.CarvedSide;
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
 
@@ -11,6 +14,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -30,16 +34,34 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoFeatureConfig>
 		int i = 0;
 		int j = 0;
 		boolean spooky = rand.nextInt(100) == 0 ? true : false;
-		
+
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
 		for(int k = 0; k < 64; ++k)
 		{
 			blockpos$mutable.func_239621_a_(blockpos, rand.nextInt(10) - rand.nextInt(10), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(10) - rand.nextInt(10));
-			if (j <= 2 && rand.nextInt(8) == 0 && !spooky && checkPositions(worldIn, blockpos$mutable))
+			if (j <= 2 && rand.nextInt(8) == 0 && checkPositions(worldIn, blockpos$mutable))
 			{
 				createLargePumpkinHalf(worldIn, blockpos$mutable, Half.BOTTOM);
 				createLargePumpkinHalf(worldIn, blockpos$mutable.up(), Half.TOP);
+
+				if (spooky)
+				{
+					BlockPos blockpos1;
+					int l = rand.nextInt(4);
+					
+					if (l == 1)
+						blockpos1 = blockpos$mutable;
+					else if (l == 2)
+						blockpos1 = blockpos$mutable.north();
+					else if (l == 3)
+						blockpos1 = blockpos$mutable.east();
+					else
+						blockpos1 = blockpos$mutable.north().east();
+
+					carveLargePumpkin(worldIn, blockpos1);
+					carveLargePumpkin(worldIn, blockpos1.up());
+				}
 
 				++j;
 				++i;
@@ -47,7 +69,7 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoFeatureConfig>
 			else if (isAirOrReplaceable(worldIn, blockpos$mutable) && worldIn.getBlockState(blockpos$mutable.down()).getBlock() == Blocks.GRASS_BLOCK)
 			{
 				BlockState blockstate = spooky ? Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)) : Blocks.PUMPKIN.getDefaultState();
-				
+
 				worldIn.setBlockState(blockpos$mutable, blockstate, 2);
 
 				++i;
@@ -57,14 +79,32 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoFeatureConfig>
 		return i > 0;
 	}
 
-	private static void createLargePumpkinHalf(ISeedReader worldIn, BlockPos blockpos, Half half)
+	private static void createLargePumpkinHalf(ISeedReader worldIn, BlockPos pos, Half half)
 	{
 		BlockState blockstate = AutumnityBlocks.LARGE_PUMPKIN_SLICE.get().getDefaultState();
 
-		worldIn.setBlockState(blockpos, blockstate.with(LargePumpkinSliceBlock.FACING, Direction.WEST).with(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlockState(blockpos.north(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.NORTH).with(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlockState(blockpos.east(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.SOUTH).with(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlockState(blockpos.north().east(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.EAST).with(LargePumpkinSliceBlock.HALF, half), 2);
+		worldIn.setBlockState(pos, blockstate.with(AbstractLargePumpkinSliceBlock.FACING, Direction.WEST).with(LargePumpkinSliceBlock.HALF, half), 2);
+		worldIn.setBlockState(pos.north(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.NORTH).with(LargePumpkinSliceBlock.HALF, half), 2);
+		worldIn.setBlockState(pos.east(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.SOUTH).with(LargePumpkinSliceBlock.HALF, half), 2);
+		worldIn.setBlockState(pos.north().east(), blockstate.with(LargePumpkinSliceBlock.FACING, Direction.EAST).with(LargePumpkinSliceBlock.HALF, half), 2);
+	}
+
+	private static void carveLargePumpkin(ISeedReader worldIn, BlockPos pos)
+	{
+		BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState();
+		
+		BlockState blockstate1 = worldIn.getBlockState(pos);
+		BlockState newblockstate1 = blockstate.with(AbstractLargePumpkinSliceBlock.FACING, blockstate1.get(AbstractLargePumpkinSliceBlock.FACING)).with(LargePumpkinSliceBlock.HALF, blockstate1.get(AbstractLargePumpkinSliceBlock.HALF));
+
+		Direction direction = blockstate1.get(AbstractLargePumpkinSliceBlock.FACING);
+		BlockPos blockpos = pos.offset(direction.rotateY());
+		BlockState blockstate2 = worldIn.getBlockState(blockpos);
+		BlockState newblockstate2 = blockstate.with(AbstractLargePumpkinSliceBlock.FACING, blockstate2.get(AbstractLargePumpkinSliceBlock.FACING)).with(LargePumpkinSliceBlock.HALF, blockstate2.get(AbstractLargePumpkinSliceBlock.HALF));
+
+		CarvedSide carvedside = CarvedSide.getCarvedSide(direction.getAxis());
+
+		worldIn.setBlockState(pos, newblockstate1.with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside), 2);
+		worldIn.setBlockState(blockpos, newblockstate2.with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside), 2);
 	}
 
 	private static boolean checkPositions(ISeedReader worldIn, BlockPos pos)

@@ -2,6 +2,7 @@ package com.markus1002.autumnity.core.other;
 
 import java.util.UUID;
 
+import com.markus1002.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.markus1002.autumnity.common.entity.passive.SnailEntity;
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
@@ -29,6 +30,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
@@ -77,7 +79,7 @@ public class AutumnityEvents
 	public void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
 	{
 		LivingEntity livingentity = event.getEntityLiving();
-		
+
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity)
 		{
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty())
@@ -92,7 +94,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onEntityUpdate(LivingUpdateEvent event)
+	public void onSnailShellChestplateSneak(LivingUpdateEvent event)
 	{
 		LivingEntity entity = event.getEntityLiving();
 
@@ -104,28 +106,35 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onLivingEntityUseItemFinish(LivingEntityUseItemEvent.Finish event)
+	public void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event)
 	{
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
+		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
 			Food food = itemstack.getItem().getFood();
 			if (food != AutumnityFoods.FOUL_BERRIES)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE);
+				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 
 				int i = food.getHealing();
 				int j = i == 1 ? i : (int) (i * 0.5F);
 
 				player.getFoodStats().addStats(j, 0.0F);
-				player.removePotionEffect(AutumnityEffects.FOUL_TASTE);
+				player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 				if (effect.getAmplifier() > 0)
 				{
-					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
+					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
 				}
 
-				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((ServerPlayerEntity) player); 
+				if (player instanceof ServerPlayerEntity)
+				{
+					ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
+					if (!event.getEntityLiving().getEntityWorld().isRemote())
+					{
+						AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
+					}
+				}
 			}
 		}
 	}
@@ -150,19 +159,19 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event)
+	public void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event)
 	{
 		ItemStack itemstack = event.getItemStack();
-		if (itemstack.getItem() == Items.TORCH)
+		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH)
 		{
 			World world = event.getWorld();
 			BlockPos blockpos = event.getPos();
 			BlockState blockstate = event.getWorld().getBlockState(event.getPos());
 			PlayerEntity player = event.getPlayer();
 
-            boolean flag = !player.getHeldItemMainhand().doesSneakBypassUse(world, blockpos, player) || !player.getHeldItemOffhand().doesSneakBypassUse(world, blockpos, player);
-            boolean flag1 = player.isSecondaryUseActive() && flag;
-            
+			boolean flag = !player.getHeldItemMainhand().doesSneakBypassUse(world, blockpos, player) || !player.getHeldItemOffhand().doesSneakBypassUse(world, blockpos, player);
+			boolean flag1 = player.isSecondaryUseActive() && flag;
+
 			if (blockstate.getBlock() == Blocks.CARVED_PUMPKIN && !flag1)
 			{
 				Direction direction = event.getFace();
@@ -172,9 +181,11 @@ public class AutumnityEvents
 				{
 					if (!world.isRemote)
 					{
-						BlockState blockstate1 = Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction1);
-						world.setBlockState(blockpos, blockstate1, 11);
-						
+						Item item = itemstack.getItem();
+						BlockState blockstate1 = item == Items.TORCH ? Blocks.JACK_O_LANTERN.getDefaultState() : item == Items.SOUL_TORCH ? AutumnityBlocks.SOUL_JACK_O_LANTERN.get().getDefaultState() : AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(world.isBlockPowered(blockpos)));
+						BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
+						world.setBlockState(blockpos, blockstate2, 11);
+
 						world.playSound((PlayerEntity)null, blockpos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 						if (!event.getPlayer().abilities.isCreativeMode)
 						{
@@ -182,7 +193,7 @@ public class AutumnityEvents
 						}
 					}
 
-	                player.swingArm(event.getHand());
+					player.swingArm(event.getHand());
 					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
 					event.setUseItem(Result.DENY);
 				}

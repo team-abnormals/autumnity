@@ -16,7 +16,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.4.1'
+version = '1.5.0'
 group = 'com.minecraftabnormals' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'Autumnity-1.16.1'
 
@@ -69,7 +69,7 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.1-32.0.88'
-	implementation fg.deobf("curse.maven:abnormals-core:3025510")
+	implementation fg.deobf("curse.maven:abnormals-core:3043251")
 
 }
 

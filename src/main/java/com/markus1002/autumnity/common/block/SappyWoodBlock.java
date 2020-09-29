@@ -21,7 +21,7 @@ public class SappyWoodBlock extends SappyLogBlock
 	{
 		if(ItemStackUtils.isInGroup(this.asItem(), group))
 		{
-			int targetIndex = ItemStackUtils.findIndexOfItem(Items.STRIPPED_DARK_OAK_WOOD, items);
+			int targetIndex = ItemStackUtils.findIndexOfItem(Items.STRIPPED_WARPED_HYPHAE, items);
 			if(targetIndex != -1)
 			{
 				items.add(targetIndex + 1, new ItemStack(this));

@@ -1,5 +1,6 @@
 package com.markus1002.autumnity.common.block.properties;
 
+import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.IStringSerializable;
 
 public enum CarvedSide implements IStringSerializable
@@ -22,5 +23,10 @@ public enum CarvedSide implements IStringSerializable
 	public String getString()
 	{
 		return this.name;
+	}
+	
+	public static CarvedSide getCarvedSide(Axis axis)
+	{
+		return axis == Axis.X ? CarvedSide.X : CarvedSide.Z;
 	}
 }

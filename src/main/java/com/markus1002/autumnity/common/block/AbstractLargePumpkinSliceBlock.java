@@ -21,8 +21,9 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block
 	public AbstractLargePumpkinSliceBlock(Properties properties)
 	{
 		super(properties);
+		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(HALF, Half.BOTTOM));
 	}
-	
+
 	protected static Direction getFacing(BlockItemUseContext context)
 	{
 		float f = MathHelper.wrapDegrees(context.getPlacementYaw()) / 45;
@@ -49,7 +50,7 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block
 	{
 		return hitFace == facing || hitFace == facing.rotateYCCW();
 	}
-	
+
 	public BlockState rotate(BlockState state, Rotation rot)
 	{
 		return state.with(FACING, rot.rotate(state.get(FACING)));

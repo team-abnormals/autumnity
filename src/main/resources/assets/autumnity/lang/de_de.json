@@ -9,9 +9,16 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Herbstzeitlose",
   "block.autumnity.potted_autumn_crocus": "Eingetopfte Herbstzeitlose",
+  
   "block.autumnity.large_pumpkin_slice": "Große Kürbisscheibe",
   "block.autumnity.carved_large_pumpkin_slice": "Geschnitzte große Kürbisscheibe",
   "block.autumnity.large_jack_o_lantern_slice": "Große Kürbislaternenscheibe",
+  "block.autumnity.soul_jack_o_lantern": "Seelenkürbislaterne",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "Große Seelenkürbislaternenscheibe",
+  "block.autumnity.redstone_jack_o_lantern": "Redstone-Kürbislaterne",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Große Redstone-Kürbislaternenscheibe,
+
+  "block.autumnity.snail_shell_block": "Schneckenhausblock",
   
   "block.autumnity.maple_log": "Ahornstamm",
   "block.autumnity.maple_wood": "Ahornholz",
@@ -58,6 +65,7 @@
   "item.autumnity.syrup_bottle": "Sirupflasche",
   "item.autumnity.foul_berries": "Faulbeeren",
   "item.autumnity.foul_berry_pips": "Faulbeerkerne",
+  "item.autumnity.pumpkin_bread": "Kürbisbrot",
   "item.autumnity.snail_spawn_egg": "Schnecken-Spawn-Ei",
   "item.autumnity.snail_shell_piece": "Schneckenhausstück",
   "item.autumnity.snail_shell_chestplate": "Schneckenhaus",

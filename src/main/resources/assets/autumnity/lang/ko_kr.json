@@ -1,0 +1,115 @@
+{
+  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+  "block.autumnity.snail_slime": "달팽이 슬라임",
+  "block.autumnity.snail_slime_block": "달팽이 슬라임 블록",
+  "block.autumnity.pancake": "팬케이크",
+  "block.autumnity.foul_berry_bush_pips": "부패한 열매 덤불 씨",
+  "block.autumnity.foul_berry_bush": "부패한 열매 덤불",
+  "block.autumnity.tall_foul_berry_bush": "키 큰 부패한 열매 덤불",
+  "_comment": "A flower that generates in Maple Forests.",
+  "block.autumnity.autumn_crocus": "가을 크로커스",
+  "block.autumnity.potted_autumn_crocus": "화분에 심은 가을 크로커스",
+  
+  "block.autumnity.large_pumpkin_slice": "큰 호박 조각",
+  "block.autumnity.carved_large_pumpkin_slice": "큰 조각된 호박 조각",
+  "block.autumnity.large_jack_o_lantern_slice": "큰 잭 오 랜턴 조각",
+  "block.autumnity.soul_jack_o_lantern": "영혼 잭 오 랜턴",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "큰 영혼 잭 오 랜턴 조각",
+  "block.autumnity.redstone_jack_o_lantern": "레드스톤 잭 오 랜턴",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "큰 레드스톤 잭 오 랜턴 조각",
+  
+  "block.autumnity.snail_shell_block": "달팽이 껍질 블록",
+  
+  "block.autumnity.maple_log": "단풍나무 원목",
+  "block.autumnity.maple_wood": "단풍나무",
+  "block.autumnity.stripped_maple_log": "껍질 벗긴 단풍나무 원목",
+  "block.autumnity.stripped_maple_wood": "껍질 벗긴 단풍나무",
+  "_comment": "Refers to the sap dripping out of the wood",
+  "block.autumnity.sappy_maple_log": "수액이 많은 단풍나무 원목",
+  "block.autumnity.sappy_maple_wood": "수액이 많은 단풍나무",
+  
+  "block.autumnity.maple_planks": "단풍나무 판자",
+  "block.autumnity.maple_stairs": "단풍나무 계단",
+  "block.autumnity.maple_slab": "단풍나무 반 블록",
+  "block.autumnity.maple_pressure_plate": "단풍나무 압력판",
+  "block.autumnity.maple_button": "단풍나무 버튼",
+  "block.autumnity.maple_fence": "단풍나무 울타리",
+  "block.autumnity.maple_fence_gate": "단풍나무 울타리 문",
+  "block.autumnity.maple_door": "단풍나무 문",
+  "block.autumnity.maple_trapdoor": "단풍나무 다락문",
+  "block.autumnity.maple_sign": "단풍나무 표지판",
+  "block.autumnity.maple_wall_sign": "단풍나무 벽 표지판",
+  
+  "block.autumnity.maple_leaves": "단풍나무 잎",
+  "block.autumnity.yellow_maple_leaves": "노란색 단풍나무 잎",
+  "block.autumnity.orange_maple_leaves": "주황색 단풍나무 잎",
+  "block.autumnity.red_maple_leaves": "빨간색 단풍나무 잎",
+  
+  "block.autumnity.maple_sapling": "단풍나무 묘목",
+  "block.autumnity.yellow_maple_sapling": "노란색 단풍나무 묘목",
+  "block.autumnity.orange_maple_sapling": "주황색 단풍나무 묘목",
+  "block.autumnity.red_maple_sapling": "빨간색 단풍나무 묘목",
+  
+  "block.autumnity.potted_maple_sapling": "화분에 심은 단풍나무 묘목",
+  "block.autumnity.potted_yellow_maple_sapling": "화분에 심은 노란색 단풍나무 묘목",
+  "block.autumnity.potted_orange_maple_sapling": "화분에 심은 주황색 단풍나무 묘목",
+  "block.autumnity.potted_red_maple_sapling": "화분에 심은 빨간색 단풍나무 묘목",
+  
+  "block.autumnity.maple_leaf_carpet": "단풍나무 잎 양탄자",
+  "block.autumnity.yellow_maple_leaf_carpet": "노란색 단풍나무 잎 양탄자",
+  "block.autumnity.orange_maple_leaf_carpet": "주황색 단풍나무 잎 양탄자",
+  "block.autumnity.red_maple_leaf_carpet": "빨간색 단풍나무 잎 양탄자",
+  
+  "item.autumnity.maple_boat": "단풍나무 보트",
+  "item.autumnity.sap_bottle": "수액이 든 병",
+  "item.autumnity.syrup_bottle": "시럽이 든 병",
+  "item.autumnity.foul_berries": "부패한 열매",
+  "item.autumnity.foul_berry_pips": "부패한 열매 씨앗",
+  "item.autumnity.pumpkin_bread": "호박빵",
+  "item.autumnity.snail_spawn_egg": "달팽이 새성 알",
+  "item.autumnity.snail_shell_piece": "달팽이 껍질 조각",
+  "item.autumnity.snail_shell_chestplate": "달팽이 껍질 흉갑",
+  
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "웅크릴 때:",
+  
+  "entity.autumnity.boat": "보트",
+  "entity.autumnity.snail": "달팽이",
+  
+  "_comment": "This effect extends the duration of active potion effects.",
+  "effect.autumnity.extension": "연장",
+  "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
+  "effect.autumnity.foul_taste": "깨끗한 구개",
+  
+  "item.minecraft.potion.effect.extension": "연장의 물약",
+  "item.minecraft.splash_potion.effect.extension": "투척용 연장의 물약",
+  "item.minecraft.lingering_potion.effect.extension": "잔류형 연장의 물약",
+  "item.minecraft.tipped_arrow.effect.extension": "연장의 화살",
+  
+  "biome.autumnity.maple_forest": "단풍나무 숲",
+  "biome.autumnity.maple_forest_hills": "단풍나무 숲 언덕",
+  "biome.autumnity.pumpkin_fields": "호박 들판",
+  
+  "subtitles.entity.snail.eat": "달팽이의 먹는 소리",
+  "subtitles.entity.snail.hurt": "달팽이가 상처를 입음",
+  
+  
+  "_comment": "Compat Stuff",
+  
+  "block.autumnity.maple_vertical_slab": "새운 단풍나무 반 블록",
+  "block.autumnity.vertical_maple_planks": "새운 단풍나무 판자",
+  "block.autumnity.maple_bookshelf": "단풍나무 책장",
+  "block.autumnity.maple_ladder": "단풍나무 사다리",
+  "block.autumnity.foul_berry_sack": "부패한 열매의 자루",
+  "block.autumnity.potted_foul_berries": "화분에 심은 부패한 열매",
+  "block.autumnity.maple_beehive": "단풍나무 벌집",
+  "block.autumnity.maple_chest": "단풍나무 상자",
+  "block.autumnity.maple_trapped_chest": "단풍나무 덫 상자",
+  
+  "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
+  "advancements.husbandry.sneaky_protection.title": "살금살금 방어방어",
+  "advancements.husbandry.sneaky_protection.description": "달팽이 껍질 흉갑을 만드십시오",
+  "advancements.husbandry.fungivore_diet.title": "버섯돌이 다이어트",
+  "advancements.husbandry.fungivore_diet.description": "달팽이를 모든 버섯와 균 종류를 먹여주십시오",
+  "advancements.husbandry.finally_some_good_food.title": "세상에 맛있는 음식이 있구나",
+  "advancements.husbandry.finally_some_good_food.description": "부패한 열매 먹고나서 다른 음식을 먹으세요"
+}

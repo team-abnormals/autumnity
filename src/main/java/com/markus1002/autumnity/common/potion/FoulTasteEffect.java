@@ -7,6 +7,6 @@ public class FoulTasteEffect extends Effect
 {
 	public FoulTasteEffect()
 	{
-		super(EffectType.BENEFICIAL, 9218098);
+		super(EffectType.BENEFICIAL, 15363616);
 	}
 }

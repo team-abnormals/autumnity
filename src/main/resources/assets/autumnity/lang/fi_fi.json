@@ -59,14 +59,19 @@
   "block.autumnity.red_maple_leaf_carpet": "Punainen vaahteranlehtimatto",
   
   "item.autumnity.maple_boat": "Vaahteravene",
+  
   "item.autumnity.sap_bottle": "Mahlapullo",
   "item.autumnity.syrup_bottle": "Siirappipullo",
   "item.autumnity.foul_berries": "Lemumarjoja",
   "item.autumnity.foul_berry_pips": "Lemumarjan siemenet",
   "item.autumnity.pumpkin_bread": "Kurpitsaleipä",
+  
   "item.autumnity.snail_spawn_egg": "Luo kotilo",
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
+  
+  "item.autumnity.maple_leaf_banner_pattern": "Viirikuvio",
+  "item.autumnity.maple_leaf_banner_pattern.desc": "Vaahteranlehti",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Hiipiessä:",
   
@@ -90,7 +95,6 @@
   "subtitles.entity.snail.eat": "Kotilo syö",
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
   
-  
   "_comment": "Compat Stuff",
   
   "block.autumnity.maple_vertical_slab": "Pystysuora vaahteralaatta",
@@ -102,6 +106,8 @@
   "block.autumnity.maple_beehive": "Keinotekoinen vaahteramehiläispesä",
   "block.autumnity.maple_chest": "Vaahtera-arkku",
   "block.autumnity.maple_trapped_chest": "Ansoitettu vaahtera-arkku",
+  "block.autumnity.ender_jack_o_lantern": "Ender-kurpitsalyhty",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Suuren ender-kurpitsalyhdyn pala",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Panssari hidastelijalle",
@@ -109,5 +115,22 @@
   "advancements.husbandry.fungivore_diet.title": "Sienipainoinen ruokavalio",
   "advancements.husbandry.fungivore_diet.description": "Syötä kotilolle jokaista sienilajia",
   "advancements.husbandry.finally_some_good_food.title": "Viimeinkin hyvää ruokaa",
-  "advancements.husbandry.finally_some_good_food.description": "Syö jotain hyvää syötyäsi lemumarjoja"
+  "advancements.husbandry.finally_some_good_food.description": "Syö jotain hyvää syötyäsi lemumarjoja",
+  
+  "block.minecraft.banner.mca_maple_leaf.black": "Musta vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.red": "Punainen vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.green": "Vihreä vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.brown": "Ruskea vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.blue": "Sininen vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.purple": "Violetti vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.cyan": "Syaani vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.silver": "Vaaleanharmaa vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.gray": "Harmaa vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.pink": "Vaaleanpunainen vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.lime": "Limetinvihreä vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.yellow": "Keltainen vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.lightBlue": "Vaaleansininen vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.magenta": "Purppura vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.orange": "Oranssi vaahteranlehti",
+  "block.minecraft.banner.mca_maple_leaf.white": "Valkoinen vaahteranlehti"
 }

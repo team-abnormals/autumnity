@@ -59,7 +59,7 @@ public class MapleWoodBlock extends RotatedPillarBlock
 	{
 		if(ItemStackUtils.isInGroup(this.asItem(), group))
 		{
-			int targetIndex = ItemStackUtils.findIndexOfItem(Items.DARK_OAK_WOOD, items);
+			int targetIndex = ItemStackUtils.findIndexOfItem(Items.WARPED_HYPHAE, items);
 			if(targetIndex != -1) 
 			{
 				items.add(targetIndex + 1, new ItemStack(this));

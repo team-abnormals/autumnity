@@ -2,6 +2,7 @@ package com.markus1002.autumnity.core;
 
 import com.markus1002.autumnity.core.other.AutumnityEvents;
 import com.markus1002.autumnity.core.other.VanillaCompatibility;
+import com.markus1002.autumnity.core.registry.AutumnityBanners;
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
 import com.markus1002.autumnity.core.registry.AutumnityEffects;
 import com.markus1002.autumnity.core.registry.AutumnityEntities;
@@ -67,8 +68,9 @@ public class Autumnity
 		DeferredWorkQueue.runLater(() -> 
 		{
 			VanillaCompatibility.setupVanillaCompatibility();
-			AutumnityPotions.setupBrewingRecipes();
-			AutumnityBiomes.setupBiomes();
+			AutumnityBanners.registerBanners();
+			AutumnityPotions.registerBrewingRecipes();
+			AutumnityBiomes.registerBiomes();
 
 			for(Biome biome : ForgeRegistries.BIOMES.getValues())
 			{

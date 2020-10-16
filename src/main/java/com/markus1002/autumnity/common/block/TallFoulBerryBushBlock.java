@@ -3,6 +3,7 @@ package com.markus1002.autumnity.common.block;
 import java.util.Random;
 
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
+import com.markus1002.autumnity.core.registry.AutumnityEntities;
 import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
@@ -100,7 +101,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
 	{
-		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE)
+		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get())
 		{
 			LivingEntity livingentity = ((LivingEntity) entityIn);
 			livingentity.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));

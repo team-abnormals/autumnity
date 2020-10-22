@@ -132,4 +132,14 @@ public class PancakeBlock extends Block
 	{
 		return false;
 	}
+	
+	public boolean hasComparatorInputOverride(BlockState state)
+	{
+		return true;
+	}
+
+	public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos)
+	{
+		return blockState.get(PANCAKES);
+	}
 }

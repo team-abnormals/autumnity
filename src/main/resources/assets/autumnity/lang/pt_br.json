@@ -9,6 +9,16 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Açafrão-do-prado",
   "block.autumnity.potted_autumn_crocus": "Vaso de açafrão-do-prado",
+  
+  "block.autumnity.large_pumpkin_slice": "Fatia de abóbora grande",
+  "block.autumnity.carved_large_pumpkin_slice": "Fatia de abóbora grande esculpida",
+  "block.autumnity.large_jack_o_lantern_slice": "Fatia de abóbora grande de Halloween",
+  "block.autumnity.soul_jack_o_lantern": "Abóbora de Halloween das almas",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "Fatia de abóbora grande de Halloween das almas",
+  "block.autumnity.redstone_jack_o_lantern": "Abóbora de Halloween de redstone",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Fatia de abóbora grande de Halloween de redstone",
+  
+  "block.autumnity.snail_shell_block": "Bloco de concha de caracol",
 
   "block.autumnity.maple_log": "Tronco de bordo",
   "block.autumnity.maple_wood": "Madeira de bordo",
@@ -51,13 +61,19 @@
   "block.autumnity.red_maple_leaf_carpet": "Tapete de folhas de bordo vermelho",
 
   "item.autumnity.maple_boat": "Bote de bordo",
+  
   "item.autumnity.sap_bottle": "Frasco de seiva",
   "item.autumnity.syrup_bottle": "Frasco de xarope de bordo",
-  "item.autumnity.foul_berries": "Cereja-de-pombo",
-  "item.autumnity.foul_berry_pips": "Sementes de cereja-de-pombo",
+  "item.autumnity.foul_berries": "Bagas nojentas",
+  "item.autumnity.foul_berry_pips": "Sementes de bagas nojentas",
+  "item.autumnity.pumpkin_bread": "Pão de abóbora",
+  
   "item.autumnity.snail_spawn_egg": "Ovo gerador de caracol",
   "item.autumnity.snail_shell_piece": "Pedaço de concha de caracol",
   "item.autumnity.snail_shell_chestplate": "Peitoral de concha de caracol",
+  
+  "item.autumnity.maple_leaf_banner_pattern": "Desenho para estandarte",
+  "item.autumnity.maple_leaf_banner_pattern.desc": "Figura de folha de bordo",
 
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Quando agachado:",
 
@@ -78,9 +94,8 @@
   "biome.autumnity.maple_forest_hills": "Colinas da floresta de bordo",
   "biome.autumnity.pumpkin_fields": "Campos de abóbora",
 
-  "subtitles.entity.snail.eat": "Caracol come",
+  "subtitles.entity.snail.eat": "Caracol comendo",
   "subtitles.entity.snail.hurt": "Caracol ferido",
-
 
   "_comment": "Compat Stuff",
 
@@ -93,6 +108,8 @@
   "block.autumnity.maple_beehive": "Colmeia artificial de bordo",
   "block.autumnity.maple_chest": "Baú de bordo",
   "block.autumnity.maple_trapped_chest": "Baú de bordo com armadilha",
+  "block.autumnity.ender_jack_o_lantern": "Abóbora de Halloween de ender",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Fatia de abóbora grande de Halloween de ender",
 
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Proteção furtiva",
@@ -100,5 +117,22 @@
   "advancements.husbandry.fungivore_diet.title": "Dieta fungívora",
   "advancements.husbandry.fungivore_diet.description": "Alimente um caracol com todos os tipos de cogumelos e fungos",
   "advancements.husbandry.finally_some_good_food.title": "Finalmente, uma comida boa",
-  "advancements.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer bagas nojentas"
+  "advancements.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer bagas nojentas",
+  
+  "block.minecraft.banner.mca_maple_leaf.black": "Folha de bordo preta",
+  "block.minecraft.banner.mca_maple_leaf.red": "Folha de bordo vermelha",
+  "block.minecraft.banner.mca_maple_leaf.green": "Folha de bordo verde",
+  "block.minecraft.banner.mca_maple_leaf.brown": "Folha de bordo marrom",
+  "block.minecraft.banner.mca_maple_leaf.blue": "Folha de bordo azul",
+  "block.minecraft.banner.mca_maple_leaf.purple": "Folha de bordo roxa",
+  "block.minecraft.banner.mca_maple_leaf.cyan": "Folha de bordo ciano",
+  "block.minecraft.banner.mca_maple_leaf.silver": "Folha de bordo cinza-clara",
+  "block.minecraft.banner.mca_maple_leaf.gray": "Folha de bordo cinza",
+  "block.minecraft.banner.mca_maple_leaf.pink": "Folha de bordo rosa",
+  "block.minecraft.banner.mca_maple_leaf.lime": "Folha de bordo verde-limão",
+  "block.minecraft.banner.mca_maple_leaf.yellow": "Folha de bordo amarela",
+  "block.minecraft.banner.mca_maple_leaf.lightBlue": "Folha de bordo azul-clara",
+  "block.minecraft.banner.mca_maple_leaf.magenta": "Folha de bordo magenta",
+  "block.minecraft.banner.mca_maple_leaf.orange": "Folha de bordo laranja",
+  "block.minecraft.banner.mca_maple_leaf.white": "Folha de bordo branca"
 }

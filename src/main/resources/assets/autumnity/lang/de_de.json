@@ -61,14 +61,19 @@
   "block.autumnity.red_maple_leaf_carpet": "Roter Ahornlaubteppich",
   
   "item.autumnity.maple_boat": "Ahornholzboot",
+  
   "item.autumnity.sap_bottle": "Saftflasche",
   "item.autumnity.syrup_bottle": "Sirupflasche",
   "item.autumnity.foul_berries": "Faulbeeren",
   "item.autumnity.foul_berry_pips": "Faulbeerkerne",
   "item.autumnity.pumpkin_bread": "Kürbisbrot",
+  
   "item.autumnity.snail_spawn_egg": "Schnecken-Spawn-Ei",
   "item.autumnity.snail_shell_piece": "Schneckenhausstück",
   "item.autumnity.snail_shell_chestplate": "Schneckenhaus",
+  
+  "item.autumnity.maple_leaf_banner_pattern": "Bannervorlage",
+  "item.autumnity.maple_leaf_banner_pattern.desc": "Ahornblatt",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Beim Schleichen:",
   
@@ -92,7 +97,6 @@
   "subtitles.entity.snail.eat": "Schnecke frisst",
   "subtitles.entity.snail.hurt": "Schnecke nimmt Schaden",
   
-  
   "_comment": "Compat Stuff",
   
   "block.autumnity.maple_vertical_slab": "Vertikale Ahornholzstufe",
@@ -104,6 +108,8 @@
   "block.autumnity.maple_beehive": "Ahornholzbienenstock",
   "block.autumnity.maple_chest": "Ahornholztruhe",
   "block.autumnity.maple_trapped_chest": "Redstone-Ahornholztruhe",
+  "block.autumnity.ender_jack_o_lantern": "Enderkürbislaterne",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Große Enderkürbislaternenscheibe",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",
@@ -111,5 +117,22 @@
   "advancements.husbandry.fungivore_diet.title": "Eine Diät des Fungusfressers",
   "advancements.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jeden Pilz",
   "advancements.husbandry.finally_some_good_food.title": "Schließlich, gutes Essen",
-  "advancements.husbandry.finally_some_good_food.description": "Iss etwas gut, nach du Faulbeeren isst"
+  "advancements.husbandry.finally_some_good_food.description": "Iss etwas gut, nachdem du Faulbeeren aßt",
+  
+  "block.minecraft.banner.mca_maple_leaf.black": "Schwarzes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.red": "Rotes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.green": "Grünes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.brown": "Braunes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.blue": "Blaues Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.purple": "Violettes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.cyan": "Türkises Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.silver": "Hellgraues Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.gray": "Graues Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.pink": "Rosa Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.lime": "Hellgrünes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.yellow": "Gelbes Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.lightBlue": "Hellblaues Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.magenta": "Magenta Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.orange": "Oranges Ahornblatt",
+  "block.minecraft.banner.mca_maple_leaf.white": "Weißes Ahornblatt"
 }

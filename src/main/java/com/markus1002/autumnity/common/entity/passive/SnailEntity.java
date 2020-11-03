@@ -78,8 +78,8 @@ public class SnailEntity extends AnimalEntity
 	private float hideTicks;
 	private float prevHideTicks;
 
-	private float shakeTicks;
-	private float prevShakeTicks;
+	private int shakeTicks;
+	private int prevShakeTicks;
 
 	private boolean canBreed = true;
 
@@ -109,6 +109,7 @@ public class SnailEntity extends AnimalEntity
 		this.moveController = new SnailEntity.MoveHelperController();
 	}
 
+	@Override
 	protected void registerGoals()
 	{
 		this.goalSelector.addGoal(0, new SnailEntity.HideGoal());
@@ -125,40 +126,41 @@ public class SnailEntity extends AnimalEntity
 	public static AttributeModifierMap.MutableAttribute registerAttributes()
 	{
 		return MobEntity.func_233666_p_()
-				.func_233815_a_(Attributes.MAX_HEALTH, 18.0D)
-				.func_233815_a_(Attributes.MOVEMENT_SPEED, 0.25D)
-				.func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
+				.createMutableAttribute(Attributes.MAX_HEALTH, 18.0D)
+				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
+				.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
+	@Override
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
 	{
 		return sizeIn.height * 0.5F;
 	}
 
+	@Override
 	public ItemStack getPickedResult(RayTraceResult target)
 	{
 		return new ItemStack(AutumnityItems.SNAIL_SPAWN_EGG.get());
 	}
 
 	@Nullable
+	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
 	@Nullable
+	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_HURT;
+		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
+	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-	}
-
-	public SoundEvent getEatSound(ItemStack itemStackIn)
-	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_EAT;
+		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.3F, 1.0F);
 	}
 
 	@Override
@@ -190,6 +192,7 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
+	@Override
 	public void livingTick()
 	{
 		if (!this.canMove() || this.isMovementBlocked())
@@ -284,7 +287,7 @@ public class SnailEntity extends AnimalEntity
 	{
 		if ((this.getEatingTime() + 1) % 12 == 0 && !this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty())
 		{
-			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT, 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT.get(), 0.25F + 0.5F * (float)this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 
 			for(int i = 0; i < 6; ++i)
 			{
@@ -293,13 +296,14 @@ public class SnailEntity extends AnimalEntity
 				vector3d = vector3d.rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F));
 				double d0 = (double)(-this.rand.nextFloat()) * 0.2D;
 				Vector3d vector3d1 = new Vector3d(((double)this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double)this.rand.nextFloat() - 0.5D) * 0.2D);
-				vector3d1 =vector3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
+				vector3d1 = vector3d1.rotateYaw(-this.renderYawOffset * ((float)Math.PI / 180F));
 				vector3d1 = vector3d1.add(this.getPosX(), this.getPosY() + (double)this.getEyeHeight(), this.getPosZ());
 				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vector3d1.x, vector3d1.y, vector3d1.z, vector3d.x, vector3d.y + 0.05D, vector3d.z);
 			}
 		}
 	}
 
+	@Override
 	protected void onGrowingAdult()
 	{
 		super.onGrowingAdult();
@@ -374,6 +378,7 @@ public class SnailEntity extends AnimalEntity
 		return result;
 	}
 
+	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
 	{
 		if (this.isInvulnerableTo(source))
@@ -455,7 +460,7 @@ public class SnailEntity extends AnimalEntity
 			this.getAttribute(Attributes.ARMOR).removeModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			if (hiding)
 			{
-				this.getAttribute(Attributes.ARMOR).func_233767_b_(HIDING_ARMOR_BONUS_MODIFIER);
+				this.getAttribute(Attributes.ARMOR).applyNonPersistentModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			}
 		}
 	}
@@ -528,6 +533,7 @@ public class SnailEntity extends AnimalEntity
 		return Ingredient.fromTag(AutumnityTags.SNAIL_FOODS).test(stack);
 	}
 
+	@Override
 	public boolean isBreedingItem(ItemStack stack)
 	{
 		return this.canBreed ? this.isSnailBreedingItem(stack) : false;
@@ -538,6 +544,7 @@ public class SnailEntity extends AnimalEntity
 		return Ingredient.fromTag(AutumnityTags.SNAIL_BREEDING_ITEMS).test(stack);
 	}
 
+	@Override
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
 		return AutumnityEntities.SNAIL.get().create(this.world);
@@ -549,6 +556,7 @@ public class SnailEntity extends AnimalEntity
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
+	@Override
 	protected float determineNextStepDistance()
 	{
 		return this.distanceWalkedOnStepModified + 0.15F;
@@ -720,7 +728,7 @@ public class SnailEntity extends AnimalEntity
 		{
 			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0)
 			{
-				BlockPos blockpos = SnailEntity.this.func_233580_cy_();
+				BlockPos blockpos = SnailEntity.this.getPosition();
 
 				if (this.isBlockMushroom(blockpos))
 				{

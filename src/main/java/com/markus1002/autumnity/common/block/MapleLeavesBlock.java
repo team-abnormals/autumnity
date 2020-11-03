@@ -37,7 +37,7 @@ public class MapleLeavesBlock extends AbnormalsLeavesBlock
 				double d3 = (double)((float)pos.getX() + rand.nextFloat());
 				double d4 = (double)pos.getY() - 0.05D;
 				double d6 = (double)((float)pos.getZ() + rand.nextFloat());
-				worldIn.addParticle(AutumnityParticles.FALLING_LEAF, d3, d4, d6, d0, d1, d2);
+				worldIn.addParticle(AutumnityParticles.FALLING_LEAF.get(), d3, d4, d6, d0, d1, d2);
 			}
 		}
 	}

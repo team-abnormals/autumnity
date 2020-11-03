@@ -8,7 +8,7 @@
       "item": "minecraft:milk_bucket"
     },
     {
-      "item": "minecraft:egg"
+      "tag": "forge:eggs"
     },
     {
       "item": "minecraft:wheat"

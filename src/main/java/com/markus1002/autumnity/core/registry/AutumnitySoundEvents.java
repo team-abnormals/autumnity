@@ -1,29 +1,18 @@
 package com.markus1002.autumnity.core.registry;
 
-import com.markus1002.autumnity.core.Reference;
+import com.markus1002.autumnity.core.Autumnity;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AutumnitySoundEvents
 {
-	public static final SoundEvent ENTITY_SNAIL_EAT = new SoundEvent(Reference.location("entity.snail.eat"));
-	public static final SoundEvent ENTITY_SNAIL_HURT = new SoundEvent(Reference.location("entity.snail.hurt"));
-
-	@SubscribeEvent
-	public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event)
-	{
-		registerSoundEvent(ENTITY_SNAIL_EAT, "entity.snail.eat");
-		registerSoundEvent(ENTITY_SNAIL_HURT, "entity.snail.hurt");
-	}
-
-	private static void registerSoundEvent(SoundEvent soundEvent, String name)
-	{
-		soundEvent.setRegistryName(Reference.location(name));
-		ForgeRegistries.SOUND_EVENTS.register(soundEvent);
-	}
+	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
+	
+	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_EAT = HELPER.createSoundEvent("entity.snail.eat");
+	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_HURT =HELPER.createSoundEvent("entity.snail.hurt");
+	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_STEP = HELPER.createSoundEvent("entity.snail.step");
 }

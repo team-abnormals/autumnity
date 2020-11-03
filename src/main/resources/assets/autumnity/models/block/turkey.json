@@ -1,0 +1,6 @@
+{
+    "parent": "autumnity:block/template_turkey",
+	"textures": {
+		"turkey": "autumnity:block/turkey"
+	}
+}

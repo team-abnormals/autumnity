@@ -56,9 +56,9 @@ public class SnailShellChestplateItem extends ArmorItem
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
     	tooltip.add(StringTextComponent.EMPTY);
-    	tooltip.add((new TranslationTextComponent("item.autumnity.snail_shell_chestplate.whenSneaking").func_240699_a_(TextFormatting.GRAY)));
-    	tooltip.add(new TranslationTextComponent(Effects.RESISTANCE.getName()).func_240699_a_(TextFormatting.BLUE).func_240702_b_(" ").func_230529_a_(new TranslationTextComponent("potion.potency.2").func_240699_a_(TextFormatting.BLUE)));
-    	tooltip.add((new TranslationTextComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.getId(), ItemStack.DECIMALFORMAT.format(10), new TranslationTextComponent(Attributes.KNOCKBACK_RESISTANCE.func_233754_c_()))).func_240699_a_(TextFormatting.BLUE));
+    	tooltip.add((new TranslationTextComponent("item.autumnity.snail_shell_chestplate.whenSneaking").mergeStyle(TextFormatting.GRAY)));
+    	tooltip.add(new TranslationTextComponent(Effects.RESISTANCE.getName()).mergeStyle(TextFormatting.BLUE).appendString(" ").append(new TranslationTextComponent("potion.potency.2").mergeStyle(TextFormatting.BLUE)));
+    	tooltip.add((new TranslationTextComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.getId(), ItemStack.DECIMALFORMAT.format(10), new TranslationTextComponent(Attributes.KNOCKBACK_RESISTANCE.func_233754_c_()))).mergeStyle(TextFormatting.BLUE));
     }
     
 	@Override

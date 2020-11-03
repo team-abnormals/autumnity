@@ -25,8 +25,8 @@ public class FallenLeavesFeature extends Feature<NoFeatureConfig>
 	{
 		int i = 0;
 		
-		int j = rand.nextInt(4);
-		BlockState blockstate = j == 0 ? AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState() : j == 1 ? AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().getDefaultState() : AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
+		int j = rand.nextInt(3);
+		BlockState blockstate = j == 0 ? AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState() : AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
 
 		for(int x = -3; x <= 3; ++x)
 		{

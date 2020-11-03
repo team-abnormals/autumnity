@@ -24,13 +24,13 @@ public class AutumnityBiomes
 	public static final RegistryObject<Biome> MAPLE_FOREST_HILLS = BIOMES.register("maple_forest_hills", MapleForestHillsBiome::new);
 	public static final RegistryObject<Biome> PUMPKIN_FIELDS = BIOMES.register("pumpkin_fields", PumpkinFieldsBiome::new);
 
-    public static void setupBiomes()
+    public static void registerBiomes()
     {
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.get(), Config.COMMON.mapleForestWeight.get()));
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.get(), Config.COMMON.pumpkinFieldsWeight.get()));
         
         BiomeDictionary.addTypes(MAPLE_FOREST.get(), Type.FOREST, Type.OVERWORLD);
         BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
-        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.FOREST, Type.OVERWORLD, Type.SPARSE, Type.RARE);
+        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.PLAINS, Type.OVERWORLD, Type.SPARSE, Type.RARE);
     }
 }

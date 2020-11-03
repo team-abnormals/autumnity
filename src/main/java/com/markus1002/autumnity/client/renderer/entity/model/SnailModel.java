@@ -24,25 +24,32 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T>
 	{
 		this.textureWidth = 64;
 		this.textureHeight = 64;
+		
 		this.body = new ModelRenderer(this);
 		this.body.setRotationPoint(0.0F, 24.0F, -9.0F);
 		this.body.addBox(-4.0F, 0.0F, 0.0F, 8, 18, 6, 0.0F);
+		
 		this.hideBody = new ModelRenderer(this);
 		this.hideBody.setRotationPoint(0.0F, 24.0F, -6.0F);
 		this.hideBody.addBox(-4.0F, 0.0F, 0.0F, 8, 12, 6, 0.0F);
+		
 		this.eye1 = new ModelRenderer(this, 28, 0);
 		this.eye1.setRotationPoint(2.5F, 18.0F, -7.0F);
 		this.eye1.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
+		
 		this.eye2 = new ModelRenderer(this, 28, 0);
 		this.eye2.mirror = true;
 		this.eye2.setRotationPoint(-2.5F, 18.0F, -7.0F);
 		this.eye2.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
+		
 		this.tentacle1 = new ModelRenderer(this, 28, 9);
 		this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F);
 		this.tentacle1.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
+		
 		this.tentacle2 = new ModelRenderer(this, 28, 9);
 		this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F);
 		this.tentacle2.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
+		
 		this.shell = new ModelRenderer(this, 0, 24);
 		this.shell.setRotationPoint(0.0F, 7.0F, -1.0F);
 		this.shell.addBox(-4.5F, 0.0F, 0.0F, 9, 14, 14, 0.0F);

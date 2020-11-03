@@ -1,8 +1,11 @@
 package com.markus1002.autumnity.core;
 
 import com.markus1002.autumnity.core.other.AutumnityEvents;
-import com.markus1002.autumnity.core.other.VanillaCompatibility;
+import com.markus1002.autumnity.core.other.AutumnityClient;
+import com.markus1002.autumnity.core.other.AutumnityCompat;
+import com.markus1002.autumnity.core.registry.AutumnityBanners;
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
+import com.markus1002.autumnity.core.registry.AutumnityEffects;
 import com.markus1002.autumnity.core.registry.AutumnityEntities;
 import com.markus1002.autumnity.core.registry.AutumnityFeatures;
 import com.markus1002.autumnity.core.registry.AutumnityPaintings;
@@ -14,10 +17,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -39,7 +42,6 @@ public class Autumnity
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
 			modEventBus.addListener(EventPriority.LOWEST, this::clientSetup);
-	        modEventBus.addListener(EventPriority.LOWEST, this::particleSetup);
 
 		});
 		
@@ -48,8 +50,13 @@ public class Autumnity
         REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
+        REGISTRY_HELPER.getDeferredSoundRegister().register(modEventBus);
         AutumnityBiomes.BIOMES.register(modEventBus);
         AutumnityPaintings.PAINTINGS.register(modEventBus);
+        AutumnityEffects.EFFECTS.register(modEventBus);
+        AutumnityPotions.POTIONS.register(modEventBus);
+        AutumnityFeatures.FEATURES.register(modEventBus);
+        AutumnityParticles.PARTICLES.register(modEventBus);
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		
@@ -59,27 +66,34 @@ public class Autumnity
 
 	private void commonSetup(final FMLCommonSetupEvent event)
 	{
-		VanillaCompatibility.setupVanillaCompatibility();
-		AutumnityPotions.setupBrewingRecipes();
-        AutumnityBiomes.setupBiomes();
-		
-		for(Biome biome : ForgeRegistries.BIOMES.getValues())
+		DeferredWorkQueue.runLater(() -> 
 		{
-			AutumnityFeatures.setupBiomeFeatures(biome);
-			AutumnityEntities.setupEntitySpawns(biome);
-		}
-		AutumnityEntities.registerAttributes();
+			AutumnityCompat.registerCompostables();
+			AutumnityCompat.registerFlammables();
+			AutumnityCompat.registerDispenserBehaviors();
+			
+			AutumnityBanners.registerBanners();
+			AutumnityPotions.registerBrewingRecipes();
+			AutumnityBiomes.registerBiomes();
+
+			for(Biome biome : ForgeRegistries.BIOMES.getValues())
+			{
+				AutumnityFeatures.setupBiomeFeatures(biome);
+				AutumnityEntities.setupEntitySpawns(biome);
+			}
+			AutumnityEntities.registerAttributes();
+		});
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event)
 	{
-		AutumnityEntities.setupEntitiesClient();
-		VanillaCompatibility.setupVanillaCompatibilityClient();
-	}
-	
-	private void particleSetup(ParticleFactoryRegisterEvent event)
-	{
-        AutumnityParticles.registerFactories();
+		DeferredWorkQueue.runLater(() -> 
+		{
+			AutumnityEntities.setupEntitiesClient();
+			
+			AutumnityClient.setRenderLayers();
+			AutumnityClient.registerBlockColors();
+		});
 	}
 	
 

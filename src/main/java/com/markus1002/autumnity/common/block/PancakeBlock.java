@@ -44,12 +44,14 @@ public class PancakeBlock extends Block
 		this.setDefaultState(this.stateContainer.getBaseState().with(PANCAKES, Integer.valueOf(2)));
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		return SHAPES[state.get(PANCAKES) - 1];
 	}
 
 	@Nullable
+	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context)
 	{
 		BlockState blockstate = context.getWorld().getBlockState(context.getPos());
@@ -63,6 +65,7 @@ public class PancakeBlock extends Block
 		}
 	}
 
+	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		ItemStack itemstack = player.getHeldItem(handIn);
@@ -107,11 +110,13 @@ public class PancakeBlock extends Block
 		}
 	}
 
+	@Override
 	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext)
 	{
 		return useContext.getItem().getItem() == this.asItem() && state.get(PANCAKES) < 11 ? true : super.isReplaceable(state, useContext);
 	}
 
+	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
 	{
 		builder.add(PANCAKES);
@@ -122,14 +127,28 @@ public class PancakeBlock extends Block
 		return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();
 	}
 
+	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
 	{
 		BlockPos blockpos = pos.down();
 		return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
 	}
 
+	@Override
 	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type)
 	{
 		return false;
+	}
+	
+	@Override
+	public boolean hasComparatorInputOverride(BlockState state)
+	{
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos)
+	{
+		return blockState.get(PANCAKES);
 	}
 }

@@ -21,6 +21,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
@@ -162,7 +163,7 @@ public class AutumnityEvents
 	public void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event)
 	{
 		ItemStack itemstack = event.getItemStack();
-		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH)
+		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == ModCompatibility.ENDER_TORCH)
 		{
 			World world = event.getWorld();
 			BlockPos blockpos = event.getPos();
@@ -182,15 +183,18 @@ public class AutumnityEvents
 					if (!world.isRemote)
 					{
 						Item item = itemstack.getItem();
-						BlockState blockstate1 = item == Items.TORCH ? Blocks.JACK_O_LANTERN.getDefaultState() : item == Items.SOUL_TORCH ? AutumnityBlocks.SOUL_JACK_O_LANTERN.get().getDefaultState() : AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(world.isBlockPowered(blockpos)));
-						BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
-						world.setBlockState(blockpos, blockstate2, 11);
+						BlockState blockstate1 = item == Items.TORCH ? Blocks.JACK_O_LANTERN.getDefaultState() :
+							item == Items.SOUL_TORCH ? AutumnityBlocks.SOUL_JACK_O_LANTERN.get().getDefaultState() :
+								item == Items.REDSTONE_TORCH ? AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(world.isBlockPowered(blockpos))) :
+									AutumnityBlocks.ENDER_JACK_O_LANTERN.get().getDefaultState();
+								BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
+								world.setBlockState(blockpos, blockstate2, 11);
 
-						world.playSound((PlayerEntity)null, blockpos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-						if (!event.getPlayer().abilities.isCreativeMode)
-						{
-							itemstack.shrink(1);
-						}
+								world.playSound((PlayerEntity)null, blockpos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+								if (!event.getPlayer().abilities.isCreativeMode)
+								{
+									itemstack.shrink(1);
+								}
 					}
 
 					player.swingArm(event.getHand());

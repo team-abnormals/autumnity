@@ -1,6 +1,7 @@
 package com.markus1002.autumnity.common.block;
 
 import com.markus1002.autumnity.common.block.properties.CarvedSide;
+import com.markus1002.autumnity.core.other.ModCompatibility;
 import com.markus1002.autumnity.core.registry.AutumnityBlocks;
 
 import net.minecraft.block.Block;
@@ -44,7 +45,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (this == AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get() && (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH))
+		if (this == AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get() && (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == ModCompatibility.ENDER_TORCH))
 		{
 			Direction direction = hit.getFace();
 			Direction direction1 = state.get(FACING);
@@ -55,7 +56,10 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 				if (!worldIn.isRemote)
 				{
 					Item item = itemstack.getItem();
-					BlockState blockstate = item == Items.TORCH ? AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE.get().getDefaultState() : item == Items.SOUL_TORCH ? AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get().getDefaultState() : AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(worldIn.isBlockPowered(pos)));
+					BlockState blockstate = item == Items.TORCH ? AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE.get().getDefaultState() :
+						item == Items.SOUL_TORCH ? AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get().getDefaultState() :
+						item == Items.REDSTONE_TORCH ? AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(worldIn.isBlockPowered(pos))) :
+						AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get().getDefaultState();
 					BlockState blockstate1 = blockstate.with(CarvedLargePumpkinSliceBlock.FACING, state.get(FACING)).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.get(CARVED_SIDE));
 					worldIn.setBlockState(pos, blockstate1, 11);
 

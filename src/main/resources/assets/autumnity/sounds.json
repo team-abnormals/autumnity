@@ -20,5 +20,13 @@
       "autumnity:mob/snail/hurt4"
     ],
     "subtitle": "subtitles.entity.snail.hurt"
+  },
+  "entity.snail.step": {
+    "category": "entity",
+    "sounds": [
+      "autumnity:mob/snail/step1",
+      "autumnity:mob/snail/step2"
+    ],
+    "subtitle": "subtitles.entity.snail.step"
   }
 }

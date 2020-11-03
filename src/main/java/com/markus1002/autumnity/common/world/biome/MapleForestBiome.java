@@ -1,6 +1,7 @@
 package com.markus1002.autumnity.common.world.biome;
 
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
+import com.markus1002.autumnity.core.registry.AutumnityEntities;
 import com.teamabnormals.abnormals_core.common.world.biome.AbnormalsBiome;
 
 import net.minecraft.entity.EntityClassification;
@@ -44,7 +45,7 @@ public final class MapleForestBiome extends AbnormalsBiome
 	{
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
-		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
+		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(AutumnityEntities.TURKEY.get(), 10, 4, 4));
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.COW, 8, 4, 4));
 		this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.WOLF, 5, 4, 4));
 		this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));

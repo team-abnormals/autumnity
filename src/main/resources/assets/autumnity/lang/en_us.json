@@ -9,6 +9,8 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Autumn Crocus",
   "block.autumnity.potted_autumn_crocus": "Potted Autumn Crocus",
+  "block.autumnity.turkey": "Raw Turkey",
+  "block.autumnity.cooked_turkey": "Cooked Turkey",
   
   "block.autumnity.large_pumpkin_slice": "Large Pumpkin Slice",
   "block.autumnity.carved_large_pumpkin_slice": "Carved Large Pumpkin Slice",
@@ -19,6 +21,17 @@
   "block.autumnity.large_redstone_jack_o_lantern_slice": "Large Redstone Jack o'Lantern Slice",
   
   "block.autumnity.snail_shell_block": "Snail Shell Block",
+  "block.autumnity.snail_shell_bricks": "Snail Shell Bricks",
+  "block.autumnity.snail_shell_brick_stairs": "Snail Shell Brick Stairs",
+  "block.autumnity.snail_shell_brick_slab": "Snail Shell Brick Slab",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Snail Shell Brick Vertical Slab",
+  "block.autumnity.snail_shell_brick_wall": "Snail Shell Brick Wall",
+  "block.autumnity.chiseled_snail_shell_bricks": "Chiseled Snail Shell Bricks",
+  "block.autumnity.snail_shell_tiles": "Snail Shell Tiles",
+  "block.autumnity.snail_shell_tile_stairs": "Snail Shell Tile Stairs",
+  "block.autumnity.snail_shell_tile_slab": "Snail Shell Tile Slab",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Snail Shell Tile Vertical Slab",
+  "block.autumnity.snail_shell_tile_wall": "Snail Shell Tile Wall",
   
   "block.autumnity.maple_log": "Maple Log",
   "block.autumnity.maple_wood": "Maple Wood",
@@ -72,6 +85,9 @@
   "item.autumnity.snail_shell_piece": "Snail Shell Piece",
   "item.autumnity.snail_shell_chestplate": "Snail Shell Chestplate",
   
+  "item.autumnity.turkey_spawn_egg": "Turkey Spawn Egg",
+  "item.autumnity.turkey_egg": "Turkey Egg",
+  
   "item.autumnity.maple_leaf_banner_pattern": "Banner Pattern",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Maple Leaf",
   
@@ -79,6 +95,7 @@
   
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
+  "entity.autumnity.turkey": "Turkey",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",
@@ -94,8 +111,16 @@
   "biome.autumnity.maple_forest_hills": "Maple Forest Hills",
   "biome.autumnity.pumpkin_fields": "Pumpkin Fields",
   
-  "subtitles.entity.snail.eat": "Snail Eats",
-  "subtitles.entity.snail.hurt": "Snail Hurts",
+  "subtitles.entity.snail.eat": "Snail eats",
+  "subtitles.entity.snail.hurt": "Snail hurts",
+  "subtitles.entity.snail.step": "Snail crawls",
+  
+  "subtitles.entity.turkey.ambient": "Turkey gobbles",
+  "subtitles.entity.turkey.purr": "Turkey purrs",
+  "subtitles.entity.turkey.attack": "Turkey gobbles loudly",
+  "subtitles.entity.turkey.hurt": "Turkey hurts",
+  "subtitles.entity.turkey.death": "Turkey dies",
+  "subtitles.entity.turkey.egg": "Turkey plops",
   
   "_comment": "Compat Stuff",
   

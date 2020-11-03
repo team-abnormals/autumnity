@@ -1,7 +1,8 @@
 package com.markus1002.autumnity.core;
 
 import com.markus1002.autumnity.core.other.AutumnityEvents;
-import com.markus1002.autumnity.core.other.VanillaCompatibility;
+import com.markus1002.autumnity.core.other.AutumnityClient;
+import com.markus1002.autumnity.core.other.AutumnityCompat;
 import com.markus1002.autumnity.core.registry.AutumnityBanners;
 import com.markus1002.autumnity.core.registry.AutumnityBiomes;
 import com.markus1002.autumnity.core.registry.AutumnityEffects;
@@ -67,7 +68,10 @@ public class Autumnity
 	{
 		DeferredWorkQueue.runLater(() -> 
 		{
-			VanillaCompatibility.setupVanillaCompatibility();
+			AutumnityCompat.registerCompostables();
+			AutumnityCompat.registerFlammables();
+			AutumnityCompat.registerDispenserBehaviors();
+			
 			AutumnityBanners.registerBanners();
 			AutumnityPotions.registerBrewingRecipes();
 			AutumnityBiomes.registerBiomes();
@@ -86,7 +90,9 @@ public class Autumnity
 		DeferredWorkQueue.runLater(() -> 
 		{
 			AutumnityEntities.setupEntitiesClient();
-			VanillaCompatibility.setupVanillaCompatibilityClient();
+			
+			AutumnityClient.setRenderLayers();
+			AutumnityClient.registerBlockColors();
 		});
 	}
 	

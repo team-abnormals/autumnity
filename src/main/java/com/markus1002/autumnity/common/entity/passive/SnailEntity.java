@@ -78,8 +78,8 @@ public class SnailEntity extends AnimalEntity
 	private float hideTicks;
 	private float prevHideTicks;
 
-	private float shakeTicks;
-	private float prevShakeTicks;
+	private int shakeTicks;
+	private int prevShakeTicks;
 
 	private boolean canBreed = true;
 
@@ -109,6 +109,7 @@ public class SnailEntity extends AnimalEntity
 		this.moveController = new SnailEntity.MoveHelperController();
 	}
 
+	@Override
 	protected void registerGoals()
 	{
 		this.goalSelector.addGoal(0, new SnailEntity.HideGoal());
@@ -130,35 +131,36 @@ public class SnailEntity extends AnimalEntity
 				.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
+	@Override
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn)
 	{
 		return sizeIn.height * 0.5F;
 	}
 
+	@Override
 	public ItemStack getPickedResult(RayTraceResult target)
 	{
 		return new ItemStack(AutumnityItems.SNAIL_SPAWN_EGG.get());
 	}
 
 	@Nullable
+	@Override
 	protected SoundEvent getDeathSound()
 	{
 		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
 	@Nullable
+	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
 		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
 	}
 
+	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-	}
-
-	public SoundEvent getEatSound(ItemStack itemStackIn)
-	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_EAT.get();
+		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.3F, 1.0F);
 	}
 
 	@Override
@@ -190,6 +192,7 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
+	@Override
 	public void livingTick()
 	{
 		if (!this.canMove() || this.isMovementBlocked())
@@ -300,6 +303,7 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
+	@Override
 	protected void onGrowingAdult()
 	{
 		super.onGrowingAdult();
@@ -374,6 +378,7 @@ public class SnailEntity extends AnimalEntity
 		return result;
 	}
 
+	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
 	{
 		if (this.isInvulnerableTo(source))
@@ -528,6 +533,7 @@ public class SnailEntity extends AnimalEntity
 		return Ingredient.fromTag(AutumnityTags.SNAIL_FOODS).test(stack);
 	}
 
+	@Override
 	public boolean isBreedingItem(ItemStack stack)
 	{
 		return this.canBreed ? this.isSnailBreedingItem(stack) : false;
@@ -538,6 +544,7 @@ public class SnailEntity extends AnimalEntity
 		return Ingredient.fromTag(AutumnityTags.SNAIL_BREEDING_ITEMS).test(stack);
 	}
 
+	@Override
 	public AgeableEntity createChild(AgeableEntity ageable)
 	{
 		return AutumnityEntities.SNAIL.get().create(this.world);
@@ -549,6 +556,7 @@ public class SnailEntity extends AnimalEntity
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
+	@Override
 	protected float determineNextStepDistance()
 	{
 		return this.distanceWalkedOnStepModified + 0.15F;

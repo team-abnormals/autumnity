@@ -9,6 +9,8 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Syysmyrkkylilja",
   "block.autumnity.potted_autumn_crocus": "Istutettu syysmyrkkylilja",
+  "block.autumnity.turkey": "Raaka kalkkuna",
+  "block.autumnity.cooked_turkey": "Paistettu kalkkuna",
   
   "block.autumnity.large_pumpkin_slice": "Suuren kurpitsan pala",
   "block.autumnity.carved_large_pumpkin_slice": "Kaiverrettu suuren kurpitsan pala",
@@ -17,6 +19,19 @@
   "block.autumnity.large_soul_jack_o_lantern_slice": "Suuren sielukurpitsalyhdyn pala",
   "block.autumnity.redstone_jack_o_lantern": "Redstone-kurpitsalyhty",
   "block.autumnity.large_redstone_jack_o_lantern_slice": "Suuren redstone-kurpitsalyhdyn pala",
+  
+  "block.autumnity.snail_shell_block": "Kotilon kuorikuutio",
+  "block.autumnity.snail_shell_bricks": "Kotilon kuoritiili",
+  "block.autumnity.snail_shell_brick_stairs": "Kotilon kuoritiiliportaat",
+  "block.autumnity.snail_shell_brick_slab": "Kotilon kuoritiililaatta",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Pystysuora kotilon kuoritiililaatta",
+  "block.autumnity.snail_shell_brick_wall": "Kotilon kuoritiilimuuri",
+  "block.autumnity.chiseled_snail_shell_bricks": "Kaiverrettu kotilon kuoritiili",
+  "block.autumnity.snail_shell_tiles": "Kotilon kuorilaatat",
+  "block.autumnity.snail_shell_tile_stairs": "Kotilon kuorilaattaportaat",
+  "block.autumnity.snail_shell_tile_slab": "Kotilon kuorilaattalaatta",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Pystysuora kotilon kuorilaattalaatta",
+  "block.autumnity.snail_shell_tile_wall": "Kotilon kuorilaattamuuri",
   
   "block.autumnity.maple_log": "Vaahterahalko",
   "block.autumnity.maple_wood": "Vaahterapuu",
@@ -70,6 +85,9 @@
   "item.autumnity.snail_shell_piece": "Kotilon kuoren palanen",
   "item.autumnity.snail_shell_chestplate": "Kotilon kuoripanssari",
   
+  "item.autumnity.turkey_spawn_egg": "Luo kalkkuna",
+  "item.autumnity.turkey_egg": "Kalkkunan muna",
+  
   "item.autumnity.maple_leaf_banner_pattern": "Viirikuvio",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Vaahteranlehti",
   
@@ -77,6 +95,7 @@
   
   "entity.autumnity.boat": "Vene",
   "entity.autumnity.snail": "Kotilo",
+  "entity.autumnity.turkey": "Kalkkuna",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Pidentäminen",
@@ -94,6 +113,7 @@
   
   "subtitles.entity.snail.eat": "Kotilo syö",
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
+  "subtitles.entity.snail.step": "Kotilo matelee",
   
   "_comment": "Compat Stuff",
   

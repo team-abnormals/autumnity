@@ -200,4 +200,14 @@ public class TurkeyBlock extends FallingBlock
 	{
 		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
 	}
+	
+	@Override
+	public boolean hasComparatorInputOverride(BlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
+		return 10 - blockState.get(CHUNKS) * 2;
+	}
 }

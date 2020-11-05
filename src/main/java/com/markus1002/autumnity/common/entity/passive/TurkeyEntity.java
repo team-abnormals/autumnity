@@ -38,7 +38,6 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -55,16 +54,16 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public class TurkeyEntity extends AnimalEntity
 {
 	private static final DataParameter<Boolean> IS_INTIMIDATING = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.BOOLEAN);
-	
+
 	private float wingRotation;
 	private float destPos;
 	private float oFlapSpeed;
 	private float oFlap;
 	private float wingRotDelta = 1.0F;
-	
+
 	private float peckTicks;
 	private float prevPeckTicks;
-	
+
 	private float intimidationTicks;
 	private float prevIntimidationTicks;
 	public int timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
@@ -124,8 +123,10 @@ public class TurkeyEntity extends AnimalEntity
 		{
 			this.peckTicks = 8;
 		}
-
-		super.handleStatusUpdate(id);
+		else
+		{
+			super.handleStatusUpdate(id);
+		}
 	}
 
 	@Override
@@ -144,15 +145,15 @@ public class TurkeyEntity extends AnimalEntity
 
 		if (this.world.isRemote)
 		{
-			// Threatening animation
+			// Intimidation animation
 			this.prevIntimidationTicks = this.intimidationTicks;
 			if (this.isIntimidating())
 			{
-				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks + 0.12F, 0.0F, 6.0F);
+				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks + 1.0F, 0.0F, 8.0F);
 			}
 			else
 			{
-				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks - 1.5F, 0.0F, 6.0F);
+				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks - 1.0F, 0.0F, 8.0F);
 			}
 
 			// Wing rotation
@@ -222,12 +223,12 @@ public class TurkeyEntity extends AnimalEntity
 	{
 		return MathHelper.lerp(partialTicks, this.prevIntimidationTicks, this.intimidationTicks) / 8.0F;
 	}
-	
+
 	public void setIntimidating(boolean intimidating)
 	{
 		this.dataManager.set(IS_INTIMIDATING, intimidating);
 	}
-	
+
 	public boolean isIntimidating()
 	{
 		return this.dataManager.get(IS_INTIMIDATING);
@@ -455,10 +456,6 @@ public class TurkeyEntity extends AnimalEntity
 
 		public void resetTask()
 		{
-			if (this.target != null && TurkeyEntity.this.canEntityBeSeen(this.target))
-			{
-				this.target.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 360));
-			}
 			this.target = null;
 			TurkeyEntity.this.setIntimidating(false);
 			super.resetTask();

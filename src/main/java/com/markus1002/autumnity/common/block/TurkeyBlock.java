@@ -3,13 +3,17 @@ package com.markus1002.autumnity.common.block;
 import java.util.Random;
 
 import com.markus1002.autumnity.common.entity.item.FallingHeadBlockEntity;
+import com.markus1002.autumnity.core.other.AutumnityFoods;
+import com.markus1002.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.potion.EffectInstance;
@@ -67,7 +71,7 @@ public class TurkeyBlock extends FallingBlock
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		int i = state.get(CHUNKS);
-		
+
 		if (state.get(FACING) == Direction.NORTH)
 			return NORTH_SHAPE[i];
 		else if (state.get(FACING) == Direction.SOUTH)
@@ -84,7 +88,7 @@ public class TurkeyBlock extends FallingBlock
 		if (worldIn.isAirBlock(pos.down()) || canFallThrough(worldIn.getBlockState(pos.down())) && pos.getY() >= 0)
 		{
 			FallingBlockEntity fallingblockentity;
-			
+
 			if (state.get(CHUNKS) == 0)
 			{
 				fallingblockentity = new FallingHeadBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, worldIn.getBlockState(pos));
@@ -93,7 +97,7 @@ public class TurkeyBlock extends FallingBlock
 			{
 				fallingblockentity = new FallingBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, worldIn.getBlockState(pos));
 			}
-			
+
 			this.onStartFalling(fallingblockentity);
 			worldIn.addEntity(fallingblockentity);
 		}
@@ -119,13 +123,21 @@ public class TurkeyBlock extends FallingBlock
 		return this.eatTurkey(worldIn, pos, state, player, itemstack);
 	}
 
-	private ActionResultType eatTurkey(IWorld worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack)
+	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack)
 	{
 		int i = state.get(CHUNKS);
-		if (player.canEat(false))
+		boolean flag = itemstack.getItem() instanceof AxeItem;
+		if (player.canEat(false) || flag)
 		{
-			ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
-			player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
+			if (flag)
+			{
+				spawnAsEntity(worldIn, pos, new ItemStack(this.getLeg()));
+			}
+			else
+			{
+				ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
+				player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
+			}
 			this.restoreHunger(worldIn, player);
 			if (i < 4)
 			{
@@ -143,17 +155,22 @@ public class TurkeyBlock extends FallingBlock
 			return ActionResultType.PASS;
 		}
 	}
-	
+
 	protected void restoreHunger(IWorld worldIn, PlayerEntity player)
 	{
-		player.getFoodStats().addStats(1, 0.3F);
-		
+		player.getFoodStats().addStats(AutumnityFoods.TURKEY.getHealing(), AutumnityFoods.TURKEY.getSaturation());
+
 		if (!worldIn.isRemote() && worldIn.getRandom().nextFloat() < 0.1F)
 		{
 			player.addPotionEffect(new EffectInstance(Effects.HUNGER, 600, 0));
 		}
 	}
-	
+
+	protected Item getLeg()
+	{
+		return AutumnityItems.TURKEY_LEG.get();
+	}
+
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
 	{

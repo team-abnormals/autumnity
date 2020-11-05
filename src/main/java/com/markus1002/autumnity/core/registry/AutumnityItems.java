@@ -91,7 +91,8 @@ public class AutumnityItems
 	
 	public static final RegistryObject<Item> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", () -> AutumnityEntities.TURKEY.get(), 6765623, 5019859);
 	public static final RegistryObject<Item> TURKEY_EGG = HELPER.createItem("turkey_egg", () -> new TurkeyEggItem(new Item.Properties().maxStackSize(16).group(ItemGroup.MISC)));
-	
+	public static final RegistryObject<Item> TURKEY_LEG = HELPER.createItem("turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.TURKEY)));
+	public static final RegistryObject<Item> COOKED_TURKEY_LEG = HELPER.createItem("cooked_turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.COOKED_TURKEY)));
 	
     public static final RegistryObject<Item> MAPLE_LEAF_BANNNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 }

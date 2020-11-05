@@ -121,7 +121,6 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> SNAIL_SHELL_TILE_WALL = HELPER.createBlock("snail_shell_tile_wall", () -> new WallBlock(AutumnityProperties.SNAIL_SHELL), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> SNAIL_SHELL_TILE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "snail_shell_tile_vertical_slab", () -> new VerticalSlabBlock(AutumnityProperties.SNAIL_SHELL), ItemGroup.BUILDING_BLOCKS);
 	
-	
 	// Maple Stuff
 	public static final RegistryObject<Block> STRIPPED_MAPLE_LOG = HELPER.createBlock("stripped_maple_log", () -> new StrippedLogBlock(AutumnityProperties.MAPLE_LOG), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> STRIPPED_MAPLE_WOOD = HELPER.createBlock("stripped_maple_wood", () -> new StrippedWoodBlock(AutumnityProperties.MAPLE_LOG), ItemGroup.BUILDING_BLOCKS);

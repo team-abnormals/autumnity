@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "autumnity:foul_berry_pie"
+      "autumnity:cooked_turkey_from_smoking"
     ]
   },
   "criteria": {
-    "has_foul_berries": {
+    "has_turkey": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "autumnity:foul_berries"
+            "item": "autumnity:turkey"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "autumnity:foul_berry_pie"
+        "recipe": "autumnity:cooked_turkey_from_smoking"
       }
     }
   },
   "requirements": [
     [
-      "has_foul_berries",
+      "has_turkey",
       "has_the_recipe"
     ]
   ]

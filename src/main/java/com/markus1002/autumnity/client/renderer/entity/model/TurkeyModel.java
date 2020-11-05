@@ -100,14 +100,14 @@ public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T>
 		this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
 		this.head.rotateAngleX += peckanim * 0.8F;
 		this.head.rotationPointZ = -3.0F - peckanim * 1.5F - intimidationanim * 2.0F;
-		this.head.rotationPointY = 14.0F + intimidationanim * 4.0F;
-		this.head.rotationPointX = MathHelper.cos(ageInTicks * 0.75F) * -3.5F * intimidationanim;
+		this.head.rotationPointY = 14.0F + intimidationanim * 2.5F;
+		this.head.rotationPointX = MathHelper.cos(ageInTicks * 0.75F) * -2.0F * intimidationanim;
 		
 		this.rightWing.rotateAngleZ = -winganim;
 		this.leftWing.rotateAngleZ = winganim;
 
-		this.body.rotateAngleY = MathHelper.cos(ageInTicks * 0.75F) * 0.5F * intimidationanim;
-		this.body.rotateAngleX = 0.5F * intimidationanim;
+		this.body.rotateAngleY = MathHelper.cos(ageInTicks * 0.75F) * 0.3F * intimidationanim;
+		this.body.rotateAngleX = 0.3F * intimidationanim;
 		
 		this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;

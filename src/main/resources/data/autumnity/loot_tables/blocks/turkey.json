@@ -18,6 +18,105 @@
           }
         }
       ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 4
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:turkey_leg"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:turkey",
+          "properties": {
+            "chunks": "1"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 3
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:turkey_leg"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:turkey",
+          "properties": {
+            "chunks": "2"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": 2
+			},
+			{
+			  "function": "minecraft:explosion_decay"
+			}
+		  ],
+          "name": "autumnity:turkey_leg"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:turkey",
+          "properties": {
+            "chunks": "3"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "autumnity:turkey_leg"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "autumnity:turkey",
+          "properties": {
+            "chunks": "4"
+          }
+        }
+      ]
     }
   ],
   "functions": [

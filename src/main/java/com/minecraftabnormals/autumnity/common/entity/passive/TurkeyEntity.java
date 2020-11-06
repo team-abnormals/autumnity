@@ -1,11 +1,13 @@
 package com.minecraftabnormals.autumnity.common.entity.passive;
 
 import java.util.EnumSet;
+import java.util.Random;
 import java.util.function.Predicate;
 
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+import com.minecraftabnormals.environmental.api.IEggLayingEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -30,6 +32,7 @@ import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
@@ -52,7 +55,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class TurkeyEntity extends AnimalEntity
+public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 {
 	private static final DataParameter<Boolean> IS_INTIMIDATING = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.BOOLEAN);
 
@@ -191,7 +194,7 @@ public class TurkeyEntity extends AnimalEntity
 			{
 				this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 				this.entityDropItem(AutumnityItems.TURKEY_EGG.get());
-				this.timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
+				this.timeUntilNextEgg = this.getNextEggTime(this.rand);
 			}
 		}
 	}
@@ -343,6 +346,36 @@ public class TurkeyEntity extends AnimalEntity
 		return new ItemStack(AutumnityItems.TURKEY_SPAWN_EGG.get());
 	}
 
+	@Override
+	public int getEggTimer()
+	{
+		return this.timeUntilNextEgg;
+	}
+
+	@Override
+	public void setEggTimer(int time)
+	{
+		this.timeUntilNextEgg = time;
+	}
+
+	@Override
+	public boolean isBirdJockey()
+	{
+		return this.turkeyJockey;
+	}
+	
+	@Override
+	public Item getEggItem()
+	{
+		return AutumnityItems.TURKEY_EGG.get();
+	}
+	
+	@Override
+	public int getNextEggTime(Random rand)
+	{
+		return rand.nextInt(9600) + 9600;
+	}
+	
 	class PanicGoal extends net.minecraft.entity.ai.goal.PanicGoal
 	{
 		public PanicGoal()

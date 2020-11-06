@@ -130,6 +130,7 @@
   "block.autumnity.maple_trapped_chest": "Ansoitettu vaahtera-arkku",
   "block.autumnity.ender_jack_o_lantern": "Ender-kurpitsalyhty",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Suuren ender-kurpitsalyhdyn pala",
+  "block.autumnity.turkey_egg_crate": "Laatikko kalkkunan munia",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Panssari hidastelijalle",

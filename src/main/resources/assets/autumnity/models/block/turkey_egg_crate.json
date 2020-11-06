@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "top": "autumnity:block/turkey_egg_crate_top",
+        "bottom": "autumnity:block/turkey_egg_crate_bottom",
+        "side": "autumnity:block/turkey_egg_crate_side"
+    }
+}

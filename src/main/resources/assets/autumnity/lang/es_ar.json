@@ -9,6 +9,8 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Narciso de otoño",
   "block.autumnity.potted_autumn_crocus": "Maceta con narciso de otoño",
+  "block.autumnity.turkey": "Pavo crudo",
+  "block.autumnity.cooked_turkey": "Pavo cocinado",
   
   "block.autumnity.large_pumpkin_slice": "Pedazo de zapallo grande",
   "block.autumnity.carved_large_pumpkin_slice": "Pedazo de zapallo esculpido grande",
@@ -19,6 +21,17 @@
   "block.autumnity.large_redstone_jack_o_lantern_slice": "Pedazo de zapallo de Halloween de redstone grande",
 
   "block.autumnity.snail_shell_block": "Bloque de caparazón de caracol",
+  "block.autumnity.snail_shell_bricks": "Ladrillos de caparazón de caracol",
+  "block.autumnity.snail_shell_brick_stairs": "Escaleras de ladrillos de caparazón de caracol",
+  "block.autumnity.snail_shell_brick_slab": "Baldosa de ladrillos de caparazón de caracol",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Baldosa vertical de ladrillos de caparazón de caracol",
+  "block.autumnity.snail_shell_brick_wall": "Pared de ladrillos de caparazón de caracol",
+  "block.autumnity.chiseled_snail_shell_bricks": "Ladrillos de caparazón de caracol cincelados",
+  "block.autumnity.snail_shell_tiles": "Azulejos de caparazón de caracol",
+  "block.autumnity.snail_shell_tile_stairs": "Escaleras de azulejos de caparazón de caracol",
+  "block.autumnity.snail_shell_tile_slab": "Baldosa de azulejos de caparazón de caracol",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Baldosa vertical de azulejos de caparazón de caracol",
+  "block.autumnity.snail_shell_tile_wall": "Pared de azulejos de caparazón de caracol",
   
   "block.autumnity.maple_log": "Tronco de arce",
   "block.autumnity.maple_wood": "Leño de arce",
@@ -72,6 +85,11 @@
   "item.autumnity.snail_shell_piece": "Pieza de caparazón de caracol",
   "item.autumnity.snail_shell_chestplate": "Pechera de caparazón de caracol",
 
+  "item.autumnity.turkey_spawn_egg": "Generar pavo",
+  "item.autumnity.turkey_egg": "Huevo de pavo",
+  "item.autumnity.turkey_leg": "Pata de pavo cruda",
+  "item.autumnity.cooked_turkey_leg": "Pata de pavo cocinada",
+
   "item.autumnity.maple_leaf_banner_pattern": "Diseño de estandarte",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Hoja de arce",
 
@@ -79,6 +97,7 @@
   
   "entity.autumnity.boat": "Bote",
   "entity.autumnity.snail": "Caracol",
+  "entity.autumnity.turkey": "Pavo",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",
@@ -96,6 +115,14 @@
   
   "subtitles.entity.snail.eat": "Caracol come",
   "subtitles.entity.snail.hurt": "Caracol herido",
+  "subtitles.entity.snail.step": "Caracol se arrastra",
+
+  "subtitles.entity.turkey.ambient": "Glugluteo de pavo",
+  "subtitles.entity.turkey.purr": "Ronroneo de pavo",
+  "subtitles.entity.turkey.attack": "Glugluteo fuerte de pavo",
+  "subtitles.entity.turkey.hurt": "Pavo herido",
+  "subtitles.entity.turkey.death": "Pavo muere",
+  "subtitles.entity.turkey.egg": "Un pavo pone un huevo",
   
   "_comment": "Compat Stuff",
   
@@ -110,6 +137,7 @@
   "block.autumnity.maple_trapped_chest": "Cofre con trampa de arce",
   "block.autumnity.ender_jack_o_lantern": "Zapallo de Halloween de ender",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Pedazo de zapallo de Halloween de ender grande",
+  "block.autumnity.turkey_egg_crate": "Cajón de huevos de pavo",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección sigilosa",

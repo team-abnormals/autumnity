@@ -9,6 +9,8 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Herbstzeitlose",
   "block.autumnity.potted_autumn_crocus": "Eingetopfte Herbstzeitlose",
+  "block.autumnity.turkey": "Rohes Putenfleisch",
+  "block.autumnity.cooked_turkey": "Gekochtes Putenfleisch",
   
   "block.autumnity.large_pumpkin_slice": "Große Kürbisscheibe",
   "block.autumnity.carved_large_pumpkin_slice": "Geschnitzte große Kürbisscheibe",
@@ -16,9 +18,20 @@
   "block.autumnity.soul_jack_o_lantern": "Seelenkürbislaterne",
   "block.autumnity.large_soul_jack_o_lantern_slice": "Große Seelenkürbislaternenscheibe",
   "block.autumnity.redstone_jack_o_lantern": "Redstone-Kürbislaterne",
-  "block.autumnity.large_redstone_jack_o_lantern_slice": "Große Redstone-Kürbislaternenscheibe,
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Große Redstone-Kürbislaternenscheibe",
 
   "block.autumnity.snail_shell_block": "Schneckenhausblock",
+  "block.autumnity.snail_shell_bricks": "Schneckenhausziegel",
+  "block.autumnity.snail_shell_brick_stairs": "Schneckenhausziegeltreppe",
+  "block.autumnity.snail_shell_brick_slab": "Schneckenhausziegelstufe",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Vertikale Schneckenhausziegelstufe",
+  "block.autumnity.snail_shell_brick_wall": "Schneckenhausziegelmauer",
+  "block.autumnity.chiseled_snail_shell_bricks": "Gemeißelte Schneckenhausziegel",
+  "block.autumnity.snail_shell_tiles": "Schneckenhausfliesen",
+  "block.autumnity.snail_shell_tile_stairs": "Schneckenhausfliesentreppe",
+  "block.autumnity.snail_shell_tile_slab": "Schneckenhausfliesenstufe",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Vertikale Schneckenhausfliesenstufe",
+  "block.autumnity.snail_shell_tile_wall": "Schneckenhausfliesenmauer",
   
   "block.autumnity.maple_log": "Ahornstamm",
   "block.autumnity.maple_wood": "Ahornholz",
@@ -72,6 +85,11 @@
   "item.autumnity.snail_shell_piece": "Schneckenhausstück",
   "item.autumnity.snail_shell_chestplate": "Schneckenhaus",
   
+  "item.autumnity.turkey_spawn_egg": "Truthahn-Spawn-Ei",
+  "item.autumnity.turkey_egg": "Putenei",
+  "item.autumnity.turkey_leg": "Rohe Truthahnkeule",
+  "item.autumnity.cooked_turkey_leg": "Gekochte Truthahnkeule",
+  
   "item.autumnity.maple_leaf_banner_pattern": "Bannervorlage",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Ahornblatt",
   
@@ -79,6 +97,7 @@
   
   "entity.autumnity.boat": "Boot",
   "entity.autumnity.snail": "Schnecke",
+  "entity.autumnity.turkey": "Truthahn",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Verlängerung",
@@ -96,6 +115,14 @@
   
   "subtitles.entity.snail.eat": "Schnecke frisst",
   "subtitles.entity.snail.hurt": "Schnecke nimmt Schaden",
+  "subtitles.entity.snail.step": "Schnecke kriecht",
+
+  "subtitles.entity.turkey.ambient": "Truthahn kollert",
+  "subtitles.entity.turkey.purr": "Truthahn schnurrt",
+  "subtitles.entity.turkey.attack": "Truthahn kollert ärgerlich",
+  "subtitles.entity.turkey.hurt": "Truthahn nimmt Schaden",
+  "subtitles.entity.turkey.death": "Truthahn stirbt",
+  "subtitles.entity.turkey.egg": "Truthahn legt Ei",
   
   "_comment": "Compat Stuff",
   
@@ -110,6 +137,7 @@
   "block.autumnity.maple_trapped_chest": "Redstone-Ahornholztruhe",
   "block.autumnity.ender_jack_o_lantern": "Enderkürbislaterne",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Große Enderkürbislaternenscheibe",
+  "block.autumnity.turkey_egg_crate": "Puteneikiste",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",

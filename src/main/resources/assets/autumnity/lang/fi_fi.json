@@ -41,6 +41,9 @@
   "block.autumnity.sappy_maple_log": "Mahlainen vaahterahalko",
   "block.autumnity.sappy_maple_wood": "Mahlainen vaahterapuu",
   
+  "block.autumnity.maple_branch": "Vaahteran oksa",
+  "block.autumnity.long_maple_branch": "Pitkä vaahteran oksa",
+  
   "block.autumnity.maple_planks": "Vaahteralankut",
   "block.autumnity.maple_stairs": "Vaahteraportaat",
   "block.autumnity.maple_slab": "Vaahteralaatta",
@@ -92,6 +95,8 @@
   
   "item.autumnity.maple_leaf_banner_pattern": "Viirikuvio",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Vaahteranlehti",
+  "item.autumnity.swirl_banner_pattern": "Viirikuvio",
+  "item.autumnity.swirl_banner_pattern.desc": "Kiemura",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Hiipiessä:",
   
@@ -112,6 +117,8 @@
   "biome.autumnity.maple_forest": "Vaahterametsä",
   "biome.autumnity.maple_forest_hills": "Vaahterametsäkukkulat",
   "biome.autumnity.pumpkin_fields": "Kurpitsatasanko",
+  "biome.autumnity.boreal_maple_forest": "Boreaalinen vaahterametsä",
+  "biome.autumnity.boreal_maple_forest_hills": "Boreaaliset vaahterametsäkukkulat",
   
   "subtitles.entity.snail.eat": "Kotilo syö",
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
@@ -155,5 +162,22 @@
   "block.minecraft.banner.mca_maple_leaf.lightBlue": "Vaaleansininen vaahteranlehti",
   "block.minecraft.banner.mca_maple_leaf.magenta": "Purppura vaahteranlehti",
   "block.minecraft.banner.mca_maple_leaf.orange": "Oranssi vaahteranlehti",
-  "block.minecraft.banner.mca_maple_leaf.white": "Valkoinen vaahteranlehti"
+  "block.minecraft.banner.mca_maple_leaf.white": "Valkoinen vaahteranlehti",
+  
+  "block.minecraft.banner.mca_swirl.black": "Musta kiemura",
+  "block.minecraft.banner.mca_swirl.red": "Punainen kiemura",
+  "block.minecraft.banner.mca_swirl.green": "Vihreä kiemura",
+  "block.minecraft.banner.mca_swirl.brown": "Ruskea kiemura",
+  "block.minecraft.banner.mca_swirl.blue": "Sininen kiemura",
+  "block.minecraft.banner.mca_swirl.purple": "Violetti kiemura",
+  "block.minecraft.banner.mca_swirl.cyan": "Syaani kiemura",
+  "block.minecraft.banner.mca_swirl.silver": "Vaaleanharmaa kiemura",
+  "block.minecraft.banner.mca_swirl.gray": "Harmaa kiemura",
+  "block.minecraft.banner.mca_swirl.pink": "Vaaleanpunainen kiemura",
+  "block.minecraft.banner.mca_swirl.lime": "Limetinvihreä kiemura",
+  "block.minecraft.banner.mca_swirl.yellow": "Keltainen kiemura",
+  "block.minecraft.banner.mca_swirl.lightBlue": "Vaaleansininen kiemura",
+  "block.minecraft.banner.mca_swirl.magenta": "Purppura kiemura",
+  "block.minecraft.banner.mca_swirl.orange": "Oranssi kiemura",
+  "block.minecraft.banner.mca_swirl.white": "Valkoinen kiemura"
 }

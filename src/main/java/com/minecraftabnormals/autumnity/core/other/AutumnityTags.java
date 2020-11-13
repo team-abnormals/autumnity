@@ -12,6 +12,7 @@ public class AutumnityTags
 {
 	public static final INamedTag<Block> SNAIL_BLOCK_FOODS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":snail_foods");
 	public static final INamedTag<Block> SLIPPERY_SNAIL_SLIME_BLOCKS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":slippery_snail_slime_blocks");
+	public static final INamedTag<Block> MAPLE_LOGS = BlockTags.makeWrapperTag(Reference.MOD_ID + ":maple_logs");
 	
 	public static final INamedTag<Item> SNAIL_FOODS = ItemTags.makeWrapperTag(Reference.MOD_ID + ":snail_foods");
 	public static final INamedTag<Item> SNAIL_BREEDING_ITEMS = ItemTags.makeWrapperTag(Reference.MOD_ID + ":snail_breeding_items");

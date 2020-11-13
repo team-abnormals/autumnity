@@ -9,6 +9,8 @@ import com.minecraftabnormals.autumnity.common.block.FoulBerryBushBlock;
 import com.minecraftabnormals.autumnity.common.block.FoulBerryBushPipsBlock;
 import com.minecraftabnormals.autumnity.common.block.LargePumpkinSliceBlock;
 import com.minecraftabnormals.autumnity.common.block.LargeRedstoneJackOlanternSliceBlock;
+import com.minecraftabnormals.autumnity.common.block.LongMapleBranch;
+import com.minecraftabnormals.autumnity.common.block.MapleBranch;
 import com.minecraftabnormals.autumnity.common.block.MapleLeavesBlock;
 import com.minecraftabnormals.autumnity.common.block.MapleLogBlock;
 import com.minecraftabnormals.autumnity.common.block.MapleWoodBlock;
@@ -131,6 +133,9 @@ public class AutumnityBlocks
 		return materialcolor.get(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.ORANGE_TERRACOTTA : MaterialColor.WHITE_TERRACOTTA;
 	}).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_WOOD = HELPER.createBlock("maple_wood", () -> new MapleWoodBlock(STRIPPED_MAPLE_WOOD, SAPPY_MAPLE_WOOD, AutumnityProperties.MAPLE_LOG), ItemGroup.BUILDING_BLOCKS);
+	
+	public static final RegistryObject<Block> MAPLE_BRANCH = HELPER.createBlock("maple_branch", () -> new MapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> LONG_MAPLE_BRANCH = HELPER.createBlock("long_maple_branch", () -> new LongMapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> MAPLE_PLANKS = HELPER.createBlock("maple_planks", () -> new PlanksBlock(AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_STAIRS = HELPER.createBlock("maple_stairs", () -> new WoodStairsBlock(MAPLE_PLANKS.get().getDefaultState(), AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);
@@ -159,10 +164,10 @@ public class AutumnityBlocks
 	public static final RegistryObject<Block> YELLOW_MAPLE_SAPLING = HELPER.createBlock("yellow_maple_sapling", () -> new AbnormalsSaplingBlock(new YellowMapleTree(), AutumnityProperties.createSapling(MaterialColor.YELLOW_TERRACOTTA)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new AbnormalsSaplingBlock(new MapleTree(), AutumnityProperties.createSapling(MaterialColor.FOLIAGE)), ItemGroup.DECORATIONS);
 
-	public static final RegistryObject<Block> POTTED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.RED).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_YELLOW_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.0F)));
-	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_YELLOW_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.0F)));
+	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.RED).hardnessAndResistance(0.0F)));
 
 	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = HELPER.createBlock("maple_leaf_carpet", () -> new LeafCarpetBlock(AutumnityProperties.createLeafCarpet(MaterialColor.FOLIAGE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = HELPER.createBlock("yellow_maple_leaf_carpet", () -> new LeafCarpetBlock(AutumnityProperties.createLeafCarpet(MaterialColor.YELLOW_TERRACOTTA)), ItemGroup.DECORATIONS);

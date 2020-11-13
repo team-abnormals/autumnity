@@ -41,6 +41,9 @@
   "block.autumnity.sappy_maple_log": "Sappy Maple Log",
   "block.autumnity.sappy_maple_wood": "Sappy Maple Wood",
   
+  "block.autumnity.maple_branch": "Maple Branch",
+  "block.autumnity.long_maple_branch": "Long Maple Branch",
+  
   "block.autumnity.maple_planks": "Maple Planks",
   "block.autumnity.maple_stairs": "Maple Stairs",
   "block.autumnity.maple_slab": "Maple Slab",
@@ -92,6 +95,8 @@
   
   "item.autumnity.maple_leaf_banner_pattern": "Banner Pattern",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Maple Leaf",
+  "item.autumnity.swirl_banner_pattern": "Banner Pattern",
+  "item.autumnity.swirl_banner_pattern.desc": "Swirl",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "When sneaking:",
   
@@ -112,6 +117,8 @@
   "biome.autumnity.maple_forest": "Maple Forest",
   "biome.autumnity.maple_forest_hills": "Maple Forest Hills",
   "biome.autumnity.pumpkin_fields": "Pumpkin Fields",
+  "biome.autumnity.boreal_maple_forest": "Boreal Maple Forest",
+  "biome.autumnity.boreal_maple_forest_hills": "Boreal Maple Forest Hills",
   
   "subtitles.entity.snail.eat": "Snail eats",
   "subtitles.entity.snail.hurt": "Snail hurts",
@@ -162,5 +169,22 @@
   "block.minecraft.banner.mca_maple_leaf.lightBlue": "Light Blue Maple Leaf",
   "block.minecraft.banner.mca_maple_leaf.magenta": "Magenta Maple Leaf",
   "block.minecraft.banner.mca_maple_leaf.orange": "Orange Maple Leaf",
-  "block.minecraft.banner.mca_maple_leaf.white": "White Maple Leaf"
+  "block.minecraft.banner.mca_maple_leaf.white": "White Maple Leaf",
+  
+  "block.minecraft.banner.mca_swirl.black": "Black Swirl",
+  "block.minecraft.banner.mca_swirl.red": "Red Swirl",
+  "block.minecraft.banner.mca_swirl.green": "Green Swirl",
+  "block.minecraft.banner.mca_swirl.brown": "Brown Swirl",
+  "block.minecraft.banner.mca_swirl.blue": "Blue Swirl",
+  "block.minecraft.banner.mca_swirl.purple": "Purple Swirl",
+  "block.minecraft.banner.mca_swirl.cyan": "Cyan Swirl",
+  "block.minecraft.banner.mca_swirl.silver": "Light Gray Swirl",
+  "block.minecraft.banner.mca_swirl.gray": "Gray Swirl",
+  "block.minecraft.banner.mca_swirl.pink": "Pink Swirl",
+  "block.minecraft.banner.mca_swirl.lime": "Lime Swirl",
+  "block.minecraft.banner.mca_swirl.yellow": "Yellow Swirl",
+  "block.minecraft.banner.mca_swirl.lightBlue": "Light Blue Swirl",
+  "block.minecraft.banner.mca_swirl.magenta": "Magenta Swirl",
+  "block.minecraft.banner.mca_swirl.orange": "Orange Swirl",
+  "block.minecraft.banner.mca_swirl.white": "White Swirl"
 }

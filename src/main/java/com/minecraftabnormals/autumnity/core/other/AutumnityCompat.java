@@ -80,6 +80,7 @@ public class AutumnityCompat
 		DataUtils.registerFlammable(AutumnityBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
 		DataUtils.registerFlammable(AutumnityBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
 		DataUtils.registerFlammable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 30, 60);
+		DataUtils.registerFlammable(AutumnityBlocks.TURKEY_EGG_CRATE.get(), 5, 20);
 	}
 
 	public static void registerDispenserBehaviors()

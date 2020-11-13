@@ -2,8 +2,6 @@ package com.minecraftabnormals.autumnity.core.other;
 
 import java.util.function.ToIntFunction;
 
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -51,6 +49,7 @@ public class AutumnityProperties
 	
 	public static final Block.Properties FOUL_BERRIES = Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH);
 	public static final Block.Properties MAPLE_LOG = Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD);
+	public static final Block.Properties MAPLE_BRANCH = Block.Properties.create(Material.PLANTS, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.WOOD);
 	public static final Block.Properties MAPLE = Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD);
 	public static final Block.Properties MAPLE_DOOR = Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).notSolid().hardnessAndResistance(3.0F).sound(SoundType.WOOD);
 	public static final Block.Properties SNAIL_SHELL = Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).harvestTool(ToolType.PICKAXE).setRequiresTool().hardnessAndResistance(3.0F, 9.0F);

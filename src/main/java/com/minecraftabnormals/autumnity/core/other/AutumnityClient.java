@@ -24,6 +24,9 @@ public class AutumnityClient
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.AUTUMN_CROCUS.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.POTTED_AUTUMN_CROCUS.get(), RenderType.getCutoutMipped());
 
+		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_BRANCH.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(AutumnityBlocks.LONG_MAPLE_BRANCH.get(), RenderType.getCutoutMipped());
+
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_DOOR.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_TRAPDOOR.get(), RenderType.getCutoutMipped());
 
@@ -76,7 +79,6 @@ public class AutumnityClient
 			BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().getDefaultState();
 			return blockcolors.getColor(blockstate, null, null, tintIndex);
 		}, AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(),
-				AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(),
-				AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
+				AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get());
 	}
 }

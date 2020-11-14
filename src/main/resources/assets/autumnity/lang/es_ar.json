@@ -40,6 +40,9 @@
   "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "Tronco de arce con savia",
   "block.autumnity.sappy_maple_wood": "Leño de arce con savia",
+
+  "block.autumnity.maple_branch": "Rama de arce",
+  "block.autumnity.long_maple_branch": "Rama de arce larga",
   
   "block.autumnity.maple_planks": "Madera de arce",
   "block.autumnity.maple_stairs": "Escaleras de arce",
@@ -92,6 +95,8 @@
 
   "item.autumnity.maple_leaf_banner_pattern": "Diseño de estandarte",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Hoja de arce",
+  "item.autumnity.swirl_banner_pattern": "Diseño de estandarte",
+  "item.autumnity.swirl_banner_pattern.desc": "Remolino",
 
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Al agacharse:",
   
@@ -112,6 +117,8 @@
   "biome.autumnity.maple_forest": "Bosque de arces",
   "biome.autumnity.maple_forest_hills": "Colinas de bosque de arces",
   "biome.autumnity.pumpkin_fields": "Campo de zapallos",
+  "biome.autumnity.boreal_maple_forest": "Bosque de arces boreal",
+  "biome.autumnity.boreal_maple_forest_hills": "Colinas de bosque de arces boreal",
   
   "subtitles.entity.snail.eat": "Caracol come",
   "subtitles.entity.snail.hurt": "Caracol herido",
@@ -162,5 +169,22 @@
   "block.minecraft.banner.mca_maple_leaf.lightBlue": "Hoja de arce azul celeste",
   "block.minecraft.banner.mca_maple_leaf.magenta": "Hoja de arce magenta",
   "block.minecraft.banner.mca_maple_leaf.orange": "Hoja de arce naranja",
-  "block.minecraft.banner.mca_maple_leaf.white": "Hoja de arce blanca"
+  "block.minecraft.banner.mca_maple_leaf.white": "Hoja de arce blanca",
+
+  "block.minecraft.banner.mca_swirl.black": "Remolino negro",
+  "block.minecraft.banner.mca_swirl.red": "Remolino rojo",
+  "block.minecraft.banner.mca_swirl.green": "Remolino verde",
+  "block.minecraft.banner.mca_swirl.brown": "Remolino marrón",
+  "block.minecraft.banner.mca_swirl.blue": "Remolino azul",
+  "block.minecraft.banner.mca_swirl.purple": "Remolino violeta",
+  "block.minecraft.banner.mca_swirl.cyan": "Remolino cian",
+  "block.minecraft.banner.mca_swirl.silver": "Remolino gris claro",
+  "block.minecraft.banner.mca_swirl.gray": "Remolino gris",
+  "block.minecraft.banner.mca_swirl.pink": "Remolino rosa",
+  "block.minecraft.banner.mca_swirl.lime": "Remolino verde lima",
+  "block.minecraft.banner.mca_swirl.yellow": "Remolino amarillo",
+  "block.minecraft.banner.mca_swirl.lightBlue": "Remolino azul celeste",
+  "block.minecraft.banner.mca_swirl.magenta": "Remolino magenta",
+  "block.minecraft.banner.mca_swirl.orange": "Remolino naranja",
+  "block.minecraft.banner.mca_swirl.white": "Remolino blanco"
 }

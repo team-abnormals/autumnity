@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class SnailSlimeBlock extends DirectionalBlock
+public class PlaceableSlimeBlock extends DirectionalBlock
 {
 	protected static final VoxelShape UP_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
 	protected static final VoxelShape DOWN_AABB = Block.makeCuboidShape(0.0D, 14.0D, 0.0D, 16.0D, 16.0D, 16.0D);
@@ -33,7 +33,7 @@ public class SnailSlimeBlock extends DirectionalBlock
 	protected static final VoxelShape NORTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 14.0D, 16.0D, 16.0D, 16.0D);
 	protected static final VoxelShape SOUTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 2.0D);
 
-	public SnailSlimeBlock(Properties properties)
+	public PlaceableSlimeBlock(Properties properties)
 	{
 		super(properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.UP));

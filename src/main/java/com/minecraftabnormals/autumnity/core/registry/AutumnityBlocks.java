@@ -19,7 +19,7 @@ import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.minecraftabnormals.autumnity.common.block.SappyLogBlock;
 import com.minecraftabnormals.autumnity.common.block.SappyWoodBlock;
 import com.minecraftabnormals.autumnity.common.block.SnailShellBlock;
-import com.minecraftabnormals.autumnity.common.block.SnailSlimeBlock;
+import com.minecraftabnormals.autumnity.common.block.PlaceableSlimeBlock;
 import com.minecraftabnormals.autumnity.common.block.SnailSlimeFullBlock;
 import com.minecraftabnormals.autumnity.common.block.TallFoulBerryBushBlock;
 import com.minecraftabnormals.autumnity.common.block.TurkeyBlock;
@@ -76,7 +76,7 @@ public class AutumnityBlocks
 {
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 
-	public static final RegistryObject<Block> SNAIL_SLIME = HELPER.createBlock("snail_slime", () -> new SnailSlimeBlock(Block.Properties.create(Material.SNOW, MaterialColor.WHITE_TERRACOTTA).notSolid().doesNotBlockMovement().sound(SoundType.HONEY)), ItemGroup.MISC);
+	public static final RegistryObject<Block> SNAIL_SLIME = HELPER.createBlock("snail_slime", () -> new PlaceableSlimeBlock(Block.Properties.create(Material.SNOW, MaterialColor.WHITE_TERRACOTTA).notSolid().doesNotBlockMovement().sound(SoundType.HONEY)), ItemGroup.MISC);
 	public static final RegistryObject<Block> SNAIL_SLIME_BLOCK = HELPER.createBlock("snail_slime_block", () -> new SnailSlimeFullBlock(Block.Properties.create(Material.CLAY, MaterialColor.WHITE_TERRACOTTA).notSolid().sound(SoundType.HONEY)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PANCAKE = HELPER.createBlock("pancake", () -> new PancakeBlock(Block.Properties.create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), ItemGroup.FOOD);
 	public static final RegistryObject<Block> FOUL_BERRY_BUSH_PIPS = HELPER.createBlockNoItem("foul_berry_bush_pips", () -> new FoulBerryBushPipsBlock(AutumnityProperties.FOUL_BERRIES));
@@ -177,4 +177,5 @@ public class AutumnityBlocks
 	// Compat
 	public static final RegistryObject<Block> FOUL_BERRY_SACK = HELPER.createCompatBlock("quark", "foul_berry_sack", () -> new Block(Block.Properties.create(Material.WOOL, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> TURKEY_EGG_CRATE = HELPER.createBlock("turkey_egg_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ModList.get().isLoaded("quark") && ModList.get().isLoaded("environmental") ? ItemGroup.DECORATIONS : null);
+	public static final RegistryObject<Block> SLIME = HELPER.createBlockNoItem("slime", () -> new PlaceableSlimeBlock(Block.Properties.create(Material.SNOW, MaterialColor.GRASS).notSolid().doesNotBlockMovement().sound(SoundType.SLIME)));
 }

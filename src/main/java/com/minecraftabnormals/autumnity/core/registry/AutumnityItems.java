@@ -76,6 +76,7 @@ public class AutumnityItems
 	};
 
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
+	public static final RegistryHelper REPLACER = Autumnity.REGISTRY_REPLACER;
 
 	public static final RegistryObject<Item> MAPLE_BOAT = HELPER.createBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
 	
@@ -95,4 +96,6 @@ public class AutumnityItems
 	public static final RegistryObject<Item> COOKED_TURKEY_LEG = HELPER.createItem("cooked_turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.COOKED_TURKEY)));
 	
     public static final RegistryObject<Item> MAPLE_LEAF_BANNNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    
+    public static final RegistryObject<Item> SLIME_BALL = REPLACER.createItem("slime_ball", () -> new BlockNamedItem(AutumnityBlocks.SLIME.get(), (new Item.Properties()).group(ItemGroup.MISC)));
 }

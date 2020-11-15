@@ -145,6 +145,7 @@
   "block.autumnity.ender_jack_o_lantern": "Ender Jack o'Lantern",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Large Ender Jack o'Lantern Slice",
   "block.autumnity.turkey_egg_crate": "Turkey Egg Crate",
+  "block.autumnity.slime": "Slime",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Sneaky Protection",

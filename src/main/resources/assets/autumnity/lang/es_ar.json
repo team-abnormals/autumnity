@@ -145,6 +145,7 @@
   "block.autumnity.ender_jack_o_lantern": "Zapallo de Halloween de ender",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Pedazo de zapallo de Halloween de ender grande",
   "block.autumnity.turkey_egg_crate": "Cajón de huevos de pavo",
+  "block.autumnity.slime": "Slime",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Protección sigilosa",

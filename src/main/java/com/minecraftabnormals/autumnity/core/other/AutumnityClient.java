@@ -52,6 +52,7 @@ public class AutumnityClient
 
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_LADDER.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.POTTED_FOUL_BERRIES.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(AutumnityBlocks.SLIME.get(), RenderType.getTranslucent());
 	}
 
 	public static void registerBlockColors()

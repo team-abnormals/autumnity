@@ -117,8 +117,10 @@ public class LongMapleBranch extends BushBlock
 
 	public static void placeAt(IWorld worldIn, BlockPos pos, Direction direction, int flags)
 	{
+		/*
 		worldIn.setBlockState(pos, AutumnityBlocks.LONG_MAPLE_BRANCH.get().getDefaultState().with(PART, BranchPart.BASE).with(HORIZONTAL_FACING, direction), flags);
 		worldIn.setBlockState(pos.offset(direction), AutumnityBlocks.LONG_MAPLE_BRANCH.get().getDefaultState().with(PART, BranchPart.TIP).with(HORIZONTAL_FACING, direction), flags);
+		*/
 	}
 
 	@Override

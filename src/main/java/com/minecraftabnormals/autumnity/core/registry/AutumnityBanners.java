@@ -7,9 +7,11 @@ import net.minecraft.tileentity.BannerPattern;
 public class AutumnityBanners
 {
 	public static final BannerPattern MAPLE_LEAF = BannerManager.createPattern("mca", "maple_leaf", "mpl");
+	public static final BannerPattern SWIRL = BannerManager.createPattern("mca", "swirl", "swl");
 	
 	public static void registerBanners()
 	{
 		BannerManager.addPattern(MAPLE_LEAF, AutumnityItems.MAPLE_LEAF_BANNNER_PATTERN.get());
+		BannerManager.addPattern(SWIRL, AutumnityItems.SWIRL_BANNNER_PATTERN.get());
 	}
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "autumnity:snail_shell_piece"
+    }
+  ],
+  "result": {
+    "item": "autumnity:swirl_banner_pattern"
+  }
+}

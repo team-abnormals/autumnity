@@ -41,6 +41,10 @@ public class FallenLeavesMapleTreeFeature extends MapleTreeFeature
 			{
 				leafcarpet = AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState();
 			}
+			else
+			{
+				leafcarpet = AutumnityBlocks.MAPLE_LEAF_CARPET.get().getDefaultState();
+			}
 
 			for(int x = -3; x <= 3; ++x)
 			{

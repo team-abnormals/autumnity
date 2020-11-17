@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.minecraftabnormals.autumnity.common.block.properties.BranchPart;
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -114,12 +115,10 @@ public class LongMapleBranch extends BushBlock
 		}
 	}
 
-	public void placeAt(IWorld worldIn, BlockPos pos, int flags)
+	public static void placeAt(IWorld worldIn, BlockPos pos, Direction direction, int flags)
 	{
-		/*
-		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER), flags);
-		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER), flags);
-		 */
+		worldIn.setBlockState(pos, AutumnityBlocks.LONG_MAPLE_BRANCH.get().getDefaultState().with(PART, BranchPart.BASE).with(HORIZONTAL_FACING, direction), flags);
+		worldIn.setBlockState(pos.offset(direction), AutumnityBlocks.LONG_MAPLE_BRANCH.get().getDefaultState().with(PART, BranchPart.TIP).with(HORIZONTAL_FACING, direction), flags);
 	}
 
 	@Override

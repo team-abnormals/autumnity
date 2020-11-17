@@ -134,8 +134,8 @@ public class AutumnityBlocks
 	}).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_WOOD = HELPER.createBlock("maple_wood", () -> new MapleWoodBlock(STRIPPED_MAPLE_WOOD, SAPPY_MAPLE_WOOD, AutumnityProperties.MAPLE_LOG), ItemGroup.BUILDING_BLOCKS);
 	
-	public static final RegistryObject<Block> MAPLE_BRANCH = HELPER.createBlock("maple_branch", () -> new MapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> LONG_MAPLE_BRANCH = HELPER.createBlock("long_maple_branch", () -> new LongMapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
+	// public static final RegistryObject<Block> MAPLE_BRANCH = HELPER.createBlock("maple_branch", () -> new MapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
+	// public static final RegistryObject<Block> LONG_MAPLE_BRANCH = HELPER.createBlock("long_maple_branch", () -> new LongMapleBranch(AutumnityProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> MAPLE_PLANKS = HELPER.createBlock("maple_planks", () -> new PlanksBlock(AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_STAIRS = HELPER.createBlock("maple_stairs", () -> new WoodStairsBlock(MAPLE_PLANKS.get().getDefaultState(), AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);

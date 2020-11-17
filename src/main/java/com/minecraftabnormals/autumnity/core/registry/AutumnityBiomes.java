@@ -30,7 +30,7 @@ public class AutumnityBiomes
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.get(), Config.COMMON.pumpkinFieldsWeight.get()));
         
         BiomeDictionary.addTypes(MAPLE_FOREST.get(), Type.FOREST, Type.OVERWORLD);
-        BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.OVERWORLD, Type.HILLS, Type.RARE);
-        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.PLAINS, Type.OVERWORLD, Type.SPARSE, Type.RARE);
+        BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.get(), Type.FOREST, Type.HILLS, Type.RARE, Type.OVERWORLD);
+        BiomeDictionary.addTypes(PUMPKIN_FIELDS.get(), Type.PLAINS, Type.SPARSE, Type.RARE, Type.OVERWORLD);
     }
 }

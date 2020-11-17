@@ -30,6 +30,6 @@ description='''An autumn-themed mod with new biomes and friendly snails.'''
 [[dependencies.autumnity]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[2.0.4,)"
+    versionRange="[2.0.8,)"
     ordering="AFTER"
     side="BOTH"

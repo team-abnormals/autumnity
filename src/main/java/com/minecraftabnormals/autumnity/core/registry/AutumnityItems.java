@@ -5,10 +5,10 @@ import com.minecraftabnormals.autumnity.common.item.SyrupBottleItem;
 import com.minecraftabnormals.autumnity.common.item.TurkeyEggItem;
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
+import com.teamabnormals.abnormals_core.common.items.AbnormalsBannerPatternItem;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.BannerPatternItem;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
@@ -95,7 +95,7 @@ public class AutumnityItems
 	public static final RegistryObject<Item> TURKEY_LEG = HELPER.createItem("turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.TURKEY)));
 	public static final RegistryObject<Item> COOKED_TURKEY_LEG = HELPER.createItem("cooked_turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.COOKED_TURKEY)));
 	
-    public static final RegistryObject<Item> MAPLE_LEAF_BANNNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    public static final RegistryObject<Item> MAPLE_LEAF_BANNNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new AbnormalsBannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
     public static final RegistryObject<Item> SLIME_BALL = REPLACER.createItem("slime_ball", () -> new BlockNamedItem(AutumnityBlocks.SLIME.get(), (new Item.Properties()).group(ItemGroup.MISC)));
 }

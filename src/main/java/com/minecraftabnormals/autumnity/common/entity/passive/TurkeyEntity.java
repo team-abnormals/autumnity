@@ -80,7 +80,6 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	public TurkeyEntity(EntityType<? extends AnimalEntity> type, World worldIn)
 	{
 		super(type, worldIn);
-		this.setPathPriority(PathNodeType.WATER, 0.0F);
 	}
 
 	@Override
@@ -88,7 +87,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	{
 		this.goalSelector.addGoal(0, new SwimGoal(this));
 		this.goalSelector.addGoal(1, new TurkeyEntity.PanicGoal());
-		this.goalSelector.addGoal(2, new TurkeyEntity.ThreatenGoal());
+		// this.goalSelector.addGoal(2, new TurkeyEntity.ThreatenGoal());
 		this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.4D, false));
 		this.goalSelector.addGoal(5, new BreedGoal(this, 1.0D));

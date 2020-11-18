@@ -8,6 +8,7 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
 import net.minecraft.block.BlockState;
@@ -33,6 +34,10 @@ import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.SuspiciousStewItem;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -111,8 +116,43 @@ public class AutumnityEvents
 		ItemStack itemstack = event.getItem();
 		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
 		{
-			Food food = itemstack.getItem().getFood();
-			if (food != AutumnityFoods.FOUL_BERRIES)
+			Item item = itemstack.getItem();
+			Food food = item.getFood();
+			boolean flag = true;
+
+			if (item instanceof SuspiciousStewItem)
+			{
+				CompoundNBT compoundnbt = itemstack.getTag();
+				if (compoundnbt != null && compoundnbt.contains("Effects", 9))
+				{
+					ListNBT listnbt = compoundnbt.getList("Effects", 10);
+
+					for(int i = 0; i < listnbt.size(); ++i)
+					{
+						CompoundNBT compoundnbt1 = listnbt.getCompound(i);
+
+						Effect effect = Effect.get(compoundnbt1.getByte("EffectId"));
+						if (effect == AutumnityEffects.FOUL_TASTE.get())
+						{
+							flag = false;
+							break;
+						}
+					}
+				}
+			}
+			else
+			{
+				for(Pair<EffectInstance, Float> pair : food.getEffects())
+				{
+					if (pair.getFirst().getPotion() == AutumnityEffects.FOUL_TASTE.get())
+					{
+						flag = false;
+						break;
+					}
+				}
+			}
+
+			if (flag)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());

@@ -4,9 +4,11 @@ import java.util.UUID;
 
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
+import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
@@ -16,8 +18,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
@@ -26,6 +31,7 @@ import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -45,7 +51,10 @@ import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -239,6 +248,36 @@ public class AutumnityEvents
 					player.swingArm(event.getHand());
 					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
 					event.setUseItem(Result.DENY);
+				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void turkeyJockeyEvent(LivingSpawnEvent.SpecialSpawn event)
+	{
+		Entity entity = event.getEntity();
+		IWorld world = event.getWorld();
+		Biome biome = world.getBiome(entity.getPosition());
+
+		if (biome == AutumnityBiomes.MAPLE_FOREST.get() || biome == AutumnityBiomes.MAPLE_FOREST_HILLS.get() || biome == AutumnityBiomes.PUMPKIN_FIELDS.get())
+		{
+			if (entity instanceof ZombieEntity)
+			{
+				ZombieEntity zombie = (ZombieEntity) entity;
+				if (zombie.isChild() && zombie.getRidingEntity() != null && zombie.getRidingEntity().getType() == EntityType.CHICKEN)
+				{
+					ChickenEntity chicken = (ChickenEntity) zombie.getRidingEntity();
+					chicken.remove();
+					zombie.stopRiding();
+					
+					TurkeyEntity turkey = AutumnityEntities.TURKEY.get().create(world.getWorld());
+					turkey.setLocationAndAngles(chicken.getPosX(), chicken.getPosY(), chicken.getPosZ(), chicken.rotationYaw, 0.0F);
+					turkey.onInitialSpawn(world, world.getDifficultyForLocation(chicken.getPosition()), SpawnReason.JOCKEY, (ILivingEntityData)null, (CompoundNBT)null);
+					turkey.setTurkeyJockey(true);
+					world.addEntity(turkey);
+
+					zombie.startRiding(turkey, true);
 				}
 			}
 		}

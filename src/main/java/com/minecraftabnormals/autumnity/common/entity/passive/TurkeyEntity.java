@@ -1,6 +1,5 @@
 package com.minecraftabnormals.autumnity.common.entity.passive;
 
-import java.util.EnumSet;
 import java.util.Random;
 import java.util.function.Predicate;
 
@@ -21,7 +20,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -37,11 +35,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -57,8 +50,6 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 {
-	private static final DataParameter<Boolean> IS_INTIMIDATING = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.BOOLEAN);
-
 	private float wingRotation;
 	private float destPos;
 	private float oFlapSpeed;
@@ -67,9 +58,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 
 	private float peckTicks;
 	private float prevPeckTicks;
-
-	private float intimidationTicks;
-	private float prevIntimidationTicks;
+	
 	public int timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
 	public boolean turkeyJockey;
 
@@ -87,23 +76,15 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	{
 		this.goalSelector.addGoal(0, new SwimGoal(this));
 		this.goalSelector.addGoal(1, new TurkeyEntity.PanicGoal());
-		// this.goalSelector.addGoal(2, new TurkeyEntity.ThreatenGoal());
-		this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.3F));
-		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.4D, false));
-		this.goalSelector.addGoal(5, new BreedGoal(this, 1.0D));
-		this.goalSelector.addGoal(6, new TemptGoal(this, 1.0D, false, Ingredient.fromTag(AutumnityTags.TURKEY_BREEDING_ITEMS)));
-		this.goalSelector.addGoal(7, new FollowParentGoal(this, 1.1D));
-		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-		this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 6.0F));
-		this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.4D, false));
+		this.goalSelector.addGoal(4, new BreedGoal(this, 1.0D));
+		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, false, Ingredient.fromTag(AutumnityTags.TURKEY_BREEDING_ITEMS)));
+		this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.1D));
+		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+		this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
 		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal());
-	}
-
-	@Override
-	protected void registerData()
-	{
-		super.registerData();
-		this.dataManager.register(IS_INTIMIDATING, false);
 	}
 
 	@Override
@@ -148,23 +129,12 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 
 		if (this.world.isRemote)
 		{
-			// Intimidation animation
-			this.prevIntimidationTicks = this.intimidationTicks;
-			if (this.isIntimidating())
-			{
-				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks + 1.0F, 0.0F, 8.0F);
-			}
-			else
-			{
-				this.intimidationTicks = MathHelper.clamp(this.intimidationTicks - 1.0F, 0.0F, 8.0F);
-			}
-
 			// Wing rotation
 			this.oFlap = this.wingRotation;
 			this.oFlapSpeed = this.destPos;
-			this.destPos = (float)((double)this.destPos + (double)(this.onGround && !this.isIntimidating() ? -1 : 4) * 0.3D);
+			this.destPos = (float)((double)this.destPos + (double)(this.onGround ? -1 : 4) * 0.3D);
 			this.destPos = MathHelper.clamp(this.destPos, 0.0F, 1.0F);
-			if ((!this.onGround || this.isIntimidating()) && this.wingRotDelta < 1.0F)
+			if (!this.onGround && this.wingRotDelta < 1.0F)
 			{
 				this.wingRotDelta = 1.0F;
 			}
@@ -219,22 +189,6 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			return -2.0F * f + 2.0F;
 		}
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public float getIntimidationAnimationScale(float partialTicks)
-	{
-		return MathHelper.lerp(partialTicks, this.prevIntimidationTicks, this.intimidationTicks) / 8.0F;
-	}
-
-	public void setIntimidating(boolean intimidating)
-	{
-		this.dataManager.set(IS_INTIMIDATING, intimidating);
-	}
-
-	public boolean isIntimidating()
-	{
-		return this.dataManager.get(IS_INTIMIDATING);
 	}
 
 	@Override
@@ -412,90 +366,6 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 				this.alertOthers();
 				this.resetTask();
 			}
-		}
-	}
-
-	class ThreatenGoal extends Goal
-	{
-		private LivingEntity target;
-		private int threateningTicks;
-
-		public ThreatenGoal()
-		{
-			this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-		}
-
-		public boolean shouldExecute()
-		{
-			if (!TurkeyEntity.this.isChild() && (TurkeyEntity.this.isOnGround() || TurkeyEntity.this.isInWater()) && !TurkeyEntity.this.isIntimidating())
-			{
-				LivingEntity livingentity = TurkeyEntity.this.getAttackTarget();
-
-				if (TurkeyEntity.this.getRNG().nextInt(20) == 0 && livingentity != null && livingentity.isAlive() && !livingentity.isPotionActive(Effects.WEAKNESS) && TurkeyEntity.this.canEntityBeSeen(livingentity))
-				{
-					this.target = livingentity;
-					return true;
-				}
-
-				LivingEntity newtarget = null;
-				double d0 = -1.0D;
-
-				for(LivingEntity livingentity1 : TurkeyEntity.this.world.getEntitiesWithinAABB(LivingEntity.class, TurkeyEntity.this.getBoundingBox().grow(6.0D), ENEMY_MATCHER))
-				{
-					double d1 = livingentity1.getDistanceSq(TurkeyEntity.this);
-					if (d0 == -1.0D || d1 < d0)
-					{
-						d0 = d1;
-						newtarget = livingentity1;
-					}
-				}
-
-				if (TurkeyEntity.this.getRNG().nextInt(20) == 0 && newtarget != null && TurkeyEntity.this.canEntityBeSeen(newtarget))
-				{
-					this.target = newtarget;
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		public void tick()
-		{
-			if (this.target != null)
-			{
-				TurkeyEntity.this.getLookController().setLookPositionWithEntity(this.target, (float)TurkeyEntity.this.getHorizontalFaceSpeed(), (float)TurkeyEntity.this.getVerticalFaceSpeed());
-			}
-
-			--this.threateningTicks;
-			if (this.threateningTicks == 0)
-			{
-				this.resetTask();
-			}
-		}
-
-		public boolean shouldContinueExecuting()
-		{
-			return (TurkeyEntity.this.isOnGround() || TurkeyEntity.this.isInWater()) && this.target != null && this.target.isAlive() && TurkeyEntity.this.canEntityBeSeen(this.target);
-		}
-
-		public void startExecuting()
-		{
-			super.startExecuting();
-			TurkeyEntity.this.navigator.clearPath();
-			TurkeyEntity.this.setIntimidating(true);
-			this.threateningTicks = 50;
-		}
-
-		public void resetTask()
-		{
-			if (this.target != null)
-			{
-				this.target.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 120));
-				this.target = null;
-			}
-			TurkeyEntity.this.setIntimidating(false);
-			super.resetTask();
 		}
 	}
 }

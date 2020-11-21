@@ -93,6 +93,8 @@ public class AutumnityEvents
 	public void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
 	{
 		LivingEntity livingentity = event.getEntityLiving();
+		IWorld world = event.getWorld();
+		Biome biome = world.getBiome(livingentity.getPosition());
 
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity)
 		{
@@ -102,6 +104,28 @@ public class AutumnityEvents
 				{
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
+				}
+			}
+		}
+
+		if (biome == AutumnityBiomes.MAPLE_FOREST.get() || biome == AutumnityBiomes.MAPLE_FOREST_HILLS.get() || biome == AutumnityBiomes.PUMPKIN_FIELDS.get())
+		{
+			if (livingentity instanceof ZombieEntity)
+			{
+				ZombieEntity zombie = (ZombieEntity) livingentity;
+				if (zombie.isChild() && zombie.getRidingEntity() != null && zombie.getRidingEntity().getType() == EntityType.CHICKEN)
+				{
+					ChickenEntity chicken = (ChickenEntity) zombie.getRidingEntity();
+					chicken.remove();
+					zombie.stopRiding();
+					
+					TurkeyEntity turkey = AutumnityEntities.TURKEY.get().create(world.getWorld());
+					turkey.setLocationAndAngles(chicken.getPosX(), chicken.getPosY(), chicken.getPosZ(), chicken.rotationYaw, 0.0F);
+					turkey.onInitialSpawn(world, world.getDifficultyForLocation(chicken.getPosition()), SpawnReason.JOCKEY, (ILivingEntityData)null, (CompoundNBT)null);
+					turkey.setTurkeyJockey(true);
+					world.addEntity(turkey);
+
+					zombie.startRiding(turkey, true);
 				}
 			}
 		}
@@ -248,36 +272,6 @@ public class AutumnityEvents
 					player.swingArm(event.getHand());
 					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
 					event.setUseItem(Result.DENY);
-				}
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public void turkeyJockeyEvent(LivingSpawnEvent.SpecialSpawn event)
-	{
-		Entity entity = event.getEntity();
-		IWorld world = event.getWorld();
-		Biome biome = world.getBiome(entity.getPosition());
-
-		if (biome == AutumnityBiomes.MAPLE_FOREST.get() || biome == AutumnityBiomes.MAPLE_FOREST_HILLS.get() || biome == AutumnityBiomes.PUMPKIN_FIELDS.get())
-		{
-			if (entity instanceof ZombieEntity)
-			{
-				ZombieEntity zombie = (ZombieEntity) entity;
-				if (zombie.isChild() && zombie.getRidingEntity() != null && zombie.getRidingEntity().getType() == EntityType.CHICKEN)
-				{
-					ChickenEntity chicken = (ChickenEntity) zombie.getRidingEntity();
-					chicken.remove();
-					zombie.stopRiding();
-					
-					TurkeyEntity turkey = AutumnityEntities.TURKEY.get().create(world.getWorld());
-					turkey.setLocationAndAngles(chicken.getPosX(), chicken.getPosY(), chicken.getPosZ(), chicken.rotationYaw, 0.0F);
-					turkey.onInitialSpawn(world, world.getDifficultyForLocation(chicken.getPosition()), SpawnReason.JOCKEY, (ILivingEntityData)null, (CompoundNBT)null);
-					turkey.setTurkeyJockey(true);
-					world.addEntity(turkey);
-
-					zombie.startRiding(turkey, true);
 				}
 			}
 		}

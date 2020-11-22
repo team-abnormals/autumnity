@@ -25,7 +25,7 @@
 				"north": {"uv": [4, 8, 5, 10], "texture": "#turkey"},
 				"east": {"uv": [0, 10, 3, 12], "texture": "#turkey"},
 				"south": {"uv": [3, 10, 4, 12], "texture": "#turkey"},
-				"west": {"uv": [0, 0, 6, 4], "texture": "#missing"},
+				"west": {"uv": [0, 0, 6, 4], "texture": "#turkey"},
 				"up": {"uv": [7, 8, 8, 11], "texture": "#turkey"},
 				"down": {"uv": [8, 8, 9, 11], "texture": "#turkey"}
 			}
@@ -37,7 +37,7 @@
 			"faces": {
 				"north": {"uv": [1.5, 12, 2.5, 13], "texture": "#turkey"},
 				"east": {"uv": [0, 13, 1.5, 14], "texture": "#turkey"},
-				"south": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#turkey"},
 				"west": {"uv": [0, 12, 1.5, 13], "texture": "#turkey"},
 				"up": {"uv": [3.5, 12, 4.5, 13.5], "texture": "#turkey"},
 				"down": {"uv": [5.5, 12, 6.5, 13.5], "texture": "#turkey"}

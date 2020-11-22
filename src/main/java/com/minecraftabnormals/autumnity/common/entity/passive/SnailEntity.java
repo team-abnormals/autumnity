@@ -163,6 +163,13 @@ public class SnailEntity extends AnimalEntity
 		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.3F, 1.0F);
 	}
 
+	@Nullable
+	@Override
+	public SoundEvent getEatSound(ItemStack itemStackIn)
+	{
+		return null;
+	}
+
 	@Override
 	public void tick()
 	{

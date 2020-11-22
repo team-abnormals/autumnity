@@ -1,7 +1,6 @@
 package com.minecraftabnormals.autumnity.common.entity.passive;
 
 import java.util.Random;
-import java.util.function.Predicate;
 
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
@@ -24,10 +23,12 @@ import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -35,7 +36,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -58,13 +58,9 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 
 	private float peckTicks;
 	private float prevPeckTicks;
-	
+
 	public int timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
 	public boolean turkeyJockey;
-
-	private static final Predicate<LivingEntity> ENEMY_MATCHER = (livingentity) -> {
-		return livingentity != null && livingentity instanceof IMob && !livingentity.isPotionActive(Effects.WEAKNESS);
-	};
 
 	public TurkeyEntity(EntityType<? extends AnimalEntity> type, World worldIn)
 	{
@@ -75,7 +71,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	protected void registerGoals()
 	{
 		this.goalSelector.addGoal(0, new SwimGoal(this));
-		this.goalSelector.addGoal(1, new TurkeyEntity.PanicGoal());
+		this.goalSelector.addGoal(1, new TurkeyEntity.PanicGoal(this));
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.4D, false));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 1.0D));
@@ -84,7 +80,8 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
-		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal());
+		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new TurkeyEntity.JockeyTargetGoal<>(this, PlayerEntity.class));
 	}
 
 	@Override
@@ -316,37 +313,37 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	{
 		return this.turkeyJockey;
 	}
-	
+
 	@Override
 	public Item getEggItem()
 	{
 		return AutumnityItems.TURKEY_EGG.get();
 	}
-	
+
 	@Override
 	public int getNextEggTime(Random rand)
 	{
 		return rand.nextInt(9600) + 9600;
 	}
-	
-	class PanicGoal extends net.minecraft.entity.ai.goal.PanicGoal
+
+	static class PanicGoal extends net.minecraft.entity.ai.goal.PanicGoal
 	{
-		public PanicGoal()
+		public PanicGoal(TurkeyEntity turkey)
 		{
-			super(TurkeyEntity.this, 1.4D);
+			super(turkey, 1.4D);
 		}
 
 		public boolean shouldExecute()
 		{
-			return !TurkeyEntity.this.isChild() ? false : super.shouldExecute();
+			return !this.creature.isChild() ? false : super.shouldExecute();
 		}
 	}
 
-	class HurtByTargetGoal extends net.minecraft.entity.ai.goal.HurtByTargetGoal
+	static class HurtByTargetGoal extends net.minecraft.entity.ai.goal.HurtByTargetGoal
 	{
-		public HurtByTargetGoal()
+		public HurtByTargetGoal(TurkeyEntity turkey)
 		{
-			super(TurkeyEntity.this);
+			super(turkey);
 		}
 
 		protected void setAttackTarget(MobEntity mobIn, LivingEntity targetIn)
@@ -361,11 +358,26 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			super.startExecuting();
 
-			if (TurkeyEntity.this.isChild())
+			if (this.goalOwner.isChild())
 			{
 				this.alertOthers();
 				this.resetTask();
 			}
+		}
+	}
+
+	static class JockeyTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T>
+	{
+		public JockeyTargetGoal(TurkeyEntity turkey, Class<T> classTarget)
+		{
+			super(turkey, classTarget, true);
+		}
+
+		public boolean shouldExecute()
+		{
+			TurkeyEntity turkey = (TurkeyEntity) this.goalOwner;
+
+			return !turkey.isTurkeyJockey() ? false : super.shouldExecute();
 		}
 	}
 }

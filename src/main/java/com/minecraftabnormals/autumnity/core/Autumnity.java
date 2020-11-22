@@ -62,7 +62,6 @@ public class Autumnity
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
 		
-		MinecraftForge.EVENT_BUS.register(new AutumnityEvents());
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

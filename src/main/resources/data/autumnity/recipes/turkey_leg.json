@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "autumnity:cooked_turkey"
+      "item": "autumnity:turkey"
     }
   ],
   "result": {
-    "item": "autumnity:cooked_turkey_leg",
+    "item": "autumnity:turkey_leg",
     "count": 5
   }
 }

@@ -58,7 +58,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 					Item item = itemstack.getItem();
 					BlockState blockstate = item == Items.TORCH ? AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE.get().getDefaultState() :
 						item == Items.SOUL_TORCH ? AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get().getDefaultState() :
-						item == Items.REDSTONE_TORCH ? AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(worldIn.isBlockPowered(pos))) :
+						item == Items.REDSTONE_TORCH ? AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, worldIn.isBlockPowered(pos)) :
 						AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get().getDefaultState();
 					BlockState blockstate1 = blockstate.with(CarvedLargePumpkinSliceBlock.FACING, state.get(FACING)).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.get(CARVED_SIDE));
 					worldIn.setBlockState(pos, blockstate1, 11);

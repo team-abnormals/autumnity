@@ -11,7 +11,7 @@ public class AutumnityBanners
 	
 	public static void registerBanners()
 	{
-		BannerManager.addPattern(MAPLE_LEAF, AutumnityItems.MAPLE_LEAF_BANNNER_PATTERN.get());
-		BannerManager.addPattern(SWIRL, AutumnityItems.SWIRL_BANNNER_PATTERN.get());
+		BannerManager.addPattern(MAPLE_LEAF, AutumnityItems.MAPLE_LEAF_BANNER_PATTERN.get());
+		BannerManager.addPattern(SWIRL, AutumnityItems.SWIRL_BANNER_PATTERN.get());
 	}
 }

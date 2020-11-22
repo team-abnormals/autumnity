@@ -21,13 +21,13 @@ public class LargeRedstoneJackOlanternSliceBlock extends CarvedLargePumpkinSlice
 	public LargeRedstoneJackOlanternSliceBlock(Properties properties)
 	{
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(LIT, Boolean.valueOf(false)));
+		this.setDefaultState(this.getDefaultState().with(LIT, false));
 	}
 	
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context)
 	{
-		return super.getStateForPlacement(context).with(LIT, Boolean.valueOf(context.getWorld().isBlockPowered(context.getPos())));
+		return super.getStateForPlacement(context).with(LIT, context.getWorld().isBlockPowered(context.getPos()));
 	}
 	
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving)

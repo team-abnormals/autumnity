@@ -5,6 +5,8 @@ import java.util.UUID;
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
 import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
+import com.minecraftabnormals.autumnity.core.Autumnity;
+import com.minecraftabnormals.autumnity.core.Reference;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
@@ -62,17 +64,19 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class AutumnityEvents
 {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
 
 	@SubscribeEvent
-	public void onEntityJoinWorld(EntityJoinWorldEvent event)
+	public static void onEntityJoinWorld(EntityJoinWorldEvent event)
 	{
 		if(!event.getWorld().isRemote)
 		{
@@ -90,7 +94,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
+	public static void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event)
 	{
 		LivingEntity livingentity = event.getEntityLiving();
 		IWorld world = event.getWorld();
@@ -132,7 +136,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onSnailShellChestplateSneak(LivingUpdateEvent event)
+	public static void onSnailShellChestplateSneak(LivingUpdateEvent event)
 	{
 		LivingEntity entity = event.getEntityLiving();
 
@@ -144,7 +148,16 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event)
+	public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event)
+	{
+		if (ModList.get().isLoaded("berry_good") && event.getItemStack().getItem() == AutumnityItems.FOUL_BERRIES.get())
+		{
+			event.setUseItem(Event.Result.DENY);
+		}
+	}
+
+	@SubscribeEvent
+	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event)
 	{
 		ItemStack itemstack = event.getItem();
 		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood())
@@ -213,7 +226,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onWandererTradesEvent(WandererTradesEvent event)
+	public static void onWandererTradesEvent(WandererTradesEvent event)
 	{
 		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
 		event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 5, 1, 8, 1));
@@ -223,7 +236,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onVillagerTradesEvent(VillagerTradesEvent event)
+	public static void onVillagerTradesEvent(VillagerTradesEvent event)
 	{
 		if (event.getType() == VillagerProfession.FARMER)
 		{
@@ -232,7 +245,7 @@ public class AutumnityEvents
 	}
 
 	@SubscribeEvent
-	public void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event)
+	public static void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event)
 	{
 		ItemStack itemstack = event.getItemStack();
 		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == ModCompatibility.ENDER_TORCH)
@@ -257,7 +270,7 @@ public class AutumnityEvents
 						Item item = itemstack.getItem();
 						BlockState blockstate1 = item == Items.TORCH ? Blocks.JACK_O_LANTERN.getDefaultState() :
 							item == Items.SOUL_TORCH ? AutumnityBlocks.SOUL_JACK_O_LANTERN.get().getDefaultState() :
-								item == Items.REDSTONE_TORCH ? AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, Boolean.valueOf(world.isBlockPowered(blockpos))) :
+								item == Items.REDSTONE_TORCH ? AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, world.isBlockPowered(blockpos)) :
 									AutumnityBlocks.ENDER_JACK_O_LANTERN.get().getDefaultState();
 								BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
 								world.setBlockState(blockpos, blockstate2, 11);

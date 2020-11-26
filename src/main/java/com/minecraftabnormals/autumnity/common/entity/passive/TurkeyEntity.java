@@ -5,6 +5,7 @@ import java.util.Random;
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import com.minecraftabnormals.environmental.api.IEggLayingEntity;
 
 import net.minecraft.block.BlockState;
@@ -28,12 +29,17 @@ import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -48,6 +54,8 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 {
+	private static final DataParameter<Boolean> ANGRY = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.BOOLEAN);
+
 	private float wingRotation;
 	private float destPos;
 	private float oFlapSpeed;
@@ -95,6 +103,13 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 				.createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
 	}
 
+	@Override
+	protected void registerData()
+	{
+		super.registerData();
+		this.dataManager.register(ANGRY, false);
+	}
+
 	@OnlyIn(Dist.CLIENT)
 	public void handleStatusUpdate(byte id)
 	{
@@ -106,6 +121,16 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			super.handleStatusUpdate(id);
 		}
+	}
+
+	public boolean isAngry()
+	{
+		return this.dataManager.get(ANGRY);
+	}
+
+	public void setAngry(boolean angry)
+	{
+		this.dataManager.set(ANGRY, angry);
 	}
 
 	@Override
@@ -156,9 +181,21 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			if (this.isAlive() && !this.isChild() && !this.isTurkeyJockey() && --this.timeUntilNextEgg <= 0)
 			{
-				this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+				this.playSound(AutumnitySoundEvents.ENTITY_TURKEY_EGG.get(), 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 				this.entityDropItem(AutumnityItems.TURKEY_EGG.get());
 				this.timeUntilNextEgg = this.getNextEggTime(this.rand);
+			}
+
+			if (this.isAngry())
+			{
+				if (this.getAttackTarget() == null)
+				{
+					this.setAngry(false);
+				}
+			}
+			else if (this.getAttackTarget() != null)
+			{
+				this.setAngry(true);
 			}
 		}
 	}
@@ -195,19 +232,19 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return SoundEvents.ENTITY_CHICKEN_AMBIENT;
+		return this.isAngry() ? AutumnitySoundEvents.ENTITY_TURKEY_AGGRO.get() : AutumnitySoundEvents.ENTITY_TURKEY_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return SoundEvents.ENTITY_CHICKEN_HURT;
+		return AutumnitySoundEvents.ENTITY_TURKEY_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return SoundEvents.ENTITY_CHICKEN_DEATH;
+		return AutumnitySoundEvents.ENTITY_TURKEY_DEATH.get();
 	}
 
 	@Override
@@ -215,7 +252,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	{
 		this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
 	}
-
+	
 	@Override
 	public boolean isBreedingItem(ItemStack stack)
 	{

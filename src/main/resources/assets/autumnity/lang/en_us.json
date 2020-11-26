@@ -122,11 +122,11 @@
   
   "subtitles.entity.snail.eat": "Snail eats",
   "subtitles.entity.snail.hurt": "Snail hurts",
+  "subtitles.entity.snail.death": "Snail dies",
   "subtitles.entity.snail.step": "Snail crawls",
   
   "subtitles.entity.turkey.ambient": "Turkey gobbles",
-  "subtitles.entity.turkey.purr": "Turkey purrs",
-  "subtitles.entity.turkey.attack": "Turkey gobbles loudly",
+  "subtitles.entity.turkey.aggro": "Turkey gobbles angrily",
   "subtitles.entity.turkey.hurt": "Turkey hurts",
   "subtitles.entity.turkey.death": "Turkey dies",
   "subtitles.entity.turkey.egg": "Turkey plops",

@@ -122,7 +122,14 @@
   
   "subtitles.entity.snail.eat": "Kotilo syö",
   "subtitles.entity.snail.hurt": "Kotilo vahingoittuu",
+  "subtitles.entity.snail.death": "Kotilo kuolee",
   "subtitles.entity.snail.step": "Kotilo matelee",
+  
+  "subtitles.entity.turkey.ambient": "Kalkkuna kaakattaa",
+  "subtitles.entity.turkey.aggro": "Kalkkuna kaakattaa vihaisesti",
+  "subtitles.entity.turkey.hurt": "Kalkkuna vahingoittuu",
+  "subtitles.entity.turkey.death": "Kalkkuna kuolee",
+  "subtitles.entity.turkey.egg": "Kalkkuna munii",
   
   "_comment": "Compat Stuff",
   

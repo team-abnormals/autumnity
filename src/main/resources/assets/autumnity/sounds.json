@@ -28,5 +28,49 @@
       "autumnity:mob/snail/step2"
     ],
     "subtitle": "subtitles.entity.snail.step"
+  },
+  "entity.turkey.ambient": {
+    "category": "entity",
+    "sounds": [
+      "autumnity:mob/turkey/ambient1",
+      "autumnity:mob/turkey/ambient2",
+      "autumnity:mob/turkey/ambient3",
+      "autumnity:mob/turkey/ambient4",
+      "autumnity:mob/turkey/ambient5",
+      "autumnity:mob/turkey/ambient6"
+    ],
+    "subtitle": "subtitles.entity.turkey.ambient"
+  },
+  "entity.turkey.aggro": {
+    "category": "entity",
+    "sounds": [
+      "autumnity:mob/turkey/aggro1",
+      "autumnity:mob/turkey/aggro2",
+      "autumnity:mob/turkey/aggro3"
+    ],
+    "subtitle": "subtitles.entity.turkey.aggro"
+  },
+  "entity.turkey.hurt": {
+    "category": "entity",
+    "sounds": [
+      "autumnity:mob/turkey/hurt1",
+      "autumnity:mob/turkey/hurt2",
+      "autumnity:mob/turkey/hurt3"
+    ],
+    "subtitle": "subtitles.entity.turkey.hurt"
+  },
+  "entity.turkey.death": {
+    "category": "entity",
+    "sounds": [
+      "autumnity:mob/turkey/death"
+    ],
+    "subtitle": "subtitles.entity.turkey.death"
+  },
+  "entity.turkey.egg": {
+    "category": "entity",
+    "sounds": [
+      "minecraft:mob/chicken/plop"
+    ],
+    "subtitle": "subtitles.entity.turkey.egg"
   }
 }

@@ -34,6 +34,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Autumnity
 {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(Reference.MOD_ID);
+	public static final RegistryHelper REGISTRY_REPLACER = new RegistryHelper("minecraft");
 	
 	public Autumnity()
 	{
@@ -51,6 +52,7 @@ public class Autumnity
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredSoundRegister().register(modEventBus);
+		REGISTRY_REPLACER.getDeferredItemRegister().register(modEventBus);
         AutumnityBiomes.BIOMES.register(modEventBus);
         AutumnityPaintings.PAINTINGS.register(modEventBus);
         AutumnityEffects.EFFECTS.register(modEventBus);

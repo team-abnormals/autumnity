@@ -131,6 +131,8 @@
   "subtitles.entity.turkey.death": "Turkey dies",
   "subtitles.entity.turkey.egg": "Turkey plops",
   
+  "subtitles.block.turkey.cut": "Cutting turkey",
+  
   "_comment": "Compat Stuff",
   
   "block.autumnity.maple_vertical_slab": "Maple Vertical Slab",

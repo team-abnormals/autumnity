@@ -2,7 +2,6 @@ package com.minecraftabnormals.autumnity.core;
 
 import com.minecraftabnormals.autumnity.core.other.AutumnityClient;
 import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
-import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBanners;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
@@ -34,7 +33,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Autumnity
 {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(Reference.MOD_ID);
-	public static final RegistryHelper REGISTRY_REPLACER = new RegistryHelper("minecraft");
 	
 	public Autumnity()
 	{
@@ -52,7 +50,6 @@ public class Autumnity
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredSoundRegister().register(modEventBus);
-		REGISTRY_REPLACER.getDeferredItemRegister().register(modEventBus);
         AutumnityBiomes.BIOMES.register(modEventBus);
         AutumnityPaintings.PAINTINGS.register(modEventBus);
         AutumnityEffects.EFFECTS.register(modEventBus);

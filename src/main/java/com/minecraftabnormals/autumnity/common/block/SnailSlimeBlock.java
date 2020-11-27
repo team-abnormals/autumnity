@@ -24,12 +24,12 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class SnailSlimeFullBlock extends BreakableBlock
+public class SnailSlimeBlock extends BreakableBlock
 {
 	public static final BooleanProperty SLIPPERY = BooleanProperty.create("slippery");
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 1.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-	public SnailSlimeFullBlock(Properties properties)
+	public SnailSlimeBlock(Properties properties)
 	{
 		super(properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(SLIPPERY, Boolean.valueOf(false)));

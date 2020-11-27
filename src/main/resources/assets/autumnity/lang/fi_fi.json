@@ -27,11 +27,11 @@
   "block.autumnity.snail_shell_brick_vertical_slab": "Pystysuora kotilon kuoritiililaatta",
   "block.autumnity.snail_shell_brick_wall": "Kotilon kuoritiilimuuri",
   "block.autumnity.chiseled_snail_shell_bricks": "Kaiverrettu kotilon kuoritiili",
-  "block.autumnity.snail_shell_tiles": "Kotilon kuorilaatat",
-  "block.autumnity.snail_shell_tile_stairs": "Kotilon kuorilaattaportaat",
-  "block.autumnity.snail_shell_tile_slab": "Kotilon kuorilaatta",
-  "block.autumnity.snail_shell_tile_vertical_slab": "Pystysuora kotilon kuorilaatta",
-  "block.autumnity.snail_shell_tile_wall": "Kotilon kuorilaattamuuri",
+  "block.autumnity.snail_shell_tiles": "Kotilon kuorilevyt",
+  "block.autumnity.snail_shell_tile_stairs": "Kotilon kuorilevyportaat",
+  "block.autumnity.snail_shell_tile_slab": "Kotilon kuorilevylaatta",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Pystysuora kotilon kuorilevylaatta",
+  "block.autumnity.snail_shell_tile_wall": "Kotilon kuorilevymuuri",
   
   "block.autumnity.maple_log": "Vaahterahalko",
   "block.autumnity.maple_wood": "Vaahterapuu",
@@ -130,6 +130,8 @@
   "subtitles.entity.turkey.hurt": "Kalkkuna vahingoittuu",
   "subtitles.entity.turkey.death": "Kalkkuna kuolee",
   "subtitles.entity.turkey.egg": "Kalkkuna munii",
+  
+  "subtitles.block.turkey.cut": "Leikataan kalkkunaa",
   
   "_comment": "Compat Stuff",
   

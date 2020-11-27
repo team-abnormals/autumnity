@@ -76,7 +76,6 @@ public class AutumnityItems
 	};
 
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
-	public static final RegistryHelper REPLACER = Autumnity.REGISTRY_REPLACER;
 
 	public static final RegistryObject<Item> MAPLE_BOAT = HELPER.createBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
 	

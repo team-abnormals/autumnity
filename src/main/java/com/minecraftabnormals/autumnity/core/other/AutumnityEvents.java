@@ -12,9 +12,7 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CarvedPumpkinBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -47,6 +45,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -59,6 +58,8 @@ import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
+import javax.swing.text.Position;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class AutumnityEvents
@@ -119,6 +120,13 @@ public class AutumnityEvents
 		if (ModList.get().isLoaded("berry_good") && event.getItemStack().getItem() == AutumnityItems.FOUL_BERRIES.get())
 		{
 			event.setUseItem(Event.Result.DENY);
+		}
+		World world = event.getWorld();
+		BlockPos pos = event.getPos();
+
+		if (event.getItemStack().getItem() == Items.SLIME_BALL) {
+			world.setBlockState(pos.offset(event.getFace()), AutumnityBlocks.SLIME.get().getDefaultState().with(DirectionalBlock.FACING, event.getFace()));
+			world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 

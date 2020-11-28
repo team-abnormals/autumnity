@@ -83,5 +83,12 @@
       "minecraft:mob/chicken/plop"
     ],
     "subtitle": "subtitles.entity.turkey.egg"
+  },
+  "block.turkey.cut": {
+    "sounds": [
+      "autumnity:block/turkey/cut1",
+      "autumnity:block/turkey/cut2"
+    ],
+    "subtitle": "subtitles.block.turkey.cut"
   }
 }

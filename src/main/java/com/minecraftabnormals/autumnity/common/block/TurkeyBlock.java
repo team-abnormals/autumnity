@@ -5,6 +5,7 @@ import java.util.Random;
 import com.minecraftabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -27,6 +28,8 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -109,7 +112,7 @@ public class TurkeyBlock extends FallingBlock
 		ItemStack itemstack = player.getHeldItem(handIn);
 		if (worldIn.isRemote)
 		{
-			if (this.eatTurkey(worldIn, pos, state, player, itemstack) == ActionResultType.SUCCESS)
+			if (this.eatTurkey(worldIn, pos, state, player, itemstack, handIn) == ActionResultType.SUCCESS)
 			{
 				return ActionResultType.SUCCESS;
 			}
@@ -120,10 +123,10 @@ public class TurkeyBlock extends FallingBlock
 			}
 		}
 
-		return this.eatTurkey(worldIn, pos, state, player, itemstack);
+		return this.eatTurkey(worldIn, pos, state, player, itemstack, handIn);
 	}
 
-	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack)
+	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack, Hand hand)
 	{
 		int i = state.get(CHUNKS);
 		boolean flag = itemstack.getItem() instanceof AxeItem;
@@ -132,13 +135,17 @@ public class TurkeyBlock extends FallingBlock
 			if (flag)
 			{
 				spawnAsEntity(worldIn, pos, new ItemStack(this.getLeg()));
+				worldIn.playSound(player, pos, AutumnitySoundEvents.BLOCK_TURKEY_CUT.get(), SoundCategory.BLOCKS, 1.0F, (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F + 1.0F);
+				itemstack.damageItem(1, player, (playerIn) -> {
+					playerIn.sendBreakAnimation(hand);
+				});
 			}
 			else
 			{
 				ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
 				player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
+				this.restoreHunger(worldIn, player);
 			}
-			this.restoreHunger(worldIn, player);
 			if (i < 4)
 			{
 				worldIn.setBlockState(pos, state.with(CHUNKS, Integer.valueOf(i + 1)), 3);

@@ -147,7 +147,7 @@ public class SnailEntity extends AnimalEntity
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return AutumnitySoundEvents.ENTITY_SNAIL_HURT.get();
+		return AutumnitySoundEvents.ENTITY_SNAIL_DEATH.get();
 	}
 
 	@Nullable

@@ -13,7 +13,8 @@ public class AutumnitySoundEvents
 	public static final RegistryHelper HELPER = Autumnity.REGISTRY_HELPER;
 	
 	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_EAT = HELPER.createSoundEvent("entity.snail.eat");
-	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_HURT =HELPER.createSoundEvent("entity.snail.hurt");
+	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_HURT = HELPER.createSoundEvent("entity.snail.hurt");
+	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_DEATH =HELPER.createSoundEvent("entity.snail.death");
 	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_STEP = HELPER.createSoundEvent("entity.snail.step");
 	public static final RegistryObject<SoundEvent> ENTITY_TURKEY_AMBIENT = HELPER.createSoundEvent("entity.turkey.ambient");
 	public static final RegistryObject<SoundEvent> ENTITY_TURKEY_AGGRO = HELPER.createSoundEvent("entity.turkey.aggro");

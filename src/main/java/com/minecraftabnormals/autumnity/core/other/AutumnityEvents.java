@@ -14,6 +14,7 @@ import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CakeBlock;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
@@ -116,9 +117,39 @@ public class AutumnityEvents
 	@SubscribeEvent
 	public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event)
 	{
-		if (ModList.get().isLoaded("berry_good") && event.getItemStack().getItem() == AutumnityItems.FOUL_BERRIES.get())
+		World world = event.getWorld();
+		PlayerEntity player = event.getPlayer();
+		ItemStack itemstack = event.getItemStack();
+		Item item = itemstack.getItem();
+		BlockPos pos = event.getPos();
+		BlockState state = world.getBlockState(pos);
+
+		if (!player.isSpectator())
 		{
-			event.setUseItem(Event.Result.DENY);
+			if (item == AutumnityItems.FOUL_BERRIES.get() && ModList.get().isLoaded("berry_good"))
+			{
+				event.setUseItem(Event.Result.DENY);
+			}
+			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && state.getBlock() instanceof CakeBlock && player.canEat(false))
+			{
+				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+				
+				player.getFoodStats().addStats(1, 0.0F);
+				player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+				if (effect.getAmplifier() > 0)
+				{
+					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
+				}
+
+				if (player instanceof ServerPlayerEntity)
+				{
+					ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
+					if (!event.getEntityLiving().getEntityWorld().isRemote())
+					{
+						AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
+					}
+				}
+			}
 		}
 	}
 

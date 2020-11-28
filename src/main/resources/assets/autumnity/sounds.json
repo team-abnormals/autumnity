@@ -38,8 +38,7 @@
       "autumnity:mob/turkey/ambient2",
       "autumnity:mob/turkey/ambient3",
       "autumnity:mob/turkey/ambient4",
-      "autumnity:mob/turkey/ambient5",
-      "autumnity:mob/turkey/ambient6"
+      "autumnity:mob/turkey/ambient5"
     ],
     "subtitle": "subtitles.entity.turkey.ambient"
   },

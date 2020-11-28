@@ -25,7 +25,9 @@
     "category": "entity",
     "sounds": [
       "autumnity:mob/snail/step1",
-      "autumnity:mob/snail/step2"
+      "autumnity:mob/snail/step2",
+      "autumnity:mob/snail/step3",
+      "autumnity:mob/snail/step4"
     ],
     "subtitle": "subtitles.entity.snail.step"
   },
@@ -72,5 +74,12 @@
       "minecraft:mob/chicken/plop"
     ],
     "subtitle": "subtitles.entity.turkey.egg"
+  },
+  "block.turkey.cut": {
+    "sounds": [
+      "autumnity:block/turkey/cut1",
+      "autumnity:block/turkey/cut2"
+    ],
+    "subtitle": "subtitles.block.turkey.cut"
   }
 }

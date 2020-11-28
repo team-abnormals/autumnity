@@ -160,7 +160,7 @@ public class SnailEntity extends AnimalEntity
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.3F, 1.0F);
+		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.4F, 1.0F);
 	}
 
 	@Nullable
@@ -566,7 +566,7 @@ public class SnailEntity extends AnimalEntity
 	@Override
 	protected float determineNextStepDistance()
 	{
-		return this.distanceWalkedOnStepModified + 0.15F;
+		return this.distanceWalkedOnStepModified + 0.6F;
 	}
 
 	public class HideGoal extends Goal

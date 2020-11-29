@@ -7,8 +7,6 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.world.IWorld;
 
 public class CookedTurkeyBlock extends TurkeyBlock

@@ -101,7 +101,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
 	{
-		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get())
+		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get() && entityIn.getType() != AutumnityEntities.TURKEY.get())
 		{
 			LivingEntity livingentity = ((LivingEntity) entityIn);
 			livingentity.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));

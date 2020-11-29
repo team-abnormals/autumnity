@@ -33,7 +33,12 @@ public class AutumnityFeatures
 	public static final RegistryObject<Feature<NoFeatureConfig>> FALLEN_LEAVES = FEATURES.register("fallen_leaves", () -> new FallenLeavesFeature(NoFeatureConfig.field_236558_a_));
 	public static final RegistryObject<Feature<NoFeatureConfig>> PUMPKIN_FIELDS_PUMPKIN = FEATURES.register("pumpkin_fields_pumpkin", () -> new PumpkinFieldsPumpkinFeature(NoFeatureConfig.field_236558_a_));
 
-	public static void setupBiomeFeatures(Biome biome)
+    public static void generateFeatures()
+    {
+        ForgeRegistries.BIOMES.getValues().forEach(AutumnityFeatures::generate);
+    }
+    
+	public static void generate(Biome biome)
 	{
 		if (Config.COMMON.mapleTreeBiomes.get().contains(biome.getRegistryName().toString()))
 		{

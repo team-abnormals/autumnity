@@ -33,32 +33,32 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Autumnity
 {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(Reference.MOD_ID);
-	
+
 	public Autumnity()
 	{
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
 			modEventBus.addListener(EventPriority.LOWEST, this::clientSetup);
 
 		});
-		
+
 		modEventBus.addListener(EventPriority.LOWEST, this::commonSetup);
-        
-        REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
-        REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
-        REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
-        REGISTRY_HELPER.getDeferredSoundRegister().register(modEventBus);
-        AutumnityBiomes.BIOMES.register(modEventBus);
-        AutumnityPaintings.PAINTINGS.register(modEventBus);
-        AutumnityEffects.EFFECTS.register(modEventBus);
-        AutumnityPotions.POTIONS.register(modEventBus);
-        AutumnityFeatures.FEATURES.register(modEventBus);
-        AutumnityParticles.PARTICLES.register(modEventBus);
-        
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
-		
+
+		REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
+		REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
+		REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
+		REGISTRY_HELPER.getDeferredSoundRegister().register(modEventBus);
+		AutumnityBiomes.BIOMES.register(modEventBus);
+		AutumnityPaintings.PAINTINGS.register(modEventBus);
+		AutumnityEffects.EFFECTS.register(modEventBus);
+		AutumnityPotions.POTIONS.register(modEventBus);
+		AutumnityFeatures.FEATURES.register(modEventBus);
+		AutumnityParticles.PARTICLES.register(modEventBus);
+
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
+
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -69,16 +69,13 @@ public class Autumnity
 			AutumnityCompat.registerCompostables();
 			AutumnityCompat.registerFlammables();
 			AutumnityCompat.registerDispenserBehaviors();
-			
+
 			AutumnityBanners.registerBanners();
 			AutumnityPotions.registerBrewingRecipes();
-			AutumnityBiomes.registerBiomes();
-
-			for(Biome biome : ForgeRegistries.BIOMES.getValues())
-			{
-				AutumnityFeatures.setupBiomeFeatures(biome);
-				AutumnityEntities.setupEntitySpawns(biome);
-			}
+			AutumnityBiomes.addBiomeTypes();
+			AutumnityBiomes.addBiomesToGeneration();
+			AutumnityFeatures.generateFeatures();
+			AutumnityEntities.registerSpawns();
 			AutumnityEntities.registerAttributes();
 		});
 	}
@@ -88,12 +85,12 @@ public class Autumnity
 		DeferredWorkQueue.runLater(() -> 
 		{
 			AutumnityEntities.setupEntitiesClient();
-			
+
 			AutumnityClient.setRenderLayers();
 			AutumnityClient.registerBlockColors();
 		});
 	}
-	
+
 
 	@OnlyIn(Dist.CLIENT)
 	private void registerItemColors(ColorHandlerEvent.Item event)

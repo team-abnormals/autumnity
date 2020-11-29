@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "autumnity:turkey"
+    }
+  ],
+  "result": {
+    "item": "autumnity:turkey_piece",
+    "count": 5
+  }
+}

@@ -185,7 +185,7 @@ public class TurkeyBlock extends FallingBlock
 
 	protected Item getLeg()
 	{
-		return AutumnityItems.TURKEY_LEG.get();
+		return AutumnityItems.TURKEY_PIECE.get();
 	}
 
 	@Override

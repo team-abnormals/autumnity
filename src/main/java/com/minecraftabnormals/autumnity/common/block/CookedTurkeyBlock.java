@@ -34,6 +34,6 @@ public class CookedTurkeyBlock extends TurkeyBlock
 	@Override
 	protected Item getLeg()
 	{
-		return AutumnityItems.COOKED_TURKEY_LEG.get();
+		return AutumnityItems.COOKED_TURKEY_PIECE.get();
 	}
 }

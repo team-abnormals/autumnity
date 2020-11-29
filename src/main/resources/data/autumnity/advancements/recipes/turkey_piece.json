@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "autumnity:cooked_turkey_leg_from_campfire_cooking"
+      "autumnity:turkey_piece"
     ]
   },
   "criteria": {
-    "has_turkey_leg": {
+    "has_turkey": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "autumnity:turkey_leg"
+            "item": "autumnity:turkey"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "autumnity:cooked_turkey_leg_from_campfire_cooking"
+        "recipe": "autumnity:turkey_piece"
       }
     }
   },
   "requirements": [
     [
-      "has_turkey_leg",
+      "has_turkey",
       "has_the_recipe"
     ]
   ]

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "autumnity:pumpkin_seeds_from_large_pumpkin_slice"
+      "minecraft:pumpkin_seeds"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "autumnity:pumpkin_seeds_from_large_pumpkin_slice"
+        "recipe": "minecraft:pumpkin_seeds"
       }
     }
   },

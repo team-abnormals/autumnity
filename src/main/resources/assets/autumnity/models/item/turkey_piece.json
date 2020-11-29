@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/handheld",
     "textures": {
-        "layer0": "autumnity:item/turkey_leg"
+        "layer0": "autumnity:item/turkey_piece"
     }
 }

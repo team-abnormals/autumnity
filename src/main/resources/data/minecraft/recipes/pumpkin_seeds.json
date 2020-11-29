@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "autumnity:cooked_turkey"
+      "tag": "forge:pumpkins"
     }
   ],
   "result": {
-    "item": "autumnity:cooked_turkey_leg",
-    "count": 5
+    "item": "minecraft:pumpkin_seeds",
+    "count": 4
   }
 }

@@ -91,8 +91,8 @@ public class AutumnityItems
 	
 	public static final RegistryObject<Item> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", AutumnityEntities.TURKEY::get, 6765623, 5019859);
 	public static final RegistryObject<Item> TURKEY_EGG = HELPER.createItem("turkey_egg", () -> new TurkeyEggItem(new Item.Properties().maxStackSize(16).group(ItemGroup.MISC)));
-	public static final RegistryObject<Item> TURKEY_LEG = HELPER.createItem("turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.TURKEY)));
-	public static final RegistryObject<Item> COOKED_TURKEY_LEG = HELPER.createItem("cooked_turkey_leg", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.COOKED_TURKEY)));
+	public static final RegistryObject<Item> TURKEY_PIECE = HELPER.createItem("turkey_piece", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.TURKEY)));
+	public static final RegistryObject<Item> COOKED_TURKEY_PIECE = HELPER.createItem("cooked_turkey_piece", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.COOKED_TURKEY)));
 	
     public static final RegistryObject<Item> MAPLE_LEAF_BANNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new AbnormalsBannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     public static final RegistryObject<Item> SWIRL_BANNER_PATTERN = HELPER.createItem("swirl_banner_pattern", () -> new AbnormalsBannerPatternItem(AutumnityBanners.SWIRL, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));

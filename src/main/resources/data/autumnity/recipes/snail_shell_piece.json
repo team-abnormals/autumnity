@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "autumnity:snail_shell_block"
+    }
+  ],
+  "result": {
+    "item": "autumnity:snail_shell_piece",
+    "count": 9
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:snail_shell_piece"
+    ]
+  },
+  "criteria": {
+    "has_snail_shell_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "autumnity:snail_shell_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:snail_shell_piece"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_snail_shell_block",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,6 +1,7 @@
 package com.minecraftabnormals.autumnity.common.entity.passive;
 
 import java.util.Random;
+import java.util.UUID;
 
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
@@ -13,6 +14,7 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.IAngerable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.Pose;
@@ -25,13 +27,12 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.ResetAngerGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.DyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -41,20 +42,23 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.RangedInteger;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.TickRangeConverter;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
+public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAngerable
 {
-	private static final DataParameter<Boolean> ANGRY = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Integer> ANGER_TIME = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.VARINT);
 
 	private float wingRotation;
 	private float destPos;
@@ -67,6 +71,9 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 
 	public int timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
 	public boolean turkeyJockey;
+
+	private static final RangedInteger ANGER_RANGE = TickRangeConverter.convertRange(20, 39);
+	private UUID lastHurtBy;
 
 	public TurkeyEntity(EntityType<? extends AnimalEntity> type, World worldIn)
 	{
@@ -87,7 +94,9 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
 		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal(this));
-		this.targetSelector.addGoal(2, new TurkeyEntity.JockeyTargetGoal<>(this, PlayerEntity.class));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::func_233680_b_));
+		this.targetSelector.addGoal(3, new TurkeyEntity.JockeyTargetGoal<>(this, PlayerEntity.class));
+		this.targetSelector.addGoal(4, new ResetAngerGoal<>(this, true));
 	}
 
 	@Override
@@ -107,7 +116,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	protected void registerData()
 	{
 		super.registerData();
-		this.dataManager.register(ANGRY, false);
+		this.dataManager.register(ANGER_TIME, 0);
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -121,16 +130,6 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			super.handleStatusUpdate(id);
 		}
-	}
-
-	public boolean isAngry()
-	{
-		return this.dataManager.get(ANGRY);
-	}
-
-	public void setAngry(boolean angry)
-	{
-		this.dataManager.set(ANGRY, angry);
 	}
 
 	@Override
@@ -160,14 +159,14 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 			}
 			this.wingRotDelta = (float)((double)this.wingRotDelta * 0.9D);
 			this.wingRotation += this.wingRotDelta * 2.0F;
+		}
 
-			// Peck progress
-			this.prevPeckTicks = this.peckTicks;
+		// Peck progress
+		this.prevPeckTicks = this.peckTicks;
 
-			if (this.peckTicks > 0)
-			{
-				this.peckTicks--;
-			}
+		if (this.peckTicks > 0)
+		{
+			this.peckTicks--;
 		}
 
 		// Motion
@@ -186,17 +185,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 				this.timeUntilNextEgg = this.getNextEggTime(this.rand);
 			}
 
-			if (this.isAngry())
-			{
-				if (this.getAttackTarget() == null)
-				{
-					this.setAngry(false);
-				}
-			}
-			else if (this.getAttackTarget() != null)
-			{
-				this.setAngry(true);
-			}
+			this.func_241359_a_((ServerWorld)this.world, true);
 		}
 	}
 
@@ -232,7 +221,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return this.isAngry() ? AutumnitySoundEvents.ENTITY_TURKEY_AGGRO.get() : AutumnitySoundEvents.ENTITY_TURKEY_AMBIENT.get();
+		return this.func_233678_J__() ? AutumnitySoundEvents.ENTITY_TURKEY_AGGRO.get() : AutumnitySoundEvents.ENTITY_TURKEY_AMBIENT.get();
 	}
 
 	@Override
@@ -252,7 +241,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	{
 		this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
 	}
-	
+
 	@Override
 	public boolean isBreedingItem(ItemStack stack)
 	{
@@ -274,7 +263,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		{
 			this.timeUntilNextEgg = compound.getInt("EggLayTime");
 		}
-
+		this.readAngerNBT((ServerWorld)this.world, compound);
 	}
 
 	@Override
@@ -283,6 +272,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 		super.writeAdditional(compound);
 		compound.putBoolean("IsTurkeyJockey", this.turkeyJockey);
 		compound.putInt("EggLayTime", this.timeUntilNextEgg);
+		this.writeAngerNBT(compound);
 	}
 
 	@Override
@@ -315,6 +305,18 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	}
 
 	@Override
+	public int getAngerTime()
+	{
+		return this.dataManager.get(ANGER_TIME);
+	}
+
+	@Override
+	public void setAngerTime(int time)
+	{
+		this.dataManager.set(ANGER_TIME, time);
+	}
+
+	@Override
 	public IPacket<?> createSpawnPacket()
 	{
 		return NetworkHooks.getEntitySpawningPacket(this);
@@ -329,6 +331,24 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity
 	public ItemStack getPickedResult(RayTraceResult target)
 	{
 		return new ItemStack(AutumnityItems.TURKEY_SPAWN_EGG.get());
+	}
+
+	@Override
+	public UUID getAngerTarget()
+	{
+		return this.lastHurtBy;
+	}
+
+	@Override
+	public void setAngerTarget(UUID target)
+	{
+		this.lastHurtBy = target;
+	}
+
+	@Override
+	public void func_230258_H__()
+	{
+		this.setAngerTime(ANGER_RANGE.func_233018_a_(this.rand));
 	}
 
 	@Override

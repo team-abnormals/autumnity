@@ -24,6 +24,6 @@ public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<Turkey
 	@Override
 	public ResourceLocation getEntityTexture(TurkeyEntity entity)
 	{
-		return entity.isAngry() ? ANGRY_TURKEY_TEXTURES : TURKEY_TEXTURES;
+		return entity.func_233678_J__() ? ANGRY_TURKEY_TEXTURES : TURKEY_TEXTURES;
 	}
 }

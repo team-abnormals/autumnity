@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:turkey_leg"
+    ]
+  },
+  "criteria": {
+    "has_turkey": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "autumnity:turkey"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:turkey_leg"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_turkey",
+      "has_the_recipe"
+    ]
+  ]
+}

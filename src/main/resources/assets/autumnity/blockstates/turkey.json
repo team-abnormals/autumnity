@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "facing=east,chunks=0": {
+      "model": "autumnity:block/turkey",
+      "y": 270
+    },
+    "facing=north,chunks=0": {
+      "model": "autumnity:block/turkey",
+      "y": 180
+    },
+    "facing=south,chunks=0": {
+      "model": "autumnity:block/turkey"
+    },
+    "facing=west,chunks=0": {
+      "model": "autumnity:block/turkey",
+      "y": 90
+    },
+    "facing=east,chunks=1": {
+      "model": "autumnity:block/turkey_chunk1",
+      "y": 270
+    },
+    "facing=north,chunks=1": {
+      "model": "autumnity:block/turkey_chunk1",
+      "y": 180
+    },
+    "facing=south,chunks=1": {
+      "model": "autumnity:block/turkey_chunk1"
+    },
+    "facing=west,chunks=1": {
+      "model": "autumnity:block/turkey_chunk1",
+      "y": 90
+    },
+    "facing=east,chunks=2": {
+      "model": "autumnity:block/turkey_chunk2",
+      "y": 270
+    },
+    "facing=north,chunks=2": {
+      "model": "autumnity:block/turkey_chunk2",
+      "y": 180
+    },
+    "facing=south,chunks=2": {
+      "model": "autumnity:block/turkey_chunk2"
+    },
+    "facing=west,chunks=2": {
+      "model": "autumnity:block/turkey_chunk2",
+      "y": 90
+    },
+    "facing=east,chunks=3": {
+      "model": "autumnity:block/turkey_chunk3",
+      "y": 270
+    },
+    "facing=north,chunks=3": {
+      "model": "autumnity:block/turkey_chunk3",
+      "y": 180
+    },
+    "facing=south,chunks=3": {
+      "model": "autumnity:block/turkey_chunk3"
+    },
+    "facing=west,chunks=3": {
+      "model": "autumnity:block/turkey_chunk3",
+      "y": 90
+    },
+    "facing=east,chunks=4": {
+      "model": "autumnity:block/turkey_chunk4",
+      "y": 270
+    },
+    "facing=north,chunks=4": {
+      "model": "autumnity:block/turkey_chunk4",
+      "y": 180
+    },
+    "facing=south,chunks=4": {
+      "model": "autumnity:block/turkey_chunk4"
+    },
+    "facing=west,chunks=4": {
+      "model": "autumnity:block/turkey_chunk4",
+      "y": 90
+    }
+  }
+}

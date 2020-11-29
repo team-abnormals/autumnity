@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pumpkin_bread",
+  "ingredients": [
+    {
+      "item": "autumnity:syrup_bottle"
+    },
+    {
+      "tag": "forge:pumpkins"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "autumnity:pumpkin_bread"
+  }
+}

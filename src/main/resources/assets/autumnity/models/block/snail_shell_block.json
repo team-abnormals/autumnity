@@ -1,0 +1,22 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"particle": "autumnity:block/snail_shell_block_stripes",
+		"stripes": "autumnity:block/snail_shell_block_stripes",
+		"swirl": "autumnity:block/snail_shell_block_swirl"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#stripes"},
+				"east": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#stripes"},
+				"south": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#stripes"},
+				"west": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#stripes"},
+				"up": {"uv": [16, 0, 0, 16], "rotation": 180, "texture": "#swirl"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#swirl"}
+			}
+		}
+	]
+}

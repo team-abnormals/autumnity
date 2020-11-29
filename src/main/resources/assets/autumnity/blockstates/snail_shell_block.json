@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "orientation=up,facing=east":  { "model": "autumnity:block/snail_shell_block", "y": 90 },
+        "orientation=up,facing=west":  { "model": "autumnity:block/snail_shell_block", "y": 270 },
+        "orientation=up,facing=south": { "model": "autumnity:block/snail_shell_block", "y": 180 },
+        "orientation=up,facing=north": { "model": "autumnity:block/snail_shell_block" },
+        "orientation=horizontal,facing=east":  { "model": "autumnity:block/snail_shell_block", "x": 90, "y": 90 },
+        "orientation=horizontal,facing=west":  { "model": "autumnity:block/snail_shell_block", "x": 90, "y": 270 },
+        "orientation=horizontal,facing=south": { "model": "autumnity:block/snail_shell_block", "x": 90, "y": 180 },
+        "orientation=horizontal,facing=north": { "model": "autumnity:block/snail_shell_block", "x": 90 },
+        "orientation=down,facing=east":  { "model": "autumnity:block/snail_shell_block", "x": 180, "y": 270 },
+        "orientation=down,facing=west":  { "model": "autumnity:block/snail_shell_block", "x": 180, "y": 90 },
+        "orientation=down,facing=south": { "model": "autumnity:block/snail_shell_block", "x": 180 },
+        "orientation=down,facing=north": { "model": "autumnity:block/snail_shell_block", "x": 180, "y": 180 }
+    }
+}

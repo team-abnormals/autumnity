@@ -9,6 +9,9 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Осений крокус",
   "block.autumnity.potted_autumn_crocus": "Осений крокус в горшке",
+  "block.autumnity.large_pumpkin_slice": "Кусок большой тыквы",
+  "block.autumnity.carved_large_pumpkin_slice": "Большой кусок тыквы с вырезом",
+  "block.autumnity.large_jack_o_lantern_slice": "Кусок большого фонаря Джека",
   
   "block.autumnity.maple_log": "Кленовое бревно",
   "block.autumnity.maple_wood": "Клён",
@@ -55,9 +58,7 @@
   "item.autumnity.syrup_bottle": "Кленовый сироп",
   "item.autumnity.foul_berries": "Кислые ягоды",
   "item.autumnity.foul_berry_pips": "Косточки кислых ягод",
-  "item.autumnity.foul_berry_leaf": "Ягодный лист",
-  "item.autumnity.foul_berry_pie": "Пирог из кислых ягод",
-  "item.autumnity.snail_spawn_egg": "Яицо призыва улитки",
+  "item.autumnity.snail_spawn_egg": "Яйцо призыва улитки",
   "item.autumnity.snail_shell_piece": "Часть ракушки улитки",
   "item.autumnity.snail_shell_chestplate": "Улиточный нагрудник",
   
@@ -98,5 +99,9 @@
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Крадущаяся защита",
-  "advancements.husbandry.sneaky_protection.description": "Создайте улиточный нагрудник"
+  "advancements.husbandry.sneaky_protection.description": "Создайте улиточный нагрудник",
+  "advancements.husbandry.fungivore_diet.title": "Грибная диета",
+  "advancements.husbandry.fungivore_diet.description": "Покормите улитку всеми видами грибов и грибков",
+  "advancements.husbandry.finally_some_good_food.title": "Наконец-то, хорошая еда",
+  "advancements.husbandry.finally_some_good_food.description": "Съешьте что-нибудь хорошее после того, как съели гнилые ягоды"
 }

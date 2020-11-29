@@ -1,0 +1,54 @@
+{
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "#turkey"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 2],
+			"to": [13, 8, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 10]},
+			"faces": {
+				"north": {"uv": [5, 4, 10, 8], "texture": "#turkey"},
+				"east": {"uv": [6, 0, 12, 4], "texture": "#turkey"},
+				"south": {"uv": [0, 4, 5, 8], "texture": "#turkey"},
+				"west": {"uv": [0, 0, 6, 4], "texture": "#turkey"},
+				"up": {"uv": [10, 4, 15, 10], "texture": "#turkey"},
+				"down": {"uv": [10, 10, 15, 16], "texture": "#turkey"}
+			}
+		},
+		{
+			"from": [13, 3, 3],
+			"to": [15, 7, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [21, 12, 9]},
+			"faces": {
+				"north": {"uv": [4, 8, 5, 10], "texture": "#turkey"},
+				"east": {"uv": [0, 10, 3, 12], "texture": "#turkey"},
+				"south": {"uv": [3, 10, 4, 12], "texture": "#turkey"},
+				"west": {"uv": [0, 0, 6, 4], "texture": "#turkey"},
+				"up": {"uv": [7, 8, 8, 11], "texture": "#turkey"},
+				"down": {"uv": [8, 8, 9, 11], "texture": "#turkey"}
+			}
+		},
+		{
+			"from": [12, 5, 0],
+			"to": [14, 7, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [20, 13, 8]},
+			"faces": {
+				"north": {"uv": [1.5, 12, 2.5, 13], "texture": "#turkey"},
+				"east": {"uv": [0, 13, 1.5, 14], "texture": "#turkey"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#turkey"},
+				"west": {"uv": [0, 12, 1.5, 13], "texture": "#turkey"},
+				"up": {"uv": [3.5, 12, 4.5, 13.5], "texture": "#turkey"},
+				"down": {"uv": [5.5, 12, 6.5, 13.5], "texture": "#turkey"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 3, -7.5],
+			"scale": [1.8, 1.8, 1.8]
+		}
+	}
+}

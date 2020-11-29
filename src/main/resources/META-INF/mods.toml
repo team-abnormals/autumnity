@@ -5,11 +5,11 @@ license="https://github.com/minecraftabnormals/Autumnity/blob/master/LICENSE.txt
 
 [[mods]]
 modId="autumnity"
-version="1.4.1"
+version="1.5.0"
 displayName="Autumnity"
 logoFile="logo.png"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/autumnity"
-credits="Markus1002, Farcr, Five, and Snake"
+credits="Artists: Farcr, Five, Snake, Echolite, and hatsondogs"
 authors="Markus1002"
 description='''An autumn-themed mod with new biomes and friendly snails.'''
 
@@ -30,6 +30,6 @@ description='''An autumn-themed mod with new biomes and friendly snails.'''
 [[dependencies.autumnity]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[2.0.1,)"
+    versionRange="[2.0.8,)"
     ordering="AFTER"
     side="BOTH"

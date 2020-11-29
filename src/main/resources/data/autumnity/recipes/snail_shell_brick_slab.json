@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "autumnity:snail_shell_bricks"
+    }
+  },
+  "result": {
+    "item": "autumnity:snail_shell_brick_slab",
+    "count": 6
+  }
+}

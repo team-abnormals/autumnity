@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "autumnity:turkey_leg"
+  },
+  "result": "autumnity:cooked_turkey_leg",
+  "experience": 0.1,
+  "cookingtime": 100
+}

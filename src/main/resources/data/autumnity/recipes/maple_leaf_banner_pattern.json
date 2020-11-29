@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "autumnity:syrup_bottle"
+    }
+  ],
+  "result": {
+    "item": "autumnity:maple_leaf_banner_pattern"
+  }
+}

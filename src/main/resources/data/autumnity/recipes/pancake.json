@@ -5,10 +5,10 @@
       "item": "autumnity:syrup_bottle"
     },
     {
-      "item": "minecraft:milk_bucket"
+      "tag": "forge:milk"
     },
     {
-      "item": "minecraft:egg"
+      "tag": "forge:eggs"
     },
     {
       "item": "minecraft:wheat"

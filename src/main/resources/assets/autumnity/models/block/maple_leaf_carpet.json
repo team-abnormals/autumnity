@@ -1,5 +1,5 @@
 {   
-    "parent": "autumnity:block/leaf_carpet",
+    "parent": "abnormals_core:block/leaf_carpet",
     "textures": {
         "all": "autumnity:block/maple_leaves"
     }

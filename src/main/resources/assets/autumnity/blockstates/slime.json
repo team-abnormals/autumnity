@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "autumnity:block/slime",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "autumnity:block/slime",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "autumnity:block/slime",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "autumnity:block/slime",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "autumnity:block/slime"
+    },
+    "facing=west": {
+      "model": "autumnity:block/slime",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

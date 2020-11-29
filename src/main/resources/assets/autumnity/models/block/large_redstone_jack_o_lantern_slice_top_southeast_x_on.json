@@ -1,0 +1,24 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"particle": "autumnity:block/large_redstone_jack_o_lantern_slice_top_left_on",
+		"left": "autumnity:block/large_redstone_jack_o_lantern_slice_top_left_on",
+		"right": "autumnity:block/large_pumpkin_slice_top_right",
+		"down": "autumnity:block/large_pumpkin_slice_southeast",
+		"up": "autumnity:block/carved_large_pumpkin_slice_inside"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#up", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#left", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#right", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#up", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#down", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#up", "cullface": "down"}
+			}
+		}
+	]
+}

@@ -31,7 +31,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -173,10 +172,10 @@ public class TurkeyBlock extends FallingBlock
 		{
 			player.addPotionEffect(new EffectInstance(Effects.HUNGER, 600, 0));
 		}
-		
+
 		int i = AutumnityFoods.TURKEY.getHealing();
 		int j = i == 1 ? i : (int) (i * 0.5F);
-		
+
 		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()))
 		{
 			player.getFoodStats().addStats(j, 0.0F);
@@ -218,7 +217,7 @@ public class TurkeyBlock extends FallingBlock
 	{
 		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
 	}
-	
+
 	@Override
 	public boolean hasComparatorInputOverride(BlockState state) {
 		return true;

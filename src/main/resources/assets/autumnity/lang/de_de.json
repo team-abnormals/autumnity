@@ -41,6 +41,9 @@
   "block.autumnity.sappy_maple_log": "Saftiger Ahornstamm",
   "block.autumnity.sappy_maple_wood": "Saftiges Ahornholz",
   
+  "block.autumnity.maple_branch": "Ahornzweig",
+  "block.autumnity.long_maple_branch": "Langer Ahornzweig",
+  
   "block.autumnity.maple_planks": "Ahornholzbretter",
   "block.autumnity.maple_stairs": "Ahornholztreppe",
   "block.autumnity.maple_slab": "Ahornholzstufe",
@@ -92,6 +95,8 @@
   
   "item.autumnity.maple_leaf_banner_pattern": "Bannervorlage",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Ahornblatt",
+  "item.autumnity.swirl_banner_pattern": "Bannervorlage",
+  "item.autumnity.swirl_banner_pattern.desc": "Wirbel",
   
   "item.autumnity.snail_shell_chestplate.whenSneaking": "Beim Schleichen:",
   
@@ -112,17 +117,22 @@
   "biome.autumnity.maple_forest": "Ahornwald",
   "biome.autumnity.maple_forest_hills": "Ahornwaldhügel",
   "biome.autumnity.pumpkin_fields": "Kürbisfelder",
+  "biome.autumnity.boreal_maple_forest": "Borealer Ahornwald",
+  "biome.autumnity.boreal_maple_forest_hills": "Boreale Ahornwaldhügel",
   
   "subtitles.entity.snail.eat": "Schnecke frisst",
   "subtitles.entity.snail.hurt": "Schnecke nimmt Schaden",
+  "subtitles.entity.snail.death": "Schnecke stirbt",
   "subtitles.entity.snail.step": "Schnecke kriecht",
 
   "subtitles.entity.turkey.ambient": "Truthahn kollert",
   "subtitles.entity.turkey.purr": "Truthahn schnurrt",
-  "subtitles.entity.turkey.attack": "Truthahn kollert ärgerlich",
+  "subtitles.entity.turkey.aggro": "Truthahn kollert ärgerlich",
   "subtitles.entity.turkey.hurt": "Truthahn nimmt Schaden",
   "subtitles.entity.turkey.death": "Truthahn stirbt",
   "subtitles.entity.turkey.egg": "Truthahn legt Ei",
+  
+  "subtitles.block.turkey.cut": "Truthahn schneiden",
   
   "_comment": "Compat Stuff",
   
@@ -138,6 +148,7 @@
   "block.autumnity.ender_jack_o_lantern": "Enderkürbislaterne",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Große Enderkürbislaternenscheibe",
   "block.autumnity.turkey_egg_crate": "Puteneikiste",
+  "block.autumnity.slime": "Schleim",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",
@@ -162,5 +173,22 @@
   "block.minecraft.banner.mca_maple_leaf.lightBlue": "Hellblaues Ahornblatt",
   "block.minecraft.banner.mca_maple_leaf.magenta": "Magenta Ahornblatt",
   "block.minecraft.banner.mca_maple_leaf.orange": "Oranges Ahornblatt",
-  "block.minecraft.banner.mca_maple_leaf.white": "Weißes Ahornblatt"
+  "block.minecraft.banner.mca_maple_leaf.white": "Weißes Ahornblatt",
+  
+  "block.minecraft.banner.mca_swirl.black": "Schwarzer Wirbel",
+  "block.minecraft.banner.mca_swirl.red": "Roter Wirbel",
+  "block.minecraft.banner.mca_swirl.green": "Grüner Wirbel",
+  "block.minecraft.banner.mca_swirl.brown": "Brauner Wirbel",
+  "block.minecraft.banner.mca_swirl.blue": "Blauer Wirbel",
+  "block.minecraft.banner.mca_swirl.purple": "Violetter Wirbel",
+  "block.minecraft.banner.mca_swirl.cyan": "Türkiser Wirbel",
+  "block.minecraft.banner.mca_swirl.silver": "Hellgrauer Wirbel",
+  "block.minecraft.banner.mca_swirl.gray": "Grauer Wirbel",
+  "block.minecraft.banner.mca_swirl.pink": "Rosa Wirbel",
+  "block.minecraft.banner.mca_swirl.lime": "Hellgrüner Wirbel",
+  "block.minecraft.banner.mca_swirl.yellow": "Gelber Wirbel",
+  "block.minecraft.banner.mca_swirl.lightBlue": "Hellblauer Wirbel",
+  "block.minecraft.banner.mca_swirl.magenta": "Magenta Wirbel",
+  "block.minecraft.banner.mca_swirl.orange": "Oranger Wirbel",
+  "block.minecraft.banner.mca_swirl.white": "Weißer Wirbel"
 }

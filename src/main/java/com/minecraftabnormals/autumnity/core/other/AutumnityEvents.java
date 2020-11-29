@@ -222,7 +222,7 @@ public class AutumnityEvents
 		}
 		else if (event.getType() == VillagerProfession.BUTCHER)
 		{
-			journeyman.add(new TradeUtils.EmeraldsForItemsTrade(AutumnityBlocks.TURKEY.get(), 6, 1, 16, 2));
+			journeyman.add(new TradeUtils.EmeraldsForItemsTrade(AutumnityBlocks.TURKEY.get(), 6, 1, 16, 20));
 		}
 	}
 

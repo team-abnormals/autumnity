@@ -1,5 +1,6 @@
 package com.minecraftabnormals.autumnity.core.other;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
@@ -26,6 +27,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
+import net.minecraft.entity.merchant.villager.VillagerTrades.ITrade;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -207,10 +209,20 @@ public class AutumnityEvents
 
 	@SubscribeEvent
 	public static void onVillagerTradesEvent(VillagerTradesEvent event)
-	{
+	{		
+		List<ITrade> novice = event.getTrades().get(1);
+		List<ITrade> apprentice = event.getTrades().get(2);
+		List<ITrade> journeyman = event.getTrades().get(3);
+		List<ITrade> expert = event.getTrades().get(4);
+		List<ITrade> master = event.getTrades().get(5);
+
 		if (event.getType() == VillagerProfession.FARMER)
 		{
-			event.getTrades().get(2).add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
+			apprentice.add(new TradeUtils.ItemsForEmeraldsTrade(AutumnityItems.FOUL_BERRIES.get(), 2, 16, 12, 10));
+		}
+		else if (event.getType() == VillagerProfession.BUTCHER)
+		{
+			journeyman.add(new TradeUtils.EmeraldsForItemsTrade(AutumnityBlocks.TURKEY.get(), 6, 1, 16, 2));
 		}
 	}
 
@@ -259,11 +271,11 @@ public class AutumnityEvents
 			}
 		}
 	}
-	
+
 	public static void updateFoulTaste(PlayerEntity player)
 	{
 		EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
-		
+
 		player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 		if (effect.getAmplifier() > 0)
 		{

@@ -12,6 +12,7 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CakeBlock;
@@ -123,6 +124,7 @@ public class AutumnityEvents
 		Item item = itemstack.getItem();
 		BlockPos pos = event.getPos();
 		BlockState state = world.getBlockState(pos);
+		Block block = state.getBlock();
 
 		if (!player.isSpectator())
 		{
@@ -130,25 +132,10 @@ public class AutumnityEvents
 			{
 				event.setUseItem(Event.Result.DENY);
 			}
-			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && state.getBlock() instanceof CakeBlock && player.canEat(false))
+			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || block == ModCompatibility.YUCCA_GATEAU))
 			{
-				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
-				
 				player.getFoodStats().addStats(1, 0.0F);
-				player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
-				if (effect.getAmplifier() > 0)
-				{
-					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
-				}
-
-				if (player instanceof ServerPlayerEntity)
-				{
-					ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
-					if (!event.getEntityLiving().getEntityWorld().isRemote())
-					{
-						AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
-					}
-				}
+				updateFoulTaste(player);
 			}
 		}
 	}
@@ -198,26 +185,12 @@ public class AutumnityEvents
 			if (flag)
 			{
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-				EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 
 				int i = food.getHealing();
 				int j = i == 1 ? i : (int) (i * 0.5F);
 
 				player.getFoodStats().addStats(j, 0.0F);
-				player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
-				if (effect.getAmplifier() > 0)
-				{
-					player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
-				}
-
-				if (player instanceof ServerPlayerEntity)
-				{
-					ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
-					if (!event.getEntityLiving().getEntityWorld().isRemote())
-					{
-						AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
-					}
-				}
+				updateFoulTaste(player);
 			}
 		}
 	}
@@ -283,6 +256,26 @@ public class AutumnityEvents
 					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
 					event.setUseItem(Result.DENY);
 				}
+			}
+		}
+	}
+	
+	public static void updateFoulTaste(PlayerEntity player)
+	{
+		EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+		
+		player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+		if (effect.getAmplifier() > 0)
+		{
+			player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
+		}
+
+		if (player instanceof ServerPlayerEntity)
+		{
+			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
+			if (!player.getEntityWorld().isRemote())
+			{
+				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
 			}
 		}
 	}

@@ -3,7 +3,9 @@ package com.minecraftabnormals.autumnity.common.block;
 import java.util.Random;
 
 import com.minecraftabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
+import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
 import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
 
@@ -170,6 +172,15 @@ public class TurkeyBlock extends FallingBlock
 		if (!worldIn.isRemote() && worldIn.getRandom().nextFloat() < 0.1F)
 		{
 			player.addPotionEffect(new EffectInstance(Effects.HUNGER, 600, 0));
+		}
+		
+		int i = AutumnityFoods.TURKEY.getHealing();
+		int j = i == 1 ? i : (int) (i * 0.5F);
+		
+		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()))
+		{
+			player.getFoodStats().addStats(j, 0.0F);
+			AutumnityEvents.updateFoulTaste(player);
 		}
 	}
 

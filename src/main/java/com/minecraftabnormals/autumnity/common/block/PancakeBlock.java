@@ -2,8 +2,13 @@ package com.minecraftabnormals.autumnity.common.block;
 
 import javax.annotation.Nullable;
 
+import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
+import com.minecraftabnormals.autumnity.core.other.ModCompatibility;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CakeBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -106,6 +111,12 @@ public class PancakeBlock extends Block
 				worldIn.removeBlock(pos, false);
 			}
 
+			if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()))
+			{
+				player.getFoodStats().addStats(2, 0.0F);
+				AutumnityEvents.updateFoulTaste(player);
+			}
+			
 			return ActionResultType.SUCCESS;
 		}
 	}

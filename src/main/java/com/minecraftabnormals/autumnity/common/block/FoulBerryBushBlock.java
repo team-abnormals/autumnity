@@ -2,6 +2,10 @@ package com.minecraftabnormals.autumnity.common.block;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
+import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
+import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
@@ -13,8 +17,10 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.state.IntegerProperty;
@@ -126,5 +132,16 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable
 			TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock)AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get();
 			tallfoulberrybush.placeAt(worldIn, pos, 0, 2);
 		}
+	}
+	
+	@Nullable
+	@Override
+	public PathNodeType getAiPathNodeType(BlockState state, IBlockReader world, BlockPos pos, @Nullable MobEntity entity)
+	{
+		if (!(entity instanceof SnailEntity) && !(entity instanceof TurkeyEntity))
+		{
+			return PathNodeType.DANGER_OTHER;
+		}
+		return super.getAiPathNodeType(state, world, pos, entity);
 	}
 }

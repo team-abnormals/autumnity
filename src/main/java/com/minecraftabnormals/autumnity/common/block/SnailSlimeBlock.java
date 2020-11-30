@@ -131,6 +131,7 @@ public class SnailSlimeBlock extends BreakableBlock
 		return !state.get(SLIPPERY);
 	}
 	
+	@Override
 	public boolean canStickTo(BlockState state, BlockState other)
     {
         if (other.getBlock() == Blocks.SLIME_BLOCK) return false;

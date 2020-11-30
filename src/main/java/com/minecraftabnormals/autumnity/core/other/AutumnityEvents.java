@@ -144,7 +144,10 @@ public class AutumnityEvents
 			}
 			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU)))
 			{
-				player.getFoodStats().addStats(1, 0.0F);
+				if (player.getFoodStats().getFoodLevel() < 19)
+				{
+					player.getFoodStats().addStats(1, 0.0F);
+				}
 				updateFoulTaste(player);
 			}
 		}

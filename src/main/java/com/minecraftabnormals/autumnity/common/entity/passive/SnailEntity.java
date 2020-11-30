@@ -17,6 +17,7 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -38,6 +39,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -50,6 +52,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResultType;
@@ -107,13 +110,15 @@ public class SnailEntity extends AnimalEntity
 		super(type, worldIn);
 		this.lookController = new SnailEntity.LookHelperController();
 		this.moveController = new SnailEntity.MoveHelperController();
+		this.setPathPriority(PathNodeType.DANGER_CACTUS, 0.0F);
+		this.setPathPriority(PathNodeType.DAMAGE_CACTUS, 0.0F);
 	}
 
 	@Override
 	protected void registerGoals()
 	{
 		this.goalSelector.addGoal(0, new SnailEntity.HideGoal());
-		this.goalSelector.addGoal(1, new SnailEntity.GetOutOfShellGoal());
+		this.goalSelector.addGoal(1, new SnailEntity.StopHidingGoal());
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
 		this.goalSelector.addGoal(3, new SnailEntity.FollowFoodGoal());
 		this.goalSelector.addGoal(4, new SnailEntity.EatMushroomsGoal());
@@ -394,6 +399,16 @@ public class SnailEntity extends AnimalEntity
 		}
 		else
 		{
+			Entity entity = source.getImmediateSource();
+			if (this.getHiding() && entity instanceof AbstractArrowEntity)
+			{
+				return false;
+			}
+			else if (source == DamageSource.CACTUS)
+			{
+				return false;
+			}
+			
 			boolean flag = super.attackEntityFrom(source, amount);
 
 			if (!this.world.isRemote)
@@ -604,9 +619,9 @@ public class SnailEntity extends AnimalEntity
 		}
 	}
 
-	public class GetOutOfShellGoal extends Goal
+	public class StopHidingGoal extends Goal
 	{
-		public GetOutOfShellGoal()
+		public StopHidingGoal()
 		{
 			super();
 		}

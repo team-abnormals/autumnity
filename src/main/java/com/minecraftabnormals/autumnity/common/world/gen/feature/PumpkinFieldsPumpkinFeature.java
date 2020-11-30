@@ -14,7 +14,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -33,7 +32,7 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoFeatureConfig>
 	{
 		int i = 0;
 		int j = 0;
-		boolean spooky = rand.nextInt(100) == 0 ? true : false;
+		boolean spooky = rand.nextInt(160) == 0 ? true : false;
 
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 

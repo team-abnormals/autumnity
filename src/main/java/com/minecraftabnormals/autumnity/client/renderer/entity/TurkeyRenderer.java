@@ -13,8 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<TurkeyEntity>>
 {
-	private static final ResourceLocation TURKEY_TEXTURES = Reference.location("textures/entity/turkey/turkey.png");
-	private static final ResourceLocation ANGRY_TURKEY_TEXTURES = Reference.location("textures/entity/turkey/turkey_angry.png");
+	private static final ResourceLocation TURKEY_TEXTURES = Reference.location("textures/entity/turkey.png");
 
 	public TurkeyRenderer(EntityRendererManager manager)
 	{
@@ -24,6 +23,6 @@ public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<Turkey
 	@Override
 	public ResourceLocation getEntityTexture(TurkeyEntity entity)
 	{
-		return entity.func_233678_J__() ? ANGRY_TURKEY_TEXTURES : TURKEY_TEXTURES;
+		return TURKEY_TEXTURES;
 	}
 }

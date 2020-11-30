@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
+import com.minecraftabnormals.autumnity.common.block.SnailSlimeBlock;
 import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
 import com.minecraftabnormals.autumnity.core.Reference;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
@@ -18,6 +19,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CakeBlock;
 import net.minecraft.block.CarvedPumpkinBlock;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.crash.ReportedException;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -49,7 +53,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -72,7 +78,9 @@ public class AutumnityEvents
 	@SubscribeEvent
 	public static void onEntityJoinWorld(EntityJoinWorldEvent event)
 	{
-		if(!event.getWorld().isRemote)
+		World world = event.getWorld();
+
+		if(!world.isRemote)
 		{
 			Entity entity = event.getEntity();
 
@@ -134,7 +142,7 @@ public class AutumnityEvents
 			{
 				event.setUseItem(Event.Result.DENY);
 			}
-			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || block == ModCompatibility.YUCCA_GATEAU))
+			else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU)))
 			{
 				player.getFoodStats().addStats(1, 0.0F);
 				updateFoulTaste(player);
@@ -230,7 +238,7 @@ public class AutumnityEvents
 	public static void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event)
 	{
 		ItemStack itemstack = event.getItemStack();
-		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == ModCompatibility.ENDER_TORCH)
+		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || (ModList.get().isLoaded("endergetic") && itemstack.getItem() == AutumnityCompat.ENDER_TORCH))
 		{
 			World world = event.getWorld();
 			BlockPos blockpos = event.getPos();

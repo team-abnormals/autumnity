@@ -1,7 +1,7 @@
 package com.minecraftabnormals.autumnity.common.block;
 
 import com.minecraftabnormals.autumnity.common.block.properties.CarvedSide;
-import com.minecraftabnormals.autumnity.core.other.ModCompatibility;
+import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 
 import net.minecraft.block.Block;
@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.ModList;
 
 public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 {
@@ -45,7 +46,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (this == AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get() && (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == ModCompatibility.ENDER_TORCH))
+		if (this == AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get() && (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || (ModList.get().isLoaded("endergetic") && itemstack.getItem() == AutumnityCompat.ENDER_TORCH)))
 		{
 			Direction direction = hit.getFace();
 			Direction direction1 = state.get(FACING);

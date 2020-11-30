@@ -7,6 +7,7 @@ import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BreakableBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.fluid.FluidState;
@@ -15,6 +16,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -23,6 +25,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class SnailSlimeBlock extends BreakableBlock
 {
@@ -35,16 +38,19 @@ public class SnailSlimeBlock extends BreakableBlock
 		this.setDefaultState(this.stateContainer.getBaseState().with(SLIPPERY, Boolean.valueOf(false)));
 	}
 
+	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		return !state.get(SLIPPERY) ? SHAPE : super.getCollisionShape(state, worldIn, pos, context);
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context)
 	{
 		return this.getDefaultState().with(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(context.getPos(), context.getWorld())));
 	}
 
+	@Override
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos)
 	{
 		return stateIn.with(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(currentPos, worldIn)));
@@ -107,6 +113,7 @@ public class SnailSlimeBlock extends BreakableBlock
 		}
 	}
 
+	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
 	{
 		builder.add(SLIPPERY);
@@ -118,8 +125,19 @@ public class SnailSlimeBlock extends BreakableBlock
 		return state.get(SLIPPERY) ? 0.98F : 0.6F;
 	}
 	
+	@Override
 	public boolean isStickyBlock(BlockState state)
 	{
 		return !state.get(SLIPPERY);
 	}
+	
+	public boolean canStickTo(BlockState state, BlockState other)
+    {
+        if (other.getBlock() == Blocks.SLIME_BLOCK) return false;
+        if (other.getBlock() == Blocks.HONEY_BLOCK) return false;
+        if (other.getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation("upgrade_aquatic", "mulberry_jam_block"))) return false;
+        if (other.getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "aloe_gel_block"))) return false;
+        
+        return super.canStickTo(state, other);
+    }
 }

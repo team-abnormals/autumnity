@@ -6,16 +6,23 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class AutumnityCompat
 {
+	public static final Item ENDER_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("endergetic", "ender_torch"));
+	public static final Block YUCCA_GATEAU = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "yucca_gateau"));
+	
 	public static void registerCompostables()
 	{
 		DataUtils.registerCompostable(AutumnityItems.FOUL_BERRIES.get(), 0.3F);

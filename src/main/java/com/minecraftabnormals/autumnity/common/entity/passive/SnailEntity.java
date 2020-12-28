@@ -26,7 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -48,7 +47,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -281,17 +279,17 @@ public class SnailEntity extends AnimalEntity {
 							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayerEntity) player, itemstack1);
 						}
 						this.consumeItemFromStack(player, itemstack);
-						return ActionResultType.SUCCESS;
+						return ActionResultType.func_233537_a_(world.isRemote());
 					}
 				} else if (this.isSnailBreedingItem(itemstack)) {
 					boolean flag = false;
 
-					if (this.getGrowingAge() == 0 && !this.isChild() && this.canBreed()) {
-						if (!this.world.isRemote) {
-							this.setInLove(player);
-						}
+					if (!this.world.isRemote && this.getGrowingAge() == 0 && this.canFallInLove()) {
+						this.setInLove(player);
 						flag = true;
-					} else if (this.isChild()) {
+					}
+
+					if (this.isChild()) {
 						this.ageUp((int) ((float) (-this.getGrowingAge() / 20) * 0.1F), true);
 						flag = true;
 					}
@@ -304,7 +302,7 @@ public class SnailEntity extends AnimalEntity {
 							}
 						}
 
-						return ActionResultType.SUCCESS;
+						return ActionResultType.func_233537_a_(world.isRemote());
 					}
 				}
 			}
@@ -458,11 +456,6 @@ public class SnailEntity extends AnimalEntity {
 	@Override
 	public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
 		return AutumnityEntities.SNAIL.get().create(world);
-	}
-
-	@Override
-	public IPacket<?> createSpawnPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
 	@Override

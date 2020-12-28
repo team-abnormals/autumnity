@@ -1,14 +1,11 @@
 package com.minecraftabnormals.autumnity.common.block;
 
-import java.util.Random;
-
 import com.minecraftabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
 import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
@@ -25,12 +22,7 @@ import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -40,8 +32,9 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class TurkeyBlock extends FallingBlock
-{
+import java.util.Random;
+
+public class TurkeyBlock extends FallingBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	public static final IntegerProperty CHUNKS = IntegerProperty.create("chunks", 0, 4);
 	public static final VoxelShape[] NORTH_SHAPE = new VoxelShape[]{Block.makeCuboidShape(1.0D, 0.0D, 2.0D, 15.0D, 8.0D, 16.0D),
@@ -65,15 +58,13 @@ public class TurkeyBlock extends FallingBlock
 			Block.makeCuboidShape(6.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D),
 			Block.makeCuboidShape(10.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D)};
 
-	public TurkeyBlock(Properties builder)
-	{
+	public TurkeyBlock(Properties builder) {
 		super(builder);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(CHUNKS, Integer.valueOf(0)));
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
-	{
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		int i = state.get(CHUNKS);
 
 		if (state.get(FACING) == Direction.NORTH)
@@ -87,19 +78,14 @@ public class TurkeyBlock extends FallingBlock
 	}
 
 	@Override
-	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand)
-	{
-		if (worldIn.isAirBlock(pos.down()) || canFallThrough(worldIn.getBlockState(pos.down())) && pos.getY() >= 0)
-		{
+	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+		if (worldIn.isAirBlock(pos.down()) || canFallThrough(worldIn.getBlockState(pos.down())) && pos.getY() >= 0) {
 			FallingBlockEntity fallingblockentity;
 
-			if (state.get(CHUNKS) == 0)
-			{
-				fallingblockentity = new FallingHeadBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, worldIn.getBlockState(pos));
-			}
-			else
-			{
-				fallingblockentity = new FallingBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, worldIn.getBlockState(pos));
+			if (state.get(CHUNKS) == 0) {
+				fallingblockentity = new FallingHeadBlockEntity(worldIn, (double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, worldIn.getBlockState(pos));
+			} else {
+				fallingblockentity = new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, worldIn.getBlockState(pos));
 			}
 
 			this.onStartFalling(fallingblockentity);
@@ -108,18 +94,14 @@ public class TurkeyBlock extends FallingBlock
 	}
 
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
-	{
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (worldIn.isRemote)
-		{
-			if (this.eatTurkey(worldIn, pos, state, player, itemstack, handIn) == ActionResultType.SUCCESS)
-			{
+		if (worldIn.isRemote) {
+			if (this.eatTurkey(worldIn, pos, state, player, itemstack, handIn) == ActionResultType.SUCCESS) {
 				return ActionResultType.SUCCESS;
 			}
 
-			if (itemstack.isEmpty())
-			{
+			if (itemstack.isEmpty()) {
 				return ActionResultType.CONSUME;
 			}
 		}
@@ -127,94 +109,75 @@ public class TurkeyBlock extends FallingBlock
 		return this.eatTurkey(worldIn, pos, state, player, itemstack, handIn);
 	}
 
-	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack, Hand hand)
-	{
+	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack, Hand hand) {
 		int i = state.get(CHUNKS);
 		boolean flag = itemstack.getItem() instanceof AxeItem;
-		if (player.canEat(false) || flag)
-		{
-			if (flag)
-			{
+		if (player.canEat(false) || flag) {
+			if (flag) {
 				spawnAsEntity(worldIn, pos, new ItemStack(this.getLeg()));
 				worldIn.playSound(player, pos, AutumnitySoundEvents.BLOCK_TURKEY_CUT.get(), SoundCategory.BLOCKS, 1.0F, (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F + 1.0F);
 				itemstack.damageItem(1, player, (playerIn) -> {
 					playerIn.sendBreakAnimation(hand);
 				});
-			}
-			else
-			{
+			} else {
 				ItemStack stack = this.getPickBlock(state, null, worldIn, pos, player);
 				player.playSound(player.getEatSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
 				this.restoreHunger(worldIn, player);
 			}
-			if (i < 4)
-			{
+			if (i < 4) {
 				worldIn.setBlockState(pos, state.with(CHUNKS, Integer.valueOf(i + 1)), 3);
-			}
-			else
-			{
+			} else {
 				worldIn.removeBlock(pos, false);
 			}
 
 			return ActionResultType.SUCCESS;
-		}
-		else
-		{
+		} else {
 			return ActionResultType.PASS;
 		}
 	}
 
-	protected void restoreHunger(IWorld worldIn, PlayerEntity player)
-	{
+	protected void restoreHunger(IWorld worldIn, PlayerEntity player) {
 		player.getFoodStats().addStats(AutumnityFoods.TURKEY.getHealing(), AutumnityFoods.TURKEY.getSaturation());
 
-		if (!worldIn.isRemote() && worldIn.getRandom().nextFloat() < 0.1F)
-		{
+		if (!worldIn.isRemote() && worldIn.getRandom().nextFloat() < 0.1F) {
 			player.addPotionEffect(new EffectInstance(Effects.HUNGER, 600, 0));
 		}
 
 		int i = AutumnityFoods.TURKEY.getHealing();
 		int j = i == 1 ? i : (int) (i * 0.5F);
 
-		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()))
-		{
+		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get())) {
 			player.getFoodStats().addStats(j, 0.0F);
 			AutumnityEvents.updateFoulTaste(player);
 		}
 	}
 
-	protected Item getLeg()
-	{
+	protected Item getLeg() {
 		return AutumnityItems.TURKEY_PIECE.get();
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
-	{
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING, CHUNKS);
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context)
-	{
+	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
 	}
 
 	@Override
-	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type)
-	{
+	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
 		return false;
 	}
 
 	@Override
-	public BlockState rotate(BlockState state, Rotation rot)
-	{
+	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.with(FACING, rot.rotate(state.get(FACING)));
 	}
 
 	@Override
-	public BlockState mirror(BlockState state, Mirror mirrorIn)
-	{
+	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
 	}
 

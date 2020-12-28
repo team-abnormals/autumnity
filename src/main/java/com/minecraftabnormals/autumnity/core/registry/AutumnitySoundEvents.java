@@ -7,8 +7,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AutumnitySoundEvents
-{
+public class AutumnitySoundEvents {
 	public static final SoundSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getSoundSubHelper();
 
 	public static final RegistryObject<SoundEvent> ENTITY_SNAIL_EAT = HELPER.createSoundEvent("entity.snail.eat");

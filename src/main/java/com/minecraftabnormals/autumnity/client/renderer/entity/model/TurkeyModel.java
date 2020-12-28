@@ -2,7 +2,6 @@ package com.minecraftabnormals.autumnity.client.renderer.entity.model;
 
 import com.google.common.collect.ImmutableList;
 import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
-
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
@@ -14,8 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * Created using Tabula 8.0.0
  */
 @OnlyIn(Dist.CLIENT)
-public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T>
-{
+public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T> {
 	private final ModelRenderer head;
 	private final ModelRenderer beak;
 	private final ModelRenderer waddle;
@@ -26,8 +24,7 @@ public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T>
 	private final ModelRenderer rightLeg;
 	private final ModelRenderer leftLeg;
 
-	public TurkeyModel()
-	{
+	public TurkeyModel() {
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 
@@ -79,36 +76,32 @@ public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T>
 		this.leftLeg.addBox(-1.5F, 0.0F, -3.0F, 3.0F, 4.0F, 3.0F, 0.0F, 0.0F, 0.0F);
 	}
 
-	protected Iterable<ModelRenderer> getHeadParts()
-	{
+	protected Iterable<ModelRenderer> getHeadParts() {
 		return ImmutableList.of(this.head);
 	}
 
-	protected Iterable<ModelRenderer> getBodyParts()
-	{
+	protected Iterable<ModelRenderer> getBodyParts() {
 		return ImmutableList.of(this.body, this.rightLeg, this.leftLeg);
 	}
 
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
-	{
-		float partialtick = ageInTicks - (float)entityIn.ticksExisted;
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float partialtick = ageInTicks - (float) entityIn.ticksExisted;
 		float winganim = entityIn.getWingRotation(partialtick);
 		float peckanim = entityIn.getPeckProgress(partialtick);
 
-		this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
-		this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
+		this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
+		this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
 		this.head.rotateAngleX += peckanim * 0.8F;
 		this.head.rotationPointZ = -3.0F - peckanim * 1.5F;
-		
+
 		this.rightWing.rotateAngleZ = -winganim;
 		this.leftWing.rotateAngleZ = winganim;
-		
+
 		this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 	}
 
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-	{
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

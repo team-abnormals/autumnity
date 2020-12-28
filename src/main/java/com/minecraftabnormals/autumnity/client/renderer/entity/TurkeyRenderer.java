@@ -10,18 +10,15 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<TurkeyEntity>>
-{
+public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<TurkeyEntity>> {
 	private static final ResourceLocation TURKEY_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/turkey.png");
 
-	public TurkeyRenderer(EntityRendererManager manager)
-	{
+	public TurkeyRenderer(EntityRendererManager manager) {
 		super(manager, new TurkeyModel<>(), 0.5F);
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(TurkeyEntity entity)
-	{
+	public ResourceLocation getEntityTexture(TurkeyEntity entity) {
 		return TURKEY_TEXTURES;
 	}
 }

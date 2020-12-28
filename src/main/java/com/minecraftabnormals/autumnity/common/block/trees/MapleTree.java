@@ -8,11 +8,9 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class MapleTree extends Tree
-{
+public class MapleTree extends Tree {
 	@Nullable
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn)
-	{
+	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn) {
 		return AutumnityFeatures.MAPLE_TREE.get().withConfiguration(AutumnityFeatures.Configs.MAPLE_TREE_CONFIG);
 	}
 }

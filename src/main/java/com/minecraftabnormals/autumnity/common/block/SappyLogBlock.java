@@ -17,50 +17,36 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class SappyLogBlock extends RotatedPillarBlock
-{
+public class SappyLogBlock extends RotatedPillarBlock {
 	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.STRIPPED_WARPED_STEM);
 	private final Block saplessBlock;
 
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties)
-	{
+	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties) {
 		super(properties);
 		this.saplessBlock = saplessBlockIn.get();
 	}
 
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
-	{
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (itemstack.isEmpty())
-		{
+		if (itemstack.isEmpty()) {
 			return ActionResultType.PASS;
-		}
-		else
-		{
+		} else {
 			Item item = itemstack.getItem();
-			if (item == Items.GLASS_BOTTLE)
-			{
-				if (!worldIn.isRemote)
-				{
-					if (!player.abilities.isCreativeMode)
-					{
+			if (item == Items.GLASS_BOTTLE) {
+				if (!worldIn.isRemote) {
+					if (!player.abilities.isCreativeMode) {
 						ItemStack itemstack2 = new ItemStack(AutumnityItems.SAP_BOTTLE.get());
 						itemstack.shrink(1);
-						if (itemstack.isEmpty())
-						{
+						if (itemstack.isEmpty()) {
 							player.setHeldItem(handIn, itemstack2);
-						}
-						else if (!player.inventory.addItemStackToInventory(itemstack2))
-						{
+						} else if (!player.inventory.addItemStackToInventory(itemstack2)) {
 							player.dropItem(itemstack2, false);
-						}
-						else if (player instanceof ServerPlayerEntity)
-						{
-							((ServerPlayerEntity)player).sendContainerToPlayer(player.container);
+						} else if (player instanceof ServerPlayerEntity) {
+							((ServerPlayerEntity) player).sendContainerToPlayer(player.container);
 						}
 					}
 
-					worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					worldIn.setBlockState(pos, saplessBlock.getDefaultState().with(RotatedPillarBlock.AXIS, state.get(RotatedPillarBlock.AXIS)), 11);
 				}
 
@@ -72,8 +58,7 @@ public class SappyLogBlock extends RotatedPillarBlock
 	}
 
 	@Override
-	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items)
-	{
+	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
 		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

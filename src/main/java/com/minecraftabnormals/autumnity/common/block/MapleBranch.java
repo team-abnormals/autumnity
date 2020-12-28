@@ -1,9 +1,6 @@
 package com.minecraftabnormals.autumnity.common.block;
 
-import javax.annotation.Nullable;
-
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
@@ -17,25 +14,22 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 
-public class MapleBranch extends BushBlock
-{
+import javax.annotation.Nullable;
+
+public class MapleBranch extends BushBlock {
 	public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-	public MapleBranch(Properties properties)
-	{
+	public MapleBranch(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH));
 	}
 
 	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context)
-	{
-		if (!context.replacingClickedOnBlock())
-		{
+	public BlockState getStateForPlacement(BlockItemUseContext context) {
+		if (!context.replacingClickedOnBlock()) {
 			BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(context.getFace().getOpposite()));
-			if (blockstate.isIn(this) && blockstate.get(HORIZONTAL_FACING) == context.getFace())
-			{
+			if (blockstate.isIn(this) && blockstate.get(HORIZONTAL_FACING) == context.getFace()) {
 				return null;
 			}
 		}
@@ -44,13 +38,10 @@ public class MapleBranch extends BushBlock
 		IWorldReader iworldreader = context.getWorld();
 		BlockPos blockpos = context.getPos();
 
-		for(Direction direction : context.getNearestLookingDirections())
-		{
-			if (direction.getAxis().isHorizontal())
-			{
+		for (Direction direction : context.getNearestLookingDirections()) {
+			if (direction.getAxis().isHorizontal()) {
 				blockstate1 = blockstate1.with(HORIZONTAL_FACING, direction.getOpposite());
-				if (blockstate1.isValidPosition(iworldreader, blockpos))
-				{
+				if (blockstate1.isValidPosition(iworldreader, blockpos)) {
 					return blockstate1;
 				}
 			}
@@ -60,8 +51,7 @@ public class MapleBranch extends BushBlock
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
-	{
+	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING).getOpposite());
 		BlockState blockstate = worldIn.getBlockState(blockpos);
 
@@ -69,20 +59,17 @@ public class MapleBranch extends BushBlock
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
-	{
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HORIZONTAL_FACING);
 	}
 
 	@Override
-	public BlockState rotate(BlockState state, Rotation rot)
-	{
+	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.with(HORIZONTAL_FACING, rot.rotate(state.get(HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public BlockState mirror(BlockState state, Mirror mirrorIn)
-	{
+	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.toRotation(state.get(HORIZONTAL_FACING)));
 	}
 }

@@ -1,21 +1,16 @@
 package com.minecraftabnormals.autumnity.common.block.trees;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import com.minecraftabnormals.autumnity.common.world.biome.AutumnityBiomeFeatures;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
-
 import net.minecraft.block.trees.Tree;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-public class YellowMapleTree extends Tree
-{
+import javax.annotation.Nullable;
+import java.util.Random;
+
+public class YellowMapleTree extends Tree {
 	@Nullable
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn)
-	{
-		return AutumnityFeatures.MAPLE_TREE.get().withConfiguration(AutumnityBiomeFeatures.YELLOW_MAPLE_TREE_CONFIG);
+	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn) {
+		return AutumnityFeatures.MAPLE_TREE.get().withConfiguration(AutumnityFeatures.Configs.YELLOW_MAPLE_TREE_CONFIG);
 	}
 }

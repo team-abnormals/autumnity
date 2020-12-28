@@ -1,8 +1,8 @@
 package com.minecraftabnormals.autumnity.common.advancements.criterion;
 
 import com.google.gson.JsonObject;
-import com.minecraftabnormals.autumnity.core.Reference;
 
+import com.minecraftabnormals.autumnity.core.Autumnity;
 import net.minecraft.advancements.criterion.AbstractCriterionTrigger;
 import net.minecraft.advancements.criterion.CriterionInstance;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
@@ -23,7 +23,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.Instance>
 {
-	private static final ResourceLocation ID = Reference.location("feed_snail");
+	private static final ResourceLocation ID = new ResourceLocation(Autumnity.MOD_ID, "feed_snail");
 
 	public ResourceLocation getId()
 	{

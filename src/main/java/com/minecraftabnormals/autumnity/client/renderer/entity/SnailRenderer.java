@@ -2,7 +2,7 @@ package com.minecraftabnormals.autumnity.client.renderer.entity;
 
 import com.minecraftabnormals.autumnity.client.renderer.entity.model.SnailModel;
 import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
-import com.minecraftabnormals.autumnity.core.Reference;
+import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import net.minecraft.client.renderer.entity.EntityRendererManager;
@@ -16,9 +16,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEntity>>
 {
-	private static final ResourceLocation SNAIL_TEXTURES = Reference.location("textures/entity/snail/snail.png");
-	private static final ResourceLocation SNAKE_SNAIL_TEXTURES = Reference.location("textures/entity/snail/snake_snail.png");
-	private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = Reference.location("textures/entity/snail/nautilus_snail.png");
+	private static final ResourceLocation SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/snail.png");
+	private static final ResourceLocation SNAKE_SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/snake_snail.png");
+	private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/nautilus_snail.png");
 
 	public SnailRenderer(EntityRendererManager renderManagerIn)
 	{

@@ -1,10 +1,7 @@
 package com.minecraftabnormals.autumnity.common.block;
 
-import java.util.function.Predicate;
-
+import com.minecraftabnormals.abnormals_core.core.util.item.filling.TargetedItemGroupFiller;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
@@ -19,8 +16,12 @@ import net.minecraft.item.Items;
 import net.minecraft.util.CachedBlockInfo;
 import net.minecraft.util.NonNullList;
 
+import java.util.function.Predicate;
+
 public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock
 {
+	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.JACK_O_LANTERN);
+
 	private static final Predicate<BlockState> IS_PUMPKIN = (state) -> {
 		return state != null && (state.isIn(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()));
 	};
@@ -53,17 +54,6 @@ public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock
 	@Override
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items)
 	{
-		if(ItemStackUtils.isInGroup(this.asItem(), group))
-		{
-			int targetIndex = ItemStackUtils.findIndexOfItem(Items.JACK_O_LANTERN, items);
-			if(targetIndex != -1)
-			{
-				items.add(targetIndex + 1, new ItemStack(this));
-			}
-			else
-			{
-				super.fillItemGroup(group, items);
-			}
-		}
+		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

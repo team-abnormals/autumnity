@@ -1,7 +1,6 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
-import com.teamabnormals.abnormals_core.core.library.api.BannerManager;
-
+import com.minecraftabnormals.abnormals_core.core.api.banner.BannerManager;
 import net.minecraft.tileentity.BannerPattern;
 
 public class AutumnityBanners

@@ -1,35 +1,36 @@
-modLoader="javafml"
-loaderVersion="[31,)"
-issueTrackerURL="https://github.com/minecraftabnormals/Autumnity/issues"
-license="https://github.com/minecraftabnormals/Autumnity/blob/master/LICENSE.txt"
+modLoader = "javafml"
+loaderVersion = "[32,)"
+issueTrackerURL = "https://github.com/team-abnormals/autumnity/issues"
+license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 
 [[mods]]
-modId="autumnity"
-version="1.5.0"
-displayName="Autumnity"
-logoFile="logo.png"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/autumnity"
-credits="Artists: Farcr, Five, Snake, Echolite, and hatsondogs"
-authors="Markus1002"
-description='''An autumn-themed mod with new biomes and friendly snails.'''
+    modId = "autumnity"
+    version = "${file.jarVersion}"
+    logoFile = "logo.png"
+    displayName = "Autumnity"
+    authors = "Team Abnormals"
+    credits = "Markus1002, Farcr, Five, Echolite, and hatsondogs"
+    description = '''
+    An autumn-themed mod with new biomes and friendly snails.
+    '''
 
 [[dependencies.autumnity]]
-    modId="forge"
-    mandatory=true
-    versionRange="[32.0.72,)"
-    ordering="NONE"
-    side="BOTH"
-	
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.16.3,1.17)"
+    ordering = "NONE"
+    side = "BOTH"
+
 [[dependencies.autumnity]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.1]"
-    ordering="NONE"
-    side="BOTH"
-	
+    modId = "forge"
+    mandatory = true
+    versionRange = "[34.1.42,)"
+    ordering = "NONE"
+    side = "BOTH"
+
 [[dependencies.autumnity]]
-    modId="abnormals_core"
-    mandatory=true
-    versionRange="[2.0.8,)"
-    ordering="AFTER"
-    side="BOTH"
+    modId = "abnormals_core"
+    mandatory = true
+    versionRange = "[3.0.4,)"
+    ordering = "AFTER"
+    side = "BOTH"

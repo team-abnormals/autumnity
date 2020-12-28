@@ -1,79 +1,83 @@
 package com.minecraftabnormals.autumnity.common.world.biome;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
+import com.minecraftabnormals.autumnity.core.Autumnity;
+import com.minecraftabnormals.autumnity.core.Config;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
-import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.NoiseDependant;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
+import net.minecraftforge.common.world.MobSpawnInfoBuilder;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-public class AutumnityBiomeFeatures
-{
-	private static final BlockState MAPLE_LOG = AutumnityBlocks.MAPLE_LOG.get().getDefaultState();
-	private static final BlockState MAPLE_LEAVES = AutumnityBlocks.MAPLE_LEAVES.get().getDefaultState();
-	private static final BlockState YELLOW_MAPLE_LEAVES = AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().getDefaultState();
-	private static final BlockState ORANGE_MAPLE_LEAVES = AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().getDefaultState();
-	private static final BlockState RED_MAPLE_LEAVES = AutumnityBlocks.RED_MAPLE_LEAVES.get().getDefaultState();
-	private static final BlockState TALL_FOUL_BERRY_BUSH = AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get().getDefaultState().with(SweetBerryBushBlock.AGE, Integer.valueOf(3));
-	private static final BlockState AUTUMN_CROCUS = AutumnityBlocks.AUTUMN_CROCUS.get().getDefaultState();
-	private static final BlockState ROSE_BUSH = Blocks.ROSE_BUSH.getDefaultState();
-	private static final BlockState OXEYE_DAISY = Blocks.OXEYE_DAISY.getDefaultState();
-	private static final BlockState CORNFLOWER = Blocks.CORNFLOWER.getDefaultState();
+@Mod.EventBusSubscriber(modid = Autumnity.MOD_ID)
+public class AutumnityBiomeFeatures {
 
-	public static final BaseTreeFeatureConfig MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
-	public static final BaseTreeFeatureConfig YELLOW_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(YELLOW_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
-	public static final BaseTreeFeatureConfig ORANGE_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(ORANGE_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
-	public static final BaseTreeFeatureConfig RED_MAPLE_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(RED_MAPLE_LEAVES), null, null, null)).setIgnoreVines().build();
-	public static final BlockClusterFeatureConfig TALL_FOUL_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(TALL_FOUL_BERRY_BUSH), new DoublePlantBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).func_227317_b_().build();
-	public static final BlockClusterFeatureConfig AUTUMN_CROCUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(AUTUMN_CROCUS), new SimpleBlockPlacer())).tries(64).build();
-	public static final BlockClusterFeatureConfig ROSE_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(ROSE_BUSH), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();
-	public static final BlockClusterFeatureConfig OXEYE_DAISY_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(OXEYE_DAISY), new SimpleBlockPlacer())).tries(64).build();
-	public static final BlockClusterFeatureConfig CORNFLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(CORNFLOWER), new SimpleBlockPlacer())).tries(64).build();
+	@SubscribeEvent
+	public static void onBiomeLoad(BiomeLoadingEvent event) {
+		ResourceLocation biome = event.getName();
+		MobSpawnInfoBuilder spawns = event.getSpawns();
+		BiomeGenerationSettingsBuilder generation = event.getGeneration();
 
-	public static void addMapleFeatures(Biome biomeIn)
-	{
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
-				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.3F),
-				AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
-				AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
+		if (biome == null) return;
 
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(ROSE_BUSH_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LUSH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.FALLEN_LEAVES.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(32))));
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(TALL_FOUL_BERRY_BUSH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
-	}
+		if (DataUtil.matchesKeys(biome, AutumnityBiomes.MAPLE_FOREST.getKey(), AutumnityBiomes.MAPLE_FOREST_HILLS.getKey(), AutumnityBiomes.PUMPKIN_FIELDS.getKey())) {
+			DefaultBiomeFeatures.withStrongholdAndMineshaft(generation);
+			DefaultBiomeFeatures.withCavesAndCanyons(generation);
+			DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
+			DefaultBiomeFeatures.withMonsterRoom(generation);
+			DefaultBiomeFeatures.withCommonOverworldBlocks(generation);
+			DefaultBiomeFeatures.withOverworldOres(generation);
+			DefaultBiomeFeatures.withDisks(generation);
+			DefaultBiomeFeatures.withNormalMushroomGeneration(generation);
+			DefaultBiomeFeatures.withSugarCaneAndPumpkins(generation);
+			DefaultBiomeFeatures.withLavaAndWaterSprings(generation);
+			DefaultBiomeFeatures.withFrozenTopLayer(generation);
 
-	public static void addPumpkinFieldsFeatures(Biome biomeIn)
-	{
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM).withChance(0.025F),
-				Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM).withChance(0.05F),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(RED_MAPLE_TREE_CONFIG).withChance(0.3F),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(ORANGE_MAPLE_TREE_CONFIG).withChance(0.4F),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(YELLOW_MAPLE_TREE_CONFIG).withChance(0.2F)),
-				AutumnityFeatures.MAPLE_TREE.get().withConfiguration(MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
+			generation.withStructure(StructureFeatures.RUINED_PORTAL);
 
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.FLOWER.withConfiguration(OXEYE_DAISY_CONFIG), Feature.FLOWER.withConfiguration(CORNFLOWER_CONFIG), Feature.FLOWER.withConfiguration(AUTUMN_CROCUS_CONFIG)), 0)).withPlacement(Placement.NOISE_HEIGHTMAP_32.configure(new NoiseDependant(-0.8D, 15, 4))));
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.PUMPKIN_FIELDS_PUMPKIN.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(5))));
+			DefaultBiomeFeatures.withBatsAndHostiles(spawns);
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 16, 2, 2));
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.TURKEY.get(), 10, 4, 4));
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+
+			if (DataUtil.matchesKeys(biome, AutumnityBiomes.MAPLE_FOREST.getKey(), AutumnityBiomes.MAPLE_FOREST_HILLS.getKey())) {
+				DefaultBiomeFeatures.withDefaultFlowers(generation);
+				DefaultBiomeFeatures.withForestGrass(generation);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_FOREST_VEGETATION);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.FLOWER_MAPLE_FOREST);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_GRASS_MAPLE_FOREST);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.FALLEN_LEAVES);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_FOUL_BERRY_BUSH);
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.TURKEY.get(), 10, 4, 4));
+			}
+
+			if (DataUtil.matchesKeys(biome, AutumnityBiomes.PUMPKIN_FIELDS.getKey())) {
+				DefaultBiomeFeatures.withPlainGrassVegetation(generation);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PUMPKIN_FIELDS_VEGETATION);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.FLOWER_PUMPKIN_FIELDS);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_GRASS_PUMPKIN_FIELDS);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_PUMPKINS_PUMPKIN_FIELDS);
+			}
+		}
+
+		if (Config.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
+			generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE);
+		}
+
+		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
+			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
+		}
 	}
 }

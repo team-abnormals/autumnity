@@ -3,7 +3,7 @@ package com.minecraftabnormals.autumnity.common.block;
 import java.util.Random;
 
 import com.minecraftabnormals.autumnity.core.registry.AutumnityParticles;
-import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;

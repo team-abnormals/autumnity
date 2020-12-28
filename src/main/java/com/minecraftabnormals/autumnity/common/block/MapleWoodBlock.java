@@ -1,10 +1,7 @@
 package com.minecraftabnormals.autumnity.common.block;
 
-import java.util.function.Supplier;
-
-import com.teamabnormals.abnormals_core.core.utils.BlockUtils;
-import com.teamabnormals.abnormals_core.core.utils.ItemStackUtils;
-
+import com.minecraftabnormals.abnormals_core.core.util.BlockUtil;
+import com.minecraftabnormals.abnormals_core.core.util.item.filling.TargetedItemGroupFiller;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
@@ -13,17 +10,16 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
+import java.util.function.Supplier;
+
 public class MapleWoodBlock extends RotatedPillarBlock
 {
+	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.WARPED_HYPHAE);
 	private final Supplier<Block> block;
 	private final Supplier<Block> sappyBlock;
 
@@ -43,7 +39,7 @@ public class MapleWoodBlock extends RotatedPillarBlock
 			if (!world.isRemote)
 			{
 				BlockState strippedState = world.getRandom().nextInt(4) == 0 ? this.sappyBlock.get().getDefaultState() : this.block.get().getDefaultState();
-				world.setBlockState(pos, BlockUtils.transferAllBlockStates(state, strippedState));
+				world.setBlockState(pos, BlockUtil.transferAllBlockStates(state, strippedState));
 				stack.damageItem(1, player, (playerIn) -> {
 					playerIn.sendBreakAnimation(hand);
 				});
@@ -57,17 +53,6 @@ public class MapleWoodBlock extends RotatedPillarBlock
 	@Override
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items)
 	{
-		if(ItemStackUtils.isInGroup(this.asItem(), group))
-		{
-			int targetIndex = ItemStackUtils.findIndexOfItem(Items.WARPED_HYPHAE, items);
-			if(targetIndex != -1) 
-			{
-				items.add(targetIndex + 1, new ItemStack(this));
-			}
-			else
-			{
-				super.fillItemGroup(group, items);
-			}
-		}
+		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

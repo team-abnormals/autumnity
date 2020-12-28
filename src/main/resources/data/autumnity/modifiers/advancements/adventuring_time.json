@@ -1,0 +1,48 @@
+{
+  "advancement": "minecraft:adventure/adventuring_time",
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:maple_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:maple_forest"
+              }
+            }
+          },
+          "autumnity:maple_forest_hills": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:maple_forest_hills"
+              }
+            }
+          },
+          "autumnity:pumpkin_fields": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:pumpkin_fields"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:maple_forest"
+          ],
+          [
+            "autumnity:maple_forest_hills"
+          ],
+          [
+            "autumnity:pumpkin_fields"
+          ]
+        ]
+      }
+    }
+  ]
+}

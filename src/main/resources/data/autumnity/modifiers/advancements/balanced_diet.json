@@ -1,0 +1,70 @@
+{
+  "advancement": "minecraft:husbandry/balanced_diet",
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:syrup_bottle": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "autumnity:syrup_bottle"
+              }
+            }
+          },
+          "autumnity:foul_berries": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "autumnity:foul_berries"
+              }
+            }
+          },
+          "autumnity:turkey_piece": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "autumnity:turkey_piece"
+              }
+            }
+          },
+          "autumnity:cooked_turkey_piece": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "autumnity:cooked_turkey_piece"
+              }
+            }
+          },
+          "autumnity:pumpkin_bread": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "autumnity:pumpkin_bread"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:syrup_bottle"
+          ],
+          [
+            "autumnity:foul_berries"
+          ],
+          [
+            "autumnity:turkey_piece"
+          ],
+          [
+            "autumnity:cooked_turkey_piece"
+          ],
+          [
+            "autumnity:pumpkin_bread"
+          ]
+        ]
+      }
+    }
+  ]
+}

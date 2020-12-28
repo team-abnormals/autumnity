@@ -1,0 +1,49 @@
+{
+  "advancement": "minecraft:husbandry/breed_all_animals",
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:snail": {
+            "trigger": "minecraft:bred_animals",
+            "conditions": {
+              "child": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "predicate": {
+                    "type": "autumnity:snail"
+                  },
+                  "entity": "this"
+                }
+              ]
+            }
+          },
+          "autumnity:turkey": {
+            "trigger": "minecraft:bred_animals",
+            "conditions": {
+              "child": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "predicate": {
+                    "type": "autumnity:turkey"
+                  },
+                  "entity": "this"
+                }
+              ]
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:snail"
+          ],
+          [
+            "autumnity:turkey"
+          ]
+        ]
+      }
+    }
+  ]
+}

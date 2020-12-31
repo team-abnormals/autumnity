@@ -1,4 +1,4 @@
-package com.minecraftabnormals.autumnity.common.world.biome;
+package com.minecraftabnormals.autumnity.core.other;
 
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.autumnity.core.Autumnity;
@@ -64,7 +64,7 @@ public class AutumnityBiomeFeatures {
 			}
 
 			if (DataUtil.matchesKeys(biome, AutumnityBiomes.PUMPKIN_FIELDS.getKey())) {
-				DefaultBiomeFeatures.withPlainGrassVegetation(generation);
+				DefaultBiomeFeatures.withNoiseTallGrass(generation);
 				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PUMPKIN_FIELDS_VEGETATION);
 				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.FLOWER_PUMPKIN_FIELDS);
 				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_GRASS_PUMPKIN_FIELDS);

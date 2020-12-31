@@ -38,7 +38,7 @@ public class Autumnity {
 			modEventBus.addListener(this::clientSetup);
 		});
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
 	}
 
 	private void commonSetup(final FMLCommonSetupEvent event) {

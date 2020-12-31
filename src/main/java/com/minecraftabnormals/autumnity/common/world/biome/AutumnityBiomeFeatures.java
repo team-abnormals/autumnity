@@ -2,7 +2,7 @@ package com.minecraftabnormals.autumnity.common.world.biome;
 
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.autumnity.core.Autumnity;
-import com.minecraftabnormals.autumnity.core.Config;
+import com.minecraftabnormals.autumnity.core.AutumnityConfig;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
@@ -72,11 +72,11 @@ public class AutumnityBiomeFeatures {
 			}
 		}
 
-		if (Config.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
+		if (AutumnityConfig.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
 			generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE);
 		}
 
-		if (Config.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
+		if (AutumnityConfig.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
 			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
 		}
 	}

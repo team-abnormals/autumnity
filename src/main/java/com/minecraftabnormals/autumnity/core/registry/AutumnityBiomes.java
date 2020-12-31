@@ -3,7 +3,7 @@ package com.minecraftabnormals.autumnity.core.registry;
 import com.minecraftabnormals.abnormals_core.core.util.BiomeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BiomeSubRegistryHelper;
 import com.minecraftabnormals.autumnity.core.Autumnity;
-import com.minecraftabnormals.autumnity.core.Config;
+import com.minecraftabnormals.autumnity.core.AutumnityConfig;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.*;
@@ -22,8 +22,8 @@ public class AutumnityBiomes {
 	public static final BiomeSubRegistryHelper.KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", () -> createPumpkinFieldsBiome());
 
 	public static void addBiomesToGeneration() {
-		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.getKey(), Config.COMMON.mapleForestWeight.get()));
-		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.getKey(), Config.COMMON.pumpkinFieldsWeight.get()));
+		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(MAPLE_FOREST.getKey(), AutumnityConfig.COMMON.mapleForestWeight.get()));
+		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(PUMPKIN_FIELDS.getKey(), AutumnityConfig.COMMON.pumpkinFieldsWeight.get()));
 
 		BiomeUtil.addHillBiome(MAPLE_FOREST.getKey(), Pair.of(MAPLE_FOREST_HILLS.getKey(), 1));
 		BiomeUtil.addHillBiome(PUMPKIN_FIELDS.getKey(), Pair.of(MAPLE_FOREST.getKey(), 2), Pair.of(MAPLE_FOREST_HILLS.getKey(), 1));

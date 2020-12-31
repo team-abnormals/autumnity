@@ -6,7 +6,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 
-public class Config {
+public class AutumnityConfig {
 	public static class Common {
 		public final ForgeConfigSpec.ConfigValue<List<String>> snailSpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
@@ -34,10 +34,10 @@ public class Config {
 	}
 
 	static final ForgeConfigSpec COMMON_SPEC;
-	public static final Config.Common COMMON;
+	public static final AutumnityConfig.Common COMMON;
 
 	static {
-		final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Config.Common::new);
+		final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(AutumnityConfig.Common::new);
 		COMMON_SPEC = specPair.getRight();
 		COMMON = specPair.getLeft();
 	}

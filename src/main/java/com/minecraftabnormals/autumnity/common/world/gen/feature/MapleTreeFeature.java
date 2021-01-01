@@ -96,12 +96,12 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig> {
 
 	private void placeLeafAt(IWorldGenerationReader world, BlockPos pos, Random rand, BaseTreeFeatureConfig config) {
 		if (isAirOrLeaves(world, pos)) {
-			this.setLogState(world, pos, config.leavesProvider.getBlockState(rand, pos).with(LeavesBlock.DISTANCE, 1));
+			this.setLogState(world, pos, config.leavesProvider.getBlockState(rand, pos));
 		}
 	}
 
 	protected final void setLogState(IWorldWriter worldIn, BlockPos pos, BlockState state) {
-		worldIn.setBlockState(pos, state, 18);
+		worldIn.setBlockState(pos, state, 19);
 	}
 
 	public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {

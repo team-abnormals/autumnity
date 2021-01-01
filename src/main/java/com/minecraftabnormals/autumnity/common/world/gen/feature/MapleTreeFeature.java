@@ -1,11 +1,13 @@
 package com.minecraftabnormals.autumnity.common.world.gen.feature;
 
+import java.util.Random;
+
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -18,8 +20,6 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.IPlantable;
-
-import java.util.Random;
 
 public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig> {
 	public MapleTreeFeature(Codec<BaseTreeFeatureConfig> config) {

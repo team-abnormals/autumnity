@@ -8,6 +8,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -96,7 +97,7 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig> {
 
 	private void placeLeafAt(IWorldGenerationReader world, BlockPos pos, Random rand, BaseTreeFeatureConfig config) {
 		if (isAirOrLeaves(world, pos)) {
-			this.setLogState(world, pos, config.leavesProvider.getBlockState(rand, pos));
+			this.setLogState(world, pos, config.leavesProvider.getBlockState(rand, pos).with(LeavesBlock.DISTANCE, 1));
 		}
 	}
 

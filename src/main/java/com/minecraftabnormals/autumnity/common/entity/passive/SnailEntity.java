@@ -277,8 +277,8 @@ public class SnailEntity extends AnimalEntity {
 							this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack1);
 							this.setEatingTime(192);
 							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayerEntity) player, itemstack1);
+							this.consumeItemFromStack(player, itemstack);
 						}
-						this.consumeItemFromStack(player, itemstack);
 						return ActionResultType.func_233537_a_(world.isRemote());
 					}
 				} else if (this.isSnailBreedingItem(itemstack)) {

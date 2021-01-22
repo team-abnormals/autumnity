@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
+import net.minecraftforge.common.ForgeMod;
 
 public class AutumnityTags {
 	public static final INamedTag<Block> SNAIL_BLOCK_FOODS = BlockTags.makeWrapperTag(Autumnity.MOD_ID + ":snail_foods");
@@ -19,4 +20,6 @@ public class AutumnityTags {
 	public static final INamedTag<Item> SNAIL_SPEEDING_FOODS = ItemTags.makeWrapperTag(Autumnity.MOD_ID + ":snail_speeding_foods");
 
 	public static final INamedTag<Item> TURKEY_BREEDING_ITEMS = ItemTags.makeWrapperTag(Autumnity.MOD_ID + ":turkey_breeding_items");
+
+	public static final INamedTag<Item> KNIVES = ItemTags.makeWrapperTag("farmersdelight:tools/knives");
 }

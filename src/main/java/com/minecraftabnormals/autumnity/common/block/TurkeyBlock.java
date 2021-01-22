@@ -3,6 +3,7 @@ package com.minecraftabnormals.autumnity.common.block;
 import com.minecraftabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
 import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
+import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
@@ -11,7 +12,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,6 +31,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.ModList;
 
 import java.util.Random;
 
@@ -111,7 +113,7 @@ public class TurkeyBlock extends FallingBlock {
 
 	private ActionResultType eatTurkey(World worldIn, BlockPos pos, BlockState state, PlayerEntity player, ItemStack itemstack, Hand hand) {
 		int i = state.get(CHUNKS);
-		boolean flag = itemstack.getItem() instanceof AxeItem;
+		boolean flag = ModList.get().isLoaded("farmersdelight") ? itemstack.getItem().isIn(AutumnityTags.KNIVES) : itemstack.getItem().getToolTypes(itemstack).contains(ToolType.AXE);
 		if (player.canEat(false) || flag) {
 			if (flag) {
 				spawnAsEntity(worldIn, pos, new ItemStack(this.getLeg()));
@@ -125,7 +127,7 @@ public class TurkeyBlock extends FallingBlock {
 				this.restoreHunger(worldIn, player);
 			}
 			if (i < 4) {
-				worldIn.setBlockState(pos, state.with(CHUNKS, Integer.valueOf(i + 1)), 3);
+				worldIn.setBlockState(pos, state.with(CHUNKS, i + 1), 3);
 			} else {
 				worldIn.removeBlock(pos, false);
 			}

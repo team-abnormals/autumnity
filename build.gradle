@@ -63,6 +63,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
     implementation fg.deobf("curse.maven:abnormals_core-382216:${project.abnormalsCore}")
     implementation fg.deobf("curse.maven:jei-238222:3109181")
+    implementation fg.deobf("curse.maven:quark-243121:3177615")
+    implementation fg.deobf("curse.maven:autoreglib-250363:3128555")
 }
 
 repositories {

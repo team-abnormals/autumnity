@@ -85,7 +85,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
 		int i = state.get(AGE);
 		if (i < 3 && state.get(HALF) == DoubleBlockHalf.LOWER && worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
-			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
+			worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
 			setHalfState(worldIn, pos, state, i + 1);
 
 			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
@@ -95,7 +95,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get() && entityIn.getType() != AutumnityEntities.TURKEY.get()) {
 			LivingEntity livingentity = ((LivingEntity) entityIn);
-			livingentity.setMotionMultiplier(state, new Vector3d((double) 0.8F, 0.75D, (double) 0.8F));
+			livingentity.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
 			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON) && !livingentity.isSneaking()) {
 				livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 120));
 			}
@@ -109,8 +109,8 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			return ActionResultType.PASS;
 		} else if (i > 1) {
 			spawnAsEntity(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
-			worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
-			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i - 1)), 2);
+			worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
+			worldIn.setBlockState(pos, state.with(AGE, i - 1), 2);
 			setHalfState(worldIn, pos, state, i - 1);
 			return ActionResultType.SUCCESS;
 		} else {
@@ -123,8 +123,8 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	}
 
 	public void placeAt(IWorld worldIn, BlockPos pos, int age, int flags) {
-		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, Integer.valueOf(age)), flags);
-		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(AGE, Integer.valueOf(age)), flags);
+		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, age), flags);
+		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(AGE, age), flags);
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
@@ -141,7 +141,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 
 	public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 		int i = Math.min(3, state.get(AGE) + 1);
-		worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i)), 2);
+		worldIn.setBlockState(pos, state.with(AGE, i), 2);
 		setHalfState(worldIn, pos, state, i);
 	}
 
@@ -165,7 +165,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	@Override
 	public PathNodeType getAiPathNodeType(BlockState state, IBlockReader world, BlockPos pos, @Nullable MobEntity entity) {
 		if (!(entity instanceof SnailEntity) && !(entity instanceof TurkeyEntity)) {
-			return PathNodeType.DANGER_OTHER;
+			return PathNodeType.DAMAGE_OTHER;
 		}
 		return super.getAiPathNodeType(state, world, pos, entity);
 	}

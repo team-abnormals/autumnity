@@ -115,7 +115,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable {
 	@Override
 	public PathNodeType getAiPathNodeType(BlockState state, IBlockReader world, BlockPos pos, @Nullable MobEntity entity) {
 		if (!(entity instanceof SnailEntity) && !(entity instanceof TurkeyEntity)) {
-			return PathNodeType.DANGER_OTHER;
+			return PathNodeType.DAMAGE_OTHER;
 		}
 		return super.getAiPathNodeType(state, world, pos, entity);
 	}

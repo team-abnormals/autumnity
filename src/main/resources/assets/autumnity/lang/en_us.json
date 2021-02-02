@@ -103,6 +103,7 @@
   "entity.autumnity.boat": "Boat",
   "entity.autumnity.snail": "Snail",
   "entity.autumnity.turkey": "Turkey",
+  "entity.autumnity.turkey_egg": "Thrown Turkey Egg",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extension",

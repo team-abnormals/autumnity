@@ -35,8 +35,8 @@
   
   "block.autumnity.maple_log": "단풍나무 원목",
   "block.autumnity.maple_wood": "단풍나무",
-  "block.autumnity.stripped_maple_log": "껍질을 벗긴 단풍나무 원목",
-  "block.autumnity.stripped_maple_wood": "껍질을 벗긴 단풍나무",
+  "block.autumnity.stripped_maple_log": "껍질 벗긴 단풍나무 원목",
+  "block.autumnity.stripped_maple_wood": "껍질 벗긴 단풍나무",
   "_comment": "Refers to the sap dripping out of the wood",
   "block.autumnity.sappy_maple_log": "수액이 많은 단풍나무 원목",
   "block.autumnity.sappy_maple_wood": "수액이 많은 단풍나무",

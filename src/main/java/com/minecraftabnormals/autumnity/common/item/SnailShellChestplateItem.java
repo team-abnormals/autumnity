@@ -46,7 +46,6 @@ public class SnailShellChestplateItem extends ArmorItem {
 
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(StringTextComponent.EMPTY);
 		tooltip.add((new TranslationTextComponent("item.autumnity.snail_shell_chestplate.whenSneaking").mergeStyle(TextFormatting.GRAY)));
 		tooltip.add(new TranslationTextComponent(Effects.RESISTANCE.getName()).mergeStyle(TextFormatting.BLUE).appendString(" ").append(new TranslationTextComponent("potion.potency.2").mergeStyle(TextFormatting.BLUE)));
 		tooltip.add((new TranslationTextComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.getId(), ItemStack.DECIMALFORMAT.format(10), new TranslationTextComponent(Attributes.KNOCKBACK_RESISTANCE.getAttributeName()))).mergeStyle(TextFormatting.BLUE));

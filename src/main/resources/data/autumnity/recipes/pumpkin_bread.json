@@ -18,5 +18,14 @@
   "result": {
     "item": "autumnity:pumpkin_bread",
     "count": 2
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "abnormals_delight"
+      }
+    }
+  ]
 }

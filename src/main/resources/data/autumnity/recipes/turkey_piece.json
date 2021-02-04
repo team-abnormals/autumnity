@@ -8,5 +8,14 @@
   "result": {
     "item": "autumnity:turkey_piece",
     "count": 5
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "abnormals_delight"
+      }
+    }
+  ]
 }

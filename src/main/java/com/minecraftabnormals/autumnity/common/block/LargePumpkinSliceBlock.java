@@ -1,6 +1,7 @@
 package com.minecraftabnormals.autumnity.common.block;
 
 import com.minecraftabnormals.autumnity.common.block.properties.CarvedSide;
+import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.ModList;
 
 public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	public LargePumpkinSliceBlock(Properties properties) {
@@ -28,7 +30,7 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (itemstack.getItem() == Items.SHEARS) {
+		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.getItem().isIn(AutumnityTags.KNIVES))) {
 			Direction direction = hit.getFace();
 			Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : hit.getFace();
 			Direction direction2 = state.get(FACING);
@@ -38,7 +40,7 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 					CarvedSide carvedside = CarvedSide.getCarvedSide(direction1.getAxis());
 					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState().with(CarvedLargePumpkinSliceBlock.FACING, direction2).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
 
-					worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					worldIn.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					worldIn.setBlockState(pos, blockstate, 11);
 					ItemEntity itementity = new ItemEntity(worldIn, (double) pos.getX() + 0.5D + (double) direction1.getXOffset() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) direction1.getZOffset() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
 					itementity.setMotion(0.05D * (double) direction1.getXOffset() + worldIn.rand.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction1.getZOffset() + worldIn.rand.nextDouble() * 0.02D);

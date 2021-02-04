@@ -104,7 +104,7 @@ public class FoulBerryBushBlock extends BushBlock implements IGrowable {
 
 	public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 		if (state.get(AGE) == 0) {
-			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
+			worldIn.setBlockState(pos, state.with(AGE, 1), 2);
 		} else if (worldIn.isAirBlock(pos.up())) {
 			TallFoulBerryBushBlock tallfoulberrybush = (TallFoulBerryBushBlock) AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get();
 			tallfoulberrybush.placeAt(worldIn, pos, 0, 2);

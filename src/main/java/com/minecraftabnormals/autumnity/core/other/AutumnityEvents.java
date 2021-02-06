@@ -1,5 +1,7 @@
 package com.minecraftabnormals.autumnity.core.other;
 
+import java.util.UUID;
+
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil.AbnormalsTrade;
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
@@ -10,7 +12,12 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.block.*;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CakeBlock;
+import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -27,18 +34,27 @@ import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.*;
+import net.minecraft.item.Food;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.SuspiciousStewItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.EntityPredicates;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -47,8 +63,6 @@ import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityEvents {
@@ -221,6 +235,19 @@ public class AutumnityEvents {
 		}
 	}
 
+	@SubscribeEvent
+	public static void onPotionAdded(PotionEvent.PotionAddedEvent event) {
+		LivingEntity livingentity = event.getEntityLiving();
+		EffectInstance effect = event.getPotionEffect();
+		EffectInstance extension = livingentity.getActivePotionEffect(AutumnityEffects.EXTENSION.get());
+		
+		if (extension != null) {
+			if (effect.getPotion() != AutumnityEffects.EXTENSION.get()) {
+				effect.combine(new EffectInstance(effect.getPotion(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.doesShowParticles(), effect.isShowIcon()));
+			}
+		}
+	}
+	
 	public static void updateFoulTaste(PlayerEntity player) {
 		EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
 

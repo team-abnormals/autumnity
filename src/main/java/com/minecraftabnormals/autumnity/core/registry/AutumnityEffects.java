@@ -14,6 +14,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class AutumnityEffects {
 	public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, Autumnity.MOD_ID);
 
-	public static final RegistryObject<Effect> EXTENSION = EFFECTS.register("extension", ExtensionEffect::new);
+	public static final RegistryObject<Effect> EXTENSION = EFFECTS.register("extension", () -> new AbnormalsEffect(EffectType.BENEFICIAL, 16767620));
 	public static final RegistryObject<Effect> FOUL_TASTE = EFFECTS.register("foul_taste", () -> new AbnormalsEffect(EffectType.BENEFICIAL, 15363616));
 }

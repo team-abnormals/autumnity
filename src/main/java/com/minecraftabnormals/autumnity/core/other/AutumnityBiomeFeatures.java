@@ -1,11 +1,15 @@
 package com.minecraftabnormals.autumnity.core.other;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.minecraftabnormals.autumnity.core.AutumnityConfig;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
+
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -71,13 +75,34 @@ public class AutumnityBiomeFeatures {
 				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_PUMPKINS_PUMPKIN_FIELDS);
 			}
 		}
-
-		if (AutumnityConfig.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
-			generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE);
+		else {
+			if (AutumnityConfig.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
+			}
+			
+			if (AutumnityConfig.COMMON.turkeySpawnBiomes.get().contains(biome.toString())) {
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.TURKEY.get(), 10, 4, 4));
+			}
+			
+			if (AutumnityConfig.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE);
+			}
 		}
-
-		if (AutumnityConfig.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
-			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
+		
+		removeSpawns(event);
+	}
+	
+	private static void removeSpawns(BiomeLoadingEvent event) {
+		MobSpawnInfoBuilder spawns = event.getSpawns();
+		List<MobSpawnInfo.Spawners> entrysToRemove = new ArrayList<>();
+		for (MobSpawnInfo.Spawners entry : spawns.getSpawner(EntityClassification.CREATURE)) {
+			if (AutumnityConfig.COMMON.turkeySpawnBiomes.get().contains(event.getName().toString())) {
+				if (entry.type == EntityType.CHICKEN) {
+					entrysToRemove.add(entry);
+				}
+			}
 		}
+		;
+		spawns.getSpawner(EntityClassification.CREATURE).removeAll(entrysToRemove);
 	}
 }

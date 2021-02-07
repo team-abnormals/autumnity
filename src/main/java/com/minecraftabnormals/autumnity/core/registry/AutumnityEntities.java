@@ -9,6 +9,7 @@ import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
 import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
 import com.minecraftabnormals.autumnity.common.entity.projectile.TurkeyEggEntity;
 import com.minecraftabnormals.autumnity.core.Autumnity;
+
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;

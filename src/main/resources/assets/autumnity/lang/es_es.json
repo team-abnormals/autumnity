@@ -103,6 +103,7 @@
   "entity.autumnity.boat": "Barca",
   "entity.autumnity.snail": "Caracol",
   "entity.autumnity.turkey": "Pavo",
+  "entity.autumnity.turkey_egg": "Huevo de pavo lanzado",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Extensión",

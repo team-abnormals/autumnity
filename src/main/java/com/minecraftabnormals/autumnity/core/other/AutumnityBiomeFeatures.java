@@ -9,6 +9,7 @@ import com.minecraftabnormals.autumnity.core.AutumnityConfig;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -48,6 +49,7 @@ public class AutumnityBiomeFeatures {
 			DefaultBiomeFeatures.withFrozenTopLayer(generation);
 
 			generation.withStructure(StructureFeatures.RUINED_PORTAL);
+			generation.withStructure(AutumnityStructures.Configured.MAPLE_WITCH_HUT);
 
 			DefaultBiomeFeatures.withBatsAndHostiles(spawns);
 			spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 16, 2, 2));

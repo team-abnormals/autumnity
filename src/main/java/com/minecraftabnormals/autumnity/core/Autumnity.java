@@ -3,7 +3,16 @@ package com.minecraftabnormals.autumnity.core;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.autumnity.core.other.AutumnityClient;
 import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
-import com.minecraftabnormals.autumnity.core.registry.*;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityBanners;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityPaintings;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityParticles;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityPotions;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -29,6 +38,7 @@ public class Autumnity {
 		AutumnityEffects.EFFECTS.register(modEventBus);
 		AutumnityPotions.POTIONS.register(modEventBus);
 		AutumnityFeatures.FEATURES.register(modEventBus);
+		AutumnityStructures.STRUCTURES.register(modEventBus);
 		AutumnityParticles.PARTICLES.register(modEventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
@@ -52,6 +62,8 @@ public class Autumnity {
 			AutumnityBiomes.addBiomeTypes();
 			AutumnityBiomes.addBiomesToGeneration();
 			AutumnityFeatures.Configured.registerConfiguredFeatures();
+			AutumnityStructures.Configured.registerConfiguredStructureFeatures();
+			AutumnityStructures.registerNoiseSettings();;
 			AutumnityEntities.registerSpawns();
 			AutumnityEntities.registerAttributes();
 		});

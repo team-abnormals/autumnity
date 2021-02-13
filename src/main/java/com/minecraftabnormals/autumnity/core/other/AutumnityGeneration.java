@@ -25,7 +25,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Autumnity.MOD_ID)
-public class AutumnityBiomeFeatures {
+public class AutumnityGeneration {
 
 	@SubscribeEvent
 	public static void onBiomeLoad(BiomeLoadingEvent event) {

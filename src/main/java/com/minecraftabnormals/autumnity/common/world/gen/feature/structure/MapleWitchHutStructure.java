@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -54,8 +55,9 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 
 		public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
 			Rotation rotation = Rotation.randomRotation(this.rand);
+			Mirror mirror = this.rand.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
 			BlockPos blockpos = new BlockPos(p_230364_4_ * 16, 90, p_230364_5_ * 16);
-			MapleWitchHutPieces.func_204760_a(p_230364_3_, blockpos, rotation, this.components, this.rand);
+			MapleWitchHutPieces.func_204760_a(p_230364_3_, blockpos, rotation, mirror, this.components, this.rand);
 			this.recalculateStructureSize();
 		}
 	}

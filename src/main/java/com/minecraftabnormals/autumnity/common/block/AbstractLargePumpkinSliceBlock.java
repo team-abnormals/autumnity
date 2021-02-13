@@ -40,11 +40,25 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 		return hitFace == facing || hitFace == facing.rotateYCCW();
 	}
 
+	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.with(FACING, rot.rotate(state.get(FACING)));
 	}
 
+	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+		Direction.Axis axis = state.get(FACING).getAxis();
+
+		if (mirrorIn != Mirror.NONE) {
+			if ((mirrorIn == Mirror.FRONT_BACK && axis == Direction.Axis.X) || (mirrorIn == Mirror.LEFT_RIGHT && axis == Direction.Axis.Z)) {
+				return state.rotate(Rotation.COUNTERCLOCKWISE_90);
+			}
+			else {
+				return state.rotate(Rotation.CLOCKWISE_90);
+			}
+		}
+		else {
+			return state;
+		}
 	}
 }

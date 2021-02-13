@@ -41,6 +41,7 @@ public class AutumnityStructures {
 	}
 	
 	public static void registerNoiseSettings() {
+		Structure.NAME_STRUCTURE_BIMAP.put("maple_witch_hut", MAPLE_WITCH_HUT.get());
 		WorldGenRegistries.NOISE_SETTINGS.forEach(settings -> {
 			settings.getStructures().func_236195_a_().put(AutumnityStructures.MAPLE_WITCH_HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
 		});

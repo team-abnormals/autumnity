@@ -1,10 +1,12 @@
 package com.minecraftabnormals.autumnity.core;
 
-import com.google.common.collect.Lists;
-import net.minecraftforge.common.ForgeConfigSpec;
+import java.util.List;
+
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.List;
+import com.google.common.collect.Lists;
+
+import net.minecraftforge.common.ForgeConfigSpec;
 
 public class AutumnityConfig {
 	public static class Common {
@@ -14,6 +16,8 @@ public class AutumnityConfig {
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestHillsWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
+		public final ForgeConfigSpec.ConfigValue<Boolean> yellowSpottedForest;
+		public final ForgeConfigSpec.ConfigValue<Boolean> redSpottedTaiga;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			builder.comment("Common configurations for Autumnity")
@@ -44,6 +48,8 @@ public class AutumnityConfig {
 					.comment("A list of biomes where green maple trees can generate naturally.",
 							"The list does not include biomes from this mod.")
 					.define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
+			yellowSpottedForest = builder.define("Yellow Spotted Forest", true);
+			redSpottedTaiga = builder.define("Red Spoted Taiga", true);
 			builder.pop();
 		}
 	}

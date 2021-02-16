@@ -78,22 +78,75 @@ public class AutumnityGeneration {
 			}
 		}
 		else {
+			if (DataUtil.matchesKeys(biome, AutumnityBiomes.YELLOW_SPOTTED_FOREST.getKey())) {
+				DefaultBiomeFeatures.withCavesAndCanyons(generation);
+				DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
+				DefaultBiomeFeatures.withMonsterRoom(generation);
+				DefaultBiomeFeatures.withAllForestFlowerGeneration(generation);
+				DefaultBiomeFeatures.withCommonOverworldBlocks(generation);
+				DefaultBiomeFeatures.withOverworldOres(generation);
+				DefaultBiomeFeatures.withDisks(generation);
+				DefaultBiomeFeatures.withDefaultFlowers(generation);
+				DefaultBiomeFeatures.withForestGrass(generation);
+				DefaultBiomeFeatures.withNormalMushroomGeneration(generation);
+				DefaultBiomeFeatures.withSugarCaneAndPumpkins(generation);
+				DefaultBiomeFeatures.withLavaAndWaterSprings(generation);
+				DefaultBiomeFeatures.withFrozenTopLayer(generation);
+
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE_YELLOW_SPOTTED_FOREST);
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.YELLOW_SPOTTED_FOREST_VEGETATION);
+
+				generation.withStructure(StructureFeatures.RUINED_PORTAL);
+
+				DefaultBiomeFeatures.withBatsAndHostiles(spawns);
+				DefaultBiomeFeatures.withPassiveMobs(spawns);
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 5, 4, 4));
+			}
+			else if (DataUtil.matchesKeys(biome, AutumnityBiomes.RED_SPOTTED_TAIGA.getKey())) {
+				DefaultBiomeFeatures.withCavesAndCanyons(generation);
+				DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
+				DefaultBiomeFeatures.withMonsterRoom(generation);
+				DefaultBiomeFeatures.withLargeFern(generation);
+				DefaultBiomeFeatures.withCommonOverworldBlocks(generation);
+				DefaultBiomeFeatures.withOverworldOres(generation);
+				DefaultBiomeFeatures.withDisks(generation);
+				DefaultBiomeFeatures.withDefaultFlowers(generation);
+				DefaultBiomeFeatures.withTaigaGrassVegetation(generation);
+				DefaultBiomeFeatures.withNormalMushroomGeneration(generation);
+				DefaultBiomeFeatures.withSugarCaneAndPumpkins(generation);
+				DefaultBiomeFeatures.withLavaAndWaterSprings(generation);
+				DefaultBiomeFeatures.withSparseBerries(generation);
+				DefaultBiomeFeatures.withFrozenTopLayer(generation);
+
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.RED_SPOTTED_TAIGA_VEGETATION);
+
+				generation.withStructure(StructureFeatures.RUINED_PORTAL);
+				generation.withStructure(StructureFeatures.VILLAGE_TAIGA);
+				generation.withStructure(StructureFeatures.PILLAGER_OUTPOST);
+
+				DefaultBiomeFeatures.withBatsAndHostiles(spawns);
+				DefaultBiomeFeatures.withPassiveMobs(spawns);
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 8, 4, 4));
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
+				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
+			}
+
 			if (AutumnityConfig.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
 				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
 			}
-			
+
 			if (AutumnityConfig.COMMON.turkeySpawnBiomes.get().contains(biome.toString())) {
 				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.TURKEY.get(), 10, 4, 4));
 			}
-			
+
 			if (AutumnityConfig.COMMON.mapleTreeBiomes.get().contains(biome.toString())) {
 				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.MAPLE_TREE);
 			}
 		}
-		
+
 		removeSpawns(event);
 	}
-	
+
 	private static void removeSpawns(BiomeLoadingEvent event) {
 		MobSpawnInfoBuilder spawns = event.getSpawns();
 		List<MobSpawnInfo.Spawners> entrysToRemove = new ArrayList<>();

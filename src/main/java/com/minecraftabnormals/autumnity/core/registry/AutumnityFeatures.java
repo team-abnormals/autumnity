@@ -75,15 +75,20 @@ public class AutumnityFeatures {
 
 	public static final class Configured {
 		public static final ConfiguredFeature<?, ?> MAPLE_TREE_GREEN = AutumnityFeatures.MAPLE_TREE.get().withConfiguration(Configs.MAPLE_TREE_CONFIG);
-		public static final ConfiguredFeature<?, ?> MAPLE_TREE_YELLOW = AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(Configs.YELLOW_MAPLE_TREE_CONFIG);
-		public static final ConfiguredFeature<?, ?> MAPLE_TREE_ORANGE = AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(Configs.ORANGE_MAPLE_TREE_CONFIG);
+		public static final ConfiguredFeature<?, ?> MAPLE_TREE_YELLOW = AutumnityFeatures.MAPLE_TREE.get().withConfiguration(Configs.YELLOW_MAPLE_TREE_CONFIG);
+		public static final ConfiguredFeature<?, ?> FALLEN_LEAVES_MAPLE_TREE_YELLOW = AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(Configs.YELLOW_MAPLE_TREE_CONFIG);
+		public static final ConfiguredFeature<?, ?> MAPLE_TREE_ORANGE = AutumnityFeatures.MAPLE_TREE.get().withConfiguration(Configs.ORANGE_MAPLE_TREE_CONFIG);
+		public static final ConfiguredFeature<?, ?> FALLEN_LEAVES_MAPLE_TREE_ORANGE = AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get().withConfiguration(Configs.ORANGE_MAPLE_TREE_CONFIG);
 		public static final ConfiguredFeature<?, ?> MAPLE_TREE_RED = AutumnityFeatures.MAPLE_TREE.get().withConfiguration(Configs.RED_MAPLE_TREE_CONFIG);
 		public static final ConfiguredFeature<?, ?> MAPLE_TREE = MAPLE_TREE_GREEN.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.01F, 1)));
+		public static final ConfiguredFeature<?, ?> MAPLE_TREE_YELLOW_SPOTTED_FOREST = MAPLE_TREE_YELLOW.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.01F, 1)));
 
 		public static final ConfiguredFeature<?, ?> FALLEN_LEAVES = AutumnityFeatures.FALLEN_LEAVES.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT.chance(32));
-		public static final ConfiguredFeature<?, ?> MAPLE_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Features.HUGE_BROWN_MUSHROOM.withChance(0.025F), Features.HUGE_RED_MUSHROOM.withChance(0.05F), MAPLE_TREE_RED.withChance(0.3F), MAPLE_TREE_ORANGE.withChance(0.4F), MAPLE_TREE_YELLOW.withChance(0.2F)), MAPLE_TREE_GREEN)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT);
+		public static final ConfiguredFeature<?, ?> MAPLE_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Features.HUGE_BROWN_MUSHROOM.withChance(0.025F), Features.HUGE_RED_MUSHROOM.withChance(0.05F), MAPLE_TREE_RED.withChance(0.3F), FALLEN_LEAVES_MAPLE_TREE_ORANGE.withChance(0.4F), FALLEN_LEAVES_MAPLE_TREE_YELLOW.withChance(0.2F)), MAPLE_TREE_GREEN)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT);
 		public static final ConfiguredFeature<?, ?> MAPLE_FOREST_VEGETATION = MAPLE_VEGETATION.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
 		public static final ConfiguredFeature<?, ?> PUMPKIN_FIELDS_VEGETATION = MAPLE_VEGETATION.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1)));
+		public static final ConfiguredFeature<?, ?> YELLOW_SPOTTED_FOREST_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(MAPLE_TREE_YELLOW.withChance(0.05F), Features.BIRCH_BEES_0002.withChance(0.2F), Features.FANCY_OAK_BEES_0002.withChance(0.1F)), Features.OAK_BEES_0002)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
+		public static final ConfiguredFeature<?, ?> RED_SPOTTED_TAIGA_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(MAPLE_TREE_RED.withChance(0.1F), Features.PINE.withChance(0.33333334F)), Features.SPRUCE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
 
 		public static final ConfiguredFeature<?, ?> PATCH_ROSE_BUSH = Feature.RANDOM_PATCH.withConfiguration(Configs.ROSE_BUSH_CONFIG);
 		public static final ConfiguredFeature<?, ?> PATCH_FOUL_BERRY_BUSH = Feature.RANDOM_PATCH.withConfiguration(Configs.TALL_FOUL_BERRY_BUSH_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).chance(1);
@@ -104,14 +109,19 @@ public class AutumnityFeatures {
 		public static void registerConfiguredFeatures() {
 			register("maple_tree_green", MAPLE_TREE_GREEN);
 			register("maple_tree_yellow", MAPLE_TREE_YELLOW);
+			register("fallen_leaves_maple_tree_yellow", FALLEN_LEAVES_MAPLE_TREE_YELLOW);
 			register("maple_tree_orange", MAPLE_TREE_ORANGE);
+			register("fallen_leaves_maple_tree_orange", FALLEN_LEAVES_MAPLE_TREE_ORANGE);
 			register("maple_tree_red", MAPLE_TREE_RED);
 			register("maple_tree", MAPLE_TREE);
+			register("maple_tree_yellow_spotted_forest", MAPLE_TREE_YELLOW_SPOTTED_FOREST);
 
 			register("fallen_leaves", FALLEN_LEAVES);
 			register("maple_vegetation", MAPLE_VEGETATION);
 			register("maple_forest_vegetation", MAPLE_FOREST_VEGETATION);
 			register("pumpkin_fields_vegetation", PUMPKIN_FIELDS_VEGETATION);
+			register("yellow_spotted_forest_vegetation", YELLOW_SPOTTED_FOREST_VEGETATION);
+			register("red_spotted_taiga_vegetation", RED_SPOTTED_TAIGA_VEGETATION);
 
 			register("patch_rose_bush", PATCH_ROSE_BUSH);
 			register("patch_grass_foul_berry_bush", PATCH_FOUL_BERRY_BUSH);

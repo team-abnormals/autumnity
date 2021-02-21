@@ -24,6 +24,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.SoupItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
@@ -69,6 +70,7 @@ public class SnailEntity extends AnimalEntity {
 	private int shakeTicks;
 	private int prevShakeTicks;
 
+	// This exists so snails would work with Quark feeding troughs
 	private boolean canBreed = true;
 
 	private static final Predicate<LivingEntity> ENEMY_MATCHER = (livingentity) -> {
@@ -288,17 +290,28 @@ public class SnailEntity extends AnimalEntity {
 						this.setInLove(player);
 						flag = true;
 					}
-
-					if (this.isChild()) {
+					else if (this.isChild()) {
 						this.ageUp((int) ((float) (-this.getGrowingAge() / 20) * 0.1F), true);
 						flag = true;
 					}
 
 					if (flag) {
-						if (!this.world.isRemote) {
-							ItemStack itemstack1 = itemstack.onItemUseFinish(this.world, this);
-							if (!player.abilities.isCreativeMode && !itemstack1.isEmpty()) {
-								player.setHeldItem(hand, itemstack1);
+						if (!this.world.isRemote && !player.abilities.isCreativeMode) {
+							ItemStack container = itemstack.getContainerItem();
+							if (container.isEmpty() && itemstack.getItem() instanceof SoupItem)
+								container = new ItemStack(Items.BOWL);
+
+							itemstack.shrink(1);
+
+							if (!container.isEmpty()) {
+								if (itemstack.isEmpty()) {
+									player.setHeldItem(hand, container);
+								}
+								else {
+									if (!player.inventory.addItemStackToInventory(container)) {
+										player.dropItem(container, false);
+									}
+								}
 							}
 						}
 

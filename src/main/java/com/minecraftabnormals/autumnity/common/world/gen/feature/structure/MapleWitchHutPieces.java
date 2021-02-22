@@ -35,7 +35,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class MapleWitchHutPieces {
-	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(0, -2, 0);
+	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(0, -3, 0);
 	private static final ResourceLocation STRUCTURE = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut1");
 
 	public static void func_204760_a(TemplateManager p_204760_0_, BlockPos p_204760_1_, Rotation p_204760_2_, Mirror p_204760_3_, List<StructurePiece> p_204760_4_, Random p_204760_5_) {

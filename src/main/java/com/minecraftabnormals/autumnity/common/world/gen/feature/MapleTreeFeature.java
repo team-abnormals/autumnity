@@ -2,6 +2,7 @@ package com.minecraftabnormals.autumnity.common.world.gen.feature;
 
 import java.util.Random;
 
+import com.minecraftabnormals.abnormals_core.core.util.TreeUtil;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
 
@@ -92,12 +93,19 @@ public class MapleTreeFeature extends Feature<BaseTreeFeatureConfig> {
 	}
 
 	private void placeLogAt(IWorldWriter worldIn, BlockPos pos, Random rand, BaseTreeFeatureConfig config) {
-		this.setLogState(worldIn, pos, config.trunkProvider.getBlockState(rand, pos));
+		BlockState logState = config.trunkProvider.getBlockState(rand, pos);
+		TreeUtil.setForcedState(worldIn, pos, logState);
 	}
 
 	private void placeLeafAt(IWorldGenerationReader world, BlockPos pos, Random rand, BaseTreeFeatureConfig config) {
 		if (isAirOrLeaves(world, pos)) {
-			this.setLogState(world, pos, config.leavesProvider.getBlockState(rand, pos).with(LeavesBlock.DISTANCE, 1));
+			if (TreeUtil.isAirOrLeaves(world, pos)) {
+				if (config.leavesProvider.getBlockState(rand, pos).hasProperty(LeavesBlock.DISTANCE)) {
+					TreeUtil.setForcedState(world, pos, config.leavesProvider.getBlockState(rand, pos).with(LeavesBlock.DISTANCE, 1));
+				} else {
+					TreeUtil.setForcedState(world, pos, config.leavesProvider.getBlockState(rand, pos));
+				}
+			}
 		}
 	}
 

@@ -49,7 +49,7 @@ public class AutumnityConfig {
 							"The list does not include biomes from this mod.")
 					.define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
 			yellowSpottedForest = builder.define("Yellow Spotted Forest", true);
-			redSpottedTaiga = builder.define("Red Spoted Taiga", true);
+			redSpottedTaiga = builder.define("Red Spotted Taiga", true);
 			builder.pop();
 		}
 	}

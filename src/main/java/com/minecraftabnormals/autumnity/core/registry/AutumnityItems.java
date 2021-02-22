@@ -14,6 +14,7 @@ import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
+import net.minecraft.item.SoupItem;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -28,6 +29,7 @@ public class AutumnityItems {
 	public static final RegistryObject<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).containerItem(Items.GLASS_BOTTLE).maxStackSize(16).group(ItemGroup.FOOD).food(AutumnityFoods.SYRUP_BOTTLE)));
 	public static final RegistryObject<Item> FOUL_BERRIES = HELPER.createItem("foul_berries", () -> new BlockNamedItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.FOUL_BERRIES)));
 	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new BlockNamedItem(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), (new Item.Properties()).group(ModList.get().isLoaded("berry_good") ? ItemGroup.MISC : null)));
+	public static final RegistryObject<Item> FOUL_SOUP = HELPER.createItem("foul_soup", () -> new SoupItem((new Item.Properties()).maxStackSize(1).group(ItemGroup.FOOD).food(AutumnityFoods.FOUL_SOUP)));
 	public static final RegistryObject<Item> PUMPKIN_BREAD = HELPER.createItem("pumpkin_bread", () -> new Item((new Item.Properties()).group(ItemGroup.FOOD).food(AutumnityFoods.PUMPKIN_BREAD)));
 
 	public static final RegistryObject<Item> SNAIL_SHELL_PIECE = HELPER.createItem("snail_shell_piece", () -> new Item((new Item.Properties()).group(ItemGroup.MATERIALS)));

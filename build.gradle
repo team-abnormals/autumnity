@@ -1,17 +1,24 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = "https://dist.creeper.host/Sponge/maven" }
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: "org.spongepowered", name: "mixingradle", version: "0.7-SNAPSHOT"
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+mixin {
+    add sourceSets.main, project.modId + '.refmap.json'
+}
 
 version = "${project.minecraft}-${project.modVersion}"
 group = "com.minecraftabnormals"
@@ -27,7 +34,8 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            property "mixin.env.disableRefMap", "true"
+            property 'mixin.env.disableRefMap', 'true'
+            arg '-mixin.config=autumnity.mixins.json'
             mods {
                 autumnity {
                     source sourceSets.main
@@ -38,7 +46,8 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            property "mixin.env.disableRefMap", "true"
+            property 'mixin.env.disableRefMap', 'true'
+            arg '-mixin.config=autumnity.mixins.json'
             mods {
                 autumnity {
                     source sourceSets.main
@@ -67,7 +76,16 @@ dependencies {
 
 repositories {
     maven {
-        url "https://www.cursemaven.com"
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.k-4u.nl"
+    }
+    maven {
+        name = "CurseForge"
+        url = "https://www.cursemaven.com"
     }
 }
 
@@ -80,7 +98,8 @@ jar {
                 "Implementation-Title"    : project.modName,
                 "Implementation-Version"  : project.modVersion,
                 "Implementation-Vendor"   : "Team Abnormals",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : project.modId + ".mixins.json"
         ])
     }
 }

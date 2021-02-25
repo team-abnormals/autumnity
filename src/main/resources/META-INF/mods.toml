@@ -24,7 +24,7 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "forge"
     mandatory = true
-    versionRange = "[34.1.42,)"
+    versionRange = "[36.0.4,)"
     ordering = "NONE"
     side = "BOTH"
 

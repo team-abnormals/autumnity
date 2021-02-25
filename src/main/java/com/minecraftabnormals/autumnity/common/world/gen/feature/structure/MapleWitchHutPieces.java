@@ -30,47 +30,59 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
 import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
+import net.minecraft.world.gen.feature.template.IntegrityProcessor;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class MapleWitchHutPieces {
-	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(0, -3, 0);
-	private static final ResourceLocation STRUCTURE = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut1");
+	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(-3, -4, 6);
+	private static final ResourceLocation STRUCTURE = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut");
+	private static final ResourceLocation STRUCTURE_OVERGROWN = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut_overgrown");
 
 	public static void func_204760_a(TemplateManager p_204760_0_, BlockPos p_204760_1_, Rotation p_204760_2_, Mirror p_204760_3_, List<StructurePiece> p_204760_4_, Random p_204760_5_) {
-		p_204760_4_.add(new MapleWitchHutPieces.Piece(p_204760_0_, p_204760_1_, p_204760_2_, p_204760_3_));
+		p_204760_4_.add(new MapleWitchHutPieces.Piece(p_204760_0_, STRUCTURE, p_204760_1_, p_204760_2_, p_204760_3_, 1.0F));
+		p_204760_4_.add(new MapleWitchHutPieces.Piece(p_204760_0_, STRUCTURE_OVERGROWN, p_204760_1_, p_204760_2_, p_204760_3_, 0.2F));
 	}
 
 	public static class Piece extends TemplateStructurePiece {
+		private final ResourceLocation structure;
 		private final Rotation rotation;
 		private final Mirror mirror;
+		private final float integrity;
 
-		public Piece(TemplateManager p_i48904_1_, BlockPos p_i48904_3_, Rotation rotationIn, Mirror mirrorIn) {
+		public Piece(TemplateManager templateManager, ResourceLocation templateIn, BlockPos templatePositionIn, Rotation rotationIn, Mirror mirrorIn, float integrityIn) {
 			super(AutumnityStructures.Pieces.MAPLE_WITCH_HUT_PIECE, 0);
-			this.templatePosition = p_i48904_3_;
+			this.structure = templateIn;
+			this.templatePosition = templatePositionIn;
 			this.rotation = rotationIn;
 			this.mirror = mirrorIn;
-			this.func_204754_a(p_i48904_1_);
+			this.integrity = integrityIn;
+			this.func_204754_a(templateManager);
 		}
 
-		public Piece(TemplateManager p_i50445_1_, CompoundNBT p_i50445_2_) {
-			super(AutumnityStructures.Pieces.MAPLE_WITCH_HUT_PIECE, p_i50445_2_);
-			this.rotation = Rotation.valueOf(p_i50445_2_.getString("Rot"));
-			this.mirror = Mirror.valueOf(p_i50445_2_.getString("Mirror"));
-			this.func_204754_a(p_i50445_1_);
+		public Piece(TemplateManager templateManager, CompoundNBT tagCompound) {
+			super(AutumnityStructures.Pieces.MAPLE_WITCH_HUT_PIECE, tagCompound);
+			this.structure = new ResourceLocation(tagCompound.getString("Template"));
+			this.rotation = Rotation.valueOf(tagCompound.getString("Rot"));
+			this.mirror = Mirror.valueOf(tagCompound.getString("Mirror"));
+			this.integrity = tagCompound.getFloat("Integrity");
+			this.func_204754_a(templateManager);
 		}
 
 		@Override
 		protected void readAdditional(CompoundNBT tagCompound) {
 			super.readAdditional(tagCompound);
+			tagCompound.putString("Template", this.structure.toString());
 			tagCompound.putString("Rot", this.rotation.name());
 			tagCompound.putString("Mirror", this.mirror.name());
+			tagCompound.putFloat("Integrity", this.integrity);
 		}
 
-		private void func_204754_a(TemplateManager p_204754_1_) {
-			Template template = p_204754_1_.getTemplateDefaulted(STRUCTURE);
-			PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(this.mirror).setCenterOffset(MapleWitchHutPieces.STRUCTURE_OFFSET).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
+		private void func_204754_a(TemplateManager templateManager) {
+			Template template = templateManager.getTemplateDefaulted(this.structure);
+			PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(this.mirror).setCenterOffset(MapleWitchHutPieces.STRUCTURE_OFFSET).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK).addProcessor(new IntegrityProcessor(this.integrity));
+
 			this.setup(template, this.templatePosition, placementsettings);
 		}
 

@@ -5,12 +5,15 @@ import com.minecraftabnormals.abnormals_core.core.util.item.filling.TargetedItem
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
@@ -29,8 +32,13 @@ public class MapleWoodBlock extends RotatedPillarBlock {
 
 	@Override
 	public BlockState getToolModifiedState(BlockState state, World world, BlockPos pos, PlayerEntity player, ItemStack stack, ToolType toolType) {
-		if (toolType == ToolType.AXE)
-			return block != null ? BlockUtil.transferAllBlockStates(state, world.getRandom().nextInt(4) == 0 ? this.sappyBlock.get().getDefaultState() : this.block.get().getDefaultState()) : null;
+		if (toolType == ToolType.AXE) {
+			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
+			float f = -1.0F / (i * (1.0F / 3.0F) + (4.0F / 3.0F)) + 1.0F;
+            player.sendStatusMessage(new StringTextComponent(Float.toString(f)), true);
+
+			return block != null ? BlockUtil.transferAllBlockStates(state, world.getRandom().nextFloat() <= f ? this.sappyBlock.get().getDefaultState() : this.block.get().getDefaultState()) : null;
+		}
 		return super.getToolModifiedState(state, world, pos, player, stack, toolType);
 	}
 

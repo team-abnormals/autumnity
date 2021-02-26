@@ -26,6 +26,8 @@ public class AutumnityClient {
 
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_DOOR.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_TRAPDOOR.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_POST.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(AutumnityBlocks.STRIPPED_MAPLE_POST.get(), RenderType.getCutoutMipped());
 
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_LEAVES.get(), RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(), RenderType.getCutoutMipped());

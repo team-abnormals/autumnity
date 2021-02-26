@@ -5,6 +5,7 @@ import com.minecraftabnormals.abnormals_core.core.util.item.filling.TargetedItem
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,10 +25,10 @@ public class MapleWoodBlock extends RotatedPillarBlock {
 	private final Supplier<Block> block;
 	private final Supplier<Block> sappyBlock;
 
-	public MapleWoodBlock(Supplier<Block> strippedBlock, Supplier<Block> sappyBlock, Properties properties) {
+	public MapleWoodBlock(Supplier<Block> strippedBlockIn, Supplier<Block> sappyBlockIn, Properties properties) {
 		super(properties);
-		this.block = strippedBlock;
-		this.sappyBlock = sappyBlock;
+		this.block = strippedBlockIn;
+		this.sappyBlock = sappyBlockIn;
 	}
 
 	@Override

@@ -2,28 +2,30 @@ package com.minecraftabnormals.autumnity.common.block;
 
 import java.util.function.Supplier;
 
-import com.minecraftabnormals.abnormals_core.core.util.item.filling.TargetedItemGroupFiller;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.WoodPostBlock;
+import com.minecraftabnormals.abnormals_core.core.util.BlockUtil;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class SappyLogBlock extends RotatedPillarBlock {
-	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.STRIPPED_WARPED_STEM);
+public class SappyPostBlock extends WoodPostBlock {
 	private final Supplier<Block> saplessBlock;
-
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties) {
+	
+	public SappyPostBlock(RegistryObject<Block> saplessBlockIn, Properties properties) {
 		super(properties);
 		this.saplessBlock = saplessBlockIn;
 	}
@@ -50,7 +52,7 @@ public class SappyLogBlock extends RotatedPillarBlock {
 					}
 
 					worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					worldIn.setBlockState(pos, saplessBlock.get().getDefaultState().with(RotatedPillarBlock.AXIS, state.get(RotatedPillarBlock.AXIS)), 11);
+					worldIn.setBlockState(pos, BlockUtil.transferAllBlockStates(state, this.saplessBlock.get().getDefaultState()));
 				}
 
 				return ActionResultType.SUCCESS;
@@ -58,10 +60,5 @@ public class SappyLogBlock extends RotatedPillarBlock {
 
 			return ActionResultType.PASS;
 		}
-	}
-
-	@Override
-	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

@@ -9,11 +9,11 @@
       "item": "autumnity:red_maple_leaves"
     },
     "W": {
-      "tag": "autumnity:red_maple_logs"
+      "tag": "autumnity:maple_logs"
     }
   },
   "result": {
-    "tag": "autumnity:maple_logs",
+    "item": "autumnity:red_maple_hedge",
     "count": 2
   },
   "conditions": [

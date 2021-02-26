@@ -7,6 +7,7 @@
         "criteria": "all_effects",
         "removes": false,
         "effects": {
+          "autumnity:extension": {},
           "autumnity:foul_taste": {}
         }
       }

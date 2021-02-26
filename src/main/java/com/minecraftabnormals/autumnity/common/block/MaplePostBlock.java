@@ -29,7 +29,7 @@ public class MaplePostBlock extends WoodPostBlock {
 		if (toolType == ToolType.AXE) {
 			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
 			float f = -1.0F / (i * (1.0F / 3.0F) + (4.0F / 3.0F)) + 1.0F;
-			player.sendStatusMessage(new StringTextComponent(Float.toString(f)), true);
+			// player.sendStatusMessage(new StringTextComponent(Float.toString(f)), true);
 
 			if (world.getRandom().nextFloat() <= f)
 				return BlockUtil.transferAllBlockStates(state, this.sappyBlock.get().getDefaultState());

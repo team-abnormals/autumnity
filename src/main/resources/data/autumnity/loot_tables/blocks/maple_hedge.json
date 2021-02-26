@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autumnity:stripped_maple_post"
+          "name": "autumnity:maple_hedge"
         }
       ],
       "conditions": [

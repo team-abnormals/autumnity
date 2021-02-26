@@ -1,12 +1,6 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.BookshelfBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.LeafCarpetBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.*;
 import com.minecraftabnormals.abnormals_core.common.blocks.chest.AbnormalsChestBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.chest.AbnormalsTrappedChestBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.sign.AbnormalsStandingSignBlock;
@@ -137,13 +131,12 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> MAPLE_DOOR = HELPER.createBlock("maple_door", () -> new WoodDoorBlock(AutumnityProperties.MAPLE_DOOR), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> MAPLE_TRAPDOOR = HELPER.createBlock("maple_trapdoor", () -> new WoodTrapDoorBlock(AutumnityProperties.MAPLE_DOOR), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> VERTICAL_MAPLE_PLANKS = HELPER.createCompatBlock("quark", "vertical_maple_planks", () -> new Block(AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> MAPLE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "maple_vertical_slab", () -> new VerticalSlabBlock(AutumnityProperties.MAPLE), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> MAPLE_BOOKSHELF = HELPER.createCompatBlock("quark", "maple_bookshelf", () -> new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> MAPLE_LADDER = HELPER.createCompatBlock("quark", "maple_ladder", () -> new AbnormalsLadderBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE).sound(SoundType.LADDER)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_VERTICAL_SLAB = HELPER.createCompatFuelBlock("quark", "maple_vertical_slab", () -> new VerticalSlabBlock(AutumnityProperties.MAPLE), 150, ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> MAPLE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "maple_bookshelf", () -> new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), 300, ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> MAPLE_LADDER = HELPER.createCompatFuelBlock("quark", "maple_ladder", () -> new AbnormalsLadderBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE).sound(SoundType.LADDER)), 300, ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_BEEHIVE = HELPER.createCompatBlock("buzzier_bees", "maple_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> STRIPPED_MAPLE_POST = HELPER.createCompatFuelBlock("quark", "stripped_maple_post", () -> new WoodPostBlock(AutumnityProperties.MAPLE), 300, ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> SAPPY_MAPLE_POST = HELPER.createCompatFuelBlock("quark", "sappy_maple_post", () -> new SappyPostBlock(STRIPPED_MAPLE_POST, AutumnityProperties.MAPLE), 300, ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> MAPLE_POST = HELPER.createCompatFuelBlock("quark", "maple_post", () -> new MaplePostBlock(STRIPPED_MAPLE_POST, SAPPY_MAPLE_POST, AutumnityProperties.MAPLE), 300, ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> MAPLE_POST = HELPER.createCompatFuelBlock("quark", "maple_post", () -> new WoodPostBlock(STRIPPED_MAPLE_POST, AutumnityProperties.MAPLE), 300, ItemGroup.BUILDING_BLOCKS);
 	public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> SIGNS = HELPER.createSignBlock("maple", MaterialColor.ORANGE_TERRACOTTA);
 	public static final Pair<RegistryObject<AbnormalsChestBlock>, RegistryObject<AbnormalsTrappedChestBlock>> MAPLE_CHESTS = HELPER.createCompatChestBlocks("quark", "maple", MaterialColor.ORANGE_TERRACOTTA);
 
@@ -166,6 +159,11 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = HELPER.createBlock("yellow_maple_leaf_carpet", () -> new LeafCarpetBlock(AutumnityProperties.createLeafCarpet(MaterialColor.YELLOW_TERRACOTTA)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_CARPET = HELPER.createBlock("orange_maple_leaf_carpet", () -> new LeafCarpetBlock(AutumnityProperties.createLeafCarpet(MaterialColor.ORANGE_TERRACOTTA)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = HELPER.createBlock("red_maple_leaf_carpet", () -> new LeafCarpetBlock(AutumnityProperties.createLeafCarpet(MaterialColor.RED)), ItemGroup.DECORATIONS);
+
+	public static final RegistryObject<Block> RED_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "red_maple_hedge", () -> new HedgeBlock(AutumnityProperties.MAPLE), 300, ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "orange_maple_hedge", () -> new HedgeBlock(AutumnityProperties.MAPLE), 300, ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "yellow_maple_hedge", () -> new HedgeBlock(AutumnityProperties.MAPLE), 300, ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "maple_hedge", () -> new HedgeBlock(AutumnityProperties.MAPLE), 300, ItemGroup.DECORATIONS);
 
 	// Compat
 	public static final RegistryObject<Block> FOUL_BERRY_SACK = HELPER.createCompatBlock("quark", "foul_berry_sack", () -> new Block(Block.Properties.create(Material.WOOL, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.CLOTH)), ItemGroup.DECORATIONS);

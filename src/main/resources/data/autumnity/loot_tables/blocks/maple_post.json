@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "abnormals_core:maple_post"
+          "name": "autumnity:maple_post"
         }
       ],
       "conditions": [

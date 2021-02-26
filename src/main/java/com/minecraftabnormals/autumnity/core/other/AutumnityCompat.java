@@ -76,11 +76,18 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
+		
+		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_HEDGE.get(), 5, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_HEDGE.get(), 5, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), 5, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.RED_MAPLE_HEDGE.get(), 5, 20);
 
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BEEHIVE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_POST.get(), 5, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.STRIPPED_MAPLE_POST.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.TURKEY_EGG_CRATE.get(), 5, 20);
 	}

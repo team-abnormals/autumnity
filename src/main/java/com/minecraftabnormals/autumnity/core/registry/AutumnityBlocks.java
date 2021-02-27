@@ -1,6 +1,13 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
-import com.minecraftabnormals.abnormals_core.common.blocks.*;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.BookshelfBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.HedgeBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.LeafCarpetBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.chest.AbnormalsChestBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.chest.AbnormalsTrappedChestBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.sign.AbnormalsStandingSignBlock;
@@ -29,13 +36,11 @@ import com.minecraftabnormals.autumnity.common.block.LargePumpkinSliceBlock;
 import com.minecraftabnormals.autumnity.common.block.LargeRedstoneJackOlanternSliceBlock;
 import com.minecraftabnormals.autumnity.common.block.MapleLeavesBlock;
 import com.minecraftabnormals.autumnity.common.block.MapleLogBlock;
-import com.minecraftabnormals.autumnity.common.block.MaplePostBlock;
 import com.minecraftabnormals.autumnity.common.block.MapleWoodBlock;
 import com.minecraftabnormals.autumnity.common.block.PancakeBlock;
 import com.minecraftabnormals.autumnity.common.block.PlaceableSlimeBlock;
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.minecraftabnormals.autumnity.common.block.SappyLogBlock;
-import com.minecraftabnormals.autumnity.common.block.SappyPostBlock;
 import com.minecraftabnormals.autumnity.common.block.SappyWoodBlock;
 import com.minecraftabnormals.autumnity.common.block.SnailShellBlock;
 import com.minecraftabnormals.autumnity.common.block.SnailSlimeBlock;

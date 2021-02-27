@@ -36,7 +36,6 @@ public class MapleWoodBlock extends RotatedPillarBlock {
 		if (toolType == ToolType.AXE) {
 			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
 			float f = -1.0F / (i * (1.0F / 3.0F) + (4.0F / 3.0F)) + 1.0F;
-            player.sendStatusMessage(new StringTextComponent(Float.toString(f)), true);
 
 			return block != null ? BlockUtil.transferAllBlockStates(state, world.getRandom().nextFloat() <= f ? this.sappyBlock.get().getDefaultState() : this.block.get().getDefaultState()) : null;
 		}

@@ -2,6 +2,7 @@ package com.minecraftabnormals.autumnity.core.other;
 
 import java.util.UUID;
 
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil.AbnormalsTrade;
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
@@ -89,7 +90,7 @@ public class AutumnityEvents {
 
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity) {
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
-				if (event.getWorld().getBiome(livingentity.getPosition()) == AutumnityBiomes.PUMPKIN_FIELDS.get() && event.getWorld().getRandom().nextFloat() < 0.05F) {
+				if (DataUtil.matchesKeys(event.getWorld().getBiome(livingentity.getPosition()).getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && event.getWorld().getRandom().nextFloat() < 0.05F) {
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
 				}
@@ -198,7 +199,9 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event) {
 		ItemStack itemstack = event.getItemStack();
-		if (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || (ModList.get().isLoaded("endergetic") && itemstack.getItem() == AutumnityCompat.ENDER_TORCH)) {
+		Block jackolantern = JackOLanternHelper.getJackOLantern(itemstack.getItem());
+		
+		if (jackolantern != null) {
 			World world = event.getWorld();
 			BlockPos blockpos = event.getPos();
 			BlockState blockstate = event.getWorld().getBlockState(event.getPos());
@@ -213,11 +216,7 @@ public class AutumnityEvents {
 
 				if (direction == direction1) {
 					if (!world.isRemote) {
-						Item item = itemstack.getItem();
-						BlockState blockstate1 = item == Items.TORCH ? Blocks.JACK_O_LANTERN.getDefaultState() :
-								item == Items.SOUL_TORCH ? AutumnityBlocks.SOUL_JACK_O_LANTERN.get().getDefaultState() :
-										item == Items.REDSTONE_TORCH ? AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, world.isBlockPowered(blockpos)) :
-												AutumnityBlocks.ENDER_JACK_O_LANTERN.get().getDefaultState();
+						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.getDefaultState().with(RedstoneJackOLanternBlock.LIT, world.isBlockPowered(blockpos)) : jackolantern.getDefaultState();
 						BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
 						world.setBlockState(blockpos, blockstate2, 11);
 

@@ -22,7 +22,7 @@ public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock {
 	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.JACK_O_LANTERN);
 
 	private static final Predicate<BlockState> IS_PUMPKIN = (state) -> {
-		return state != null && (state.isIn(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()));
+		return state != null && (state.isIn(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.CURSED_JACK_O_LANTERN.get()));
 	};
 
 	public AutumnityJackOLanternBlock(Properties properties) {

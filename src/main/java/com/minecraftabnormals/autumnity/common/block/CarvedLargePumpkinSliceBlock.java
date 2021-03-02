@@ -1,25 +1,30 @@
 package com.minecraftabnormals.autumnity.common.block;
 
 import com.minecraftabnormals.autumnity.common.block.properties.CarvedSide;
-import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
+import com.minecraftabnormals.autumnity.core.other.JackOLanternHelper;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.Half;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Direction.Axis;
+import net.minecraft.util.Hand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.ModList;
 
 public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	public static final EnumProperty<CarvedSide> CARVED_SIDE = AutumnityBlockStateProperties.CARVED_SIDE;
@@ -35,18 +40,16 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
-		if (this == AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get() && (itemstack.getItem() == Items.TORCH || itemstack.getItem() == Items.SOUL_TORCH || itemstack.getItem() == Items.REDSTONE_TORCH || (ModList.get().isLoaded("endergetic") && itemstack.getItem() == AutumnityCompat.ENDER_TORCH))) {
+		Block jackolantern = JackOLanternHelper.getLargeJackOLantern(itemstack.getItem());
+		
+		if (jackolantern != null) {
 			Direction direction = hit.getFace();
 			Direction direction1 = state.get(FACING);
 			CarvedSide carvedside = state.get(CARVED_SIDE);
 
 			if (canCarve(direction, direction1) && (direction.getAxis() == Axis.X && carvedside == CarvedSide.X || direction.getAxis() == Axis.Z && carvedside == CarvedSide.Z)) {
 				if (!worldIn.isRemote) {
-					Item item = itemstack.getItem();
-					BlockState blockstate = item == Items.TORCH ? AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE.get().getDefaultState() :
-							item == Items.SOUL_TORCH ? AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get().getDefaultState() :
-									item == Items.REDSTONE_TORCH ? AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get().getDefaultState().with(RedstoneJackOLanternBlock.LIT, worldIn.isBlockPowered(pos)) :
-											AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get().getDefaultState();
+					BlockState blockstate = jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get() ? jackolantern.getDefaultState().with(RedstoneJackOLanternBlock.LIT, worldIn.isBlockPowered(pos)) : jackolantern.getDefaultState();
 					BlockState blockstate1 = blockstate.with(CarvedLargePumpkinSliceBlock.FACING, state.get(FACING)).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.get(CARVED_SIDE));
 					worldIn.setBlockState(pos, blockstate1, 11);
 

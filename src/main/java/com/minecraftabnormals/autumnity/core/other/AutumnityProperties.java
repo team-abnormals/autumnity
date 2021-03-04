@@ -22,6 +22,10 @@ public class AutumnityProperties {
 		return (state) -> 15;
 	}
 
+	public static ToIntFunction<BlockState> getLowerLightValue() {
+		return (state) -> 10;
+	}
+
 	public static Block.Properties createLeaves(MaterialColor color) {
 		return Block.Properties.create(Material.LEAVES, color).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE).setAllowsSpawn(AutumnityProperties::allowsSpawnOnLeaves).setSuffocates(AutumnityProperties::isntSolid).setBlocksVision(AutumnityProperties::isntSolid);
 	}

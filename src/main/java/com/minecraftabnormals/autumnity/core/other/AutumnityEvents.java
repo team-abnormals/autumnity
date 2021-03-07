@@ -12,6 +12,7 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
@@ -31,6 +32,7 @@ import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.PillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -38,7 +40,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.SuspiciousStewItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
@@ -50,7 +51,9 @@ import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -86,14 +89,21 @@ public class AutumnityEvents {
 
 	@SubscribeEvent
 	public static void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event) {
+		IWorld world = event.getWorld();
 		LivingEntity livingentity = event.getEntityLiving();
 
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity) {
 			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
-				if (DataUtil.matchesKeys(event.getWorld().getBiome(livingentity.getPosition()).getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && event.getWorld().getRandom().nextFloat() < 0.05F) {
+				if (DataUtil.matchesKeys(world.getBiome(livingentity.getPosition()).getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && world.getRandom().nextFloat() < 0.05F) {
 					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
 				}
+			}
+		}
+		else if (livingentity instanceof CatEntity) {
+			if (world instanceof ServerWorld && (((ServerWorld) world).func_241112_a_().getStructureStart(livingentity.getPosition(), true, AutumnityStructures.MAPLE_WITCH_HUT.get()).isValid())) {
+				((CatEntity) livingentity).setCatType(10);
+				((CatEntity) livingentity).enablePersistence();
 			}
 		}
 	}

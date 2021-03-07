@@ -118,6 +118,7 @@ public class MapleWitchHutPieces {
 				catentity.enablePersistence();
 				catentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
 				catentity.onInitialSpawn(worldIn, worldIn.getDifficultyForLocation(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
+				catentity.setCatType(10);
 				worldIn.func_242417_l(catentity);
 			}
 		}

@@ -5,12 +5,16 @@ import java.util.List;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -54,11 +58,29 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 		}
 
 		public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
-			Rotation rotation = Rotation.randomRotation(this.rand);
-			Mirror mirror = this.rand.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
-			BlockPos blockpos = new BlockPos(p_230364_4_ * 16, 90, p_230364_5_ * 16);
-			MapleWitchHutPieces.func_204760_a(p_230364_3_, blockpos, rotation, mirror, this.components, this.rand);
-			this.recalculateStructureSize();
+			ChunkPos chunkpos = new ChunkPos(p_230364_4_, p_230364_5_);
+			int i = chunkpos.getXStart() + this.rand.nextInt(16);
+			int j = chunkpos.getZStart() + this.rand.nextInt(16);
+			int k = p_230364_2_.getSeaLevel();
+			int l = k + this.rand.nextInt(p_230364_2_.getMaxBuildHeight() - 2 - k);
+			IBlockReader iblockreader = p_230364_2_.func_230348_a_(i, j);
+
+			for(BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable(i, l, j); l > k; --l) {
+				BlockState blockstate = iblockreader.getBlockState(blockpos$mutable);
+				blockpos$mutable.move(Direction.DOWN);
+				BlockState blockstate1 = iblockreader.getBlockState(blockpos$mutable);
+				if (blockstate.isAir() && blockstate1.isSolidSide(iblockreader, blockpos$mutable, Direction.UP)) {
+					break;
+				}
+			}
+
+			if (l > k) {
+				Rotation rotation = Rotation.randomRotation(this.rand);
+				Mirror mirror = this.rand.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
+				
+				MapleWitchHutPieces.func_204760_a(p_230364_3_, new BlockPos(i, l, j), rotation, mirror, this.components, this.rand);
+				this.recalculateStructureSize();
+			}
 		}
 	}
 }

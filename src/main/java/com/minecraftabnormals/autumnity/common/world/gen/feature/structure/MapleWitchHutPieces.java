@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityLootTables;
+import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
 
 import net.minecraft.block.Blocks;
@@ -25,7 +26,6 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
@@ -36,7 +36,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public class MapleWitchHutPieces {
-	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(-3, -4, 6);
+	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(0, 0, 0);
 	private static final ResourceLocation STRUCTURE = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut");
 	private static final ResourceLocation STRUCTURE_OVERGROWN = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut_overgrown");
 
@@ -94,18 +94,29 @@ public class MapleWitchHutPieces {
 				if (tileentity instanceof ChestTileEntity) {
 					((ChestTileEntity)tileentity).setLootTable(AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT, rand.nextLong());
 				}
+			} else if ("decor".equals(function)) {
+				if (rand.nextInt(2) == 0) {
+					worldIn.setBlockState(pos, Blocks.POTTED_RED_MUSHROOM.getDefaultState(), 2);
+				} else {
+					worldIn.setBlockState(pos, Blocks.POTTED_BROWN_MUSHROOM.getDefaultState(), 2);
+				}
+			} else if ("flower".equals(function)) {
+				if (rand.nextInt(4) == 0) {
+					worldIn.setBlockState(pos.down(), AutumnityBlocks.AUTUMN_CROCUS.get().getDefaultState(), 2);
+				}
+				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
 			} else if (function.startsWith("witch")) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
 				WitchEntity witchentity = EntityType.WITCH.create(worldIn.getWorld());
 				witchentity.enablePersistence();
-				witchentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D);
+				witchentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
 				witchentity.onInitialSpawn(worldIn, worldIn.getDifficultyForLocation(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
 				worldIn.func_242417_l(witchentity);
 			} else if (function.startsWith("cat")) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
 				CatEntity catentity = EntityType.CAT.create(worldIn.getWorld());
 				catentity.enablePersistence();
-				catentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D);
+				catentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
 				catentity.onInitialSpawn(worldIn, worldIn.getDifficultyForLocation(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
 				worldIn.func_242417_l(catentity);
 			}
@@ -113,19 +124,6 @@ public class MapleWitchHutPieces {
 
 		@Override
 		public boolean func_230383_a_(ISeedReader p_230383_1_, StructureManager p_230383_2_, ChunkGenerator p_230383_3_, Random p_230383_4_, MutableBoundingBox p_230383_5_, ChunkPos p_230383_6_, BlockPos p_230383_7_) {
-			int i = 256;
-			BlockPos blockpos = this.template.getSize();
-			int k = blockpos.getX() * blockpos.getZ();
-			if (k != 0) {
-				BlockPos blockpos1 = this.templatePosition.add(blockpos.getX() - 1, 0, blockpos.getZ() - 1);
-
-				for(BlockPos blockpos2 : BlockPos.getAllInBoxMutable(this.templatePosition, blockpos1)) {
-					int l = p_230383_1_.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos2.getX(), blockpos2.getZ());
-					i = Math.min(i, l);
-				}
-			}
-
-			this.templatePosition = new BlockPos(this.templatePosition.getX(), i, this.templatePosition.getZ());
 			return super.func_230383_a_(p_230383_1_, p_230383_2_, p_230383_3_, p_230383_4_, p_230383_5_, p_230383_6_, p_230383_7_);
 		}
 	}

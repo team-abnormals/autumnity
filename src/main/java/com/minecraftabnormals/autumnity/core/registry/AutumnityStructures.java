@@ -1,5 +1,6 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
+import com.google.common.collect.ImmutableList;
 import com.minecraftabnormals.autumnity.common.world.gen.feature.structure.MapleWitchHutPieces;
 import com.minecraftabnormals.autumnity.common.world.gen.feature.structure.MapleWitchHutStructure;
 import com.minecraftabnormals.autumnity.core.Autumnity;
@@ -45,5 +46,6 @@ public class AutumnityStructures {
 		WorldGenRegistries.NOISE_SETTINGS.forEach(settings -> {
 			settings.getStructures().func_236195_a_().put(AutumnityStructures.MAPLE_WITCH_HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
 		});
+		Structure.field_236384_t_ = ImmutableList.<Structure<?>>builder().addAll(Structure.field_236384_t_).add(MAPLE_WITCH_HUT.get()).build();
 	}
 }

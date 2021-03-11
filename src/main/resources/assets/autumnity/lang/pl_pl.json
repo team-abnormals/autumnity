@@ -12,13 +12,13 @@
   "block.autumnity.turkey": "Surowy indyk",
   "block.autumnity.cooked_turkey": "Pieczony indyk",
   
-  "block.autumnity.large_pumpkin_slice": "Kawałek dużej dynii",
-  "block.autumnity.carved_large_pumpkin_slice": "Wykrawany kawałek dużej dynii",
-  "block.autumnity.large_jack_o_lantern_slice": "Kawałek dużej Jack'o Lantern",
+  "block.autumnity.large_pumpkin_slice": "Kawałek wielkiej dynii",
+  "block.autumnity.carved_large_pumpkin_slice": "Kawałek wielkiej wykrawanej dynii",
+  "block.autumnity.large_jack_o_lantern_slice": "Kawałek wielkiej Jack'o Lantern",
   "block.autumnity.soul_jack_o_lantern": "Eteryczna Jack o'Lantern",
-  "block.autumnity.large_soul_jack_o_lantern_slice": "Kawałek dużej eterycznej Jack o'Lantern",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "Kawałek wielkiej eterycznej Jack o'Lantern",
   "block.autumnity.redstone_jack_o_lantern": "Jack o'Lantern redstone",
-  "block.autumnity.large_redstone_jack_o_lantern_slice": "Kawałek dużej Jack o'Lantern redstone",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Kawałek wielkiej Jack o'Lantern redstone",
   
   "block.autumnity.snail_shell_block": "Blok ślimaczej muszli",
   "block.autumnity.snail_shell_bricks": "Ślimacze cegły",
@@ -41,8 +41,8 @@
   "block.autumnity.sappy_maple_log": "Żywiczny klonowy pień",
   "block.autumnity.sappy_maple_wood": "Żywiczne klonowe drewno",
   
-  "block.autumnity.maple_branch": "Gałąź klonu",
-  "block.autumnity.long_maple_branch": "Długa gałąź klonu",
+  "block.autumnity.maple_branch": "Klonowa gałąź",
+  "block.autumnity.long_maple_branch": "Długa klonowa gałąź",
   
   "block.autumnity.maple_planks": "Klonowe deski",
   "block.autumnity.maple_stairs": "Klonowe schody",
@@ -54,7 +54,7 @@
   "block.autumnity.maple_door": "Klonowe drzwi",
   "block.autumnity.maple_trapdoor": "Klonowa klapa",
   "block.autumnity.maple_sign": "Klonowa tabliczka",
-  "block.autumnity.maple_wall_sign": "Klonowa naścienna tabliczka",
+  "block.autumnity.maple_wall_sign": "Klonowa ścienna tabliczka",
   
   "block.autumnity.maple_leaves": "Klonowe liście",
   "block.autumnity.yellow_maple_leaves": "Żółte klonowe liście",
@@ -71,10 +71,10 @@
   "block.autumnity.potted_orange_maple_sapling": "Sadzonka pomarańczowego klonu w doniczce",
   "block.autumnity.potted_red_maple_sapling": "Sadzonka czerwonego klonu w doniczce",
   
-  "block.autumnity.maple_leaf_carpet": "Klonowa sterta liści",
-  "block.autumnity.yellow_maple_leaf_carpet": "Żółta klonowa sterta liści",
-  "block.autumnity.orange_maple_leaf_carpet": "Pomarańczowa klonowa sterta liści",
-  "block.autumnity.red_maple_leaf_carpet": "Czerwona klonowa sterta liści",
+  "block.autumnity.maple_leaf_carpet": "Warstwa klonowych liści",
+  "block.autumnity.yellow_maple_leaf_carpet": "Warstwa żółtych klonowych liści",
+  "block.autumnity.orange_maple_leaf_carpet": "Warstwa pomarańczowych klonowych liści",
+  "block.autumnity.red_maple_leaf_carpet": "Warstwa czerwonych klonowych liści",
   
   "item.autumnity.maple_boat": "Klonowa łódka",
   
@@ -85,7 +85,7 @@
   "item.autumnity.pumpkin_bread": "Chleb dyniowy",
   
   "item.autumnity.snail_spawn_egg": "Jajo przyzywające ślimaka",
-  "item.autumnity.snail_shell_piece": "Kawałek ślimaczej muszli",
+  "item.autumnity.snail_shell_piece": "Odłamek ślimaczej muszli",
   "item.autumnity.snail_shell_chestplate": "Ślimaczy napierśnik",
   
   "item.autumnity.turkey_spawn_egg": "Jajo przyzywające indyka",
@@ -126,7 +126,7 @@
   "subtitles.entity.snail.step": "Ślimak pełznie",
   
   "subtitles.entity.turkey.ambient": "Indyk gulgocze",
-  "subtitles.entity.turkey.aggro": "Indyk gulgocze wściekle",
+  "subtitles.entity.turkey.aggro": "Indyk wściekle gulgocze",
   "subtitles.entity.turkey.hurt": "Indyk cierpi",
   "subtitles.entity.turkey.death": "Indyk ginie",
   "subtitles.entity.turkey.egg": "Indyk gdacze",
@@ -142,10 +142,18 @@
   "block.autumnity.foul_berry_sack": "Wór cierpkich jagód",
   "block.autumnity.potted_foul_berries": "Krzew cierpkich jagód w doniczce",
   "block.autumnity.maple_beehive": "Klonowy ul",
+  "block.autumnity.maple_post": "Klonowa belka",
+  "block.autumnity.stripped_maple_post": "Okorowana klonowa belka",
+  "block.autumnity.maple_hedge": "Klonowy żywopłot",
+  "block.autumnity.yellow_maple_hedge": "Żółty klonowy żywopłot",
+  "block.autumnity.orange_maple_hedge": "Pomarańczowy klonowy żywopłot",
+  "block.autumnity.red_maple_hedge": "Czerwony klonowy żywopłot",
   "block.autumnity.maple_chest": "Klonowa skrzynia",
   "block.autumnity.maple_trapped_chest": "Klonowa skrzynia-pułapka",
   "block.autumnity.ender_jack_o_lantern": "Endowa Jack o'Lantern",
-  "block.autumnity.large_ender_jack_o_lantern_slice": "Kawałek dużej endowej Jack o'Lantern",
+  "block.autumnity.cursed_jack_o_lantern": "Przeklęta Jack o'Lantern",
+  "block.autumnity.large_cursed_jack_o_lantern_slice": "Kawałek wielkiej przeklętej Jack o'Lantern",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Kawałek wielkiej endowej Jack o'Lantern",
   "block.autumnity.turkey_egg_crate": "Skrzynia indyczych jajek",
   "block.autumnity.slime": "Szlam",
   
@@ -155,7 +163,7 @@
   "advancements.husbandry.fungivore_diet.title": "Ślimak, ślimak, pokaż rogi...",
   "advancements.husbandry.fungivore_diet.description": "Nakarm ślimaka wszystkimi rodzajami grzybów",
   "advancements.husbandry.finally_some_good_food.title": "Wreszcie, jakieś pożądne żarcie",
-  "advancements.husbandry.finally_some_good_food.description": "Zjedz coś po spożyciu cierpkich jagód",
+  "advancements.husbandry.finally_some_good_food.description": "Zjedz coś dobrego po spożyciu cierpkich jagód",
   
   "block.minecraft.banner.mca_maple_leaf.black": "Czarny liść klonu",
   "block.minecraft.banner.mca_maple_leaf.red": "Czerwony liść klonu",

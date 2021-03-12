@@ -88,6 +88,7 @@ public class TurkeyBlock extends FallingBlock {
 				fallingblockentity = new FallingHeadBlockEntity(worldIn, (double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, worldIn.getBlockState(pos));
 			} else {
 				fallingblockentity = new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, worldIn.getBlockState(pos));
+				fallingblockentity.shouldDropItem = false;
 			}
 
 			this.onStartFalling(fallingblockentity);

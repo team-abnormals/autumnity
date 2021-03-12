@@ -28,10 +28,10 @@
   "block.autumnity.snail_shell_brick_wall": "Ślimaczy ceglany murek",
   "block.autumnity.chiseled_snail_shell_bricks": "Rzeźbione ślimacze cegły",
   "block.autumnity.snail_shell_tiles": "Ślimacze kafelki",
-  "block.autumnity.snail_shell_tile_stairs": "Ślimacze kafelkowane schody",
-  "block.autumnity.snail_shell_tile_slab": "Ślimacza kafelkowana płyta",
-  "block.autumnity.snail_shell_tile_vertical_slab": "Pionowa ślimacza kafelkowana płyta",
-  "block.autumnity.snail_shell_tile_wall": "Ślimaczy kafelkowany murek",
+  "block.autumnity.snail_shell_tile_stairs": "Ślimacze kafelkowe schody",
+  "block.autumnity.snail_shell_tile_slab": "Ślimacza kafelkowa płyta",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Pionowa ślimacza kafelkowa płyta",
+  "block.autumnity.snail_shell_tile_wall": "Ślimaczy kafelkowy murek",
   
   "block.autumnity.maple_log": "Klonowy pień",
   "block.autumnity.maple_wood": "Klonowe drewno",
@@ -154,7 +154,7 @@
   "block.autumnity.cursed_jack_o_lantern": "Przeklęta Jack o'Lantern",
   "block.autumnity.large_cursed_jack_o_lantern_slice": "Kawałek wielkiej przeklętej Jack o'Lantern",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Kawałek wielkiej endowej Jack o'Lantern",
-  "block.autumnity.turkey_egg_crate": "Skrzynia indyczych jajek",
+  "block.autumnity.turkey_egg_crate": "Skrzynka indyczych jajek",
   "block.autumnity.slime": "Szlam",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",

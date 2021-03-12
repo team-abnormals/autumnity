@@ -102,7 +102,7 @@ public class AutumnityFeatures {
 		public static final ConfiguredFeature<?, ?> FLOWER_OXEYE_DAISY = Feature.FLOWER.withConfiguration(Configs.CORNFLOWER_CONFIG);
 		public static final ConfiguredFeature<?, ?> FLOWER_CORNFLOWER = Feature.FLOWER.withConfiguration(Configs.OXEYE_DAISY_CONFIG);
 		public static final ConfiguredFeature<?, ?> FLOWER_MAPLE_FOREST = Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(() -> PATCH_ROSE_BUSH, () -> FLOWER_AUTUMN_CROCUS))).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).func_242731_b(4);
-		public static final ConfiguredFeature<?, ?> FLOWER_PUMPKIN_FIELDS = Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(() -> FLOWER_OXEYE_DAISY, () -> FLOWER_CORNFLOWER, () -> FLOWER_AUTUMN_CROCUS))).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 15, 4)));
+		public static final ConfiguredFeature<?, ?> FLOWER_PUMPKIN_FIELDS = Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(() -> FLOWER_OXEYE_DAISY, () -> FLOWER_CORNFLOWER, () -> FLOWER_AUTUMN_CROCUS))).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.FLOWER_TALL_GRASS_PLACEMENT).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 15, 4)));
 
 		private static <FC extends IFeatureConfig> void register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(Autumnity.MOD_ID, name), configuredFeature);

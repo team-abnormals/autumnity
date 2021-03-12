@@ -1,5 +1,9 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
+import static net.minecraftforge.common.BiomeDictionary.Type.DENSE;
+import static net.minecraftforge.common.BiomeDictionary.Type.RARE;
+import static net.minecraftforge.common.BiomeDictionary.Type.SPOOKY;
+
 import com.minecraftabnormals.abnormals_core.core.util.BiomeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BiomeSubRegistryHelper;
 import com.minecraftabnormals.autumnity.core.Autumnity;
@@ -27,6 +31,7 @@ public class AutumnityBiomes {
 	public static final BiomeSubRegistryHelper.KeyedBiome MAPLE_FOREST_HILLS = HELPER.createBiome("maple_forest_hills", () -> createMapleForestBiome(0.45F, 0.3F));
 	public static final BiomeSubRegistryHelper.KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", () -> createPumpkinFieldsBiome());
 	public static final BiomeSubRegistryHelper.KeyedBiome YELLOW_SPOTTED_FOREST = HELPER.createBiome("yellow_spotted_forest", () -> createYellowSpottedForestBiome());
+	public static final BiomeSubRegistryHelper.KeyedBiome ORANGE_SPOTTED_DARK_FOREST = HELPER.createBiome("orange_spotted_dark_forest", () -> createOrangeSpottedDarkForest());
 	public static final BiomeSubRegistryHelper.KeyedBiome RED_SPOTTED_TAIGA = HELPER.createBiome("red_spotted_taiga", () -> createRedSpottedTaigaBiome());
 
 	public static void addBiomesToGeneration() {
@@ -39,8 +44,10 @@ public class AutumnityBiomes {
 
 		if (AutumnityConfig.COMMON.yellowSpottedForest.get())
 			BiomeUtil.addHillBiome(Biomes.FOREST, Pair.of(YELLOW_SPOTTED_FOREST.getKey(), 1));
-		if (AutumnityConfig.COMMON.redSpottedTaiga.get())
+		if (AutumnityConfig.COMMON.orangeSpottedDarkForest.get())
 			BiomeUtil.addHillBiome(Biomes.TAIGA, Pair.of(RED_SPOTTED_TAIGA.getKey(), 1));
+		if (AutumnityConfig.COMMON.redSpottedTaiga.get())
+			BiomeUtil.addHillBiome(Biomes.DARK_FOREST, Pair.of(ORANGE_SPOTTED_DARK_FOREST.getKey(), 1));
 	}
 
 	public static void addBiomeTypes() {
@@ -48,6 +55,7 @@ public class AutumnityBiomes {
 		BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.getKey(), Type.FOREST, Type.HILLS, Type.RARE, Type.OVERWORLD);
 		BiomeDictionary.addTypes(PUMPKIN_FIELDS.getKey(), Type.PLAINS, Type.SPARSE, Type.RARE, Type.OVERWORLD);
 		BiomeDictionary.addTypes(YELLOW_SPOTTED_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
+		BiomeDictionary.addTypes(ORANGE_SPOTTED_DARK_FOREST.getKey(), Type.SPOOKY, Type.DENSE, Type.FOREST, Type.RARE, Type.OVERWORLD);
 		BiomeDictionary.addTypes(RED_SPOTTED_TAIGA.getKey(), Type.COLD, Type.CONIFEROUS, Type.FOREST, Type.OVERWORLD);
 	}
 
@@ -63,6 +71,10 @@ public class AutumnityBiomes {
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(0.7F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(new MobSpawnInfo.Builder().copy()).withGenerationSettings((new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j).build()).build();
 	}
 
+	private static Biome createOrangeSpottedDarkForest() {
+		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(0.7F)).withGrassColorModifier(BiomeAmbience.GrassColorModifier.DARK_FOREST).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(new MobSpawnInfo.Builder().copy()).withGenerationSettings((new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j).build()).build();
+	}
+	
 	private static Biome createRedSpottedTaigaBiome() {
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.TAIGA).depth(0.2F).scale(0.2F).temperature(0.25F).downfall(0.8F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(0.25F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(new MobSpawnInfo.Builder().copy()).withGenerationSettings((new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j).build()).build();
 	}

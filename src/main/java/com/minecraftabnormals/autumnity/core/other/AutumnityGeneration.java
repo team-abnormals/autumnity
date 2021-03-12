@@ -79,6 +79,7 @@ public class AutumnityGeneration {
 		}
 		else {
 			if (DataUtil.matchesKeys(biome, AutumnityBiomes.YELLOW_SPOTTED_FOREST.getKey())) {
+				DefaultBiomeFeatures.withStrongholdAndMineshaft(generation);
 				DefaultBiomeFeatures.withCavesAndCanyons(generation);
 				DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
 				DefaultBiomeFeatures.withMonsterRoom(generation);
@@ -101,8 +102,31 @@ public class AutumnityGeneration {
 				DefaultBiomeFeatures.withBatsAndHostiles(spawns);
 				DefaultBiomeFeatures.withPassiveMobs(spawns);
 				spawns.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 5, 4, 4));
-			}
-			else if (DataUtil.matchesKeys(biome, AutumnityBiomes.RED_SPOTTED_TAIGA.getKey())) {
+			} else if (DataUtil.matchesKeys(biome, AutumnityBiomes.ORANGE_SPOTTED_DARK_FOREST.getKey())) {
+				DefaultBiomeFeatures.withStrongholdAndMineshaft(generation);
+				DefaultBiomeFeatures.withCavesAndCanyons(generation);
+				DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
+				DefaultBiomeFeatures.withMonsterRoom(generation);
+				DefaultBiomeFeatures.withAllForestFlowerGeneration(generation);
+				DefaultBiomeFeatures.withCommonOverworldBlocks(generation);
+				DefaultBiomeFeatures.withOverworldOres(generation);
+				DefaultBiomeFeatures.withDisks(generation);
+				DefaultBiomeFeatures.withDefaultFlowers(generation);
+				DefaultBiomeFeatures.withForestGrass(generation);
+				DefaultBiomeFeatures.withNormalMushroomGeneration(generation);
+				DefaultBiomeFeatures.withSugarCaneAndPumpkins(generation);
+				DefaultBiomeFeatures.withLavaAndWaterSprings(generation);
+				DefaultBiomeFeatures.withFrozenTopLayer(generation);
+
+				generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.ORANGE_SPOTTED_DARK_FOREST_VEGETATION);
+
+				generation.withStructure(StructureFeatures.RUINED_PORTAL);
+				generation.withStructure(StructureFeatures.MANSION);
+
+				DefaultBiomeFeatures.withBatsAndHostiles(spawns);
+				DefaultBiomeFeatures.withPassiveMobs(spawns);
+			} else if (DataUtil.matchesKeys(biome, AutumnityBiomes.RED_SPOTTED_TAIGA.getKey())) {
+				DefaultBiomeFeatures.withStrongholdAndMineshaft(generation);
 				DefaultBiomeFeatures.withCavesAndCanyons(generation);
 				DefaultBiomeFeatures.withLavaAndWaterLakes(generation);
 				DefaultBiomeFeatures.withMonsterRoom(generation);

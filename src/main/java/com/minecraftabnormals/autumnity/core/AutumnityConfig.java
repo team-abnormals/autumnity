@@ -17,6 +17,7 @@ public class AutumnityConfig {
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestHillsWeight;
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
 		public final ForgeConfigSpec.ConfigValue<Boolean> yellowSpottedForest;
+		public final ForgeConfigSpec.ConfigValue<Boolean> orangeSpottedDarkForest;
 		public final ForgeConfigSpec.ConfigValue<Boolean> redSpottedTaiga;
 
 		Common(ForgeConfigSpec.Builder builder) {
@@ -49,6 +50,7 @@ public class AutumnityConfig {
 							"The list does not include biomes from this mod.")
 					.define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
 			yellowSpottedForest = builder.define("Yellow Spotted Forest", true);
+			orangeSpottedDarkForest = builder.define("Orange Spotted Dark Forest", true);
 			redSpottedTaiga = builder.define("Red Spotted Taiga", true);
 			builder.pop();
 		}

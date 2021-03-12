@@ -30,6 +30,7 @@ import net.minecraft.world.gen.feature.SingleRandomFeature;
 import net.minecraft.world.gen.feature.TwoLayerFeature;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.NoiseDependant;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
@@ -88,6 +89,7 @@ public class AutumnityFeatures {
 		public static final ConfiguredFeature<?, ?> MAPLE_FOREST_VEGETATION = MAPLE_VEGETATION.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
 		public static final ConfiguredFeature<?, ?> PUMPKIN_FIELDS_VEGETATION = MAPLE_VEGETATION.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1)));
 		public static final ConfiguredFeature<?, ?> YELLOW_SPOTTED_FOREST_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(MAPLE_TREE_YELLOW.withChance(0.05F), Features.BIRCH_BEES_0002.withChance(0.2F), Features.FANCY_OAK_BEES_0002.withChance(0.1F)), Features.OAK_BEES_0002)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
+		public static final ConfiguredFeature<?, ?> ORANGE_SPOTTED_DARK_FOREST_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Features.HUGE_BROWN_MUSHROOM.withChance(0.025F), Features.HUGE_RED_MUSHROOM.withChance(0.05F), Features.DARK_OAK.withChance(0.6666667F), MAPLE_TREE_ORANGE.withChance(0.3F), Features.FANCY_OAK.withChance(0.1F)), Features.OAK)).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG));
 		public static final ConfiguredFeature<?, ?> RED_SPOTTED_TAIGA_VEGETATION = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(MAPLE_TREE_RED.withChance(0.1F), Features.PINE.withChance(0.33333334F)), Features.SPRUCE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
 
 		public static final ConfiguredFeature<?, ?> PATCH_ROSE_BUSH = Feature.RANDOM_PATCH.withConfiguration(Configs.ROSE_BUSH_CONFIG);
@@ -121,6 +123,7 @@ public class AutumnityFeatures {
 			register("maple_forest_vegetation", MAPLE_FOREST_VEGETATION);
 			register("pumpkin_fields_vegetation", PUMPKIN_FIELDS_VEGETATION);
 			register("yellow_spotted_forest_vegetation", YELLOW_SPOTTED_FOREST_VEGETATION);
+			register("orange_spotted_dark_forest_vegetation", ORANGE_SPOTTED_DARK_FOREST_VEGETATION);
 			register("red_spotted_taiga_vegetation", RED_SPOTTED_TAIGA_VEGETATION);
 
 			register("patch_rose_bush", PATCH_ROSE_BUSH);

@@ -1,22 +1,12 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
-import static net.minecraftforge.common.BiomeDictionary.Type.DENSE;
-import static net.minecraftforge.common.BiomeDictionary.Type.RARE;
-import static net.minecraftforge.common.BiomeDictionary.Type.SPOOKY;
-
 import com.minecraftabnormals.abnormals_core.core.util.BiomeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BiomeSubRegistryHelper;
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.minecraftabnormals.autumnity.core.AutumnityConfig;
 import com.mojang.datafixers.util.Pair;
-
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MoodSoundAmbience;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -44,9 +34,9 @@ public class AutumnityBiomes {
 
 		if (AutumnityConfig.COMMON.yellowSpottedForest.get())
 			BiomeUtil.addHillBiome(Biomes.FOREST, Pair.of(YELLOW_SPOTTED_FOREST.getKey(), 1));
-		if (AutumnityConfig.COMMON.orangeSpottedDarkForest.get())
-			BiomeUtil.addHillBiome(Biomes.TAIGA, Pair.of(RED_SPOTTED_TAIGA.getKey(), 1));
 		if (AutumnityConfig.COMMON.redSpottedTaiga.get())
+			BiomeUtil.addHillBiome(Biomes.TAIGA, Pair.of(RED_SPOTTED_TAIGA.getKey(), 1));
+		if (AutumnityConfig.COMMON.orangeSpottedDarkForest.get())
 			BiomeUtil.addHillBiome(Biomes.DARK_FOREST, Pair.of(ORANGE_SPOTTED_DARK_FOREST.getKey(), 1));
 	}
 
@@ -74,7 +64,7 @@ public class AutumnityBiomes {
 	private static Biome createOrangeSpottedDarkForest() {
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(0.7F)).withGrassColorModifier(BiomeAmbience.GrassColorModifier.DARK_FOREST).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(new MobSpawnInfo.Builder().copy()).withGenerationSettings((new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j).build()).build();
 	}
-	
+
 	private static Biome createRedSpottedTaigaBiome() {
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.TAIGA).depth(0.2F).scale(0.2F).temperature(0.25F).downfall(0.8F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(0.25F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(new MobSpawnInfo.Builder().copy()).withGenerationSettings((new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j).build()).build();
 	}

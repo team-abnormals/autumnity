@@ -53,7 +53,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 					BlockState blockstate1 = blockstate.with(CarvedLargePumpkinSliceBlock.FACING, state.get(FACING)).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.get(CARVED_SIDE));
 					worldIn.setBlockState(pos, blockstate1, 11);
 
-					worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					worldIn.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					if (!player.abilities.isCreativeMode) {
 						itemstack.shrink(1);
 					}

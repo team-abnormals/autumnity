@@ -5,7 +5,8 @@
   "minVersion": "0.8",
   "refmap": "autumnity.refmap.json",
   "mixins": [
-    "BlockMixin"
+    "BlockMixin",
+    "LakesFeatureMixin"
   ],
   "client": [],
   "injectors": {

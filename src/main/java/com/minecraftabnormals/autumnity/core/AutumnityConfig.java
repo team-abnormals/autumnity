@@ -2,6 +2,7 @@ package com.minecraftabnormals.autumnity.core;
 
 import java.util.List;
 
+import com.minecraftabnormals.abnormals_core.core.annotations.ConfigKey;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.Lists;
@@ -13,11 +14,23 @@ public class AutumnityConfig {
 		public final ForgeConfigSpec.ConfigValue<List<String>> snailSpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> turkeySpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
+
+		@ConfigKey("maple_forest_weight")
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
+
+		@ConfigKey("maple_forest_hills_weight")
 		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestHillsWeight;
+
+		@ConfigKey("pumpkin_fields_weight")
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
+
+		@ConfigKey("yellow_spotted_forest")
 		public final ForgeConfigSpec.ConfigValue<Boolean> yellowSpottedForest;
+
+		@ConfigKey("orange_spotted_dark_forest")
 		public final ForgeConfigSpec.ConfigValue<Boolean> orangeSpottedDarkForest;
+
+		@ConfigKey("red_spotted_taiga")
 		public final ForgeConfigSpec.ConfigValue<Boolean> redSpottedTaiga;
 
 		Common(ForgeConfigSpec.Builder builder) {

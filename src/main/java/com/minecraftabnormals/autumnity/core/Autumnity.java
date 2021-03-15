@@ -1,5 +1,6 @@
 package com.minecraftabnormals.autumnity.core;
 
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.autumnity.core.other.AutumnityClient;
 import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
@@ -49,6 +50,7 @@ public class Autumnity {
 		});
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
+		DataUtil.registerConfigCondition(MOD_ID, AutumnityConfig.COMMON);
 	}
 
 	private void commonSetup(final FMLCommonSetupEvent event) {

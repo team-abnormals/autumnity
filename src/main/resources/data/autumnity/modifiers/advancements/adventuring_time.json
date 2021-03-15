@@ -3,6 +3,18 @@
   "modifiers": [
     {
       "type": "criteria",
+      "conditions": [
+        {
+          "type": "autumnity:config",
+          "value": "maple_forest_weight",
+          "predicates": [
+            {
+              "type": "abnormals_core:greater_than",
+              "value": 0.0
+            }
+          ]
+        }
+      ],
       "config": {
         "mode": "modify",
         "criteria": {
@@ -21,7 +33,35 @@
                 "biome": "autumnity:maple_forest_hills"
               }
             }
-          },
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:maple_forest"
+          ],
+          [
+            "autumnity:maple_forest_hills"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "criteria",
+      "conditions": [
+        {
+          "type": "autumnity:config",
+          "value": "pumpkin_fields_weight",
+          "predicates": [
+            {
+              "type": "abnormals_core:greater_than",
+              "value": 0.0
+            }
+          ]
+        }
+      ],
+      "config": {
+        "mode": "modify",
+        "criteria": {
           "autumnity:pumpkin_fields": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -33,13 +73,88 @@
         },
         "requirements": [
           [
-            "autumnity:maple_forest"
-          ],
-          [
-            "autumnity:maple_forest_hills"
-          ],
-          [
             "autumnity:pumpkin_fields"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "criteria",
+      "conditions": [
+        {
+          "type": "autumnity:config",
+          "value": "yellow_spotted_forest"
+        }
+      ],
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:yellow_spotted_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:yellow_spotted_forest"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:yellow_spotted_forest"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "criteria",
+      "conditions": [
+        {
+          "type": "autumnity:config",
+          "value": "orange_spotted_dark_forest"
+        }
+      ],
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:orange_spotted_dark_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:orange_spotted_dark_forest"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:orange_spotted_dark_forest"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "criteria",
+      "conditions": [
+        {
+          "type": "autumnity:config",
+          "value": "red_spotted_taiga"
+        }
+      ],
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "autumnity:red_spotted_taiga": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "location": {
+                "biome": "autumnity:red_spotted_taiga"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "autumnity:red_spotted_taiga"
           ]
         ]
       }

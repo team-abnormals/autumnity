@@ -31,6 +31,6 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "abnormals_core"
     mandatory = true
-    versionRange = "[3.1.0,)"
+    versionRange = "[3.1.1,)"
     ordering = "AFTER"
     side = "BOTH"

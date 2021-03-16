@@ -82,13 +82,14 @@
   "item.autumnity.syrup_bottle": "Butelka syropu klonowego",
   "item.autumnity.foul_berries": "Cierpkie jagody",
   "item.autumnity.foul_berry_pips": "Pestki cierpkich jagód",
+  "item.autumnity.foul_soup": "Cierpka zupa",
   "item.autumnity.pumpkin_bread": "Chleb dyniowy",
   
   "item.autumnity.snail_spawn_egg": "Jajo przyzywające ślimaka",
   "item.autumnity.snail_shell_piece": "Odłamek ślimaczej muszli",
   "item.autumnity.snail_shell_chestplate": "Ślimaczy napierśnik",
   
-  "item.autumnity.turkey_spawn_egg": "Jajo przyzywające indyka",
+   "item.autumnity.turkey_spawn_egg": "Jajo przyzywające indyka",
   "item.autumnity.turkey_egg": "Indycze jajko",
   "item.autumnity.turkey_piece": "Kawałek surowego indyka",
   "item.autumnity.cooked_turkey_piece": "Kawałek pieczonego indyka",
@@ -103,6 +104,7 @@
   "entity.autumnity.boat": "Łódka",
   "entity.autumnity.snail": "Ślimak",
   "entity.autumnity.turkey": "Indyk",
+  "entity.autumnity.turkey_egg": "Rzucone jajko indyka",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Wydłużenie",
@@ -117,6 +119,9 @@
   "biome.autumnity.maple_forest": "Las klonowy",
   "biome.autumnity.maple_forest_hills": "Wzgórza klonowego lasu",
   "biome.autumnity.pumpkin_fields": "Pola dyniowe",
+  "biome.autumnity.yellow_spotted_forest": "Żółty las cętkowany",
+  "biome.autumnity.orange_spotted_dark_forest": "Pomarańczowy gęsty las cętkowany",
+  "biome.autumnity.red_spotted_taiga": "Czerwona tajga cętkowana",
   "biome.autumnity.boreal_maple_forest": "Północny las klonowy",
   "biome.autumnity.boreal_maple_forest_hills": "Wzgórza północnego klonowego lasu",
   

@@ -22,13 +22,14 @@ public class LargeRedstoneJackOlanternSliceBlock extends CarvedLargePumpkinSlice
 
 	public LargeRedstoneJackOlanternSliceBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(LIT, false));
+		this.setDefaultState(this.getDefaultState().with(LIT, Boolean.TRUE));
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return super.getStateForPlacement(context).with(LIT, context.getWorld().isBlockPowered(context.getPos()));
+		BlockState blockstate = super.getStateForPlacement(context);
+		return blockstate.with(LIT, !isBlockPowered(blockstate, context.getWorld(), context.getPos()));
 	}
 
 	@Override
@@ -65,10 +66,12 @@ public class LargeRedstoneJackOlanternSliceBlock extends CarvedLargePumpkinSlice
 	@Override
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 		if (!worldIn.isRemote) {
-			if (state.get(LIT) != isBlockPowered(state, worldIn, pos)) {
-				worldIn.setBlockState(pos, state.func_235896_a_(LIT), 3);
-				if (!worldIn.getPendingBlockTicks().isTickPending(pos, this)) {
-					worldIn.getPendingBlockTicks().scheduleTick(pos, this, 2);
+			boolean flag = state.get(LIT);
+			if (flag == isBlockPowered(state, worldIn, pos)) {
+				if (flag) {
+					worldIn.setBlockState(pos, state.func_235896_a_(LIT), 2);
+				} else {
+					worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
 				}
 			}
 		}
@@ -76,7 +79,7 @@ public class LargeRedstoneJackOlanternSliceBlock extends CarvedLargePumpkinSlice
 
 	@Override
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-		if (state.get(LIT) && !isBlockPowered(state, worldIn, pos)) {
+		if (!state.get(LIT) && !isBlockPowered(state, worldIn, pos)) {
 			worldIn.setBlockState(pos, state.func_235896_a_(LIT), 3);
 		}
 	}

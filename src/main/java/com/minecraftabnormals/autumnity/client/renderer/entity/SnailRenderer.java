@@ -25,7 +25,7 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 	public ResourceLocation getEntityTexture(SnailEntity entity) {
 		String s = TextFormatting.getTextWithoutFormattingCodes(entity.getName().getString().toLowerCase());
 		if (s != null) {
-			if ("snake".equals(s) || "snake snail".equals(s) || "snakeblock".equals(s) || "snake block".equals(s)) {
+			if ("snake".equals(s) || "snakeblock".equals(s) || "snake block".equals(s) || "snailblock".equals(s) || "snail block".equals(s)) {
 				return SNAKE_SNAIL_TEXTURES;
 			} else if ("nautilus".equals(s) || "nautilus snail".equals(s)) {
 				return NAUTILUS_SNAIL_TEXTURES;

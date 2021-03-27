@@ -24,13 +24,13 @@
   "block.autumnity.snail_shell_bricks": "カタツムリの殻レンガ",
   "block.autumnity.snail_shell_brick_stairs": "カタツムリの殻の階段",
   "block.autumnity.snail_shell_brick_slab": "カタツムリの殻レンガのハーフブロック",
-  "block.autumnity.snail_shell_brick_vertical_slab": "縦のカタツムリの殻レンガのハーフブロック",
+  "block.autumnity.snail_shell_brick_vertical_slab": "カタツムリの殻レンガの縦ハーフブロック",
   "block.autumnity.snail_shell_brick_wall": "カタツムリの殻レンガの塀",
   "block.autumnity.chiseled_snail_shell_bricks": "模様入りのカタツムリの殻レンガ",
   "block.autumnity.snail_shell_tiles": "カタツムリの殻タイル",
   "block.autumnity.snail_shell_tile_stairs": "カタツムリの殻タイルの階段",
   "block.autumnity.snail_shell_tile_slab": "カタツムリの殻タイルのハーフブロック",
-  "block.autumnity.snail_shell_tile_vertical_slab": "縦のカタツムリの殻タイルのハーフブロック",
+  "block.autumnity.snail_shell_tile_vertical_slab": "カタツムリの殻タイルの縦ハーフブロック",
   "block.autumnity.snail_shell_tile_wall": "カタツムリの殻タイルの塀",
   
   "block.autumnity.maple_log": "カエデの原木",
@@ -38,8 +38,8 @@
   "block.autumnity.stripped_maple_log": "樹皮を剥いだカエデの原木",
   "block.autumnity.stripped_maple_wood": "樹皮を剥いだカエデの木",
   "_comment": "Refers to the sap dripping out of the wood",
-  "block.autumnity.sappy_maple_log": "樹液が出ているのカエデの原木",
-  "block.autumnity.sappy_maple_wood": "樹液が出ているのカエデの木",
+  "block.autumnity.sappy_maple_log": "樹液が出ているカエデの原木",
+  "block.autumnity.sappy_maple_wood": "樹液が出ているカエデの木",
   
   "block.autumnity.maple_branch": "カエデの枝",
   "block.autumnity.long_maple_branch": "長いカエデの枝",
@@ -140,8 +140,8 @@
   
   "_comment": "Compat Stuff",
   
-  "block.autumnity.maple_vertical_slab": "縦のカエデのハーフブロック",
-  "block.autumnity.vertical_maple_planks": "縦のカエデの板材",
+  "block.autumnity.maple_vertical_slab": "カエデの縦ハーフブロック",
+  "block.autumnity.vertical_maple_planks": "カエデの縦板材",
   "block.autumnity.maple_bookshelf": "カエデの本棚",
   "block.autumnity.maple_ladder": "カエデのはしご",
   "block.autumnity.foul_berry_sack": "一袋の臭いベリー",

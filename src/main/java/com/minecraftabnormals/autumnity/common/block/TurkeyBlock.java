@@ -2,7 +2,6 @@ package com.minecraftabnormals.autumnity.common.block;
 
 import com.minecraftabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityEvents;
-import com.minecraftabnormals.autumnity.core.other.AutumnityFoods;
 import com.minecraftabnormals.autumnity.core.other.AutumnityTags;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
@@ -140,13 +139,13 @@ public class TurkeyBlock extends FallingBlock {
 	}
 
 	protected void restoreHunger(IWorld worldIn, PlayerEntity player) {
-		player.getFoodStats().addStats(AutumnityFoods.TURKEY.getHealing(), AutumnityFoods.TURKEY.getSaturation());
+		player.getFoodStats().addStats(AutumnityItems.Foods.TURKEY.getHealing(), AutumnityItems.Foods.TURKEY.getSaturation());
 
 		if (!worldIn.isRemote() && worldIn.getRandom().nextFloat() < 0.1F) {
 			player.addPotionEffect(new EffectInstance(Effects.HUNGER, 600, 0));
 		}
 
-		int i = AutumnityFoods.TURKEY.getHealing();
+		int i = AutumnityItems.Foods.TURKEY.getHealing();
 		int j = i == 1 ? i : (int) (i * 0.5F);
 
 		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get())) {

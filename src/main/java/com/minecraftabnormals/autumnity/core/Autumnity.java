@@ -4,16 +4,7 @@ import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.autumnity.core.other.AutumnityClient;
 import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBanners;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityFeatures;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityPaintings;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityParticles;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityPotions;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
-
+import com.minecraftabnormals.autumnity.core.registry.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -59,7 +50,6 @@ public class Autumnity {
 			AutumnityCompat.registerFlammables();
 			AutumnityCompat.registerDispenserBehaviors();
 
-			AutumnityBanners.registerBanners();
 			AutumnityPotions.registerBrewingRecipes();
 			AutumnityBiomes.addBiomeTypes();
 			AutumnityBiomes.addBiomesToGeneration();

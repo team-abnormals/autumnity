@@ -7,6 +7,7 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
     modId = "autumnity"
     version = "${file.jarVersion}"
     logoFile = "logo.png"
+    itemIcon = "autumnity:snail_shell_piece"
     displayName = "Autumnity"
     authors = "Team Abnormals"
     credits = "Markus1002, Farcr, Five, Echolite, and hatsondogs"
@@ -17,7 +18,7 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.16.3,1.17)"
+    versionRange = "[1.16.5,1.17)"
     ordering = "NONE"
     side = "BOTH"
 

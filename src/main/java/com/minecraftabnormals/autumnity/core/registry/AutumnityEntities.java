@@ -9,16 +9,14 @@ import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
 import com.minecraftabnormals.autumnity.common.entity.passive.TurkeyEntity;
 import com.minecraftabnormals.autumnity.common.entity.projectile.TurkeyEggEntity;
 import com.minecraftabnormals.autumnity.core.Autumnity;
-
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -37,16 +35,16 @@ public class AutumnityEntities {
 		EntitySpawnPlacementRegistry.register(TURKEY.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void setupEntitiesClient() {
+	@SubscribeEvent
+	public static void registerAttributes(EntityAttributeCreationEvent event) {
+		event.put(SNAIL.get(), SnailEntity.registerAttributes().create());
+		event.put(TURKEY.get(), TurkeyEntity.registerAttributes().create());
+	}
+
+	public static void registerRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(SNAIL.get(), SnailRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(TURKEY.get(), TurkeyRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(TURKEY_EGG.get(), TurkeyEggRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(FALLING_HEAD_BLOCK.get(), FallingBlockRenderer::new);
-	}
-
-	public static void registerAttributes() {
-		GlobalEntityTypeAttributes.put(SNAIL.get(), SnailEntity.registerAttributes().create());
-		GlobalEntityTypeAttributes.put(TURKEY.get(), TurkeyEntity.registerAttributes().create());
 	}
 }

@@ -21,7 +21,13 @@ public class AutumnityCompat {
 	public static final Item CURSED_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("caverns_and_chasms", "cursed_torch"));
 	public static final Block YUCCA_GATEAU = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "yucca_gateau"));
 
-	public static void registerCompostables() {
+	public static void registerCompat() {
+		registerCompostables();
+		registerFlammables();
+		registerDispenserBehaviors();
+	}
+
+	private static void registerCompostables() {
 		DataUtil.registerCompostable(AutumnityItems.FOUL_BERRIES.get(), 0.3F);
 		DataUtil.registerCompostable(AutumnityItems.FOUL_BERRY_PIPS.get(), 0.3F);
 		DataUtil.registerCompostable(AutumnityItems.PUMPKIN_BREAD.get(), 0.85F);
@@ -48,7 +54,7 @@ public class AutumnityCompat {
 		DataUtil.registerCompostable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 1.0F);
 	}
 
-	public static void registerFlammables() {
+	private static void registerFlammables() {
 		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH.get(), 60, 100);
 		DataUtil.registerFlammable(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get(), 60, 100);
@@ -93,7 +99,7 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.TURKEY_EGG_CRATE.get(), 5, 20);
 	}
 
-	public static void registerDispenserBehaviors() {
+	private static void registerDispenserBehaviors() {
 		DispenserBlock.registerDispenseBehavior(AutumnityItems.TURKEY_EGG.get(), new ProjectileDispenseBehavior() {
 			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				return Util.make(new TurkeyEggEntity(worldIn, position.getX(), position.getY(), position.getZ()), (egg) -> {

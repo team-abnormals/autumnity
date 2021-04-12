@@ -44,12 +44,9 @@ public class Autumnity {
 		DataUtil.registerConfigCondition(MOD_ID, AutumnityConfig.COMMON);
 	}
 
-	private void commonSetup(final FMLCommonSetupEvent event) {
+	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AutumnityCompat.registerCompostables();
-			AutumnityCompat.registerFlammables();
-			AutumnityCompat.registerDispenserBehaviors();
-
+			AutumnityCompat.registerCompat();
 			AutumnityPotions.registerBrewingRecipes();
 			AutumnityBiomes.addBiomeTypes();
 			AutumnityBiomes.addBiomesToGeneration();
@@ -57,14 +54,13 @@ public class Autumnity {
 			AutumnityStructures.Configured.registerConfiguredStructureFeatures();
 			AutumnityStructures.registerNoiseSettings();;
 			AutumnityEntities.registerSpawns();
-			AutumnityEntities.registerAttributes();
 		});
 	}
 
-	private void clientSetup(final FMLClientSetupEvent event) {
-		AutumnityEntities.setupEntitiesClient();
+	private void clientSetup(FMLClientSetupEvent event) {
+		AutumnityEntities.registerRenderers();
 		event.enqueueWork(() -> {
-			AutumnityClient.setRenderLayers();
+			AutumnityClient.registerRenderLayers();
 			AutumnityClient.registerBlockColors();
 		});
 	}

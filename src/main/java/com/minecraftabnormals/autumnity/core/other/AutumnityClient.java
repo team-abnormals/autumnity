@@ -13,7 +13,8 @@ import net.minecraft.world.FoliageColors;
 import net.minecraft.world.biome.BiomeColors;
 
 public class AutumnityClient {
-	public static void setRenderLayers() {
+
+	public static void registerRenderLayers() {
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.SNAIL_SLIME.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.SNAIL_SLIME_BLOCK.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), RenderType.getCutout());

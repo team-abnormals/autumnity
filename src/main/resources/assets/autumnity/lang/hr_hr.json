@@ -95,10 +95,10 @@
     "block.autumnity.maple_trapped_chest": "Škrinja sa zamkom od javora",
     
     "_comment6": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-    "advancements.husbandry.sneaky_protection.title": "Šuljajuća zaštita",
-    "advancements.husbandry.sneaky_protection.description": "Konstruiraj prsni oklop od puževe kućice",
-    "advancements.husbandry.fungivore_diet.title": "Gljivasta dijeta",
-    "advancements.husbandry.fungivore_diet.description": "Nahrani puža svim vrstama gljiva",
-    "advancements.husbandry.finally_some_good_food.title": "Napokon, neka dobra hrana",
-    "advancements.husbandry.finally_some_good_food.description": "Pojedi nešto dobro nakon jedenja odvratnih bobica"
+    "advancements.autumnity.husbandry.sneaky_protection.title": "Šuljajuća zaštita",
+    "advancements.autumnity.husbandry.sneaky_protection.description": "Konstruiraj prsni oklop od puževe kućice",
+    "advancements.autumnity.husbandry.fungivore_diet.title": "Gljivasta dijeta",
+    "advancements.autumnity.husbandry.fungivore_diet.description": "Nahrani puža svim vrstama gljiva",
+    "advancements.autumnity.husbandry.finally_some_good_food.title": "Napokon, neka dobra hrana",
+    "advancements.autumnity.husbandry.finally_some_good_food.description": "Pojedi nešto dobro nakon jedenja odvratnih bobica"
   }

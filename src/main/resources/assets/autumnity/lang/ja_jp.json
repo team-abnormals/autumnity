@@ -163,12 +163,12 @@
   "block.autumnity.slime": "スライム",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "こそこそした守り",
-  "advancements.husbandry.sneaky_protection.description": "カタツムリの殻のチェストプレートを作成する。",
-  "advancements.husbandry.fungivore_diet.title": "菌食",
-  "advancements.husbandry.fungivore_diet.description": "すべての種類のキノコと菌のカタツムリを食べる。",
-  "advancements.husbandry.finally_some_good_food.title": "ついに美味しい食べ物を食べた！",
-  "advancements.husbandry.finally_some_good_food.description": "臭いベリーを食べた後、何かいい物を食べる。",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "こそこそした守り",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "カタツムリの殻のチェストプレートを作成する。",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "菌食",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "すべての種類のキノコと菌のカタツムリを食べる。",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "ついに美味しい食べ物を食べた！",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "臭いベリーを食べた後、何かいい物を食べる。",
   
   "block.minecraft.banner.mca_maple_leaf.black": "黒色のカエデの葉",
   "block.minecraft.banner.mca_maple_leaf.red": "赤色のカエデの葉",

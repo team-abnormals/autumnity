@@ -5,10 +5,10 @@
       "item": "autumnity:foul_berries"
     },
     "title": {
-      "translate": "advancements.husbandry.finally_some_good_food.title"
+      "translate": "advancements.autumnity.husbandry.finally_some_good_food.title"
     },
     "description": {
-      "translate": "advancements.husbandry.finally_some_good_food.description"
+      "translate": "advancements.autumnity.husbandry.finally_some_good_food.description"
     },
     "frame": "task",
     "show_toast": true,

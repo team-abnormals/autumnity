@@ -150,12 +150,12 @@
   "block.autumnity.slime": "슬라임",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "살금살금 방어방어",
-  "advancements.husbandry.sneaky_protection.description": "달팽이 껍데기 흉갑을 만드세요",
-  "advancements.husbandry.fungivore_diet.title": "균 잡힌 식단",
-  "advancements.husbandry.fungivore_diet.description": "달팽이에게 모든 종류의 버섯과 균을 먹이세요",
-  "advancements.husbandry.finally_some_good_food.title": "이렇게나 맛있었다니",
-  "advancements.husbandry.finally_some_good_food.description": "고약한 열매를 먹은 뒤, 뭐라도 제대로 된 음식을 드세요",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "살금살금 방어방어",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "달팽이 껍데기 흉갑을 만드세요",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "균 잡힌 식단",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "달팽이에게 모든 종류의 버섯과 균을 먹이세요",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "이렇게나 맛있었다니",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "고약한 열매를 먹은 뒤, 뭐라도 제대로 된 음식을 드세요",
   
   "block.minecraft.banner.mca_maple_leaf.black": "검은색 단풍잎",
   "block.minecraft.banner.mca_maple_leaf.red": "빨간색 단풍잎",

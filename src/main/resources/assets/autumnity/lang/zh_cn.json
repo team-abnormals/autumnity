@@ -164,12 +164,12 @@
   "block.autumnity.slime": "史莱姆",
 
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "潜行保护",
-  "advancements.husbandry.sneaky_protection.description": "制作出一件蜗牛壳胸甲",
-  "advancements.husbandry.fungivore_diet.title": "真菌套餐",
-  "advancements.husbandry.fungivore_diet.description": "用各种蘑菇和真菌喂食蜗牛",
-  "advancements.husbandry.finally_some_good_food.title": "终于，是点正常的食物了",
-  "advancements.husbandry.finally_some_good_food.description": "在吃完污秽浆果之后再吃一些正常的食物",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "潜行保护",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "制作出一件蜗牛壳胸甲",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "真菌套餐",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "用各种蘑菇和真菌喂食蜗牛",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "终于，是点正常的食物了",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "在吃完污秽浆果之后再吃一些正常的食物",
 
   "block.minecraft.banner.mca_maple_leaf.black": "黑色枫叶",
   "block.minecraft.banner.mca_maple_leaf.red": "红色枫叶",

@@ -163,12 +163,12 @@
   "block.autumnity.slime": "Slime",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Protección sigilosa",
-  "advancements.husbandry.sneaky_protection.description": "Construí una pechera de caparazón de caracol",
-  "advancements.husbandry.fungivore_diet.title": "Una dieta fungívora",
-  "advancements.husbandry.fungivore_diet.description": "Alimentá a un caracol con cada tipo de hongo",
-  "advancements.husbandry.finally_some_good_food.title": "Al fin, una buena comida",
-  "advancements.husbandry.finally_some_good_food.description": "Comé algo bueno después de comer bayas repugnantes",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "Protección sigilosa",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "Construí una pechera de caparazón de caracol",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "Una dieta fungívora",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "Alimentá a un caracol con cada tipo de hongo",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "Al fin, una buena comida",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "Comé algo bueno después de comer bayas repugnantes",
 
   "block.minecraft.banner.mca_maple_leaf.black": "Hoja de arce negra",
   "block.minecraft.banner.mca_maple_leaf.red": "Hoja de arce roja",

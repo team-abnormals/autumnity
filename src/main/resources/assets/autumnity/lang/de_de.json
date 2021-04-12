@@ -164,12 +164,12 @@
   "block.autumnity.slime": "Schleim",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Schneckenschutz",
-  "advancements.husbandry.sneaky_protection.description": "Bau ein Schneckenhaus",
-  "advancements.husbandry.fungivore_diet.title": "Eine Diät des Fungusfressers",
-  "advancements.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jeden Pilz",
-  "advancements.husbandry.finally_some_good_food.title": "Schließlich, gutes Essen",
-  "advancements.husbandry.finally_some_good_food.description": "Iss etwas gut, nachdem du Faulbeeren aßt",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "Schneckenschutz",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "Bau ein Schneckenhaus",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "Eine Diät des Fungusfressers",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jeden Pilz",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "Schließlich, gutes Essen",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "Iss etwas gut, nachdem du Faulbeeren aßt",
   
   "block.minecraft.banner.mca_maple_leaf.black": "Schwarzes Ahornblatt",
   "block.minecraft.banner.mca_maple_leaf.red": "Rotes Ahornblatt",

@@ -140,12 +140,12 @@
   "block.autumnity.turkey_egg_crate": "Caixa de ovos de peru",
 
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.husbandry.sneaky_protection.title": "Proteção furtiva",
-  "advancements.husbandry.sneaky_protection.description": "Construir um peitoral de concha de caracol",
-  "advancements.husbandry.fungivore_diet.title": "Dieta fungívora",
-  "advancements.husbandry.fungivore_diet.description": "Alimente um caracol com todos os tipos de cogumelos e fungos",
-  "advancements.husbandry.finally_some_good_food.title": "Finalmente, uma comida boa",
-  "advancements.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer bagas nojentas",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "Proteção furtiva",
+  "advancements.autumnity.husbandry.sneaky_protection.description": "Construir um peitoral de concha de caracol",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "Dieta fungívora",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "Alimente um caracol com todos os tipos de cogumelos e fungos",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "Finalmente, uma comida boa",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "Coma algo bom depois de comer bagas nojentas",
   
   "block.minecraft.banner.mca_maple_leaf.black": "Folha de bordo preta",
   "block.minecraft.banner.mca_maple_leaf.red": "Folha de bordo vermelha",

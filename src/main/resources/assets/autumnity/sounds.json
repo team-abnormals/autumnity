@@ -90,5 +90,19 @@
       "autumnity:block/turkey/cut2"
     ],
     "subtitle": "subtitles.block.turkey.cut"
+  },
+  "item.armor.equip_snail": {
+    "sounds": [
+      "autumnity:mob/snail/armor",
+      {
+        "name": "autumnity:mob/snail/armor",
+        "pitch": 0.85
+      },
+      {
+        "name": "autumnity:mob/snail/armor",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.item.armor.equip_snail"
   }
 }

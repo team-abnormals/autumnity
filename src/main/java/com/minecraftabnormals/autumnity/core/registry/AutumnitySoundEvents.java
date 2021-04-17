@@ -20,4 +20,5 @@ public class AutumnitySoundEvents {
 	public static final RegistryObject<SoundEvent> ENTITY_TURKEY_DEATH = HELPER.createSoundEvent("entity.turkey.death");
 	public static final RegistryObject<SoundEvent> ENTITY_TURKEY_EGG = HELPER.createSoundEvent("entity.turkey.egg");
 	public static final RegistryObject<SoundEvent> BLOCK_TURKEY_CUT = HELPER.createSoundEvent("block.turkey.cut");
+	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_SNAIL = HELPER.createSoundEvent("item.armor.equip_snail");
 }

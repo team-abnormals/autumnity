@@ -33,6 +33,8 @@ public class AutumnityCompat {
 		DataUtil.registerCompostable(AutumnityItems.PUMPKIN_BREAD.get(), 0.85F);
 		DataUtil.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get(), 0.65F);
 
+		DataUtil.registerCompostable(AutumnityBlocks.PANCAKE.get(), 0.85F);
+		
 		DataUtil.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get(), 0.65F);
 		DataUtil.registerCompostable(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get(), 0.65F);
 

@@ -484,7 +484,7 @@ public class SnailEntity extends AnimalEntity {
 		public boolean shouldExecute() {
 			if (!SnailEntity.this.getHiding() && !SnailEntity.this.isEating()) {
 				for (LivingEntity livingentity : SnailEntity.this.world.getEntitiesWithinAABB(LivingEntity.class, SnailEntity.this.getBoundingBox().grow(0.3D), ENEMY_MATCHER)) {
-					if (livingentity.isAlive()) {
+					if (livingentity.isAlive() && livingentity.getHeight() >= SnailEntity.this.getHeight()) {
 						return true;
 					}
 				}

@@ -11,6 +11,26 @@
 		"pancakes=9": { "model": "autumnity:block/pancake_pancakes9" },
 		"pancakes=10": { "model": "autumnity:block/pancake_pancakes10" },
 		"pancakes=11": { "model": "autumnity:block/pancake_pancakes11" },
-		"pancakes=12": { "model": "autumnity:block/pancake_pancakes12" }
+		"pancakes=12": { "model": "autumnity:block/pancake_pancakes12" },
+        "pancakes=13": { "model": "autumnity:block/pancake_pancakes13" },
+		"pancakes=14": { "model": "autumnity:block/pancake_pancakes14" },
+		"pancakes=15": { "model": "autumnity:block/pancake_pancakes15" },
+		"pancakes=16": { "model": "autumnity:block/pancake_pancakes16" },
+		"pancakes=17": { "model": "autumnity:block/pancake_pancakes17" },
+		"pancakes=18": { "model": "autumnity:block/pancake_pancakes18" },
+		"pancakes=19": { "model": "autumnity:block/pancake_pancakes19" },
+		"pancakes=20": { "model": "autumnity:block/pancake_pancakes20" },
+		"pancakes=21": { "model": "autumnity:block/pancake_pancakes21" },
+		"pancakes=22": { "model": "autumnity:block/pancake_pancakes22" },
+		"pancakes=23": { "model": "autumnity:block/pancake_pancakes23" },
+		"pancakes=24": { "model": "autumnity:block/pancake_pancakes24" },
+		"pancakes=25": { "model": "autumnity:block/pancake_pancakes25" },
+		"pancakes=26": { "model": "autumnity:block/pancake_pancakes26" },
+		"pancakes=27": { "model": "autumnity:block/pancake_pancakes27" },
+		"pancakes=28": { "model": "autumnity:block/pancake_pancakes28" },
+		"pancakes=29": { "model": "autumnity:block/pancake_pancakes29" },
+		"pancakes=30": { "model": "autumnity:block/pancake_pancakes30" },
+		"pancakes=31": { "model": "autumnity:block/pancake_pancakes31" },
+		"pancakes=32": { "model": "autumnity:block/pancake_pancakes32" }
     }
 }

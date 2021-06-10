@@ -3,9 +3,9 @@
   "block.autumnity.snail_slime": "Bava di lumanca",
   "block.autumnity.snail_slime_block": "Blocco di bava di lumaca",
   "block.autumnity.pancake": "Pancake",
-  "block.autumnity.foul_berry_bush_pips": "Semi di bacche fallo",
-  "block.autumnity.foul_berry_bush": "Cespuglio di bacche fallo",
-  "block.autumnity.tall_foul_berry_bush": "Cespuglio di bacche fallo alto",
+  "block.autumnity.foul_berry_bush_pips": "Semi di bacche disgustose",
+  "block.autumnity.foul_berry_bush": "Cespuglio di bacche disgustose",
+  "block.autumnity.tall_foul_berry_bush": "Cespuglio di bacche disgustose alto",
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Croco autunnale",
   "block.autumnity.potted_autumn_crocus": "Croco autunnale in vaso",
@@ -42,7 +42,7 @@
   "block.autumnity.sappy_maple_wood": "Legno di acero succoso",
   
   "block.autumnity.maple_branch": "Ramo di acero",
-  "block.autumnity.long_maple_branch": "Ramo lungo di acero",
+  "block.autumnity.long_maple_branch": "Ramo di acero lungo",
   
   "block.autumnity.maple_planks": "Assi di acero",
   "block.autumnity.maple_stairs": "Scalini di acero",
@@ -78,11 +78,11 @@
   
   "item.autumnity.maple_boat": "Barca di acero",
   
-  "item.autumnity.sap_bottle": "Ampolla di Sap Bottle",
-  "item.autumnity.syrup_bottle": "Ampolla di Syrup Bottle",
-  "item.autumnity.foul_berries": "Bacche fallo",
-  "item.autumnity.foul_berry_pips": "Semi di bacche fallo",
-  "item.autumnity.foul_soup": "Zuppa fallo",
+  "item.autumnity.sap_bottle": "Ampolla di linfa",
+  "item.autumnity.syrup_bottle": "Ampolla di sciroppo",
+  "item.autumnity.foul_berries": "Bacche disgustose",
+  "item.autumnity.foul_berry_pips": "Semi di bacche disgustose",
+  "item.autumnity.foul_soup": "Zuppa disgustosa",
   "item.autumnity.pumpkin_bread": "Pane di zucca",
   
   "item.autumnity.snail_spawn_egg": "Uovo generatore di lumaca",
@@ -109,7 +109,7 @@
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Estensione",
   "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
-  "effect.autumnity.foul_taste": "Cattivo gusto",
+  "effect.autumnity.foul_taste": "Sapore disgustoso",
   
   "item.minecraft.potion.effect.extension": "Pozione di estensione",
   "item.minecraft.splash_potion.effect.extension": "Pozione di estensione",
@@ -144,7 +144,7 @@
   "block.autumnity.vertical_maple_planks": "Assi verticali di acero",
   "block.autumnity.maple_bookshelf": "Libreria di acero",
   "block.autumnity.maple_ladder": "Scala a pioli di acero",
-  "block.autumnity.foul_berry_sack": "Sacco di bacche fallo",
+  "block.autumnity.foul_berry_sack": "Sacco di bacche disgustose",
   "block.autumnity.potted_foul_berries": "Bacche fallo in vaso",
   "block.autumnity.maple_beehive": "Arnia di acero",
   "block.autumnity.maple_post": "Palo di acero",
@@ -168,7 +168,7 @@
   "advancements.autumnity.husbandry.fungivore_diet.title": "Una dieta fungivoro",
   "advancements.autumnity.husbandry.fungivore_diet.description": "Nutri una lumaca tutti i tipi di funghi",
   "advancements.autumnity.husbandry.finally_some_good_food.title": "Finalmente, un pò di buon cibo",
-  "advancements.autumnity.husbandry.finally_some_good_food.description": "Mangia qualcosa di buono dopo aver mangiato bacche fallo",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "Mangia qualcosa di buono dopo aver mangiato bacche disgustose",
   
   "block.minecraft.banner.mca_maple_leaf.black": "Foglia di acero nera",
   "block.minecraft.banner.mca_maple_leaf.red": "Foglia di acero rossa",

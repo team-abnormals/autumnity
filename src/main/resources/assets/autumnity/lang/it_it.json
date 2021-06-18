@@ -8,7 +8,7 @@
   "block.autumnity.tall_foul_berry_bush": "Cespuglio di bacche disgustose alto",
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Croco autunnale",
-  "block.autumnity.potted_autumn_crocus": "Croco autunnale in vaso",
+  "block.autumnity.potted_autumn_crocus": "Vaso con croco autunnale",
   "block.autumnity.turkey": "Tacchino crudo",
   "block.autumnity.cooked_turkey": "Tacchino cotto",
   
@@ -20,7 +20,7 @@
   "block.autumnity.redstone_jack_o_lantern": "Lanterna di zucca di redstone",
   "block.autumnity.large_redstone_jack_o_lantern_slice": "Fetta di lanterna di zucca di redstone grande",
   
-  "block.autumnity.snail_shell_block": "Blocco Guscio di lumaca",
+  "block.autumnity.snail_shell_block": "Blocco di guscio di lumaca",
   "block.autumnity.snail_shell_bricks": "Mattoni di guscio di lumaca",
   "block.autumnity.snail_shell_brick_stairs": "Scalini di mattoni di guscio di lumaca",
   "block.autumnity.snail_shell_brick_slab": "Lastra di mattoni di guscio di lumaca",
@@ -54,7 +54,7 @@
   "block.autumnity.maple_door": "Porta di acero",
   "block.autumnity.maple_trapdoor": "Botola di acero",
   "block.autumnity.maple_sign": "Cartello di acero",
-  "block.autumnity.maple_wall_sign": "Cartello di parete di acero",
+  "block.autumnity.maple_wall_sign": "Cartello di acero a parete",
   
   "block.autumnity.maple_leaves": "Foglie di acero",
   "block.autumnity.yellow_maple_leaves": "Foglie di acero gialle",
@@ -66,10 +66,10 @@
   "block.autumnity.orange_maple_sapling": "Foglie di acero arancioni",
   "block.autumnity.red_maple_sapling": "Foglie di acero rosse",
   
-  "block.autumnity.potted_maple_sapling": "Arboscello di acero in vaso",
-  "block.autumnity.potted_yellow_maple_sapling": "Arboscello di acero giallo in vaso",
-  "block.autumnity.potted_orange_maple_sapling": "Arboscello di acero arancione in vaso",
-  "block.autumnity.potted_red_maple_sapling": "Arboscello di acero rosso in vaso",
+  "block.autumnity.potted_maple_sapling": "Vaso con arboscello di acero",
+  "block.autumnity.potted_yellow_maple_sapling": "Vaso con arboscello di acero giallo",
+  "block.autumnity.potted_orange_maple_sapling": "Vaso con arboscello di acero arancione",
+  "block.autumnity.potted_red_maple_sapling": "Vaso con arboscello di acero rosso",
   
   "block.autumnity.maple_leaf_carpet": "Tappeto di foglie di acero",
   "block.autumnity.yellow_maple_leaf_carpet": "Tappeto di foglie di acero gialle",

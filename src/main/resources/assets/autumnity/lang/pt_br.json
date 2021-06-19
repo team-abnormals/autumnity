@@ -8,7 +8,7 @@
   "block.autumnity.tall_foul_berry_bush": "Arbusto de bagas nojentas alto",
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Açafrão-do-prado",
-  "block.autumnity.potted_autumn_crocus": "Vaso de açafrão-do-prado",
+  "block.autumnity.potted_autumn_crocus": "Açafrão-do-prado envasado",
   "block.autumnity.turkey": "Peru cru",
   "block.autumnity.cooked_turkey": "Peru assado",
   
@@ -180,7 +180,7 @@
   "block.minecraft.banner.mca_maple_leaf.lightBlue": "Folha de bordo azul-clara",
   "block.minecraft.banner.mca_maple_leaf.magenta": "Folha de bordo magenta",
   "block.minecraft.banner.mca_maple_leaf.orange": "Folha de bordo laranja",
-  "block.minecraft.banner.mca_maple_leaf.white": "Folha de bordo branca"
+  "block.minecraft.banner.mca_maple_leaf.white": "Folha de bordo branca",
   
   "block.minecraft.banner.mca_swirl.black": "Espiral preta",
   "block.minecraft.banner.mca_swirl.red": "Espiral vermelha",

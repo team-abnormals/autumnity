@@ -19,19 +19,20 @@ public class MapleLeavesBlock extends AbnormalsLeavesBlock {
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		super.animateTick(stateIn, worldIn, pos, rand);
 
-		int color = worldIn.getBiome(pos).getFoliageColor();
-
-		double d0 = (color >> 16 & 255) / 255.0F;
-		double d1 = (color >> 8 & 255) / 255.0F;
-		double d2 = (color & 255) / 255.0F;
-
 		if (rand.nextInt(100) == 0) {
 			BlockPos blockpos = pos.down();
 			if (worldIn.isAirBlock(blockpos)) {
+				int color = worldIn.getBiome(pos).getFoliageColor();
+				
+				double d0 = (color >> 16 & 255) / 255.0F;
+				double d1 = (color >> 8 & 255) / 255.0F;
+				double d2 = (color & 255) / 255.0F;
+				
 				double d3 = (double) ((float) pos.getX() + rand.nextFloat());
 				double d4 = (double) pos.getY() - 0.05D;
 				double d6 = (double) ((float) pos.getZ() + rand.nextFloat());
-				worldIn.addParticle(AutumnityParticles.FALLING_LEAF.get(), d3, d4, d6, d0, d1, d2);
+				
+				worldIn.addParticle(AutumnityParticles.FALLING_MAPLE_LEAF.get(), d3, d4, d6, d0, d1, d2);
 			}
 		}
 	}

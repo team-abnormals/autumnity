@@ -7,10 +7,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class FallingLeafParticle extends SpriteTexturedParticle {
+public class FallingMapleLeafParticle extends SpriteTexturedParticle {
 	private final float rotSpeed;
 
-	private FallingLeafParticle(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn) {
+	private FallingMapleLeafParticle(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn) {
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
 		this.particleScale *= 1.2F;
 		this.maxAge = 80;
@@ -55,7 +55,7 @@ public class FallingLeafParticle extends SpriteTexturedParticle {
 		}
 
 		public Particle makeParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			FallingLeafParticle particle = new FallingLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
+			FallingMapleLeafParticle particle = new FallingMapleLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
 			particle.setColor((float) xSpeed, (float) ySpeed, (float) zSpeed);
 			particle.selectSpriteRandomly(this.spriteSet);
 			return particle;

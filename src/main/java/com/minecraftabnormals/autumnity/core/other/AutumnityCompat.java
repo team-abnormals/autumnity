@@ -19,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class AutumnityCompat {
 	public static final Item ENDER_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("endergetic", "ender_torch"));
 	public static final Item CURSED_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("caverns_and_chasms", "cursed_torch"));
+	public static final Item GLOW_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("infernalexp", "glow_torch"));
 	public static final Block YUCCA_GATEAU = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "yucca_gateau"));
 
 	public static void registerCompat() {

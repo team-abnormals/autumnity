@@ -20,6 +20,8 @@ public class JackOLanternHelper {
 			return AutumnityBlocks.ENDER_JACK_O_LANTERN.get();
 		else if ((ModList.get().isLoaded("caverns_and_chasms") && torch == AutumnityCompat.CURSED_TORCH))
 			return AutumnityBlocks.CURSED_JACK_O_LANTERN.get();
+		else if ((ModList.get().isLoaded("infernalexp") && torch == AutumnityCompat.GLOW_TORCH))
+		    return AutumnityBlocks.GLOW_JACK_O_LANTERN.get();
 		else
 			return null;
 	}
@@ -35,6 +37,8 @@ public class JackOLanternHelper {
 			return AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get();
 		else if ((ModList.get().isLoaded("caverns_and_chasms") && torch == AutumnityCompat.CURSED_TORCH))
 			return AutumnityBlocks.LARGE_CURSED_JACK_O_LANTERN_SLICE.get();
+		else if ((ModList.get().isLoaded("infernalexp") && torch == AutumnityCompat.GLOW_TORCH))
+			return AutumnityBlocks.LARGE_GLOW_JACK_O_LANTERN_SLICE.get();
 		else
 			return null;
 	}

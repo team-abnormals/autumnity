@@ -1,13 +1,11 @@
 package com.minecraftabnormals.autumnity.core;
 
-import java.util.List;
-
+import com.google.common.collect.Lists;
 import com.minecraftabnormals.abnormals_core.core.annotations.ConfigKey;
+import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.google.common.collect.Lists;
-
-import net.minecraftforge.common.ForgeConfigSpec;
+import java.util.List;
 
 public class AutumnityConfig {
 	public static class Common {

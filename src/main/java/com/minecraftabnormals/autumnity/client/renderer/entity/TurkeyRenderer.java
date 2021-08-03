@@ -18,7 +18,7 @@ public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<Turkey
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(TurkeyEntity entity) {
+	public ResourceLocation getTextureLocation(TurkeyEntity entity) {
 		return TURKEY_TEXTURES;
 	}
 }

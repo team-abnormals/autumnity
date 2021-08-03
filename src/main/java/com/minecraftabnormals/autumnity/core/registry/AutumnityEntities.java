@@ -31,14 +31,14 @@ public class AutumnityEntities {
 	public static final RegistryObject<EntityType<FallingHeadBlockEntity>> FALLING_HEAD_BLOCK = HELPER.createEntity("falling_head_block", FallingHeadBlockEntity::new, FallingHeadBlockEntity::new, EntityClassification.MISC, 0.98F, 0.98F);
 
 	public static void registerSpawns() {
-		EntitySpawnPlacementRegistry.register(SNAIL.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
-		EntitySpawnPlacementRegistry.register(TURKEY.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
+		EntitySpawnPlacementRegistry.register(SNAIL.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::checkAnimalSpawnRules);
+		EntitySpawnPlacementRegistry.register(TURKEY.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::checkAnimalSpawnRules);
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(SNAIL.get(), SnailEntity.registerAttributes().create());
-		event.put(TURKEY.get(), TurkeyEntity.registerAttributes().create());
+		event.put(SNAIL.get(), SnailEntity.registerAttributes().build());
+		event.put(TURKEY.get(), TurkeyEntity.registerAttributes().build());
 	}
 
 	public static void registerRenderers() {

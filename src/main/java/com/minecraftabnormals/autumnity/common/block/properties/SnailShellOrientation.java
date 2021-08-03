@@ -13,7 +13,7 @@ public enum SnailShellOrientation implements IStringSerializable {
 		this.name = name;
 	}
 
-	public String getString() {
+	public String getSerializedName() {
 		return this.name;
 	}
 }

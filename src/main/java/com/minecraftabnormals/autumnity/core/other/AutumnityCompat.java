@@ -102,9 +102,9 @@ public class AutumnityCompat {
 	}
 
 	private static void registerDispenserBehaviors() {
-		DispenserBlock.registerDispenseBehavior(AutumnityItems.TURKEY_EGG.get(), new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				return Util.make(new TurkeyEggEntity(worldIn, position.getX(), position.getY(), position.getZ()), (egg) -> {
+		DispenserBlock.registerBehavior(AutumnityItems.TURKEY_EGG.get(), new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				return Util.make(new TurkeyEggEntity(worldIn, position.x(), position.y(), position.z()), (egg) -> {
 					egg.setItem(stackIn);
 				});
 			}

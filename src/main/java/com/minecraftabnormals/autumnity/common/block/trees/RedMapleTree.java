@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class RedMapleTree extends Tree {
 	@Nullable
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean beehiveIn) {
-		return AutumnityFeatures.MAPLE_TREE.get().withConfiguration(AutumnityFeatures.Configs.RED_MAPLE_TREE_CONFIG);
+	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean beehiveIn) {
+		return AutumnityFeatures.MAPLE_TREE.get().configured(AutumnityFeatures.Configs.RED_MAPLE_TREE_CONFIG);
 	}
 }

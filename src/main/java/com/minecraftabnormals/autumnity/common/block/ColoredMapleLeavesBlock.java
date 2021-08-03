@@ -23,8 +23,8 @@ public class ColoredMapleLeavesBlock extends AbnormalsLeavesBlock {
 		super.animateTick(stateIn, worldIn, pos, rand);
 
 		if (rand.nextInt(100) == 0) {
-			BlockPos blockpos = pos.down();
-			if (worldIn.isAirBlock(blockpos)) {
+			BlockPos blockpos = pos.below();
+			if (worldIn.isEmptyBlock(blockpos)) {
 				double d0 = (this.color >> 16 & 255) / 255.0F;
 				double d1 = (this.color >> 8 & 255) / 255.0F;
 				double d2 = (this.color & 255) / 255.0F;

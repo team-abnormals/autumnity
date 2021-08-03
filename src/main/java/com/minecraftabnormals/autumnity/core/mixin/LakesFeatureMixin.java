@@ -17,9 +17,9 @@ import java.util.Random;
 @Mixin(LakesFeature.class)
 public class LakesFeatureMixin {
 
-	@Inject(method = "generate", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/math/BlockPos;down(I)Lnet/minecraft/util/math/BlockPos;"), cancellable = true)
-	private void generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, BlockStateFeatureConfig config, CallbackInfoReturnable<Boolean> cir) {
-		if (world.func_241827_a(SectionPos.from(pos), AutumnityStructures.MAPLE_WITCH_HUT.get()).findAny().isPresent()) {
+	@Inject(method = "place", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/math/BlockPos;below(I)Lnet/minecraft/util/math/BlockPos;"), cancellable = true)
+	private void place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, BlockStateFeatureConfig config, CallbackInfoReturnable<Boolean> cir) {
+		if (world.startsForFeature(SectionPos.of(pos), AutumnityStructures.MAPLE_WITCH_HUT.get()).findAny().isPresent()) {
 			cir.setReturnValue(false);
 		}
 	}

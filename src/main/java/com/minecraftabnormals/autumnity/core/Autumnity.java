@@ -5,11 +5,8 @@ import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.autumnity.core.other.AutumnityClient;
 import com.minecraftabnormals.autumnity.core.other.AutumnityCompat;
 import com.minecraftabnormals.autumnity.core.registry.*;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -35,10 +32,8 @@ public class Autumnity {
 
 		MinecraftForge.EVENT_BUS.register(this);
 
-		modEventBus.addListener(EventPriority.LOWEST, this::commonSetup);
-		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
-			modEventBus.addListener(this::clientSetup);
-		});
+		modEventBus.addListener(this::commonSetup);
+		modEventBus.addListener(this::clientSetup);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
 		DataUtil.registerConfigCondition(MOD_ID, AutumnityConfig.COMMON);

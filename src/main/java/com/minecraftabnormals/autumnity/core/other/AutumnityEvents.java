@@ -1,25 +1,14 @@
 package com.minecraftabnormals.autumnity.core.other;
 
-import java.util.UUID;
-
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil.AbnormalsTrade;
 import com.minecraftabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.minecraftabnormals.autumnity.common.entity.passive.SnailEntity;
 import com.minecraftabnormals.autumnity.core.Autumnity;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBiomes;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityEffects;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
-import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
+import com.minecraftabnormals.autumnity.core.registry.*;
 import com.mojang.datafixers.util.Pair;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CakeBlock;
-import net.minecraft.block.CarvedPumpkinBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -45,11 +34,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.EntityPredicates;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -68,6 +53,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.UUID;
+
 @Mod.EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityEvents {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
@@ -76,13 +63,13 @@ public class AutumnityEvents {
 	public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		World world = event.getWorld();
 
-		if (!world.isRemote) {
+		if (!world.isClientSide) {
 			Entity entity = event.getEntity();
 
 			if (entity instanceof PillagerEntity) {
 				((CreatureEntity) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((CreatureEntity) entity, SnailEntity.class, true));
 			} else if (entity instanceof MooshroomEntity) {
-				((CreatureEntity) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((CreatureEntity) entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntityPredicates.CAN_AI_TARGET::test));
+				((CreatureEntity) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((CreatureEntity) entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntityPredicates.NO_CREATIVE_OR_SPECTATOR::test));
 			}
 		}
 	}
@@ -93,17 +80,17 @@ public class AutumnityEvents {
 		LivingEntity livingentity = event.getEntityLiving();
 
 		if (livingentity instanceof ZombieEntity || livingentity instanceof AbstractSkeletonEntity) {
-			if (livingentity.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
-				if (DataUtil.matchesKeys(world.getBiome(livingentity.getPosition()).getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && world.getRandom().nextFloat() < 0.05F) {
-					livingentity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
+			if (livingentity.getItemBySlot(EquipmentSlotType.HEAD).isEmpty()) {
+				if (DataUtil.matchesKeys(world.getBiome(livingentity.blockPosition()).getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && world.getRandom().nextFloat() < 0.05F) {
+					livingentity.setItemSlot(EquipmentSlotType.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
 				}
 			}
 		}
 		else if (livingentity instanceof CatEntity) {
-			if (world instanceof ServerWorld && (((ServerWorld) world).func_241112_a_().getStructureStart(livingentity.getPosition(), true, AutumnityStructures.MAPLE_WITCH_HUT.get()).isValid())) {
+			if (world instanceof ServerWorld && (((ServerWorld) world).structureFeatureManager().getStructureAt(livingentity.blockPosition(), true, AutumnityStructures.MAPLE_WITCH_HUT.get()).isValid())) {
 				((CatEntity) livingentity).setCatType(10);
-				((CatEntity) livingentity).enablePersistence();
+				((CatEntity) livingentity).setPersistenceRequired();
 			}
 		}
 	}
@@ -113,8 +100,8 @@ public class AutumnityEvents {
 		LivingEntity entity = event.getEntityLiving();
 
 		entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
-		if (entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isSneaking()) {
-			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).applyNonPersistentModifier(KNOCKBACK_MODIFIER);
+		if (entity.getItemBySlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isShiftKeyDown()) {
+			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(KNOCKBACK_MODIFIER);
 		}
 	}
 
@@ -131,9 +118,9 @@ public class AutumnityEvents {
 		if (!player.isSpectator()) {
 			if (item == AutumnityItems.FOUL_BERRIES.get() && ModList.get().isLoaded("berry_good")) {
 				event.setUseItem(Event.Result.DENY);
-			} else if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU))) {
-				if (player.getFoodStats().getFoodLevel() < 19) {
-					player.getFoodStats().addStats(1, 0.0F);
+			} else if (player.hasEffect(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU))) {
+				if (player.getFoodData().getFoodLevel() < 19) {
+					player.getFoodData().eat(1, 0.0F);
 				}
 				updateFoulTaste(player);
 			}
@@ -143,9 +130,9 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event) {
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().isPotionActive(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isFood()) {
+		if (event.getEntityLiving().hasEffect(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof PlayerEntity && itemstack.isEdible()) {
 			Item item = itemstack.getItem();
-			Food food = item.getFood();
+			Food food = item.getFoodProperties();
 			boolean flag = true;
 
 			if (item instanceof SuspiciousStewItem) {
@@ -156,7 +143,7 @@ public class AutumnityEvents {
 					for (int i = 0; i < listnbt.size(); ++i) {
 						CompoundNBT compoundnbt1 = listnbt.getCompound(i);
 
-						Effect effect = Effect.get(compoundnbt1.getByte("EffectId"));
+						Effect effect = Effect.byId(compoundnbt1.getByte("EffectId"));
 						if (effect == AutumnityEffects.FOUL_TASTE.get()) {
 							flag = false;
 							break;
@@ -165,7 +152,7 @@ public class AutumnityEvents {
 				}
 			} else {
 				for (Pair<EffectInstance, Float> pair : food.getEffects()) {
-					if (pair.getFirst().getPotion() == AutumnityEffects.FOUL_TASTE.get()) {
+					if (pair.getFirst().getEffect() == AutumnityEffects.FOUL_TASTE.get()) {
 						flag = false;
 						break;
 					}
@@ -175,10 +162,10 @@ public class AutumnityEvents {
 			if (flag) {
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
-				int i = food.getHealing();
+				int i = food.getNutrition();
 				int j = i == 1 ? i : (int) (i * 0.5F);
 
-				player.getFoodStats().addStats(j, 0.0F);
+				player.getFoodData().eat(j, 0.0F);
 				updateFoulTaste(player);
 			}
 		}
@@ -217,27 +204,27 @@ public class AutumnityEvents {
 			BlockState blockstate = event.getWorld().getBlockState(event.getPos());
 			PlayerEntity player = event.getPlayer();
 
-			boolean flag = !player.getHeldItemMainhand().doesSneakBypassUse(world, blockpos, player) || !player.getHeldItemOffhand().doesSneakBypassUse(world, blockpos, player);
+			boolean flag = !player.getMainHandItem().doesSneakBypassUse(world, blockpos, player) || !player.getOffhandItem().doesSneakBypassUse(world, blockpos, player);
 			boolean flag1 = player.isSecondaryUseActive() && flag;
 
 			if (blockstate.getBlock() == Blocks.CARVED_PUMPKIN && !flag1) {
 				Direction direction = event.getFace();
-				Direction direction1 = blockstate.get(CarvedPumpkinBlock.FACING);
+				Direction direction1 = blockstate.getValue(CarvedPumpkinBlock.FACING);
 
 				if (direction == direction1) {
-					if (!world.isRemote) {
-						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.getDefaultState().with(RedstoneJackOLanternBlock.LIT, world.isBlockPowered(blockpos)) : jackolantern.getDefaultState();
-						BlockState blockstate2 = blockstate1.with(CarvedPumpkinBlock.FACING, direction1);
-						world.setBlockState(blockpos, blockstate2, 11);
+					if (!world.isClientSide) {
+						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, world.hasNeighborSignal(blockpos)) : jackolantern.defaultBlockState();
+						BlockState blockstate2 = blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
+						world.setBlock(blockpos, blockstate2, 11);
 
-						world.playSound((PlayerEntity) null, blockpos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-						if (!event.getPlayer().abilities.isCreativeMode) {
+						world.playSound((PlayerEntity) null, blockpos, SoundEvents.WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+						if (!event.getPlayer().abilities.instabuild) {
 							itemstack.shrink(1);
 						}
 					}
 
-					player.swingArm(event.getHand());
-					event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
+					player.swing(event.getHand());
+					event.setCancellationResult(ActionResultType.sidedSuccess(world.isClientSide));
 					event.setUseItem(Result.DENY);
 				}
 			}
@@ -248,26 +235,26 @@ public class AutumnityEvents {
 	public static void onPotionAdded(PotionEvent.PotionAddedEvent event) {
 		LivingEntity livingentity = event.getEntityLiving();
 		EffectInstance effect = event.getPotionEffect();
-		EffectInstance extension = livingentity.getActivePotionEffect(AutumnityEffects.EXTENSION.get());
+		EffectInstance extension = livingentity.getEffect(AutumnityEffects.EXTENSION.get());
 		
 		if (extension != null) {
-			if (effect.getPotion() != AutumnityEffects.EXTENSION.get()) {
-				effect.combine(new EffectInstance(effect.getPotion(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.doesShowParticles(), effect.isShowIcon()));
+			if (effect.getEffect() != AutumnityEffects.EXTENSION.get()) {
+				effect.update(new EffectInstance(effect.getEffect(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon()));
 			}
 		}
 	}
 	
 	public static void updateFoulTaste(PlayerEntity player) {
-		EffectInstance effect = player.getActivePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+		EffectInstance effect = player.getEffect(AutumnityEffects.FOUL_TASTE.get());
 
-		player.removePotionEffect(AutumnityEffects.FOUL_TASTE.get());
+		player.removeEffect(AutumnityEffects.FOUL_TASTE.get());
 		if (effect.getAmplifier() > 0) {
-			player.addPotionEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
+			player.addEffect(new EffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
 		}
 
 		if (player instanceof ServerPlayerEntity) {
 			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
-			if (!player.getEntityWorld().isRemote()) {
+			if (!player.getCommandSenderWorld().isClientSide()) {
 				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
 			}
 		}

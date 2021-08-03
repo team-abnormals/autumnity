@@ -59,8 +59,8 @@ import java.util.function.Predicate;
 public class SnailEntity extends AnimalEntity {
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
-	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.createKey(SnailEntity.class, DataSerializers.VARINT);
-	private static final DataParameter<Boolean> HIDING = EntityDataManager.createKey(SnailEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Integer> EATING_TIME = EntityDataManager.defineId(SnailEntity.class, DataSerializers.INT);
+	private static final DataParameter<Boolean> HIDING = EntityDataManager.defineId(SnailEntity.class, DataSerializers.BOOLEAN);
 	private int hidingTime = 0;
 	private int slimeAmount = 0;
 
@@ -77,11 +77,11 @@ public class SnailEntity extends AnimalEntity {
 		if (livingentity == null) {
 			return false;
 		} else {
-			livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST);
-			if (livingentity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get()) {
+			livingentity.getItemBySlot(EquipmentSlotType.CHEST);
+			if (livingentity.getItemBySlot(EquipmentSlotType.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get()) {
 				return false;
 			} else if (livingentity instanceof PlayerEntity) {
-				return !livingentity.isSneaking() && !livingentity.isSpectator() && !((PlayerEntity) livingentity).isCreative();
+				return !livingentity.isShiftKeyDown() && !livingentity.isSpectator() && !((PlayerEntity) livingentity).isCreative();
 			} else {
 				return !(livingentity instanceof SnailEntity) && !(livingentity instanceof MooshroomEntity);
 			}
@@ -90,10 +90,10 @@ public class SnailEntity extends AnimalEntity {
 
 	public SnailEntity(EntityType<? extends SnailEntity> type, World worldIn) {
 		super(type, worldIn);
-		this.lookController = new SnailEntity.LookHelperController();
-		this.moveController = new SnailEntity.MoveHelperController();
-		this.setPathPriority(PathNodeType.DANGER_CACTUS, 0.0F);
-		this.setPathPriority(PathNodeType.DAMAGE_CACTUS, 0.0F);
+		this.lookControl = new SnailEntity.LookHelperController();
+		this.moveControl = new SnailEntity.MoveHelperController();
+		this.setPathfindingMalus(PathNodeType.DANGER_CACTUS, 0.0F);
+		this.setPathfindingMalus(PathNodeType.DAMAGE_CACTUS, 0.0F);
 	}
 
 	@Override
@@ -110,10 +110,10 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return MobEntity.func_233666_p_()
-				.createMutableAttribute(Attributes.MAX_HEALTH, 18.0D)
-				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
-				.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
+		return MobEntity.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 18.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.25D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public class SnailEntity extends AnimalEntity {
 
 	@Nullable
 	@Override
-	public SoundEvent getEatSound(ItemStack itemStackIn) {
+	public SoundEvent getEatingSound(ItemStack itemStackIn) {
 		return null;
 	}
 
@@ -153,7 +153,7 @@ public class SnailEntity extends AnimalEntity {
 	public void tick() {
 		super.tick();
 
-		if (this.world.isRemote) {
+		if (this.level.isClientSide) {
 			this.prevHideTicks = this.hideTicks;
 			if (this.getHiding()) {
 				this.hideTicks = MathHelper.clamp(this.hideTicks + 1, 0, 3);
@@ -171,44 +171,44 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	@Override
-	public void livingTick() {
-		if (!this.canMove() || this.isMovementBlocked()) {
-			this.isJumping = false;
-			this.moveStrafing = 0.0F;
-			this.moveForward = 0.0F;
+	public void aiStep() {
+		if (!this.canMove() || this.isImmobile()) {
+			this.jumping = false;
+			this.xxa = 0.0F;
+			this.zza = 0.0F;
 		}
 
-		super.livingTick();
+		super.aiStep();
 
 		if (this.isEating()) {
 			this.eat();
-			if (!this.world.isRemote) {
+			if (!this.level.isClientSide) {
 				this.setEatingTime(this.getEatingTime() - 1);
 			}
 		}
 
-		if (!this.world.isRemote && this.isAlive()) {
-			ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+		if (!this.level.isClientSide && this.isAlive()) {
+			ItemStack itemstack = this.getItemBySlot(EquipmentSlotType.MAINHAND);
 			if (!itemstack.isEmpty()) {
 				if (this.isFoodItem(itemstack)) {
 					if (!this.isEating()) {
-						this.setSlimeAmount(this.rand.nextInt(3) + 5);
+						this.setSlimeAmount(this.random.nextInt(3) + 5);
 
-						if (Ingredient.fromTag(AutumnityTags.SNAIL_GLOWING_FOODS).test(itemstack)) {
-							this.addPotionEffect(new EffectInstance(Effects.GLOWING, 200, 0));
+						if (Ingredient.of(AutumnityTags.SNAIL_GLOWING_FOODS).test(itemstack)) {
+							this.addEffect(new EffectInstance(Effects.GLOWING, 200, 0));
 						}
-						if (Ingredient.fromTag(AutumnityTags.SNAIL_SPEEDING_FOODS).test(itemstack)) {
-							this.addPotionEffect(new EffectInstance(Effects.SPEED, 320, 2));
+						if (Ingredient.of(AutumnityTags.SNAIL_SPEEDING_FOODS).test(itemstack)) {
+							this.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 320, 2));
 						}
 
 						Item item = itemstack.getItem();
-						ItemStack itemstack1 = itemstack.onItemUseFinish(this.world, this);
+						ItemStack itemstack1 = itemstack.finishUsingItem(this.level, this);
 						if (!itemstack1.isEmpty()) {
 							if (itemstack1.getItem() != item) {
-								this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack1);
+								this.setItemSlot(EquipmentSlotType.MAINHAND, itemstack1);
 								this.spitOutItem();
 							} else {
-								this.setItemStackToSlot(EquipmentSlotType.MAINHAND, ItemStack.EMPTY);
+								this.setItemSlot(EquipmentSlotType.MAINHAND, ItemStack.EMPTY);
 							}
 						}
 					}
@@ -217,19 +217,19 @@ public class SnailEntity extends AnimalEntity {
 				}
 			}
 
-			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this)) {
-				int i = MathHelper.floor(this.getPosX());
-				int j = MathHelper.floor(this.getPosY());
-				int k = MathHelper.floor(this.getPosZ());
-				BlockState blockstate = AutumnityBlocks.SNAIL_SLIME.get().getDefaultState();
+			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
+				int i = MathHelper.floor(this.getX());
+				int j = MathHelper.floor(this.getY());
+				int k = MathHelper.floor(this.getZ());
+				BlockState blockstate = AutumnityBlocks.SNAIL_SLIME.get().defaultBlockState();
 
 				for (int l = 0; l < 4; ++l) {
-					i = MathHelper.floor(this.getPosX() + (double) ((float) (l % 2 * 2 - 1) * 0.25F));
-					j = MathHelper.floor(this.getPosY());
-					k = MathHelper.floor(this.getPosZ() + (double) ((float) (l / 2 % 2 * 2 - 1) * 0.25F));
+					i = MathHelper.floor(this.getX() + (double) ((float) (l % 2 * 2 - 1) * 0.25F));
+					j = MathHelper.floor(this.getY());
+					k = MathHelper.floor(this.getZ() + (double) ((float) (l / 2 % 2 * 2 - 1) * 0.25F));
 					BlockPos blockpos = new BlockPos(i, j, k);
-					if (this.getSlimeAmount() > 0 && this.world.isAirBlock(blockpos) && blockstate.isValidPosition(this.world, blockpos)) {
-						this.world.setBlockState(blockpos, blockstate);
+					if (this.getSlimeAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
+						this.level.setBlockAndUpdate(blockpos, blockstate);
 						this.setSlimeAmount(this.getSlimeAmount() - 1);
 					}
 				}
@@ -242,61 +242,61 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	public void eat() {
-		if ((this.getEatingTime() + 1) % 12 == 0 && !this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty()) {
-			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT.get(), 0.25F + 0.5F * (float) this.rand.nextInt(2), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+		if ((this.getEatingTime() + 1) % 12 == 0 && !this.getItemBySlot(EquipmentSlotType.MAINHAND).isEmpty()) {
+			this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_EAT.get(), 0.25F + 0.5F * (float) this.random.nextInt(2), (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 
 			for (int i = 0; i < 6; ++i) {
-				Vector3d vector3d = new Vector3d(((double) this.rand.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double) this.rand.nextFloat() - 0.5D) * 0.1D);
-				vector3d = vector3d.rotatePitch(-this.rotationPitch * ((float) Math.PI / 180F));
-				vector3d = vector3d.rotateYaw(-this.rotationYaw * ((float) Math.PI / 180F));
-				double d0 = (double) (-this.rand.nextFloat()) * 0.2D;
-				Vector3d vector3d1 = new Vector3d(((double) this.rand.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double) this.rand.nextFloat() - 0.5D) * 0.2D);
-				vector3d1 = vector3d1.rotateYaw(-this.renderYawOffset * ((float) Math.PI / 180F));
-				vector3d1 = vector3d1.add(this.getPosX(), this.getPosY() + (double) this.getEyeHeight(), this.getPosZ());
-				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemStackFromSlot(EquipmentSlotType.MAINHAND)), vector3d1.x, vector3d1.y, vector3d1.z, vector3d.x, vector3d.y + 0.05D, vector3d.z);
+				Vector3d vector3d = new Vector3d(((double) this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double) this.random.nextFloat() - 0.5D) * 0.1D);
+				vector3d = vector3d.xRot(-this.xRot * ((float) Math.PI / 180F));
+				vector3d = vector3d.yRot(-this.yRot * ((float) Math.PI / 180F));
+				double d0 = (double) (-this.random.nextFloat()) * 0.2D;
+				Vector3d vector3d1 = new Vector3d(((double) this.random.nextFloat() - 0.5D) * 0.2D, d0, 0.8D + ((double) this.random.nextFloat() - 0.5D) * 0.2D);
+				vector3d1 = vector3d1.yRot(-this.yBodyRot * ((float) Math.PI / 180F));
+				vector3d1 = vector3d1.add(this.getX(), this.getY() + (double) this.getEyeHeight(), this.getZ());
+				this.level.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItemBySlot(EquipmentSlotType.MAINHAND)), vector3d1.x, vector3d1.y, vector3d1.z, vector3d.x, vector3d.y + 0.05D, vector3d.z);
 			}
 		}
 	}
 
 	@Override
-	protected void onGrowingAdult() {
-		super.onGrowingAdult();
-		if (!this.isChild() && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-			this.entityDropItem(AutumnityItems.SNAIL_SHELL_PIECE.get(), 1);
+	protected void ageBoundaryReached() {
+		super.ageBoundaryReached();
+		if (!this.isBaby() && this.level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+			this.spawnAtLocation(AutumnityItems.SNAIL_SHELL_PIECE.get(), 1);
 		}
 	}
 
 	@Override
-	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
+	public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
 		if (!this.getHiding() && !this.isEating()) {
-			ItemStack itemstack = player.getHeldItem(hand);
-			if (!itemstack.isEmpty() && this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty()) {
+			ItemStack itemstack = player.getItemInHand(hand);
+			if (!itemstack.isEmpty() && this.getItemBySlot(EquipmentSlotType.MAINHAND).isEmpty()) {
 				if (this.isFoodItem(itemstack)) {
-					if (!this.isChild() && this.getSlimeAmount() <= 0) {
-						if (!this.world.isRemote) {
+					if (!this.isBaby() && this.getSlimeAmount() <= 0) {
+						if (!this.level.isClientSide) {
 							ItemStack itemstack1 = itemstack.copy();
 							itemstack1.setCount(1);
-							this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack1);
+							this.setItemSlot(EquipmentSlotType.MAINHAND, itemstack1);
 							this.setEatingTime(192);
 							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayerEntity) player, itemstack1);
-							this.consumeItemFromStack(player, itemstack);
+							this.usePlayerItem(player, itemstack);
 						}
-						return ActionResultType.func_233537_a_(world.isRemote());
+						return ActionResultType.sidedSuccess(level.isClientSide());
 					}
 				} else if (this.isSnailBreedingItem(itemstack)) {
 					boolean flag = false;
 
-					if (!this.world.isRemote && this.getGrowingAge() == 0 && this.canFallInLove()) {
+					if (!this.level.isClientSide && this.getAge() == 0 && this.canFallInLove()) {
 						this.setInLove(player);
 						flag = true;
 					}
-					else if (this.isChild()) {
-						this.ageUp((int) ((float) (-this.getGrowingAge() / 20) * 0.1F), true);
+					else if (this.isBaby()) {
+						this.ageUp((int) ((float) (-this.getAge() / 20) * 0.1F), true);
 						flag = true;
 					}
 
 					if (flag) {
-						if (!this.world.isRemote && !player.abilities.isCreativeMode) {
+						if (!this.level.isClientSide && !player.abilities.instabuild) {
 							ItemStack container = itemstack.getContainerItem();
 							if (container.isEmpty() && itemstack.getItem() instanceof SoupItem)
 								container = new ItemStack(Items.BOWL);
@@ -305,50 +305,50 @@ public class SnailEntity extends AnimalEntity {
 
 							if (!container.isEmpty()) {
 								if (itemstack.isEmpty()) {
-									player.setHeldItem(hand, container);
+									player.setItemInHand(hand, container);
 								}
 								else {
-									if (!player.inventory.addItemStackToInventory(container)) {
-										player.dropItem(container, false);
+									if (!player.inventory.add(container)) {
+										player.drop(container, false);
 									}
 								}
 							}
 						}
 
-						return ActionResultType.func_233537_a_(world.isRemote());
+						return ActionResultType.sidedSuccess(level.isClientSide());
 					}
 				}
 			}
 		}
 
 		this.canBreed = false;
-		ActionResultType result = super.func_230254_b_(player, hand);
+		ActionResultType result = super.mobInteract(player, hand);
 		this.canBreed = true;
 		return result;
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
+	public boolean hurt(DamageSource source, float amount) {
 		if (this.isInvulnerableTo(source)) {
 			return false;
 		} else {
-			Entity entity = source.getImmediateSource();
+			Entity entity = source.getDirectEntity();
 			if (this.getHiding() && entity instanceof AbstractArrowEntity) {
 				return false;
 			} else if (source == DamageSource.CACTUS) {
 				return false;
 			}
 
-			boolean flag = super.attackEntityFrom(source, amount);
+			boolean flag = super.hurt(source, amount);
 
-			if (!this.world.isRemote) {
-				if (!this.isAIDisabled()) {
-					this.hidingTime = 160 + rand.nextInt(200);
+			if (!this.level.isClientSide) {
+				if (!this.isNoAi()) {
+					this.hidingTime = 160 + random.nextInt(200);
 					this.setHiding(true);
 				}
 				this.spitOutItem();
 			} else {
-				this.shakeTicks = this.rand.nextInt(2) == 0 ? -10 : 10;
+				this.shakeTicks = this.random.nextInt(2) == 0 ? -10 : 10;
 			}
 
 			return flag;
@@ -356,25 +356,25 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	private void spitOutItem() {
-		ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+		ItemStack itemstack = this.getItemBySlot(EquipmentSlotType.MAINHAND);
 		if (!itemstack.isEmpty()) {
-			if (!this.world.isRemote) {
-				ItemEntity itementity = new ItemEntity(this.world, this.getPosX() + this.getLookVec().x, this.getPosY() + this.getEyeHeight(), this.getPosZ() + this.getLookVec().z, itemstack);
-				itementity.setPickupDelay(40);
-				itementity.setThrowerId(this.getUniqueID());
-				this.world.addEntity(itementity);
-				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, ItemStack.EMPTY);
+			if (!this.level.isClientSide) {
+				ItemEntity itementity = new ItemEntity(this.level, this.getX() + this.getLookAngle().x, this.getY() + this.getEyeHeight(), this.getZ() + this.getLookAngle().z, itemstack);
+				itementity.setPickUpDelay(40);
+				itementity.setThrower(this.getUUID());
+				this.level.addFreshEntity(itementity);
+				this.setItemSlot(EquipmentSlotType.MAINHAND, ItemStack.EMPTY);
 				this.setEatingTime(0);
 			}
 		}
 	}
 
 	public int getEatingTime() {
-		return this.dataManager.get(EATING_TIME);
+		return this.entityData.get(EATING_TIME);
 	}
 
 	public void setEatingTime(int eatingTimeIn) {
-		this.dataManager.set(EATING_TIME, eatingTimeIn);
+		this.entityData.set(EATING_TIME, eatingTimeIn);
 	}
 
 	public boolean isEating() {
@@ -382,20 +382,20 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	public boolean getHiding() {
-		return this.dataManager.get(HIDING);
+		return this.entityData.get(HIDING);
 	}
 
 	public void setHiding(boolean hiding) {
 		if (hiding) {
-			this.dataManager.set(HIDING, true);
+			this.entityData.set(HIDING, true);
 		} else {
-			this.dataManager.set(HIDING, false);
+			this.entityData.set(HIDING, false);
 		}
 
-		if (!this.world.isRemote) {
+		if (!this.level.isClientSide) {
 			this.getAttribute(Attributes.ARMOR).removeModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			if (hiding) {
-				this.getAttribute(Attributes.ARMOR).applyNonPersistentModifier(HIDING_ARMOR_BONUS_MODIFIER);
+				this.getAttribute(Attributes.ARMOR).addTransientModifier(HIDING_ARMOR_BONUS_MODIFIER);
 			}
 		}
 	}
@@ -433,47 +433,47 @@ public class SnailEntity extends AnimalEntity {
 	}
 
 	@Override
-	protected void registerData() {
-		super.registerData();
-		this.dataManager.register(EATING_TIME, 0);
-		this.dataManager.register(HIDING, false);
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(EATING_TIME, 0);
+		this.entityData.define(HIDING, false);
 	}
 
 	@Override
-	public void writeAdditional(CompoundNBT compound) {
-		super.writeAdditional(compound);
+	public void addAdditionalSaveData(CompoundNBT compound) {
+		super.addAdditionalSaveData(compound);
 		compound.putInt("SlimeAmount", this.getSlimeAmount());
 		compound.putBoolean("Hiding", this.getHiding());
 	}
 
 	@Override
-	public void readAdditional(CompoundNBT compound) {
-		super.readAdditional(compound);
+	public void readAdditionalSaveData(CompoundNBT compound) {
+		super.readAdditionalSaveData(compound);
 		this.setSlimeAmount(compound.getInt("SlimeAmount"));
 		this.setHiding(compound.getBoolean("Hiding"));
 	}
 
 	private boolean isFoodItem(ItemStack stack) {
-		return Ingredient.fromTag(AutumnityTags.SNAIL_FOODS).test(stack);
+		return Ingredient.of(AutumnityTags.SNAIL_FOODS).test(stack);
 	}
 
 	@Override
-	public boolean isBreedingItem(ItemStack stack) {
+	public boolean isFood(ItemStack stack) {
 		return this.canBreed && this.isSnailBreedingItem(stack);
 	}
 
 	private boolean isSnailBreedingItem(ItemStack stack) {
-		return Ingredient.fromTag(AutumnityTags.SNAIL_BREEDING_ITEMS).test(stack);
+		return Ingredient.of(AutumnityTags.SNAIL_BREEDING_ITEMS).test(stack);
 	}
 
 	@Override
-	public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
+	public AgeableEntity getBreedOffspring(ServerWorld world, AgeableEntity ageable) {
 		return AutumnityEntities.SNAIL.get().create(world);
 	}
 
 	@Override
-	protected float determineNextStepDistance() {
-		return this.distanceWalkedOnStepModified + 0.6F;
+	protected float nextStep() {
+		return this.moveDist + 0.6F;
 	}
 
 	public class HideGoal extends Goal {
@@ -481,10 +481,10 @@ public class SnailEntity extends AnimalEntity {
 			super();
 		}
 
-		public boolean shouldExecute() {
+		public boolean canUse() {
 			if (!SnailEntity.this.getHiding() && !SnailEntity.this.isEating()) {
-				for (LivingEntity livingentity : SnailEntity.this.world.getEntitiesWithinAABB(LivingEntity.class, SnailEntity.this.getBoundingBox().grow(0.3D), ENEMY_MATCHER)) {
-					if (livingentity.isAlive() && livingentity.getHeight() > SnailEntity.this.getHeight()) {
+				for (LivingEntity livingentity : SnailEntity.this.level.getEntitiesOfClass(LivingEntity.class, SnailEntity.this.getBoundingBox().inflate(0.3D), ENEMY_MATCHER)) {
+					if (livingentity.isAlive() && livingentity.getBbHeight() > SnailEntity.this.getBbHeight()) {
 						return true;
 					}
 				}
@@ -493,12 +493,12 @@ public class SnailEntity extends AnimalEntity {
 			return false;
 		}
 
-		public void startExecuting() {
-			SnailEntity.this.hidingTime = 100 + rand.nextInt(100);
+		public void start() {
+			SnailEntity.this.hidingTime = 100 + random.nextInt(100);
 			SnailEntity.this.setHiding(true);
 		}
 
-		public boolean shouldContinueExecuting() {
+		public boolean canContinueToUse() {
 			return false;
 		}
 	}
@@ -508,15 +508,15 @@ public class SnailEntity extends AnimalEntity {
 			super();
 		}
 
-		public boolean shouldExecute() {
-			return SnailEntity.this.getRevengeTarget() == null && SnailEntity.this.hidingTime <= 0;
+		public boolean canUse() {
+			return SnailEntity.this.getLastHurtByMob() == null && SnailEntity.this.hidingTime <= 0;
 		}
 
-		public void startExecuting() {
+		public void start() {
 			SnailEntity.this.setHiding(false);
 		}
 
-		public boolean shouldContinueExecuting() {
+		public boolean canContinueToUse() {
 			return false;
 		}
 	}
@@ -526,12 +526,12 @@ public class SnailEntity extends AnimalEntity {
 			super(SnailEntity.this, 0.5F, false, null);
 		}
 
-		public boolean shouldExecute() {
-			return SnailEntity.this.canMove() && super.shouldExecute();
+		public boolean canUse() {
+			return SnailEntity.this.canMove() && super.canUse();
 		}
 
-		protected boolean isTempting(ItemStack stack) {
-			return Ingredient.fromTag(AutumnityTags.SNAIL_TEMPTATION_ITEMS).test(stack);
+		protected boolean shouldFollowItem(ItemStack stack) {
+			return Ingredient.of(AutumnityTags.SNAIL_TEMPTATION_ITEMS).test(stack);
 		}
 	}
 
@@ -540,12 +540,12 @@ public class SnailEntity extends AnimalEntity {
 			super(SnailEntity.this, PlayerEntity.class, 6.0F);
 		}
 
-		public boolean shouldExecute() {
-			return super.shouldExecute() && !SnailEntity.this.getHiding();
+		public boolean canUse() {
+			return super.canUse() && !SnailEntity.this.getHiding();
 		}
 
-		public boolean shouldContinueExecuting() {
-			return super.shouldContinueExecuting() && !SnailEntity.this.getHiding();
+		public boolean canContinueToUse() {
+			return super.canContinueToUse() && !SnailEntity.this.getHiding();
 		}
 	}
 
@@ -556,14 +556,14 @@ public class SnailEntity extends AnimalEntity {
 
 		public EatMushroomsGoal() {
 			super();
-			this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+			this.setFlags(EnumSet.of(Goal.Flag.MOVE));
 		}
 
-		public boolean shouldExecute() {
-			if (SnailEntity.this.getRNG().nextInt(20) != 0) {
+		public boolean canUse() {
+			if (SnailEntity.this.getRandom().nextInt(20) != 0) {
 				return false;
 			} else {
-				return !SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.world, SnailEntity.this) && this.canMoveToMushroom();
+				return !SnailEntity.this.isBaby() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.level, SnailEntity.this) && this.canMoveToMushroom();
 			}
 		}
 
@@ -579,21 +579,21 @@ public class SnailEntity extends AnimalEntity {
 			}
 		}
 
-		public boolean shouldContinueExecuting() {
-			return !SnailEntity.this.getNavigator().noPath();
+		public boolean canContinueToUse() {
+			return !SnailEntity.this.getNavigation().isDone();
 		}
 
-		public void startExecuting() {
-			SnailEntity.this.getNavigator().tryMoveToXYZ(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
+		public void start() {
+			SnailEntity.this.getNavigation().moveTo(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
 		}
 
 		@Nullable
 		protected Vector3d findMushroom() {
-			Random random = SnailEntity.this.getRNG();
-			BlockPos blockpos = new BlockPos(SnailEntity.this.getPosX(), SnailEntity.this.getBoundingBox().minY, SnailEntity.this.getPosZ());
+			Random random = SnailEntity.this.getRandom();
+			BlockPos blockpos = new BlockPos(SnailEntity.this.getX(), SnailEntity.this.getBoundingBox().minY, SnailEntity.this.getZ());
 
 			for (int i = 0; i < 10; ++i) {
-				BlockPos blockpos1 = blockpos.add(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
+				BlockPos blockpos1 = blockpos.offset(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
 				if (this.isBlockMushroom(blockpos1)) {
 					return new Vector3d((double) blockpos1.getX(), (double) blockpos1.getY(), (double) blockpos1.getZ());
 				}
@@ -603,21 +603,21 @@ public class SnailEntity extends AnimalEntity {
 		}
 
 		public void tick() {
-			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0) {
-				BlockPos blockpos = SnailEntity.this.getPosition();
+			if (!SnailEntity.this.isBaby() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0) {
+				BlockPos blockpos = SnailEntity.this.blockPosition();
 
 				if (this.isBlockMushroom(blockpos)) {
-					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.world, SnailEntity.this)) {
-						SnailEntity.this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(SnailEntity.this.world.getBlockState(blockpos).getBlock().asItem(), 1));
+					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.level, SnailEntity.this)) {
+						SnailEntity.this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(SnailEntity.this.level.getBlockState(blockpos).getBlock().asItem(), 1));
 						SnailEntity.this.setEatingTime(192);
-						SnailEntity.this.world.destroyBlock(blockpos, false);
+						SnailEntity.this.level.destroyBlock(blockpos, false);
 					}
 				}
 			}
 		}
 
 		private boolean isBlockMushroom(BlockPos pos) {
-			return AutumnityTags.SNAIL_BLOCK_FOODS.contains(SnailEntity.this.world.getBlockState(pos).getBlock());
+			return AutumnityTags.SNAIL_BLOCK_FOODS.contains(SnailEntity.this.level.getBlockState(pos).getBlock());
 		}
 	}
 
@@ -629,15 +629,15 @@ public class SnailEntity extends AnimalEntity {
 			super();
 		}
 
-		public boolean shouldExecute() {
-			if (!SnailEntity.this.isChild() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0) {
-				List<MooshroomEntity> list = SnailEntity.this.world.getEntitiesWithinAABB(MooshroomEntity.class, SnailEntity.this.getBoundingBox().grow(8.0D, 4.0D, 8.0D));
+		public boolean canUse() {
+			if (!SnailEntity.this.isBaby() && SnailEntity.this.canMove() && SnailEntity.this.getSlimeAmount() <= 0) {
+				List<MooshroomEntity> list = SnailEntity.this.level.getEntitiesOfClass(MooshroomEntity.class, SnailEntity.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
 				MooshroomEntity mooshroom = null;
 				double d0 = Double.MAX_VALUE;
 
 				for (MooshroomEntity mooshroom1 : list) {
-					if (mooshroom1.getGrowingAge() >= 0) {
-						double d1 = SnailEntity.this.getDistanceSq(mooshroom1);
+					if (mooshroom1.getAge() >= 0) {
+						double d1 = SnailEntity.this.distanceToSqr(mooshroom1);
 						if (!(d1 > d0)) {
 							d0 = d1;
 							mooshroom = mooshroom1;
@@ -656,7 +656,7 @@ public class SnailEntity extends AnimalEntity {
 			}
 		}
 
-		public boolean shouldContinueExecuting() {
+		public boolean canContinueToUse() {
 			if (!this.targetMooshroom.isAlive()) {
 				return false;
 			} else if (!SnailEntity.this.canMove()) {
@@ -664,36 +664,36 @@ public class SnailEntity extends AnimalEntity {
 			} else if (SnailEntity.this.getSlimeAmount() > 0) {
 				return false;
 			} else {
-				double d0 = this.targetMooshroom.getDistanceSq(SnailEntity.this);
+				double d0 = this.targetMooshroom.distanceToSqr(SnailEntity.this);
 				return !(d0 > 256.0D);
 			}
 		}
 
-		public void startExecuting() {
+		public void start() {
 			this.delayCounter = 0;
 		}
 
-		public void resetTask() {
+		public void stop() {
 			this.targetMooshroom = null;
 		}
 
 		public void tick() {
 			if (--this.delayCounter <= 0) {
 				this.delayCounter = 10;
-				SnailEntity.this.getNavigator().tryMoveToEntityLiving(this.targetMooshroom, 0.5D);
+				SnailEntity.this.getNavigation().moveTo(this.targetMooshroom, 0.5D);
 			}
 
 			if (this.targetMooshroom != null && this.targetMooshroom.isAlive()) {
-				double d0 = this.targetMooshroom.getDistanceSq(SnailEntity.this);
+				double d0 = this.targetMooshroom.distanceToSqr(SnailEntity.this);
 				if (d0 < 2.0D) {
-					if (this.targetMooshroom.getMooshroomType() == MooshroomEntity.Type.BROWN) {
-						SnailEntity.this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
+					if (this.targetMooshroom.getMushroomType() == MooshroomEntity.Type.BROWN) {
+						SnailEntity.this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
 					} else {
-						SnailEntity.this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
+						SnailEntity.this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
 					}
 
 					SnailEntity.this.setEatingTime(192);
-					this.targetMooshroom.attackEntityFrom(DamageSource.causeMobDamage(SnailEntity.this), 0.0F);
+					this.targetMooshroom.hurt(DamageSource.mobAttack(SnailEntity.this), 0.0F);
 				}
 			}
 		}

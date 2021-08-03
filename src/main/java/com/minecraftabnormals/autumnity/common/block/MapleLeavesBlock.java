@@ -20,8 +20,8 @@ public class MapleLeavesBlock extends AbnormalsLeavesBlock {
 		super.animateTick(stateIn, worldIn, pos, rand);
 
 		if (rand.nextInt(100) == 0) {
-			BlockPos blockpos = pos.down();
-			if (worldIn.isAirBlock(blockpos)) {
+			BlockPos blockpos = pos.below();
+			if (worldIn.isEmptyBlock(blockpos)) {
 				int color = worldIn.getBiome(pos).getFoliageColor();
 				
 				double d0 = (color >> 16 & 255) / 255.0F;

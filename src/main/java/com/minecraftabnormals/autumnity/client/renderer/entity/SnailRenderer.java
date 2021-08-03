@@ -22,8 +22,8 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 		super(renderManagerIn, new SnailModel<>(), 0.5F);
 	}
 
-	public ResourceLocation getEntityTexture(SnailEntity entity) {
-		String s = TextFormatting.getTextWithoutFormattingCodes(entity.getName().getString().toLowerCase());
+	public ResourceLocation getTextureLocation(SnailEntity entity) {
+		String s = TextFormatting.stripFormatting(entity.getName().getString().toLowerCase());
 		if (s != null) {
 			if ("snake".equals(s) || "snakeblock".equals(s) || "snake block".equals(s) || "snailblock".equals(s) || "snail block".equals(s)) {
 				return SNAKE_SNAIL_TEXTURES;
@@ -35,13 +35,13 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 		return SNAIL_TEXTURES;
 	}
 
-	protected void applyRotations(SnailEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
-		super.applyRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
-		if (!((double) entityLiving.limbSwingAmount < 0.01D)) {
+	protected void setupRotations(SnailEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
+		super.setupRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
+		if (!((double) entityLiving.animationSpeed < 0.01D)) {
 			double d0 = (double) entityLiving.getShakingAnimationScale(partialTicks);
 			double d1 = entityLiving.getShakeTicks() > 0 ? 1.0D : -1.0D;
 			double d2 = Math.sin(6.3D * d0) * d1 * d0;
-			matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(6.0F * (float) d2));
+			matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(6.0F * (float) d2));
 		}
 	}
 }

@@ -28,31 +28,31 @@ import javax.annotation.Nullable;
 
 public class SnailSlimeBlock extends BreakableBlock {
 	public static final BooleanProperty SLIPPERY = BooleanProperty.create("slippery");
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 1.0D, 0.0D, 16.0D, 14.0D, 16.0D);
+	protected static final VoxelShape SHAPE = Block.box(0.0D, 1.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
 	public SnailSlimeBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(SLIPPERY, Boolean.valueOf(false)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(SLIPPERY, Boolean.valueOf(false)));
 	}
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		return !state.get(SLIPPERY) ? SHAPE : super.getCollisionShape(state, worldIn, pos, context);
+		return !state.getValue(SLIPPERY) ? SHAPE : super.getCollisionShape(state, worldIn, pos, context);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(context.getPos(), context.getWorld())));
+		return this.defaultBlockState().setValue(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(context.getClickedPos(), context.getLevel())));
 	}
 
 	@Override
-	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-		return stateIn.with(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(currentPos, worldIn)));
+	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		return stateIn.setValue(SLIPPERY, Boolean.valueOf(this.shouldBeSlippery(currentPos, worldIn)));
 	}
 
 	public final boolean shouldBeSlippery(BlockPos blockPos, IBlockReader iBlockReader) {
 		for (Direction direction : Direction.values()) {
-			BlockPos blockpos1 = blockPos.offset(direction);
+			BlockPos blockpos1 = blockPos.relative(direction);
 			Block block = iBlockReader.getBlockState(blockpos1).getBlock();
 			if (this.doesBlockMakeSlippery(blockpos1, block, iBlockReader)) {
 				return true;
@@ -63,46 +63,46 @@ public class SnailSlimeBlock extends BreakableBlock {
 
 	public final boolean doesBlockMakeSlippery(BlockPos blockPos, Block block, IBlockReader iBlockReader) {
 		FluidState fluidstate = iBlockReader.getFluidState(blockPos);
-		if (AutumnityTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.isTagged(FluidTags.WATER)) {
+		if (AutumnityTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.is(FluidTags.WATER)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-		if (entityIn.isSneaking()) {
-			super.onFallenUpon(worldIn, pos, entityIn, fallDistance);
+	public void fallOn(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+		if (entityIn.isShiftKeyDown()) {
+			super.fallOn(worldIn, pos, entityIn, fallDistance);
 		} else {
-			entityIn.onLivingFall(fallDistance, 0.0F);
+			entityIn.causeFallDamage(fallDistance, 0.0F);
 		}
 	}
 
-	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-		if (!state.get(SLIPPERY) && !(entityIn instanceof SnailEntity)) {
+	public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+		if (!state.getValue(SLIPPERY) && !(entityIn instanceof SnailEntity)) {
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D) {
-				if (!entityIn.isSneaking()) {
-					entityIn.setMotionMultiplier(state, new Vector3d(1.0D, (double) 0.0F, 1.0D));
+				if (!entityIn.isShiftKeyDown()) {
+					entityIn.makeStuckInBlock(state, new Vector3d(1.0D, (double) 0.0F, 1.0D));
 				}
 			} else {
-				entityIn.setMotion(entityIn.getMotion().mul(0.4D, 1.0D, 0.4D));
+				entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.4D, 1.0D, 0.4D));
 			}
 		}
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(SLIPPERY);
 	}
 
 	@Override
 	public float getSlipperiness(BlockState state, IWorldReader world, BlockPos pos, @Nullable Entity entity) {
-		return state.get(SLIPPERY) ? 0.98F : 0.6F;
+		return state.getValue(SLIPPERY) ? 0.98F : 0.6F;
 	}
 
 	@Override
 	public boolean isStickyBlock(BlockState state) {
-		return !state.get(SLIPPERY);
+		return !state.getValue(SLIPPERY);
 	}
 
 	@Override

@@ -44,21 +44,21 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowable {
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
-	private static final VoxelShape TOP_SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 6.0D, 15.0D);
-	private static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+	public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
+	private static final VoxelShape TOP_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 6.0D, 15.0D);
+	private static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public TallFoulBerryBushBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, Integer.valueOf(0)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(AGE, Integer.valueOf(0)));
 	}
 
-	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
+	public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state) {
 		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		if (state.get(AGE) == 0 && state.get(HALF) == DoubleBlockHalf.UPPER) {
+		if (state.getValue(AGE) == 0 && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 			return TOP_SHAPE;
 		} else {
 			return SHAPE;
@@ -68,12 +68,12 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(10) == 0) {
-			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
-			Vector3d vector3d = voxelshape.getBoundingBox().getCenter();
+			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, ISelectionContext.empty());
+			Vector3d vector3d = voxelshape.bounds().getCenter();
 			double d0 = (double) pos.getX() + vector3d.x;
 			double d1 = (double) pos.getZ() + vector3d.z;
 
-			int i = Effects.POISON.getLiquidColor();
+			int i = Effects.POISON.getColor();
 			double d2 = (double) (i >> 16 & 255) / 255.0D;
 			double d3 = (double) (i >> 8 & 255) / 255.0D;
 			double d4 = (double) (i >> 0 & 255) / 255.0D;
@@ -83,38 +83,38 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	}
 
 	public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-		int i = state.get(AGE);
-		if (i < 3 && state.get(HALF) == DoubleBlockHalf.LOWER && worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
-			worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
+		int i = state.getValue(AGE);
+		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
+			worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
 			setHalfState(worldIn, pos, state, i + 1);
 
 			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
 		}
 	}
 
-	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+	public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get() && entityIn.getType() != AutumnityEntities.TURKEY.get()) {
 			LivingEntity livingentity = ((LivingEntity) entityIn);
-			livingentity.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
-			if (!worldIn.isRemote && !livingentity.isPotionActive(Effects.POISON) && !livingentity.isSneaking()) {
-				livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 120));
+			livingentity.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+			if (!worldIn.isClientSide && !livingentity.hasEffect(Effects.POISON) && !livingentity.isShiftKeyDown()) {
+				livingentity.addEffect(new EffectInstance(Effects.POISON, 120));
 			}
 		}
 	}
 
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult p_225533_6_) {
-		int i = state.get(AGE);
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult p_225533_6_) {
+		int i = state.getValue(AGE);
 		boolean flag = i == 3;
-		if (!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
+		if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
 			return ActionResultType.PASS;
 		} else if (i > 1) {
-			spawnAsEntity(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
-			worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
-			worldIn.setBlockState(pos, state.with(AGE, i - 1), 2);
+			popResource(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
+			worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
+			worldIn.setBlock(pos, state.setValue(AGE, i - 1), 2);
 			setHalfState(worldIn, pos, state, i - 1);
 			return ActionResultType.SUCCESS;
 		} else {
-			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
+			return super.use(state, worldIn, pos, player, handIn, p_225533_6_);
 		}
 	}
 
@@ -123,25 +123,25 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	}
 
 	public void placeAt(IWorld worldIn, BlockPos pos, int age, int flags) {
-		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, age), flags);
-		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(AGE, age), flags);
+		worldIn.setBlock(pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(AGE, age), flags);
+		worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(AGE, age), flags);
 	}
 
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HALF, AGE);
 	}
 
-	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-		return state.get(AGE) < 3;
+	public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+		return state.getValue(AGE) < 3;
 	}
 
-	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
-	public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-		int i = Math.min(3, state.get(AGE) + 1);
-		worldIn.setBlockState(pos, state.with(AGE, i), 2);
+	public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+		int i = Math.min(3, state.getValue(AGE) + 1);
+		worldIn.setBlock(pos, state.setValue(AGE, i), 2);
 		setHalfState(worldIn, pos, state, i);
 	}
 
@@ -150,13 +150,13 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 	}
 
 	private static void setHalfState(World worldIn, BlockPos pos, BlockState state, int age) {
-		if (state.get(HALF) == DoubleBlockHalf.UPPER) {
-			if (worldIn.getBlockState(pos.down()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
-				worldIn.setBlockState(pos.down(), worldIn.getBlockState(pos.down()).with(AGE, Integer.valueOf(age)), 2);
+		if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+			if (worldIn.getBlockState(pos.below()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
+				worldIn.setBlock(pos.below(), worldIn.getBlockState(pos.below()).setValue(AGE, Integer.valueOf(age)), 2);
 			}
 		} else {
-			if (worldIn.getBlockState(pos.up()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
-				worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos.up()).with(AGE, Integer.valueOf(age)), 2);
+			if (worldIn.getBlockState(pos.above()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
+				worldIn.setBlock(pos.above(), worldIn.getBlockState(pos.above()).setValue(AGE, Integer.valueOf(age)), 2);
 			}
 		}
 	}

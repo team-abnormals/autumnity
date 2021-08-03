@@ -21,26 +21,26 @@ public class SnailShellBlock extends HorizontalBlock {
 
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		Direction direction = context.getFace();
+		Direction direction = context.getClickedFace();
 		if (direction.getAxis() == Direction.Axis.Y) {
-			return this.getDefaultState().with(ORIENTATION, direction == Direction.UP ? SnailShellOrientation.DOWN : SnailShellOrientation.UP).with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
+			return this.defaultBlockState().setValue(ORIENTATION, direction == Direction.UP ? SnailShellOrientation.DOWN : SnailShellOrientation.UP).setValue(FACING, context.getHorizontalDirection().getOpposite());
 		} else {
-			return this.getDefaultState().with(ORIENTATION, SnailShellOrientation.HORIZONTAL).with(HORIZONTAL_FACING, direction.getOpposite());
+			return this.defaultBlockState().setValue(ORIENTATION, SnailShellOrientation.HORIZONTAL).setValue(FACING, direction.getOpposite());
 		}
 	}
 
 	protected static Direction getFacing(BlockState state) {
-		switch ((SnailShellOrientation) state.get(ORIENTATION)) {
+		switch ((SnailShellOrientation) state.getValue(ORIENTATION)) {
 			case UP:
 				return Direction.UP;
 			case DOWN:
 				return Direction.DOWN;
 			default:
-				return state.get(HORIZONTAL_FACING);
+				return state.getValue(FACING);
 		}
 	}
 
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(HORIZONTAL_FACING, ORIENTATION);
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+		builder.add(FACING, ORIENTATION);
 	}
 }

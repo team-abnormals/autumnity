@@ -18,34 +18,34 @@ public class LargeRedstoneJackOlanternSliceBlock extends CarvedLargePumpkinSlice
 
 	public LargeRedstoneJackOlanternSliceBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(LIT, false));
+		this.registerDefaultState(this.defaultBlockState().setValue(LIT, false));
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return super.getStateForPlacement(context).with(LIT, context.getWorld().isBlockPowered(context.getPos()));
+		return super.getStateForPlacement(context).setValue(LIT, context.getLevel().hasNeighborSignal(context.getClickedPos()));
 	}
 
 	@Override
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-		if (!worldIn.isRemote) {
-			boolean flag = state.get(LIT);
-			if (flag != worldIn.isBlockPowered(pos)) {
-				worldIn.setBlockState(pos, state.func_235896_a_(LIT), 2);
+		if (!worldIn.isClientSide) {
+			boolean flag = state.getValue(LIT);
+			if (flag != worldIn.hasNeighborSignal(pos)) {
+				worldIn.setBlock(pos, state.cycle(LIT), 2);
 			}
 		}
 	}
 
 	@Override
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-		if (state.get(LIT) && !worldIn.isBlockPowered(pos)) {
-			worldIn.setBlockState(pos, state.func_235896_a_(LIT), 2);
+		if (state.getValue(LIT) && !worldIn.hasNeighborSignal(pos)) {
+			worldIn.setBlock(pos, state.cycle(LIT), 2);
 		}
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING, HALF, CARVED_SIDE, LIT);
 	}
 }

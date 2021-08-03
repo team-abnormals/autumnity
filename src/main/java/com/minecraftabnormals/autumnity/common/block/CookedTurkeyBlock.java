@@ -14,13 +14,13 @@ public class CookedTurkeyBlock extends TurkeyBlock {
 
 	@Override
 	protected void restoreHunger(IWorld worldIn, PlayerEntity player) {
-		player.getFoodStats().addStats(AutumnityItems.Foods.COOKED_TURKEY.getHealing(), AutumnityItems.Foods.COOKED_TURKEY.getSaturation());
+		player.getFoodData().eat(AutumnityItems.Foods.COOKED_TURKEY.getNutrition(), AutumnityItems.Foods.COOKED_TURKEY.getSaturationModifier());
 
-		int i = AutumnityItems.Foods.COOKED_TURKEY.getHealing();
+		int i = AutumnityItems.Foods.COOKED_TURKEY.getNutrition();
 		int j = i == 1 ? i : (int) (i * 0.5F);
 
-		if (player.isPotionActive(AutumnityEffects.FOUL_TASTE.get())) {
-			player.getFoodStats().addStats(j, 0.0F);
+		if (player.hasEffect(AutumnityEffects.FOUL_TASTE.get())) {
+			player.getFoodData().eat(j, 0.0F);
 			AutumnityEvents.updateFoulTaste(player);
 		}
 	}

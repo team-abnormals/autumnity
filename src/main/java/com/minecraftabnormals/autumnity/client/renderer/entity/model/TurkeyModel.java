@@ -25,39 +25,39 @@ public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T> {
 	private final ModelRenderer leftLeg;
 
 	public TurkeyModel() {
-		this.textureWidth = 64;
-		this.textureHeight = 32;
+		this.texWidth = 64;
+		this.texHeight = 32;
 
 		this.head = new ModelRenderer(this, 0, 0);
-		this.head.setRotationPoint(0.0F, 14.0F, -3.0F);
+		this.head.setPos(0.0F, 14.0F, -3.0F);
 		this.head.addBox(-2.0F, -5.0F, -2.0F, 4.0F, 6.0F, 3.0F, 0.0F, 0.0F, 0.0F);
 
 		this.beak = new ModelRenderer(this, 0, 9);
-		this.beak.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.beak.setPos(0.0F, 0.0F, 0.0F);
 		this.beak.addBox(-2.0F, -3.0F, -4.0F, 4.0F, 2.0F, 2.0F, 0.0F, 0.0F, 0.0F);
 
 		this.waddle = new ModelRenderer(this, 0, 13);
-		this.waddle.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.waddle.setPos(0.0F, 0.0F, 0.0F);
 		this.waddle.addBox(-1.0F, -1.0F, -4.0F, 2.0F, 4.0F, 2.0F, 0.0F, 0.0F, 0.0F);
 
 		this.head.addChild(this.waddle);
 		this.head.addChild(this.beak);
 
 		this.body = new ModelRenderer(this, 0, 14);
-		this.body.setRotationPoint(0.0F, 21.0F, 1.0F);
+		this.body.setPos(0.0F, 21.0F, 1.0F);
 		this.body.addBox(-5.0F, -8.0F, -5.0F, 10.0F, 8.0F, 10.0F, 0.0F, 0.0F, 0.0F);
 
 		this.rightWing = new ModelRenderer(this);
 		this.rightWing.mirror = true;
-		this.rightWing.setRotationPoint(5.0F, -8.0F, 0.0F);
-		this.rightWing.setTextureOffset(44, 0).addBox(0.0F, 0.0F, -4.0F, 2.0F, 6.0F, 8.0F, 0.0F);
+		this.rightWing.setPos(5.0F, -8.0F, 0.0F);
+		this.rightWing.texOffs(44, 0).addBox(0.0F, 0.0F, -4.0F, 2.0F, 6.0F, 8.0F, 0.0F);
 
 		this.leftWing = new ModelRenderer(this);
-		this.leftWing.setRotationPoint(-5.0F, -8.0F, 0.0F);
-		this.leftWing.setTextureOffset(44, 0).addBox(-2.0F, 0.0F, -4.0F, 2.0F, 6.0F, 8.0F, 0.0F);
+		this.leftWing.setPos(-5.0F, -8.0F, 0.0F);
+		this.leftWing.texOffs(44, 0).addBox(-2.0F, 0.0F, -4.0F, 2.0F, 6.0F, 8.0F, 0.0F);
 
 		this.tail = new ModelRenderer(this, 16, 4);
-		this.tail.setRotationPoint(0.0F, -7.0F, 4.0F);
+		this.tail.setPos(0.0F, -7.0F, 4.0F);
 		this.tail.addBox(-7.0F, -10.0F, 0.0F, 14.0F, 10.0F, 0.0F, 0.0F, 0.0F, 0.0F);
 
 		this.setRotateAngle(tail, -0.7853981633974483F, 0.0F, 0.0F);
@@ -67,43 +67,43 @@ public class TurkeyModel<T extends TurkeyEntity> extends AgeableModel<T> {
 		this.body.addChild(this.tail);
 
 		this.rightLeg = new ModelRenderer(this, 30, 17);
-		this.rightLeg.setRotationPoint(-3.0F, 20.0F, 1.0F);
+		this.rightLeg.setPos(-3.0F, 20.0F, 1.0F);
 		this.rightLeg.addBox(-1.5F, 0.0F, -3.0F, 3.0F, 4.0F, 3.0F, 0.0F, 0.0F, 0.0F);
 
 		this.leftLeg = new ModelRenderer(this, 30, 17);
 		this.leftLeg.mirror = true;
-		this.leftLeg.setRotationPoint(3.0F, 20.0F, 1.0F);
+		this.leftLeg.setPos(3.0F, 20.0F, 1.0F);
 		this.leftLeg.addBox(-1.5F, 0.0F, -3.0F, 3.0F, 4.0F, 3.0F, 0.0F, 0.0F, 0.0F);
 	}
 
-	protected Iterable<ModelRenderer> getHeadParts() {
+	protected Iterable<ModelRenderer> headParts() {
 		return ImmutableList.of(this.head);
 	}
 
-	protected Iterable<ModelRenderer> getBodyParts() {
+	protected Iterable<ModelRenderer> bodyParts() {
 		return ImmutableList.of(this.body, this.rightLeg, this.leftLeg);
 	}
 
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		float partialtick = ageInTicks - (float) entityIn.ticksExisted;
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float partialtick = ageInTicks - (float) entityIn.tickCount;
 		float winganim = entityIn.getWingRotation(partialtick);
 		float peckanim = entityIn.getPeckProgress(partialtick);
 
-		this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
-		this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-		this.head.rotateAngleX += peckanim * 0.8F;
-		this.head.rotationPointZ = -3.0F - peckanim * 1.5F;
+		this.head.xRot = headPitch * ((float) Math.PI / 180F);
+		this.head.yRot = netHeadYaw * ((float) Math.PI / 180F);
+		this.head.xRot += peckanim * 0.8F;
+		this.head.z = -3.0F - peckanim * 1.5F;
 
-		this.rightWing.rotateAngleZ = -winganim;
-		this.leftWing.rotateAngleZ = winganim;
+		this.rightWing.zRot = -winganim;
+		this.leftWing.zRot = winganim;
 
-		this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+		this.rightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.leftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 	}
 
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+		modelRenderer.xRot = x;
+		modelRenderer.yRot = y;
+		modelRenderer.zRot = z;
 	}
 }

@@ -21,27 +21,27 @@ public class MapleBranch extends BushBlock {
 
 	public MapleBranch(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH));
+		this.registerDefaultState(this.stateDefinition.any().setValue(HORIZONTAL_FACING, Direction.NORTH));
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		if (!context.replacingClickedOnBlock()) {
-			BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(context.getFace().getOpposite()));
-			if (blockstate.isIn(this) && blockstate.get(HORIZONTAL_FACING) == context.getFace()) {
+			BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(context.getClickedFace().getOpposite()));
+			if (blockstate.is(this) && blockstate.getValue(HORIZONTAL_FACING) == context.getClickedFace()) {
 				return null;
 			}
 		}
 
-		BlockState blockstate1 = this.getDefaultState();
-		IWorldReader iworldreader = context.getWorld();
-		BlockPos blockpos = context.getPos();
+		BlockState blockstate1 = this.defaultBlockState();
+		IWorldReader iworldreader = context.getLevel();
+		BlockPos blockpos = context.getClickedPos();
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
-				blockstate1 = blockstate1.with(HORIZONTAL_FACING, direction.getOpposite());
-				if (blockstate1.isValidPosition(iworldreader, blockpos)) {
+				blockstate1 = blockstate1.setValue(HORIZONTAL_FACING, direction.getOpposite());
+				if (blockstate1.canSurvive(iworldreader, blockpos)) {
 					return blockstate1;
 				}
 			}
@@ -51,25 +51,25 @@ public class MapleBranch extends BushBlock {
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING).getOpposite());
+	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+		BlockPos blockpos = pos.relative(state.getValue(HORIZONTAL_FACING).getOpposite());
 		BlockState blockstate = worldIn.getBlockState(blockpos);
 
-		return blockstate.getBlock().isIn(AutumnityTags.MAPLE_LOGS);
+		return blockstate.getBlock().is(AutumnityTags.MAPLE_LOGS);
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HORIZONTAL_FACING);
 	}
 
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.with(HORIZONTAL_FACING, rot.rotate(state.get(HORIZONTAL_FACING)));
+		return state.setValue(HORIZONTAL_FACING, rot.rotate(state.getValue(HORIZONTAL_FACING)));
 	}
 
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return state.rotate(mirrorIn.toRotation(state.get(HORIZONTAL_FACING)));
+		return state.rotate(mirrorIn.getRotation(state.getValue(HORIZONTAL_FACING)));
 	}
 }

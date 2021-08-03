@@ -1,7 +1,6 @@
 package com.minecraftabnormals.autumnity.core.registry;
 
 import com.minecraftabnormals.abnormals_core.common.potion.AbnormalsEffect;
-import com.minecraftabnormals.autumnity.common.potion.ExtensionEffect;
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;

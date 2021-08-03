@@ -16,30 +16,30 @@ public class FallenLeavesMapleTreeFeature extends MapleTreeFeature {
 		super(config);
 	}
 
-	public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random random, BlockPos position, BaseTreeFeatureConfig config) {
-		boolean flag = super.generate(worldIn, generator, random, position, config);
+	public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random random, BlockPos position, BaseTreeFeatureConfig config) {
+		boolean flag = super.place(worldIn, generator, random, position, config);
 
 		if (flag && random.nextInt(6) != 0) {
-			BlockState blockstate = config.leavesProvider.getBlockState(random, position);
+			BlockState blockstate = config.leavesProvider.getState(random, position);
 			BlockState leafcarpet = null;
 
-			if (blockstate == AutumnityBlocks.RED_MAPLE_LEAVES.get().getDefaultState()) {
-				leafcarpet = AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().getDefaultState();
-			} else if (blockstate == AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().getDefaultState()) {
-				leafcarpet = AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().getDefaultState();
-			} else if (blockstate == AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().getDefaultState()) {
-				leafcarpet = AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().getDefaultState();
+			if (blockstate == AutumnityBlocks.RED_MAPLE_LEAVES.get().defaultBlockState()) {
+				leafcarpet = AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().defaultBlockState();
+			} else if (blockstate == AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().defaultBlockState()) {
+				leafcarpet = AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().defaultBlockState();
+			} else if (blockstate == AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().defaultBlockState()) {
+				leafcarpet = AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().defaultBlockState();
 			} else {
-				leafcarpet = AutumnityBlocks.MAPLE_LEAF_CARPET.get().getDefaultState();
+				leafcarpet = AutumnityBlocks.MAPLE_LEAF_CARPET.get().defaultBlockState();
 			}
 
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = -3; z <= 3; ++z) {
 					if (Math.abs(x) < 2 || Math.abs(z) < 2) {
 						for (int y = -3; y <= 3; ++y) {
-							BlockPos blockpos = position.add(x, y, z);
-							if (random.nextInt(8) > 0 && worldIn.isAirBlock(blockpos) && blockpos.getY() < worldIn.getHeight() && worldIn.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK) {
-								worldIn.setBlockState(blockpos, leafcarpet, 2);
+							BlockPos blockpos = position.offset(x, y, z);
+							if (random.nextInt(8) > 0 && worldIn.isEmptyBlock(blockpos) && blockpos.getY() < worldIn.getMaxBuildHeight() && worldIn.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK) {
+								worldIn.setBlock(blockpos, leafcarpet, 2);
 							}
 						}
 					}

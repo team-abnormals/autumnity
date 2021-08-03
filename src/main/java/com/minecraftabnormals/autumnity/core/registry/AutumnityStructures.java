@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.minecraftabnormals.autumnity.common.world.gen.feature.structure.MapleWitchHutPieces;
 import com.minecraftabnormals.autumnity.common.world.gen.feature.structure.MapleWitchHutStructure;
 import com.minecraftabnormals.autumnity.core.Autumnity;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -23,10 +22,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class AutumnityStructures {
 	public static final DeferredRegister<Structure<?>> STRUCTURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, Autumnity.MOD_ID);
 
-	public static final RegistryObject<Structure<NoFeatureConfig>> MAPLE_WITCH_HUT = STRUCTURES.register("maple_witch_hut", () -> new MapleWitchHutStructure(NoFeatureConfig.field_236558_a_));
+	public static final RegistryObject<Structure<NoFeatureConfig>> MAPLE_WITCH_HUT = STRUCTURES.register("maple_witch_hut", () -> new MapleWitchHutStructure(NoFeatureConfig.CODEC));
 
 	public static final class Configured {
-		public static final StructureFeature<?, ?> MAPLE_WITCH_HUT = AutumnityStructures.MAPLE_WITCH_HUT.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+		public static final StructureFeature<?, ?> MAPLE_WITCH_HUT = AutumnityStructures.MAPLE_WITCH_HUT.get().configured(IFeatureConfig.NONE);
 		
 		private static <FC extends IFeatureConfig> void register(String name, StructureFeature<FC, ?> stuctureFeature) {
 			Registry.register(WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE, new ResourceLocation(Autumnity.MOD_ID, name), stuctureFeature);
@@ -38,14 +37,14 @@ public class AutumnityStructures {
 	}
 
 	public static final class Pieces {
-		public static final IStructurePieceType MAPLE_WITCH_HUT_PIECE = IStructurePieceType.register(MapleWitchHutPieces.Piece::new, "maple_witch_hut_piece");
+		public static final IStructurePieceType MAPLE_WITCH_HUT_PIECE = IStructurePieceType.setPieceId(MapleWitchHutPieces.Piece::new, "maple_witch_hut_piece");
 	}
 	
 	public static void registerNoiseSettings() {
-		Structure.NAME_STRUCTURE_BIMAP.put("maple_witch_hut", MAPLE_WITCH_HUT.get());
-		WorldGenRegistries.NOISE_SETTINGS.forEach(settings -> {
-			settings.getStructures().func_236195_a_().put(AutumnityStructures.MAPLE_WITCH_HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
+		Structure.STRUCTURES_REGISTRY.put("maple_witch_hut", MAPLE_WITCH_HUT.get());
+		WorldGenRegistries.NOISE_GENERATOR_SETTINGS.forEach(settings -> {
+			settings.structureSettings().structureConfig().put(AutumnityStructures.MAPLE_WITCH_HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
 		});
-		Structure.field_236384_t_ = ImmutableList.<Structure<?>>builder().addAll(Structure.field_236384_t_).add(MAPLE_WITCH_HUT.get()).build();
+		Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(MAPLE_WITCH_HUT.get()).build();
 	}
 }

@@ -22,31 +22,31 @@ public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock {
 	private static final TargetedItemGroupFiller FILLER = new TargetedItemGroupFiller(() -> Items.JACK_O_LANTERN);
 
 	private static final Predicate<BlockState> IS_PUMPKIN = (state) -> {
-		return state != null && (state.isIn(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()) || state.isIn(AutumnityBlocks.CURSED_JACK_O_LANTERN.get()));
+		return state != null && (state.is(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.CURSED_JACK_O_LANTERN.get()));
 	};
 
 	public AutumnityJackOLanternBlock(Properties properties) {
 		super(properties);
 	}
 
-	protected BlockPattern getSnowmanPattern() {
-		if (this.snowmanPattern == null) {
-			this.snowmanPattern = BlockPatternBuilder.start().aisle("^", "#", "#").where('^', CachedBlockInfo.hasState(IS_PUMPKIN)).where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK))).build();
+	protected BlockPattern getOrCreateSnowGolemFull() {
+		if (this.snowGolemFull == null) {
+			this.snowGolemFull = BlockPatternBuilder.start().aisle("^", "#", "#").where('^', CachedBlockInfo.hasState(IS_PUMPKIN)).where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK))).build();
 		}
 
-		return this.snowmanPattern;
+		return this.snowGolemFull;
 	}
 
-	protected BlockPattern getGolemPattern() {
-		if (this.golemPattern == null) {
-			this.golemPattern = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', CachedBlockInfo.hasState(IS_PUMPKIN)).where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.IRON_BLOCK))).where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR))).build();
+	protected BlockPattern getOrCreateIronGolemFull() {
+		if (this.ironGolemFull == null) {
+			this.ironGolemFull = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', CachedBlockInfo.hasState(IS_PUMPKIN)).where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.IRON_BLOCK))).where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR))).build();
 		}
 
-		return this.golemPattern;
+		return this.ironGolemFull;
 	}
 
 	@Override
-	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
+	public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
 		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

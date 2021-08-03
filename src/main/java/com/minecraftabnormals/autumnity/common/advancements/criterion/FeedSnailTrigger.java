@@ -21,12 +21,12 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 		return ID;
 	}
 
-	public FeedSnailTrigger.Instance deserializeTrigger(JsonObject json, AndPredicate entityPredicate, ConditionArrayParser conditionsParser) {
-		return new FeedSnailTrigger.Instance(entityPredicate, ItemPredicate.deserialize(json.get("item")));
+	public FeedSnailTrigger.Instance createInstance(JsonObject json, AndPredicate entityPredicate, ConditionArrayParser conditionsParser) {
+		return new FeedSnailTrigger.Instance(entityPredicate, ItemPredicate.fromJson(json.get("item")));
 	}
 
 	public void trigger(ServerPlayerEntity player, ItemStack item) {
-		this.triggerListeners(player, (p_226325_1_) -> {
+		this.trigger(player, (p_226325_1_) -> {
 			return p_226325_1_.test(item);
 		});
 	}
@@ -40,20 +40,20 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 		}
 
 		public static FeedSnailTrigger.Instance any() {
-			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY_AND, ItemPredicate.ANY);
+			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY, ItemPredicate.ANY);
 		}
 
 		public static FeedSnailTrigger.Instance forItem(IItemProvider p_203913_0_) {
-			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY_AND, new ItemPredicate((ITag<Item>) null, p_203913_0_.asItem(), MinMaxBounds.IntBound.UNBOUNDED, MinMaxBounds.IntBound.UNBOUNDED, EnchantmentPredicate.enchantments, EnchantmentPredicate.enchantments, (Potion) null, NBTPredicate.ANY));
+			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY, new ItemPredicate((ITag<Item>) null, p_203913_0_.asItem(), MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, (Potion) null, NBTPredicate.ANY));
 		}
 
 		public boolean test(ItemStack item) {
-			return this.item.test(item);
+			return this.item.matches(item);
 		}
 
-		public JsonObject func_230240_a_(ConditionArraySerializer p_230240_1_) {
-			JsonObject jsonobject = super.serialize(p_230240_1_);
-			jsonobject.add("item", this.item.serialize());
+		public JsonObject serializeToJson(ConditionArraySerializer p_230240_1_) {
+			JsonObject jsonobject = super.serializeToJson(p_230240_1_);
+			jsonobject.add("item", this.item.serializeToJson());
 			return jsonobject;
 		}
 	}

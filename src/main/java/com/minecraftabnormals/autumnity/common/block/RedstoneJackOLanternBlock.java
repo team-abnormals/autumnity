@@ -19,34 +19,34 @@ public class RedstoneJackOLanternBlock extends AutumnityJackOLanternBlock {
 
 	public RedstoneJackOLanternBlock(AbstractBlock.Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(LIT, Boolean.valueOf(false)));
+		this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(LIT, Boolean.valueOf(context.getWorld().isBlockPowered(context.getPos())));
+		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(LIT, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
 	}
 
 	@Override
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-		if (!worldIn.isRemote) {
-			boolean flag = state.get(LIT);
-			if (flag != worldIn.isBlockPowered(pos)) {
-				worldIn.setBlockState(pos, state.func_235896_a_(LIT), 2);
+		if (!worldIn.isClientSide) {
+			boolean flag = state.getValue(LIT);
+			if (flag != worldIn.hasNeighborSignal(pos)) {
+				worldIn.setBlock(pos, state.cycle(LIT), 2);
 			}
 		}
 	}
 
 	@Override
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-		if (state.get(LIT) && !worldIn.isBlockPowered(pos)) {
-			worldIn.setBlockState(pos, state.func_235896_a_(LIT), 2);
+		if (state.getValue(LIT) && !worldIn.hasNeighborSignal(pos)) {
+			worldIn.setBlock(pos, state.cycle(LIT), 2);
 		}
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING, LIT);
 	}
 }

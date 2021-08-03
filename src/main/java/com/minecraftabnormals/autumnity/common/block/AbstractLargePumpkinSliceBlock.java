@@ -14,16 +14,16 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.MathHelper;
 
 public abstract class AbstractLargePumpkinSliceBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+	public static final DirectionProperty FACING = HorizontalBlock.FACING;
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
 
 	public AbstractLargePumpkinSliceBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(HALF, Half.BOTTOM));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM));
 	}
 
 	protected static Direction getFacing(BlockItemUseContext context) {
-		float f = MathHelper.wrapDegrees(context.getPlacementYaw()) / 45;
+		float f = MathHelper.wrapDegrees(context.getRotation()) / 45;
 
 		if (f > -2 && f <= 0) {
 			return Direction.NORTH;
@@ -37,17 +37,17 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 	}
 
 	protected static boolean canCarve(Direction hitFace, Direction facing) {
-		return hitFace == facing || hitFace == facing.rotateYCCW();
+		return hitFace == facing || hitFace == facing.getCounterClockWise();
 	}
 
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.with(FACING, rot.rotate(state.get(FACING)));
+		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		Direction.Axis axis = state.get(FACING).getAxis();
+		Direction.Axis axis = state.getValue(FACING).getAxis();
 
 		if (mirrorIn != Mirror.NONE) {
 			if ((mirrorIn == Mirror.FRONT_BACK && axis == Direction.Axis.X) || (mirrorIn == Mirror.LEFT_RIGHT && axis == Direction.Axis.Z)) {

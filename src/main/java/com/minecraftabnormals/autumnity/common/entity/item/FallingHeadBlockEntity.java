@@ -28,14 +28,14 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 
 	public FallingHeadBlockEntity(World worldIn, double x, double y, double z, BlockState fallingBlockState) {
 		this(AutumnityEntities.FALLING_HEAD_BLOCK.get(), worldIn);
-		this.fallTile = fallingBlockState;
-		this.preventEntitySpawning = true;
-		this.setPosition(x, y + (double) ((1.0F - this.getHeight()) / 2.0F), z);
-		this.setMotion(Vector3d.ZERO);
-		this.prevPosX = x;
-		this.prevPosY = y;
-		this.prevPosZ = z;
-		this.setOrigin(this.getPosition());
+		this.blockState = fallingBlockState;
+		this.blocksBuilding = true;
+		this.setPos(x, y + (double) ((1.0F - this.getBbHeight()) / 2.0F), z);
+		this.setDeltaMovement(Vector3d.ZERO);
+		this.xo = x;
+		this.yo = y;
+		this.zo = z;
+		this.setStartPos(this.blockPosition());
 	}
 
 	public FallingHeadBlockEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
@@ -47,13 +47,13 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 		super.tick();
 
 		if (!this.removed) {
-			for (Entity entity : this.world.getEntitiesInAABBexcluding(this, this.getBoundingBox(), (p_234613_0_) ->
+			for (Entity entity : this.level.getEntities(this, this.getBoundingBox(), (p_234613_0_) ->
 			{
-				return (p_234613_0_ instanceof PlayerEntity || p_234613_0_ instanceof ZombieEntity || p_234613_0_ instanceof AbstractSkeletonEntity || p_234613_0_ instanceof PiglinEntity) && ((LivingEntity) p_234613_0_).getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty();
+				return (p_234613_0_ instanceof PlayerEntity || p_234613_0_ instanceof ZombieEntity || p_234613_0_ instanceof AbstractSkeletonEntity || p_234613_0_ instanceof PiglinEntity) && ((LivingEntity) p_234613_0_).getItemBySlot(EquipmentSlotType.HEAD).isEmpty();
 			})) {
-				double d0 = entity.getPosY() + entity.getHeight();
-				if (this.prevPosY >= d0 && this.getPosY() <= d0) {
-					entity.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack((this.getBlockState().getBlock().asItem())));
+				double d0 = entity.getY() + entity.getBbHeight();
+				if (this.yo >= d0 && this.getY() <= d0) {
+					entity.setItemSlot(EquipmentSlotType.HEAD, new ItemStack((this.getBlockState().getBlock().asItem())));
 					this.remove();
 					break;
 				}
@@ -62,17 +62,17 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 	}
 
 	@Override
-	public IPacket<?> createSpawnPacket() {
+	public IPacket<?> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
 	@Override
 	public void writeSpawnData(PacketBuffer buffer) {
-		buffer.writeInt(Block.getStateId(this.fallTile));
+		buffer.writeInt(Block.getId(this.blockState));
 	}
 
 	@Override
 	public void readSpawnData(PacketBuffer buffer) {
-		this.fallTile = Block.getStateById(buffer.readInt());
+		this.blockState = Block.stateById(buffer.readInt());
 	}
 }

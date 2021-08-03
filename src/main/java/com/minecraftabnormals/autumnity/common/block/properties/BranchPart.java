@@ -7,10 +7,10 @@ public enum BranchPart implements IStringSerializable {
 	BASE;
 
 	public String toString() {
-		return this.getString();
+		return this.getSerializedName();
 	}
 
-	public String getString() {
+	public String getSerializedName() {
 		return this == TIP ? "tip" : "base";
 	}
 }

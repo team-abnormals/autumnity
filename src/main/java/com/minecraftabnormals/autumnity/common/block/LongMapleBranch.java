@@ -31,17 +31,17 @@ public class LongMapleBranch extends BushBlock {
 
 	public LongMapleBranch(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH).with(PART, BranchPart.BASE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(HORIZONTAL_FACING, Direction.NORTH).setValue(PART, BranchPart.BASE));
 	}
 
 	@Override
-	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-		BranchPart branchpart = stateIn.get(PART);
-		Direction direction = stateIn.get(HORIZONTAL_FACING);
-		if (facing.getAxis() != direction.getAxis() || branchpart == BranchPart.BASE != (facing == direction) || facingState.isIn(this) && facingState.get(PART) != branchpart && facingState.get(HORIZONTAL_FACING) == direction) {
-			return branchpart == BranchPart.BASE && facing == direction.getOpposite() && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		BranchPart branchpart = stateIn.getValue(PART);
+		Direction direction = stateIn.getValue(HORIZONTAL_FACING);
+		if (facing.getAxis() != direction.getAxis() || branchpart == BranchPart.BASE != (facing == direction) || facingState.is(this) && facingState.getValue(PART) != branchpart && facingState.getValue(HORIZONTAL_FACING) == direction) {
+			return branchpart == BranchPart.BASE && facing == direction.getOpposite() && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		} else {
-			return Blocks.AIR.getDefaultState();
+			return Blocks.AIR.defaultBlockState();
 		}
 	}
 
@@ -49,21 +49,21 @@ public class LongMapleBranch extends BushBlock {
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		if (!context.replacingClickedOnBlock()) {
-			BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(context.getFace().getOpposite()));
-			if (blockstate.isIn(this) && blockstate.get(HORIZONTAL_FACING) == context.getFace()) {
+			BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(context.getClickedFace().getOpposite()));
+			if (blockstate.is(this) && blockstate.getValue(HORIZONTAL_FACING) == context.getClickedFace()) {
 				return null;
 			}
 		}
 
-		BlockState blockstate1 = this.getDefaultState();
-		IWorldReader iworldreader = context.getWorld();
-		BlockPos blockpos = context.getPos();
+		BlockState blockstate1 = this.defaultBlockState();
+		IWorldReader iworldreader = context.getLevel();
+		BlockPos blockpos = context.getClickedPos();
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
 				Direction direction1 = direction.getOpposite();
-				blockstate1 = blockstate1.with(HORIZONTAL_FACING, direction1);
-				if (blockstate1.isValidPosition(iworldreader, blockpos) && context.getWorld().getBlockState(blockpos.offset(direction1)).isReplaceable(context)) {
+				blockstate1 = blockstate1.setValue(HORIZONTAL_FACING, direction1);
+				if (blockstate1.canSurvive(iworldreader, blockpos) && context.getLevel().getBlockState(blockpos.relative(direction1)).canBeReplaced(context)) {
 					return blockstate1;
 				}
 			}
@@ -73,22 +73,22 @@ public class LongMapleBranch extends BushBlock {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-		worldIn.setBlockState(pos.offset(state.get(HORIZONTAL_FACING)), state.with(PART, BranchPart.TIP), 3);
+	public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+		worldIn.setBlock(pos.relative(state.getValue(HORIZONTAL_FACING)), state.setValue(PART, BranchPart.TIP), 3);
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING).getOpposite());
+	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+		BlockPos blockpos = pos.relative(state.getValue(HORIZONTAL_FACING).getOpposite());
 		BlockState blockstate = worldIn.getBlockState(blockpos);
 
-		if (state.get(PART) != BranchPart.TIP) {
-			return blockstate.getBlock().isIn(AutumnityTags.MAPLE_LOGS);
+		if (state.getValue(PART) != BranchPart.TIP) {
+			return blockstate.getBlock().is(AutumnityTags.MAPLE_LOGS);
 		} else {
 			if (state.getBlock() != this) {
 				return true;
 			} else {
-				return blockstate.isIn(this) && blockstate.get(PART) == BranchPart.BASE && blockstate.get(HORIZONTAL_FACING) == state.get(HORIZONTAL_FACING);
+				return blockstate.is(this) && blockstate.getValue(PART) == BranchPart.BASE && blockstate.getValue(HORIZONTAL_FACING) == state.getValue(HORIZONTAL_FACING);
 			}
 		}
 	}
@@ -101,42 +101,42 @@ public class LongMapleBranch extends BushBlock {
 	}
 
 	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-		if (!worldIn.isRemote) {
+	public void playerWillDestroy(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
+		if (!worldIn.isClientSide) {
 			if (player.isCreative()) {
-				func_241471_b_(worldIn, pos, state, player);
+				preventCreativeDropFromBottomPart(worldIn, pos, state, player);
 			} else {
-				spawnDrops(state, worldIn, pos, (TileEntity) null, player, player.getHeldItemMainhand());
+				dropResources(state, worldIn, pos, (TileEntity) null, player, player.getMainHandItem());
 			}
 		}
 
-		super.onBlockHarvested(worldIn, pos, state, player);
+		super.playerWillDestroy(worldIn, pos, state, player);
 	}
 
-	protected static void func_241471_b_(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-		BranchPart branchpart = state.get(PART);
+	protected static void preventCreativeDropFromBottomPart(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+		BranchPart branchpart = state.getValue(PART);
 		if (branchpart == BranchPart.TIP) {
-			BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING).getOpposite());
+			BlockPos blockpos = pos.relative(state.getValue(HORIZONTAL_FACING).getOpposite());
 			BlockState blockstate = world.getBlockState(blockpos);
-			if (blockstate.getBlock() == state.getBlock() && blockstate.get(PART) == BranchPart.TIP) {
-				world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
-				world.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
+			if (blockstate.getBlock() == state.getBlock() && blockstate.getValue(PART) == BranchPart.TIP) {
+				world.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+				world.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
 			}
 		}
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HORIZONTAL_FACING, PART);
 	}
 
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.with(HORIZONTAL_FACING, rot.rotate(state.get(HORIZONTAL_FACING)));
+		return state.setValue(HORIZONTAL_FACING, rot.rotate(state.getValue(HORIZONTAL_FACING)));
 	}
 
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return state.rotate(mirrorIn.toRotation(state.get(HORIZONTAL_FACING)));
+		return state.rotate(mirrorIn.getRotation(state.getValue(HORIZONTAL_FACING)));
 	}
 }

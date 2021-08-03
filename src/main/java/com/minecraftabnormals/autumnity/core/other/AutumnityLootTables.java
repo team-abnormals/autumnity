@@ -1,7 +1,6 @@
 package com.minecraftabnormals.autumnity.core.other;
 
 import com.minecraftabnormals.autumnity.core.Autumnity;
-
 import net.minecraft.util.ResourceLocation;
 
 public class AutumnityLootTables {

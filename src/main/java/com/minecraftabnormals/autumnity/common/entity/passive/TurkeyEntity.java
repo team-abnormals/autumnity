@@ -33,7 +33,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAngerable {
-	private static final DataParameter<Integer> ANGER_TIME = EntityDataManager.createKey(TurkeyEntity.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> ANGER_TIME = EntityDataManager.defineId(TurkeyEntity.class, DataSerializers.INT);
 
 	private float wingRotation;
 	private float destPos;
@@ -44,10 +44,10 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	private float peckTicks;
 	private float prevPeckTicks;
 
-	public int timeUntilNextEgg = this.rand.nextInt(9600) + 9600;
+	public int timeUntilNextEgg = this.random.nextInt(9600) + 9600;
 	public boolean turkeyJockey;
 
-	private static final RangedInteger ANGER_RANGE = TickRangeConverter.convertRange(20, 39);
+	private static final RangedInteger ANGER_RANGE = TickRangeConverter.rangeOfSeconds(20, 39);
 	private UUID lastHurtBy;
 
 	public TurkeyEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
@@ -61,56 +61,56 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.4D, false));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 1.0D));
-		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, false, Ingredient.fromTag(AutumnityTags.TURKEY_BREEDING_ITEMS)));
+		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, false, Ingredient.of(AutumnityTags.TURKEY_BREEDING_ITEMS)));
 		this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
 		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal(this));
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::func_233680_b_));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::isAngryAt));
 		this.targetSelector.addGoal(3, new TurkeyEntity.JockeyTargetGoal<>(this, PlayerEntity.class));
 		this.targetSelector.addGoal(4, new ResetAngerGoal<>(this, true));
 	}
 
 	@Override
 	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-		return this.isChild() ? sizeIn.height * 0.85F : sizeIn.height * 0.92F;
+		return this.isBaby() ? sizeIn.height * 0.85F : sizeIn.height * 0.92F;
 	}
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 12.0D)
-				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
-				.createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+		return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 12.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.25D)
+				.add(Attributes.ATTACK_DAMAGE, 2.0D);
 	}
 
 	@Override
-	protected void registerData() {
-		super.registerData();
-		this.dataManager.register(ANGER_TIME, 0);
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(ANGER_TIME, 0);
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public void handleStatusUpdate(byte id) {
+	public void handleEntityEvent(byte id) {
 		if (id == 4) {
 			this.peckTicks = 8;
 		} else {
-			super.handleStatusUpdate(id);
+			super.handleEntityEvent(id);
 		}
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity entityIn) {
+	public boolean doHurtTarget(Entity entityIn) {
 		this.peckTicks = 8;
-		this.world.setEntityState(this, (byte) 4);
+		this.level.broadcastEntityEvent(this, (byte) 4);
 
-		return super.attackEntityAsMob(entityIn);
+		return super.doHurtTarget(entityIn);
 	}
 
 	@Override
-	public void livingTick() {
-		super.livingTick();
+	public void aiStep() {
+		super.aiStep();
 
-		if (this.world.isRemote) {
+		if (this.level.isClientSide) {
 			// Wing rotation
 			this.oFlap = this.wingRotation;
 			this.oFlapSpeed = this.destPos;
@@ -131,19 +131,19 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 		}
 
 		// Motion
-		Vector3d vector3d = this.getMotion();
+		Vector3d vector3d = this.getDeltaMovement();
 		if (!this.onGround && vector3d.y < 0.0D) {
-			this.setMotion(vector3d.mul(1.0D, 0.6D, 1.0D));
+			this.setDeltaMovement(vector3d.multiply(1.0D, 0.6D, 1.0D));
 		}
 
-		if (!this.world.isRemote) {
-			if (this.isAlive() && !this.isChild() && !this.isTurkeyJockey() && --this.timeUntilNextEgg <= 0) {
-				this.playSound(AutumnitySoundEvents.ENTITY_TURKEY_EGG.get(), 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-				this.entityDropItem(AutumnityItems.TURKEY_EGG.get());
-				this.timeUntilNextEgg = this.getNextEggTime(this.rand);
+		if (!this.level.isClientSide) {
+			if (this.isAlive() && !this.isBaby() && !this.isTurkeyJockey() && --this.timeUntilNextEgg <= 0) {
+				this.playSound(AutumnitySoundEvents.ENTITY_TURKEY_EGG.get(), 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+				this.spawnAtLocation(AutumnityItems.TURKEY_EGG.get());
+				this.timeUntilNextEgg = this.getNextEggTime(this.random);
 			}
 
-			this.func_241359_a_((ServerWorld) this.world, true);
+			this.updatePersistentAnger((ServerWorld) this.level, true);
 		}
 	}
 
@@ -166,13 +166,13 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	}
 
 	@Override
-	public boolean onLivingFall(float distance, float damageMultiplier) {
+	public boolean causeFallDamage(float distance, float damageMultiplier) {
 		return false;
 	}
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return this.func_233678_J__() ? AutumnitySoundEvents.ENTITY_TURKEY_AGGRO.get() : AutumnitySoundEvents.ENTITY_TURKEY_AMBIENT.get();
+		return this.isAngry() ? AutumnitySoundEvents.ENTITY_TURKEY_AGGRO.get() : AutumnitySoundEvents.ENTITY_TURKEY_AMBIENT.get();
 	}
 
 	@Override
@@ -192,50 +192,50 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn) {
-		this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
 	}
 
 	@Override
-	public boolean isBreedingItem(ItemStack stack) {
-		return Ingredient.fromTag(AutumnityTags.TURKEY_BREEDING_ITEMS).test(stack);
+	public boolean isFood(ItemStack stack) {
+		return Ingredient.of(AutumnityTags.TURKEY_BREEDING_ITEMS).test(stack);
 	}
 
 	@Override
-	protected int getExperiencePoints(PlayerEntity player) {
-		return this.isTurkeyJockey() ? 10 : super.getExperiencePoints(player);
+	protected int getExperienceReward(PlayerEntity player) {
+		return this.isTurkeyJockey() ? 10 : super.getExperienceReward(player);
 	}
 
 	@Override
-	public void readAdditional(CompoundNBT compound) {
-		super.readAdditional(compound);
+	public void readAdditionalSaveData(CompoundNBT compound) {
+		super.readAdditionalSaveData(compound);
 		this.turkeyJockey = compound.getBoolean("IsTurkeyJockey");
 		if (compound.contains("EggLayTime")) {
 			this.timeUntilNextEgg = compound.getInt("EggLayTime");
 		}
-		this.readAngerNBT((ServerWorld) this.world, compound);
+		this.readPersistentAngerSaveData((ServerWorld) this.level, compound);
 	}
 
 	@Override
-	public void writeAdditional(CompoundNBT compound) {
-		super.writeAdditional(compound);
+	public void addAdditionalSaveData(CompoundNBT compound) {
+		super.addAdditionalSaveData(compound);
 		compound.putBoolean("IsTurkeyJockey", this.turkeyJockey);
 		compound.putInt("EggLayTime", this.timeUntilNextEgg);
-		this.writeAngerNBT(compound);
+		this.addPersistentAngerSaveData(compound);
 	}
 
 	@Override
-	public boolean canDespawn(double distanceToClosestPlayer) {
+	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
 		return this.isTurkeyJockey();
 	}
 
 	@Override
-	public void updatePassenger(Entity passenger) {
-		super.updatePassenger(passenger);
-		float f = MathHelper.sin(this.renderYawOffset * ((float) Math.PI / 180F));
-		float f1 = MathHelper.cos(this.renderYawOffset * ((float) Math.PI / 180F));
-		passenger.setPosition(this.getPosX() + (double) (0.1F * f), this.getPosYHeight(0.5D) + passenger.getYOffset() + 0.0D, this.getPosZ() - (double) (0.1F * f1));
+	public void positionRider(Entity passenger) {
+		super.positionRider(passenger);
+		float f = MathHelper.sin(this.yBodyRot * ((float) Math.PI / 180F));
+		float f1 = MathHelper.cos(this.yBodyRot * ((float) Math.PI / 180F));
+		passenger.setPos(this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));
 		if (passenger instanceof LivingEntity) {
-			((LivingEntity) passenger).renderYawOffset = this.renderYawOffset;
+			((LivingEntity) passenger).yBodyRot = this.yBodyRot;
 		}
 	}
 
@@ -248,17 +248,17 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	}
 
 	@Override
-	public int getAngerTime() {
-		return this.dataManager.get(ANGER_TIME);
+	public int getRemainingPersistentAngerTime() {
+		return this.entityData.get(ANGER_TIME);
 	}
 
 	@Override
-	public void setAngerTime(int time) {
-		this.dataManager.set(ANGER_TIME, time);
+	public void setRemainingPersistentAngerTime(int time) {
+		this.entityData.set(ANGER_TIME, time);
 	}
 
 	@Override
-	public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
+	public AgeableEntity getBreedOffspring(ServerWorld world, AgeableEntity ageable) {
 		return AutumnityEntities.TURKEY.get().create(world);
 	}
 
@@ -268,18 +268,18 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	}
 
 	@Override
-	public UUID getAngerTarget() {
+	public UUID getPersistentAngerTarget() {
 		return this.lastHurtBy;
 	}
 
 	@Override
-	public void setAngerTarget(UUID target) {
+	public void setPersistentAngerTarget(UUID target) {
 		this.lastHurtBy = target;
 	}
 
 	@Override
-	public void func_230258_H__() {
-		this.setAngerTime(ANGER_RANGE.getRandomWithinRange(this.rand));
+	public void startPersistentAngerTimer() {
+		this.setRemainingPersistentAngerTime(ANGER_RANGE.randomValue(this.random));
 	}
 
 	@Override
@@ -312,8 +312,8 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 			super(turkey, 1.4D);
 		}
 
-		public boolean shouldExecute() {
-			return this.creature.isChild() && super.shouldExecute();
+		public boolean canUse() {
+			return this.mob.isBaby() && super.canUse();
 		}
 	}
 
@@ -322,18 +322,18 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 			super(turkey);
 		}
 
-		protected void setAttackTarget(MobEntity mobIn, LivingEntity targetIn) {
-			if (mobIn instanceof TurkeyEntity && !mobIn.isChild()) {
-				super.setAttackTarget(mobIn, targetIn);
+		protected void alertOther(MobEntity mobIn, LivingEntity targetIn) {
+			if (mobIn instanceof TurkeyEntity && !mobIn.isBaby()) {
+				super.alertOther(mobIn, targetIn);
 			}
 		}
 
-		public void startExecuting() {
-			super.startExecuting();
+		public void start() {
+			super.start();
 
-			if (this.goalOwner.isChild()) {
+			if (this.mob.isBaby()) {
 				this.alertOthers();
-				this.resetTask();
+				this.stop();
 			}
 		}
 	}
@@ -343,10 +343,10 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 			super(turkey, classTarget, true);
 		}
 
-		public boolean shouldExecute() {
-			TurkeyEntity turkey = (TurkeyEntity) this.goalOwner;
+		public boolean canUse() {
+			TurkeyEntity turkey = (TurkeyEntity) this.mob;
 
-			return turkey.isTurkeyJockey() && super.shouldExecute();
+			return turkey.isTurkeyJockey() && super.canUse();
 		}
 	}
 }

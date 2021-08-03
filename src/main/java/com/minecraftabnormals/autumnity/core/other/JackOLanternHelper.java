@@ -1,7 +1,6 @@
 package com.minecraftabnormals.autumnity.core.other;
 
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;

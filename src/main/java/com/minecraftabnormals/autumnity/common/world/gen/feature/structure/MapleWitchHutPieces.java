@@ -1,13 +1,9 @@
 package com.minecraftabnormals.autumnity.common.world.gen.feature.structure;
 
-import java.util.List;
-import java.util.Random;
-
 import com.minecraftabnormals.autumnity.core.Autumnity;
 import com.minecraftabnormals.autumnity.core.other.AutumnityLootTables;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityStructures;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
@@ -29,18 +25,17 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
-import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
-import net.minecraft.world.gen.feature.template.IntegrityProcessor;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.Template;
-import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.gen.feature.template.*;
+
+import java.util.List;
+import java.util.Random;
 
 public class MapleWitchHutPieces {
 	private static final BlockPos STRUCTURE_OFFSET = new BlockPos(0, 0, 0);
 	private static final ResourceLocation STRUCTURE = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut");
 	private static final ResourceLocation STRUCTURE_OVERGROWN = new ResourceLocation(Autumnity.MOD_ID, "witch_hut/maple_witch_hut_overgrown");
 
-	public static void func_204760_a(TemplateManager p_204760_0_, BlockPos p_204760_1_, Rotation p_204760_2_, Mirror p_204760_3_, List<StructurePiece> p_204760_4_, Random p_204760_5_) {
+	public static void addPieces(TemplateManager p_204760_0_, BlockPos p_204760_1_, Rotation p_204760_2_, Mirror p_204760_3_, List<StructurePiece> p_204760_4_, Random p_204760_5_) {
 		p_204760_4_.add(new MapleWitchHutPieces.Piece(p_204760_0_, STRUCTURE, p_204760_1_, p_204760_2_, p_204760_3_, 1.0F));
 		p_204760_4_.add(new MapleWitchHutPieces.Piece(p_204760_0_, STRUCTURE_OVERGROWN, p_204760_1_, p_204760_2_, p_204760_3_, 0.2F));
 	}
@@ -58,7 +53,7 @@ public class MapleWitchHutPieces {
 			this.rotation = rotationIn;
 			this.mirror = mirrorIn;
 			this.integrity = integrityIn;
-			this.func_204754_a(templateManager);
+			this.loadTemplate(templateManager);
 		}
 
 		public Piece(TemplateManager templateManager, CompoundNBT tagCompound) {
@@ -67,21 +62,21 @@ public class MapleWitchHutPieces {
 			this.rotation = Rotation.valueOf(tagCompound.getString("Rot"));
 			this.mirror = Mirror.valueOf(tagCompound.getString("Mirror"));
 			this.integrity = tagCompound.getFloat("Integrity");
-			this.func_204754_a(templateManager);
+			this.loadTemplate(templateManager);
 		}
 
 		@Override
-		protected void readAdditional(CompoundNBT tagCompound) {
-			super.readAdditional(tagCompound);
+		protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+			super.addAdditionalSaveData(tagCompound);
 			tagCompound.putString("Template", this.structure.toString());
 			tagCompound.putString("Rot", this.rotation.name());
 			tagCompound.putString("Mirror", this.mirror.name());
 			tagCompound.putFloat("Integrity", this.integrity);
 		}
 
-		private void func_204754_a(TemplateManager templateManager) {
-			Template template = templateManager.getTemplateDefaulted(this.structure);
-			PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(this.mirror).setCenterOffset(MapleWitchHutPieces.STRUCTURE_OFFSET).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK).addProcessor(new IntegrityProcessor(this.integrity));
+		private void loadTemplate(TemplateManager templateManager) {
+			Template template = templateManager.getOrCreate(this.structure);
+			PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(this.mirror).setRotationPivot(MapleWitchHutPieces.STRUCTURE_OFFSET).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK).addProcessor(new IntegrityProcessor(this.integrity));
 
 			this.setup(template, this.templatePosition, placementsettings);
 		}
@@ -89,43 +84,43 @@ public class MapleWitchHutPieces {
 		@Override
 		protected void handleDataMarker(String function, BlockPos pos, IServerWorld worldIn, Random rand, MutableBoundingBox sbb) {
 			if ("chest".equals(function)) {
-				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-				TileEntity tileentity = worldIn.getTileEntity(pos.down());
+				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+				TileEntity tileentity = worldIn.getBlockEntity(pos.below());
 				if (tileentity instanceof ChestTileEntity) {
 					((ChestTileEntity)tileentity).setLootTable(AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT, rand.nextLong());
 				}
 			} else if ("decor".equals(function)) {
 				if (rand.nextInt(2) == 0) {
-					worldIn.setBlockState(pos, Blocks.POTTED_RED_MUSHROOM.getDefaultState(), 2);
+					worldIn.setBlock(pos, Blocks.POTTED_RED_MUSHROOM.defaultBlockState(), 2);
 				} else {
-					worldIn.setBlockState(pos, Blocks.POTTED_BROWN_MUSHROOM.getDefaultState(), 2);
+					worldIn.setBlock(pos, Blocks.POTTED_BROWN_MUSHROOM.defaultBlockState(), 2);
 				}
 			} else if ("flower".equals(function)) {
 				if (rand.nextInt(4) == 0) {
-					worldIn.setBlockState(pos.down(), AutumnityBlocks.AUTUMN_CROCUS.get().getDefaultState(), 2);
+					worldIn.setBlock(pos.below(), AutumnityBlocks.AUTUMN_CROCUS.get().defaultBlockState(), 2);
 				}
-				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 			} else if (function.startsWith("witch")) {
-				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-				WitchEntity witchentity = EntityType.WITCH.create(worldIn.getWorld());
-				witchentity.enablePersistence();
-				witchentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
-				witchentity.onInitialSpawn(worldIn, worldIn.getDifficultyForLocation(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
-				worldIn.func_242417_l(witchentity);
+				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+				WitchEntity witchentity = EntityType.WITCH.create(worldIn.getLevel());
+				witchentity.setPersistenceRequired();
+				witchentity.setPos((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
+				witchentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
+				worldIn.addFreshEntityWithPassengers(witchentity);
 			} else if (function.startsWith("cat")) {
-				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-				CatEntity catentity = EntityType.CAT.create(worldIn.getWorld());
-				catentity.enablePersistence();
-				catentity.setPosition((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
-				catentity.onInitialSpawn(worldIn, worldIn.getDifficultyForLocation(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
+				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+				CatEntity catentity = EntityType.CAT.create(worldIn.getLevel());
+				catentity.setPersistenceRequired();
+				catentity.setPos((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
+				catentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
 				catentity.setCatType(10);
-				worldIn.func_242417_l(catentity);
+				worldIn.addFreshEntityWithPassengers(catentity);
 			}
 		}
 
 		@Override
-		public boolean func_230383_a_(ISeedReader p_230383_1_, StructureManager p_230383_2_, ChunkGenerator p_230383_3_, Random p_230383_4_, MutableBoundingBox p_230383_5_, ChunkPos p_230383_6_, BlockPos p_230383_7_) {
-			return super.func_230383_a_(p_230383_1_, p_230383_2_, p_230383_3_, p_230383_4_, p_230383_5_, p_230383_6_, p_230383_7_);
+		public boolean postProcess(ISeedReader p_230383_1_, StructureManager p_230383_2_, ChunkGenerator p_230383_3_, Random p_230383_4_, MutableBoundingBox p_230383_5_, ChunkPos p_230383_6_, BlockPos p_230383_7_) {
+			return super.postProcess(p_230383_1_, p_230383_2_, p_230383_3_, p_230383_4_, p_230383_5_, p_230383_6_, p_230383_7_);
 		}
 	}
 }

@@ -14,7 +14,6 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -33,8 +32,8 @@ public class SnailShellChestplateItem extends ArmorItem {
 
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		if (player.isSneaking()) {
-			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 2, false, false, true));
+		if (player.isShiftKeyDown()) {
+			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 2, false, false, true));
 		}
 	}
 
@@ -45,14 +44,14 @@ public class SnailShellChestplateItem extends ArmorItem {
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add((new TranslationTextComponent("item.autumnity.snail_shell_chestplate.whenSneaking").mergeStyle(TextFormatting.GRAY)));
-		tooltip.add(new TranslationTextComponent(Effects.RESISTANCE.getName()).mergeStyle(TextFormatting.BLUE).appendString(" ").append(new TranslationTextComponent("potion.potency.2").mergeStyle(TextFormatting.BLUE)));
-		tooltip.add((new TranslationTextComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.getId(), ItemStack.DECIMALFORMAT.format(10), new TranslationTextComponent(Attributes.KNOCKBACK_RESISTANCE.getAttributeName()))).mergeStyle(TextFormatting.BLUE));
+	public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		tooltip.add((new TranslationTextComponent("item.autumnity.snail_shell_chestplate.whenSneaking").withStyle(TextFormatting.GRAY)));
+		tooltip.add(new TranslationTextComponent(Effects.DAMAGE_RESISTANCE.getDescriptionId()).withStyle(TextFormatting.BLUE).append(" ").append(new TranslationTextComponent("potion.potency.2").withStyle(TextFormatting.BLUE)));
+		tooltip.add((new TranslationTextComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(10), new TranslationTextComponent(Attributes.KNOCKBACK_RESISTANCE.getDescriptionId()))).withStyle(TextFormatting.BLUE));
 	}
 
 	@Override
-	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
+	public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
 		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

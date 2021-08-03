@@ -12,10 +12,10 @@ public class FallingMapleLeafParticle extends SpriteTexturedParticle {
 
 	private FallingMapleLeafParticle(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn) {
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
-		this.particleScale *= 1.2F;
-		this.maxAge = 80;
+		this.quadSize *= 1.2F;
+		this.lifetime = 80;
 		this.rotSpeed = ((float) Math.random() - 0.5F) * 0.1F;
-		this.particleAngle = (float) Math.random() * ((float) Math.PI * 2F);
+		this.roll = (float) Math.random() * ((float) Math.PI * 2F);
 	}
 
 	public IParticleRenderType getRenderType() {
@@ -23,24 +23,24 @@ public class FallingMapleLeafParticle extends SpriteTexturedParticle {
 	}
 
 	public void tick() {
-		this.prevPosX = this.posX;
-		this.prevPosY = this.posY;
-		this.prevPosZ = this.posZ;
-		if (this.age >= this.maxAge) {
-			this.setExpired();
+		this.xo = this.x;
+		this.yo = this.y;
+		this.zo = this.z;
+		if (this.age >= this.lifetime) {
+			this.remove();
 		} else {
-			this.move(this.motionX, this.motionY, this.motionZ);
-			this.motionY -= (double) 0.002F;
-			this.motionY = Math.max(this.motionY, (double) -0.1F);
+			this.move(this.xd, this.yd, this.zd);
+			this.yd -= (double) 0.002F;
+			this.yd = Math.max(this.yd, (double) -0.1F);
 
-			this.prevParticleAngle = this.particleAngle;
+			this.oRoll = this.roll;
 			if (!this.onGround) {
-				this.particleAngle += (float) Math.PI * this.rotSpeed * 1.6F;
+				this.roll += (float) Math.PI * this.rotSpeed * 1.6F;
 			} else {
-				this.motionY = 0.0D;
+				this.yd = 0.0D;
 			}
 
-			if (this.onGround || this.posY < 0) {
+			if (this.onGround || this.y < 0) {
 				this.age++;
 			}
 		}
@@ -54,10 +54,10 @@ public class FallingMapleLeafParticle extends SpriteTexturedParticle {
 			this.spriteSet = sprite;
 		}
 
-		public Particle makeParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+		public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			FallingMapleLeafParticle particle = new FallingMapleLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
 			particle.setColor((float) xSpeed, (float) ySpeed, (float) zSpeed);
-			particle.selectSpriteRandomly(this.spriteSet);
+			particle.pickSprite(this.spriteSet);
 			return particle;
 		}
 	}

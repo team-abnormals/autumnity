@@ -25,9 +25,9 @@ public class AutumnityParticles {
 
 		@SubscribeEvent(priority = EventPriority.LOWEST)
 		public static void registerParticleTypes(ParticleFactoryRegisterEvent event) {
-			ParticleManager manager = Minecraft.getInstance().particles;
+			ParticleManager manager = Minecraft.getInstance().particleEngine;
 			if (FALLING_MAPLE_LEAF.isPresent()) {
-				manager.registerFactory(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
+				manager.register(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
 			}
 		}
 	}

@@ -24,50 +24,50 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 		super(properties);
 	}
 
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING, HALF);
 	}
 
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		ItemStack itemstack = player.getHeldItem(handIn);
-		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.getItem().isIn(AutumnityTags.KNIVES))) {
-			Direction direction = hit.getFace();
-			Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : hit.getFace();
-			Direction direction2 = state.get(FACING);
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		ItemStack itemstack = player.getItemInHand(handIn);
+		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.getItem().is(AutumnityTags.KNIVES))) {
+			Direction direction = hit.getDirection();
+			Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : hit.getDirection();
+			Direction direction2 = state.getValue(FACING);
 
 			if (canCarve(direction1, direction2)) {
-				if (!worldIn.isRemote) {
+				if (!worldIn.isClientSide) {
 					CarvedSide carvedside = CarvedSide.getCarvedSide(direction1.getAxis());
-					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().getDefaultState().with(CarvedLargePumpkinSliceBlock.FACING, direction2).with(CarvedLargePumpkinSliceBlock.HALF, state.get(HALF)).with(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
+					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().defaultBlockState().setValue(CarvedLargePumpkinSliceBlock.FACING, direction2).setValue(CarvedLargePumpkinSliceBlock.HALF, state.getValue(HALF)).setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
 
-					worldIn.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					worldIn.setBlockState(pos, blockstate, 11);
-					ItemEntity itementity = new ItemEntity(worldIn, (double) pos.getX() + 0.5D + (double) direction1.getXOffset() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) direction1.getZOffset() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
-					itementity.setMotion(0.05D * (double) direction1.getXOffset() + worldIn.rand.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction1.getZOffset() + worldIn.rand.nextDouble() * 0.02D);
-					worldIn.addEntity(itementity);
-					itemstack.damageItem(1, player, (p_220282_1_) -> {
-						p_220282_1_.sendBreakAnimation(handIn);
+					worldIn.playSound(null, pos, SoundEvents.PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					worldIn.setBlock(pos, blockstate, 11);
+					ItemEntity itementity = new ItemEntity(worldIn, (double) pos.getX() + 0.5D + (double) direction1.getStepX() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) direction1.getStepZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+					itementity.setDeltaMovement(0.05D * (double) direction1.getStepX() + worldIn.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction1.getStepZ() + worldIn.random.nextDouble() * 0.02D);
+					worldIn.addFreshEntity(itementity);
+					itemstack.hurtAndBreak(1, player, (p_220282_1_) -> {
+						p_220282_1_.broadcastBreakEvent(handIn);
 					});
 				}
 
-				return ActionResultType.func_233537_a_(worldIn.isRemote);
+				return ActionResultType.sidedSuccess(worldIn.isClientSide);
 			}
 		}
 
-		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+		return super.use(state, worldIn, pos, player, handIn, hit);
 	}
 
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		BlockPos blockpos = context.getPos();
-		BlockState bottomblock = context.getWorld().getBlockState(blockpos.down());
-		BlockState topblock = context.getWorld().getBlockState(blockpos.up());
+		BlockPos blockpos = context.getClickedPos();
+		BlockState bottomblock = context.getLevel().getBlockState(blockpos.below());
+		BlockState topblock = context.getLevel().getBlockState(blockpos.above());
 
-		if (bottomblock.getBlock() instanceof AbstractLargePumpkinSliceBlock && bottomblock.get(HALF) == Half.BOTTOM) {
-			return this.getDefaultState().with(FACING, bottomblock.get(FACING)).with(HALF, Half.TOP);
-		} else if (topblock.getBlock() instanceof AbstractLargePumpkinSliceBlock && topblock.get(HALF) == Half.TOP) {
-			return this.getDefaultState().with(FACING, topblock.get(FACING)).with(HALF, Half.BOTTOM);
+		if (bottomblock.getBlock() instanceof AbstractLargePumpkinSliceBlock && bottomblock.getValue(HALF) == Half.BOTTOM) {
+			return this.defaultBlockState().setValue(FACING, bottomblock.getValue(FACING)).setValue(HALF, Half.TOP);
+		} else if (topblock.getBlock() instanceof AbstractLargePumpkinSliceBlock && topblock.getValue(HALF) == Half.TOP) {
+			return this.defaultBlockState().setValue(FACING, topblock.getValue(FACING)).setValue(HALF, Half.BOTTOM);
 		}
 
-		return this.getDefaultState().with(FACING, getFacing(context)).with(HALF, MathHelper.sin(context.getPlayer().getPitch(1.0F) * ((float) Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP);
+		return this.defaultBlockState().setValue(FACING, getFacing(context)).setValue(HALF, MathHelper.sin(context.getPlayer().getViewXRot(1.0F) * ((float) Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP);
 	}
 }

@@ -1,10 +1,7 @@
 package com.minecraftabnormals.autumnity.common.world.gen.feature.structure;
 
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Direction;
@@ -24,6 +21,8 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+
 public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 	private static final List<MobSpawnInfo.Spawners> SPAWN_LIST = ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.WITCH, 1, 1, 1));
 	private static final List<MobSpawnInfo.Spawners> CREATURE_SPAWN_LIST = ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.CAT, 1, 1, 1));
@@ -38,7 +37,7 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 	}
 
 	@Override
-	public GenerationStage.Decoration getDecorationStage() {
+	public GenerationStage.Decoration step() {
 		return GenerationStage.Decoration.SURFACE_STRUCTURES;
 	}
 
@@ -57,29 +56,29 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 			super(p_i225817_1_, p_i225817_2_, p_i225817_3_, p_i225817_4_, p_i225817_5_, p_i225817_6_);
 		}
 
-		public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
+		public void generatePieces(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
 			ChunkPos chunkpos = new ChunkPos(p_230364_4_, p_230364_5_);
-			int i = chunkpos.getXStart() + this.rand.nextInt(16);
-			int j = chunkpos.getZStart() + this.rand.nextInt(16);
+			int i = chunkpos.getMinBlockX() + this.random.nextInt(16);
+			int j = chunkpos.getMinBlockZ() + this.random.nextInt(16);
 			int k = p_230364_2_.getSeaLevel();
-			int l = k + this.rand.nextInt(p_230364_2_.getMaxBuildHeight() - 2 - k);
-			IBlockReader iblockreader = p_230364_2_.func_230348_a_(i, j);
+			int l = k + this.random.nextInt(p_230364_2_.getGenDepth() - 2 - k);
+			IBlockReader iblockreader = p_230364_2_.getBaseColumn(i, j);
 
 			for(BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable(i, l, j); l > k; --l) {
 				BlockState blockstate = iblockreader.getBlockState(blockpos$mutable);
 				blockpos$mutable.move(Direction.DOWN);
 				BlockState blockstate1 = iblockreader.getBlockState(blockpos$mutable);
-				if (blockstate.isAir() && blockstate1.isSolidSide(iblockreader, blockpos$mutable, Direction.UP)) {
+				if (blockstate.isAir() && blockstate1.isFaceSturdy(iblockreader, blockpos$mutable, Direction.UP)) {
 					break;
 				}
 			}
 
 			if (l > k) {
-				Rotation rotation = Rotation.randomRotation(this.rand);
-				Mirror mirror = this.rand.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
+				Rotation rotation = Rotation.getRandom(this.random);
+				Mirror mirror = this.random.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
 				
-				MapleWitchHutPieces.func_204760_a(p_230364_3_, new BlockPos(i, l, j), rotation, mirror, this.components, this.rand);
-				this.recalculateStructureSize();
+				MapleWitchHutPieces.addPieces(p_230364_3_, new BlockPos(i, l, j), rotation, mirror, this.pieces, this.random);
+				this.calculateBoundingBox();
 			}
 		}
 	}

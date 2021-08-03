@@ -19,102 +19,102 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T> {
 	private final ModelRenderer tentacle2;
 
 	public SnailModel() {
-		this.textureWidth = 64;
-		this.textureHeight = 64;
+		this.texWidth = 64;
+		this.texHeight = 64;
 
 		this.body = new ModelRenderer(this);
-		this.body.setRotationPoint(0.0F, 24.0F, -9.0F);
+		this.body.setPos(0.0F, 24.0F, -9.0F);
 		this.body.addBox(-4.0F, 0.0F, 0.0F, 8, 18, 6, 0.0F);
 
 		this.hideBody = new ModelRenderer(this);
-		this.hideBody.setRotationPoint(0.0F, 24.0F, -6.0F);
+		this.hideBody.setPos(0.0F, 24.0F, -6.0F);
 		this.hideBody.addBox(-4.0F, 0.0F, 0.0F, 8, 12, 6, 0.0F);
 
 		this.eye1 = new ModelRenderer(this, 28, 0);
-		this.eye1.setRotationPoint(2.5F, 18.0F, -7.0F);
+		this.eye1.setPos(2.5F, 18.0F, -7.0F);
 		this.eye1.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
 
 		this.eye2 = new ModelRenderer(this, 28, 0);
 		this.eye2.mirror = true;
-		this.eye2.setRotationPoint(-2.5F, 18.0F, -7.0F);
+		this.eye2.setPos(-2.5F, 18.0F, -7.0F);
 		this.eye2.addBox(-1.0F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
 
 		this.tentacle1 = new ModelRenderer(this, 28, 9);
-		this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F);
+		this.tentacle1.setPos(3.0F, 22.0F, -9.0F);
 		this.tentacle1.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
 
 		this.tentacle2 = new ModelRenderer(this, 28, 9);
-		this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F);
+		this.tentacle2.setPos(-3.0F, 22.0F, -9.0F);
 		this.tentacle2.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
 
 		this.shell = new ModelRenderer(this, 0, 24);
-		this.shell.setRotationPoint(0.0F, 7.0F, -1.0F);
+		this.shell.setPos(0.0F, 7.0F, -1.0F);
 		this.shell.addBox(-4.5F, 0.0F, 0.0F, 9, 14, 14, 0.0F);
 	}
 
-	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+	public void prepareMobModel(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
 		float f = entityIn.getHidingAnimationScale(partialTick);
 		float f1 = 3.0F * f;
 		float f2 = MathHelper.clamp(10.0F * f, 0.0F, 5.0F);
 
-		this.hideBody.setRotationPoint(0.0F, 24.0F, -9.0F + f1);
-		this.eye1.setRotationPoint(2.5F, 18.0F + f2, -7.0F + f1);
-		this.eye2.setRotationPoint(-2.5F, 18.0F + f2, -7.0F + f1);
-		this.tentacle1.setRotationPoint(3.0F, 22.0F, -9.0F + f1);
-		this.tentacle2.setRotationPoint(-3.0F, 22.0F, -9.0F + f1);
-		this.shell.setRotationPoint(0.0F, 7.0F, -1.0F - f1);
+		this.hideBody.setPos(0.0F, 24.0F, -9.0F + f1);
+		this.eye1.setPos(2.5F, 18.0F + f2, -7.0F + f1);
+		this.eye2.setPos(-2.5F, 18.0F + f2, -7.0F + f1);
+		this.tentacle1.setPos(3.0F, 22.0F, -9.0F + f1);
+		this.tentacle2.setPos(-3.0F, 22.0F, -9.0F + f1);
+		this.shell.setPos(0.0F, 7.0F, -1.0F - f1);
 	}
 
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		boolean flag = entityIn.getHideTicks() == 0;
 
-		this.body.rotateAngleX = ((float) Math.PI / 2F);
-		this.hideBody.rotateAngleX = ((float) Math.PI / 2F);
+		this.body.xRot = ((float) Math.PI / 2F);
+		this.hideBody.xRot = ((float) Math.PI / 2F);
 		if (flag) {
-			this.eye1.rotateAngleX = headPitch * ((float) Math.PI / 180F) * 0.5F + 0.25F;
-			this.eye1.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F) * 0.5F;
-			this.eye1.rotateAngleZ = 0.25F;
+			this.eye1.xRot = headPitch * ((float) Math.PI / 180F) * 0.5F + 0.25F;
+			this.eye1.yRot = netHeadYaw * ((float) Math.PI / 180F) * 0.5F;
+			this.eye1.zRot = 0.25F;
 		} else {
-			this.eye1.rotateAngleX = 0.0F;
-			this.eye1.rotateAngleY = 0.0F;
-			this.eye1.rotateAngleZ = 0.0F;
+			this.eye1.xRot = 0.0F;
+			this.eye1.yRot = 0.0F;
+			this.eye1.zRot = 0.0F;
 		}
-		this.eye2.rotateAngleX = this.eye1.rotateAngleX;
-		this.eye2.rotateAngleY = this.eye1.rotateAngleY;
-		this.eye2.rotateAngleZ = -this.eye1.rotateAngleZ;
-		this.shell.rotateAngleX = -0.22F;
+		this.eye2.xRot = this.eye1.xRot;
+		this.eye2.yRot = this.eye1.yRot;
+		this.eye2.zRot = -this.eye1.zRot;
+		this.shell.xRot = -0.22F;
 
 		if (entityIn.isEating()) {
-			this.tentacle1.rotateAngleY = 0.25F * MathHelper.sin(0.6F * ageInTicks);
-			this.tentacle2.rotateAngleY = -tentacle1.rotateAngleY;
+			this.tentacle1.yRot = 0.25F * MathHelper.sin(0.6F * ageInTicks);
+			this.tentacle2.yRot = -tentacle1.yRot;
 		} else {
-			this.tentacle1.rotateAngleY = 0.0F;
-			this.tentacle2.rotateAngleY = 0.0F;
+			this.tentacle1.yRot = 0.0F;
+			this.tentacle2.yRot = 0.0F;
 		}
 
 
 		if (entityIn.getHideTicks() == 0) {
-			this.body.showModel = true;
-			this.hideBody.showModel = false;
+			this.body.visible = true;
+			this.hideBody.visible = false;
 		} else {
-			this.body.showModel = false;
-			this.hideBody.showModel = true;
+			this.body.visible = false;
+			this.hideBody.visible = true;
 		}
 
 		if (entityIn.getHideTicks() < 3) {
-			this.eye1.showModel = true;
-			this.eye2.showModel = true;
+			this.eye1.visible = true;
+			this.eye2.visible = true;
 		} else {
-			this.eye1.showModel = false;
-			this.eye2.showModel = false;
+			this.eye1.visible = false;
+			this.eye2.visible = false;
 		}
 	}
 
-	protected Iterable<ModelRenderer> getHeadParts() {
+	protected Iterable<ModelRenderer> headParts() {
 		return ImmutableList.of();
 	}
 
-	protected Iterable<ModelRenderer> getBodyParts() {
+	protected Iterable<ModelRenderer> bodyParts() {
 		return ImmutableList.of(this.body, this.hideBody, this.eye1, this.eye2, this.tentacle1, this.tentacle2, this.shell);
 	}
 }

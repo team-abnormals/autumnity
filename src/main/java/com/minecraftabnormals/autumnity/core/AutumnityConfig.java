@@ -24,13 +24,13 @@ public class AutumnityConfig {
 		@ConfigKey("pumpkin_fields_weight")
 		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
 
-		@ConfigKey("yellow_spotted_forest")
+		@ConfigKey("yellow_spotted_forest_enabled")
 		public final ForgeConfigSpec.ConfigValue<Boolean> yellowSpottedForest;
 
-		@ConfigKey("orange_spotted_dark_forest")
+		@ConfigKey("orange_spotted_dark_forest_enabled")
 		public final ForgeConfigSpec.ConfigValue<Boolean> orangeSpottedDarkForest;
 
-		@ConfigKey("red_spotted_taiga")
+		@ConfigKey("red_spotted_taiga_enabled")
 		public final ForgeConfigSpec.ConfigValue<Boolean> redSpottedTaiga;
 
 		Common(ForgeConfigSpec.Builder builder) {

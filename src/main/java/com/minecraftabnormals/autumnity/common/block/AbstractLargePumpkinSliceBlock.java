@@ -52,12 +52,10 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 		if (mirrorIn != Mirror.NONE) {
 			if ((mirrorIn == Mirror.FRONT_BACK && axis == Direction.Axis.X) || (mirrorIn == Mirror.LEFT_RIGHT && axis == Direction.Axis.Z)) {
 				return state.rotate(Rotation.COUNTERCLOCKWISE_90);
-			}
-			else {
+			} else {
 				return state.rotate(Rotation.CLOCKWISE_90);
 			}
-		}
-		else {
+		} else {
 			return state;
 		}
 	}

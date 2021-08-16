@@ -30,7 +30,7 @@ public class SnailShellBlock extends HorizontalBlock {
 	}
 
 	protected static Direction getFacing(BlockState state) {
-		switch ((SnailShellOrientation) state.getValue(ORIENTATION)) {
+		switch (state.getValue(ORIENTATION)) {
 			case UP:
 				return Direction.UP;
 			case DOWN:

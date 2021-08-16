@@ -9,7 +9,7 @@ public enum SnailShellOrientation implements IStringSerializable {
 
 	private final String name;
 
-	private SnailShellOrientation(String name) {
+	SnailShellOrientation(String name) {
 		this.name = name;
 	}
 

@@ -64,7 +64,7 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 			int l = k + this.random.nextInt(p_230364_2_.getGenDepth() - 2 - k);
 			IBlockReader iblockreader = p_230364_2_.getBaseColumn(i, j);
 
-			for(BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable(i, l, j); l > k; --l) {
+			for (BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable(i, l, j); l > k; --l) {
 				BlockState blockstate = iblockreader.getBlockState(blockpos$mutable);
 				blockpos$mutable.move(Direction.DOWN);
 				BlockState blockstate1 = iblockreader.getBlockState(blockpos$mutable);
@@ -76,7 +76,7 @@ public class MapleWitchHutStructure extends Structure<NoFeatureConfig> {
 			if (l > k) {
 				Rotation rotation = Rotation.getRandom(this.random);
 				Mirror mirror = this.random.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
-				
+
 				MapleWitchHutPieces.addPieces(p_230364_3_, new BlockPos(i, l, j), rotation, mirror, this.pieces, this.random);
 				this.calculateBoundingBox();
 			}

@@ -44,7 +44,7 @@ public class FeedSnailTrigger extends AbstractCriterionTrigger<FeedSnailTrigger.
 		}
 
 		public static FeedSnailTrigger.Instance forItem(IItemProvider p_203913_0_) {
-			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY, new ItemPredicate((ITag<Item>) null, p_203913_0_.asItem(), MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, (Potion) null, NBTPredicate.ANY));
+			return new FeedSnailTrigger.Instance(EntityPredicate.AndPredicate.ANY, new ItemPredicate(null, p_203913_0_.asItem(), MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NBTPredicate.ANY));
 		}
 
 		public boolean test(ItemStack item) {

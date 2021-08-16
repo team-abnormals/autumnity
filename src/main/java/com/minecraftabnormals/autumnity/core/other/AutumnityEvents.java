@@ -86,8 +86,7 @@ public class AutumnityEvents {
 					((MobEntity) livingentity).setDropChance(EquipmentSlotType.HEAD, 0.0F);
 				}
 			}
-		}
-		else if (livingentity instanceof CatEntity) {
+		} else if (livingentity instanceof CatEntity) {
 			if (world instanceof ServerWorld && (((ServerWorld) world).structureFeatureManager().getStructureAt(livingentity.blockPosition(), true, AutumnityStructures.MAPLE_WITCH_HUT.get()).isValid())) {
 				((CatEntity) livingentity).setCatType(10);
 				((CatEntity) livingentity).setPersistenceRequired();
@@ -197,7 +196,7 @@ public class AutumnityEvents {
 	public static void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event) {
 		ItemStack itemstack = event.getItemStack();
 		Block jackolantern = JackOLanternHelper.getJackOLantern(itemstack.getItem());
-		
+
 		if (jackolantern != null) {
 			World world = event.getWorld();
 			BlockPos blockpos = event.getPos();
@@ -217,7 +216,7 @@ public class AutumnityEvents {
 						BlockState blockstate2 = blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
 						world.setBlock(blockpos, blockstate2, 11);
 
-						world.playSound((PlayerEntity) null, blockpos, SoundEvents.WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+						world.playSound(null, blockpos, SoundEvents.WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 						if (!event.getPlayer().abilities.instabuild) {
 							itemstack.shrink(1);
 						}
@@ -236,14 +235,14 @@ public class AutumnityEvents {
 		LivingEntity livingentity = event.getEntityLiving();
 		EffectInstance effect = event.getPotionEffect();
 		EffectInstance extension = livingentity.getEffect(AutumnityEffects.EXTENSION.get());
-		
+
 		if (extension != null) {
 			if (effect.getEffect() != AutumnityEffects.EXTENSION.get()) {
 				effect.update(new EffectInstance(effect.getEffect(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon()));
 			}
 		}
 	}
-	
+
 	public static void updateFoulTaste(PlayerEntity player) {
 		EffectInstance effect = player.getEffect(AutumnityEffects.FOUL_TASTE.get());
 

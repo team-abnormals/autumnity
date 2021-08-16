@@ -49,7 +49,7 @@ public class SappyLogBlock extends RotatedPillarBlock {
 						}
 					}
 
-					worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					worldIn.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					worldIn.setBlock(pos, saplessBlock.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS)), 11);
 				}
 

@@ -189,7 +189,7 @@ public class TurkeyEntity extends AnimalEntity implements IEggLayingEntity, IAng
 	public SoundEvent getEggLayingSound() {
 		return AutumnitySoundEvents.ENTITY_TURKEY_EGG.get();
 	}
-	
+
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn) {
 		this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);

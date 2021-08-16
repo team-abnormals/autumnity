@@ -106,7 +106,7 @@ public class LongMapleBranch extends BushBlock {
 			if (player.isCreative()) {
 				preventCreativeDropFromBottomPart(worldIn, pos, state, player);
 			} else {
-				dropResources(state, worldIn, pos, (TileEntity) null, player, player.getMainHandItem());
+				dropResources(state, worldIn, pos, null, player, player.getMainHandItem());
 			}
 		}
 

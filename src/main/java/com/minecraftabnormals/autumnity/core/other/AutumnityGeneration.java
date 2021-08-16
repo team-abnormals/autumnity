@@ -77,8 +77,7 @@ public class AutumnityGeneration {
 				generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_GRASS_PUMPKIN_FIELDS);
 				generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AutumnityFeatures.Configured.PATCH_PUMPKINS_PUMPKIN_FIELDS);
 			}
-		}
-		else {
+		} else {
 			if (DataUtil.matchesKeys(biome, AutumnityBiomes.YELLOW_SPOTTED_FOREST.getKey())) {
 				DefaultBiomeFeatures.addDefaultOverworldLandStructures(generation);
 				DefaultBiomeFeatures.addDefaultCarvers(generation);
@@ -182,7 +181,6 @@ public class AutumnityGeneration {
 				}
 			}
 		}
-		;
 		spawns.getSpawner(EntityClassification.CREATURE).removeAll(entrysToRemove);
 	}
 }

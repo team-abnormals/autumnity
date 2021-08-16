@@ -44,7 +44,7 @@ public class FoulBerryBushPipsBlock extends BushBlock implements IGrowable {
 
 	public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE) {
-			entityIn.makeStuckInBlock(state, new Vector3d((double) 0.8F, 0.75D, (double) 0.8F));
+			entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
 		}
 	}
 

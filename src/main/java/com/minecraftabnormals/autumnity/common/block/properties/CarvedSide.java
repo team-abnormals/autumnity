@@ -9,7 +9,7 @@ public enum CarvedSide implements IStringSerializable {
 
 	private final String name;
 
-	private CarvedSide(String name) {
+	CarvedSide(String name) {
 		this.name = name;
 	}
 

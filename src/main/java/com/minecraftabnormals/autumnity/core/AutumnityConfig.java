@@ -33,8 +33,8 @@ public class AutumnityConfig {
 
 		Common(ForgeConfigSpec.Builder builder) {
 			builder.comment("Common configurations for Autumnity")
-			.push("common");
-			
+					.push("common");
+
 			builder.push("entities");
 			snailSpawnBiomes = builder
 					.comment("A list of biomes where snails can spawn. The list doesn't include biomes from this mod.")
@@ -44,18 +44,18 @@ public class AutumnityConfig {
 							"Chickens will not spawn in these biomes.")
 					.define("Turkey Spawn Biomes", Lists.newArrayList());
 			builder.pop();
-			
+
 			builder.comment("Values for biome frequencies; lower = more rare. (Requires restart)",
 					"If a biome has a default weight of 0, it generates as a sub-biome and not on its own.")
-			.push("biome_weights");
-			
+					.push("biome_weights");
+
 			mapleForestWeight = builder.define("Maple Forest weight", 6);
 			mapleForestHillsWeight = builder.define("Maple Forest Hills weight", 0);
 			pumpkinFieldsWeight = builder.define("Pumpkin Fields weight", 1);
 			builder.pop();
-			
+
 			builder.push("misc");
-			
+
 			mapleTreeBiomes = builder
 					.comment("A list of biomes where green maple trees can generate naturally.",
 							"The list does not include biomes from this mod.")

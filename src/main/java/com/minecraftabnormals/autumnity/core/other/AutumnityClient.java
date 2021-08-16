@@ -49,7 +49,7 @@ public class AutumnityClient {
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.POTTED_YELLOW_MAPLE_SAPLING.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.POTTED_ORANGE_MAPLE_SAPLING.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.POTTED_RED_MAPLE_SAPLING.get(), RenderType.cutout());
-		
+
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_HEDGE.get(), RenderType.cutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_HEDGE.get(), RenderType.cutoutMipped());
 		RenderTypeLookup.setRenderLayer(AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), RenderType.cutoutMipped());

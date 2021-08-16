@@ -87,7 +87,7 @@ public class MapleWitchHutPieces {
 				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 				TileEntity tileentity = worldIn.getBlockEntity(pos.below());
 				if (tileentity instanceof ChestTileEntity) {
-					((ChestTileEntity)tileentity).setLootTable(AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT, rand.nextLong());
+					((ChestTileEntity) tileentity).setLootTable(AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT, rand.nextLong());
 				}
 			} else if ("decor".equals(function)) {
 				if (rand.nextInt(2) == 0) {
@@ -104,15 +104,15 @@ public class MapleWitchHutPieces {
 				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 				WitchEntity witchentity = EntityType.WITCH.create(worldIn.getLevel());
 				witchentity.setPersistenceRequired();
-				witchentity.setPos((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
-				witchentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
+				witchentity.setPos((double) pos.getX() + 0.5D, (double) pos.getY() - 1.0D, (double) pos.getZ() + 0.5D);
+				witchentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos(pos.getX(), pos.getY(), (double) pos.getZ())), SpawnReason.STRUCTURE, null, null);
 				worldIn.addFreshEntityWithPassengers(witchentity);
 			} else if (function.startsWith("cat")) {
 				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 				CatEntity catentity = EntityType.CAT.create(worldIn.getLevel());
 				catentity.setPersistenceRequired();
-				catentity.setPos((double)pos.getX() + 0.5D, (double)pos.getY() - 1.0D, (double)pos.getZ() + 0.5D);
-				catentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos((double)pos.getX(), (double)pos.getY(), (double)pos.getZ())), SpawnReason.STRUCTURE, (ILivingEntityData)null, (CompoundNBT)null);
+				catentity.setPos((double) pos.getX() + 0.5D, (double) pos.getY() - 1.0D, (double) pos.getZ() + 0.5D);
+				catentity.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(new BlockPos(pos.getX(), pos.getY(), (double) pos.getZ())), SpawnReason.STRUCTURE, null, null);
 				catentity.setCatType(10);
 				worldIn.addFreshEntityWithPassengers(catentity);
 			}

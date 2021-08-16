@@ -28,11 +28,11 @@ public class ColoredMapleLeavesBlock extends AbnormalsLeavesBlock {
 				double d0 = (this.color >> 16 & 255) / 255.0F;
 				double d1 = (this.color >> 8 & 255) / 255.0F;
 				double d2 = (this.color & 255) / 255.0F;
-				
-				double d3 = (double) ((float) pos.getX() + rand.nextFloat());
+
+				double d3 = (float) pos.getX() + rand.nextFloat();
 				double d4 = (double) pos.getY() - 0.05D;
-				double d6 = (double) ((float) pos.getZ() + rand.nextFloat());
-				
+				double d6 = (float) pos.getZ() + rand.nextFloat();
+
 				worldIn.addParticle(AutumnityParticles.FALLING_MAPLE_LEAF.get(), d3, d4, d6, d0, d1, d2);
 			}
 		}

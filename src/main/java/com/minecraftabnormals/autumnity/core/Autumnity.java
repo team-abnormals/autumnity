@@ -20,22 +20,22 @@ public class Autumnity {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
 	public Autumnity() {
-		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-		REGISTRY_HELPER.register(modEventBus);
-		AutumnityPaintings.PAINTINGS.register(modEventBus);
-		AutumnityEffects.EFFECTS.register(modEventBus);
-		AutumnityPotions.POTIONS.register(modEventBus);
-		AutumnityFeatures.FEATURES.register(modEventBus);
-		AutumnityStructures.STRUCTURES.register(modEventBus);
-		AutumnityParticles.PARTICLES.register(modEventBus);
-
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		ModLoadingContext context = ModLoadingContext.get();
 		MinecraftForge.EVENT_BUS.register(this);
 
-		modEventBus.addListener(this::commonSetup);
-		modEventBus.addListener(this::clientSetup);
+		REGISTRY_HELPER.register(bus);
+		AutumnityPaintings.PAINTINGS.register(bus);
+		AutumnityEffects.EFFECTS.register(bus);
+		AutumnityPotions.POTIONS.register(bus);
+		AutumnityFeatures.FEATURES.register(bus);
+		AutumnityStructures.STRUCTURES.register(bus);
+		AutumnityParticles.PARTICLES.register(bus);
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
+		bus.addListener(this::commonSetup);
+		bus.addListener(this::clientSetup);
+
+		context.registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
 		DataUtil.registerConfigCondition(MOD_ID, AutumnityConfig.COMMON);
 	}
 
@@ -47,7 +47,7 @@ public class Autumnity {
 			AutumnityBiomes.addBiomesToGeneration();
 			AutumnityFeatures.Configured.registerConfiguredFeatures();
 			AutumnityStructures.Configured.registerConfiguredStructureFeatures();
-			AutumnityStructures.registerNoiseSettings();;
+			AutumnityStructures.registerNoiseSettings();
 			AutumnityEntities.registerSpawns();
 		});
 	}

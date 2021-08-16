@@ -93,7 +93,7 @@ public class PlaceableSlimeBlock extends DirectionalBlock {
 	}
 
 	public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-		if (!(entityIn instanceof SnailEntity) && VoxelShapes.joinIsNotEmpty(VoxelShapes.create(entityIn.getBoundingBox().move((double) (-pos.getX()), (double) (-pos.getY()), (double) (-pos.getZ()))), state.getShape(worldIn, pos), IBooleanFunction.AND)) {
+		if (!(entityIn instanceof SnailEntity) && VoxelShapes.joinIsNotEmpty(VoxelShapes.create(entityIn.getBoundingBox().move(-pos.getX(), -pos.getY(), -pos.getZ())), state.getShape(worldIn, pos), IBooleanFunction.AND)) {
 			entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.4D, 1.0D, 0.4D));
 		}
 	}

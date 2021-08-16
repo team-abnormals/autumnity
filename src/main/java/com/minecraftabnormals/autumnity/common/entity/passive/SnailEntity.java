@@ -289,8 +289,7 @@ public class SnailEntity extends AnimalEntity {
 					if (!this.level.isClientSide && this.getAge() == 0 && this.canFallInLove()) {
 						this.setInLove(player);
 						flag = true;
-					}
-					else if (this.isBaby()) {
+					} else if (this.isBaby()) {
 						this.ageUp((int) ((float) (-this.getAge() / 20) * 0.1F), true);
 						flag = true;
 					}
@@ -306,8 +305,7 @@ public class SnailEntity extends AnimalEntity {
 							if (!container.isEmpty()) {
 								if (itemstack.isEmpty()) {
 									player.setItemInHand(hand, container);
-								}
-								else {
+								} else {
 									if (!player.inventory.add(container)) {
 										player.drop(container, false);
 									}
@@ -595,7 +593,7 @@ public class SnailEntity extends AnimalEntity {
 			for (int i = 0; i < 10; ++i) {
 				BlockPos blockpos1 = blockpos.offset(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
 				if (this.isBlockMushroom(blockpos1)) {
-					return new Vector3d((double) blockpos1.getX(), (double) blockpos1.getY(), (double) blockpos1.getZ());
+					return new Vector3d(blockpos1.getX(), blockpos1.getY(), blockpos1.getZ());
 				}
 			}
 

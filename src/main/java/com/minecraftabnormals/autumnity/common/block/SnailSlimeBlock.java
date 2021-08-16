@@ -63,11 +63,7 @@ public class SnailSlimeBlock extends BreakableBlock {
 
 	public final boolean doesBlockMakeSlippery(BlockPos blockPos, Block block, IBlockReader iBlockReader) {
 		FluidState fluidstate = iBlockReader.getFluidState(blockPos);
-		if (AutumnityTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.is(FluidTags.WATER)) {
-			return true;
-		} else {
-			return false;
-		}
+		return AutumnityTags.SLIPPERY_SNAIL_SLIME_BLOCKS.contains(block) || fluidstate.is(FluidTags.WATER);
 	}
 
 	public void fallOn(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
@@ -82,7 +78,7 @@ public class SnailSlimeBlock extends BreakableBlock {
 		if (!state.getValue(SLIPPERY) && !(entityIn instanceof SnailEntity)) {
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D) {
 				if (!entityIn.isShiftKeyDown()) {
-					entityIn.makeStuckInBlock(state, new Vector3d(1.0D, (double) 0.0F, 1.0D));
+					entityIn.makeStuckInBlock(state, new Vector3d(1.0D, 0.0F, 1.0D));
 				}
 			} else {
 				entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.4D, 1.0D, 0.4D));

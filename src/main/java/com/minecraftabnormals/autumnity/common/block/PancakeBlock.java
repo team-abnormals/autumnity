@@ -115,7 +115,7 @@ public class PancakeBlock extends Block {
 
 			return this.eatCake(worldIn, pos, state, player, itemstack);
 		}
-		
+
 		return ActionResultType.PASS;
 	}
 
@@ -148,7 +148,7 @@ public class PancakeBlock extends Block {
 
 	@Override
 	public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
-		return useContext.getItemInHand().getItem() == this.asItem() && state.getValue(PANCAKES) < 31 ? true : super.canBeReplaced(state, useContext);
+		return useContext.getItemInHand().getItem() == this.asItem() && state.getValue(PANCAKES) < 31 || super.canBeReplaced(state, useContext);
 	}
 
 	@Override

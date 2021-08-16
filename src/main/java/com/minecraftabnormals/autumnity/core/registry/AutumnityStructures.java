@@ -26,7 +26,7 @@ public class AutumnityStructures {
 
 	public static final class Configured {
 		public static final StructureFeature<?, ?> MAPLE_WITCH_HUT = AutumnityStructures.MAPLE_WITCH_HUT.get().configured(IFeatureConfig.NONE);
-		
+
 		private static <FC extends IFeatureConfig> void register(String name, StructureFeature<FC, ?> stuctureFeature) {
 			Registry.register(WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE, new ResourceLocation(Autumnity.MOD_ID, name), stuctureFeature);
 		}
@@ -39,7 +39,7 @@ public class AutumnityStructures {
 	public static final class Pieces {
 		public static final IStructurePieceType MAPLE_WITCH_HUT_PIECE = IStructurePieceType.setPieceId(MapleWitchHutPieces.Piece::new, "maple_witch_hut_piece");
 	}
-	
+
 	public static void registerNoiseSettings() {
 		Structure.STRUCTURES_REGISTRY.put("maple_witch_hut", MAPLE_WITCH_HUT.get());
 		WorldGenRegistries.NOISE_GENERATOR_SETTINGS.forEach(settings -> {

@@ -34,7 +34,7 @@ public class AutumnityCompat {
 		DataUtil.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get(), 0.65F);
 
 		DataUtil.registerCompostable(AutumnityBlocks.PANCAKE.get(), 0.85F);
-		
+
 		DataUtil.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get(), 0.65F);
 		DataUtil.registerCompostable(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get(), 0.65F);
 
@@ -85,7 +85,7 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
-		
+
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_HEDGE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_HEDGE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), 5, 20);

@@ -33,7 +33,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
 		Block jackolantern = JackOLanternHelper.getLargeJackOLantern(itemstack.getItem());
-		
+
 		if (jackolantern != null) {
 			Direction direction = hit.getDirection();
 			Direction direction1 = state.getValue(FACING);

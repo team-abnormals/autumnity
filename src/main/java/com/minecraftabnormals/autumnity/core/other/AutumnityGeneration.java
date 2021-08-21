@@ -18,6 +18,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -27,11 +28,11 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityGeneration {
 
-	@SubscribeEvent
-	public static void onBiomeLoad(BiomeLoadingEvent event) {
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
+	public static void onEarlyBiomeLoad(BiomeLoadingEvent event) {
 		ResourceLocation biome = event.getName();
-		MobSpawnInfoBuilder spawns = event.getSpawns();
 		BiomeGenerationSettingsBuilder generation = event.getGeneration();
+		MobSpawnInfoBuilder spawns = event.getSpawns();
 
 		if (biome == null) return;
 
@@ -154,7 +155,18 @@ public class AutumnityGeneration {
 				spawns.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
 				spawns.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
 			}
+		}
+	}
 
+	@SubscribeEvent
+	public static void onBiomeLoad(BiomeLoadingEvent event) {
+		ResourceLocation biome = event.getName();
+		MobSpawnInfoBuilder spawns = event.getSpawns();
+		BiomeGenerationSettingsBuilder generation = event.getGeneration();
+
+		if (biome == null) return;
+
+		if (!DataUtil.matchesKeys(biome, AutumnityBiomes.MAPLE_FOREST.getKey(), AutumnityBiomes.MAPLE_FOREST_HILLS.getKey(), AutumnityBiomes.PUMPKIN_FIELDS.getKey())) {
 			if (AutumnityConfig.COMMON.snailSpawnBiomes.get().contains(biome.toString())) {
 				spawns.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(AutumnityEntities.SNAIL.get(), 10, 2, 2));
 			}

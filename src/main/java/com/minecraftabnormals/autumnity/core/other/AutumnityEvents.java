@@ -162,7 +162,7 @@ public class AutumnityEvents {
 				PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
 				int i = food.getNutrition();
-				int j = i == 1 ? i : (int) (i * 0.5F);
+				int j = Math.max(1, (int) (i * 0.5F));
 
 				player.getFoodData().eat(j, 0.0F);
 				updateFoulTaste(player);
@@ -213,8 +213,8 @@ public class AutumnityEvents {
 				if (direction == direction1) {
 					if (!world.isClientSide) {
 						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, world.hasNeighborSignal(blockpos)) : jackolantern.defaultBlockState();
-						BlockState blockstate2 = blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
-						world.setBlock(blockpos, blockstate2, 11);
+						blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
+						world.setBlock(blockpos, blockstate1, 11);
 
 						world.playSound(null, blockpos, SoundEvents.WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 						if (!event.getPlayer().abilities.instabuild) {

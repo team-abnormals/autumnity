@@ -3,6 +3,7 @@ package com.minecraftabnormals.autumnity.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.block.material.PushReaction;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.EnumProperty;
@@ -58,5 +59,10 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 		} else {
 			return state;
 		}
+	}
+
+	@Override
+	public PushReaction getPistonPushReaction(BlockState p_149656_1_) {
+		return PushReaction.NORMAL;
 	}
 }

@@ -35,15 +35,15 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		Block jackolantern = JackOLanternHelper.getLargeJackOLantern(itemstack.getItem());
 
 		if (jackolantern != null) {
-			Direction direction = hit.getDirection();
-			Direction direction1 = state.getValue(FACING);
+			Direction hitface = hit.getDirection();
+			Direction facing = state.getValue(FACING);
 			CarvedSide carvedside = state.getValue(CARVED_SIDE);
 
-			if (canCarve(direction, direction1) && (direction.getAxis() == Axis.X && carvedside == CarvedSide.X || direction.getAxis() == Axis.Z && carvedside == CarvedSide.Z)) {
+			if (canCarve(hitface, facing) && (hitface.getAxis() == Axis.X && carvedside == CarvedSide.X || hitface.getAxis() == Axis.Z && carvedside == CarvedSide.Z)) {
 				if (!worldIn.isClientSide) {
 					BlockState blockstate = jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, worldIn.hasNeighborSignal(pos)) : jackolantern.defaultBlockState();
-					BlockState blockstate1 = blockstate.setValue(CarvedLargePumpkinSliceBlock.FACING, state.getValue(FACING)).setValue(CarvedLargePumpkinSliceBlock.HALF, state.getValue(HALF)).setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.getValue(CARVED_SIDE));
-					worldIn.setBlock(pos, blockstate1, 11);
+					blockstate.setValue(CarvedLargePumpkinSliceBlock.FACING, state.getValue(FACING)).setValue(CarvedLargePumpkinSliceBlock.HALF, state.getValue(HALF)).setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, state.getValue(CARVED_SIDE));
+					worldIn.setBlock(pos, blockstate, 11);
 
 					worldIn.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					if (!player.abilities.instabuild) {

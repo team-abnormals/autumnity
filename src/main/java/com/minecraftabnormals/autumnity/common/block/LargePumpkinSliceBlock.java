@@ -31,19 +31,18 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
 		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.getItem().is(AutumnityTags.KNIVES))) {
-			Direction direction = hit.getDirection();
-			Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : hit.getDirection();
-			Direction direction2 = state.getValue(FACING);
+			Direction hitface = hit.getDirection().getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : hit.getDirection();
+			Direction facing = state.getValue(FACING);
 
-			if (canCarve(direction1, direction2)) {
+			if (canCarve(hitface, facing)) {
 				if (!worldIn.isClientSide) {
-					CarvedSide carvedside = CarvedSide.getCarvedSide(direction1.getAxis());
-					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().defaultBlockState().setValue(CarvedLargePumpkinSliceBlock.FACING, direction2).setValue(CarvedLargePumpkinSliceBlock.HALF, state.getValue(HALF)).setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
+					CarvedSide carvedside = CarvedSide.getCarvedSide(hitface.getAxis());
+					BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().defaultBlockState().setValue(CarvedLargePumpkinSliceBlock.FACING, facing).setValue(CarvedLargePumpkinSliceBlock.HALF, state.getValue(HALF)).setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside);
 
 					worldIn.playSound(null, pos, SoundEvents.PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					worldIn.setBlock(pos, blockstate, 11);
-					ItemEntity itementity = new ItemEntity(worldIn, (double) pos.getX() + 0.5D + (double) direction1.getStepX() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) direction1.getStepZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
-					itementity.setDeltaMovement(0.05D * (double) direction1.getStepX() + worldIn.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction1.getStepZ() + worldIn.random.nextDouble() * 0.02D);
+					ItemEntity itementity = new ItemEntity(worldIn, (double) pos.getX() + 0.5D + (double) hitface.getStepX() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) hitface.getStepZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+					itementity.setDeltaMovement(0.05D * (double) hitface.getStepX() + worldIn.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) hitface.getStepZ() + worldIn.random.nextDouble() * 0.02D);
 					worldIn.addFreshEntity(itementity);
 					itemstack.hurtAndBreak(1, player, (p_220282_1_) -> {
 						p_220282_1_.broadcastBreakEvent(handIn);

@@ -21,7 +21,7 @@ public class SnailShellBlock extends HorizontalBlock {
 
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		Direction direction = context.getClickedFace();
+		Direction direction = context.getNearestLookingDirection();
 		if (direction.getAxis() == Direction.Axis.Y) {
 			return this.defaultBlockState().setValue(ORIENTATION, direction == Direction.UP ? SnailShellOrientation.DOWN : SnailShellOrientation.UP).setValue(FACING, context.getHorizontalDirection().getOpposite());
 		} else {

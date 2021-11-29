@@ -210,20 +210,11 @@ public class SnailEntity extends AnimalEntity {
 			}
 
 			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
-				int i = MathHelper.floor(this.getX());
-				int j = MathHelper.floor(this.getY());
-				int k = MathHelper.floor(this.getZ());
 				BlockState blockstate = AutumnityBlocks.SNAIL_SLIME.get().defaultBlockState();
-
-				for (int l = 0; l < 4; ++l) {
-					i = MathHelper.floor(this.getX() + (double) ((float) (l % 2 * 2 - 1) * 0.25F));
-					j = MathHelper.floor(this.getY());
-					k = MathHelper.floor(this.getZ() + (double) ((float) (l / 2 % 2 * 2 - 1) * 0.25F));
-					BlockPos blockpos = new BlockPos(i, j, k);
-					if (this.getSlimeAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
-						this.level.setBlockAndUpdate(blockpos, blockstate);
-						this.setSlimeAmount(this.getSlimeAmount() - 1);
-					}
+				BlockPos blockpos = this.blockPosition();
+				if (this.getSlimeAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
+					this.level.setBlockAndUpdate(blockpos, blockstate);
+					this.setSlimeAmount(this.getSlimeAmount() - 1);
 				}
 			}
 		}
@@ -368,7 +359,7 @@ public class SnailEntity extends AnimalEntity {
 			}
 		}
 
-		this.setSlimeAmount(this.random.nextInt(3) + 5);
+		this.setSlimeAmount(4);
 	}
 
 	private boolean hasSnack() {

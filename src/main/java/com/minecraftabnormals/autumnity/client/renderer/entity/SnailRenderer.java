@@ -37,8 +37,8 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 
 	protected void setupRotations(SnailEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
 		super.setupRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
-		double d0 = entityLiving.getShakingAnimationScale(partialTicks);
-		double d1 = entityLiving.getShakeTicks() > 0 ? 1.0D : -1.0D;
+		double d0 = entityLiving.getShakingAnim(partialTicks);
+		double d1 = entityLiving.getShakingAnimTicks() > 0 ? 1.0D : -1.0D;
 		double d2 = Math.sin(6.3D * d0) * d1 * d0;
 		matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(6.0F * (float) d2));
 	}

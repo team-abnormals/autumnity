@@ -52,8 +52,8 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T> {
 		this.shell.addBox(-4.5F, 0.0F, 0.0F, 9, 14, 14, 0.0F);
 	}
 
-	public void prepareMobModel(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
-		float f = entityIn.getHidingAnimationScale(partialTick);
+	public void prepareMobModel(T entity, float limbSwing, float limbSwingAmount, float partialTick) {
+		float f = entity.getHidingAnim(partialTick);
 		float f1 = 3.0F * f;
 		float f2 = MathHelper.clamp(10.0F * f, 0.0F, 5.0F);
 
@@ -65,26 +65,31 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T> {
 		this.shell.setPos(0.0F, 7.0F, -1.0F - f1);
 	}
 
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		boolean flag = entityIn.getHideTicks() == 0;
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float partialtick = ageInTicks - (float) entity.tickCount;
+		float f = entity.getHidingAnim(partialtick);
+		float f1 = 3.0F * f;
+		float f2 = MathHelper.clamp(10.0F * f, 0.0F, 5.0F);
+		float f3 = 1.0F - f;
+
+		this.hideBody.setPos(0.0F, 24.0F, -9.0F + f1);
+		this.eye1.setPos(2.5F, 18.0F + f2, -7.0F + f1);
+		this.eye2.setPos(-2.5F, 18.0F + f2, -7.0F + f1);
+		this.tentacle1.setPos(3.0F, 22.0F, -9.0F + f1);
+		this.tentacle2.setPos(-3.0F, 22.0F, -9.0F + f1);
+		this.shell.setPos(0.0F, 7.0F, -1.0F - f1);
 
 		this.body.xRot = ((float) Math.PI / 2F);
 		this.hideBody.xRot = ((float) Math.PI / 2F);
-		if (flag) {
-			this.eye1.xRot = headPitch * ((float) Math.PI / 180F) * 0.5F + 0.25F;
-			this.eye1.yRot = netHeadYaw * ((float) Math.PI / 180F) * 0.5F;
-			this.eye1.zRot = 0.25F;
-		} else {
-			this.eye1.xRot = 0.0F;
-			this.eye1.yRot = 0.0F;
-			this.eye1.zRot = 0.0F;
-		}
+		this.eye1.xRot = f3 * (headPitch * ((float) Math.PI / 180F) * 0.5F + 0.25F);
+		this.eye1.yRot = f3 * (netHeadYaw * ((float) Math.PI / 180F) * 0.5F);
+		this.eye1.zRot = f3 * 0.25F;
 		this.eye2.xRot = this.eye1.xRot;
 		this.eye2.yRot = this.eye1.yRot;
 		this.eye2.zRot = -this.eye1.zRot;
 		this.shell.xRot = -0.22F;
 
-		if (entityIn.isEating()) {
+		if (entity.getAction() == SnailEntity.Action.EATING) {
 			this.tentacle1.yRot = 0.25F * MathHelper.sin(0.6F * ageInTicks);
 			this.tentacle2.yRot = -tentacle1.yRot;
 		} else {
@@ -92,8 +97,7 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T> {
 			this.tentacle2.yRot = 0.0F;
 		}
 
-
-		if (entityIn.getHideTicks() == 0) {
+		if (entity.getHidingAnimTicks() == 0) {
 			this.body.visible = true;
 			this.hideBody.visible = false;
 		} else {
@@ -101,7 +105,7 @@ public class SnailModel<T extends SnailEntity> extends AgeableModel<T> {
 			this.hideBody.visible = true;
 		}
 
-		if (entityIn.getHideTicks() < 3) {
+		if (entity.getHidingAnimTicks() < 3) {
 			this.eye1.visible = true;
 			this.eye2.visible = true;
 		} else {

@@ -97,7 +97,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements IGrowabl
 			LivingEntity livingentity = ((LivingEntity) entityIn);
 			livingentity.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
 			if (!worldIn.isClientSide && !livingentity.hasEffect(Effects.POISON) && !livingentity.isShiftKeyDown()) {
-				livingentity.addEffect(new EffectInstance(Effects.POISON, 120));
+				livingentity.addEffect(new EffectInstance(Effects.POISON, 60));
 			}
 		}
 	}

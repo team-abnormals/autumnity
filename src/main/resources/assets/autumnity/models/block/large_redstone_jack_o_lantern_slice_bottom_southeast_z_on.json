@@ -1,7 +1,7 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"particle": "autumnity:block/large_pumpkin_slice_bottom_left",
+		"particle": "autumnity:block/large_redstone_jack_o_lantern_slice_top_left_on",
 		"left": "autumnity:block/large_pumpkin_slice_bottom_left",
 		"right": "autumnity:block/large_redstone_jack_o_lantern_slice_bottom_right_on",
 		"down": "autumnity:block/large_pumpkin_slice_northeast",

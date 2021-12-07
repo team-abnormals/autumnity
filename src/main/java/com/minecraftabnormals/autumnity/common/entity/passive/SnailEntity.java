@@ -6,7 +6,6 @@ import com.minecraftabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityEntities;
 import com.minecraftabnormals.autumnity.core.registry.AutumnityItems;
 import com.minecraftabnormals.autumnity.core.registry.AutumnitySoundEvents;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -49,13 +48,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class SnailEntity extends AnimalEntity {
@@ -575,7 +568,7 @@ public class SnailEntity extends AnimalEntity {
 				return false;
 			} else {
 				return !SnailEntity.this.isBaby() && !SnailEntity.this.hasSnack() && SnailEntity.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.level, SnailEntity.this) && this.canMoveToMushroom();
-			} 
+			}
 		}
 
 		@Override

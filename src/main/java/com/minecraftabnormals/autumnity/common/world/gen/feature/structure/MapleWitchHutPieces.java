@@ -84,10 +84,7 @@ public class MapleWitchHutPieces {
 		protected void handleDataMarker(String function, BlockPos pos, IServerWorld worldIn, Random rand, MutableBoundingBox sbb) {
 			if ("chest".equals(function)) {
 				worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-				TileEntity tileentity = worldIn.getBlockEntity(pos.below());
-				if (tileentity instanceof ChestTileEntity) {
-					((ChestTileEntity) tileentity).setLootTable(AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT, rand.nextLong());
-				}
+				LockableLootTileEntity.setLootTable(worldIn, rand, pos.below(), AutumnityLootTables.CHESTS_MAPLE_WITCH_HUT);
 			} else if ("decor".equals(function)) {
 				if (rand.nextInt(2) == 0) {
 					worldIn.setBlock(pos, Blocks.POTTED_RED_MUSHROOM.defaultBlockState(), 2);

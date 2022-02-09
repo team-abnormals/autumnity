@@ -1,23 +1,49 @@
 {
-  "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
+  "_comment": "For yer knowledge, tharr ships mark'd comments ain't be fer plunderin'. Th' Queen's put 'em yonder t' instruct thar interpreters.",
   "block.autumnity.snail_slime": "Barnacle Goop",
   "block.autumnity.snail_slime_block": "Cube o' Barnacle Goop",
   "block.autumnity.pancake": "Flapjack",
   "block.autumnity.foul_berry_bush_pips": "Stinkin' Land Caper Bits",
   "block.autumnity.foul_berry_bush": "Stinkin' Land Caper Shrub",
   "block.autumnity.tall_foul_berry_bush": "Mighty Stinkin' Land Caper Shrub",
-  "_comment": "A flower that generates in Maple Forests.",
+  "_comment": "This here flow'r docks in thar woods o' fall.",
   "block.autumnity.autumn_crocus": "Flower o' Fall",
   "block.autumnity.potted_autumn_crocus": "Captive Flower o' Fall",
-  
+  "block.autumnity.turkey": "Foul Fowl",
+  "block.autumnity.cooked_turkey": "Cooked Fowl o' Fall",
+
+  "block.autumnity.large_pumpkin_slice": "Glip o' gigantic gourd",
+  "block.autumnity.carved_large_pumpkin_slice": "Glam'd glip o' gigantic gourd",
+  "block.autumnity.large_jack_o_lantern_slice": "Glip o' glowin' gourd",
+  "block.autumnity.soul_jack_o_lantern": "Gourd o' wraith's light",
+  "block.autumnity.large_soul_jack_o_lantern_slice": "Slice o' giant gourd o' will o' wisps",
+  "block.autumnity.redstone_jack_o_lantern": "Gourd o' crimson dust",
+  "block.autumnity.large_redstone_jack_o_lantern_slice": "Large glip o' gourd's light",
+
+  "block.autumnity.snail_shell_block": "Huge chunk o' barnacle",
+  "block.autumnity.snail_shell_bricks": "Bricks o' barnacle shell",
+  "block.autumnity.snail_shell_brick_stairs": "Stairs o' barnacle shell bricks",
+  "block.autumnity.snail_shell_brick_slab": "Slab o' barnacle shell bricks",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Standin' slab o' barnacle shell bricks",
+  "block.autumnity.snail_shell_brick_wall": "Wall o' branacle shell bricks",
+  "block.autumnity.chiseled_snail_shell_bricks": "Carv'd bricks  o' barnacle shell",
+  "block.autumnity.snail_shell_tiles": "Tiles o' barnacle shell",
+  "block.autumnity.snail_shell_tile_stairs": "Stairs o' barnacle tiles",
+  "block.autumnity.snail_shell_tile_slab": "Slab o' tiles o'  barnacle",
+  "block.autumnity.snail_shell_tile_vertical_slab": "Standin' slab o' tile o' barnacle",
+  "block.autumnity.snail_shell_tile_wall": "Wall o' barnacle tiles",
+
   "block.autumnity.maple_log": "Log o' Maple",
   "block.autumnity.maple_wood": "Maple Timber",
   "block.autumnity.stripped_maple_log": "Bare Maple Timber",
   "block.autumnity.stripped_maple_wood": "Bare Maple Wood",
-  "_comment": "Refers to the sap dripping out of the wood",
-  "block.autumnity.sappy_maple_log": "Drippin'' Log o'' Maple",
+  "_comment": "This here be thar timber that be drippin' all tha' sticky sap",
+  "block.autumnity.sappy_maple_log": "Drippin' Log o' Maple",
   "block.autumnity.sappy_maple_wood": "Drippin' Maple Timber",
-  
+
+  "block.autumnity.maple_branch": "Branchin' twig o' Maple",
+  "block.autumnity.long_maple_branch": "Long branch o' Maple",
+
   "block.autumnity.maple_planks": "Planks o' Maple",
   "block.autumnity.maple_stairs": "Stairs o' Maple",
   "block.autumnity.maple_slab": "Slab o' Maple",
@@ -29,73 +55,152 @@
   "block.autumnity.maple_trapdoor": "Hatch o' Maple",
   "block.autumnity.maple_sign": "Seal o' Maple",
   "block.autumnity.maple_wall_sign": "Hung Seal o' Maple",
-  
+
   "block.autumnity.maple_leaves": "Leaves o' Maple",
   "block.autumnity.yellow_maple_leaves": "Yeller Leaves o' Maple",
   "block.autumnity.orange_maple_leaves": "Orange Leaves o' Maple",
   "block.autumnity.red_maple_leaves": "Bloody Leaves o' Maple",
-  
+
   "block.autumnity.maple_sapling": "Maple Meager shrub",
   "block.autumnity.yellow_maple_sapling": "Yeller Maple Meager shrub",
   "block.autumnity.orange_maple_sapling": "Orange Maple Meager shrub",
   "block.autumnity.red_maple_sapling": "Bloody Maple Meager shrub",
-  
+
   "block.autumnity.potted_maple_sapling": "Captive Maple Meager shrub",
   "block.autumnity.potted_yellow_maple_sapling": "Captive Yeller Maple Meager shrub",
   "block.autumnity.potted_orange_maple_sapling": "Captured Orange Maple Meager shrub",
   "block.autumnity.potted_red_maple_sapling": "Captured Bloody Maple Meager shrub",
-  
+
   "block.autumnity.maple_leaf_carpet": "Fallen Leaves o' Maple",
   "block.autumnity.yellow_maple_leaf_carpet": "Fallen Yeller Leaves o' Maple",
   "block.autumnity.orange_maple_leaf_carpet": "Fallen Orange Leaves o' Maple",
   "block.autumnity.red_maple_leaf_carpet": "Fallen Bloody Leaves o' Maple",
-  
+
   "item.autumnity.maple_boat": "Vessel o' Maple Timber",
+
   "item.autumnity.sap_bottle": "Bottle o' Tree Sap",
   "item.autumnity.syrup_bottle": "Bottle o' Flapjack Juice",
   "item.autumnity.foul_berries": "Stinkin' Land Capers",
   "item.autumnity.foul_berry_pips": "Stinkin' Land Caper Bits",
-  "item.autumnity.foul_berry_leaf": "Stinkin' Land Caper Leaf",
+  "item.autumnity.foul_soup": "Captive sailor's meal",
+  "item.autumnity.pumpkin_bread": "Gourdy bun",
+
   "item.autumnity.snail_spawn_egg": "Landlubbin' Barnacle Cackle Fruit",
   "item.autumnity.snail_shell_piece": "Chunk o' Barnacle",
   "item.autumnity.snail_shell_chestplate": "Cuirass o' Barnacle Shell",
-  
-  "entity.autumnity.boat": "Vesesl",
+
+  "item.autumnity.turkey_spawn_egg": "Foul fowl cackle fruit",
+  "item.autumnity.turkey_egg": "Fruit o' Foul Cackle",
+  "item.autumnity.turkey_piece": "Foul fowl's flipper",
+  "item.autumnity.cooked_turkey_piece": "Cooked Turkey Piece",
+
+  "item.autumnity.maple_leaf_banner_pattern": "Flag Pattern",
+  "item.autumnity.maple_leaf_banner_pattern.desc": "Yer ol' giant leaf",
+  "item.autumnity.swirl_banner_pattern": "Flag Pattern",
+  "item.autumnity.swirl_banner_pattern.desc": "Great whirlpool",
+
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "When creepin' around:",
+
+  "entity.autumnity.boat": "Vessel",
   "entity.autumnity.snail": "Landlubbin' Barnacle",
-  
-  "_comment": "This effect extends the duration of active potion effects.",
+  "entity.autumnity.turkey": "Foul Fowl",
+  "entity.autumnity.turkey_egg": "Foul Fowl's cackle fruit",
+
+  "_comment": "This curse ri' here makes yer other curses last e'en longer.",
   "effect.autumnity.extension": "Dilly Dallyin'",
-  "_comment": "This effect prevents all healing.",
-  "effect.autumnity.life_stasis": "Cleaved to th' Brisket",
-  
-  "item.minecraft.potion.effect.extension": "Grog o'' Dilly Dallyin''",
-  "item.minecraft.splash_potion.effect.extension": "Grenade o'' Dilly Dallyin''",
-  "item.minecraft.lingering_potion.effect.extension": "Bottled Fog o'' Dilly Dallyin''",
-  "item.minecraft.tipped_arrow.effect.extension": "Bolt o'' Dilly Dallyin''",
-  
-  "item.minecraft.potion.effect.anti_healing": "Grog o'' Cleavin''",
-  "item.minecraft.splash_potion.effect.anti_healing": "Grenade o'' Cleavin''",
-  "item.minecraft.lingering_potion.effect.anti_healing": "Bottled Fog o'' Cleavin''",
-  "item.minecraft.tipped_arrow.effect.anti_healing": "Bolt o'' Cleavin''",
-  
+  "_comment": "This here curse makes yer next feast more appetizin'",
+  "effect.autumnity.foul_taste": "Foul rations",
+
+  "item.minecraft.potion.effect.extension": "Grog o' Dilly Dallyin'",
+  "item.minecraft.splash_potion.effect.extension": "Grenade o' Dilly Dallyin'",
+  "item.minecraft.lingering_potion.effect.extension": "Bottled Fog o' Dilly Dallyin'",
+  "item.minecraft.tipped_arrow.effect.extension": "Bolt o' Dilly Dallyin'",
+
   "biome.autumnity.maple_forest": "Woods o' Fall",
-  "biome.autumnity.maple_forest_hills": "Woods o'' Fall ''ills",
+  "biome.autumnity.maple_forest_hills": "Woods o' Fall 'ills",
   "biome.autumnity.pumpkin_fields": "Gourd Squash Flat",
-  
-  "subtitles.entity.snail.eat": "Landlubbin'' Barnacle snackin''",
-  "subtitles.entity.snail.hurt": "Landlubbin'' Barnacle hurtin''",
-  
-  
-  "_comment": "Quark Stuff",
-  
-  "block.autumnity.maple_vertical_slab": "Standin'' Slab o'' Maple",
-  "block.autumnity.vertical_maple_planks": "Standin'' Planks o'' Maple",
+  "biome.autumnity.yellow_spotted_forest": "Woods o' fall Approachin'",
+  "biome.autumnity.orange_spotted_dark_forest": "Forbodin' woods o' orange",
+  "biome.autumnity.red_spotted_taiga": "Boreal o' crimson",
+  "biome.autumnity.boreal_maple_forest": "Foggy woods o' fall",
+  "biome.autumnity.boreal_maple_forest_hills": "Foggy woods o' Fall 'ills",
+
+  "subtitles.entity.snail.eat": "Landlubbin' Barnacle snackin'",
+  "subtitles.entity.snail.hurt": "Landlubbin' Barnacle hurtin'",
+  "subtitles.entity.snail.death": "Landlubbin' Barnacle walks th' plank",
+  "subtitles.entity.snail.step": "Landlubbin' Barnacle takes sail",
+
+  "subtitles.entity.turkey.ambient": "Foul Fowl gobbles",
+  "subtitles.entity.turkey.aggro": "Foul fowl gobblin' angrily",
+  "subtitles.entity.turkey.hurt": "Foul fowl be hurt",
+  "subtitles.entity.turkey.death": "Foul fowl walks th' plank",
+  "subtitles.entity.turkey.egg": "Fall fowl plops",
+
+  "subtitles.block.turkey.cut": "Turkey be cut",
+
+  "_comment": "Compat Stuff",
+
+  "block.autumnity.maple_vertical_slab": "Standin' Slab o' Maple",
+  "block.autumnity.vertical_maple_planks": "Standin' Planks o' Maple",
   "block.autumnity.maple_bookshelf": "Maple Shelv o' Knowledge",
   "block.autumnity.maple_ladder": "Maple Climbin' Planks",
-  "block.autumnity.foul_berry_sack": "Bag o'' Stinkin'' Land Capers",
+  "block.autumnity.foul_berry_sack": "Bag o' Stinkin' Land Capers",
   "block.autumnity.potted_foul_berries": "Captive Stinkin' Land Capers",
-  
+  "block.autumnity.maple_beehive": "Maple Vessel o' Bee",
+  "block.autumnity.maple_post": "Maple pillar",
+  "block.autumnity.stripped_maple_post": "Bare pillar o' maple",
+  "block.autumnity.maple_chest": "Coffer o' maple",
+  "block.autumnity.maple_trapped_chest": "Rigg'd coffer o' Maple",
+  "block.autumnity.maple_hedge": "Shrubbery o' maple",
+  "block.autumnity.yellow_maple_hedge": "Yeller maple shrubbery",
+  "block.autumnity.orange_maple_hedge": "Orange maple Shrubbery",
+  "block.autumnity.red_maple_hedge": "Crimson shrubbery o' maple",
+  "block.autumnity.ender_jack_o_lantern": "Gourd o' foreign light",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Eighth o' mighty foreign gourd",
+  "block.autumnity.cursed_jack_o_lantern": "Gourd o' dead man's light",
+  "block.autumnity.large_cursed_jack_o_lantern_slice": "Cut part o' mighty dead man's gourd",
+  "block.autumnity.turkey_egg_crate": "Crate o' fall fowl cackle fruit",
+  "block.autumnity.slime": "Slime",
+
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.autumnity.husbandry.sneaky_protection.title": "Batten Down the Hatches!",
-  "advancements.autumnity.husbandry.sneaky_protection.description": "Make yerrself a cuirass o' barnacle shell"
+  "advancements.autumnity.husbandry.sneaky_protection.description": "Make yerrself a cuirass o' barnacle shell",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "A Healthy Barnacle's Food",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "A varied diet be crucial on tha high seas... feed yer pet barnacle all th' shrooms he'll eat",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "At last, sumthin' good fer tha tongue",
+  "advancements.autumnity.husbandry.finally_some_good_food.description": "Feast on sum good tastin' food after eatin' a foul caper",
+
+  "block.minecraft.banner.mca_maple_leaf.black": "Black leaf",
+  "block.minecraft.banner.mca_maple_leaf.red": "Red leaf",
+  "block.minecraft.banner.mca_maple_leaf.green": "Green leaf",
+  "block.minecraft.banner.mca_maple_leaf.brown": "Brown leaf",
+  "block.minecraft.banner.mca_maple_leaf.blue": "Blue leaf",
+  "block.minecraft.banner.mca_maple_leaf.purple": "Purple leaf",
+  "block.minecraft.banner.mca_maple_leaf.cyan": "Cyan leaf",
+  "block.minecraft.banner.mca_maple_leaf.light_gray": "Light Gray leaf",
+  "block.minecraft.banner.mca_maple_leaf.gray": "Gray leaf",
+  "block.minecraft.banner.mca_maple_leaf.pink": "Pink leaf",
+  "block.minecraft.banner.mca_maple_leaf.lime": "Lime leaf",
+  "block.minecraft.banner.mca_maple_leaf.yellow": "Yellow leaf",
+  "block.minecraft.banner.mca_maple_leaf.light_blue": "Ocean Blue leaf",
+  "block.minecraft.banner.mca_maple_leaf.magenta": "Magenta leaf",
+  "block.minecraft.banner.mca_maple_leaf.orange": "Orange leaf",
+  "block.minecraft.banner.mca_maple_leaf.white": "White leaf",
+
+  "block.minecraft.banner.mca_swirl.black": "Black Whirlpool",
+  "block.minecraft.banner.mca_swirl.red": "Red Whirlpool",
+  "block.minecraft.banner.mca_swirl.green": "Green Whirlpool",
+  "block.minecraft.banner.mca_swirl.brown": "Brown Whirlpool",
+  "block.minecraft.banner.mca_swirl.blue": "Blue Whirlpool",
+  "block.minecraft.banner.mca_swirl.purple": "Purple Whirlpool",
+  "block.minecraft.banner.mca_swirl.cyan": "Cyan Whirlpool",
+  "block.minecraft.banner.mca_swirl.light_gray": "Light Gray Whirlpool",
+  "block.minecraft.banner.mca_swirl.gray": "Gray Whirlpool",
+  "block.minecraft.banner.mca_swirl.pink": "Pink Whirlpool",
+  "block.minecraft.banner.mca_swirl.lime": "Lime Whirlpool",
+  "block.minecraft.banner.mca_swirl.yellow": "Yellow Whirlpool",
+  "block.minecraft.banner.mca_swirl.light_blue": "Ocean Blue Whirlpool",
+  "block.minecraft.banner.mca_swirl.magenta": "Magenta Whirlpool",
+  "block.minecraft.banner.mca_swirl.orange": "Orange Whirlpool",
+  "block.minecraft.banner.mca_swirl.white": "White Whirlpool"
 }

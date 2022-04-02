@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "autumnity:maple_witch_hut",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 56181419,
+    "spacing": 32,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}

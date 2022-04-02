@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:nether/all_effects",
+  "selector": "minecraft:nether/all_effects",
   "modifiers": [
     {
       "type": "effects_changed",

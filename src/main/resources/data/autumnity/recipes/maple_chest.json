@@ -20,7 +20,7 @@
       "type": "forge:and",
       "values": [
         {
-          "type": "abnormals_core:quark_flag",
+          "type": "blueprint:quark_flag",
           "flag": "variant_chests"
         }
       ]

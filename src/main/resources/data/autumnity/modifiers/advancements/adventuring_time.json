@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:adventure/adventuring_time",
+  "selector": "minecraft:adventure/adventuring_time",
   "modifiers": [
     {
       "type": "criteria",
@@ -9,7 +9,7 @@
           "value": "maple_forest_weight",
           "predicates": [
             {
-              "type": "abnormals_core:greater_than",
+              "type": "blueprint:greater_than",
               "value": 0.0
             }
           ]
@@ -53,7 +53,7 @@
           "value": "pumpkin_fields_weight",
           "predicates": [
             {
-              "type": "abnormals_core:greater_than",
+              "type": "blueprint:greater_than",
               "value": 0.0
             }
           ]

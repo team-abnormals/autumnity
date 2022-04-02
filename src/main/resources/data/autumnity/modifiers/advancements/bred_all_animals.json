@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:husbandry/bred_all_animals",
+  "selector": "minecraft:husbandry/bred_all_animals",
   "modifiers": [
     {
       "type": "criteria",

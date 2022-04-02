@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:husbandry/plant_seed",
+  "selector": "minecraft:husbandry/plant_seed",
   "modifiers": [
     {
       "type": "indexed_requirements",

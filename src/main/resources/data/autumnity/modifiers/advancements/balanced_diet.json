@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:husbandry/balanced_diet",
+  "selector": "minecraft:husbandry/balanced_diet",
   "modifiers": [
     {
       "type": "criteria",

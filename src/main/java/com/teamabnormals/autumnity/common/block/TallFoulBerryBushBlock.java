@@ -1,0 +1,172 @@
+package com.teamabnormals.autumnity.common.block;
+
+import com.teamabnormals.autumnity.common.entity.passive.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.passive.TurkeyEntity;
+import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.core.registry.AutumnityItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.Random;
+
+public class TallFoulBerryBushBlock extends DoublePlantBlock implements BonemealableBlock {
+	public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
+	private static final VoxelShape TOP_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 6.0D, 15.0D);
+	private static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+
+	public TallFoulBerryBushBlock(Properties properties) {
+		super(properties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(AGE, 0));
+	}
+
+	public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
+	}
+
+	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+		if (state.getValue(AGE) == 0 && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+			return TOP_SHAPE;
+		} else {
+			return SHAPE;
+		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+		if (rand.nextInt(10) == 0) {
+			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
+			Vec3 vector3d = voxelshape.bounds().getCenter();
+			double d0 = (double) pos.getX() + vector3d.x;
+			double d1 = (double) pos.getZ() + vector3d.z;
+
+			int i = MobEffects.POISON.getColor();
+			double d2 = (double) (i >> 16 & 255) / 255.0D;
+			double d3 = (double) (i >> 8 & 255) / 255.0D;
+			double d4 = (double) (i >> 0 & 255) / 255.0D;
+
+			worldIn.addParticle(ParticleTypes.ENTITY_EFFECT, d0 + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), d1 + (double) (rand.nextFloat() / 5.0F), d2, d3, d4);
+		}
+	}
+
+	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+		int i = state.getValue(AGE);
+		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
+			worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
+			setHalfState(worldIn, pos, state, i + 1);
+
+			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+		}
+	}
+
+	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get() && entityIn.getType() != AutumnityEntities.TURKEY.get()) {
+			LivingEntity livingentity = ((LivingEntity) entityIn);
+			livingentity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
+			if (!worldIn.isClientSide && !livingentity.hasEffect(MobEffects.POISON) && !livingentity.isShiftKeyDown()) {
+				livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 60));
+			}
+		}
+	}
+
+	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult p_225533_6_) {
+		int i = state.getValue(AGE);
+		boolean flag = i == 3;
+		if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
+			return InteractionResult.PASS;
+		} else if (i > 1) {
+			popResource(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
+			worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
+			worldIn.setBlock(pos, state.setValue(AGE, i - 1), 2);
+			setHalfState(worldIn, pos, state, i - 1);
+			return InteractionResult.SUCCESS;
+		} else {
+			return super.use(state, worldIn, pos, player, handIn, p_225533_6_);
+		}
+	}
+
+	public void placeAt(LevelAccessor worldIn, BlockPos pos, int flags) {
+		this.placeAt(worldIn, pos, 3, flags);
+	}
+
+	public void placeAt(LevelAccessor worldIn, BlockPos pos, int age, int flags) {
+		worldIn.setBlock(pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(AGE, age), flags);
+		worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(AGE, age), flags);
+	}
+
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(HALF, AGE);
+	}
+
+	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+		return state.getValue(AGE) < 3;
+	}
+
+	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+		return true;
+	}
+
+	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
+		int i = Math.min(3, state.getValue(AGE) + 1);
+		worldIn.setBlock(pos, state.setValue(AGE, i), 2);
+		setHalfState(worldIn, pos, state, i);
+	}
+
+	public Block.OffsetType getOffsetType() {
+		return Block.OffsetType.NONE;
+	}
+
+	private static void setHalfState(Level worldIn, BlockPos pos, BlockState state, int age) {
+		if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+			if (worldIn.getBlockState(pos.below()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
+				worldIn.setBlock(pos.below(), worldIn.getBlockState(pos.below()).setValue(AGE, age), 2);
+			}
+		} else {
+			if (worldIn.getBlockState(pos.above()).getBlock() == AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get()) {
+				worldIn.setBlock(pos.above(), worldIn.getBlockState(pos.above()).setValue(AGE, age), 2);
+			}
+		}
+	}
+
+	@Nullable
+	@Override
+	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
+		if (!(entity instanceof SnailEntity) && !(entity instanceof TurkeyEntity)) {
+			return BlockPathTypes.DAMAGE_OTHER;
+		}
+		return super.getAiPathNodeType(state, world, pos, entity);
+	}
+}

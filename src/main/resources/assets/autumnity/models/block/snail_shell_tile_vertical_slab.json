@@ -1,5 +1,5 @@
 {
-    "parent": "abnormals_core:block/vertical_slab",
+    "parent": "blueprint:block/vertical_slab",
     "textures": {
         "bottom": "autumnity:block/snail_shell_tiles",
         "top": "autumnity:block/snail_shell_tiles",

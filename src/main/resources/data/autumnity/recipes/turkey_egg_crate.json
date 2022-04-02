@@ -22,7 +22,7 @@
           "modid": "environmental"
         },
         {
-        	"type": "abnormals_core:quark_flag",
+        	"type": "blueprint:quark_flag",
         	"flag": "apple_crate"
         }
       ]

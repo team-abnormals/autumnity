@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -75,7 +75,7 @@ public class SnailSlimeBlock extends HalfTransparentBlock {
 	}
 
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-		if (!state.getValue(SLIPPERY) && !(entityIn instanceof SnailEntity)) {
+		if (!state.getValue(SLIPPERY) && !(entityIn instanceof Snail)) {
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D) {
 				if (!entityIn.isShiftKeyDown()) {
 					entityIn.makeStuckInBlock(state, new Vec3(1.0D, 0.0F, 1.0D));

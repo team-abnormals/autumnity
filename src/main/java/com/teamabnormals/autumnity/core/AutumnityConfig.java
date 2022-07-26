@@ -13,15 +13,6 @@ public class AutumnityConfig {
 		public final ForgeConfigSpec.ConfigValue<List<String>> turkeySpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
 
-		@ConfigKey("maple_forest_weight")
-		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestWeight;
-
-		@ConfigKey("maple_forest_hills_weight")
-		public final ForgeConfigSpec.ConfigValue<Integer> mapleForestHillsWeight;
-
-		@ConfigKey("pumpkin_fields_weight")
-		public final ForgeConfigSpec.ConfigValue<Integer> pumpkinFieldsWeight;
-
 		@ConfigKey("yellow_spotted_forest")
 		public final ForgeConfigSpec.ConfigValue<Boolean> yellowSpottedForest;
 
@@ -45,14 +36,6 @@ public class AutumnityConfig {
 					.define("Turkey Spawn Biomes", Lists.newArrayList());
 			builder.pop();
 
-			builder.comment("Values for biome frequencies; lower = more rare. (Requires restart)",
-					"If a biome has a default weight of 0, it generates as a sub-biome and not on its own.")
-					.push("biome_weights");
-
-			mapleForestWeight = builder.define("Maple Forest weight", 6);
-			mapleForestHillsWeight = builder.define("Maple Forest Hills weight", 0);
-			pumpkinFieldsWeight = builder.define("Pumpkin Fields weight", 1);
-			builder.pop();
 
 			builder.push("misc");
 

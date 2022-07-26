@@ -2,12 +2,11 @@ package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.blueprint.core.util.BlockUtil;
 import com.teamabnormals.blueprint.core.util.item.filling.TargetedItemCategoryFiller;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -31,14 +30,16 @@ public class MapleLogBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	public BlockState getToolModifiedState(BlockState state, Level world, BlockPos pos, Player player, ItemStack stack, ToolAction toolAction) {
+	public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+		ItemStack stack = context.getItemInHand();
+		Level level = context.getLevel();
 		if (toolAction == ToolActions.AXE_STRIP) {
 			int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, stack);
 			float f = -1.0F / (i * (1.0F / 3.0F) + (4.0F / 3.0F)) + 1.0F;
 
-			return block != null ? BlockUtil.transferAllBlockStates(state, world.getRandom().nextFloat() <= f ? this.sappyBlock.get().defaultBlockState() : this.block.get().defaultBlockState()) : null;
+			return block != null ? BlockUtil.transferAllBlockStates(state, level.getRandom().nextFloat() <= f ? this.sappyBlock.get().defaultBlockState() : this.block.get().defaultBlockState()) : null;
 		}
-		return super.getToolModifiedState(state, world, pos, player, stack, toolAction);
+		return super.getToolModifiedState(state, context, toolAction, simulate);
 	}
 
 	@Override

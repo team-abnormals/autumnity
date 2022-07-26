@@ -1,9 +1,9 @@
 {
   "config": {
-    "start_pool": "autumnity:maple_witch_hut/maple_witch_hut",
+    "start_pool": "autumnity:maple_hut/maple_hut",
     "size": 1
   },
-  "biomes": "#minecraft:has_structure/village_plains",
+  "biomes": "#autumnity:has_structure/maple_hut",
   "adapt_noise": true,
   "spawn_overrides": {
     "creature": {

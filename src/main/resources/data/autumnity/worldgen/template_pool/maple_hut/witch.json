@@ -1,12 +1,12 @@
 {
-  "name": "autumnity:maple_witch_hut/maple_witch_hut",
+  "name": "autumnity:maple_hut/witch",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "autumnity:maple_witch_hut/maple_witch_hut",
-        "processors": "autumnity:maple_witch_hut",
+        "location": "autumnity:maple_hut/witch",
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

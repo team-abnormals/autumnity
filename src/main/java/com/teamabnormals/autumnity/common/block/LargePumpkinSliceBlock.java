@@ -28,10 +28,12 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 		super(properties);
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, HALF);
 	}
 
+	@Override
 	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
 		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.is(AutumnityItemTags.KNIVES))) {
@@ -60,6 +62,7 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 		return super.use(state, worldIn, pos, player, handIn, hit);
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		BlockPos blockpos = context.getClickedPos();
 		BlockState bottomblock = context.getLevel().getBlockState(blockpos.below());

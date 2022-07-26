@@ -1,25 +1,20 @@
 package com.teamabnormals.autumnity.client.renderer.entity.model;
 
 import com.google.common.collect.ImmutableList;
-import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
-import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import net.minecraft.client.model.AgeableListModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class SnailModel<T extends SnailEntity> extends AgeableListModel<T> {
-	public static final ModelLayerLocation SNAIL_MODEL = new ModelLayerLocation(new ResourceLocation(Autumnity.MOD_ID, "snail"), "main");
-
+public class SnailModel<T extends Snail> extends AgeableListModel<T> {
 	private final ModelPart body;
 	private final ModelPart hideBody;
 	private final ModelPart shell;
@@ -88,7 +83,7 @@ public class SnailModel<T extends SnailEntity> extends AgeableListModel<T> {
 		this.eye2.zRot = -this.eye1.zRot;
 		this.shell.xRot = -0.22F;
 
-		if (entity.getAction() == SnailEntity.Action.EATING) {
+		if (entity.getAction() == Snail.Action.EATING) {
 			this.tentacle1.yRot = 0.25F * Mth.sin(0.6F * ageInTicks);
 			this.tentacle2.yRot = -tentacle1.yRot;
 		} else {

@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.client.renderer.entity;
 
-import com.teamabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.teamabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -23,6 +23,7 @@ import java.util.Random;
 
 @OnlyIn(Dist.CLIENT)
 public class FallingHeadBlockRenderer extends EntityRenderer<FallingHeadBlockEntity> {
+
 	public FallingHeadBlockRenderer(EntityRendererProvider.Context context) {
 		super(context);
 		this.shadowRadius = 0.5F;

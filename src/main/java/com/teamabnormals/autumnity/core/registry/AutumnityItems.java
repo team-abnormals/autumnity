@@ -5,18 +5,12 @@ import com.teamabnormals.autumnity.common.item.SyrupBottleItem;
 import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityTiers;
-import com.teamabnormals.blueprint.core.api.banner.BannerManager;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BannerPatternItem;
-import net.minecraft.world.item.BowlFoodItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.ModList;
@@ -59,7 +53,7 @@ public class AutumnityItems {
 	}
 
 	public static class AutumnityBanners {
-		public static final BannerPattern MAPLE_LEAF = BannerManager.createPattern("mca", "maple_leaf", "mpl");
-		public static final BannerPattern SWIRL = BannerManager.createPattern("mca", "swirl", "swl");
+		public static final BannerPattern MAPLE_LEAF = BannerPattern.create("MCA_MAPLE_LEAF", "mca_maple_leaf", "mca_mpl", true);
+		public static final BannerPattern SWIRL = BannerPattern.create("MCA_SWIRL", "mca_swirl", "mca_swl", true);
 	}
 }

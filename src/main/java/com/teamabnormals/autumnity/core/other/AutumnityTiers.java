@@ -5,7 +5,6 @@ import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import com.teamabnormals.blueprint.core.api.BlueprintArmorMaterial;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class AutumnityTiers {

@@ -25,12 +25,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.TemptGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -51,19 +46,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Predicate;
 
-public class SnailEntity extends Animal {
+public class Snail extends Animal {
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
-	private static final EntityDataAccessor<Integer> SLIME_AMOUNT = SynchedEntityData.defineId(SnailEntity.class, EntityDataSerializers.INT);
-	private static final EntityDataAccessor<Byte> ACTION = SynchedEntityData.defineId(SnailEntity.class, EntityDataSerializers.BYTE);
+	private static final EntityDataAccessor<Integer> SLIME_AMOUNT = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Byte> ACTION = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.BYTE);
 	private int hidingTime = 0;
 
 	private float hideAnim;
@@ -85,12 +75,12 @@ public class SnailEntity extends Animal {
 			} else if (livingentity instanceof Player) {
 				return !livingentity.isShiftKeyDown() && !livingentity.isSpectator() && !((Player) livingentity).isCreative();
 			} else {
-				return !(livingentity instanceof SnailEntity) && !(livingentity instanceof MushroomCow);
+				return !(livingentity instanceof Snail) && !(livingentity instanceof MushroomCow);
 			}
 		}
 	};
 
-	public SnailEntity(EntityType<? extends SnailEntity> type, Level worldIn) {
+	public Snail(EntityType<? extends Snail> type, Level worldIn) {
 		super(type, worldIn);
 		this.setPathfindingMalus(BlockPathTypes.DANGER_CACTUS, 0.0F);
 		this.setPathfindingMalus(BlockPathTypes.DAMAGE_CACTUS, 0.0F);
@@ -98,12 +88,12 @@ public class SnailEntity extends Animal {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new SnailEntity.HideGoal());
-		this.goalSelector.addGoal(1, new SnailEntity.EatGoal());
+		this.goalSelector.addGoal(0, new Snail.HideGoal());
+		this.goalSelector.addGoal(1, new Snail.EatGoal());
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
 		this.goalSelector.addGoal(3, new TemptGoal(this, 0.5D, Ingredient.of(AutumnityItemTags.SNAIL_TEMPTATION_ITEMS), false));
-		this.goalSelector.addGoal(4, new SnailEntity.EatMushroomsGoal());
-		this.goalSelector.addGoal(5, new SnailEntity.EatMooshroomMushroomsGoal());
+		this.goalSelector.addGoal(4, new Snail.EatMushroomsGoal());
+		this.goalSelector.addGoal(5, new Snail.EatMooshroomMushroomsGoal());
 		this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.5D));
 		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
 		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -474,43 +464,43 @@ public class SnailEntity extends Animal {
 
 		@Override
 		public boolean canUse() {
-			return SnailEntity.this.getHidingTime() > 0 || SnailEntity.this.getLastHurtByMob() != null || this.shouldHideFromMob();
+			return Snail.this.getHidingTime() > 0 || Snail.this.getLastHurtByMob() != null || this.shouldHideFromMob();
 		}
 
 		@Override
 		public void start() {
 			this.hide();
-			SnailEntity.this.getNavigation().stop();
-			SnailEntity.this.getMoveControl().setWantedPosition(SnailEntity.this.getX(), SnailEntity.this.getY(), SnailEntity.this.getZ(), 0.0D);
-			SnailEntity.this.setAction(Action.HIDING);
+			Snail.this.getNavigation().stop();
+			Snail.this.getMoveControl().setWantedPosition(Snail.this.getX(), Snail.this.getY(), Snail.this.getZ(), 0.0D);
+			Snail.this.setAction(Action.HIDING);
 		}
 
 		@Override
 		public void stop() {
-			SnailEntity.this.setAction(Action.DEFAULT);
+			Snail.this.setAction(Action.DEFAULT);
 		}
 
 		@Override
 		public void tick() {
-			if ((SnailEntity.this.getLastHurtByMob() != null || this.shouldHideFromMob()) && SnailEntity.this.getHidingTime() < 120) {
+			if ((Snail.this.getLastHurtByMob() != null || this.shouldHideFromMob()) && Snail.this.getHidingTime() < 120) {
 				this.hide();
 			} else {
-				SnailEntity.this.setHidingTime(SnailEntity.this.getHidingTime() - 1);
+				Snail.this.setHidingTime(Snail.this.getHidingTime() - 1);
 			}
 		}
 
 		@Override
 		public boolean canContinueToUse() {
-			return SnailEntity.this.getHidingTime() > 0;
+			return Snail.this.getHidingTime() > 0;
 		}
 
 		private void hide() {
-			SnailEntity.this.setHidingTime(120 + SnailEntity.this.random.nextInt(120));
+			Snail.this.setHidingTime(120 + Snail.this.random.nextInt(120));
 		}
 
 		private boolean shouldHideFromMob() {
-			for (LivingEntity livingentity : SnailEntity.this.level.getEntitiesOfClass(LivingEntity.class, SnailEntity.this.getBoundingBox().inflate(0.5D), ENEMY_MATCHER)) {
-				if (livingentity.isAlive() && livingentity.getBbHeight() > SnailEntity.this.getBbHeight()) {
+			for (LivingEntity livingentity : Snail.this.level.getEntitiesOfClass(LivingEntity.class, Snail.this.getBoundingBox().inflate(0.5D), ENEMY_MATCHER)) {
+				if (livingentity.isAlive() && livingentity.getBbHeight() > Snail.this.getBbHeight()) {
 					return true;
 				}
 			}
@@ -529,20 +519,20 @@ public class SnailEntity extends Animal {
 
 		@Override
 		public boolean canUse() {
-			return SnailEntity.this.hasSnack();
+			return Snail.this.hasSnack();
 		}
 
 		@Override
 		public void start() {
 			this.eatTime = 192;
-			SnailEntity.this.getNavigation().stop();
-			SnailEntity.this.getMoveControl().setWantedPosition(SnailEntity.this.getX(), SnailEntity.this.getY(), SnailEntity.this.getZ(), 0.0D);
-			SnailEntity.this.setAction(Action.EATING);
+			Snail.this.getNavigation().stop();
+			Snail.this.getMoveControl().setWantedPosition(Snail.this.getX(), Snail.this.getY(), Snail.this.getZ(), 0.0D);
+			Snail.this.setAction(Action.EATING);
 		}
 
 		@Override
 		public void stop() {
-			SnailEntity.this.setAction(Action.DEFAULT);
+			Snail.this.setAction(Action.DEFAULT);
 		}
 
 		@Override
@@ -550,13 +540,13 @@ public class SnailEntity extends Animal {
 			--this.eatTime;
 
 			if (this.eatTime <= 0) {
-				SnailEntity.this.eatSnack();
+				Snail.this.eatSnack();
 			}
 		}
 
 		@Override
 		public boolean canContinueToUse() {
-			return SnailEntity.this.hasSnack();
+			return Snail.this.hasSnack();
 		}
 	}
 
@@ -572,32 +562,32 @@ public class SnailEntity extends Animal {
 
 		@Override
 		public boolean canUse() {
-			if (SnailEntity.this.getRandom().nextInt(20) != 0) {
+			if (Snail.this.getRandom().nextInt(20) != 0) {
 				return false;
 			} else {
-				return !SnailEntity.this.isBaby() && !SnailEntity.this.hasSnack() && SnailEntity.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.level, SnailEntity.this) && this.canMoveToMushroom();
+				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this) && this.canMoveToMushroom();
 			}
 		}
 
 		@Override
 		public boolean canContinueToUse() {
-			return !SnailEntity.this.getNavigation().isDone() && !SnailEntity.this.hasSnack() && SnailEntity.this.getSlimeAmount() <= 0;
+			return !Snail.this.getNavigation().isDone() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0;
 		}
 
 		@Override
 		public void start() {
-			SnailEntity.this.getNavigation().moveTo(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
+			Snail.this.getNavigation().moveTo(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
 		}
 
 		@Override
 		public void tick() {
-			if (!SnailEntity.this.isBaby() && SnailEntity.this.getSlimeAmount() <= 0) {
-				BlockPos blockpos = SnailEntity.this.blockPosition();
+			if (!Snail.this.isBaby() && Snail.this.getSlimeAmount() <= 0) {
+				BlockPos blockpos = Snail.this.blockPosition();
 
 				if (this.isBlockMushroom(blockpos)) {
-					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(SnailEntity.this.level, SnailEntity.this)) {
-						SnailEntity.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(SnailEntity.this.level.getBlockState(blockpos).getBlock().asItem(), 1));
-						SnailEntity.this.level.destroyBlock(blockpos, false);
+					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this)) {
+						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Snail.this.level.getBlockState(blockpos).getBlock().asItem(), 1));
+						Snail.this.level.destroyBlock(blockpos, false);
 					}
 				}
 			}
@@ -605,8 +595,8 @@ public class SnailEntity extends Animal {
 
 		@Nullable
 		private Vec3 findMushroom() {
-			Random random = SnailEntity.this.getRandom();
-			BlockPos blockpos = new BlockPos(SnailEntity.this.getX(), SnailEntity.this.getBoundingBox().minY, SnailEntity.this.getZ());
+			Random random = Snail.this.getRandom();
+			BlockPos blockpos = new BlockPos(Snail.this.getX(), Snail.this.getBoundingBox().minY, Snail.this.getZ());
 
 			for (int i = 0; i < 10; ++i) {
 				BlockPos blockpos1 = blockpos.offset(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
@@ -631,7 +621,7 @@ public class SnailEntity extends Animal {
 		}
 
 		private boolean isBlockMushroom(BlockPos pos) {
-			return SnailEntity.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_BLOCK_FOODS);
+			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_BLOCK_FOODS);
 		}
 	}
 
@@ -644,14 +634,14 @@ public class SnailEntity extends Animal {
 		}
 
 		public boolean canUse() {
-			if (!SnailEntity.this.isBaby() && !SnailEntity.this.hasSnack() && SnailEntity.this.getSlimeAmount() <= 0) {
-				List<MushroomCow> list = SnailEntity.this.level.getEntitiesOfClass(MushroomCow.class, SnailEntity.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
+			if (!Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0) {
+				List<MushroomCow> list = Snail.this.level.getEntitiesOfClass(MushroomCow.class, Snail.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
 				MushroomCow mooshroom = null;
 				double d0 = Double.MAX_VALUE;
 
 				for (MushroomCow mooshroom1 : list) {
 					if (mooshroom1.getAge() >= 0) {
-						double d1 = SnailEntity.this.distanceToSqr(mooshroom1);
+						double d1 = Snail.this.distanceToSqr(mooshroom1);
 						if (!(d1 > d0)) {
 							d0 = d1;
 							mooshroom = mooshroom1;
@@ -674,12 +664,12 @@ public class SnailEntity extends Animal {
 		public boolean canContinueToUse() {
 			if (!this.targetMooshroom.isAlive()) {
 				return false;
-			} else if (SnailEntity.this.hasSnack()) {
+			} else if (Snail.this.hasSnack()) {
 				return false;
-			} else if (SnailEntity.this.getSlimeAmount() > 0) {
+			} else if (Snail.this.getSlimeAmount() > 0) {
 				return false;
 			} else {
-				double d0 = this.targetMooshroom.distanceToSqr(SnailEntity.this);
+				double d0 = this.targetMooshroom.distanceToSqr(Snail.this);
 				return !(d0 > 256.0D);
 			}
 		}
@@ -698,19 +688,19 @@ public class SnailEntity extends Animal {
 		public void tick() {
 			if (--this.delayCounter <= 0) {
 				this.delayCounter = 10;
-				SnailEntity.this.getNavigation().moveTo(this.targetMooshroom, 0.5D);
+				Snail.this.getNavigation().moveTo(this.targetMooshroom, 0.5D);
 			}
 
 			if (this.targetMooshroom != null && this.targetMooshroom.isAlive()) {
-				double d0 = this.targetMooshroom.distanceToSqr(SnailEntity.this);
+				double d0 = this.targetMooshroom.distanceToSqr(Snail.this);
 				if (d0 < 2.0D) {
 					if (this.targetMooshroom.getMushroomType() == MushroomCow.MushroomType.BROWN) {
-						SnailEntity.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
+						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
 					} else {
-						SnailEntity.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
+						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
 					}
 
-					this.targetMooshroom.hurt(DamageSource.mobAttack(SnailEntity.this), 0.0F);
+					this.targetMooshroom.hurt(DamageSource.mobAttack(Snail.this), 0.0F);
 				}
 			}
 		}

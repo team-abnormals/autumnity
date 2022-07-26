@@ -1,17 +1,14 @@
 package com.teamabnormals.autumnity.client.renderer.entity.model;
 
 import com.google.common.collect.ImmutableList;
-import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
-import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import net.minecraft.client.model.AgeableListModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,9 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
  * Created using Tabula 8.0.0
  */
 @OnlyIn(Dist.CLIENT)
-public class TurkeyModel<T extends TurkeyEntity> extends AgeableListModel<T> {
-	public static final ModelLayerLocation TURKEY_MODEL = new ModelLayerLocation(new ResourceLocation(Autumnity.MOD_ID, "turkey"), "main");
-
+public class TurkeyModel<T extends Turkey> extends AgeableListModel<T> {
 	private final ModelPart head;
 	private final ModelPart beak;
 	private final ModelPart waddle;

@@ -1,13 +1,13 @@
 package com.teamabnormals.autumnity.core.other;
 
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
-import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.mojang.datafixers.util.Pair;
+import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;
@@ -21,12 +21,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -76,9 +71,9 @@ public class AutumnityEvents {
 			Entity entity = event.getEntity();
 
 			if (entity instanceof Pillager) {
-				((PathfinderMob) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((PathfinderMob) entity, SnailEntity.class, true));
+				((PathfinderMob) entity).targetSelector.addGoal(4, new NearestAttackableTargetGoal<>((PathfinderMob) entity, Snail.class, true));
 			} else if (entity instanceof MushroomCow) {
-				((PathfinderMob) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((PathfinderMob) entity, SnailEntity.class, 16.0F, 1.25D, 1.6D, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
+				((PathfinderMob) entity).goalSelector.addGoal(4, new AvoidEntityGoal<>((PathfinderMob) entity, Snail.class, 16.0F, 1.25D, 1.6D, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
 			}
 		}
 	}

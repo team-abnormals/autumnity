@@ -1,15 +1,15 @@
 package com.teamabnormals.autumnity.core.other;
 
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
-import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class AutumnityClientCompat {
 

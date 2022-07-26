@@ -4,8 +4,6 @@ import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
-import com.teamabnormals.autumnity.core.registry.AutumnityFeatures;
-import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConfiguredFeatures;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;

@@ -45,7 +45,7 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 	}
 
 	public static FallingHeadBlockEntity fall(Level p_201972_, BlockPos p_201973_, BlockState p_201974_) {
-		FallingHeadBlockEntity fallingblockentity = new FallingHeadBlockEntity(p_201972_, (double)p_201973_.getX() + 0.5D, (double)p_201973_.getY(), (double)p_201973_.getZ() + 0.5D, p_201974_.hasProperty(BlockStateProperties.WATERLOGGED) ? p_201974_.setValue(BlockStateProperties.WATERLOGGED, false) : p_201974_);
+		FallingHeadBlockEntity fallingblockentity = new FallingHeadBlockEntity(p_201972_, (double) p_201973_.getX() + 0.5D, (double) p_201973_.getY(), (double) p_201973_.getZ() + 0.5D, p_201974_.hasProperty(BlockStateProperties.WATERLOGGED) ? p_201974_.setValue(BlockStateProperties.WATERLOGGED, false) : p_201974_);
 		p_201972_.setBlock(p_201973_, p_201974_.getFluidState().createLegacyBlock(), 3);
 		p_201972_.addFreshEntity(fallingblockentity);
 		return fallingblockentity;

@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
-import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
+import com.teamabnormals.autumnity.common.entity.animal.Snail;
+import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
@@ -164,7 +164,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	@Nullable
 	@Override
 	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
-		if (!(entity instanceof SnailEntity) && !(entity instanceof TurkeyEntity)) {
+		if (!(entity instanceof Snail) && !(entity instanceof Turkey)) {
 			return BlockPathTypes.DAMAGE_OTHER;
 		}
 		return super.getAiPathNodeType(state, world, pos, entity);

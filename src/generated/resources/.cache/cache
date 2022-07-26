@@ -1,0 +1,8 @@
+3c5ab9bdf583bcea8dec8993a010740104151769 data/autumnity/tags/worldgen/biome/has_structure/maple_hut.json
+15d6544c38cb04e1223df9ea4069e77615951f16 data/minecraft/tags/worldgen/biome/has_structure/mineshaft.json
+15d6544c38cb04e1223df9ea4069e77615951f16 data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_standard.json
+34a8a33efb4aeb9c397f574e47052c43995a47ed data/minecraft/tags/worldgen/biome/has_structure/stronghold.json
+5961865648e432efb1836166b4dfc3c8a9cc15f9 data/minecraft/tags/worldgen/biome/has_structure/village_taiga.json
+1a2c801f10f4a4e67ed75fd7bdc3d3ea2a3c14d0 data/minecraft/tags/worldgen/biome/has_structure/woodland_mansion.json
+6f704b8287e2cdef1843c8c9ca9ad9c23b0c6a6b data/minecraft/tags/worldgen/biome/is_forest.json
+5961865648e432efb1836166b4dfc3c8a9cc15f9 data/minecraft/tags/worldgen/biome/is_taiga.json

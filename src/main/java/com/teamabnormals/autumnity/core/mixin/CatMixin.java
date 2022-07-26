@@ -25,7 +25,7 @@ public abstract class CatMixin {
 	private void finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData groupData, @Nullable CompoundTag tag, CallbackInfoReturnable<SpawnGroupData> cir) {
 		ServerLevel serverlevel = level.getLevel();
 		Cat cat = ((Cat) (Object) this);
-		if (serverlevel.structureFeatureManager().getStructureWithPieceAt(cat.blockPosition(), ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(Autumnity.MOD_ID, "maple_witch_hut"))).isValid()) {
+		if (serverlevel.structureFeatureManager().getStructureWithPieceAt(cat.blockPosition(), ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(Autumnity.MOD_ID, "maple_hut"))).isValid()) {
 			cat.setCatType(10);
 			cat.setPersistenceRequired();
 		}

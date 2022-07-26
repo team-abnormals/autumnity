@@ -1,10 +1,10 @@
 package com.teamabnormals.autumnity.core.other;
 
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 
 public class JackOLanternHelper {

@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.common.levelgen.feature;
 
-import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.mojang.serialization.Codec;
+import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;

@@ -11,6 +11,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 public class SyrupBottleItem extends Item {
+	
 	public SyrupBottleItem(Properties properties) {
 		super(properties);
 	}
@@ -21,11 +22,10 @@ public class SyrupBottleItem extends Item {
 		if (stack.isEmpty()) {
 			return new ItemStack(Items.GLASS_BOTTLE);
 		} else {
-			if (entityLiving instanceof Player && !((Player) entityLiving).getAbilities().instabuild) {
+			if (entityLiving instanceof Player player && !((Player) entityLiving).getAbilities().instabuild) {
 				ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
-				Player playerentity = (Player) entityLiving;
-				if (!playerentity.getInventory().add(itemstack)) {
-					playerentity.drop(itemstack, false);
+				if (!player.getInventory().add(itemstack)) {
+					player.drop(itemstack, false);
 				}
 			}
 

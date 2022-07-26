@@ -1,9 +1,9 @@
 package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.core.other.AutumnityEvents;
-import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems.AutumnityFoods;
+import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.LevelAccessor;

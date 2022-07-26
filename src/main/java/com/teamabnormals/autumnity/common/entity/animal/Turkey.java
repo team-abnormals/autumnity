@@ -38,8 +38,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.Random;
 import java.util.UUID;
 
-public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
-	private static final EntityDataAccessor<Integer> ANGER_TIME = SynchedEntityData.defineId(TurkeyEntity.class, EntityDataSerializers.INT);
+public class Turkey extends Animal implements EggLayer, NeutralMob {
+	private static final EntityDataAccessor<Integer> ANGER_TIME = SynchedEntityData.defineId(Turkey.class, EntityDataSerializers.INT);
 
 	private float wingRotation;
 	private float destPos;
@@ -56,14 +56,14 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 	private static final UniformInt ANGER_RANGE = TimeUtil.rangeOfSeconds(20, 39);
 	private UUID lastHurtBy;
 
-	public TurkeyEntity(EntityType<? extends Animal> type, Level worldIn) {
+	public Turkey(EntityType<? extends Animal> type, Level worldIn) {
 		super(type, worldIn);
 	}
 
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new TurkeyEntity.PanicGoal(this));
+		this.goalSelector.addGoal(1, new Turkey.PanicGoal(this));
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.4D, false));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 1.0D));
@@ -72,9 +72,9 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F));
 		this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
-		this.targetSelector.addGoal(1, new TurkeyEntity.HurtByTargetGoal(this));
+		this.targetSelector.addGoal(1, new Turkey.HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
-		this.targetSelector.addGoal(3, new TurkeyEntity.JockeyTargetGoal<>(this, Player.class));
+		this.targetSelector.addGoal(3, new Turkey.JockeyTargetGoal<>(this, Player.class));
 		this.targetSelector.addGoal(4, new ResetUniversalAngerTargetGoal<>(this, true));
 	}
 
@@ -314,7 +314,7 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 	}
 
 	static class PanicGoal extends net.minecraft.world.entity.ai.goal.PanicGoal {
-		public PanicGoal(TurkeyEntity turkey) {
+		public PanicGoal(Turkey turkey) {
 			super(turkey, 1.4D);
 		}
 
@@ -324,12 +324,12 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 	}
 
 	static class HurtByTargetGoal extends net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal {
-		public HurtByTargetGoal(TurkeyEntity turkey) {
+		public HurtByTargetGoal(Turkey turkey) {
 			super(turkey);
 		}
 
 		protected void alertOther(Mob mobIn, LivingEntity targetIn) {
-			if (mobIn instanceof TurkeyEntity && !mobIn.isBaby()) {
+			if (mobIn instanceof Turkey && !mobIn.isBaby()) {
 				super.alertOther(mobIn, targetIn);
 			}
 		}
@@ -345,12 +345,12 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 	}
 
 	static class JockeyTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-		public JockeyTargetGoal(TurkeyEntity turkey, Class<T> classTarget) {
+		public JockeyTargetGoal(Turkey turkey, Class<T> classTarget) {
 			super(turkey, classTarget, true);
 		}
 
 		public boolean canUse() {
-			TurkeyEntity turkey = (TurkeyEntity) this.mob;
+			Turkey turkey = (Turkey) this.mob;
 
 			return turkey.isTurkeyJockey() && super.canUse();
 		}

@@ -32,10 +32,12 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		this.registerDefaultState(this.defaultBlockState().setValue(CARVED_SIDE, CarvedSide.X));
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, HALF, CARVED_SIDE);
 	}
 
+	@Override
 	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
 		Block jackolantern = JackOLanternHelper.getLargeJackOLantern(itemstack.getItem());
@@ -64,6 +66,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		return super.use(state, worldIn, pos, player, handIn, hit);
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		BlockPos blockpos = context.getClickedPos();
 		BlockState bottomblock = context.getLevel().getBlockState(blockpos.below());
@@ -79,6 +82,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		return this.defaultBlockState().setValue(FACING, getFacing(context)).setValue(HALF, Mth.sin(context.getPlayer().getViewXRot(1.0F) * ((float) Math.PI / 180F)) > 0 ? Half.BOTTOM : Half.TOP).setValue(CARVED_SIDE, carvedside);
 	}
 
+	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
 		if (rot == Rotation.CLOCKWISE_90 || rot == Rotation.COUNTERCLOCKWISE_90) {
 			return super.rotate(state, rot).setValue(CARVED_SIDE, state.getValue(CARVED_SIDE) == CarvedSide.X ? CarvedSide.Z : CarvedSide.X);
@@ -87,6 +91,7 @@ public class CarvedLargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock
 		return super.rotate(state, rot);
 	}
 
+	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
 	}

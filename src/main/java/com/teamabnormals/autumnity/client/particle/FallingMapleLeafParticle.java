@@ -18,10 +18,12 @@ public class FallingMapleLeafParticle extends TextureSheetParticle {
 		this.roll = (float) Math.random() * ((float) Math.PI * 2F);
 	}
 
+	@Override
 	public ParticleRenderType getRenderType() {
 		return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
 	}
 
+	@Override
 	public void tick() {
 		this.xo = this.x;
 		this.yo = this.y;
@@ -54,6 +56,7 @@ public class FallingMapleLeafParticle extends TextureSheetParticle {
 			this.spriteSet = sprite;
 		}
 
+		@Override
 		public Particle createParticle(SimpleParticleType typeIn, ClientLevel worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			FallingMapleLeafParticle particle = new FallingMapleLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
 			particle.setColor((float) xSpeed, (float) ySpeed, (float) zSpeed);

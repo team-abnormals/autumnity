@@ -29,6 +29,7 @@ public class FallingHeadBlockRenderer extends EntityRenderer<FallingHeadBlockEnt
 		this.shadowRadius = 0.5F;
 	}
 
+	@Override
 	public void render(FallingHeadBlockEntity entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn) {
 		BlockState blockstate = entityIn.getBlockState();
 		if (blockstate.getRenderShape() == RenderShape.MODEL) {
@@ -51,6 +52,7 @@ public class FallingHeadBlockRenderer extends EntityRenderer<FallingHeadBlockEnt
 		}
 	}
 
+	@Override
 	public ResourceLocation getTextureLocation(FallingHeadBlockEntity entity) {
 		return TextureAtlas.LOCATION_BLOCKS;
 	}

@@ -17,6 +17,7 @@ public enum CarvedSide implements StringRepresentable {
 		return this.name;
 	}
 
+	@Override
 	public String getSerializedName() {
 		return this.name;
 	}

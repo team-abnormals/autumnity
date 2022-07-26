@@ -42,6 +42,7 @@ public class SnailShellChestplateItem extends ArmorItem {
 		return new ResourceLocation(Autumnity.MOD_ID, "textures/models/armor/snail_shell_layer_1.png").toString();
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 		tooltip.add((new TranslatableComponent("item.autumnity.snail_shell_chestplate.whenSneaking").withStyle(ChatFormatting.GRAY)));

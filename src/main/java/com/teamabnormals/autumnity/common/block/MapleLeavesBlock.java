@@ -15,6 +15,7 @@ public class MapleLeavesBlock extends BlueprintLeavesBlock {
 		super(properties);
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
 		super.animateTick(stateIn, worldIn, pos, rand);

@@ -43,14 +43,17 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
 	}
 
+	@Override
 	public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
 		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
 		return SHAPES[state.getValue(AGE)];
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
 		if (stateIn.getValue(AGE) == 1 && rand.nextInt(5) == 0) {
@@ -68,6 +71,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 		}
 	}
 
+	@Override
 	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
 		if (worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
 			if (state.getValue(AGE) == 0) {
@@ -80,6 +84,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 		}
 	}
 
+	@Override
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
 			LivingEntity livingentity = ((LivingEntity) entityIn);
@@ -90,18 +95,22 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 		}
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(AGE);
 	}
 
+	@Override
 	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
+	@Override
 	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
+	@Override
 	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
 		if (state.getValue(AGE) == 0) {
 			worldIn.setBlock(pos, state.setValue(AGE, 1), 2);

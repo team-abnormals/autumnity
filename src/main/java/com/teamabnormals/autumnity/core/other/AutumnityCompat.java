@@ -103,6 +103,7 @@ public class AutumnityCompat {
 
 	private static void registerDispenserBehaviors() {
 		DispenserBlock.registerBehavior(AutumnityItems.TURKEY_EGG.get(), new AbstractProjectileDispenseBehavior() {
+			@Override
 			protected Projectile getProjectile(Level worldIn, Position position, ItemStack stackIn) {
 				return Util.make(new ThrownTurkeyEgg(worldIn, position.x(), position.y(), position.z()), (egg) -> {
 					egg.setItem(stackIn);

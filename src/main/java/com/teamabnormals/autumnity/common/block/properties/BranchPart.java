@@ -10,6 +10,7 @@ public enum BranchPart implements StringRepresentable {
 		return this.getSerializedName();
 	}
 
+	@Override
 	public String getSerializedName() {
 		return this == TIP ? "tip" : "base";
 	}

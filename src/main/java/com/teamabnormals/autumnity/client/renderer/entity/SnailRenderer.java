@@ -23,6 +23,7 @@ public class SnailRenderer extends MobRenderer<Snail, SnailModel<Snail>> {
 		super(context, new SnailModel<>(context.bakeLayer(AutumnityModelLayers.SNAIL)), 0.5F);
 	}
 
+	@Override
 	public ResourceLocation getTextureLocation(Snail entity) {
 		String s = ChatFormatting.stripFormatting(entity.getName().getString().toLowerCase());
 		if (s != null) {
@@ -36,6 +37,7 @@ public class SnailRenderer extends MobRenderer<Snail, SnailModel<Snail>> {
 		return SNAIL_TEXTURES;
 	}
 
+	@Override
 	protected void setupRotations(Snail entityLiving, PoseStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
 		super.setupRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
 		double d0 = entityLiving.getShakingAnim(partialTicks);

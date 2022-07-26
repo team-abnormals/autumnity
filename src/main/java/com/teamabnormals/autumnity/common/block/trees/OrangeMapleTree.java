@@ -9,6 +9,7 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class OrangeMapleTree extends AbstractTreeGrower {
+	@Override
 	@Nullable
 	protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random randomIn, boolean beehiveIn) {
 		return AutumnityConfiguredFeatures.MAPLE_TREE_ORANGE.getHolder().get();

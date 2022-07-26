@@ -29,6 +29,7 @@ public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock {
 		super(properties);
 	}
 
+	@Override
 	protected BlockPattern getOrCreateSnowGolemFull() {
 		if (this.snowGolemFull == null) {
 			this.snowGolemFull = BlockPatternBuilder.start().aisle("^", "#", "#").where('^', BlockInWorld.hasState(IS_PUMPKIN)).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.SNOW_BLOCK))).build();
@@ -37,6 +38,7 @@ public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock {
 		return this.snowGolemFull;
 	}
 
+	@Override
 	protected BlockPattern getOrCreateIronGolemFull() {
 		if (this.ironGolemFull == null) {
 			this.ironGolemFull = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', BlockInWorld.hasState(IS_PUMPKIN)).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.IRON_BLOCK))).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();

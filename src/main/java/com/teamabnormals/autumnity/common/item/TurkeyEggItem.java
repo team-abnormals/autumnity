@@ -17,6 +17,7 @@ public class TurkeyEggItem extends Item {
 		super(properties);
 	}
 
+	@Override
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
 		level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));

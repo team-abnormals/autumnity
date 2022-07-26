@@ -53,10 +53,12 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(AGE, 0));
 	}
 
+	@Override
 	public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
 		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
 		if (state.getValue(AGE) == 0 && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 			return TOP_SHAPE;
@@ -65,6 +67,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		}
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(10) == 0) {
@@ -82,6 +85,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		}
 	}
 
+	@Override
 	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
 		int i = state.getValue(AGE);
 		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
@@ -92,6 +96,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		}
 	}
 
+	@Override
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
 			LivingEntity livingentity = ((LivingEntity) entityIn);
@@ -102,6 +107,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		}
 	}
 
+	@Override
 	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult p_225533_6_) {
 		int i = state.getValue(AGE);
 		boolean flag = i == 3;
@@ -127,24 +133,29 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 		worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(AGE, age), flags);
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(HALF, AGE);
 	}
 
+	@Override
 	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return state.getValue(AGE) < 3;
 	}
 
+	@Override
 	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
+	@Override
 	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
 		int i = Math.min(3, state.getValue(AGE) + 1);
 		worldIn.setBlock(pos, state.setValue(AGE, i), 2);
 		setHalfState(worldIn, pos, state, i);
 	}
 
+	@Override
 	public Block.OffsetType getOffsetType() {
 		return Block.OffsetType.NONE;
 	}

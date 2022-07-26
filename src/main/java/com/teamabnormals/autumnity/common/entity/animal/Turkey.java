@@ -95,6 +95,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 		this.entityData.define(ANGER_TIME, 0);
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void handleEntityEvent(byte id) {
 		if (id == 4) {
@@ -318,6 +319,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 			super(turkey, 1.4D);
 		}
 
+		@Override
 		public boolean canUse() {
 			return this.mob.isBaby() && super.canUse();
 		}
@@ -328,12 +330,14 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 			super(turkey);
 		}
 
+		@Override
 		protected void alertOther(Mob mobIn, LivingEntity targetIn) {
 			if (mobIn instanceof Turkey && !mobIn.isBaby()) {
 				super.alertOther(mobIn, targetIn);
 			}
 		}
 
+		@Override
 		public void start() {
 			super.start();
 
@@ -349,6 +353,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 			super(turkey, classTarget, true);
 		}
 
+		@Override
 		public boolean canUse() {
 			Turkey turkey = (Turkey) this.mob;
 

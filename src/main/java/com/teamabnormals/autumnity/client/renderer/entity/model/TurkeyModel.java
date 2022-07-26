@@ -56,14 +56,17 @@ public class TurkeyModel<T extends Turkey> extends AgeableListModel<T> {
 		return LayerDefinition.create(meshdefinition, 64, 32);
 	}
 
+	@Override
 	protected Iterable<ModelPart> headParts() {
 		return ImmutableList.of(this.head);
 	}
 
+	@Override
 	protected Iterable<ModelPart> bodyParts() {
 		return ImmutableList.of(this.body, this.rightLeg, this.leftLeg);
 	}
 
+	@Override
 	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float partialtick = ageInTicks - (float) entityIn.tickCount;
 		float winganim = entityIn.getWingRotation(partialtick);

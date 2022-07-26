@@ -38,6 +38,7 @@ public class ThrownTurkeyEgg extends ThrowableItemProjectile {
 		this(AutumnityEntityTypes.TURKEY_EGG.get(), world);
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void handleEntityEvent(byte id) {
 		if (id == 3) {

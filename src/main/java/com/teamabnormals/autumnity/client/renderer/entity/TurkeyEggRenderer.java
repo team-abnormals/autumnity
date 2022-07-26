@@ -37,6 +37,7 @@ public class TurkeyEggRenderer<T extends Entity & ItemSupplier> extends EntityRe
 		return this.fullBright ? 15 : super.getBlockLightLevel(entityIn, partialTicks);
 	}
 
+	@Override
 	public void render(T entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn) {
 		matrixStackIn.pushPose();
 		matrixStackIn.scale(this.scale, this.scale, this.scale);
@@ -47,6 +48,7 @@ public class TurkeyEggRenderer<T extends Entity & ItemSupplier> extends EntityRe
 		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 	}
 
+	@Override
 	public ResourceLocation getTextureLocation(Entity entity) {
 		return TextureAtlas.LOCATION_BLOCKS;
 	}

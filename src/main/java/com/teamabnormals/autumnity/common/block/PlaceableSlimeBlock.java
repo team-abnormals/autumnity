@@ -32,6 +32,7 @@ public class PlaceableSlimeBlock extends DirectionalBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
 	}
 
+	@Override
 	@OnlyIn(Dist.CLIENT)
 	public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
 		if (adjacentBlockState.getBlock() == this) {
@@ -41,14 +42,17 @@ public class PlaceableSlimeBlock extends DirectionalBlock {
 		return super.skipRendering(state, adjacentBlockState, side);
 	}
 
+	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
+	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.setValue(FACING, mirrorIn.mirror(state.getValue(FACING)));
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
 			default -> UP_AABB;
@@ -60,16 +64,19 @@ public class PlaceableSlimeBlock extends DirectionalBlock {
 		};
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		Direction direction = context.getClickedFace();
 		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction.getOpposite()));
 		return blockstate.is(this) && blockstate.getValue(FACING) == direction ? this.defaultBlockState().setValue(FACING, direction.getOpposite()) : this.defaultBlockState().setValue(FACING, direction);
 	}
 
+	@Override
 	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
 		return facing.getOpposite() == stateIn.getValue(FACING) && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : stateIn;
 	}
 
+	@Override
 	public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
 		Direction direction = state.getValue(FACING);
 		BlockPos blockpos = pos.relative(direction.getOpposite());
@@ -77,10 +84,12 @@ public class PlaceableSlimeBlock extends DirectionalBlock {
 		return Block.isFaceFull(blockstate.getCollisionShape(worldIn, blockpos), direction);
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
 
+	@Override
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
 		if (!(entityIn instanceof Snail) && Shapes.joinIsNotEmpty(Shapes.create(entityIn.getBoundingBox().move(-pos.getX(), -pos.getY(), -pos.getZ())), state.getShape(worldIn, pos), BooleanOp.AND)) {
 			entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.4D, 1.0D, 0.4D));

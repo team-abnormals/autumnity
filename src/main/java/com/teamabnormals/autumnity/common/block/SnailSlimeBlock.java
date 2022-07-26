@@ -66,6 +66,7 @@ public class SnailSlimeBlock extends HalfTransparentBlock {
 		return state.is(AutumnityBlockTags.SLIPPERY_SNAIL_SLIME_BLOCKS) || fluidstate.is(FluidTags.WATER);
 	}
 
+	@Override
 	public void fallOn(Level worldIn, BlockState state, BlockPos pos, Entity entityIn, float fallDistance) {
 		if (entityIn.isShiftKeyDown()) {
 			super.fallOn(worldIn, state, pos, entityIn, fallDistance);
@@ -74,6 +75,7 @@ public class SnailSlimeBlock extends HalfTransparentBlock {
 		}
 	}
 
+	@Override
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
 		if (!state.getValue(SLIPPERY) && !(entityIn instanceof Snail)) {
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D) {

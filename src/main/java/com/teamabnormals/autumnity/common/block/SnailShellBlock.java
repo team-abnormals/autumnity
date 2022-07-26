@@ -19,6 +19,7 @@ public class SnailShellBlock extends HorizontalDirectionalBlock {
 		super(builder);
 	}
 
+	@Override
 	@Nullable
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		Direction direction = context.getNearestLookingDirection();
@@ -37,6 +38,7 @@ public class SnailShellBlock extends HorizontalDirectionalBlock {
 		};
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, ORIENTATION);
 	}

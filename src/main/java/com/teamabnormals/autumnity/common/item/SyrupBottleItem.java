@@ -11,11 +11,12 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 public class SyrupBottleItem extends Item {
-	
+
 	public SyrupBottleItem(Properties properties) {
 		super(properties);
 	}
 
+	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
 		super.finishUsingItem(stack, worldIn, entityLiving);
 
@@ -33,14 +34,17 @@ public class SyrupBottleItem extends Item {
 		}
 	}
 
+	@Override
 	public UseAnim getUseAnimation(ItemStack stack) {
 		return UseAnim.DRINK;
 	}
 
+	@Override
 	public SoundEvent getDrinkingSound() {
 		return SoundEvents.HONEY_DRINK;
 	}
 
+	@Override
 	public SoundEvent getEatingSound() {
 		return SoundEvents.HONEY_DRINK;
 	}

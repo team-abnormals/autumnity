@@ -633,6 +633,7 @@ public class Snail extends Animal {
 			super();
 		}
 
+		@Override
 		public boolean canUse() {
 			if (!Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0) {
 				List<MushroomCow> list = Snail.this.level.getEntitiesOfClass(MushroomCow.class, Snail.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));

@@ -46,6 +46,7 @@ public class SnailModel<T extends Snail> extends AgeableListModel<T> {
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
+	@Override
 	public void prepareMobModel(T entity, float limbSwing, float limbSwingAmount, float partialTick) {
 		float f = entity.getHidingAnim(partialTick);
 		float f1 = 3.0F * f;
@@ -59,6 +60,7 @@ public class SnailModel<T extends Snail> extends AgeableListModel<T> {
 		this.shell.setPos(0.0F, 7.0F, -1.0F - f1);
 	}
 
+	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float partialtick = ageInTicks - (float) entity.tickCount;
 		float f = entity.getHidingAnim(partialtick);
@@ -108,10 +110,12 @@ public class SnailModel<T extends Snail> extends AgeableListModel<T> {
 		}
 	}
 
+	@Override
 	protected Iterable<ModelPart> headParts() {
 		return ImmutableList.of();
 	}
 
+	@Override
 	protected Iterable<ModelPart> bodyParts() {
 		return ImmutableList.of(this.body, this.hideBody, this.eye1, this.eye2, this.tentacle1, this.tentacle2, this.shell);
 	}

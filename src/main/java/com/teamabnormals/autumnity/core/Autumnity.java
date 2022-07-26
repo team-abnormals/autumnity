@@ -5,9 +5,11 @@ import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.model.SnailModel;
 import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
-import com.teamabnormals.autumnity.core.other.AutumnityClient;
+import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.registry.*;
+import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConfiguredFeatures;
+import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
@@ -38,9 +40,11 @@ public class Autumnity {
 
 		REGISTRY_HELPER.register(bus);
 		AutumnityPaintings.PAINTINGS.register(bus);
-		AutumnityEffects.MOB_EFFECTS.register(bus);
+		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
 		AutumnityFeatures.FEATURES.register(bus);
+		AutumnityConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+		AutumnityPlacedFeatures.PLACED_FEATURES.register(bus);
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 
 		bus.addListener(this::commonSetup);
@@ -61,15 +65,14 @@ public class Autumnity {
 			AutumnityCompat.registerCompat();
 			AutumnityPotions.registerBrewingRecipes();
 			AutumnityBiomes.addBiomeTypes();
-			AutumnityBiomes.addBiomesToGeneration();
-			AutumnityEntities.registerSpawns();
+			AutumnityEntityTypes.registerSpawns();
 		});
 	}
 
 	private void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			AutumnityClient.registerRenderLayers();
-			AutumnityClient.registerBlockColors();
+			AutumnityClientCompat.registerRenderLayers();
+			AutumnityClientCompat.registerBlockColors();
 		});
 	}
 
@@ -85,9 +88,9 @@ public class Autumnity {
 
 	@OnlyIn(Dist.CLIENT)
 	private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(AutumnityEntities.SNAIL.get(), SnailRenderer::new);
-		event.registerEntityRenderer(AutumnityEntities.TURKEY.get(), TurkeyRenderer::new);
-		event.registerEntityRenderer(AutumnityEntities.TURKEY_EGG.get(), TurkeyEggRenderer::new);
-		event.registerEntityRenderer(AutumnityEntities.FALLING_HEAD_BLOCK.get(), FallingBlockRenderer::new);
+		event.registerEntityRenderer(AutumnityEntityTypes.SNAIL.get(), SnailRenderer::new);
+		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY.get(), TurkeyRenderer::new);
+		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY_EGG.get(), TurkeyEggRenderer::new);
+		event.registerEntityRenderer(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), FallingBlockRenderer::new);
 	}
 }

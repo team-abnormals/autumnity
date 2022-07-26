@@ -80,6 +80,7 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}:${project.jei}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}:${project.jei}")
+    implementation fg.deobf("curse.maven:cyanide_forge-541676:3811793")
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
@@ -88,6 +89,7 @@ repositories {
     maven { url "https://maven.jaackson.me" }
     maven { url "https://dvs1.progwml6.com/files/maven/" }
     maven { url "https://modmaven.k-4u.nl" }
+    maven { url "https://www.cursemaven.com" }
 }
 
 jar {

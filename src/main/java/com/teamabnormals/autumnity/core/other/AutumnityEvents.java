@@ -1,11 +1,11 @@
 package com.teamabnormals.autumnity.core.other;
 
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
-import com.teamabnormals.autumnity.common.entity.passive.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityEffects;
+import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.DataUtil;
@@ -127,7 +127,7 @@ public class AutumnityEvents {
 		if (!player.isSpectator()) {
 			if (item == AutumnityItems.FOUL_BERRIES.get() && ModList.get().isLoaded("berry_good")) {
 				event.setUseItem(Event.Result.DENY);
-			} else if (player.hasEffect(AutumnityEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU))) {
+			} else if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU))) {
 				if (player.getFoodData().getFoodLevel() < 19) {
 					player.getFoodData().eat(1, 0.0F);
 				}
@@ -139,7 +139,7 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event) {
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().hasEffect(AutumnityEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof Player && itemstack.isEdible()) {
+		if (event.getEntityLiving().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof Player && itemstack.isEdible()) {
 			Item item = itemstack.getItem();
 			FoodProperties food = item.getFoodProperties();
 			boolean flag = true;
@@ -153,7 +153,7 @@ public class AutumnityEvents {
 						CompoundTag compoundnbt1 = listnbt.getCompound(i);
 
 						MobEffect effect = MobEffect.byId(compoundnbt1.getByte("EffectId"));
-						if (effect == AutumnityEffects.FOUL_TASTE.get()) {
+						if (effect == AutumnityMobEffects.FOUL_TASTE.get()) {
 							flag = false;
 							break;
 						}
@@ -161,7 +161,7 @@ public class AutumnityEvents {
 				}
 			} else {
 				for (Pair<MobEffectInstance, Float> pair : food.getEffects()) {
-					if (pair.getFirst().getEffect() == AutumnityEffects.FOUL_TASTE.get()) {
+					if (pair.getFirst().getEffect() == AutumnityMobEffects.FOUL_TASTE.get()) {
 						flag = false;
 						break;
 					}
@@ -244,21 +244,21 @@ public class AutumnityEvents {
 	public static void onPotionAdded(PotionEvent.PotionAddedEvent event) {
 		LivingEntity livingentity = event.getEntityLiving();
 		MobEffectInstance effect = event.getPotionEffect();
-		MobEffectInstance extension = livingentity.getEffect(AutumnityEffects.EXTENSION.get());
+		MobEffectInstance extension = livingentity.getEffect(AutumnityMobEffects.EXTENSION.get());
 
 		if (extension != null) {
-			if (effect.getEffect() != AutumnityEffects.EXTENSION.get()) {
+			if (effect.getEffect() != AutumnityMobEffects.EXTENSION.get()) {
 				effect.update(new MobEffectInstance(effect.getEffect(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon()));
 			}
 		}
 	}
 
 	public static void updateFoulTaste(Player player) {
-		MobEffectInstance effect = player.getEffect(AutumnityEffects.FOUL_TASTE.get());
+		MobEffectInstance effect = player.getEffect(AutumnityMobEffects.FOUL_TASTE.get());
 
-		player.removeEffect(AutumnityEffects.FOUL_TASTE.get());
+		player.removeEffect(AutumnityMobEffects.FOUL_TASTE.get());
 		if (effect.getAmplifier() > 0) {
-			player.addEffect(new MobEffectInstance(AutumnityEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
+			player.addEffect(new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
 		}
 
 		if (player instanceof ServerPlayer serverplayerentity) {

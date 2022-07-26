@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.common.entity.item;
 
-import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
@@ -29,7 +29,7 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 	}
 
 	public FallingHeadBlockEntity(Level worldIn, double x, double y, double z, BlockState fallingBlockState) {
-		this(AutumnityEntities.FALLING_HEAD_BLOCK.get(), worldIn);
+		this(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), worldIn);
 		this.blockState = fallingBlockState;
 		this.blocksBuilding = true;
 		this.setPos(x, y + (double) ((1.0F - this.getBbHeight()) / 2.0F), z);
@@ -41,7 +41,7 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 	}
 
 	public FallingHeadBlockEntity(PlayMessages.SpawnEntity spawnEntity, Level world) {
-		this(AutumnityEntities.FALLING_HEAD_BLOCK.get(), world);
+		this(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), world);
 	}
 
 	public static FallingHeadBlockEntity fall(Level p_201972_, BlockPos p_201973_, BlockState p_201974_) {

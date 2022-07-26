@@ -11,6 +11,6 @@ import java.util.Random;
 public class MapleTree extends AbstractTreeGrower {
 	@Nullable
 	protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random randomIn, boolean beehiveIn) {
-		return AutumnityConfiguredFeatures.MAPLE_TREE_GREEN;
+		return AutumnityConfiguredFeatures.MAPLE_TREE.getHolder().get();
 	}
 }

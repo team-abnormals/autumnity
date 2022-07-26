@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.autumnity.common.entity.passive.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;

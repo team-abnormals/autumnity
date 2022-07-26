@@ -1,9 +1,9 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.autumnity.common.entity.passive.SnailEntity;
-import com.teamabnormals.autumnity.common.entity.passive.TurkeyEntity;
+import com.teamabnormals.autumnity.common.entity.animal.SnailEntity;
+import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -93,7 +93,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntities.SNAIL.get() && entityIn.getType() != AutumnityEntities.TURKEY.get()) {
+		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
 			LivingEntity livingentity = ((LivingEntity) entityIn);
 			livingentity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
 			if (!worldIn.isClientSide && !livingentity.hasEffect(MobEffects.POISON) && !livingentity.isShiftKeyDown()) {

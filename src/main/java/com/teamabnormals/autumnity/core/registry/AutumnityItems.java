@@ -46,13 +46,13 @@ public class AutumnityItems {
 	public static final RegistryObject<Item> MAPLE_LEAF_BANNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBanners.MAPLE_LEAF, new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 	public static final RegistryObject<Item> SWIRL_BANNER_PATTERN = HELPER.createItem("swirl_banner_pattern", () -> new BannerPatternItem(AutumnityBanners.SWIRL, new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 
-	public static final RegistryObject<ForgeSpawnEggItem> SNAIL_SPAWN_EGG = HELPER.createSpawnEggItem("snail", AutumnityEntities.SNAIL::get, 7355937, 14727558);
-	public static final RegistryObject<ForgeSpawnEggItem> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", AutumnityEntities.TURKEY::get, 6765623, 5019859);
+	public static final RegistryObject<ForgeSpawnEggItem> SNAIL_SPAWN_EGG = HELPER.createSpawnEggItem("snail", AutumnityEntityTypes.SNAIL::get, 7355937, 14727558);
+	public static final RegistryObject<ForgeSpawnEggItem> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", AutumnityEntityTypes.TURKEY::get, 6765623, 5019859);
 
 	public static class AutumnityFoods {
 		public static final FoodProperties SYRUP_BOTTLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
-		public static final FoodProperties FOUL_BERRIES = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(AutumnityEffects.FOUL_TASTE.get(), 320, 0), 1.0F).build();
-		public static final FoodProperties FOUL_SOUP = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).effect(() -> new MobEffectInstance(AutumnityEffects.FOUL_TASTE.get(), 2400, 1), 1.0F).build();
+		public static final FoodProperties FOUL_BERRIES = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE.get(), 320, 0), 1.0F).build();
+		public static final FoodProperties FOUL_SOUP = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).effect(() -> new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE.get(), 2400, 1), 1.0F).build();
 		public static final FoodProperties PUMPKIN_BREAD = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.4F).build();
 		public static final FoodProperties TURKEY = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.3F).meat().effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.1F).fast().build();
 		public static final FoodProperties COOKED_TURKEY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).meat().fast().build();

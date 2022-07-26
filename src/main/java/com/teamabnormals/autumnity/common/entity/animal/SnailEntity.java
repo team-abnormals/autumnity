@@ -1,9 +1,9 @@
-package com.teamabnormals.autumnity.common.entity.passive;
+package com.teamabnormals.autumnity.common.entity.animal;
 
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import net.minecraft.core.BlockPos;
@@ -433,7 +433,7 @@ public class SnailEntity extends Animal {
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel world, AgeableMob ageable) {
-		return AutumnityEntities.SNAIL.get().create(world);
+		return AutumnityEntityTypes.SNAIL.get().create(world);
 	}
 
 	@Override

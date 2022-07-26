@@ -2,7 +2,7 @@ package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.core.other.AutumnityEvents;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityEffects;
+import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -137,7 +137,7 @@ public class PancakeBlock extends Block {
 				worldIn.removeBlock(pos, false);
 			}
 
-			if (player.hasEffect(AutumnityEffects.FOUL_TASTE.get())) {
+			if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get())) {
 				player.getFoodData().eat(2, 0.0F);
 				AutumnityEvents.updateFoulTaste(player);
 			}

@@ -1,13 +1,13 @@
 {
   "required": true,
   "package": "com.teamabnormals.autumnity.core.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "refmap": "autumnity.refmap.json",
   "mixins": [
     "BlockMixin",
     "CatMixin",
-    "LakesFeatureMixin"
+    "LakeFeatureMixin"
   ],
   "client": [],
   "injectors": {

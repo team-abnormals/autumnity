@@ -1,10 +1,10 @@
-package com.teamabnormals.autumnity.common.entity.passive;
+package com.teamabnormals.autumnity.common.entity.animal;
 
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
-import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
-import com.teamabnormals.incubation.api.EggLayer;
+import com.teamabnormals.incubation.core.api.EggLayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -265,7 +265,7 @@ public class TurkeyEntity extends Animal implements EggLayer, NeutralMob {
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel world, AgeableMob ageable) {
-		return AutumnityEntities.TURKEY.get().create(world);
+		return AutumnityEntityTypes.TURKEY.get().create(world);
 	}
 
 	@Override

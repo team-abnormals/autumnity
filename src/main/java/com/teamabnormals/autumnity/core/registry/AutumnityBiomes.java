@@ -2,12 +2,9 @@ package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.blueprint.core.util.registry.BiomeSubRegistryHelper;
+import com.teamabnormals.blueprint.core.util.registry.BiomeSubRegistryHelper.KeyedBiome;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.biome.AmbientMoodSettings;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.biome.BiomeSpecialEffects;
-import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.biome.*;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -16,20 +13,18 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class AutumnityBiomes {
 	private static final BiomeSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getBiomeSubHelper();
 
-	public static final BiomeSubRegistryHelper.KeyedBiome MAPLE_FOREST = HELPER.createBiome("maple_forest", AutumnityBiomes::createMapleForestBiome);
-	public static final BiomeSubRegistryHelper.KeyedBiome MAPLE_FOREST_HILLS = HELPER.createBiome("maple_forest_hills", AutumnityBiomes::createMapleForestBiome);
-	public static final BiomeSubRegistryHelper.KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", AutumnityBiomes::createPumpkinFieldsBiome);
-	public static final BiomeSubRegistryHelper.KeyedBiome YELLOW_SPOTTED_FOREST = HELPER.createBiome("yellow_spotted_forest", AutumnityBiomes::createYellowSpottedForestBiome);
-	public static final BiomeSubRegistryHelper.KeyedBiome ORANGE_SPOTTED_DARK_FOREST = HELPER.createBiome("orange_spotted_dark_forest", AutumnityBiomes::createOrangeSpottedDarkForest);
-	public static final BiomeSubRegistryHelper.KeyedBiome RED_SPOTTED_TAIGA = HELPER.createBiome("red_spotted_taiga", AutumnityBiomes::createRedSpottedTaigaBiome);
+	public static final KeyedBiome MAPLE_FOREST = HELPER.createBiome("maple_forest", AutumnityBiomes::createMapleForestBiome);
+	public static final KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", AutumnityBiomes::createPumpkinFieldsBiome);
+	public static final KeyedBiome SPOTTED_FOREST = HELPER.createBiome("spotted_forest", AutumnityBiomes::createYellowSpottedForestBiome);
+	public static final KeyedBiome SPOTTED_DARK_FOREST = HELPER.createBiome("spotted_dark_forest", AutumnityBiomes::createOrangeSpottedDarkForest);
+	public static final KeyedBiome SPOTTED_TAIGA = HELPER.createBiome("spotted_taiga", AutumnityBiomes::createRedSpottedTaigaBiome);
 
 	public static void addBiomeTypes() {
 		BiomeDictionary.addTypes(MAPLE_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
-		BiomeDictionary.addTypes(MAPLE_FOREST_HILLS.getKey(), Type.FOREST, Type.HILLS, Type.RARE, Type.OVERWORLD);
 		BiomeDictionary.addTypes(PUMPKIN_FIELDS.getKey(), Type.PLAINS, Type.SPARSE, Type.RARE, Type.OVERWORLD);
-		BiomeDictionary.addTypes(YELLOW_SPOTTED_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
-		BiomeDictionary.addTypes(ORANGE_SPOTTED_DARK_FOREST.getKey(), Type.SPOOKY, Type.DENSE, Type.FOREST, Type.RARE, Type.OVERWORLD);
-		BiomeDictionary.addTypes(RED_SPOTTED_TAIGA.getKey(), Type.COLD, Type.CONIFEROUS, Type.FOREST, Type.OVERWORLD);
+		BiomeDictionary.addTypes(SPOTTED_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
+		BiomeDictionary.addTypes(SPOTTED_DARK_FOREST.getKey(), Type.SPOOKY, Type.DENSE, Type.FOREST, Type.RARE, Type.OVERWORLD);
+		BiomeDictionary.addTypes(SPOTTED_TAIGA.getKey(), Type.COLD, Type.CONIFEROUS, Type.FOREST, Type.OVERWORLD);
 	}
 
 	private static Biome createMapleForestBiome() {

@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.client.renderer.entity.model;
 
 import com.google.common.collect.ImmutableList;
-import com.teamabnormals.autumnity.common.entity.passive.TurkeyEntity;
+import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
 import com.teamabnormals.autumnity.core.Autumnity;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;

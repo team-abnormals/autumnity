@@ -10,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public class AutumnityEffects {
+public class AutumnityMobEffects {
 	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Autumnity.MOD_ID);
 
 	public static final RegistryObject<MobEffect> EXTENSION = MOB_EFFECTS.register("extension", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 16767620));

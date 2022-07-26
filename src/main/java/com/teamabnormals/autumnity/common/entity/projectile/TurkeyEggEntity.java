@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.common.entity.projectile;
 
-import com.teamabnormals.autumnity.common.entity.passive.TurkeyEntity;
-import com.teamabnormals.autumnity.core.registry.AutumnityEntities;
+import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -26,15 +26,15 @@ public class TurkeyEggEntity extends ThrowableItemProjectile {
 	}
 
 	public TurkeyEggEntity(Level worldIn, LivingEntity throwerIn) {
-		super(AutumnityEntities.TURKEY_EGG.get(), throwerIn, worldIn);
+		super(AutumnityEntityTypes.TURKEY_EGG.get(), throwerIn, worldIn);
 	}
 
 	public TurkeyEggEntity(Level worldIn, double x, double y, double z) {
-		super(AutumnityEntities.TURKEY_EGG.get(), x, y, z, worldIn);
+		super(AutumnityEntityTypes.TURKEY_EGG.get(), x, y, z, worldIn);
 	}
 
 	public TurkeyEggEntity(PlayMessages.SpawnEntity spawnEntity, Level world) {
-		this(AutumnityEntities.TURKEY_EGG.get(), world);
+		this(AutumnityEntityTypes.TURKEY_EGG.get(), world);
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -63,7 +63,7 @@ public class TurkeyEggEntity extends ThrowableItemProjectile {
 				}
 
 				for (int j = 0; j < i; ++j) {
-					TurkeyEntity turkeyentity = AutumnityEntities.TURKEY.get().create(this.level);
+					TurkeyEntity turkeyentity = AutumnityEntityTypes.TURKEY.get().create(this.level);
 					turkeyentity.setAge(-24000);
 					turkeyentity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
 					this.level.addFreshEntity(turkeyentity);

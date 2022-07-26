@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.core.other.AutumnityEvents;
-import com.teamabnormals.autumnity.core.registry.AutumnityEffects;
+import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems.AutumnityFoods;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +20,7 @@ public class CookedTurkeyBlock extends TurkeyBlock {
 		int i = AutumnityFoods.COOKED_TURKEY.getNutrition();
 		int j = i == 1 ? i : (int) (i * 0.5F);
 
-		if (player.hasEffect(AutumnityEffects.FOUL_TASTE.get())) {
+		if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get())) {
 			player.getFoodData().eat(j, 0.0F);
 			AutumnityEvents.updateFoulTaste(player);
 		}

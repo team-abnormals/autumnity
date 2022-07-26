@@ -11,7 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.client.renderer.BiomeColors;
 
-public class AutumnityClient {
+public class AutumnityClientCompat {
 
 	public static void registerRenderLayers() {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_SLIME.get(), RenderType.translucent());

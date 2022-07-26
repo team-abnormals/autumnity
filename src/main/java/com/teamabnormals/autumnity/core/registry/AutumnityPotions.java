@@ -14,7 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class AutumnityPotions {
 	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, Autumnity.MOD_ID);
 
-	public static final RegistryObject<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(AutumnityEffects.EXTENSION.get(), 1800)));
+	public static final RegistryObject<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(AutumnityMobEffects.EXTENSION.get(), 1800)));
 
 	public static void registerBrewingRecipes() {
 		DataUtil.addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_SLIME.get().asItem(), EXTENSION.get());

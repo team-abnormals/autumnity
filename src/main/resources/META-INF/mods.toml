@@ -27,13 +27,13 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "forge"
     mandatory = true
-    versionRange = "[40.0.18,)"
+    versionRange = "[40.1.0,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.autumnity]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[5.3.0,)"
+    versionRange = "[5.4.1,)"
     ordering = "AFTER"
     side = "BOTH"

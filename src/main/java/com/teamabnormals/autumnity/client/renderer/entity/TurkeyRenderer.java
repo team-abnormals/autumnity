@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.client.renderer.entity;
 
 import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
-import com.teamabnormals.autumnity.common.entity.passive.TurkeyEntity;
+import com.teamabnormals.autumnity.common.entity.animal.TurkeyEntity;
 import com.teamabnormals.autumnity.core.Autumnity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

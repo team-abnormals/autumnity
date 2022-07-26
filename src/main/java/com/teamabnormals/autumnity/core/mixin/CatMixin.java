@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @Mixin(Cat.class)
 public abstract class CatMixin {
 
-	@Inject(method = "finalizeSpawn", at = @At(value = "TAIL"), cancellable = true)
+	@Inject(method = "finalizeSpawn", at = @At(value = "TAIL"))
 	private void finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData groupData, @Nullable CompoundTag tag, CallbackInfoReturnable<SpawnGroupData> cir) {
 		ServerLevel serverlevel = level.getLevel();
 		Cat cat = ((Cat) (Object) this);

@@ -12,6 +12,7 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
@@ -68,6 +69,18 @@ public class AutumnityGeneration {
 				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.PATCH_PUMPKIN_PUMPKIN_FIELDS.getHolder().get());
 			}
 		} else {
+//			if (DataUtil.matchesKeys(biome, Biomes.FOREST)) {
+//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_YELLOW.getHolder().get());
+//			}
+//
+//			if (DataUtil.matchesKeys(biome, Biomes.DARK_FOREST)) {
+//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_ORANGE.getHolder().get());
+//			}
+//
+//			if (DataUtil.matchesKeys(biome, Biomes.TAIGA)) {
+//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_RED.getHolder().get());
+//			}
+
 			if (DataUtil.matchesKeys(biome, AutumnityBiomes.SPOTTED_FOREST.getKey())) {
 				BiomeDefaultFeatures.farmAnimals(spawns);
 				BiomeDefaultFeatures.commonSpawns(spawns);

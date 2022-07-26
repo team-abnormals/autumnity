@@ -1,6 +1,7 @@
 package com.teamabnormals.autumnity.core.registry;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList.Builder;
 import com.teamabnormals.autumnity.common.block.TallFoulBerryBushBlock;
 import com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesMapleTreeFeature;
@@ -106,7 +107,11 @@ public class AutumnityFeatures {
 		public static final RegistryObject<PlacedFeature> FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED = register("fallen_leaves_orange_maple_tree_checked", AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_ORANGE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
 
 		public static final RegistryObject<PlacedFeature> TREES_MAPLE = register("trees_maple", AutumnityConfiguredFeatures.MAPLE_TREE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
-		public static final RegistryObject<PlacedFeature> TREES_MAPLE_YELLOW = register("trees_maple_yellow", AutumnityConfiguredFeatures.MAPLE_TREE_YELLOW, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+
+		public static final RegistryObject<PlacedFeature> TREES_MAPLE_YELLOW = register("trees_maple_yellow", AutumnityConfiguredFeatures.MAPLE_TREE_YELLOW, treePlacementBase(PlacementUtils.countExtra(1, 0.1F, 1)).add(NoiseThresholdCountPlacement.of(-0.8D, 15, 4)).build());
+		public static final RegistryObject<PlacedFeature> TREES_MAPLE_ORANGE = register("trees_maple_orange", AutumnityConfiguredFeatures.MAPLE_TREE_ORANGE, treePlacementBase(PlacementUtils.countExtra(1, 0.1F, 1)).add(NoiseThresholdCountPlacement.of(-0.8D, 15, 4)).build());
+		public static final RegistryObject<PlacedFeature> TREES_MAPLE_RED = register("trees_maple_red", AutumnityConfiguredFeatures.MAPLE_TREE_RED, treePlacementBase(PlacementUtils.countExtra(1, 0.1F, 1)).add(NoiseThresholdCountPlacement.of(-0.8D, 15, 4)).build());
+
 		public static final RegistryObject<PlacedFeature> TREES_SPOTTED_FOREST = register("trees_spotted_forest", AutumnityConfiguredFeatures.TREES_YELLOW_SPOTTED_FOREST, VegetationPlacements.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
 		public static final RegistryObject<PlacedFeature> SPOTTED_DARK_FOREST_VEGETATION = register("spotted_dark_forest_vegetation", AutumnityConfiguredFeatures.ORANGE_SPOTTED_DARK_FOREST_VEGETATION, CountPlacement.of(16), InSquarePlacement.spread(), VegetationPlacements.TREE_THRESHOLD, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
 		public static final RegistryObject<PlacedFeature> TREES_SPOTTED_TAIGA = register("trees_spotted_taiga", AutumnityConfiguredFeatures.TREES_RED_SPOTTED_TAIGA, VegetationPlacements.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
@@ -121,6 +126,10 @@ public class AutumnityFeatures {
 		public static final Holder<PlacedFeature> PATCH_TALL_GRASS_PUMPKIN_FIELDS = PlacementUtils.register("patch_tall_grass_pumpkin_fields", VegetationFeatures.PATCH_TALL_GRASS, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 		public static final RegistryObject<PlacedFeature> PATCH_PUMPKIN_PUMPKIN_FIELDS = register("patch_pumpkin_pumpkin_fields", AutumnityConfiguredFeatures.PATCH_PUMPKINS_PUMPKIN_FIELDS, RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 		public static final RegistryObject<PlacedFeature> FLOWER_PUMPKIN_FIELDS = register("flower_pumpkin_fields", AutumnityConfiguredFeatures.FLOWER_PUMPKIN_FIELDS, NoiseThresholdCountPlacement.of(-0.8D, 15, 4), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+		private static Builder<PlacementModifier> treePlacementBase(PlacementModifier modifier) {
+			return ImmutableList.<PlacementModifier>builder().add(modifier).add(InSquarePlacement.spread()).add(VegetationPlacements.TREE_THRESHOLD).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome());
+		}
 
 		private static RegistryObject<PlacedFeature> register(String name, RegistryObject<? extends ConfiguredFeature<?, ?>> feature, PlacementModifier... placementModifiers) {
 			return register(name, feature, List.of(placementModifiers));

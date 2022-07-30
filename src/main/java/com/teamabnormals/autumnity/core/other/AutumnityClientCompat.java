@@ -35,10 +35,10 @@ public class AutumnityClientCompat {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), RenderType.cutoutMipped());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.RED_MAPLE_LEAVES.get(), RenderType.cutoutMipped());
 
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_LEAF_PILE.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.RED_MAPLE_LEAF_PILE.get(), RenderType.cutoutMipped());
 
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_SAPLING.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get(), RenderType.cutout());
@@ -49,6 +49,11 @@ public class AutumnityClientCompat {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_YELLOW_MAPLE_SAPLING.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_ORANGE_MAPLE_SAPLING.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_RED_MAPLE_SAPLING.get(), RenderType.cutout());
+
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), RenderType.cutoutMipped());
 
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_HEDGE.get(), RenderType.cutoutMipped());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.YELLOW_MAPLE_HEDGE.get(), RenderType.cutoutMipped());
@@ -63,15 +68,17 @@ public class AutumnityClientCompat {
 		BlockColors blockcolors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemcolors = Minecraft.getInstance().getItemColors();
 
-		blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(), AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.MAPLE_HEDGE.get());
-		blockcolors.register((state, world, pos, tintIndex) -> 12665871, AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_HEDGE.get());
-		blockcolors.register((state, world, pos, tintIndex) -> 16745768, AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_HEDGE.get());
-		blockcolors.register((state, world, pos, tintIndex) -> 16760576, AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.YELLOW_MAPLE_HEDGE.get());
+		blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(), AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.MAPLE_LEAF_PILE.get(), AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.MAPLE_HEDGE.get());
+		blockcolors.register((state, world, pos, tintIndex) -> 12665871, AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAF_PILE.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_HEDGE.get());
+		blockcolors.register((state, world, pos, tintIndex) -> 16745768, AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_HEDGE.get());
+		blockcolors.register((state, world, pos, tintIndex) -> 16760576, AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.YELLOW_MAPLE_HEDGE.get());
 
 		itemcolors.register((stack, tintIndex) -> {
 					BlockState blockstate = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
 					return blockcolors.getColor(blockstate, null, null, tintIndex);
-				}, AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(),
+				},
+				AutumnityBlocks.MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(),
+				AutumnityBlocks.MAPLE_LEAF_PILE.get(), AutumnityBlocks.RED_MAPLE_LEAF_PILE.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get(),
 				AutumnityBlocks.MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(),
 				AutumnityBlocks.MAPLE_HEDGE.get(), AutumnityBlocks.RED_MAPLE_HEDGE.get(), AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), AutumnityBlocks.YELLOW_MAPLE_HEDGE.get());
 	}

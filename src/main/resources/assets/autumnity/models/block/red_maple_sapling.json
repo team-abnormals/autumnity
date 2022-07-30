@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "autumnity:block/red_maple_sapling"
-    }
-}

@@ -1,10 +1,13 @@
 package com.teamabnormals.autumnity.core;
 
+import com.teamabnormals.autumnity.client.renderer.entity.FallingHeadBlockRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.SnailRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.model.SnailModel;
 import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
+import com.teamabnormals.autumnity.core.data.client.AutumnityBlockStateProvider;
+import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityModdedBiomeSliceProvider;
 import com.teamabnormals.autumnity.core.data.server.tags.AutumnityBiomeTagsProvider;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
@@ -14,7 +17,6 @@ import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConf
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
-import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
@@ -89,6 +91,12 @@ public class Autumnity {
 		boolean includeServer = event.includeServer();
 		if (includeServer) {
 			generator.addProvider(new AutumnityBiomeTagsProvider(generator, existingFileHelper));
+			generator.addProvider(new AutumnityModdedBiomeSliceProvider(generator));
+		}
+
+		boolean includeClient = event.includeClient();
+		if (includeClient) {
+			generator.addProvider(new AutumnityBlockStateProvider(generator, existingFileHelper));
 		}
 	}
 
@@ -107,6 +115,6 @@ public class Autumnity {
 		event.registerEntityRenderer(AutumnityEntityTypes.SNAIL.get(), SnailRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY.get(), TurkeyRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY_EGG.get(), TurkeyEggRenderer::new);
-		event.registerEntityRenderer(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), FallingBlockRenderer::new);
+		event.registerEntityRenderer(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), FallingHeadBlockRenderer::new);
 	}
 }

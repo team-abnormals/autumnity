@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "autumnity:block/yellow_maple_sapling"
+  }
+}

@@ -5,6 +5,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -30,13 +31,13 @@ public class FallenLeavesMapleTreeFeature extends MapleTreeFeature {
 			BlockState leafcarpet;
 
 			if (blockstate == AutumnityBlocks.RED_MAPLE_LEAVES.get().defaultBlockState()) {
-				leafcarpet = AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get().defaultBlockState();
+				leafcarpet = AutumnityBlocks.RED_MAPLE_LEAF_PILE.get().defaultBlockState();
 			} else if (blockstate == AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().defaultBlockState()) {
-				leafcarpet = AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get().defaultBlockState();
+				leafcarpet = AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get().defaultBlockState();
 			} else if (blockstate == AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().defaultBlockState()) {
-				leafcarpet = AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get().defaultBlockState();
+				leafcarpet = AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get().defaultBlockState();
 			} else {
-				leafcarpet = AutumnityBlocks.MAPLE_LEAF_CARPET.get().defaultBlockState();
+				leafcarpet = AutumnityBlocks.MAPLE_LEAF_PILE.get().defaultBlockState();
 			}
 
 			for (int x = -3; x <= 3; ++x) {
@@ -45,7 +46,14 @@ public class FallenLeavesMapleTreeFeature extends MapleTreeFeature {
 						for (int y = -3; y <= 3; ++y) {
 							BlockPos blockpos = position.offset(x, y, z);
 							if (random.nextInt(8) > 0 && worldIn.isEmptyBlock(blockpos) && blockpos.getY() < worldIn.getMaxBuildHeight() && worldIn.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK) {
-								worldIn.setBlock(blockpos, leafcarpet, 2);
+								worldIn.setBlock(blockpos, leafcarpet
+												.setValue(PipeBlock.UP, false)
+												.setValue(PipeBlock.DOWN, true)
+												.setValue(PipeBlock.NORTH, false)
+												.setValue(PipeBlock.SOUTH, false)
+												.setValue(PipeBlock.EAST, false)
+												.setValue(PipeBlock.WEST, false)
+										, 2);
 							}
 						}
 					}

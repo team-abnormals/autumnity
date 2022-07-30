@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/ladder",
+  "textures": {
+    "particle": "autumnity:block/maple_ladder",
+    "texture": "autumnity:block/maple_ladder"
+  }
+}

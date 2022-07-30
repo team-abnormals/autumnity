@@ -15,7 +15,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
@@ -85,19 +84,16 @@ public class TurkeyBlock extends FallingBlock {
 	}
 
 	@Override
-	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
-		if (worldIn.isEmptyBlock(pos.below()) || isFree(worldIn.getBlockState(pos.below())) && pos.getY() >= 0) {
-			FallingBlockEntity fallingblockentity;
-
+	public void tick(BlockState state, ServerLevel level, BlockPos pos, Random rand) {
+		if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinBuildHeight()) {
+			FallingHeadBlockEntity turkey;
 			if (state.getValue(CHUNKS) == 0) {
-				fallingblockentity = new FallingHeadBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, worldIn.getBlockState(pos));
+				turkey = FallingHeadBlockEntity.fall(level, pos.offset(0.5D, 0.0D, 0.5D), state, true);
 			} else {
-				fallingblockentity = FallingBlockEntity.fall(worldIn, pos, worldIn.getBlockState(pos));
-				fallingblockentity.dropItem = false;
+				turkey = FallingHeadBlockEntity.fall(level, pos, state, false);
 			}
 
-			this.falling(fallingblockentity);
-			worldIn.addFreshEntity(fallingblockentity);
+			this.falling(turkey);
 		}
 	}
 

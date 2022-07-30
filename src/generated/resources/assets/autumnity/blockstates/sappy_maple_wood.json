@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "autumnity:block/sappy_maple_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "autumnity:block/sappy_maple_wood"
+    },
+    "axis=z": {
+      "model": "autumnity:block/sappy_maple_wood_horizontal",
+      "x": 90
+    }
+  }
+}

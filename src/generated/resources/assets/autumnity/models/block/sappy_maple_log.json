@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "autumnity:block/sappy_maple_log",
+    "end": "autumnity:block/sappy_maple_log_top"
+  }
+}

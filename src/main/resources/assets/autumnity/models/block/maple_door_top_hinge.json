@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top_rh",
-    "textures": {
-        "bottom": "autumnity:block/maple_door_bottom",
-        "top": "autumnity:block/maple_door_top"
-    }
-}

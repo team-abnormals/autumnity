@@ -75,6 +75,11 @@
   "block.autumnity.yellow_maple_leaf_carpet": "Yellow Maple Leaf Carpet",
   "block.autumnity.orange_maple_leaf_carpet": "Orange Maple Leaf Carpet",
   "block.autumnity.red_maple_leaf_carpet": "Red Maple Leaf Carpet",
+
+  "block.autumnity.maple_leaf_pile": "Maple Leaf Pile",
+  "block.autumnity.yellow_maple_leaf_pile": "Yellow Maple Leaf Pile",
+  "block.autumnity.orange_maple_leaf_pile": "Orange Maple Leaf Pile",
+  "block.autumnity.red_maple_leaf_pile": "Red Maple Leaf Pile",
   
   "item.autumnity.maple_boat": "Maple Boat",
   
@@ -142,6 +147,7 @@
   
   "block.autumnity.maple_vertical_slab": "Maple Vertical Slab",
   "block.autumnity.vertical_maple_planks": "Vertical Maple Planks",
+  "block.autumnity.maple_boards": "Maple Boards",
   "block.autumnity.maple_bookshelf": "Maple Bookshelf",
   "block.autumnity.maple_ladder": "Maple Ladder",
   "block.autumnity.foul_berry_sack": "Foul Berry Sack",

@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "autumnity:block/maple_ladder" },
-        "facing=east":  { "model": "autumnity:block/maple_ladder", "y": 90 },
-        "facing=south": { "model": "autumnity:block/maple_ladder", "y": 180 },
-        "facing=west":  { "model": "autumnity:block/maple_ladder", "y": 270 }
-    }
-}

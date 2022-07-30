@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "autumnity:block/maple_boards_horizontal",
+      "y": 270
+    },
+    "axis=y": {
+      "model": "autumnity:block/maple_boards"
+    },
+    "axis=z": {
+      "model": "autumnity:block/maple_boards_horizontal"
+    }
+  }
+}

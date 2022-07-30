@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "autumnity:block/maple_slab" },
-        "type=top": { "model": "autumnity:block/maple_slab_top" },
-        "type=double": { "model": "autumnity:block/maple_planks" }
-    }
-}

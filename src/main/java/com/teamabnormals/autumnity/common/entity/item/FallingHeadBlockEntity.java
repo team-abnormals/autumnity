@@ -24,11 +24,13 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 
 public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntityAdditionalSpawnData {
+	public boolean canGoOnHead;
+
 	public FallingHeadBlockEntity(EntityType<? extends FallingHeadBlockEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 
-	public FallingHeadBlockEntity(Level worldIn, double x, double y, double z, BlockState fallingBlockState) {
+	public FallingHeadBlockEntity(Level worldIn, double x, double y, double z, BlockState fallingBlockState, boolean drop) {
 		this(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), worldIn);
 		this.blockState = fallingBlockState;
 		this.blocksBuilding = true;
@@ -37,6 +39,7 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 		this.xo = x;
 		this.yo = y;
 		this.zo = z;
+		this.canGoOnHead = drop;
 		this.setStartPos(this.blockPosition());
 	}
 
@@ -44,20 +47,19 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 		this(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), world);
 	}
 
-	public static FallingHeadBlockEntity fall(Level p_201972_, BlockPos p_201973_, BlockState p_201974_) {
-		FallingHeadBlockEntity fallingblockentity = new FallingHeadBlockEntity(p_201972_, (double) p_201973_.getX() + 0.5D, (double) p_201973_.getY(), (double) p_201973_.getZ() + 0.5D, p_201974_.hasProperty(BlockStateProperties.WATERLOGGED) ? p_201974_.setValue(BlockStateProperties.WATERLOGGED, false) : p_201974_);
-		p_201972_.setBlock(p_201973_, p_201974_.getFluidState().createLegacyBlock(), 3);
-		p_201972_.addFreshEntity(fallingblockentity);
-		return fallingblockentity;
+	public static FallingHeadBlockEntity fall(Level level, BlockPos pos, BlockState state, boolean drop) {
+		FallingHeadBlockEntity turkey = new FallingHeadBlockEntity(level, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, state.hasProperty(BlockStateProperties.WATERLOGGED) ? state.setValue(BlockStateProperties.WATERLOGGED, false) : state, drop);
+		level.setBlock(pos, state.getFluidState().createLegacyBlock(), 3);
+		level.addFreshEntity(turkey);
+		return turkey;
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
-
-		if (!this.isRemoved()) {
-			for (Entity entity : this.level.getEntities(this, this.getBoundingBox(), (p_234613_0_) ->
-					(p_234613_0_ instanceof Player || p_234613_0_ instanceof Zombie || p_234613_0_ instanceof AbstractSkeleton || p_234613_0_ instanceof Piglin) && ((LivingEntity) p_234613_0_).getItemBySlot(EquipmentSlot.HEAD).isEmpty())) {
+		if (!this.isRemoved() && this.canGoOnHead) {
+			for (Entity entity : this.level.getEntities(this, this.getBoundingBox(), (entity) ->
+					(entity instanceof Player || entity instanceof Zombie || entity instanceof AbstractSkeleton || entity instanceof Piglin) && ((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).isEmpty())) {
 				double d0 = entity.getY() + entity.getBbHeight();
 				if (this.yo >= d0 && this.getY() <= d0) {
 					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack((this.getBlockState().getBlock().asItem())));

@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "autumnity:maple_forest",
-    "autumnity:spotted_forest",
-    "autumnity:spotted_dark_forest"
+    "autumnity:maple_forest"
   ]
 }

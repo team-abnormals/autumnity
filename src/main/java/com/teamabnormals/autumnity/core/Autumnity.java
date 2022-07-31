@@ -49,6 +49,8 @@ public class Autumnity {
 		AutumnityPaintings.PAINTINGS.register(bus);
 		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
+		AutumnityNoiseParameters.NOISE_PARAMETERS.register(bus);
+		AutumnityPlacementModifierTypes.PLACEMENT_MODIFIER_TYPES.register(bus);
 		AutumnityFeatures.FEATURES.register(bus);
 		AutumnityConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
 		AutumnityPlacedFeatures.PLACED_FEATURES.register(bus);

@@ -69,64 +69,16 @@ public class AutumnityGeneration {
 				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.PATCH_PUMPKIN_PUMPKIN_FIELDS.getHolder().get());
 			}
 		} else {
-//			if (DataUtil.matchesKeys(biome, Biomes.FOREST)) {
-//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_YELLOW.getHolder().get());
-//			}
-//
-//			if (DataUtil.matchesKeys(biome, Biomes.DARK_FOREST)) {
-//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_ORANGE.getHolder().get());
-//			}
-//
-//			if (DataUtil.matchesKeys(biome, Biomes.TAIGA)) {
-//				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_RED.getHolder().get());
-//			}
-
-			if (DataUtil.matchesKeys(biome, AutumnityBiomes.SPOTTED_FOREST.getKey())) {
-				BiomeDefaultFeatures.farmAnimals(spawns);
-				BiomeDefaultFeatures.commonSpawns(spawns);
-				spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-
-				OverworldBiomes.globalOverworldGeneration(generation);
-				BiomeDefaultFeatures.addForestFlowers(generation);
-				BiomeDefaultFeatures.addDefaultOres(generation);
-				BiomeDefaultFeatures.addDefaultSoftDisks(generation);
-				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_SPOTTED_FOREST.getHolder().get());
+			if (DataUtil.matchesKeys(biome, Biomes.FOREST)) {
 				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_YELLOW.getHolder().get());
-				BiomeDefaultFeatures.addDefaultFlowers(generation);
-				BiomeDefaultFeatures.addForestGrass(generation);
-				BiomeDefaultFeatures.addDefaultMushrooms(generation);
-				BiomeDefaultFeatures.addDefaultExtraVegetation(generation);
 			}
 
-			if (DataUtil.matchesKeys(biome, AutumnityBiomes.SPOTTED_DARK_FOREST.getKey())) {
-				BiomeDefaultFeatures.farmAnimals(spawns);
-				BiomeDefaultFeatures.commonSpawns(spawns);
-
-				OverworldBiomes.globalOverworldGeneration(generation);
-				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_DARK_FOREST_VEGETATION.getHolder().get());
-				BiomeDefaultFeatures.addForestFlowers(generation);
-				BiomeDefaultFeatures.addDefaultOres(generation);
-				BiomeDefaultFeatures.addDefaultSoftDisks(generation);
-				BiomeDefaultFeatures.addDefaultFlowers(generation);
-				BiomeDefaultFeatures.addForestGrass(generation);
-				BiomeDefaultFeatures.addDefaultMushrooms(generation);
-				BiomeDefaultFeatures.addDefaultExtraVegetation(generation);
+			if (DataUtil.matchesKeys(biome, Biomes.DARK_FOREST)) {
+				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_ORANGE.getHolder().get());
 			}
 
-			if (DataUtil.matchesKeys(biome, AutumnityBiomes.SPOTTED_TAIGA.getKey())) {
-				BiomeDefaultFeatures.farmAnimals(spawns);
-				spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4)).addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3)).addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
-				BiomeDefaultFeatures.commonSpawns(spawns);
-
-				OverworldBiomes.globalOverworldGeneration(generation);
-				BiomeDefaultFeatures.addFerns(generation);
-				BiomeDefaultFeatures.addDefaultOres(generation);
-				BiomeDefaultFeatures.addDefaultSoftDisks(generation);
-				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_SPOTTED_TAIGA.getHolder().get());
-				BiomeDefaultFeatures.addDefaultFlowers(generation);
-				BiomeDefaultFeatures.addTaigaGrass(generation);
-				BiomeDefaultFeatures.addDefaultExtraVegetation(generation);
-				BiomeDefaultFeatures.addCommonBerryBushes(generation);
+			if (DataUtil.matchesKeys(biome, Biomes.TAIGA)) {
+				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_RED.getHolder().get());
 			}
 		}
 	}

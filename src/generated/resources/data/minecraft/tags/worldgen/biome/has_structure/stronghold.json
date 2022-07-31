@@ -2,9 +2,6 @@
   "replace": false,
   "values": [
     "autumnity:maple_forest",
-    "autumnity:pumpkin_fields",
-    "autumnity:spotted_forest",
-    "autumnity:spotted_dark_forest",
-    "autumnity:spotted_taiga"
+    "autumnity:pumpkin_fields"
   ]
 }

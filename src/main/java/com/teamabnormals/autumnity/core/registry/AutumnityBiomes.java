@@ -15,16 +15,10 @@ public class AutumnityBiomes {
 
 	public static final KeyedBiome MAPLE_FOREST = HELPER.createBiome("maple_forest", AutumnityBiomes::createMapleForestBiome);
 	public static final KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", AutumnityBiomes::createPumpkinFieldsBiome);
-	public static final KeyedBiome SPOTTED_FOREST = HELPER.createBiome("spotted_forest", AutumnityBiomes::createYellowSpottedForestBiome);
-	public static final KeyedBiome SPOTTED_DARK_FOREST = HELPER.createBiome("spotted_dark_forest", AutumnityBiomes::createOrangeSpottedDarkForest);
-	public static final KeyedBiome SPOTTED_TAIGA = HELPER.createBiome("spotted_taiga", AutumnityBiomes::createRedSpottedTaigaBiome);
 
 	public static void addBiomeTypes() {
 		BiomeDictionary.addTypes(MAPLE_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
 		BiomeDictionary.addTypes(PUMPKIN_FIELDS.getKey(), Type.PLAINS, Type.SPARSE, Type.RARE, Type.OVERWORLD);
-		BiomeDictionary.addTypes(SPOTTED_FOREST.getKey(), Type.FOREST, Type.OVERWORLD);
-		BiomeDictionary.addTypes(SPOTTED_DARK_FOREST.getKey(), Type.SPOOKY, Type.DENSE, Type.FOREST, Type.RARE, Type.OVERWORLD);
-		BiomeDictionary.addTypes(SPOTTED_TAIGA.getKey(), Type.COLD, Type.CONIFEROUS, Type.FOREST, Type.OVERWORLD);
 	}
 
 	private static Biome createMapleForestBiome() {
@@ -33,18 +27,6 @@ public class AutumnityBiomes {
 
 	private static Biome createPumpkinFieldsBiome() {
 		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.PLAINS).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColorWithTemperatureModifier(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).grassColorOverride(0x9AB839).foliageColorOverride(0x9FC944).build()).mobSpawnSettings(new MobSpawnSettings.Builder().build()).generationSettings((new BiomeGenerationSettings.Builder()).build()).build();
-	}
-
-	private static Biome createYellowSpottedForestBiome() {
-		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColorWithTemperatureModifier(0.7F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(new MobSpawnSettings.Builder().build()).generationSettings((new BiomeGenerationSettings.Builder()).build()).build();
-	}
-
-	private static Biome createOrangeSpottedDarkForest() {
-		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColorWithTemperatureModifier(0.7F)).grassColorModifier(BiomeSpecialEffects.GrassColorModifier.DARK_FOREST).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(new MobSpawnSettings.Builder().build()).generationSettings((new BiomeGenerationSettings.Builder()).build()).build();
-	}
-
-	private static Biome createRedSpottedTaigaBiome() {
-		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.TAIGA).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColorWithTemperatureModifier(0.25F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(new MobSpawnSettings.Builder().build()).generationSettings((new BiomeGenerationSettings.Builder()).build()).build();
 	}
 
 	private static int getSkyColorWithTemperatureModifier(float temperature) {

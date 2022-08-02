@@ -67,7 +67,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.4D, false));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 1.0D));
-		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(AutumnityItemTags.TURKEY_BREEDING_ITEMS), false));
+		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(AutumnityItemTags.TURKEY_FOOD), false));
 		this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -204,7 +204,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return Ingredient.of(AutumnityItemTags.TURKEY_BREEDING_ITEMS).test(stack);
+		return Ingredient.of(AutumnityItemTags.TURKEY_FOOD).test(stack);
 	}
 
 	@Override

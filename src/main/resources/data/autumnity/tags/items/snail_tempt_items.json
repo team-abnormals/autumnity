@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#autumnity:snail_foods",
-    "#autumnity:snail_breeding_items",
+    "#autumnity:snail_food",
+    "#autumnity:snail_snacks",
     "minecraft:warped_fungus_on_a_stick"
   ]
 }

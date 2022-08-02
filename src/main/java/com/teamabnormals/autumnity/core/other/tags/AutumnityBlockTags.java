@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 public class AutumnityBlockTags {
-	public static final TagKey<Block> SNAIL_BLOCK_FOODS = blockTag("snail_foods");
+	public static final TagKey<Block> SNAIL_BLOCK_SNACKS = blockTag("snail_snacks");
 	public static final TagKey<Block> SLIPPERY_SNAIL_SLIME_BLOCKS = blockTag("slippery_snail_slime_blocks");
 	public static final TagKey<Block> MAPLE_LOGS = blockTag("maple_logs");
 

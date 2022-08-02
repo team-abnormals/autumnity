@@ -91,7 +91,7 @@ public class Snail extends Animal {
 		this.goalSelector.addGoal(0, new Snail.HideGoal());
 		this.goalSelector.addGoal(1, new Snail.EatGoal());
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
-		this.goalSelector.addGoal(3, new TemptGoal(this, 0.5D, Ingredient.of(AutumnityItemTags.SNAIL_TEMPTATION_ITEMS), false));
+		this.goalSelector.addGoal(3, new TemptGoal(this, 0.5D, Ingredient.of(AutumnityItemTags.SNAIL_TEMPT_ITEMS), false));
 		this.goalSelector.addGoal(4, new Snail.EatMushroomsGoal());
 		this.goalSelector.addGoal(5, new Snail.EatMooshroomMushroomsGoal());
 		this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.5D));
@@ -332,10 +332,10 @@ public class Snail extends Animal {
 	private void eatSnack() {
 		ItemStack itemstack = this.getMainHandItem();
 
-		if (Ingredient.of(AutumnityItemTags.SNAIL_GLOWING_FOODS).test(itemstack)) {
+		if (Ingredient.of(AutumnityItemTags.SNAIL_GLOW_SNACKS).test(itemstack)) {
 			this.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200, 0));
 		}
-		if (Ingredient.of(AutumnityItemTags.SNAIL_SPEEDING_FOODS).test(itemstack)) {
+		if (Ingredient.of(AutumnityItemTags.SNAIL_SPEED_SNACKS).test(itemstack)) {
 			this.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 320, 2));
 		}
 
@@ -354,7 +354,7 @@ public class Snail extends Animal {
 	}
 
 	private boolean hasSnack() {
-		return this.getMainHandItem().is(AutumnityItemTags.SNAIL_FOODS);
+		return this.isSnack(this.getMainHandItem());
 	}
 
 	private int getSlimeAmount() {
@@ -409,7 +409,7 @@ public class Snail extends Animal {
 	}
 
 	private boolean isSnack(ItemStack stack) {
-		return Ingredient.of(AutumnityItemTags.SNAIL_FOODS).test(stack);
+		return Ingredient.of(AutumnityItemTags.SNAIL_SNACKS).test(stack);
 	}
 
 	@Override
@@ -418,7 +418,7 @@ public class Snail extends Animal {
 	}
 
 	private boolean isSnailBreedingItem(ItemStack stack) {
-		return Ingredient.of(AutumnityItemTags.SNAIL_BREEDING_ITEMS).test(stack);
+		return Ingredient.of(AutumnityItemTags.SNAIL_FOOD).test(stack);
 	}
 
 	@Override
@@ -621,7 +621,7 @@ public class Snail extends Animal {
 		}
 
 		private boolean isBlockMushroom(BlockPos pos) {
-			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_BLOCK_FOODS);
+			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_BLOCK_SNACKS);
 		}
 	}
 

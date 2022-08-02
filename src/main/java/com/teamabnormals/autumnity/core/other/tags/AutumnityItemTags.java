@@ -6,12 +6,12 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class AutumnityItemTags {
-	public static final TagKey<Item> SNAIL_FOODS = itemTag("snail_foods");
-	public static final TagKey<Item> SNAIL_BREEDING_ITEMS = itemTag("snail_breeding_items");
-	public static final TagKey<Item> SNAIL_TEMPTATION_ITEMS = itemTag("snail_temptation_items");
-	public static final TagKey<Item> SNAIL_GLOWING_FOODS = itemTag("snail_glowing_foods");
-	public static final TagKey<Item> SNAIL_SPEEDING_FOODS = itemTag("snail_speeding_foods");
-	public static final TagKey<Item> TURKEY_BREEDING_ITEMS = itemTag("turkey_breeding_items");
+	public static final TagKey<Item> SNAIL_FOOD = itemTag("snail_food");
+	public static final TagKey<Item> SNAIL_SNACKS = itemTag("snail_snacks");
+	public static final TagKey<Item> SNAIL_TEMPT_ITEMS = itemTag("snail_tempt_items");
+	public static final TagKey<Item> SNAIL_GLOW_SNACKS = itemTag("snail_glowi_snacks");
+	public static final TagKey<Item> SNAIL_SPEED_SNACKS = itemTag("snail_speed_snacks");
+	public static final TagKey<Item> TURKEY_FOOD = itemTag("turkey_food");
 
 	public static final TagKey<Item> KNIVES = TagUtil.itemTag("farmersdelight", "tools/knives");
 

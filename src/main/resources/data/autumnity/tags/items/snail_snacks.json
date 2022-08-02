@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+	"#autumnity:snail_speed_snacks",
+	"#autumnity:snail_glow_snacks"
+  ]
+}

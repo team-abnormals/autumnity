@@ -524,7 +524,7 @@ public class Snail extends Animal {
 
 		@Override
 		public void start() {
-			this.eatTime = 192;
+			this.eatTime = this.adjustedTickDelay(192);
 			Snail.this.getNavigation().stop();
 			Snail.this.getMoveControl().setWantedPosition(Snail.this.getX(), Snail.this.getY(), Snail.this.getZ(), 0.0D);
 			Snail.this.setAction(Action.EATING);
@@ -627,7 +627,7 @@ public class Snail extends Animal {
 
 	public class EatMooshroomMushroomsGoal extends Goal {
 		private MushroomCow targetMooshroom;
-		private int delayCounter;
+		private int timeToRecalcPath;
 
 		public EatMooshroomMushroomsGoal() {
 			super();
@@ -677,7 +677,7 @@ public class Snail extends Animal {
 
 		@Override
 		public void start() {
-			this.delayCounter = 0;
+			this.timeToRecalcPath = 0;
 		}
 
 		@Override
@@ -687,8 +687,8 @@ public class Snail extends Animal {
 
 		@Override
 		public void tick() {
-			if (--this.delayCounter <= 0) {
-				this.delayCounter = 10;
+			if (--this.timeToRecalcPath <= 0) {
+				this.timeToRecalcPath = this.adjustedTickDelay(10);
 				Snail.this.getNavigation().moveTo(this.targetMooshroom, 0.5D);
 			}
 

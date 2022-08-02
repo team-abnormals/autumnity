@@ -1,16 +1,18 @@
 {
   "selector": "minecraft:husbandry/balanced_diet",
+  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
-        "mode": "modify",
         "criteria": {
           "autumnity:syrup_bottle": {
             "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
-                "item": "autumnity:syrup_bottle"
+                "items": [
+                  "autumnity:syrup_bottle"
+                ]
               }
             }
           },
@@ -18,7 +20,9 @@
             "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
-                "item": "autumnity:foul_berries"
+                "items": [
+                  "autumnity:foul_berries"
+                ]
               }
             }
           },
@@ -26,23 +30,9 @@
             "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
-                "item": "autumnity:foul_soup"
-              }
-            }
-          },
-          "autumnity:turkey_piece": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "item": "autumnity:turkey_piece"
-              }
-            }
-          },
-          "autumnity:cooked_turkey_piece": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "item": "autumnity:cooked_turkey_piece"
+                "items": [
+                  "autumnity:foul_soup"
+                ]
               }
             }
           },
@@ -50,7 +40,29 @@
             "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
-                "item": "autumnity:pumpkin_bread"
+                "items": [
+                  "autumnity:pumpkin_bread"
+                ]
+              }
+            }
+          },
+          "autumnity:turkey_piece": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:turkey_piece"
+                ]
+              }
+            }
+          },
+          "autumnity:cooked_turkey_piece": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:cooked_turkey_piece"
+                ]
               }
             }
           }
@@ -66,15 +78,16 @@
             "autumnity:foul_soup"
           ],
           [
+            "autumnity:pumpkin_bread"
+          ],
+          [
             "autumnity:turkey_piece"
           ],
           [
             "autumnity:cooked_turkey_piece"
-          ],
-          [
-            "autumnity:pumpkin_bread"
           ]
-        ]
+        ],
+        "should_replace_requirements": false
       }
     }
   ]

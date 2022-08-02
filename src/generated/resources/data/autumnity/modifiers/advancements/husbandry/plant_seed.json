@@ -1,23 +1,26 @@
 {
   "selector": "minecraft:husbandry/plant_seed",
+  "priority": "normal",
   "modifiers": [
     {
-      "type": "indexed_requirements",
+      "type": "criteria",
       "config": {
-        "mode": "modify",
-        "index": 0,
         "criteria": {
-          "foul_berry_bush_pips": {
+          "autumnity:foul_berry_bush_pips": {
             "trigger": "minecraft:placed_block",
             "conditions": {
               "block": "autumnity:foul_berry_bush_pips"
             }
           }
         },
-        "requirements": [
-          [
-            "foul_berry_bush_pips"
-          ]
+        "indexed_requirements": [
+          {
+            "index": 0,
+            "replace": false,
+            "requirements": [
+              "autumnity:foul_berry_bush_pips"
+            ]
+          }
         ]
       }
     }

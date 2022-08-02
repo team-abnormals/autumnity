@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityBiomes {
-	private static final BiomeSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getBiomeSubHelper();
+	public static final BiomeSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getBiomeSubHelper();
 
 	public static final KeyedBiome MAPLE_FOREST = HELPER.createBiome("maple_forest", AutumnityBiomes::createMapleForestBiome);
 	public static final KeyedBiome PUMPKIN_FIELDS = HELPER.createBiome("pumpkin_fields", AutumnityBiomes::createPumpkinFieldsBiome);

@@ -31,7 +31,7 @@ public class AutumnityModdedBiomeSliceProvider extends ModdedBiomeSliceProvider 
 		this.registerSlice("autumn", 3, new MultiNoiseModdedBiomeProvider(new Climate.ParameterList<>(entries)), LevelStem.OVERWORLD.location());
 	}
 
-	//Modified version of OverworldBiomeBuilder to simplify autumnity's slice
+	//Modified version of OverworldBiomeBuilder to simplify Autumnity's slice
 	@SuppressWarnings("unchecked")
 	private static final class AutumnBiomeBuilder {
 		private final Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1.0F, 1.0F);

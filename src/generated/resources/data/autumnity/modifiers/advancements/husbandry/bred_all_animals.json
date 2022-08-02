@@ -1,10 +1,10 @@
 {
   "selector": "minecraft:husbandry/bred_all_animals",
+  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
-        "mode": "modify",
         "criteria": {
           "autumnity:snail": {
             "trigger": "minecraft:bred_animals",
@@ -42,7 +42,8 @@
           [
             "autumnity:turkey"
           ]
-        ]
+        ],
+        "should_replace_requirements": false
       }
     }
   ]

@@ -39,7 +39,6 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.copy(BlockTags.WOODEN_BUTTONS, ItemTags.WOODEN_BUTTONS);
 		this.copy(BlockTags.WOODEN_PRESSURE_PLATES, ItemTags.WOODEN_PRESSURE_PLATES);
 		this.copy(BlockTags.STANDING_SIGNS, ItemTags.SIGNS);
-		this.copy(BlockTags.WOODEN_FENCES, ItemTags.WOODEN_FENCES);
 		this.copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
 		this.copy(BlockTags.LEAVES, ItemTags.LEAVES);

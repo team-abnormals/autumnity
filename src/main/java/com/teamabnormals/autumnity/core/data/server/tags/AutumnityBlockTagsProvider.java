@@ -30,6 +30,7 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.WOODEN_SLABS).add(MAPLE_SLAB.get());
 		this.tag(BlockTags.WOODEN_STAIRS).add(MAPLE_STAIRS.get());
 		this.tag(BlockTags.WOODEN_FENCES).add(MAPLE_FENCE.get());
+		this.tag(BlockTags.FENCE_GATES).add(MAPLE_FENCE_GATE.get());
 		this.tag(BlockTags.WOODEN_DOORS).add(MAPLE_DOOR.get());
 		this.tag(BlockTags.WOODEN_TRAPDOORS).add(MAPLE_TRAPDOOR.get());
 		this.tag(BlockTags.WOODEN_BUTTONS).add(MAPLE_BUTTON.get());
@@ -38,8 +39,6 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.WALL_SIGNS).add(MAPLE_SIGN.getSecond().get());
 		this.tag(BlockTags.CLIMBABLE).add(MAPLE_LADDER.get());
 		this.tag(BlockTags.BEEHIVES).add(MAPLE_BEEHIVE.get());
-		this.tag(BlockTags.WOODEN_FENCES).add(MAPLE_FENCE.get());
-		this.tag(BlockTags.FENCE_GATES).add(MAPLE_FENCE_GATE.get());
 
 		this.tag(BlockTags.SMALL_FLOWERS).add(AUTUMN_CROCUS.get());
 		this.tag(BlockTags.LEAVES).add(MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAVES.get(), RED_MAPLE_LEAVES.get());

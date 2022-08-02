@@ -7,6 +7,7 @@ import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.model.SnailModel;
 import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
 import com.teamabnormals.autumnity.core.data.client.AutumnityBlockStateProvider;
+import com.teamabnormals.autumnity.core.data.client.AutumnityItemModelProvider;
 import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityModdedBiomeSliceProvider;
 import com.teamabnormals.autumnity.core.data.server.tags.AutumnityBiomeTagsProvider;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
@@ -98,6 +99,7 @@ public class Autumnity {
 
 		boolean includeClient = event.includeClient();
 		if (includeClient) {
+			generator.addProvider(new AutumnityItemModelProvider(generator, existingFileHelper));
 			generator.addProvider(new AutumnityBlockStateProvider(generator, existingFileHelper));
 		}
 	}

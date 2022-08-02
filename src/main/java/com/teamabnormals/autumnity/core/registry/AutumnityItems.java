@@ -5,6 +5,7 @@ import com.teamabnormals.autumnity.common.item.SyrupBottleItem;
 import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityTiers;
+import com.teamabnormals.autumnity.integration.boatload.AutumnityBoatTypes;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -22,6 +23,9 @@ public class AutumnityItems {
 	public static final ItemSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getItemSubHelper();
 
 	public static final RegistryObject<Item> MAPLE_BOAT = HELPER.createBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
+	public static final RegistryObject<Item> MAPLE_CHEST_BOAT = HELPER.createItem("maple_chest_boat", ItemSubRegistryHelper.areModsLoaded("boatload") ? AutumnityBoatTypes.MAPLE_CHEST_BOAT : () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> MAPLE_FURNACE_BOAT = HELPER.createItem("maple_furnace_boat", ItemSubRegistryHelper.areModsLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> LARGE_MAPLE_BOAT = HELPER.createItem("large_maple_boat", ItemSubRegistryHelper.areModsLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> SAP_BOTTLE = HELPER.createItem("sap_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_MATERIALS)));
 	public static final RegistryObject<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.SYRUP_BOTTLE)));

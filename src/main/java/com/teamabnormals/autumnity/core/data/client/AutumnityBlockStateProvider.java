@@ -96,7 +96,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.simpleBlock(cross, models().cross(name(cross), blockTexture(cross)));
 		this.generatedItem(cross, "block");
 
-		this.simpleBlock(flowerPot, models().singleTexture(name(flowerPot),  new ResourceLocation("block/flower_pot_cross"), "plant", blockTexture(cross)));
+		this.simpleBlock(flowerPot, models().singleTexture(name(flowerPot), new ResourceLocation("block/flower_pot_cross"), "plant", blockTexture(cross)));
 	}
 
 	public void registerWoodworksCompat(Block block, Block boards, Block ladder, Block bookshelf, Block beehive) {
@@ -198,7 +198,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 	}
 
 	public void leaves(Block leaves, Block leafPile) {
-		this.simpleBlock(leaves, models().getBuilder(name(leaves)).parent(new UncheckedModelFile(new ResourceLocation("block/leaves" ))).texture("all", blockTexture(AutumnityBlocks.MAPLE_LEAVES.get())));
+		this.simpleBlock(leaves, models().getBuilder(name(leaves)).parent(new UncheckedModelFile(new ResourceLocation("block/leaves"))).texture("all", blockTexture(AutumnityBlocks.MAPLE_LEAVES.get())));
 		this.registerItemModel(leaves);
 
 		ModelFile leafPileModel = models().getBuilder(name(leafPile)).parent(new UncheckedModelFile(new ResourceLocation(Blueprint.MOD_ID, "block/tinted_leaf_pile"))).texture("all", blockTexture(AutumnityBlocks.MAPLE_LEAVES.get()));

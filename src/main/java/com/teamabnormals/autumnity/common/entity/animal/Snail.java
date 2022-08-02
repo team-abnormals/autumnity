@@ -1,5 +1,6 @@
 package com.teamabnormals.autumnity.common.entity.animal;
 
+import com.teamabnormals.autumnity.core.other.AutumnityCriteriaTriggers;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
@@ -14,6 +15,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -249,7 +251,7 @@ public class Snail extends Animal {
 							ItemStack itemstack1 = itemstack.copy();
 							itemstack1.setCount(1);
 							this.setItemSlot(EquipmentSlot.MAINHAND, itemstack1);
-							//AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayer) player, itemstack1);
+							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayer) player, itemstack1);
 							this.usePlayerItem(player, hand, itemstack);
 						}
 						return InteractionResult.sidedSuccess(this.level.isClientSide());

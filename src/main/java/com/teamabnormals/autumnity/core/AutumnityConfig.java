@@ -25,7 +25,7 @@ public class AutumnityConfig {
 							"Chickens will not spawn in these biomes.")
 					.define("Turkey Spawn Biomes", Lists.newArrayList());
 			builder.pop();
-			
+
 			builder.push("misc");
 			mapleTreeBiomes = builder
 					.comment("A list of biomes where green maple trees can generate naturally.",

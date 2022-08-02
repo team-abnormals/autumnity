@@ -1,14 +1,12 @@
 package com.teamabnormals.autumnity.core.data.server;
 
 import com.teamabnormals.autumnity.common.advancements.criterion.FeedSnailTrigger;
-import com.teamabnormals.autumnity.common.advancements.criterion.FeedSnailTrigger.TriggerInstance;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityCriteriaTriggers;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.teamabnormals.blueprint.common.advancement.EmptyTrigger;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.network.chat.TranslatableComponent;

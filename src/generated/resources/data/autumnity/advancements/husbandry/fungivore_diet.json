@@ -2,7 +2,8 @@
   "parent": "minecraft:husbandry/breed_an_animal",
   "display": {
     "icon": {
-      "item": "minecraft:crimson_fungus"
+      "item": "autumnity:snail_shell_chestplate",
+      "nbt": "{Damage:0}"
     },
     "title": {
       "translate": "advancements.autumnity.husbandry.fungivore_diet.title"
@@ -15,31 +16,24 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "rewards": {
-    "experience": 50
-  },
   "criteria": {
-    "brown_mushroom": {
-      "trigger": "autumnity:feed_snail",
-      "conditions": {
-        "item": {
-          "item": "minecraft:brown_mushroom"
-        }
-      }
-    },
     "red_mushroom": {
       "trigger": "autumnity:feed_snail",
       "conditions": {
         "item": {
-          "item": "minecraft:red_mushroom"
+          "items": [
+            "minecraft:red_mushroom"
+          ]
         }
       }
     },
-    "warped_fungus": {
+    "brown_mushroom": {
       "trigger": "autumnity:feed_snail",
       "conditions": {
         "item": {
-          "item": "minecraft:warped_fungus"
+          "items": [
+            "minecraft:brown_mushroom"
+          ]
         }
       }
     },
@@ -47,23 +41,35 @@
       "trigger": "autumnity:feed_snail",
       "conditions": {
         "item": {
-          "item": "minecraft:crimson_fungus"
+          "items": [
+            "minecraft:crimson_fungus"
+          ]
+        }
+      }
+    },
+    "warped_fungus": {
+      "trigger": "autumnity:feed_snail",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:warped_fungus"
+          ]
         }
       }
     }
   },
   "requirements": [
     [
-      "brown_mushroom"
-    ],
-    [
       "red_mushroom"
     ],
     [
-      "warped_fungus"
+      "brown_mushroom"
     ],
     [
       "crimson_fungus"
+    ],
+    [
+      "warped_fungus"
     ]
   ]
 }

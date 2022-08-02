@@ -82,6 +82,9 @@
   "block.autumnity.red_maple_leaf_pile": "Red Maple Leaf Pile",
   
   "item.autumnity.maple_boat": "Maple Boat",
+  "item.autumnity.maple_furnace_boat": "Maple Boat with Furnace",
+  "item.autumnity.maple_chest_boat": "Maple Boat with Chest",
+  "item.autumnity.large_maple_boat": "Large Maple Boat",
   
   "item.autumnity.sap_bottle": "Sap Bottle",
   "item.autumnity.syrup_bottle": "Syrup Bottle",
@@ -163,8 +166,8 @@
   "block.autumnity.red_maple_hedge": "Red Maple Hedge",
   "block.autumnity.ender_jack_o_lantern": "Ender Jack o'Lantern",
   "block.autumnity.large_ender_jack_o_lantern_slice": "Large Ender Jack o'Lantern Slice",
-  "block.autumnity.cursed_jack_o_lantern": "Cursed Jack o'Lantern",
-  "block.autumnity.large_cursed_jack_o_lantern_slice": "Large Cursed Jack o'Lantern Slice",
+  "block.autumnity.cupric_jack_o_lantern": "Cupric Jack o'Lantern",
+  "block.autumnity.large_cupric_jack_o_lantern_slice": "Large Cupric Jack o'Lantern Slice",
   "block.autumnity.turkey_egg_crate": "Turkey Egg Crate",
   "block.autumnity.slime": "Slime",
   

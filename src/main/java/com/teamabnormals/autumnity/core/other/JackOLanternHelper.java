@@ -18,7 +18,7 @@ public class JackOLanternHelper {
 		else if ((ModList.get().isLoaded("endergetic") && torch == AutumnityCompat.ENDER_TORCH))
 			return AutumnityBlocks.ENDER_JACK_O_LANTERN.get();
 		else if ((ModList.get().isLoaded("caverns_and_chasms") && torch == AutumnityCompat.CUPRIC_TORCH))
-			return AutumnityBlocks.CURSED_JACK_O_LANTERN.get();
+			return AutumnityBlocks.CUPRIC_JACK_O_LANTERN.get();
 		else
 			return null;
 	}
@@ -33,7 +33,7 @@ public class JackOLanternHelper {
 		else if ((ModList.get().isLoaded("endergetic") && torch == AutumnityCompat.ENDER_TORCH))
 			return AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get();
 		else if ((ModList.get().isLoaded("caverns_and_chasms") && torch == AutumnityCompat.CUPRIC_TORCH))
-			return AutumnityBlocks.LARGE_CURSED_JACK_O_LANTERN_SLICE.get();
+			return AutumnityBlocks.LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get();
 		else
 			return null;
 	}

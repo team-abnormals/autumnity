@@ -9,11 +9,11 @@
       "item": "autumnity:carved_large_pumpkin_slice"
     },
     "B": {
-      "item": "caverns_and_chasms:cursed_torch"
+      "item": "caverns_and_chasms:cupric_torch"
     }
   },
   "result": {
-    "item": "autumnity:large_cursed_jack_o_lantern_slice"
+    "item": "autumnity:large_cupric_jack_o_lantern_slice"
   },
   "conditions": [
     {

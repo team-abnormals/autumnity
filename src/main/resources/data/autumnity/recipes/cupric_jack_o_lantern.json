@@ -9,11 +9,11 @@
       "item": "minecraft:carved_pumpkin"
     },
     "B": {
-      "item": "caverns_and_chasms:cursed_torch"
+      "item": "caverns_and_chasms:cupric_torch"
     }
   },
   "result": {
-    "item": "autumnity:cursed_jack_o_lantern"
+    "item": "autumnity:cupric_jack_o_lantern"
   },
   "conditions": [
     {

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "autumnity:foul_berry_bush_pips",
+    "autumnity:foul_berry_bush",
+    "autumnity:tall_foul_berry_bush",
+    "autumnity:maple_boards",
+    "autumnity:maple_bookshelf",
+    "autumnity:maple_ladder",
+    "autumnity:maple_beehive",
+    "autumnity:maple_chest",
+    "autumnity:maple_trapped_chest",
+    "autumnity:maple_hedge",
+    "autumnity:yellow_maple_hedge",
+    "autumnity:orange_maple_hedge",
+    "autumnity:red_maple_hedge",
+    "autumnity:maple_post",
+    "autumnity:stripped_maple_post"
+  ]
+}

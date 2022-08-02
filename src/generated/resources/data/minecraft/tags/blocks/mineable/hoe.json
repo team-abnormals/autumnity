@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "autumnity:foul_berry_sack",
+    "autumnity:maple_leaves",
+    "autumnity:yellow_maple_leaves",
+    "autumnity:orange_maple_leaves",
+    "autumnity:red_maple_leaves",
+    "autumnity:maple_leaf_pile",
+    "autumnity:yellow_maple_leaf_pile",
+    "autumnity:orange_maple_leaf_pile",
+    "autumnity:red_maple_leaf_pile",
+    "autumnity:maple_leaf_carpet",
+    "autumnity:yellow_maple_leaf_carpet",
+    "autumnity:orange_maple_leaf_carpet",
+    "autumnity:red_maple_leaf_carpet"
+  ]
+}

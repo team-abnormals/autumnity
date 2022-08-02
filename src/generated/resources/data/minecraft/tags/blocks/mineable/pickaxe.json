@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "autumnity:snail_shell_block",
+    "autumnity:snail_shell_bricks",
+    "autumnity:snail_shell_brick_stairs",
+    "autumnity:snail_shell_brick_slab",
+    "autumnity:snail_shell_brick_wall",
+    "autumnity:snail_shell_brick_vertical_slab",
+    "autumnity:chiseled_snail_shell_bricks",
+    "autumnity:snail_shell_tiles",
+    "autumnity:snail_shell_tile_stairs",
+    "autumnity:snail_shell_tile_slab",
+    "autumnity:snail_shell_tile_wall",
+    "autumnity:snail_shell_tile_vertical_slab"
+  ]
+}

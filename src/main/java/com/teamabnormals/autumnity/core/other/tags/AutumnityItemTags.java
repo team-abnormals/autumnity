@@ -12,6 +12,7 @@ public class AutumnityItemTags {
 	public static final TagKey<Item> SNAIL_GLOW_SNACKS = itemTag("snail_glowi_snacks");
 	public static final TagKey<Item> SNAIL_SPEED_SNACKS = itemTag("snail_speed_snacks");
 	public static final TagKey<Item> TURKEY_FOOD = itemTag("turkey_food");
+	public static final TagKey<Item> MAPLE_LOGS = itemTag("maple_logs");
 
 	public static final TagKey<Item> KNIVES = TagUtil.itemTag("farmersdelight", "tools/knives");
 

@@ -12,6 +12,7 @@ import com.teamabnormals.autumnity.core.data.server.AutumnityAdvancementProvider
 import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityAdvancementModifierProvider;
 import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityModdedBiomeSliceProvider;
 import com.teamabnormals.autumnity.core.data.server.tags.AutumnityBiomeTagsProvider;
+import com.teamabnormals.autumnity.core.data.server.tags.AutumnityBlockTagsProvider;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;
@@ -95,6 +96,8 @@ public class Autumnity {
 
 		boolean includeServer = event.includeServer();
 		if (includeServer) {
+			AutumnityBlockTagsProvider blockTags = new AutumnityBlockTagsProvider(generator, existingFileHelper);
+			generator.addProvider(blockTags);
 			generator.addProvider(new AutumnityAdvancementProvider(generator, existingFileHelper));
 			generator.addProvider(new AutumnityBiomeTagsProvider(generator, existingFileHelper));
 			generator.addProvider(new AutumnityAdvancementModifierProvider(generator));

@@ -621,7 +621,7 @@ public class Snail extends Animal {
 		}
 
 		private boolean isBlockMushroom(BlockPos pos) {
-			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_BLOCK_SNACKS);
+			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_SNACKS);
 		}
 	}
 

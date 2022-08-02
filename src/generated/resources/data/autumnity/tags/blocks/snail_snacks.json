@@ -4,9 +4,10 @@
     "minecraft:red_mushroom",
     "minecraft:brown_mushroom",
     "minecraft:crimson_fungus",
-    "minecraft:warped_fungus"
-  ],
-  "optional": [
-    "quark:glowshroom"
+    "minecraft:warped_fungus",
+    {
+      "id": "quark:glowshroom",
+      "required": false
+    }
   ]
 }

@@ -36,7 +36,7 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	@Override
 	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
-		if (itemstack.getItem() == Items.SHEARS || (ModList.get().isLoaded("farmersdelight") && itemstack.is(AutumnityItemTags.KNIVES))) {
+		if (itemstack.getItem() == Items.SHEARS || itemstack.is(AutumnityItemTags.KNIVES)) {
 			Direction hitface = hit.getDirection().getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : hit.getDirection();
 			Direction facing = state.getValue(FACING);
 

@@ -91,12 +91,6 @@ public class AutumnityEvents {
 				}
 			}
 		}
-//		else if (livingentity instanceof Cat cat) {
-//			if (world instanceof ServerLevel serverLevel && serverLevel.structureFeatureManager().getStructureAt(livingentity.blockPosition(), AutumnityConfiguredStructureFeatures.MAPLE_WITCH_HUT.value()).isValid()) {
-//				cat.setCatType(10);
-//				cat.setPersistenceRequired();
-//			}
-//		}
 	}
 
 	@SubscribeEvent
@@ -218,7 +212,7 @@ public class AutumnityEvents {
 				if (direction == direction1) {
 					if (!world.isClientSide) {
 						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, world.hasNeighborSignal(blockpos)) : jackolantern.defaultBlockState();
-						blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
+						blockstate1 = blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
 						world.setBlock(blockpos, blockstate1, 11);
 
 						world.playSound(null, blockpos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);

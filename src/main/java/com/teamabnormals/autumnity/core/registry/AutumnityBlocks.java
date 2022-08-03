@@ -131,9 +131,6 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = HELPER.createCompatBlock("quark", "red_maple_leaf_carpet", () -> new LeafCarpetBlock(Properties.MAPLE.leafCarpet()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> RED_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "red_maple_hedge", () -> new HedgeBlock(Properties.MAPLE.log()), 300, CreativeModeTab.TAB_DECORATIONS);
 
-	// public static final RegistryObject<Block> MAPLE_BRANCH = HELPER.createBlock("maple_branch", () -> new MapleBranch(AutumnityBlockProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
-	// public static final RegistryObject<Block> LONG_MAPLE_BRANCH = HELPER.createBlock("long_maple_branch", () -> new LongMapleBranch(AutumnityBlockProperties.MAPLE_BRANCH), ItemGroup.DECORATIONS);
-
 	public static final class Properties {
 		public static final WoodSetProperties MAPLE = WoodSetProperties.builder(MaterialColor.TERRACOTTA_ORANGE).build();
 

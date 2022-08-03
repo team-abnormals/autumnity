@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 
 public class LargeJackOLanternSliceBlock extends AbstractLargePumpkinSliceBlock {
-	public static final EnumProperty<CarvedSide> CARVED_SIDE = AutumnityBlockStateProperties.CARVED_SIDE;
+	public static final EnumProperty<CarvedSide> CARVED_SIDE = EnumProperty.create("carved_side", CarvedSide.class);
 
 	public LargeJackOLanternSliceBlock(Properties properties) {
 		super(properties);

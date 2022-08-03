@@ -4,22 +4,16 @@ import com.teamabnormals.autumnity.common.entity.projectile.ThrownTurkeyEgg;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.core.util.DataUtil;
+
 import net.minecraft.Util;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class AutumnityCompat {
-	public static final Item ENDER_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("endergetic", "ender_torch"));
-	public static final Item CUPRIC_TORCH = ForgeRegistries.ITEMS.getValue(new ResourceLocation("caverns_and_chasms", "cupric_torch"));
-	public static final Block YUCCA_GATEAU = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "yucca_gateau"));
 
 	public static void registerCompat() {
 		registerCompostables();

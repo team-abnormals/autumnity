@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.common.block.properties.CarvedSide;
-import com.teamabnormals.autumnity.core.other.JackOLanternHelper;
+import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 
 import net.minecraft.core.BlockPos;
@@ -24,31 +24,31 @@ public class CarvedLargePumpkinSliceBlock extends LargeJackOLanternSliceBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(handIn);
-		Block jackolantern = JackOLanternHelper.getLargeJackOLantern(itemstack.getItem());
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+		ItemStack itemstack = player.getItemInHand(hand);
+		Block jackolantern = JackOLanternUtil.getLargeJackOLantern(itemstack);
 
-		if (jackolantern != null) {
+		if (jackolantern instanceof LargeJackOLanternSliceBlock) {
 			Direction hitface = hit.getDirection();
 			Direction facing = state.getValue(FACING);
 			CarvedSide carvedside = state.getValue(CARVED_SIDE);
 
 			if (canCarve(hitface, facing) && (hitface.getAxis() == Axis.X && carvedside == CarvedSide.X || hitface.getAxis() == Axis.Z && carvedside == CarvedSide.Z)) {
-				if (!worldIn.isClientSide) {
-					BlockState blockstate = jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, worldIn.hasNeighborSignal(pos)) : jackolantern.defaultBlockState();
-					blockstate = blockstate.setValue(FACING, state.getValue(FACING)).setValue(HALF, state.getValue(HALF)).setValue(CARVED_SIDE, state.getValue(CARVED_SIDE));
-					worldIn.setBlock(pos, blockstate, 11);
-
-					worldIn.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-					if (!player.getAbilities().instabuild) {
-						itemstack.shrink(1);
+				if (!level.isClientSide()) {
+					BlockState blockstate = jackolantern.defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(HALF, state.getValue(HALF)).setValue(CARVED_SIDE, state.getValue(CARVED_SIDE));
+					if (jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()) {
+						blockstate = blockstate.setValue(RedstoneJackOLanternBlock.LIT, level.hasNeighborSignal(pos));
 					}
+
+					level.setBlock(pos, blockstate, 11);
+					level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 				}
 
-				return InteractionResult.sidedSuccess(worldIn.isClientSide);
+				if (!player.getAbilities().instabuild) itemstack.shrink(1);
+				return InteractionResult.sidedSuccess(level.isClientSide());
 			}
 		}
 
-		return super.use(state, worldIn, pos, player, handIn, hit);
+		return super.use(state, level, pos, player, hand, hit);
 	}
 }

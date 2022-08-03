@@ -1,6 +1,0 @@
-{
-    "parent": "autumnity:block/template_branch",
-	"textures": {
-		"branch": "autumnity:block/long_maple_branch_base"
-	}
-}

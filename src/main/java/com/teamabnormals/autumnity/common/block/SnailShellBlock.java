@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import javax.annotation.Nullable;
 
 public class SnailShellBlock extends HorizontalDirectionalBlock {
-	public static final EnumProperty<SnailShellOrientation> ORIENTATION = AutumnityBlockStateProperties.ORIENTATION;
+	public static final EnumProperty<SnailShellOrientation> ORIENTATION = EnumProperty.create("orientation", SnailShellOrientation.class);
 
 	public SnailShellBlock(BlockBehaviour.Properties builder) {
 		super(builder);

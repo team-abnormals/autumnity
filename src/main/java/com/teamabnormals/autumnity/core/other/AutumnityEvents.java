@@ -2,6 +2,7 @@ package com.teamabnormals.autumnity.core.other;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
+import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
@@ -52,10 +53,10 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.UUID;
 
@@ -104,23 +105,49 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-		Level world = event.getWorld();
+	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+		Level level = event.getWorld();
 		Player player = event.getPlayer();
 		ItemStack itemstack = event.getItemStack();
 		Item item = itemstack.getItem();
 		BlockPos pos = event.getPos();
-		BlockState state = world.getBlockState(pos);
+		BlockState state = level.getBlockState(pos);
 		Block block = state.getBlock();
 
 		if (!player.isSpectator()) {
 			if (item == AutumnityItems.FOUL_BERRIES.get() && ModList.get().isLoaded("berry_good")) {
 				event.setUseItem(Event.Result.DENY);
-			} else if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == AutumnityCompat.YUCCA_GATEAU))) {
+			} else if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == ForgeRegistries.BLOCKS.getValue(AutumnityConstants.YUCCA_GATEAU)))) {
 				if (player.getFoodData().getFoodLevel() < 19) {
 					player.getFoodData().eat(1, 0.0F);
 				}
 				updateFoulTaste(player);
+			}
+		}
+
+
+		if (block == Blocks.CARVED_PUMPKIN) {
+			Block jackolantern = JackOLanternUtil.getJackOLantern(itemstack);
+
+			if (jackolantern instanceof CarvedPumpkinBlock) {
+				Direction hitface = event.getFace();
+				Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
+
+				if (hitface == facing) {
+					if (!level.isClientSide()) {
+						BlockState blockstate = jackolantern.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, facing);
+						if (jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()) {
+							blockstate = blockstate.setValue(RedstoneJackOLanternBlock.LIT, level.hasNeighborSignal(pos));
+						}
+
+						level.setBlock(pos, blockstate, 11);
+						level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+					}
+
+					if (!event.getPlayer().getAbilities().instabuild) itemstack.shrink(1);
+					event.setCanceled(true);
+					event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
+				}
 			}
 		}
 	}
@@ -177,56 +204,18 @@ public class AutumnityEvents {
 				new BlueprintTrade(5, AutumnityBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(5, AutumnityBlocks.RED_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(4, AutumnityBlocks.SNAIL_SLIME.get().asItem(), 1, 5, 1)
-		);
+				);
 	}
 
 	@SubscribeEvent
 	public static void onVillagerTradesEvent(VillagerTradesEvent event) {
 		TradeUtil.addVillagerTrades(event, VillagerProfession.FARMER, TradeUtil.APPRENTICE,
 				new BlueprintTrade(2, AutumnityItems.FOUL_BERRIES.get(), 16, 12, 10)
-		);
+				);
 
 		TradeUtil.addVillagerTrades(event, VillagerProfession.BUTCHER, TradeUtil.JOURNEYMAN,
 				new BlueprintTrade(AutumnityBlocks.TURKEY.get().asItem(), 6, 1, 16, 20)
-		);
-	}
-
-	@SubscribeEvent
-	public static void onMakeJackOLantern(PlayerInteractEvent.RightClickBlock event) {
-		ItemStack itemstack = event.getItemStack();
-		Block jackolantern = JackOLanternHelper.getJackOLantern(itemstack.getItem());
-
-		if (jackolantern != null) {
-			Level world = event.getWorld();
-			BlockPos blockpos = event.getPos();
-			BlockState blockstate = event.getWorld().getBlockState(event.getPos());
-			Player player = event.getPlayer();
-
-			boolean flag = !player.getMainHandItem().doesSneakBypassUse(world, blockpos, player) || !player.getOffhandItem().doesSneakBypassUse(world, blockpos, player);
-			boolean flag1 = player.isSecondaryUseActive() && flag;
-
-			if (blockstate.getBlock() == Blocks.CARVED_PUMPKIN && !flag1) {
-				Direction direction = event.getFace();
-				Direction direction1 = blockstate.getValue(CarvedPumpkinBlock.FACING);
-
-				if (direction == direction1) {
-					if (!world.isClientSide) {
-						BlockState blockstate1 = jackolantern == AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get() ? jackolantern.defaultBlockState().setValue(RedstoneJackOLanternBlock.LIT, world.hasNeighborSignal(blockpos)) : jackolantern.defaultBlockState();
-						blockstate1 = blockstate1.setValue(CarvedPumpkinBlock.FACING, direction1);
-						world.setBlock(blockpos, blockstate1, 11);
-
-						world.playSound(null, blockpos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-						if (!event.getPlayer().getAbilities().instabuild) {
-							itemstack.shrink(1);
-						}
-					}
-
-					player.swing(event.getHand());
-					event.setCancellationResult(InteractionResult.sidedSuccess(world.isClientSide));
-					event.setUseItem(Result.DENY);
-				}
-			}
-		}
+				);
 	}
 
 	@SubscribeEvent

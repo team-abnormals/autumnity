@@ -2,7 +2,7 @@ package com.teamabnormals.autumnity.core.data.client;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
+import com.teamabnormals.autumnity.core.other.AutumnityBlockFamilies;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock.VerticalSlabType;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
@@ -36,7 +36,6 @@ import java.util.function.Function;
 import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityBlockStateProvider extends BlockStateProvider {
-	public static final BlockFamily MAPLE_PLANKS_FAMILY = new BlockFamily.Builder(MAPLE_PLANKS.get()).button(MAPLE_BUTTON.get()).fence(MAPLE_FENCE.get()).fenceGate(MAPLE_FENCE_GATE.get()).pressurePlate(MAPLE_PRESSURE_PLATE.get()).sign(MAPLE_SIGN.getFirst().get(), MAPLE_SIGN.getSecond().get()).slab(MAPLE_SLAB.get()).stairs(MAPLE_STAIRS.get()).door(MAPLE_DOOR.get()).trapdoor(MAPLE_TRAPDOOR.get()).recipeGroupPrefix("wooden").recipeUnlockedBy("has_planks").getFamily();
 
 	public AutumnityBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, Autumnity.MOD_ID, existingFileHelper);
@@ -44,7 +43,9 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		this.blockFamily(MAPLE_PLANKS_FAMILY, MAPLE_VERTICAL_SLAB.get());
+		this.blockFamily(AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY, MAPLE_VERTICAL_SLAB.get());
+		this.blockFamily(AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY, SNAIL_SHELL_BRICK_VERTICAL_SLAB.get());
+		this.blockFamily(AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY, SNAIL_SHELL_TILE_VERTICAL_SLAB.get());
 
 		this.logBlocks(MAPLE_LOG.get(), MAPLE_WOOD.get());
 		this.logBlocks(STRIPPED_MAPLE_LOG.get(), STRIPPED_MAPLE_WOOD.get());
@@ -59,6 +60,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.crossBlockWithPot(YELLOW_MAPLE_SAPLING.get(), POTTED_YELLOW_MAPLE_SAPLING.get());
 		this.crossBlockWithPot(ORANGE_MAPLE_SAPLING.get(), POTTED_ORANGE_MAPLE_SAPLING.get());
 		this.crossBlockWithPot(RED_MAPLE_SAPLING.get(), POTTED_RED_MAPLE_SAPLING.get());
+		this.crossBlockWithPot(AUTUMN_CROCUS.get(), POTTED_AUTUMN_CROCUS.get());
 
 		this.planksCompat(MAPLE_PLANKS.get(), MAPLE_BOARDS.get(), MAPLE_LADDER.get(), MAPLE_BOOKSHELF.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST, VERTICAL_MAPLE_PLANKS.get());
 		this.logCompat(MAPLE_LOG.get(), STRIPPED_MAPLE_LOG.get(), MAPLE_POST.get(), STRIPPED_MAPLE_POST.get());

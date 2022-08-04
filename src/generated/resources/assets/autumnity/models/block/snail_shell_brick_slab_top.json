@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "autumnity:block/snail_shell_bricks",
+    "bottom": "autumnity:block/snail_shell_bricks",
+    "top": "autumnity:block/snail_shell_bricks"
+  }
+}

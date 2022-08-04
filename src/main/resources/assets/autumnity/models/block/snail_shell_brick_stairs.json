@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "autumnity:block/snail_shell_bricks",
-        "top": "autumnity:block/snail_shell_bricks",
-        "side": "autumnity:block/snail_shell_bricks"
-    }
-}

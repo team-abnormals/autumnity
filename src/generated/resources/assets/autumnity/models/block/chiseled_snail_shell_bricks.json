@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "autumnity:block/chiseled_snail_shell_bricks"
+  }
+}

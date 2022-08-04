@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "autumnity:block/snail_shell_tile_slab" },
-        "type=top": { "model": "autumnity:block/snail_shell_tile_slab_top" },
-        "type=double": { "model": "autumnity:block/snail_shell_tiles" }
-    }
-}

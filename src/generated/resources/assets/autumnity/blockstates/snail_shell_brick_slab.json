@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "autumnity:block/snail_shell_brick_slab_top"
+    },
+    "type=bottom": {
+      "model": "autumnity:block/snail_shell_brick_slab"
+    },
+    "type=double": {
+      "model": "autumnity:block/snail_shell_bricks"
+    }
+  }
+}

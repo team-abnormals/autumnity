@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "autumnity:block/snail_shell_tiles",
+    "bottom": "autumnity:block/snail_shell_tiles",
+    "top": "autumnity:block/snail_shell_tiles"
+  }
+}

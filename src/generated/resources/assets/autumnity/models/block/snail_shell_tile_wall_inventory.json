@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "autumnity:block/snail_shell_tiles"
+  }
+}

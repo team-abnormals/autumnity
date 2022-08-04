@@ -204,18 +204,18 @@ public class AutumnityEvents {
 				new BlueprintTrade(5, AutumnityBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(5, AutumnityBlocks.RED_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(4, AutumnityBlocks.SNAIL_SLIME.get().asItem(), 1, 5, 1)
-				);
+		);
 	}
 
 	@SubscribeEvent
 	public static void onVillagerTradesEvent(VillagerTradesEvent event) {
 		TradeUtil.addVillagerTrades(event, VillagerProfession.FARMER, TradeUtil.APPRENTICE,
 				new BlueprintTrade(2, AutumnityItems.FOUL_BERRIES.get(), 16, 12, 10)
-				);
+		);
 
 		TradeUtil.addVillagerTrades(event, VillagerProfession.BUTCHER, TradeUtil.JOURNEYMAN,
 				new BlueprintTrade(AutumnityBlocks.TURKEY.get().asItem(), 6, 1, 16, 20)
-				);
+		);
 	}
 
 	@SubscribeEvent

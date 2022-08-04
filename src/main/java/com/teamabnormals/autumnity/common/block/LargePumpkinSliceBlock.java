@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.fml.ModList;
 
 public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	public LargePumpkinSliceBlock(Properties properties) {

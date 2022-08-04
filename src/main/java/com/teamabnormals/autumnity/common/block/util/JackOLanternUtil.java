@@ -1,17 +1,16 @@
 package com.teamabnormals.autumnity.common.block.util;
 
-import java.util.Map;
-
 import com.google.common.collect.Maps;
 import com.teamabnormals.autumnity.core.other.AutumnityConstants;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+
+import java.util.Map;
 
 public class JackOLanternUtil {
 	private static final Map<ResourceLocation, Block> JACK_O_LANTERNS = Util.make(Maps.newHashMap(), (jackolanterns) -> {

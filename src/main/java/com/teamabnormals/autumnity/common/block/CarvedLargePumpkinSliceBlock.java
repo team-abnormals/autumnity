@@ -3,7 +3,6 @@ package com.teamabnormals.autumnity.common.block;
 import com.teamabnormals.autumnity.common.block.properties.CarvedSide;
 import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;

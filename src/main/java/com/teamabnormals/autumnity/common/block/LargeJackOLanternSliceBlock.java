@@ -1,7 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.common.block.properties.CarvedSide;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.util.Mth;

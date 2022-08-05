@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "modid": "incubation",
+          "type": "forge:mod_loaded"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "autumnity:turkey_egg"
+          ]
+        },
+        "criteria": {
+          "has_turkey_egg_crate": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "autumnity:turkey_egg_crate"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "autumnity:turkey_egg"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "has_turkey_egg_crate",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

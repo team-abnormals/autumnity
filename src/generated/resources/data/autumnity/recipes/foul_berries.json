@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "modid": "berry_good",
+          "type": "forge:mod_loaded"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "autumnity:foul_berry_sack"
+          }
+        ],
+        "result": {
+          "item": "autumnity:foul_berries",
+          "count": 9
+        }
+      }
+    }
+  ]
+}

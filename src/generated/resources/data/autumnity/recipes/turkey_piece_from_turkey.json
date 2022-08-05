@@ -1,0 +1,28 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "value": {
+            "modid": "abnormals_delight",
+            "type": "forge:mod_loaded"
+          },
+          "type": "forge:not"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "autumnity:turkey"
+          }
+        ],
+        "result": {
+          "item": "autumnity:turkey_piece",
+          "count": 5
+        }
+      }
+    }
+  ]
+}

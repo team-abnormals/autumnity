@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "modid": "berry_good",
+          "type": "forge:mod_loaded"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "autumnity:foul_berry_pips"
+          ]
+        },
+        "criteria": {
+          "has_foul_berries": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "autumnity:foul_berries"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "autumnity:foul_berry_pips"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "has_foul_berries",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

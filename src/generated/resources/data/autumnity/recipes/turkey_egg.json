@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "modid": "incubation",
+          "type": "forge:mod_loaded"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "autumnity:turkey_egg_crate"
+          }
+        ],
+        "result": {
+          "item": "autumnity:turkey_egg",
+          "count": 9
+        }
+      }
+    }
+  ]
+}

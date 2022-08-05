@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:red_maple_leaves_from_red_maple_leaf_pile"
+    ]
+  },
+  "criteria": {
+    "has_red_maple_leaf_pile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:red_maple_leaf_pile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:red_maple_leaves_from_red_maple_leaf_pile"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_maple_leaf_pile",
+      "has_the_recipe"
+    ]
+  ]
+}

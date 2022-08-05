@@ -5,10 +5,10 @@
       "item": "autumnity:sap_bottle"
     },
     {
-      "item": "autumnity:stripped_maple_wood"
+      "item": "autumnity:maple_log"
     }
   ],
   "result": {
-    "item": "autumnity:sappy_maple_wood"
+    "item": "autumnity:sappy_maple_log"
   }
 }

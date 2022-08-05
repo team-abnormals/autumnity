@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "autumnity:sap_bottle"
+    },
+    {
+      "item": "autumnity:maple_wood"
+    }
+  ],
+  "result": {
+    "item": "autumnity:sappy_maple_wood"
+  }
+}

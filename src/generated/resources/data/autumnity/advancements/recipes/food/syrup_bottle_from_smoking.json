@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:syrup_bottle_from_smoking"
+    ]
+  },
+  "criteria": {
+    "has_sap_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:sap_bottle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:syrup_bottle_from_smoking"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sap_bottle",
+      "has_the_recipe"
+    ]
+  ]
+}

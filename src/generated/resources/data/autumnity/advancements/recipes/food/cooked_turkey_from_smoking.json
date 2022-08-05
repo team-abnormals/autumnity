@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:cooked_turkey_from_smoking"
+    ]
+  },
+  "criteria": {
+    "has_turkey": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:turkey"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:cooked_turkey_from_smoking"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_turkey",
+      "has_the_recipe"
+    ]
+  ]
+}

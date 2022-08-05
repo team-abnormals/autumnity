@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "#",
-	"#"
+    "#"
   ],
   "key": {
     "#": {
@@ -10,7 +10,6 @@
     }
   },
   "result": {
-    "item": "autumnity:chiseled_snail_shell_bricks",
-    "count": 1
+    "item": "autumnity:chiseled_snail_shell_bricks"
   }
 }

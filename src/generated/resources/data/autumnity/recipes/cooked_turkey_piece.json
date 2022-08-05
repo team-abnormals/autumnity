@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:campfire_cooking",
+  "type": "minecraft:smelting",
   "ingredient": {
     "item": "autumnity:turkey_piece"
   },
   "result": "autumnity:cooked_turkey_piece",
-  "experience": 0.1,
-  "cookingtime": 600
+  "experience": 0.35,
+  "cookingtime": 200
 }

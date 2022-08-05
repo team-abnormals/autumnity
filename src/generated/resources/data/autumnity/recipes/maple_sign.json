@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_fence",
+  "group": "wooden_sign",
   "pattern": [
-    "W#W",
-    "W#W"
+    "###",
+    "###",
+    " X "
   ],
   "key": {
     "#": {
-      "item": "minecraft:stick"
-    },
-    "W": {
       "item": "autumnity:maple_planks"
+    },
+    "X": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "autumnity:maple_fence",
+    "item": "autumnity:maple_sign",
     "count": 3
   }
 }

@@ -2,10 +2,10 @@ package com.teamabnormals.autumnity.core.registry;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.*;
-import com.teamabnormals.autumnity.common.block.trees.MapleTree;
-import com.teamabnormals.autumnity.common.block.trees.OrangeMapleTree;
-import com.teamabnormals.autumnity.common.block.trees.RedMapleTree;
-import com.teamabnormals.autumnity.common.block.trees.YellowMapleTree;
+import com.teamabnormals.autumnity.common.block.grower.MapleTreeGrower;
+import com.teamabnormals.autumnity.common.block.grower.OrangeMapleTreeGrower;
+import com.teamabnormals.autumnity.common.block.grower.RedMapleTreeGrower;
+import com.teamabnormals.autumnity.common.block.grower.YellowMapleTreeGrower;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.blueprint.common.block.*;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
@@ -16,6 +16,7 @@ import com.teamabnormals.blueprint.common.block.wood.*;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.PropertyUtil.WoodSetProperties;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.*;
@@ -104,28 +105,28 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> MAPLE_POST = HELPER.createCompatFuelBlock("quark", "maple_post", () -> new WoodPostBlock(STRIPPED_MAPLE_POST, Properties.MAPLE.log()), 300, CreativeModeTab.TAB_BUILDING_BLOCKS);
 
 	public static final RegistryObject<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(Properties.MAPLE.leaves()), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new BlueprintSaplingBlock(new MapleTree(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new BlueprintSaplingBlock(new MapleTreeGrower(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), PropertyUtil.FLOWER_POT));
 	public static final RegistryObject<Block> MAPLE_LEAF_PILE = HELPER.createBlock("maple_leaf_pile", () -> new LeafPileBlock(Properties.MAPLE.leafPile()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_LEAF_CARPET = HELPER.createCompatBlock("quark", "maple_leaf_carpet", () -> new LeafCarpetBlock(Properties.MAPLE.leafCarpet()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "maple_hedge", () -> new HedgeBlock(Properties.MAPLE.log()), 300, CreativeModeTab.TAB_DECORATIONS);
 
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAVES = HELPER.createBlock("yellow_maple_leaves", () -> new ColoredMapleLeavesBlock(Properties.MAPLE.leaves(), 16766735), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_MAPLE_SAPLING = HELPER.createBlock("yellow_maple_sapling", () -> new BlueprintSaplingBlock(new YellowMapleTree(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_MAPLE_SAPLING = HELPER.createBlock("yellow_maple_sapling", () -> new BlueprintSaplingBlock(new YellowMapleTreeGrower(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_YELLOW_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), PropertyUtil.FLOWER_POT));
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE = HELPER.createBlock("yellow_maple_leaf_pile", () -> new LeafPileBlock(Properties.MAPLE.leafPile()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> YELLOW_MAPLE_LEAF_CARPET = HELPER.createCompatBlock("quark", "yellow_maple_leaf_carpet", () -> new LeafCarpetBlock(Properties.MAPLE.leafCarpet()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> YELLOW_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "yellow_maple_hedge", () -> new HedgeBlock(Properties.MAPLE.log()), 300, CreativeModeTab.TAB_DECORATIONS);
 
 	public static final RegistryObject<Block> ORANGE_MAPLE_LEAVES = HELPER.createBlock("orange_maple_leaves", () -> new ColoredMapleLeavesBlock(Properties.MAPLE.leaves(), 16745768), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_MAPLE_SAPLING = HELPER.createBlock("orange_maple_sapling", () -> new BlueprintSaplingBlock(new OrangeMapleTree(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_MAPLE_SAPLING = HELPER.createBlock("orange_maple_sapling", () -> new BlueprintSaplingBlock(new OrangeMapleTreeGrower(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_ORANGE_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), PropertyUtil.FLOWER_POT));
 	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE = HELPER.createBlock("orange_maple_leaf_pile", () -> new LeafPileBlock(Properties.MAPLE.leafPile()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_MAPLE_LEAF_CARPET = HELPER.createCompatBlock("quark", "orange_maple_leaf_carpet", () -> new LeafCarpetBlock(Properties.MAPLE.leafCarpet()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_MAPLE_HEDGE = HELPER.createCompatFuelBlock("quark", "orange_maple_hedge", () -> new HedgeBlock(Properties.MAPLE.log()), 300, CreativeModeTab.TAB_DECORATIONS);
 
 	public static final RegistryObject<Block> RED_MAPLE_LEAVES = HELPER.createBlock("red_maple_leaves", () -> new ColoredMapleLeavesBlock(Properties.MAPLE.leaves(), 12665871), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new BlueprintSaplingBlock(new RedMapleTree(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new BlueprintSaplingBlock(new RedMapleTreeGrower(), PropertyUtil.SAPLING), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), PropertyUtil.FLOWER_POT));
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_PILE = HELPER.createBlock("red_maple_leaf_pile", () -> new LeafPileBlock(Properties.MAPLE.leafPile()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_CARPET = HELPER.createCompatBlock("quark", "red_maple_leaf_carpet", () -> new LeafCarpetBlock(Properties.MAPLE.leafCarpet()), CreativeModeTab.TAB_DECORATIONS);

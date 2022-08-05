@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.client.renderer.entity;
 
-import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
+import com.teamabnormals.autumnity.client.model.TurkeyModel;
 import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;

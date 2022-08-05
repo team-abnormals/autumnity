@@ -1,4 +1,4 @@
-package com.teamabnormals.autumnity.client.renderer.entity.model;
+package com.teamabnormals.autumnity.client.model;
 
 import com.google.common.collect.ImmutableList;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;

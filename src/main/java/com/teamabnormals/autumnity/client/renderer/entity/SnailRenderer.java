@@ -2,7 +2,7 @@ package com.teamabnormals.autumnity.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import com.teamabnormals.autumnity.client.renderer.entity.model.SnailModel;
+import com.teamabnormals.autumnity.client.model.SnailModel;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;

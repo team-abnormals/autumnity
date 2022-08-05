@@ -1,11 +1,11 @@
 package com.teamabnormals.autumnity.core;
 
+import com.teamabnormals.autumnity.client.model.SnailModel;
+import com.teamabnormals.autumnity.client.model.TurkeyModel;
 import com.teamabnormals.autumnity.client.renderer.entity.FallingHeadBlockRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.SnailRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
-import com.teamabnormals.autumnity.client.renderer.entity.model.SnailModel;
-import com.teamabnormals.autumnity.client.renderer.entity.model.TurkeyModel;
 import com.teamabnormals.autumnity.core.data.client.AutumnityBlockStateProvider;
 import com.teamabnormals.autumnity.core.data.client.AutumnityItemModelProvider;
 import com.teamabnormals.autumnity.core.data.server.AutumnityRecipeProvider;

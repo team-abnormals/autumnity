@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "autumnity:maple_leaf_banner_pattern"
+    ]
+  },
+  "criteria": {
+    "has_syrup_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:syrup_bottle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "autumnity:maple_leaf_banner_pattern"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_syrup_bottle",
+      "has_the_recipe"
+    ]
+  ]
+}

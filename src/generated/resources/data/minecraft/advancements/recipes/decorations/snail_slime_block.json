@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:snail_slime_block"
+    ]
+  },
+  "criteria": {
+    "has_snail_slime": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:snail_slime"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:snail_slime_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_snail_slime",
+      "has_the_recipe"
+    ]
+  ]
+}

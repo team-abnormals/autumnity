@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "FFF",
-    "FNF",
-    "FFF"
+    "###",
+    "#S#",
+    "###"
   ],
   "key": {
-    "N": {
+    "#": {
       "item": "autumnity:snail_shell_piece"
     },
-    "F": {
-      "item": "minecraft:stone_bricks"
+    "S": {
+      "item": "minecraft:smooth_stone"
     }
   },
   "result": {
-    "item": "autumnity:snail_shell_bricks",
+    "item": "autumnity:snail_shell_tiles",
     "count": 8
   }
 }

@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:snail_shell_piece"
+      "autumnity:snail_slime"
     ]
   },
   "criteria": {
-    "has_snail_shell_block": {
+    "has_snail_slime_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "autumnity:snail_shell_block"
+              "autumnity:snail_slime_block"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:snail_shell_piece"
+        "recipe": "autumnity:snail_slime"
       }
     }
   },
   "requirements": [
     [
-      "has_snail_shell_block",
+      "has_snail_slime_block",
       "has_the_recipe"
     ]
   ]

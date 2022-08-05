@@ -74,6 +74,10 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		woodenBoat(consumer, AutumnityItems.MAPLE_BOAT.get(), AutumnityBlocks.MAPLE_PLANKS.get());
 	}
 
+	protected static void nineBlockStorageRecipes(Consumer<FinishedRecipe> consumer, ItemLike item, ItemLike storage) {
+		nineBlockStorageRecipes(consumer, item, storage, Autumnity.MOD_ID + ":" + getSimpleRecipeName(storage), null, Autumnity.MOD_ID + ":" + getSimpleRecipeName(item), null);
+	}
+
 	protected static void oneToOneConversionRecipe(Consumer<FinishedRecipe> consumer, ItemLike output, ItemLike input, @Nullable String group) {
 		oneToOneConversionRecipe(consumer, output, input, group, 1);
 	}

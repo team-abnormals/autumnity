@@ -1,0 +1,30 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "vertical_slabs",
+          "type": "blueprint:quark_flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "#",
+          "#",
+          "#"
+        ],
+        "key": {
+          "#": {
+            "item": "autumnity:snail_shell_tiles"
+          }
+        },
+        "result": {
+          "item": "autumnity:snail_shell_tile_vertical_slab",
+          "count": 6
+        }
+      }
+    }
+  ]
+}

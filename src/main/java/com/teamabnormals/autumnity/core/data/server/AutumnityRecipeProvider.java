@@ -5,6 +5,8 @@ import com.teamabnormals.autumnity.core.other.AutumnityBlockFamilies;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
+import com.teamabnormals.blueprint.core.Blueprint;
+import com.teamabnormals.blueprint.core.api.conditions.QuarkFlagRecipeCondition;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
@@ -13,11 +15,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
 public class AutumnityRecipeProvider extends RecipeProvider {
+	public static final QuarkFlagRecipeCondition VERTICAL_SLABS = new QuarkFlagRecipeCondition(new ResourceLocation(Blueprint.MOD_ID, "quark_flag"), "vertical_slabs");
 
 	public AutumnityRecipeProvider(DataGenerator generator) {
 		super(generator);
@@ -52,26 +57,39 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		ShapelessRecipeBuilder.shapeless(AutumnityItems.SWIRL_BANNER_PATTERN.get()).requires(Items.PAPER).requires(AutumnityItems.SNAIL_SHELL_PIECE.get()).unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);
 
 		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY);
+		conditionalRecipe(consumer, VERTICAL_SLABS, verticalSlabBuilder(AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get(), Ingredient.of(AutumnityBlocks.SNAIL_SHELL_BRICKS.get())).unlockedBy(getHasName(AutumnityBlocks.SNAIL_SHELL_BRICKS.get()), has(AutumnityBlocks.SNAIL_SHELL_BRICKS.get())));
+		conditionalRecipe(consumer, VERTICAL_SLABS, ShapelessRecipeBuilder.shapeless(AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get()).requires(AutumnityBlocks.SNAIL_SHELL_BRICK_SLAB.get()).unlockedBy(getHasName(AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get()), has(AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get())), new ResourceLocation(RecipeBuilder.getDefaultRecipeId(AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get()) + "_revert"));
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_BRICK_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 2);
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_BRICK_STAIRS.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_BRICK_WALL.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
+		conditionalStonecuttingRecipe(consumer, VERTICAL_SLABS, AutumnityBlocks.SNAIL_SHELL_BRICK_VERTICAL_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 2);
 		stonecutterResultFromBase(consumer, AutumnityBlocks.CHISELED_SNAIL_SHELL_BRICKS.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
 
 		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY);
+		conditionalRecipe(consumer, VERTICAL_SLABS, verticalSlabBuilder(AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get(), Ingredient.of(AutumnityBlocks.SNAIL_SHELL_TILES.get())).unlockedBy(getHasName(AutumnityBlocks.SNAIL_SHELL_TILES.get()), has(AutumnityBlocks.SNAIL_SHELL_TILES.get())));
+		conditionalRecipe(consumer, VERTICAL_SLABS, ShapelessRecipeBuilder.shapeless(AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get()).requires(AutumnityBlocks.SNAIL_SHELL_TILE_SLAB.get()).unlockedBy(getHasName(AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get()), has(AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get())), new ResourceLocation(RecipeBuilder.getDefaultRecipeId(AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get()) + "_revert"));
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_TILES.get(), 2);
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_STAIRS.get(), AutumnityBlocks.SNAIL_SHELL_TILES.get());
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_WALL.get(), AutumnityBlocks.SNAIL_SHELL_TILES.get());
+		conditionalStonecuttingRecipe(consumer, VERTICAL_SLABS, AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_TILES.get(), 2);
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILES.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 2);
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_STAIRS.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
 		stonecutterResultFromBase(consumer, AutumnityBlocks.SNAIL_SHELL_TILE_WALL.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get());
+		conditionalStonecuttingRecipe(consumer, VERTICAL_SLABS, AutumnityBlocks.SNAIL_SHELL_TILE_VERTICAL_SLAB.get(), AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 2);
 
 		generateRecipes(consumer, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY);
 		planksFromLogs(consumer, AutumnityBlocks.MAPLE_PLANKS.get(), AutumnityItemTags.MAPLE_LOGS);
 		woodFromLogs(consumer, AutumnityBlocks.MAPLE_WOOD.get(), AutumnityBlocks.MAPLE_LOG.get());
 		woodFromLogs(consumer, AutumnityBlocks.STRIPPED_MAPLE_WOOD.get(), AutumnityBlocks.STRIPPED_MAPLE_LOG.get());
 		woodFromLogs(consumer, AutumnityBlocks.SAPPY_MAPLE_WOOD.get(), AutumnityBlocks.SAPPY_MAPLE_LOG.get());
+		conditionalRecipe(consumer, VERTICAL_SLABS, verticalSlabBuilder(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get(), Ingredient.of(AutumnityBlocks.MAPLE_PLANKS.get())).unlockedBy(getHasName(AutumnityBlocks.MAPLE_PLANKS.get()), has(AutumnityBlocks.MAPLE_PLANKS.get())));
+		conditionalRecipe(consumer, VERTICAL_SLABS, ShapelessRecipeBuilder.shapeless(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get()).requires(AutumnityBlocks.MAPLE_SLAB.get()).unlockedBy(getHasName(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get()), has(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get())), new ResourceLocation(RecipeBuilder.getDefaultRecipeId(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get()) + "_revert"));
 		woodenBoat(consumer, AutumnityItems.MAPLE_BOAT.get(), AutumnityBlocks.MAPLE_PLANKS.get());
+	}
+
+	protected static RecipeBuilder verticalSlabBuilder(ItemLike item, Ingredient ingredient) {
+		return ShapedRecipeBuilder.shaped(item, 6).define('#', ingredient).pattern("#").pattern("#").pattern("#");
 	}
 
 	protected static void nineBlockStorageRecipes(Consumer<FinishedRecipe> consumer, ItemLike item, ItemLike storage) {
@@ -102,5 +120,18 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 
 	protected static ResourceLocation getModConversionRecipeName(ItemLike output, ItemLike input) {
 		return new ResourceLocation(Autumnity.MOD_ID, getConversionRecipeName(output, input));
+	}
+
+
+	public static void conditionalRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeBuilder recipe) {
+		conditionalRecipe(consumer, condition, recipe, RecipeBuilder.getDefaultRecipeId(recipe.getResult()));
+	}
+
+	public static void conditionalStonecuttingRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, ItemLike output, ItemLike input, int count) {
+		conditionalRecipe(consumer, condition, SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output, count).unlockedBy(getHasName(input), has(input)), new ResourceLocation(Autumnity.MOD_ID, getConversionRecipeName(output, input) + "_stonecutting"));
+	}
+
+	public static void conditionalRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeBuilder recipe, ResourceLocation id) {
+		ConditionalRecipe.builder().addCondition(condition).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipe.getResult().getItemCategory().getRecipeFolderName() + "/" + id.getPath())).build(consumer, id);
 	}
 }

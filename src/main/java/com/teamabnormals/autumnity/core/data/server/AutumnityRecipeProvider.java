@@ -80,6 +80,11 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		ShapedRecipeBuilder.shaped(AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()).define('A', AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get()).define('B', Blocks.REDSTONE_TORCH).pattern("A").pattern("B").unlockedBy("has_carved_large_pumpkin_slice", has(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get())).save(consumer);
 		ShapedRecipeBuilder.shaped(AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get()).define('A', AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get()).define('B', Blocks.SOUL_TORCH).pattern("A").pattern("B").unlockedBy("has_carved_large_pumpkin_slice", has(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get())).save(consumer);
 
+		conditionalRecipe(consumer, ENDERGETIC_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()).define('A', Blocks.CARVED_PUMPKIN).define('B', AutumnityItemTags.TORCHES_ENDER).pattern("A").pattern("B").unlockedBy("has_carved_pumpkin", has(Blocks.CARVED_PUMPKIN)));
+		conditionalRecipe(consumer, ENDERGETIC_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get()).define('A', AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get()).define('B', AutumnityItemTags.TORCHES_ENDER).pattern("A").pattern("B").unlockedBy("has_carved_large_pumpkin_slice", has(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get())));
+		conditionalRecipe(consumer, CAVERNS_AND_CHASMS_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.CUPRIC_JACK_O_LANTERN.get()).define('A', Blocks.CARVED_PUMPKIN).define('B', AutumnityItemTags.TORCHES_CUPRIC).pattern("A").pattern("B").unlockedBy("has_carved_pumpkin", has(Blocks.CARVED_PUMPKIN)));
+		conditionalRecipe(consumer, CAVERNS_AND_CHASMS_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get()).define('A', AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get()).define('B', AutumnityItemTags.TORCHES_CUPRIC).pattern("A").pattern("B").unlockedBy("has_carved_large_pumpkin_slice", has(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get())));
+
 		nineBlockStorageRecipes(consumer, AutumnityBlocks.SNAIL_SLIME.get(), AutumnityBlocks.SNAIL_SLIME_BLOCK.get());
 		nineBlockStorageRecipes(consumer, AutumnityItems.SNAIL_SHELL_PIECE.get(), AutumnityBlocks.SNAIL_SHELL_BLOCK.get());
 		ShapedRecipeBuilder.shaped(AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 8).define('#', AutumnityItems.SNAIL_SHELL_PIECE.get()).define('S', Blocks.STONE_BRICKS).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);
@@ -173,8 +178,7 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), output, 0.35F, 100).unlockedBy(getHasName(input), has(input)).save(consumer, RecipeBuilder.getDefaultRecipeId(output) + "_from_smoking");
 		SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(input), output, 0.35F, 600).unlockedBy(getHasName(input), has(input)).save(consumer, RecipeBuilder.getDefaultRecipeId(output) + "_from_campfire_cooking");
 	}
-
-
+	
 	public static void leafPileRecipes(Consumer<FinishedRecipe> consumer, ItemLike leaves, ItemLike leafPile) {
 		ShapelessRecipeBuilder.shapeless(leafPile, 4).requires(leaves).group("leaf_pile").unlockedBy(getHasName(leaves), has(leaves)).save(consumer);
 		ShapedRecipeBuilder.shaped(leaves).define('#', leafPile).pattern("##").pattern("##").group("leaves").unlockedBy(getHasName(leafPile), has(leafPile)).save(consumer, getModConversionRecipeName(leaves, leafPile));

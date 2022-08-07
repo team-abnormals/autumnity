@@ -1,6 +1,7 @@
 package com.teamabnormals.autumnity.core.data.server.tags;
 
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.other.AutumnityConstants;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
@@ -53,6 +54,8 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(AutumnityItemTags.TURKEY_FOOD).add(AutumnityItems.FOUL_BERRIES.get());
 		this.tag(AutumnityItemTags.SNAIL_TEMPT_ITEMS).add(Items.WARPED_FUNGUS_ON_A_STICK).addTag(AutumnityItemTags.SNAIL_FOOD).addTag(AutumnityItemTags.SNAIL_SNACKS);
 		this.tag(AutumnityItemTags.KNIVES);
+		this.tag(AutumnityItemTags.TORCHES_ENDER).addOptional(AutumnityConstants.ENDER_TORCH);
+		this.tag(AutumnityItemTags.TORCHES_CUPRIC).addOptional(AutumnityConstants.CUPRIC_TORCH);
 
 		this.copy(Tags.Blocks.CHESTS_WOODEN, Tags.Items.CHESTS_WOODEN);
 		this.copy(Tags.Blocks.CHESTS_TRAPPED, Tags.Items.CHESTS_TRAPPED);

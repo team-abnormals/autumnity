@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "modid": "endergetic",
+          "type": "forge:mod_loaded"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "A",
+          "B"
+        ],
+        "key": {
+          "A": {
+            "item": "minecraft:carved_pumpkin"
+          },
+          "B": {
+            "tag": "forge:torches/ender"
+          }
+        },
+        "result": {
+          "item": "autumnity:ender_jack_o_lantern"
+        }
+      }
+    }
+  ]
+}

@@ -4,28 +4,27 @@
     {
       "conditions": [
         {
-          "modid": "woodworks",
+          "modid": "boatload",
           "type": "forge:mod_loaded"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "group": "wooden_beehive",
+        "group": "furnace_boat",
         "pattern": [
-          "###",
-          "HHH",
-          "###"
+          "F",
+          "B"
         ],
         "key": {
-          "#": {
-            "item": "autumnity:maple_planks"
+          "F": {
+            "item": "minecraft:furnace"
           },
-          "H": {
-            "item": "minecraft:honeycomb"
+          "B": {
+            "item": "autumnity:maple_boat"
           }
         },
         "result": {
-          "item": "autumnity:maple_beehive"
+          "item": "autumnity:maple_furnace_boat"
         }
       }
     }

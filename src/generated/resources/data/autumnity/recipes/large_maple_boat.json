@@ -4,24 +4,27 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
-          "type": "blueprint:quark_flag"
+          "modid": "boatload",
+          "type": "forge:mod_loaded"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "group": "large_boat",
         "pattern": [
-          "###",
-          "###",
+          "#B#",
           "###"
         ],
         "key": {
           "#": {
-            "item": "autumnity:foul_berries"
+            "item": "autumnity:maple_planks"
+          },
+          "B": {
+            "item": "autumnity:maple_boat"
           }
         },
         "result": {
-          "item": "autumnity:foul_berry_sack"
+          "item": "autumnity:large_maple_boat"
         }
       }
     }

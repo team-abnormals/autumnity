@@ -4,24 +4,26 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "wooden_posts",
           "type": "blueprint:quark_flag"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "group": "wooden_post",
         "pattern": [
-          "###",
-          "###",
-          "###"
+          "#",
+          "#",
+          "#"
         ],
         "key": {
           "#": {
-            "item": "autumnity:foul_berries"
+            "item": "autumnity:stripped_maple_wood"
           }
         },
         "result": {
-          "item": "autumnity:foul_berry_sack"
+          "item": "autumnity:stripped_maple_post",
+          "count": 8
         }
       }
     }

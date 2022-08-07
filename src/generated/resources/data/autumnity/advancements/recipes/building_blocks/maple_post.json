@@ -3,7 +3,7 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "wooden_posts",
           "type": "blueprint:quark_flag"
         }
       ],
@@ -11,17 +11,17 @@
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:maple_post"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_maple_wood": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "autumnity:maple_wood"
                   ]
                 }
               ]
@@ -30,13 +30,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:maple_post"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_maple_wood",
             "has_the_recipe"
           ]
         ]

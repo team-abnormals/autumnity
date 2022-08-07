@@ -3,8 +3,8 @@
     {
       "conditions": [
         {
-          "modid": "berry_good",
-          "type": "forge:mod_loaded"
+          "flag": "berry_sack",
+          "type": "blueprint:quark_flag"
         }
       ],
       "advancement": {

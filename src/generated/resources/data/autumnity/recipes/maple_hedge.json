@@ -4,24 +4,28 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "hedges",
           "type": "blueprint:quark_flag"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "group": "hedge",
         "pattern": [
-          "###",
-          "###",
-          "###"
+          "#",
+          "L"
         ],
         "key": {
           "#": {
-            "item": "autumnity:foul_berries"
+            "item": "autumnity:maple_leaves"
+          },
+          "L": {
+            "tag": "autumnity:maple_logs"
           }
         },
         "result": {
-          "item": "autumnity:foul_berry_sack"
+          "item": "autumnity:maple_hedge",
+          "count": 2
         }
       }
     }

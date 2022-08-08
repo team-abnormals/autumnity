@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "caverns_and_chasms:cupric_torch",
+      "required": false
+    }
+  ]
+}

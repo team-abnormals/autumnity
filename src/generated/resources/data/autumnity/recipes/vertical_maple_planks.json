@@ -4,24 +4,26 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "vertical_planks",
           "type": "blueprint:quark_flag"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "group": "vertical_planks",
         "pattern": [
-          "###",
-          "###",
-          "###"
+          "#",
+          "#",
+          "#"
         ],
         "key": {
           "#": {
-            "item": "autumnity:foul_berries"
+            "item": "autumnity:maple_planks"
           }
         },
         "result": {
-          "item": "autumnity:foul_berry_sack"
+          "item": "autumnity:vertical_maple_planks",
+          "count": 3
         }
       }
     }

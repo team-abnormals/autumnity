@@ -4,28 +4,26 @@
     {
       "conditions": [
         {
-          "modid": "woodworks",
+          "modid": "caverns_and_chasms",
           "type": "forge:mod_loaded"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "group": "wooden_beehive",
         "pattern": [
-          "###",
-          "HHH",
-          "###"
+          "A",
+          "B"
         ],
         "key": {
-          "#": {
-            "item": "autumnity:maple_planks"
+          "A": {
+            "item": "minecraft:carved_pumpkin"
           },
-          "H": {
-            "item": "minecraft:honeycomb"
+          "B": {
+            "tag": "forge:torches/cupric"
           }
         },
         "result": {
-          "item": "autumnity:maple_beehive"
+          "item": "autumnity:cupric_jack_o_lantern"
         }
       }
     }

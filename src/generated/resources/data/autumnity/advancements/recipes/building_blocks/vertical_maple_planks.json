@@ -3,7 +3,7 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "vertical_planks",
           "type": "blueprint:quark_flag"
         }
       ],
@@ -11,17 +11,17 @@
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:vertical_maple_planks"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_maple_planks": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "autumnity:maple_planks"
                   ]
                 }
               ]
@@ -30,13 +30,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:vertical_maple_planks"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_maple_planks",
             "has_the_recipe"
           ]
         ]

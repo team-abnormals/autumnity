@@ -3,25 +3,34 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
-          "type": "blueprint:quark_flag"
+          "values": [
+            {
+              "modid": "woodworks",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "flag": "variant_ladders",
+              "type": "blueprint:quark_flag"
+            }
+          ],
+          "type": "forge:or"
         }
       ],
       "advancement": {
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:maple_ladder"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_stick": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "minecraft:stick"
                   ]
                 }
               ]
@@ -30,13 +39,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:maple_ladder"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_stick",
             "has_the_recipe"
           ]
         ]

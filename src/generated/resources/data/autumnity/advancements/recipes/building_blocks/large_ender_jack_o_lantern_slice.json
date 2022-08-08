@@ -3,25 +3,25 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
-          "type": "blueprint:quark_flag"
+          "modid": "endergetic",
+          "type": "forge:mod_loaded"
         }
       ],
       "advancement": {
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:large_ender_jack_o_lantern_slice"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_carved_large_pumpkin_slice": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "autumnity:carved_large_pumpkin_slice"
                   ]
                 }
               ]
@@ -30,13 +30,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:large_ender_jack_o_lantern_slice"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_carved_large_pumpkin_slice",
             "has_the_recipe"
           ]
         ]

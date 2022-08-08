@@ -3,25 +3,25 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
-          "type": "blueprint:quark_flag"
+          "modid": "boatload",
+          "type": "forge:mod_loaded"
         }
       ],
       "advancement": {
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:large_maple_boat"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_maple_boat": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "autumnity:maple_boat"
                   ]
                 }
               ]
@@ -30,13 +30,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:large_maple_boat"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_maple_boat",
             "has_the_recipe"
           ]
         ]

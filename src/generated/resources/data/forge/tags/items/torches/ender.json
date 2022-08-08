@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "endergetic:ender_torch",
+      "required": false
+    }
+  ]
+}

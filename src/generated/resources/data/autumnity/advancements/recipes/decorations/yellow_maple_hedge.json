@@ -3,7 +3,7 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "hedges",
           "type": "blueprint:quark_flag"
         }
       ],
@@ -11,17 +11,17 @@
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:foul_berry_sack"
+            "autumnity:yellow_maple_hedge"
           ]
         },
         "criteria": {
-          "has_foul_berries": {
+          "has_yellow_maple_leaves": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:foul_berries"
+                    "autumnity:yellow_maple_leaves"
                   ]
                 }
               ]
@@ -30,13 +30,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:foul_berry_sack"
+              "recipe": "autumnity:yellow_maple_hedge"
             }
           }
         },
         "requirements": [
           [
-            "has_foul_berries",
+            "has_yellow_maple_leaves",
             "has_the_recipe"
           ]
         ]

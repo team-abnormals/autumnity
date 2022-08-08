@@ -4,28 +4,26 @@
     {
       "conditions": [
         {
-          "modid": "woodworks",
+          "modid": "endergetic",
           "type": "forge:mod_loaded"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "group": "wooden_beehive",
         "pattern": [
-          "###",
-          "HHH",
-          "###"
+          "A",
+          "B"
         ],
         "key": {
-          "#": {
-            "item": "autumnity:maple_planks"
+          "A": {
+            "item": "autumnity:carved_large_pumpkin_slice"
           },
-          "H": {
-            "item": "minecraft:honeycomb"
+          "B": {
+            "tag": "forge:torches/ender"
           }
         },
         "result": {
-          "item": "autumnity:maple_beehive"
+          "item": "autumnity:large_ender_jack_o_lantern_slice"
         }
       }
     }

@@ -1,0 +1,36 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "value": {
+            "modid": "abnormals_delight",
+            "type": "forge:mod_loaded"
+          },
+          "type": "forge:not"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "autumnity:foul_berries"
+          },
+          {
+            "item": "autumnity:foul_berries"
+          },
+          {
+            "item": "minecraft:spider_eye"
+          },
+          {
+            "item": "minecraft:bowl"
+          }
+        ],
+        "result": {
+          "item": "autumnity:foul_soup"
+        }
+      }
+    }
+  ]
+}

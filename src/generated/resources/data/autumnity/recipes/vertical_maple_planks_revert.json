@@ -4,7 +4,7 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
+          "flag": "vertical_planks",
           "type": "blueprint:quark_flag"
         }
       ],
@@ -12,12 +12,11 @@
         "type": "minecraft:crafting_shapeless",
         "ingredients": [
           {
-            "item": "autumnity:foul_berry_sack"
+            "item": "autumnity:maple_planks"
           }
         ],
         "result": {
-          "item": "autumnity:foul_berries",
-          "count": 9
+          "item": "autumnity:vertical_maple_planks"
         }
       }
     }

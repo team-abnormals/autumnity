@@ -4,7 +4,6 @@ import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
-import com.teamabnormals.incubation.core.api.EggLayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -25,7 +24,6 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
@@ -38,7 +36,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.Random;
 import java.util.UUID;
 
-public class Turkey extends Animal implements EggLayer, NeutralMob {
+public class Turkey extends Animal implements NeutralMob {
 	private static final EntityDataAccessor<Integer> ANGER_TIME = SynchedEntityData.defineId(Turkey.class, EntityDataSerializers.INT);
 
 	private float wingRotation;
@@ -147,7 +145,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 			if (this.isAlive() && !this.isBaby() && !this.isTurkeyJockey() && --this.timeUntilNextEgg <= 0) {
 				this.playSound(AutumnitySoundEvents.ENTITY_TURKEY_EGG.get(), 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 				this.spawnAtLocation(AutumnityItems.TURKEY_EGG.get());
-				this.timeUntilNextEgg = this.getNextEggTime(this.random);
+				this.timeUntilNextEgg = this.getRandomNextEggTime(this.random);
 			}
 
 			this.updatePersistentAnger((ServerLevel) this.level, true);
@@ -190,11 +188,6 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 	@Override
 	protected SoundEvent getDeathSound() {
 		return AutumnitySoundEvents.ENTITY_TURKEY_DEATH.get();
-	}
-
-	@Override
-	public SoundEvent getEggLayingSound() {
-		return AutumnitySoundEvents.ENTITY_TURKEY_EGG.get();
 	}
 
 	@Override
@@ -289,28 +282,7 @@ public class Turkey extends Animal implements EggLayer, NeutralMob {
 		this.setRemainingPersistentAngerTime(ANGER_RANGE.sample(this.random));
 	}
 
-	@Override
-	public int getEggTimer() {
-		return this.timeUntilNextEgg;
-	}
-
-	@Override
-	public void setEggTimer(int time) {
-		this.timeUntilNextEgg = time;
-	}
-
-	@Override
-	public boolean isBirdJockey() {
-		return this.turkeyJockey;
-	}
-
-	@Override
-	public Item getEggItem() {
-		return AutumnityItems.TURKEY_EGG.get();
-	}
-
-	@Override
-	public int getNextEggTime(Random rand) {
+	public int getRandomNextEggTime(Random rand) {
 		return rand.nextInt(9600) + 9600;
 	}
 

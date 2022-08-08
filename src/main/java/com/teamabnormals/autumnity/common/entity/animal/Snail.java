@@ -58,11 +58,11 @@ public class Snail extends Animal {
 	private static final EntityDataAccessor<Byte> ACTION = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.BYTE);
 	private int hidingTime = 0;
 
-	private float hideAnim;
-	private float hideAnim0;
+	private float hideAmount;
+	private float hideAmountO;
 
-	private int shakeAnim;
-	private int shakeAnim0;
+	private int shakeAmount;
+	private int shakeAmountO;
 
 	// This exists so snails would work with Quark feeding troughs
 	private boolean canBreed = true;
@@ -167,18 +167,18 @@ public class Snail extends Animal {
 		super.tick();
 
 		if (this.level.isClientSide) {
-			this.hideAnim0 = this.hideAnim;
+			this.hideAmountO = this.hideAmount;
 			if (this.getAction() == Action.HIDING) {
-				this.hideAnim = Mth.clamp(this.hideAnim + 1, 0, 3);
+				this.hideAmount = Mth.clamp(this.hideAmount + 1, 0, 3);
 			} else {
-				this.hideAnim = Mth.clamp(this.hideAnim - 0.5F, 0, 3);
+				this.hideAmount = Mth.clamp(this.hideAmount - 0.5F, 0, 3);
 			}
 
-			this.shakeAnim0 = this.shakeAnim;
-			if (this.shakeAnim > 0) {
-				this.shakeAnim = Mth.clamp(this.shakeAnim - 1, 0, 20);
+			this.shakeAmountO = this.shakeAmount;
+			if (this.shakeAmount > 0) {
+				this.shakeAmount = Mth.clamp(this.shakeAmount - 1, 0, 20);
 			} else {
-				this.shakeAnim = Mth.clamp(this.shakeAnim + 1, -20, 0);
+				this.shakeAmount = Mth.clamp(this.shakeAmount + 1, -20, 0);
 			}
 		}
 	}
@@ -313,7 +313,7 @@ public class Snail extends Animal {
 			this.spitOutItem();
 
 			if (this.level.isClientSide) {
-				this.shakeAnim = this.random.nextInt(2) == 0 ? -10 : 10;
+				this.shakeAmount = this.random.nextInt(2) == 0 ? -10 : 10;
 			}
 
 			return super.hurt(source, amount);
@@ -391,23 +391,13 @@ public class Snail extends Animal {
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public float getHidingAnim(float partialTicks) {
-		return Mth.lerp(partialTicks, this.hideAnim0, this.hideAnim) / 3.0F;
+	public float getHideAmount(float partialTicks) {
+		return Mth.lerp(partialTicks, this.hideAmountO, this.hideAmount) / 3.0F;
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public float getHidingAnimTicks() {
-		return this.hideAnim;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public float getShakingAnim(float partialTicks) {
-		return Mth.lerp(partialTicks, this.shakeAnim0, this.shakeAnim) / 10.0F;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public float getShakingAnimTicks() {
-		return this.shakeAnim;
+	public float getShakeAmount(float partialTicks) {
+		return Mth.lerp(partialTicks, this.shakeAmountO, this.shakeAmount) / 20.0F;
 	}
 
 	private boolean isSnack(ItemStack stack) {

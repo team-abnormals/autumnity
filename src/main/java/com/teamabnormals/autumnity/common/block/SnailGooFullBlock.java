@@ -27,11 +27,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
-public class SnailSlimeBlock extends HalfTransparentBlock {
+public class SnailGooFullBlock extends HalfTransparentBlock {
 	public static final BooleanProperty SLIPPERY = BooleanProperty.create("slippery");
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 1.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-	public SnailSlimeBlock(Properties properties) {
+	public SnailGooFullBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(SLIPPERY, false));
 	}
@@ -63,7 +63,7 @@ public class SnailSlimeBlock extends HalfTransparentBlock {
 
 	public final boolean doesBlockMakeSlippery(BlockPos blockPos, BlockState state, BlockGetter iBlockReader) {
 		FluidState fluidstate = iBlockReader.getFluidState(blockPos);
-		return state.is(AutumnityBlockTags.SLIPPERY_SNAIL_SLIME_BLOCKS) || fluidstate.is(FluidTags.WATER);
+		return state.is(AutumnityBlockTags.SLIPPERY_SNAIL_GOO_BLOCKS) || fluidstate.is(FluidTags.WATER);
 	}
 
 	@Override

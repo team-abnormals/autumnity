@@ -14,16 +14,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public class AutumnityClientCompat {
 
 	public static void registerRenderLayers() {
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_SLIME.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_SLIME_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_GOO.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_GOO_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.FOUL_BERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.AUTUMN_CROCUS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_AUTUMN_CROCUS.get(), RenderType.cutout());
-
-		// RenderTypeLookup.setRenderLayer(AutumnityBlocks.MAPLE_BRANCH.get(), RenderType.getCutout());
-		// RenderTypeLookup.setRenderLayer(AutumnityBlocks.LONG_MAPLE_BRANCH.get(), RenderType.getCutout());
 
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_DOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_TRAPDOOR.get(), RenderType.cutout());

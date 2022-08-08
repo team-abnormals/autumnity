@@ -203,7 +203,7 @@ public class AutumnityEvents {
 				new BlueprintTrade(5, AutumnityBlocks.YELLOW_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(5, AutumnityBlocks.ORANGE_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
 				new BlueprintTrade(5, AutumnityBlocks.RED_MAPLE_SAPLING.get().asItem(), 1, 8, 1),
-				new BlueprintTrade(4, AutumnityBlocks.SNAIL_SLIME.get().asItem(), 1, 5, 1)
+				new BlueprintTrade(4, AutumnityBlocks.SNAIL_GOO.get().asItem(), 1, 5, 1)
 		);
 	}
 

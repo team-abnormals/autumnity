@@ -54,7 +54,7 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.MINEABLE_WITH_HOE).add(FOUL_BERRY_SACK.get(), MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAVES.get(), RED_MAPLE_LEAVES.get(), MAPLE_LEAF_PILE.get(), YELLOW_MAPLE_LEAF_PILE.get(), ORANGE_MAPLE_LEAF_PILE.get(), RED_MAPLE_LEAF_PILE.get(), MAPLE_LEAF_CARPET.get(), YELLOW_MAPLE_LEAF_CARPET.get(), ORANGE_MAPLE_LEAF_CARPET.get(), RED_MAPLE_LEAF_CARPET.get());
 
 		this.tag(AutumnityBlockTags.MAPLE_LOGS).add(MAPLE_LOG.get(), STRIPPED_MAPLE_LOG.get(), MAPLE_WOOD.get(), STRIPPED_MAPLE_WOOD.get());
-		this.tag(AutumnityBlockTags.SLIPPERY_SNAIL_SLIME_BLOCKS).add(Blocks.WET_SPONGE);
+		this.tag(AutumnityBlockTags.SLIPPERY_SNAIL_GOO_BLOCKS).add(Blocks.WET_SPONGE);
 		this.tag(AutumnityBlockTags.SNAIL_SNACKS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Blocks.CRIMSON_FUNGUS, Blocks.WARPED_FUNGUS).addOptional(new ResourceLocation("quark", "glowshroom"));
 
 		this.tag(Tags.Blocks.CHESTS_WOODEN).add(MAPLE_CHEST.getFirst().get(), MAPLE_CHEST.getSecond().get());

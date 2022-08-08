@@ -1,7 +1,7 @@
 {   "parent": "block/thin_block",
     "textures": {
-		"particle": "minecraft:block/slime_block",
-		"texture": "minecraft:block/slime_block"
+		"particle": "autumnity:block/snail_goo",
+		"texture": "autumnity:block/snail_goo"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

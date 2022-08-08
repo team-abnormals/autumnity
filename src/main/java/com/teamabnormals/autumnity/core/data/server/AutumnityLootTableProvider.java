@@ -73,8 +73,8 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public void addTables() {
-			this.dropSelf(SNAIL_SLIME.get());
-			this.dropSelf(SNAIL_SLIME_BLOCK.get());
+			this.dropSelf(SNAIL_GOO.get());
+			this.dropSelf(SNAIL_GOO_BLOCK.get());
 			this.add(PANCAKE.get(), AutumnityBlockLoot::createPancakeDrops);
 			this.dropSelf(AUTUMN_CROCUS.get());
 			this.dropPottedContents(POTTED_AUTUMN_CROCUS.get());
@@ -197,7 +197,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public void addTables() {
-			this.add(AutumnityEntityTypes.SNAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(SNAIL_SLIME.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+			this.add(AutumnityEntityTypes.SNAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(SNAIL_GOO.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
 			this.add(AutumnityEntityTypes.TURKEY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Items.FEATHER).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(TURKEY.get()).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
 		}
 
@@ -213,7 +213,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 		public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
 			consumer.accept(new ResourceLocation(Autumnity.MOD_ID, "maple_hut"), LootTable.lootTable()
 					.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 2.0F))
-							.add(LootItem.lootTableItem(SNAIL_SLIME.get()).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
+							.add(LootItem.lootTableItem(SNAIL_GOO.get()).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
 							.add(LootItem.lootTableItem(Items.GLASS_BOTTLE).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))
 					.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(3.0F, 5.0F))
 							.add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get()).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))

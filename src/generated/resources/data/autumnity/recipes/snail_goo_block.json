@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "autumnity:snail_slime"
+      "item": "autumnity:snail_goo"
     }
   },
   "result": {
-    "item": "autumnity:snail_slime_block"
+    "item": "autumnity:snail_goo_block"
   }
 }

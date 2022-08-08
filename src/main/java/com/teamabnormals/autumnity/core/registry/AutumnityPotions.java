@@ -17,6 +17,6 @@ public class AutumnityPotions {
 	public static final RegistryObject<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(AutumnityMobEffects.EXTENSION.get(), 1800)));
 
 	public static void registerBrewingRecipes() {
-		DataUtil.addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_SLIME.get().asItem(), EXTENSION.get());
+		DataUtil.addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_GOO.get().asItem(), EXTENSION.get());
 	}
 }

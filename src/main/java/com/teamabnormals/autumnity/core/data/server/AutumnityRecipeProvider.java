@@ -85,7 +85,7 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		conditionalRecipe(consumer, CAVERNS_AND_CHASMS_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.CUPRIC_JACK_O_LANTERN.get()).define('A', Blocks.CARVED_PUMPKIN).define('B', AutumnityItemTags.TORCHES_CUPRIC).pattern("A").pattern("B").unlockedBy("has_carved_pumpkin", has(Blocks.CARVED_PUMPKIN)));
 		conditionalRecipe(consumer, CAVERNS_AND_CHASMS_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get()).define('A', AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get()).define('B', AutumnityItemTags.TORCHES_CUPRIC).pattern("A").pattern("B").unlockedBy("has_carved_large_pumpkin_slice", has(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get())));
 
-		nineBlockStorageRecipes(consumer, AutumnityBlocks.SNAIL_SLIME.get(), AutumnityBlocks.SNAIL_SLIME_BLOCK.get());
+		nineBlockStorageRecipes(consumer, AutumnityBlocks.SNAIL_GOO.get(), AutumnityBlocks.SNAIL_GOO_BLOCK.get());
 		nineBlockStorageRecipes(consumer, AutumnityItems.SNAIL_SHELL_PIECE.get(), AutumnityBlocks.SNAIL_SHELL_BLOCK.get());
 		ShapedRecipeBuilder.shaped(AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 8).define('#', AutumnityItems.SNAIL_SHELL_PIECE.get()).define('S', Blocks.STONE_BRICKS).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);
 		ShapedRecipeBuilder.shaped(AutumnityBlocks.SNAIL_SHELL_TILES.get(), 8).define('#', AutumnityItems.SNAIL_SHELL_PIECE.get()).define('S', Blocks.SMOOTH_STONE).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);

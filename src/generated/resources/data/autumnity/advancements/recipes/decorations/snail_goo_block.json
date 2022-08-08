@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "autumnity:snail_slime_block"
+      "autumnity:snail_goo_block"
     ]
   },
   "criteria": {
-    "has_snail_slime": {
+    "has_snail_goo": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "autumnity:snail_slime"
+              "autumnity:snail_goo"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "autumnity:snail_slime_block"
+        "recipe": "autumnity:snail_goo_block"
       }
     }
   },
   "requirements": [
     [
-      "has_snail_slime",
+      "has_snail_goo",
       "has_the_recipe"
     ]
   ]

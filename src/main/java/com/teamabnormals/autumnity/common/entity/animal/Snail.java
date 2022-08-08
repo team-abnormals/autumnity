@@ -203,7 +203,7 @@ public class Snail extends Animal {
 			}
 
 			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
-				BlockState blockstate = AutumnityBlocks.SNAIL_SLIME.get().defaultBlockState();
+				BlockState blockstate = AutumnityBlocks.SNAIL_GOO.get().defaultBlockState();
 				BlockPos blockpos = this.blockPosition();
 				if (this.getSlimeAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
 					this.level.setBlockAndUpdate(blockpos, blockstate);

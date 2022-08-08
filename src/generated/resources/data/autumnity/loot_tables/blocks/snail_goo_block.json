@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autumnity:snail_slime_block"
+          "name": "autumnity:snail_goo_block"
         }
       ],
       "conditions": [

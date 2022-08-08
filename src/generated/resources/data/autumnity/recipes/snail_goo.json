@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "autumnity:snail_slime_block"
+      "item": "autumnity:snail_goo_block"
     }
   ],
   "result": {
-    "item": "autumnity:snail_slime",
+    "item": "autumnity:snail_goo",
     "count": 9
   }
 }

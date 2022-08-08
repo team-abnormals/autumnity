@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
-
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -93,17 +92,17 @@ public class SnailModel<T extends Snail> extends EntityModel<T> {
 		if (this.young) {
 			p_102034_.pushPose();
 			p_102034_.scale(0.7F, 0.7F, 0.7F);
-			p_102034_.translate((double)(1.2F / 16.0F), (double)(13.0F / 16.0F), (double)(2.5F / 16.0F));
+			p_102034_.translate((double) (1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
 			this.leftEye.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
 			p_102034_.popPose();
 			p_102034_.pushPose();
 			p_102034_.scale(0.7F, 0.7F, 0.7F);
-			p_102034_.translate((double)(-1.2F / 16.0F), (double)(13.0F / 16.0F), (double)(2.5F / 16.0F));
+			p_102034_.translate((double) (-1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
 			this.rightEye.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
 			p_102034_.popPose();
 			p_102034_.pushPose();
 			p_102034_.scale(0.5F, 0.5F, 0.5F);
-			p_102034_.translate(0.0D, (double)(24.0F / 16.0F), 0.0D);
+			p_102034_.translate(0.0D, (double) (24.0F / 16.0F), 0.0D);
 			ImmutableList.of(this.rightTentacle, this.leftTentacle, this.shell).forEach((p_103587_) -> {
 				p_103587_.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
 			});

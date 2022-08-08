@@ -72,12 +72,12 @@ public class SnailModel<T extends Snail> extends EntityModel<T> {
 		float f3 = entity.getId() % 2 == 0 ? 1.0F : 0.95F;
 		float f4 = entity.getId() % 2 == 0 ? 0.95F : 1.0F;
 
-		this.rightEye.xRot = f * (f1 + Mth.cos(0.03F * f3 * ageInTicks) * 0.1F);
+		this.rightEye.xRot = f * (f1 + Mth.cos(0.04F * f3 * ageInTicks) * 0.15F);
 		this.rightEye.yRot = f * f2;
-		this.rightEye.zRot = f * (0.25F + Mth.sin(0.02F * f3 * ageInTicks) * 0.05F);
-		this.leftEye.xRot = f * (f1 + Mth.sin(0.03F * f4 * ageInTicks) * 0.1F);
+		this.rightEye.zRot = f * (0.25F + Mth.sin(0.025F * f3 * ageInTicks) * 0.1F);
+		this.leftEye.xRot = f * (f1 + Mth.sin(0.04F * f4 * ageInTicks) * 0.15F);
 		this.leftEye.yRot = f * f2;
-		this.leftEye.zRot = f * (-0.25F + Mth.cos(0.02F * f4 * ageInTicks) * 0.05F);
+		this.leftEye.zRot = f * (-0.25F + Mth.cos(0.025F * f4 * ageInTicks) * 0.1F);
 
 		if (entity.getAction() == Snail.Action.EATING) {
 			this.rightTentacle.yRot = 0.25F * Mth.cos(0.6F * ageInTicks);

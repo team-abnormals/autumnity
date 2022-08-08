@@ -12,6 +12,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -64,8 +65,8 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 
 			if (!flag) {
 				return false;
-			} else if (isValidGround(worldIn, position.below()) && position.getY() < worldIn.getMaxBuildHeight() - i - 1) {
-				setDirtAt(worldIn, position.below());
+			} else if (TreeUtil.isValidGround(worldIn, position.below(), (SaplingBlock) AutumnityBlocks.MAPLE_SAPLING.get()) && position.getY() < worldIn.getMaxBuildHeight() - i - 1) {
+				TreeUtil.setDirtAt(worldIn, position.below());
 
 				for (int i2 = 0; i2 < 2; ++i2) {
 					BlockPos blockpos = position.above(i - 1 - i2);
@@ -74,7 +75,7 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 						double d0 = blockpos1.distSqr(blockpos);
 						if (d0 <= (double) (2.35F * 2.35F) || (d0 <= (double) (2.5F * 2.5F) && random.nextInt(2) > 0)) {
 							if (TreeFeature.isAirOrLeaves(worldIn, blockpos1)) {
-								this.placeLeafAt(worldIn, blockpos1, random, config);
+								TreeUtil.placeLeafAt(worldIn, blockpos1, random, config);
 							}
 						}
 					}
@@ -82,7 +83,7 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 
 				for (int i2 = 0; i2 < i; ++i2) {
 					if (TreeFeature.isAirOrLeaves(worldIn, position.above(i2))) {
-						this.placeLogAt(worldIn, position.above(i2), random, config);
+						TreeUtil.placeLogAt(worldIn, position.above(i2), random, config);
 					}
 				}
 
@@ -93,31 +94,5 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 		} else {
 			return false;
 		}
-	}
-
-	private void placeLogAt(LevelWriter worldIn, BlockPos pos, Random rand, TreeConfiguration config) {
-		BlockState logState = config.trunkProvider.getState(rand, pos);
-		TreeUtil.setForcedState(worldIn, pos, logState);
-	}
-
-	private void placeLeafAt(LevelSimulatedRW world, BlockPos pos, Random rand, TreeConfiguration config) {
-		if (TreeFeature.isAirOrLeaves(world, pos)) {
-			if (config.foliageProvider.getState(rand, pos).hasProperty(LeavesBlock.DISTANCE)) {
-				TreeUtil.setForcedState(world, pos, config.foliageProvider.getState(rand, pos).setValue(LeavesBlock.DISTANCE, 1));
-			} else {
-				TreeUtil.setForcedState(world, pos, config.foliageProvider.getState(rand, pos));
-			}
-		}
-	}
-
-	public static void setDirtAt(LevelAccessor worldIn, BlockPos pos) {
-		Block block = worldIn.getBlockState(pos).getBlock();
-		if (block == Blocks.GRASS_BLOCK || block == Blocks.FARMLAND) {
-			worldIn.setBlock(pos, Blocks.DIRT.defaultBlockState(), 18);
-		}
-	}
-
-	public static boolean isValidGround(LevelAccessor world, BlockPos pos) {
-		return world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (IPlantable) AutumnityBlocks.MAPLE_SAPLING.get());
 	}
 }

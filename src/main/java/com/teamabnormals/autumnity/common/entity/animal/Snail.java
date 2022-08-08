@@ -54,7 +54,7 @@ import java.util.function.Predicate;
 public class Snail extends Animal {
 	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
-	private static final EntityDataAccessor<Integer> SLIME_AMOUNT = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> GOO_AMOUNT = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Byte> ACTION = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.BYTE);
 	private int hidingTime = 0;
 
@@ -111,21 +111,21 @@ public class Snail extends Animal {
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
-		this.entityData.define(SLIME_AMOUNT, 0);
+		this.entityData.define(GOO_AMOUNT, 0);
 		this.entityData.define(ACTION, (byte) 0);
 	}
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
-		compound.putInt("SlimeAmount", this.getSlimeAmount());
+		compound.putInt("GooAmount", this.getGooAmount());
 		compound.putInt("HidingTime", this.getHidingTime());
 	}
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
-		this.setSlimeAmount(compound.getInt("SlimeAmount"));
+		this.setGooAmount(compound.getInt("GooAmount"));
 		this.setHidingTime(compound.getInt("HidingTime"));
 	}
 
@@ -202,12 +202,12 @@ public class Snail extends Animal {
 				this.spitOutItem();
 			}
 
-			if (this.getSlimeAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
+			if (this.getGooAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
 				BlockState blockstate = AutumnityBlocks.SNAIL_GOO.get().defaultBlockState();
 				BlockPos blockpos = this.blockPosition();
-				if (this.getSlimeAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
+				if (this.getGooAmount() > 0 && this.level.isEmptyBlock(blockpos) && blockstate.canSurvive(this.level, blockpos)) {
 					this.level.setBlockAndUpdate(blockpos, blockstate);
-					this.setSlimeAmount(this.getSlimeAmount() - 1);
+					this.setGooAmount(this.getGooAmount() - 1);
 				}
 			}
 		}
@@ -246,7 +246,7 @@ public class Snail extends Animal {
 			ItemStack itemstack = player.getItemInHand(hand);
 			if (!itemstack.isEmpty() && !this.hasSnack()) {
 				if (this.isSnack(itemstack)) {
-					if (!this.isBaby() && this.getSlimeAmount() <= 0) {
+					if (!this.isBaby() && this.getGooAmount() <= 0) {
 						if (!this.level.isClientSide) {
 							ItemStack itemstack1 = itemstack.copy();
 							itemstack1.setCount(1);
@@ -352,19 +352,19 @@ public class Snail extends Animal {
 			}
 		}
 
-		this.setSlimeAmount(4);
+		this.setGooAmount(4);
 	}
 
 	private boolean hasSnack() {
 		return this.isSnack(this.getMainHandItem());
 	}
 
-	private int getSlimeAmount() {
-		return this.entityData.get(SLIME_AMOUNT);
+	private int getGooAmount() {
+		return this.entityData.get(GOO_AMOUNT);
 	}
 
-	private void setSlimeAmount(int amount) {
-		this.entityData.set(SLIME_AMOUNT, amount);
+	private void setGooAmount(int amount) {
+		this.entityData.set(GOO_AMOUNT, amount);
 	}
 
 	private int getHidingTime() {
@@ -557,13 +557,13 @@ public class Snail extends Animal {
 			if (Snail.this.getRandom().nextInt(20) != 0) {
 				return false;
 			} else {
-				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this) && this.canMoveToMushroom();
+				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this) && this.canMoveToMushroom();
 			}
 		}
 
 		@Override
 		public boolean canContinueToUse() {
-			return !Snail.this.getNavigation().isDone() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0;
+			return !Snail.this.getNavigation().isDone() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0;
 		}
 
 		@Override
@@ -573,7 +573,7 @@ public class Snail extends Animal {
 
 		@Override
 		public void tick() {
-			if (!Snail.this.isBaby() && Snail.this.getSlimeAmount() <= 0) {
+			if (!Snail.this.isBaby() && Snail.this.getGooAmount() <= 0) {
 				BlockPos blockpos = Snail.this.blockPosition();
 
 				if (this.isBlockMushroom(blockpos)) {
@@ -627,7 +627,7 @@ public class Snail extends Animal {
 
 		@Override
 		public boolean canUse() {
-			if (!Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getSlimeAmount() <= 0) {
+			if (!Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0) {
 				List<MushroomCow> list = Snail.this.level.getEntitiesOfClass(MushroomCow.class, Snail.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
 				MushroomCow mooshroom = null;
 				double d0 = Double.MAX_VALUE;
@@ -659,7 +659,7 @@ public class Snail extends Animal {
 				return false;
 			} else if (Snail.this.hasSnack()) {
 				return false;
-			} else if (Snail.this.getSlimeAmount() > 0) {
+			} else if (Snail.this.getGooAmount() > 0) {
 				return false;
 			} else {
 				double d0 = this.targetMooshroom.distanceToSqr(Snail.this);

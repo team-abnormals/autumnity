@@ -9,8 +9,8 @@
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Herbstzeitlose",
   "block.autumnity.potted_autumn_crocus": "Eingetopfte Herbstzeitlose",
-  "block.autumnity.turkey": "Rohes Putenfleisch",
-  "block.autumnity.cooked_turkey": "Gekochtes Putenfleisch",
+  "block.autumnity.turkey": "Rohes Truthahnfleisch",
+  "block.autumnity.cooked_turkey": "Gekochtes Truthahnfleisch",
   
   "block.autumnity.large_pumpkin_slice": "Große Kürbisscheibe",
   "block.autumnity.carved_large_pumpkin_slice": "Geschnitzte große Kürbisscheibe",
@@ -38,8 +38,8 @@
   "block.autumnity.stripped_maple_log": "Entrindeter Ahornstamm",
   "block.autumnity.stripped_maple_wood": "Entrindetes Ahornholz",
   "_comment": "Refers to the sap dripping out of the wood",
-  "block.autumnity.sappy_maple_log": "Saftiger Ahornstamm",
-  "block.autumnity.sappy_maple_wood": "Saftiges Ahornholz",
+  "block.autumnity.sappy_maple_log": "Harziger Ahornstamm",
+  "block.autumnity.sappy_maple_wood": "Harziges Ahornholz",
   
   "block.autumnity.maple_branch": "Ahornzweig",
   "block.autumnity.long_maple_branch": "Langer Ahornzweig",
@@ -86,11 +86,11 @@
   "item.autumnity.pumpkin_bread": "Kürbisbrot",
   
   "item.autumnity.snail_spawn_egg": "Schnecken-Spawn-Ei",
-  "item.autumnity.snail_shell_piece": "Schneckenhausstück",
+  "item.autumnity.snail_shell_piece": "Schneckenhausfragment",
   "item.autumnity.snail_shell_chestplate": "Schneckenhaus",
   
   "item.autumnity.turkey_spawn_egg": "Truthahn-Spawn-Ei",
-  "item.autumnity.turkey_egg": "Putenei",
+  "item.autumnity.turkey_egg": "Truthahnei",
   "item.autumnity.turkey_piece": "Rohe Truthahnkeule",
   "item.autumnity.cooked_turkey_piece": "Gekochte Truthahnkeule",
   
@@ -104,12 +104,12 @@
   "entity.autumnity.boat": "Boot",
   "entity.autumnity.snail": "Schnecke",
   "entity.autumnity.turkey": "Truthahn",
-  "entity.autumnity.turkey_egg": "Geworfenes Putenei",
+  "entity.autumnity.turkey_egg": "Geworfenes Truthahnei",
   
   "_comment": "This effect extends the duration of active potion effects.",
   "effect.autumnity.extension": "Verlängerung",
   "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
-  "effect.autumnity.foul_taste": "Schlecter Geschmack",
+  "effect.autumnity.foul_taste": "Schlechter Geschmack",
   
   "item.minecraft.potion.effect.extension": "Trank der Verlängerung",
   "item.minecraft.splash_potion.effect.extension": "Wurftrank der Verlängerung",
@@ -160,16 +160,16 @@
   "block.autumnity.large_ender_jack_o_lantern_slice": "Große Enderkürbislaternenscheibe",
   "block.autumnity.cupric_jack_o_lantern": "Fluchkürbislaterne",
   "block.autumnity.large_cupric_jack_o_lantern_slice": "Große Fluchkürbislaternenscheibe",
-  "block.autumnity.turkey_egg_crate": "Puteneikiste",
+  "block.autumnity.turkey_egg_crate": "Truthahneikiste",
   "block.autumnity.slime": "Schleim",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
-  "advancements.autumnity.husbandry.sneaky_protection.title": "Schneckenschutz",
+  "advancements.autumnity.husbandry.sneaky_protection.title": "Schleichender Schneckenschutz",
   "advancements.autumnity.husbandry.sneaky_protection.description": "Bau ein Schneckenhaus",
   "advancements.autumnity.husbandry.fungivore_diet.title": "Eine Diät des Fungusfressers",
-  "advancements.autumnity.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jeden Pilz",
-  "advancements.autumnity.husbandry.cure_foul_taste.title": "Schließlich, gutes Essen",
-  "advancements.autumnity.husbandry.cure_foul_taste.description": "Iss etwas gut, nachdem du Faulbeeren aßt",
+  "advancements.autumnity.husbandry.fungivore_diet.description": "Fütterte eine Schnecke mit jedem Pilz",
+  "advancements.autumnity.husbandry.cure_foul_taste.title": "Endlich, gutes Essen",
+  "advancements.autumnity.husbandry.cure_foul_taste.description": "Iss etwas gutes, nachdem du Faulbeeren aßt",
   
   "block.minecraft.banner.mca_maple_leaf.black": "Schwarzes Ahornblatt",
   "block.minecraft.banner.mca_maple_leaf.red": "Rotes Ahornblatt",

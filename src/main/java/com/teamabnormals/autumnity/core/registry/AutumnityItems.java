@@ -6,6 +6,7 @@ import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityTiers;
 import com.teamabnormals.autumnity.integration.boatload.AutumnityBoatTypes;
+import com.teamabnormals.blueprint.core.util.registry.AbstractSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,14 +24,14 @@ public class AutumnityItems {
 	public static final ItemSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getItemSubHelper();
 
 	public static final RegistryObject<Item> MAPLE_BOAT = HELPER.createBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
-	public static final RegistryObject<Item> MAPLE_CHEST_BOAT = HELPER.createItem("maple_chest_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_CHEST_BOAT : () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_TRANSPORTATION)));
-	public static final RegistryObject<Item> MAPLE_FURNACE_BOAT = HELPER.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_TRANSPORTATION)));
-	public static final RegistryObject<Item> LARGE_MAPLE_BOAT = HELPER.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_TRANSPORTATION)));
+	public static final RegistryObject<Item> MAPLE_CHEST_BOAT = HELPER.createItem("maple_chest_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_CHEST_BOAT : () -> new Item(new Item.Properties().tab(AbstractSubRegistryHelper.areModsLoaded("boatload") ? CreativeModeTab.TAB_TRANSPORTATION : null)));
+	public static final RegistryObject<Item> MAPLE_FURNACE_BOAT = HELPER.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties().tab(AbstractSubRegistryHelper.areModsLoaded("boatload") ? CreativeModeTab.TAB_TRANSPORTATION : null)));
+	public static final RegistryObject<Item> LARGE_MAPLE_BOAT = HELPER.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties().tab(AbstractSubRegistryHelper.areModsLoaded("boatload") ? CreativeModeTab.TAB_TRANSPORTATION : null)));
 
 	public static final RegistryObject<Item> SAP_BOTTLE = HELPER.createItem("sap_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_MATERIALS)));
 	public static final RegistryObject<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.SYRUP_BOTTLE)));
 	public static final RegistryObject<Item> FOUL_BERRIES = HELPER.createItem("foul_berries", () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.FOUL_BERRIES)));
-	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), (new Item.Properties()).tab(ItemSubRegistryHelper.areModsLoaded("berry_good") ? CreativeModeTab.TAB_MISC : null)));
+	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), (new Item.Properties()).tab(AbstractSubRegistryHelper.areModsLoaded("berry_good") ? CreativeModeTab.TAB_MISC : null)));
 	public static final RegistryObject<Item> FOUL_SOUP = HELPER.createItem("foul_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.FOUL_SOUP)));
 	public static final RegistryObject<Item> PUMPKIN_BREAD = HELPER.createItem("pumpkin_bread", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.PUMPKIN_BREAD)));
 

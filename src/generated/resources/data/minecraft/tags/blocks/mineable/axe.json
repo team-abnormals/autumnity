@@ -15,6 +15,18 @@
     "autumnity:orange_maple_hedge",
     "autumnity:red_maple_hedge",
     "autumnity:maple_post",
-    "autumnity:stripped_maple_post"
+    "autumnity:stripped_maple_post",
+    "autumnity:soul_jack_o_lantern",
+    "autumnity:redstone_jack_o_lantern",
+    "autumnity:ender_jack_o_lantern",
+    "autumnity:cupric_jack_o_lantern",
+    "autumnity:large_pumpkin_slice",
+    "autumnity:carved_large_pumpkin_slice",
+    "autumnity:large_jack_o_lantern_slice",
+    "autumnity:large_soul_jack_o_lantern_slice",
+    "autumnity:large_redstone_jack_o_lantern_slice",
+    "autumnity:large_ender_jack_o_lantern_slice",
+    "autumnity:large_cupric_jack_o_lantern_slice",
+    "autumnity:turkey_egg_crate"
   ]
 }

@@ -8,28 +8,27 @@ import java.util.List;
 
 public class AutumnityConfig {
 	public static class Common {
+		public final ForgeConfigSpec.ConfigValue<Boolean> generateSpottedForests;
 		public final ForgeConfigSpec.ConfigValue<List<String>> snailSpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> turkeySpawnBiomes;
 		public final ForgeConfigSpec.ConfigValue<List<String>> mapleTreeBiomes;
 
 		Common(ForgeConfigSpec.Builder builder) {
-			builder.comment("Common configurations for Autumnity")
-					.push("common");
-
 			builder.push("entities");
 			snailSpawnBiomes = builder
-					.comment("A list of biomes where snails can spawn. The list doesn't include biomes from this mod.")
+					.comment("A list of biomes where Snails can spawn", "The list does not include biomes from this mod")
 					.define("Snail Spawn Biomes", Lists.newArrayList());
 			turkeySpawnBiomes = builder
-					.comment("A list of biomes where turkeys can spawn. The list doesn't include biomes from this mod.",
-							"Chickens will not spawn in these biomes.")
+					.comment("A list of biomes where Turkeys replace Chicken spawns", "The list does not include biomes from this mod")
 					.define("Turkey Spawn Biomes", Lists.newArrayList());
 			builder.pop();
 
-			builder.push("misc");
+			builder.push("generation");
+			generateSpottedForests = builder
+					.comment("If colored Maple Trees should generate sparsely in Forests, Dark Forests, and Taigas respectively")
+					.define("Generate Spotted Forests", true);
 			mapleTreeBiomes = builder
-					.comment("A list of biomes where green maple trees can generate naturally.",
-							"The list does not include biomes from this mod.")
+					.comment("A list of biomes where green Maple Trees can generate naturally", "The list does not include biomes from this mod")
 					.define("Maple Tree Biomes", Lists.newArrayList("minecraft:forest", "minecraft:wooded_hills", "minecraft:flower_forest"));
 			builder.pop();
 		}

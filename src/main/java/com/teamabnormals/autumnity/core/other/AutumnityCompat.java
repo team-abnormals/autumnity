@@ -41,10 +41,10 @@ public class AutumnityCompat {
 		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
 		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
 
-		DataUtil.registerCompostable(AutumnityBlocks.MAPLE_LEAF_PILE.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAF_PILE.get(), 0.3F);
+		DataUtil.registerCompostable(AutumnityBlocks.MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtil.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.3F);
+		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.3F);
 
 		DataUtil.registerCompostable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 1.0F);
 	}
@@ -79,6 +79,11 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 30, 60);
 		DataUtil.registerFlammable(AutumnityBlocks.RED_MAPLE_LEAF_PILE.get(), 30, 60);
 
+		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_LEAF_CARPET.get(), 30, 60);
+		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_LEAF_CARPET.get(), 30, 60);
+		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 30, 60);
+		DataUtil.registerFlammable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 30, 60);
+
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_HEDGE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.YELLOW_MAPLE_HEDGE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), 5, 20);
@@ -87,6 +92,7 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BEEHIVE.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_VERTICAL_SLAB.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.VERTICAL_MAPLE_PLANKS.get(), 5, 20);
+		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BOARDS.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_POST.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.STRIPPED_MAPLE_POST.get(), 5, 20);

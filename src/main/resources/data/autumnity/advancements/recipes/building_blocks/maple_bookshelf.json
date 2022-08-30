@@ -3,25 +3,43 @@
     {
       "conditions": [
         {
-          "modid": "woodworks",
-          "type": "forge:mod_loaded"
+          "values": [
+            {
+              "type": "blueprint:and",
+              "values": [
+                {
+                  "type": "forge:mod_loaded",
+                  "modid": "woodworks"
+                },
+                {
+                  "type": "woodworks:config",
+                  "value": "wooden_bookshelves"
+                }
+              ]
+            },
+            {
+              "flag": "variant_bookshelves",
+              "type": "blueprint:quark_flag"
+            }
+          ],
+          "type": "forge:or"
         }
       ],
       "advancement": {
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:maple_boards"
+            "autumnity:maple_bookshelf"
           ]
         },
         "criteria": {
-          "has_maple_planks": {
+          "has_book": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:maple_planks"
+                    "minecraft:book"
                   ]
                 }
               ]
@@ -30,13 +48,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:maple_boards"
+              "recipe": "autumnity:maple_bookshelf"
             }
           }
         },
         "requirements": [
           [
-            "has_maple_planks",
+            "has_book",
             "has_the_recipe"
           ]
         ]

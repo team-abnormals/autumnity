@@ -3,8 +3,17 @@
     {
       "conditions": [
         {
-          "modid": "woodworks",
-          "type": "forge:mod_loaded"
+          "type": "blueprint:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "woodworks"
+            },
+            {
+              "type": "woodworks:config",
+              "value": "wooden_beehives"
+            }
+          ]
         }
       ],
       "advancement": {

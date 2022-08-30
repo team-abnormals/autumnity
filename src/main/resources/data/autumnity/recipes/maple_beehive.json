@@ -4,38 +4,37 @@
     {
       "conditions": [
         {
+          "type": "blueprint:and",
           "values": [
             {
-              "modid": "woodworks",
-              "type": "forge:mod_loaded"
+              "type": "forge:mod_loaded",
+              "modid": "woodworks"
             },
             {
-              "flag": "variant_ladders",
-              "type": "blueprint:quark_flag"
+              "type": "woodworks:config",
+              "value": "wooden_beehives"
             }
-          ],
-          "type": "forge:or"
+          ]
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "group": "wooden_ladder",
+        "group": "wooden_beehive",
         "pattern": [
-          "S S",
-          "S#S",
-          "S S"
+          "###",
+          "HHH",
+          "###"
         ],
         "key": {
           "#": {
             "item": "autumnity:maple_planks"
           },
-          "S": {
-            "item": "minecraft:stick"
+          "H": {
+            "item": "minecraft:honeycomb"
           }
         },
         "result": {
-          "item": "autumnity:maple_ladder",
-          "count": 4
+          "item": "autumnity:maple_beehive"
         }
       }
     }

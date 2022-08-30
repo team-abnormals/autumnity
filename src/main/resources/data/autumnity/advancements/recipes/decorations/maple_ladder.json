@@ -5,11 +5,20 @@
         {
           "values": [
             {
-              "modid": "woodworks",
-              "type": "forge:mod_loaded"
+              "type": "blueprint:and",
+              "values": [
+                {
+                  "type": "forge:mod_loaded",
+                  "modid": "woodworks"
+                },
+                {
+                  "type": "woodworks:config",
+                  "value": "wooden_ladders"
+                }
+              ]
             },
             {
-              "flag": "variant_chests",
+              "flag": "variant_ladders",
               "type": "blueprint:quark_flag"
             }
           ],
@@ -20,17 +29,17 @@
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:maple_trapped_chest"
+            "autumnity:maple_ladder"
           ]
         },
         "criteria": {
-          "has_tripwire_hook": {
+          "has_stick": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "minecraft:tripwire_hook"
+                    "minecraft:stick"
                   ]
                 }
               ]
@@ -39,13 +48,13 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:maple_trapped_chest"
+              "recipe": "autumnity:maple_ladder"
             }
           }
         },
         "requirements": [
           [
-            "has_tripwire_hook",
+            "has_stick",
             "has_the_recipe"
           ]
         ]

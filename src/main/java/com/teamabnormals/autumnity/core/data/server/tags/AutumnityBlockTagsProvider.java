@@ -62,6 +62,7 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(Tags.Blocks.FENCES_WOODEN).add(MAPLE_FENCE.get());
 		this.tag(Tags.Blocks.FENCE_GATES_WOODEN).add(MAPLE_FENCE_GATE.get());
 
+		this.tag(BlueprintBlockTags.LEAF_PILES).add(MAPLE_LEAF_PILE.get(), YELLOW_MAPLE_LEAF_PILE.get(), ORANGE_MAPLE_LEAF_PILE.get(), RED_MAPLE_LEAF_PILE.get());
 		this.tag(BlueprintBlockTags.LADDERS).add(MAPLE_LADDER.get());
 		this.tag(BlueprintBlockTags.VERTICAL_SLABS).add(SNAIL_SHELL_BRICK_VERTICAL_SLAB.get(), SNAIL_SHELL_TILE_VERTICAL_SLAB.get());
 		this.tag(BlueprintBlockTags.WOODEN_VERTICAL_SLABS).add(MAPLE_VERTICAL_SLAB.get());

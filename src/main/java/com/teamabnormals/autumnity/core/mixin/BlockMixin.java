@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Block.class)
 public abstract class BlockMixin extends BlockBehaviour implements ItemLike, IForgeBlock {
+
 	public BlockMixin(Properties properties) {
 		super(properties);
 	}

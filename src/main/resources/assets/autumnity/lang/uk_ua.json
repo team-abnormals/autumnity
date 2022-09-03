@@ -1,19 +1,19 @@
 {
   "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Равликовий слиз",
-  "block.autumnity.snail_slime_block": "Равликовий блок слизу",
+  "block.autumnity.snail_slime_block": "Блок равликового слизу",
   "block.autumnity.pancake": "Млинчик",
   "block.autumnity.foul_berry_bush_pips": "Кісточки кислих ягід",
   "block.autumnity.foul_berry_bush": "Кущ кислих ягід",
   "block.autumnity.tall_foul_berry_bush": "Високий кущ кислих ягід",
   "_comment": "A flower that generates in Maple Forests.",
   "block.autumnity.autumn_crocus": "Шафран",
-  "block.autumnity.potted_autumn_crocus": "Шафран в горщику",
+  "block.autumnity.potted_autumn_crocus": "Шафран у горщику",
   "block.autumnity.turkey": "Сира індичка",
   "block.autumnity.cooked_turkey": "Смажена індичка",
   
-  "block.autumnity.large_pumpkin_slice": "Шмат великого гарбузу",
-  "block.autumnity.carved_large_pumpkin_slice": "Шмат великого гарбузу з вірізом",
+  "block.autumnity.large_pumpkin_slice": "Шмат великого гарбуза",
+  "block.autumnity.carved_large_pumpkin_slice": "Шмат великого гарбуза з вирізом",
   "block.autumnity.large_jack_o_lantern_slice": "Шмат великого ліхтаря Джека",
   "block.autumnity.soul_jack_o_lantern": "Ліхтар душ Джека",
   "block.autumnity.large_soul_jack_o_lantern_slice": "Шмат великого ліхтаря душ Джека",
@@ -68,10 +68,10 @@
   "block.autumnity.potted_orange_maple_sapling": "Паросток помаранчевого клену в горщику",
   "block.autumnity.potted_red_maple_sapling": "Паросток червоного клену в горщику",
   
-  "block.autumnity.maple_leaf_carpet": "Килим з кленового листя",
-  "block.autumnity.yellow_maple_leaf_carpet": "Килим з жовтого кленового листя",
-  "block.autumnity.orange_maple_leaf_carpet": "Килим з помаранчевого кленового листя",
-  "block.autumnity.red_maple_leaf_carpet": "Килим з червоного кленового листя",
+  "block.autumnity.maple_leaf_carpet": "Килим із кленового листя",
+  "block.autumnity.yellow_maple_leaf_carpet": "Килим із жовтого кленового листя",
+  "block.autumnity.orange_maple_leaf_carpet": "Килим із помаранчевого кленового листя",
+  "block.autumnity.red_maple_leaf_carpet": "Килим із червоного кленового листя",
   
   "block.autumnity.maple_leaf_pile": "Купа кленового листя",
   "block.autumnity.yellow_maple_leaf_pile": "Купа жовтого кленового листя",
@@ -79,7 +79,7 @@
   "block.autumnity.red_maple_leaf_pile": "Купа червоного кленового листя",
 
   "item.autumnity.maple_boat": "Кленовий човен",
-  "item.autumnity.maple_furnace_boat": "Кленовий човен з піччю",
+  "item.autumnity.maple_furnace_boat": "Кленовий човен із піччю",
   "item.autumnity.maple_chest_boat": "Кленовий човен зі скринею",
   "item.autumnity.large_maple_boat": "Великий кленовий човен",
   

@@ -34,6 +34,6 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[5.4.5,)"
+    versionRange = "[5.4.6,)"
     ordering = "AFTER"
     side = "BOTH"

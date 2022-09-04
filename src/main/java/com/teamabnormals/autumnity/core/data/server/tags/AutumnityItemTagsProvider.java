@@ -68,8 +68,10 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(BlueprintItemTags.PUMPKINS).add(LARGE_PUMPKIN_SLICE.get().asItem());
 
 		this.copy(BlueprintBlockTags.LADDERS, BlueprintItemTags.LADDERS);
+		this.copy(BlueprintBlockTags.HEDGES, BlueprintItemTags.HEDGES);
 		this.copy(BlueprintBlockTags.VERTICAL_SLABS, BlueprintItemTags.VERTICAL_SLABS);
 		this.copy(BlueprintBlockTags.WOODEN_VERTICAL_SLABS, BlueprintItemTags.WOODEN_VERTICAL_SLABS);
 		this.tag(BlueprintItemTags.BOATABLE_CHESTS).add(MAPLE_CHEST.getFirst().get().asItem());
+		this.tag(BlueprintItemTags.REVERTABLE_CHESTS).add(MAPLE_CHEST.getFirst().get().asItem());
 	}
 }

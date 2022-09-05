@@ -67,7 +67,7 @@ public class AutumnityFeatures {
 	}
 
 	public static final class AutumnityPlacementUtils {
-		public static final BetterNoiseBasedCountPlacement SPOTTED_MAPLES_COUNT = new BetterNoiseBasedCountPlacement(AutumnityNoiseParameters.SPOTTED_MAPLES.getHolder().orElseThrow(), 20, -0.4F);
+		public static final BetterNoiseBasedCountPlacement SPOTTED_MAPLES_COUNT = new BetterNoiseBasedCountPlacement(AutumnityNoiseParameters.SPOTTED_MAPLES.getHolder().orElseThrow(), 12, -0.4F);
 	}
 
 	public static final class AutumnityConfiguredFeatures {

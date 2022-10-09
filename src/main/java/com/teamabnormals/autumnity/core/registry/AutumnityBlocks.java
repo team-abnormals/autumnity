@@ -91,7 +91,7 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> MAPLE_TRAPDOOR = HELPER.createBlock("maple_trapdoor", () -> new WoodTrapDoorBlock(Properties.MAPLE.trapdoor()), CreativeModeTab.TAB_REDSTONE);
 	public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> MAPLE_SIGN = HELPER.createSignBlock("maple", MaterialColor.TERRACOTTA_ORANGE);
 
-	public static final RegistryObject<Block> MAPLE_BOARDS = HELPER.createCompatBlock("woodworks", "maple_boards", () -> new RotatedPillarBlock(Properties.MAPLE.planks()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+	public static final RegistryObject<Block> MAPLE_BOARDS = HELPER.createCompatFuelBlock("woodworks", "maple_boards", () -> new RotatedPillarBlock(Properties.MAPLE.planks()), 300, CreativeModeTab.TAB_BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = HELPER.createCompatFuelBlock("woodworks", "maple_bookshelf", () -> new BookshelfBlock(Properties.MAPLE.bookshelf()), 300, CreativeModeTab.TAB_BUILDING_BLOCKS);
 	public static final RegistryObject<Block> MAPLE_LADDER = HELPER.createCompatFuelBlock("woodworks", "maple_ladder", () -> new BlueprintLadderBlock(PropertyUtil.LADDER), 300, CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_BEEHIVE = HELPER.createCompatBlock("woodworks", "maple_beehive", () -> new BlueprintBeehiveBlock(Properties.MAPLE.beehive()), CreativeModeTab.TAB_DECORATIONS);

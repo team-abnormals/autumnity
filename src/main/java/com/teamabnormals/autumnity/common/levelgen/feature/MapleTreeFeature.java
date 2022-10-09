@@ -32,7 +32,7 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 		int i = config.trunkPlacer.getTreeHeight(random);
 
 		boolean flag = true;
-		if (position.getY() >= 1 && position.getY() + i + 1 <= level.getMaxBuildHeight()) {
+		if (position.getY() > level.getMinBuildHeight() && position.getY() + i + 1 <= level.getMaxBuildHeight()) {
 			for (int j = position.getY(); j <= position.getY() + 1 + i; ++j) {
 				int k = 1;
 				if (j == position.getY()) {

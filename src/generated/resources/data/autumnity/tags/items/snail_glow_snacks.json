@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "quark:glowshroom",
+      "id": "quark:glow_shroom",
       "required": false
     }
   ]

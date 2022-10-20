@@ -50,7 +50,7 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(AutumnityItemTags.SNAIL_FOOD).add(Items.MUSHROOM_STEW, Items.SUSPICIOUS_STEW);
 		this.tag(AutumnityItemTags.SNAIL_SNACKS).add(Items.RED_MUSHROOM, Items.BROWN_MUSHROOM).addTag(AutumnityItemTags.SNAIL_SPEED_SNACKS).addTag(AutumnityItemTags.SNAIL_GLOW_SNACKS);
 		this.tag(AutumnityItemTags.SNAIL_SPEED_SNACKS).add(Items.CRIMSON_FUNGUS, Items.WARPED_FUNGUS);
-		this.tag(AutumnityItemTags.SNAIL_GLOW_SNACKS).addOptional(new ResourceLocation("quark", "glowshroom"));
+		this.tag(AutumnityItemTags.SNAIL_GLOW_SNACKS).addOptional(new ResourceLocation("quark", "glow_shroom"));
 		this.tag(AutumnityItemTags.TURKEY_FOOD).add(AutumnityItems.FOUL_BERRIES.get());
 		this.tag(AutumnityItemTags.SNAIL_TEMPT_ITEMS).add(Items.WARPED_FUNGUS_ON_A_STICK).addTag(AutumnityItemTags.SNAIL_FOOD).addTag(AutumnityItemTags.SNAIL_SNACKS);
 		this.tag(AutumnityItemTags.KNIVES);

@@ -54,7 +54,7 @@ public class AutumnityGeneration {
 					generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_ORANGE.getHolder().get());
 				}
 
-				if (DataUtil.matchesKeys(biome, Biomes.TAIGA)) {
+				if (DataUtil.matchesKeys(biome, Biomes.TAIGA, Biomes.WINDSWEPT_FOREST)) {
 					generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE_RED.getHolder().get());
 				}
 			}

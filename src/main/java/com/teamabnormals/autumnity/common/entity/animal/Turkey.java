@@ -212,7 +212,7 @@ public class Turkey extends Animal implements NeutralMob {
 		if (compound.contains("EggLayTime")) {
 			this.timeUntilNextEgg = compound.getInt("EggLayTime");
 		}
-		this.readPersistentAngerSaveData((ServerLevel) this.level, compound);
+		this.readPersistentAngerSaveData(this.level, compound);
 	}
 
 	@Override

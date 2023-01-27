@@ -4,16 +4,12 @@
     {
       "conditions": [
         {
-          "modid": "caverns_and_chasms",
-          "type": "forge:mod_loaded"
+          "type": "forge:mod_loaded",
+          "modid": "caverns_and_chasms"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "A",
-          "B"
-        ],
         "key": {
           "A": {
             "item": "minecraft:carved_pumpkin"
@@ -22,6 +18,10 @@
             "tag": "forge:torches/cupric"
           }
         },
+        "pattern": [
+          "A",
+          "B"
+        ],
         "result": {
           "item": "autumnity:cupric_jack_o_lantern"
         }

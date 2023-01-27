@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.damagesource.DamageSource;
@@ -201,8 +202,8 @@ public class Turkey extends Animal implements NeutralMob {
 	}
 
 	@Override
-	protected int getExperienceReward(Player player) {
-		return this.isTurkeyJockey() ? 10 : super.getExperienceReward(player);
+	public int getExperienceReward() {
+		return this.isTurkeyJockey() ? 10 : super.getExperienceReward();
 	}
 
 	@Override
@@ -282,7 +283,7 @@ public class Turkey extends Animal implements NeutralMob {
 		this.setRemainingPersistentAngerTime(ANGER_RANGE.sample(this.random));
 	}
 
-	public int getRandomNextEggTime(Random rand) {
+	public int getRandomNextEggTime(RandomSource rand) {
 		return rand.nextInt(9600) + 9600;
 	}
 

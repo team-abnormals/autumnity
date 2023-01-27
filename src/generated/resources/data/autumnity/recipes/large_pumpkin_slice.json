@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
   "key": {
     "#": {
       "item": "minecraft:pumpkin"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "autumnity:large_pumpkin_slice",
-    "count": 4
+    "count": 4,
+    "item": "autumnity:large_pumpkin_slice"
   }
 }

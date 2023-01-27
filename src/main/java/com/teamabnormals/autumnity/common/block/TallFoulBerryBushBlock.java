@@ -10,6 +10,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -69,7 +70,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
 		if (rand.nextInt(10) == 0) {
 			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
 			Vec3 vector3d = voxelshape.bounds().getCenter();
@@ -86,7 +87,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
 		int i = state.getValue(AGE);
 		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
 			worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
@@ -144,20 +145,15 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
+	public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		int i = Math.min(3, state.getValue(AGE) + 1);
 		worldIn.setBlock(pos, state.setValue(AGE, i), 2);
 		setHalfState(worldIn, pos, state, i);
-	}
-
-	@Override
-	public Block.OffsetType getOffsetType() {
-		return Block.OffsetType.NONE;
 	}
 
 	private static void setHalfState(Level worldIn, BlockPos pos, BlockState state, int age) {
@@ -174,10 +170,10 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 
 	@Nullable
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
 		if (!(entity instanceof Snail) && !(entity instanceof Turkey)) {
 			return BlockPathTypes.DAMAGE_OTHER;
 		}
-		return super.getAiPathNodeType(state, world, pos, entity);
+		return super.getBlockPathType(state, world, pos, entity);
 	}
 }

@@ -5,13 +5,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.teamabnormals.autumnity.core.registry.AutumnityPlacementModifierTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
-import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -37,7 +37,7 @@ public final class BetterNoiseBasedCountPlacement extends PlacementModifier {
 	}
 
 	@Override
-	public Stream<BlockPos> getPositions(PlacementContext context, Random random, BlockPos pos) {
+	public Stream<BlockPos> getPositions(PlacementContext context, RandomSource random, BlockPos pos) {
 		if (!this.initialized) {
 			synchronized (this) {
 				if (!this.initialized) {

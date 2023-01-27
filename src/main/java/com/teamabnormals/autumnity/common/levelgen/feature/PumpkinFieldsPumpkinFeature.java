@@ -8,6 +8,7 @@ import com.teamabnormals.autumnity.common.block.properties.CarvedSide;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
@@ -26,7 +27,7 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		Random rand = context.random();
+		RandomSource rand = context.random();
 		BlockPos blockpos = context.origin();
 		WorldGenLevel worldIn = context.level();
 

@@ -44,7 +44,8 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
 		this.copy(BlockTags.LEAVES, ItemTags.LEAVES);
 		this.tag(ItemTags.PIGLIN_REPELLENTS).add(SOUL_JACK_O_LANTERN.get().asItem(), LARGE_SOUL_JACK_O_LANTERN_SLICE.get().asItem());
-		this.tag(ItemTags.BOATS).add(AutumnityItems.MAPLE_BOAT.get());
+		this.tag(ItemTags.BOATS).add(AutumnityItems.MAPLE_BOAT.getFirst().get());
+		this.tag(ItemTags.CHEST_BOATS).add(AutumnityItems.MAPLE_BOAT.getSecond().get());
 
 		this.copy(AutumnityBlockTags.MAPLE_LOGS, AutumnityItemTags.MAPLE_LOGS);
 		this.tag(AutumnityItemTags.SNAIL_FOOD).add(Items.MUSHROOM_STEW, Items.SUSPICIOUS_STEW);

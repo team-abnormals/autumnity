@@ -1,26 +1,26 @@
 {
   "variants": {
+    "type=double": {
+      "model": "autumnity:block/snail_shell_tiles"
+    },
+    "type=east": {
+      "model": "autumnity:block/snail_shell_tile_vertical_slab",
+      "uvlock": true,
+      "y": 90
+    },
     "type=north": {
       "model": "autumnity:block/snail_shell_tile_vertical_slab",
       "uvlock": true
     },
     "type=south": {
       "model": "autumnity:block/snail_shell_tile_vertical_slab",
-      "y": 180,
-      "uvlock": true
+      "uvlock": true,
+      "y": 180
     },
     "type=west": {
       "model": "autumnity:block/snail_shell_tile_vertical_slab",
-      "y": 270,
-      "uvlock": true
-    },
-    "type=east": {
-      "model": "autumnity:block/snail_shell_tile_vertical_slab",
-      "y": 90,
-      "uvlock": true
-    },
-    "type=double": {
-      "model": "autumnity:block/snail_shell_tiles"
+      "uvlock": true,
+      "y": 270
     }
   }
 }

@@ -4,22 +4,22 @@
     {
       "conditions": [
         {
-          "flag": "berry_sack",
-          "type": "blueprint:quark_flag"
+          "type": "blueprint:quark_flag",
+          "flag": "berry_sack"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "###",
-          "###",
-          "###"
-        ],
         "key": {
           "#": {
             "item": "autumnity:foul_berries"
           }
         },
+        "pattern": [
+          "###",
+          "###",
+          "###"
+        ],
         "result": {
           "item": "autumnity:foul_berry_sack"
         }

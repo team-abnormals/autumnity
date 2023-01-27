@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.blueprint.core.util.TreeUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,7 +25,7 @@ public class MapleTreeFeature extends Feature<TreeConfiguration> {
 
 	@Override
 	public boolean place(FeaturePlaceContext<TreeConfiguration> context) {
-		Random random = context.random();
+		RandomSource random = context.random();
 		BlockPos position = context.origin();
 		WorldGenLevel level = context.level();
 		TreeConfiguration config = context.config();

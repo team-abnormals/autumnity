@@ -5,7 +5,6 @@ import com.teamabnormals.blueprint.core.util.item.filling.TargetedItemCategoryFi
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -45,9 +44,9 @@ public class SnailShellChestplateItem extends ArmorItem {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add((new TranslatableComponent("item.autumnity.snail_shell_chestplate.whenSneaking").withStyle(ChatFormatting.GRAY)));
-		tooltip.add(new TranslatableComponent(MobEffects.DAMAGE_RESISTANCE.getDescriptionId()).withStyle(ChatFormatting.BLUE).append(" ").append(new TranslatableComponent("potion.potency.2").withStyle(ChatFormatting.BLUE)));
-		tooltip.add((new TranslatableComponent("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(10), new TranslatableComponent(Attributes.KNOCKBACK_RESISTANCE.getDescriptionId()))).withStyle(ChatFormatting.BLUE));
+		tooltip.add((Component.translatable("item.autumnity.snail_shell_chestplate.whenSneaking").withStyle(ChatFormatting.GRAY)));
+		tooltip.add(Component.translatable(MobEffects.DAMAGE_RESISTANCE.getDescriptionId()).withStyle(ChatFormatting.BLUE).append(" ").append(Component.translatable("potion.potency.2").withStyle(ChatFormatting.BLUE)));
+		tooltip.add((Component.translatable("attribute.modifier.plus." + AttributeModifier.Operation.ADDITION.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(10), Component.translatable(Attributes.KNOCKBACK_RESISTANCE.getDescriptionId()))).withStyle(ChatFormatting.BLUE));
 	}
 
 	@Override

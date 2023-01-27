@@ -8,6 +8,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -55,7 +56,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
 		if (stateIn.getValue(AGE) == 1 && rand.nextInt(5) == 0) {
 			VoxelShape voxelshape = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
 			Vec3 vector3d = voxelshape.bounds().getCenter();
@@ -72,7 +73,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
 		if (worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
 			if (state.getValue(AGE) == 0) {
 				worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
@@ -86,8 +87,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-		if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
-			LivingEntity livingentity = ((LivingEntity) entityIn);
+		if (entityIn instanceof LivingEntity livingentity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
 			entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
 			if (!worldIn.isClientSide && !livingentity.hasEffect(MobEffects.POISON) && !livingentity.isShiftKeyDown()) {
 				livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 60));
@@ -106,12 +106,12 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
+	public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		if (state.getValue(AGE) == 0) {
 			worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
 		} else if (worldIn.isEmptyBlock(pos.above())) {
@@ -122,10 +122,10 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Nullable
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
 		if (!(entity instanceof Snail) && !(entity instanceof Turkey)) {
 			return BlockPathTypes.DAMAGE_OTHER;
 		}
-		return super.getAiPathNodeType(state, world, pos, entity);
+		return super.getBlockPathType(state, world, pos, entity);
 	}
 }

@@ -3,6 +3,7 @@ package com.teamabnormals.autumnity.common.levelgen.feature;
 import com.mojang.serialization.Codec;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PipeBlock;
@@ -21,7 +22,7 @@ public class FallenLeavesMapleTreeFeature extends MapleTreeFeature {
 	public boolean place(FeaturePlaceContext<TreeConfiguration> context) {
 		boolean flag = super.place(context);
 
-		Random random = context.random();
+		RandomSource random = context.random();
 		BlockPos position = context.origin();
 		WorldGenLevel worldIn = context.level();
 		TreeConfiguration config = context.config();

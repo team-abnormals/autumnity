@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#autumnity:has_animal/turkey",
+  "spawners": {
+    "type": "autumnity:turkey",
+    "maxCount": 4,
+    "minCount": 4,
+    "weight": 10
+  }
+}

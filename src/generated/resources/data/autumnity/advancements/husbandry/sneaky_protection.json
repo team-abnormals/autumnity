@@ -1,24 +1,7 @@
 {
   "parent": "minecraft:husbandry/breed_an_animal",
-  "display": {
-    "icon": {
-      "item": "autumnity:snail_shell_chestplate",
-      "nbt": "{Damage:0}"
-    },
-    "title": {
-      "translate": "advancements.autumnity.husbandry.sneaky_protection.title"
-    },
-    "description": {
-      "translate": "advancements.autumnity.husbandry.sneaky_protection.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "snail_shell_chestplate": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -27,7 +10,24 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.autumnity.husbandry.sneaky_protection.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "autumnity:snail_shell_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.autumnity.husbandry.sneaky_protection.title"
     }
   },
   "requirements": [

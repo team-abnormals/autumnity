@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "autumnity:cooked_turkey_piece_from_campfire_cooking"
-    ]
-  },
   "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:cooked_turkey_piece_from_campfire_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
     "has_turkey_piece": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -16,13 +16,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "autumnity:cooked_turkey_piece_from_campfire_cooking"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -30,5 +25,10 @@
       "has_turkey_piece",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:cooked_turkey_piece_from_campfire_cooking"
+    ]
+  }
 }

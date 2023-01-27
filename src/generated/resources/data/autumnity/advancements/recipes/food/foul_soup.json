@@ -1,25 +1,10 @@
 {
   "advancements": [
     {
-      "conditions": [
-        {
-          "value": {
-            "modid": "abnormals_delight",
-            "type": "forge:mod_loaded"
-          },
-          "type": "forge:not"
-        }
-      ],
       "advancement": {
         "parent": "minecraft:recipes/root",
-        "rewards": {
-          "recipes": [
-            "autumnity:foul_soup"
-          ]
-        },
         "criteria": {
           "has_foul_berries": {
-            "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
@@ -28,13 +13,14 @@
                   ]
                 }
               ]
-            }
+            },
+            "trigger": "minecraft:inventory_changed"
           },
           "has_the_recipe": {
-            "trigger": "minecraft:recipe_unlocked",
             "conditions": {
               "recipe": "autumnity:foul_soup"
-            }
+            },
+            "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
@@ -42,8 +28,22 @@
             "has_foul_berries",
             "has_the_recipe"
           ]
-        ]
-      }
+        ],
+        "rewards": {
+          "recipes": [
+            "autumnity:foul_soup"
+          ]
+        }
+      },
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "abnormals_delight"
+          }
+        }
+      ]
     }
   ]
 }

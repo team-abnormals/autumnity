@@ -7,7 +7,6 @@
   "plugin": "com.teamabnormals.autumnity.core.mixin.AutumnityMixinPlugin",
   "mixins": [
     "BlockMixin",
-    "CatMixin",
     "LakeFeatureMixin",
     "TurkeyMixin"
   ],

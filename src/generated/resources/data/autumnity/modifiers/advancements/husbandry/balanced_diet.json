@@ -1,70 +1,68 @@
 {
-  "selector": "minecraft:husbandry/balanced_diet",
-  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
         "criteria": {
-          "autumnity:syrup_bottle": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "autumnity:syrup_bottle"
-                ]
-              }
-            }
-          },
-          "autumnity:foul_berries": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "autumnity:foul_berries"
-                ]
-              }
-            }
-          },
-          "autumnity:foul_soup": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "autumnity:foul_soup"
-                ]
-              }
-            }
-          },
-          "autumnity:pumpkin_bread": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "autumnity:pumpkin_bread"
-                ]
-              }
-            }
-          },
-          "autumnity:turkey_piece": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "autumnity:turkey_piece"
-                ]
-              }
-            }
-          },
           "autumnity:cooked_turkey_piece": {
-            "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
                 "items": [
                   "autumnity:cooked_turkey_piece"
                 ]
               }
-            }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "autumnity:foul_berries": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:foul_berries"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "autumnity:foul_soup": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:foul_soup"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "autumnity:pumpkin_bread": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:pumpkin_bread"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "autumnity:syrup_bottle": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:syrup_bottle"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "autumnity:turkey_piece": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "autumnity:turkey_piece"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
           }
         },
         "requirements": [
@@ -90,5 +88,7 @@
         "should_replace_requirements": false
       }
     }
-  ]
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/balanced_diet"
 }

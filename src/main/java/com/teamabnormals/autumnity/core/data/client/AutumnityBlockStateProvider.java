@@ -29,6 +29,7 @@ import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
@@ -166,7 +167,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 	}
 
 	private void generatedItem(ItemLike item, ItemLike texture, String type) {
-		itemModels().withExistingParent(item.asItem().getRegistryName().getPath(), "item/generated").texture("layer0", new ResourceLocation(texture.asItem().getRegistryName().getNamespace(), type + "/" + texture.asItem().getRegistryName().getPath()));
+		itemModels().withExistingParent(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), "item/generated").texture("layer0", new ResourceLocation(ForgeRegistries.ITEMS.getKey(texture.asItem()).getNamespace(), type + "/" + ForgeRegistries.ITEMS.getKey(texture.asItem()).getPath()));
 	}
 
 	public void crossBlockWithPot(Block cross, Block flowerPot) {
@@ -362,7 +363,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 	}
 
 	private String name(Block block) {
-		return block.getRegistryName().getPath();
+		return ForgeRegistries.BLOCKS.getKey(block).getPath();
 	}
 
 	private ResourceLocation prefix(String prefix, ResourceLocation rl) {

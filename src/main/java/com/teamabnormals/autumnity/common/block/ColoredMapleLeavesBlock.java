@@ -3,12 +3,11 @@ package com.teamabnormals.autumnity.common.block;
 import com.teamabnormals.autumnity.core.registry.AutumnityParticleTypes;
 import com.teamabnormals.blueprint.common.block.wood.BlueprintLeavesBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.Random;
 
 public class ColoredMapleLeavesBlock extends BlueprintLeavesBlock {
 	private final int color;
@@ -20,7 +19,7 @@ public class ColoredMapleLeavesBlock extends BlueprintLeavesBlock {
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
 		super.animateTick(stateIn, worldIn, pos, rand);
 
 		if (rand.nextInt(100) == 0) {

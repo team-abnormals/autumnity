@@ -4,11 +4,11 @@
     {
       "conditions": [
         {
+          "type": "forge:not",
           "value": {
-            "modid": "abnormals_delight",
-            "type": "forge:mod_loaded"
-          },
-          "type": "forge:not"
+            "type": "forge:mod_loaded",
+            "modid": "abnormals_delight"
+          }
         }
       ],
       "recipe": {
@@ -19,8 +19,8 @@
           }
         ],
         "result": {
-          "item": "autumnity:turkey_piece",
-          "count": 5
+          "count": 5,
+          "item": "autumnity:turkey_piece"
         }
       }
     }

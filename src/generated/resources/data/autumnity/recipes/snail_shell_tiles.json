@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "#S#",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "autumnity:snail_shell_piece"
@@ -13,8 +8,13 @@
       "item": "minecraft:smooth_stone"
     }
   },
+  "pattern": [
+    "###",
+    "#S#",
+    "###"
+  ],
   "result": {
-    "item": "autumnity:snail_shell_tiles",
-    "count": 8
+    "count": 8,
+    "item": "autumnity:snail_shell_tiles"
   }
 }

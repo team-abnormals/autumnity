@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#autumnity:has_feature/spotted_maple_tree/yellow",
+  "features": "autumnity:trees_maple_yellow",
+  "step": "vegetal_decoration"
+}

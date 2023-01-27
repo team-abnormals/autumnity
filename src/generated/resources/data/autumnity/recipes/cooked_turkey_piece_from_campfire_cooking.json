@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
+  "cookingtime": 600,
+  "experience": 0.35,
   "ingredient": {
     "item": "autumnity:turkey_piece"
   },
-  "result": "autumnity:cooked_turkey_piece",
-  "experience": 0.35,
-  "cookingtime": 600
+  "result": "autumnity:cooked_turkey_piece"
 }

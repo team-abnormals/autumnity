@@ -4,17 +4,13 @@
     {
       "conditions": [
         {
-          "flag": "hedges",
-          "type": "blueprint:quark_flag"
+          "type": "blueprint:quark_flag",
+          "flag": "hedges"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "group": "hedge",
-        "pattern": [
-          "#",
-          "L"
-        ],
         "key": {
           "#": {
             "item": "autumnity:red_maple_leaves"
@@ -23,9 +19,13 @@
             "tag": "autumnity:maple_logs"
           }
         },
+        "pattern": [
+          "#",
+          "L"
+        ],
         "result": {
-          "item": "autumnity:red_maple_hedge",
-          "count": 2
+          "count": 2,
+          "item": "autumnity:red_maple_hedge"
         }
       }
     }

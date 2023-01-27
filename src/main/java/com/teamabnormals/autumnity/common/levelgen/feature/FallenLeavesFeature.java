@@ -3,6 +3,7 @@ package com.teamabnormals.autumnity.common.levelgen.feature;
 import com.mojang.serialization.Codec;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PipeBlock;
@@ -10,8 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class FallenLeavesFeature extends Feature<NoneFeatureConfiguration> {
 
@@ -21,7 +20,7 @@ public class FallenLeavesFeature extends Feature<NoneFeatureConfiguration> {
 
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		Random rand = context.random();
+		RandomSource rand = context.random();
 		BlockPos pos = context.origin();
 		WorldGenLevel worldIn = context.level();
 

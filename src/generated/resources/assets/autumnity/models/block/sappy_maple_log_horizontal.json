@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "side": "autumnity:block/sappy_maple_log",
-    "end": "autumnity:block/sappy_maple_log_top"
+    "end": "autumnity:block/sappy_maple_log_top",
+    "side": "autumnity:block/sappy_maple_log"
   }
 }

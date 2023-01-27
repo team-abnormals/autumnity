@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "autumnity:block/maple_door_bottom",
+    "top": "autumnity:block/maple_door_top"
+  }
+}

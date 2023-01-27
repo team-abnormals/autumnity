@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "cure_foul_taste": {
+      "trigger": "autumnity:cure_foul_taste"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "autumnity:foul_berries"
-    },
-    "title": {
-      "translate": "advancements.autumnity.husbandry.cure_foul_taste.title"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.autumnity.husbandry.cure_foul_taste.description"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "autumnity:foul_berries"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "cure_foul_taste": {
-      "trigger": "autumnity:cure_foul_taste"
+    "title": {
+      "translate": "advancements.autumnity.husbandry.cure_foul_taste.title"
     }
   },
   "requirements": [

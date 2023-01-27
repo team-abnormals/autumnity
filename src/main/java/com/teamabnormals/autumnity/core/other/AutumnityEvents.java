@@ -9,7 +9,6 @@ import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
-import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;
 import net.minecraft.core.BlockPos;
@@ -44,11 +43,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -65,10 +64,10 @@ public class AutumnityEvents {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
 
 	@SubscribeEvent
-	public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
-		Level world = event.getWorld();
+	public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
+		Level level = event.getLevel();
 
-		if (!world.isClientSide) {
+		if (!level.isClientSide) {
 			Entity entity = event.getEntity();
 
 			if (entity instanceof Pillager) {
@@ -81,12 +80,12 @@ public class AutumnityEvents {
 
 	@SubscribeEvent
 	public static void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event) {
-		LevelAccessor world = event.getWorld();
-		LivingEntity livingentity = event.getEntityLiving();
+		LevelAccessor level = event.getLevel();
+		LivingEntity livingentity = event.getEntity();
 
 		if (livingentity instanceof Zombie || livingentity instanceof AbstractSkeleton) {
 			if (livingentity.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-				if (DataUtil.matchesKeys(world.getBiome(livingentity.blockPosition()).value().getRegistryName(), AutumnityBiomes.PUMPKIN_FIELDS.getKey()) && world.getRandom().nextFloat() < 0.05F) {
+				if (level.getBiome(livingentity.blockPosition()).is(AutumnityBiomes.PUMPKIN_FIELDS.getKey().location()) && level.getRandom().nextFloat() < 0.05F) {
 					livingentity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					((Mob) livingentity).setDropChance(EquipmentSlot.HEAD, 0.0F);
 				}
@@ -95,8 +94,8 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onSnailShellChestplateSneak(LivingUpdateEvent event) {
-		LivingEntity entity = event.getEntityLiving();
+	public static void onSnailShellChestplateSneak(LivingTickEvent event) {
+		LivingEntity entity = event.getEntity();
 
 		entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
 		if (entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isShiftKeyDown()) {
@@ -106,8 +105,8 @@ public class AutumnityEvents {
 
 	@SubscribeEvent
 	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-		Level level = event.getWorld();
-		Player player = event.getPlayer();
+		Level level = event.getLevel();
+		Player player = event.getEntity();
 		ItemStack itemstack = event.getItemStack();
 		Item item = itemstack.getItem();
 		BlockPos pos = event.getPos();
@@ -144,7 +143,7 @@ public class AutumnityEvents {
 						level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 					}
 
-					if (!event.getPlayer().getAbilities().instabuild) itemstack.shrink(1);
+					if (!player.getAbilities().instabuild) itemstack.shrink(1);
 					event.setCanceled(true);
 					event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
 				}
@@ -155,7 +154,7 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event) {
 		ItemStack itemstack = event.getItem();
-		if (event.getEntityLiving().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntityLiving() instanceof Player && itemstack.isEdible()) {
+		if (event.getEntity().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntity() instanceof Player && itemstack.isEdible()) {
 			Item item = itemstack.getItem();
 			FoodProperties food = item.getFoodProperties();
 			boolean flag = true;
@@ -185,7 +184,7 @@ public class AutumnityEvents {
 			}
 
 			if (flag) {
-				Player player = (Player) event.getEntityLiving();
+				Player player = (Player) event.getEntity();
 
 				int i = food.getNutrition();
 				int j = Math.max(1, (int) (i * 0.5F));
@@ -219,9 +218,9 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onPotionAdded(PotionEvent.PotionAddedEvent event) {
-		LivingEntity livingentity = event.getEntityLiving();
-		MobEffectInstance effect = event.getPotionEffect();
+	public static void onPotionAdded(MobEffectEvent.Added event) {
+		LivingEntity livingentity = event.getEntity();
+		MobEffectInstance effect = event.getEffectInstance();
 		MobEffectInstance extension = livingentity.getEffect(AutumnityMobEffects.EXTENSION.get());
 
 		if (extension != null) {

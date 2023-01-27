@@ -10,6 +10,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock.VerticalSlabType;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLoot;
@@ -39,8 +40,10 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -141,10 +144,10 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(YELLOW_MAPLE_LEAF_CARPET.get());
 			this.dropSelf(ORANGE_MAPLE_LEAF_CARPET.get());
 			this.dropSelf(RED_MAPLE_LEAF_CARPET.get());
-			this.add(MAPLE_LEAF_PILE.get(), BlockLoot::createGlowLichenDrops);
-			this.add(YELLOW_MAPLE_LEAF_PILE.get(), BlockLoot::createGlowLichenDrops);
-			this.add(ORANGE_MAPLE_LEAF_PILE.get(), BlockLoot::createGlowLichenDrops);
-			this.add(RED_MAPLE_LEAF_PILE.get(), BlockLoot::createGlowLichenDrops);
+			this.add(MAPLE_LEAF_PILE.get(), AutumnityBlockLoot::createLeafPileDrops);
+			this.add(YELLOW_MAPLE_LEAF_PILE.get(), AutumnityBlockLoot::createLeafPileDrops);
+			this.add(ORANGE_MAPLE_LEAF_PILE.get(), AutumnityBlockLoot::createLeafPileDrops);
+			this.add(RED_MAPLE_LEAF_PILE.get(), AutumnityBlockLoot::createLeafPileDrops);
 
 			this.dropSelf(MAPLE_SAPLING.get());
 			this.dropSelf(YELLOW_MAPLE_SAPLING.get());
@@ -171,6 +174,10 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.add(RED_MAPLE_LEAVES.get(), (block) -> createLeavesDrops(block, RED_MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 		}
 
+		protected static LootTable.Builder createLeafPileDrops(Block block) {
+			return createMultifaceBlockDrops(block, MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS)));
+		}
+
 		protected static LootTable.Builder createVerticalSlabItemTable(Block block) {
 			return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(applyExplosionDecay(block, LootItem.lootTableItem(block).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(VerticalSlabBlock.TYPE, VerticalSlabType.DOUBLE)))))));
 		}
@@ -189,7 +196,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public Iterable<Block> getKnownBlocks() {
-			return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> block.getRegistryName().getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
+			return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> ForgeRegistries.BLOCKS.getKey(block).getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
 		}
 	}
 
@@ -203,7 +210,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public Iterable<EntityType<?>> getKnownEntities() {
-			return ForgeRegistries.ENTITIES.getValues().stream().filter(block -> block.getRegistryName().getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
+			return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(entity -> ForgeRegistries.ENTITY_TYPES.getKey(entity).getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
 		}
 	}
 

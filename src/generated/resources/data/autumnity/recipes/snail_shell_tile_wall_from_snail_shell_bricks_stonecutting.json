@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "autumnity:snail_shell_bricks"
   },
-  "result": "autumnity:snail_shell_tile_wall",
-  "count": 1
+  "result": "autumnity:snail_shell_tile_wall"
 }

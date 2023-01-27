@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -269,7 +270,7 @@ public class Snail extends Animal {
 
 					if (flag) {
 						if (!this.level.isClientSide && !player.getAbilities().instabuild) {
-							ItemStack container = itemstack.getContainerItem();
+							ItemStack container = itemstack.getCraftingRemainingItem();
 							if (container.isEmpty() && itemstack.getItem() instanceof BowlFoodItem)
 								container = new ItemStack(Items.BOWL);
 
@@ -587,7 +588,7 @@ public class Snail extends Animal {
 
 		@Nullable
 		private Vec3 findMushroom() {
-			Random random = Snail.this.getRandom();
+			RandomSource random = Snail.this.getRandom();
 			BlockPos blockpos = new BlockPos(Snail.this.getX(), Snail.this.getBoundingBox().minY, Snail.this.getZ());
 
 			for (int i = 0; i < 10; ++i) {

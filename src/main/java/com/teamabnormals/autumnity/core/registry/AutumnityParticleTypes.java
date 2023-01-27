@@ -2,11 +2,9 @@ package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.client.particle.FallingMapleLeafParticle;
 import com.teamabnormals.autumnity.core.Autumnity;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -21,10 +19,7 @@ public class AutumnityParticleTypes {
 	public static final RegistryObject<SimpleParticleType> FALLING_MAPLE_LEAF = PARTICLE_TYPES.register("falling_maple_leaf", () -> new SimpleParticleType(false));
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
-	public static void registerParticleTypes(ParticleFactoryRegisterEvent event) {
-		ParticleEngine manager = Minecraft.getInstance().particleEngine;
-		if (FALLING_MAPLE_LEAF.isPresent()) {
-			manager.register(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
-		}
+	public static void registerParticleTypes(RegisterParticleProvidersEvent event) {
+		event.register(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
 	}
 }

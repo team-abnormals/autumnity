@@ -98,6 +98,7 @@ public class Autumnity {
 		generator.addProvider(includeServer, new AutumnityItemTagsProvider(generator, blockTags, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityBiomeTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityBannerPatternTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new AutumnityPaintingVariantTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityStructureTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityRecipeProvider(generator));
 		generator.addProvider(includeServer, new AutumnityAdvancementProvider(generator, existingFileHelper));

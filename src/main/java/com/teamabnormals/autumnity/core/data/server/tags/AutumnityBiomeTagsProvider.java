@@ -26,6 +26,7 @@ public class AutumnityBiomeTagsProvider extends BiomeTagsProvider {
 		this.tag(AutumnityBiomeTags.HAS_RED_MAPLE_TREE).add(Biomes.TAIGA, Biomes.WINDSWEPT_FOREST);
 
 		this.tag(BiomeTags.IS_FOREST).add(AutumnityBiomes.MAPLE_FOREST.get());
+		this.tag(BiomeTags.IS_OVERWORLD).add(AutumnityBiomes.MAPLE_FOREST.get(), AutumnityBiomes.PUMPKIN_FIELDS.get());
 		this.tag(BiomeTags.HAS_RUINED_PORTAL_STANDARD).add(AutumnityBiomes.PUMPKIN_FIELDS.get());
 		this.tag(BiomeTags.HAS_MINESHAFT).add(AutumnityBiomes.PUMPKIN_FIELDS.get());
 		this.tag(BiomeTags.STRONGHOLD_BIASED_TO).add(AutumnityBiomes.MAPLE_FOREST.get(), AutumnityBiomes.PUMPKIN_FIELDS.get());

@@ -2,7 +2,7 @@
   "_comment": "Comments shouldn't be translated. They are used to instruct translators.",
   "block.autumnity.snail_slime": "Равликовий слиз",
   "block.autumnity.snail_slime_block": "Блок равликового слизу",
-  "block.autumnity.pancake": "Млинчик",
+  "block.autumnity.pancake": "Панкейк",
   "block.autumnity.foul_berry_bush_pips": "Кісточки кислих ягід",
   "block.autumnity.foul_berry_bush": "Кущ кислих ягід",
   "block.autumnity.tall_foul_berry_bush": "Високий кущ кислих ягід",
@@ -22,10 +22,10 @@
   
   "block.autumnity.snail_shell_block": "Мушля равлика",
   "block.autumnity.snail_shell_bricks": "Цегла з мушлі равлика",
-  "block.autumnity.snail_shell_brick_stairs": "Сходи з цегли мушлі равлика",
-  "block.autumnity.snail_shell_brick_slab": "Плита з цегли мушлі равлика",
-  "block.autumnity.snail_shell_brick_vertical_slab": "Вертикальна плита з цегли мушлі равлика",
-  "block.autumnity.snail_shell_brick_wall": "Стіна з цегли мушлі равлика",
+  "block.autumnity.snail_shell_brick_stairs": "Цегляні сходи з мушлі равлика",
+  "block.autumnity.snail_shell_brick_slab": "Цегляна плита з мушлі равлика",
+  "block.autumnity.snail_shell_brick_vertical_slab": "Вертикальна цегляна плита з мушлі равлика",
+  "block.autumnity.snail_shell_brick_wall": "Цегляна стіна з мушлі равлика",
   "block.autumnity.chiseled_snail_shell_bricks": "Точена цегла з мушлі равлика",
   "block.autumnity.snail_shell_tiles": "Плитка з мушлі равлика",
   "block.autumnity.snail_shell_tile_stairs": "Сходи з плитки мушлі равлика",
@@ -51,7 +51,7 @@
   "block.autumnity.maple_door": "Кленові двері",
   "block.autumnity.maple_trapdoor": "Кленовий люк",
   "block.autumnity.maple_sign": "Кленова табличка",
-  "block.autumnity.maple_wall_sign": "Настінна кленова табличка",
+  "block.autumnity.maple_wall_sign": "Кленова настінна табличка",
   
   "block.autumnity.maple_leaves": "Кленове листя",
   "block.autumnity.yellow_maple_leaves": "Жовте кленове листя",
@@ -68,10 +68,10 @@
   "block.autumnity.potted_orange_maple_sapling": "Паросток помаранчевого клену в горщику",
   "block.autumnity.potted_red_maple_sapling": "Паросток червоного клену в горщику",
   
-  "block.autumnity.maple_leaf_carpet": "Килим із кленового листя",
-  "block.autumnity.yellow_maple_leaf_carpet": "Килим із жовтого кленового листя",
-  "block.autumnity.orange_maple_leaf_carpet": "Килим із помаранчевого кленового листя",
-  "block.autumnity.red_maple_leaf_carpet": "Килим із червоного кленового листя",
+  "block.autumnity.maple_leaf_carpet": "Килимок із кленового листя",
+  "block.autumnity.yellow_maple_leaf_carpet": "Килимок із жовтого кленового листя",
+  "block.autumnity.orange_maple_leaf_carpet": "Килимок із помаранчевого кленового листя",
+  "block.autumnity.red_maple_leaf_carpet": "Килимок із червоного кленового листя",
   
   "block.autumnity.maple_leaf_pile": "Купа кленового листя",
   "block.autumnity.yellow_maple_leaf_pile": "Купа жовтого кленового листя",
@@ -79,7 +79,7 @@
   "block.autumnity.red_maple_leaf_pile": "Купа червоного кленового листя",
 
   "item.autumnity.maple_boat": "Кленовий човен",
-  "item.autumnity.maple_furnace_boat": "Кленовий човен із піччю",
+  "item.autumnity.maple_furnace_boat": "Кленовий човен з піччю",
   "item.autumnity.maple_chest_boat": "Кленовий човен зі скринею",
   "item.autumnity.large_maple_boat": "Великий кленовий човен",
   
@@ -91,20 +91,20 @@
   "item.autumnity.pumpkin_bread": "Гарбузовий хліб",
   
   "item.autumnity.snail_spawn_egg": "Яйце виклику равлика",
-  "item.autumnity.snail_shell_piece": "Шмат мушлі равлика",
+  "item.autumnity.snail_shell_piece": "Шматочок мушлі равлика",
   "item.autumnity.snail_shell_chestplate": "Равликовий нагрудник",
   
   "item.autumnity.turkey_spawn_egg": "Яйце виклику індика",
   "item.autumnity.turkey_egg": "Індиче яйце",
-  "item.autumnity.turkey_piece": "Сира індича ніжка",
-  "item.autumnity.cooked_turkey_piece": "Смажена індича ніжка",
+  "item.autumnity.turkey_piece": "Сира індича гомілка",
+  "item.autumnity.cooked_turkey_piece": "Смажена індича гомілка",
   
   "item.autumnity.maple_leaf_banner_pattern": "Візерунок стяга",
   "item.autumnity.maple_leaf_banner_pattern.desc": "Кленовий лист",
   "item.autumnity.swirl_banner_pattern": "Візерунок стяга",
   "item.autumnity.swirl_banner_pattern.desc": "Вир",
   
-  "item.autumnity.snail_shell_chestplate.whenSneaking": "Коли присів:",
+  "item.autumnity.snail_shell_chestplate.whenSneaking": "Коли крадешся:",
   
   "entity.autumnity.boat": "Човен",
   "entity.autumnity.snail": "Равлик",
@@ -112,14 +112,14 @@
   "entity.autumnity.turkey_egg": "Кинуте яйце індички",
   
   "_comment": "This effect extends the duration of active potion effects.",
-  "effect.autumnity.extension": "Продовження",
+  "effect.autumnity.extension": "Подовження",
   "_comment": "When the effect is active eating food will replenish 50% more food points than normally.",
   "effect.autumnity.foul_taste": "Неприємний смак",
   
-  "item.minecraft.potion.effect.extension": "Зілля продовження",
-  "item.minecraft.splash_potion.effect.extension": "Вибухове зілля продовження",
-  "item.minecraft.lingering_potion.effect.extension": "Осідаюче зілля продовження",
-  "item.minecraft.tipped_arrow.effect.extension": "Стріла продовження",
+  "item.minecraft.potion.effect.extension": "Зілля подовження",
+  "item.minecraft.splash_potion.effect.extension": "Вибухове зілля подовження",
+  "item.minecraft.lingering_potion.effect.extension": "Осідаюче зілля подовження",
+  "item.minecraft.tipped_arrow.effect.extension": "Стріла подовження",
   
   "biome.autumnity.maple_forest": "Кленовий ліс",
   "biome.autumnity.maple_forest_hills": "Горбистий кленовий ліс",
@@ -137,9 +137,9 @@
   
   "subtitles.entity.turkey.ambient": "Індик кудахче",
   "subtitles.entity.turkey.aggro": "Індик агресивино кудахче",
-  "subtitles.entity.turkey.hurt": "Індика поранена",
+  "subtitles.entity.turkey.hurt": "Індика поранено",
   "subtitles.entity.turkey.death": "Індик гине",
-  "subtitles.entity.turkey.egg": "Индюк шльопає",
+  "subtitles.entity.turkey.egg": "Індик зносить яйце",
   
   "subtitles.block.turkey.cut": "Різання індички",
   
@@ -161,8 +161,8 @@
   "block.autumnity.yellow_maple_hedge": "Жовтий кленовий живопліт",
   "block.autumnity.orange_maple_hedge": "Помаранчевий кленовий живопліт",
   "block.autumnity.red_maple_hedge": "Червоний кленовий живопліт",
-  "block.autumnity.ender_jack_o_lantern": "Ендер-ліхтар Джека",
-  "block.autumnity.large_ender_jack_o_lantern_slice": "Шмат великого ендер-ліхтаря Джека",
+  "block.autumnity.ender_jack_o_lantern": "Ліхтар Енду Джека",
+  "block.autumnity.large_ender_jack_o_lantern_slice": "Шмат великого ліхтаря Енду Джека",
   "block.autumnity.cupric_jack_o_lantern": "Мідний ліхтар Джека",
   "block.autumnity.large_cupric_jack_o_lantern_slice": "Шмат великого мідного ліхтаря Джека",
   "block.autumnity.turkey_egg_crate": "Ящик індичих яєць",
@@ -171,9 +171,9 @@
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.autumnity.husbandry.sneaky_protection.title": "Турбозахист",
   "advancements.autumnity.husbandry.sneaky_protection.description": "Створіть равликовий нагрудник",
-  "advancements.autumnity.husbandry.fungivore_diet.title": "ТИ НЕ ЇЖ ГРИБИ!",
+  "advancements.autumnity.husbandry.fungivore_diet.title": "Дієта грибоїдних",
   "advancements.autumnity.husbandry.fungivore_diet.description": "Нагодуйте равлика всіма видами грибів і грибків",
-  "advancements.autumnity.husbandry.finally_some_good_food.title": "Ммм... Поляніца",
+  "advancements.autumnity.husbandry.finally_some_good_food.title": "Нарешті, нормальна іжа",
   "advancements.autumnity.husbandry.finally_some_good_food.description": "З'їжте щось смачне після того, як з'їли кислі ягоди",
   
   "block.minecraft.banner.autumnity.maple_leaf.black": "Чорний кленовий листок",

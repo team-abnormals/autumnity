@@ -9,19 +9,15 @@
         }
       ],
       "recipe": {
-        "type": "minecraft:crafting_shaped",
+        "type": "minecraft:crafting_shapeless",
         "group": "furnace_boat",
-        "key": {
-          "B": {
-            "item": "autumnity:maple_boat"
-          },
-          "F": {
+        "ingredients": [
+          {
             "item": "minecraft:furnace"
+          },
+          {
+            "item": "autumnity:maple_boat"
           }
-        },
-        "pattern": [
-          "F",
-          "B"
         ],
         "result": {
           "item": "autumnity:maple_furnace_boat"

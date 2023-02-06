@@ -4,13 +4,11 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_maple_boat": {
+          "has_boat": {
             "conditions": {
               "items": [
                 {
-                  "items": [
-                    "autumnity:maple_boat"
-                  ]
+                  "tag": "minecraft:boats"
                 }
               ]
             },
@@ -25,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_maple_boat",
+            "has_boat",
             "has_the_recipe"
           ]
         ],

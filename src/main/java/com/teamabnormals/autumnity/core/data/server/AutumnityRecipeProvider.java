@@ -15,12 +15,14 @@ import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.*;
 
@@ -130,6 +132,7 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 		leafCarpetRecipe(consumer, AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.ORANGE_MAPLE_HEDGE.get(), AutumnityItemTags.MAPLE_LOGS);
 		leafCarpetRecipe(consumer, AutumnityBlocks.RED_MAPLE_LEAVES.get(), AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), AutumnityBlocks.RED_MAPLE_HEDGE.get(), AutumnityItemTags.MAPLE_LOGS);
 		woodenBoat(consumer, AutumnityItems.MAPLE_BOAT.getFirst().get(), AutumnityBlocks.MAPLE_PLANKS.get());
+		chestBoat(consumer, AutumnityItems.MAPLE_BOAT.getSecond().get(), AutumnityItems.MAPLE_BOAT.getFirst().get());
 		conditionalRecipe(consumer, BOATLOAD_LOADED, ShapedRecipeBuilder.shaped(AutumnityItems.MAPLE_FURNACE_BOAT.get()).define('F', Items.FURNACE).define('B', AutumnityItems.MAPLE_BOAT.getFirst().get()).pattern("F").pattern("B").group("furnace_boat").unlockedBy(getHasName(AutumnityItems.MAPLE_BOAT.getFirst().get()), has(AutumnityItems.MAPLE_BOAT.getFirst().get())));
 		conditionalRecipe(consumer, BOATLOAD_LOADED, ShapedRecipeBuilder.shaped(AutumnityItems.LARGE_MAPLE_BOAT.get()).define('#', AutumnityBlocks.MAPLE_PLANKS.get()).define('B', AutumnityItems.MAPLE_BOAT.getFirst().get()).pattern("#B#").pattern("###").group("large_boat").unlockedBy(getHasName(AutumnityItems.MAPLE_BOAT.getFirst().get()), has(AutumnityItems.MAPLE_BOAT.getFirst().get())));
 		//conditionalRecipe(consumer, WOODWORKS_LOADED, ShapedRecipeBuilder.shaped(AutumnityBlocks.MAPLE_BOARDS.get(), 3).define('#', AutumnityBlocks.MAPLE_PLANKS.get()).pattern("#").pattern("#").pattern("#").group("wooden_boards").unlockedBy(getHasName(AutumnityBlocks.MAPLE_PLANKS.get()), has(AutumnityBlocks.MAPLE_PLANKS.get())));
@@ -220,5 +223,9 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 
 	public static void conditionalRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeBuilder recipe, ResourceLocation id) {
 		ConditionalRecipe.builder().addCondition(condition).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipe.getResult().getItemCategory().getRecipeFolderName() + "/" + id.getPath())).build(consumer, id);
+	}
+
+	private static void chestBoat(Consumer<FinishedRecipe> consumer, ItemLike chestBoat, ItemLike boat) {
+		ShapelessRecipeBuilder.shapeless(chestBoat).requires(Tags.Items.CHESTS_WOODEN).requires(boat).group("chest_boat").unlockedBy("has_boat", has(ItemTags.BOATS)).save(consumer);
 	}
 }

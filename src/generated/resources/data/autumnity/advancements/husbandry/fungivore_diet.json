@@ -50,8 +50,7 @@
     "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "autumnity:snail_shell_chestplate",
-      "nbt": "{Damage:0}"
+      "item": "minecraft:crimson_fungus"
     },
     "show_toast": true,
     "title": {

@@ -33,7 +33,7 @@ public class AutumnityAdvancementProvider extends AdvancementProvider {
 				.addCriterion("cure_foul_taste", AutumnityCriteriaTriggers.CURE_FOUL_TASTE.createInstance())
 				.save(consumer, Autumnity.MOD_ID + ":husbandry/cure_foul_taste");
 
-		createAdvancement("fungivore_diet", "husbandry", new ResourceLocation("husbandry/breed_an_animal"), AutumnityItems.SNAIL_SHELL_CHESTPLATE.get(), FrameType.CHALLENGE, true, true, false)
+		createAdvancement("fungivore_diet", "husbandry", new ResourceLocation("husbandry/breed_an_animal"), Items.CRIMSON_FUNGUS, FrameType.CHALLENGE, true, true, false)
 				.addCriterion("red_mushroom", FeedSnailTrigger.TriggerInstance.forItem(Items.RED_MUSHROOM))
 				.addCriterion("brown_mushroom", FeedSnailTrigger.TriggerInstance.forItem(Items.BROWN_MUSHROOM))
 				.addCriterion("crimson_fungus", FeedSnailTrigger.TriggerInstance.forItem(Items.CRIMSON_FUNGUS))

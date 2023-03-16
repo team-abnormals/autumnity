@@ -4,6 +4,7 @@ import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityConstants;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
+import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
@@ -66,6 +67,8 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.copy(Tags.Blocks.FENCES_WOODEN, Tags.Items.FENCES_WOODEN);
 		this.copy(Tags.Blocks.FENCE_GATES_WOODEN, Tags.Items.FENCE_GATES_WOODEN);
 		this.tag(Tags.Items.BOOKSHELVES).add(MAPLE_BOOKSHELF.get().asItem());
+		this.tag(AutumnityItemTags.COOKED_TURKEY).add(AutumnityBlocks.COOKED_TURKEY.get().asItem(), AutumnityItems.COOKED_TURKEY_PIECE.get());
+		this.tag(AutumnityItemTags.RAW_TURKEY).add(AutumnityBlocks.TURKEY.get().asItem(), AutumnityItems.TURKEY_PIECE.get());
 		this.tag(AutumnityItemTags.SEEDS_FOUL_BERRY).add(AutumnityItems.FOUL_BERRY_PIPS.get());
 		this.tag(Tags.Items.SEEDS).addTag(AutumnityItemTags.SEEDS_FOUL_BERRY);
 		this.tag(BlueprintItemTags.EGGS).add(AutumnityItems.TURKEY_EGG.get());

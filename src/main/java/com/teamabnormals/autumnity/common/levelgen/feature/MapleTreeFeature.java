@@ -14,7 +14,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
-import java.util.Random;
 import java.util.Set;
 import java.util.function.BiConsumer;
 

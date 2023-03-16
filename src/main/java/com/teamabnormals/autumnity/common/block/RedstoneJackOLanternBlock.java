@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class RedstoneJackOLanternBlock extends AutumnityJackOLanternBlock {
 	public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;

@@ -39,8 +39,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fml.ModList;
 
-import java.util.Random;
-
 public class TurkeyBlock extends FallingBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	public static final IntegerProperty CHUNKS = IntegerProperty.create("chunks", 0, 4);

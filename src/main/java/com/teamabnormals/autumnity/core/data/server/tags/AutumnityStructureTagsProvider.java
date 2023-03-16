@@ -1,10 +1,8 @@
 package com.teamabnormals.autumnity.core.data.server.tags;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.StructureTagsProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.StructureTags;
 import net.minecraftforge.common.data.ExistingFileHelper;

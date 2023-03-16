@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
-import java.util.Random;
-
 public class FallenLeavesMapleTreeFeature extends MapleTreeFeature {
 	public FallenLeavesMapleTreeFeature(Codec<TreeConfiguration> config) {
 		super(config);

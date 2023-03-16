@@ -34,7 +34,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class Turkey extends Animal implements NeutralMob {

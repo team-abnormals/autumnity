@@ -1,14 +1,13 @@
 package com.teamabnormals.autumnity.common.entity.item;
 
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
+import com.teamabnormals.blueprint.common.entity.BlueprintFallingBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.monster.piglin.Piglin;
@@ -20,10 +19,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
-import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 
-public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntityAdditionalSpawnData {
+public class FallingHeadBlockEntity extends BlueprintFallingBlockEntity implements IEntityAdditionalSpawnData {
 	public boolean canGoOnHead;
 
 	public FallingHeadBlockEntity(EntityType<? extends FallingHeadBlockEntity> type, Level worldIn) {
@@ -68,11 +66,6 @@ public class FallingHeadBlockEntity extends FallingBlockEntity implements IEntit
 				}
 			}
 		}
-	}
-
-	@Override
-	public Packet<?> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
 	@Override

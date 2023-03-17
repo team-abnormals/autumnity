@@ -7,6 +7,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems.AutumnityFoods;
 import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
+import com.teamabnormals.blueprint.common.block.BlueprintFallingBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -25,7 +26,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,7 +39,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fml.ModList;
 
-public class TurkeyBlock extends FallingBlock {
+public class TurkeyBlock extends BlueprintFallingBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	public static final IntegerProperty CHUNKS = IntegerProperty.create("chunks", 0, 4);
 	public static final VoxelShape[] NORTH_SHAPE = new VoxelShape[]{Block.box(1.0D, 0.0D, 2.0D, 15.0D, 8.0D, 16.0D),

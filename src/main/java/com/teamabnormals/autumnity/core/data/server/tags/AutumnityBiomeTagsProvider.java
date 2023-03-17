@@ -19,8 +19,8 @@ public class AutumnityBiomeTagsProvider extends BiomeTagsProvider {
 	@Override
 	public void addTags() {
 		this.tag(AutumnityBiomeTags.HAS_MAPLE_HUT).add(AutumnityBiomes.MAPLE_FOREST.get(), AutumnityBiomes.PUMPKIN_FIELDS.get());
-		this.tag(AutumnityBiomeTags.HAS_SNAIL);
-		this.tag(AutumnityBiomeTags.HAS_TURKEY);
+		this.tag(AutumnityBiomeTags.HAS_SNAIL).add(AutumnityBiomes.MAPLE_FOREST.get(), AutumnityBiomes.PUMPKIN_FIELDS.get());
+		this.tag(AutumnityBiomeTags.HAS_TURKEY).add(AutumnityBiomes.MAPLE_FOREST.get(), AutumnityBiomes.PUMPKIN_FIELDS.get());
 		this.tag(AutumnityBiomeTags.HAS_MAPLE_TREE).add(Biomes.FOREST, Biomes.WINDSWEPT_FOREST, Biomes.FLOWER_FOREST);
 		this.tag(AutumnityBiomeTags.HAS_YELLOW_MAPLE_TREE).add(Biomes.FOREST);
 		this.tag(AutumnityBiomeTags.HAS_ORANGE_MAPLE_TREE).add(Biomes.DARK_FOREST);

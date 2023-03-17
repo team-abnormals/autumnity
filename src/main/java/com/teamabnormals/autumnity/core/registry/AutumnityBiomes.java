@@ -59,11 +59,7 @@ public class AutumnityBiomes {
 	private static MobSpawnSettings.Builder baseMapleSpawns() {
 		MobSpawnSettings.Builder spawns = new MobSpawnSettings.Builder();
 		BiomeDefaultFeatures.commonSpawns(spawns);
-		spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
-		spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
-		spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AutumnityEntityTypes.TURKEY.get(), 10, 4, 4));
-		spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
-		spawns.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AutumnityEntityTypes.SNAIL.get(), 16, 2, 2));
+		BiomeDefaultFeatures.farmAnimals(spawns);
 		return spawns;
 	}
 

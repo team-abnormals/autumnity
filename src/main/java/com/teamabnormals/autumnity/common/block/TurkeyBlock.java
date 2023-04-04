@@ -33,32 +33,33 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fml.ModList;
 
 public class TurkeyBlock extends BlueprintFallingBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	public static final IntegerProperty CHUNKS = IntegerProperty.create("chunks", 0, 4);
-	public static final VoxelShape[] NORTH_SHAPE = new VoxelShape[]{Block.box(1.0D, 0.0D, 2.0D, 15.0D, 8.0D, 16.0D),
-			Block.box(1.0D, 0.0D, 2.0D, 13.0D, 8.0D, 16.0D),
-			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D),
-			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 10.0D),
-			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 6.0D)};
-	public static final VoxelShape[] SOUTH_SHAPE = new VoxelShape[]{Block.box(1.0D, 0.0D, 0.0D, 15.0D, 8.0D, 14.0D),
-			Block.box(3.0D, 0.0D, 0.0D, 15.0D, 8.0D, 14.0D),
+	public static final VoxelShape[] NORTH_SHAPE = new VoxelShape[]{Shapes.or(Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D), Block.box(1.0D, 3.0D, 7.0D, 15.0D, 7.0D, 13.0D)),
+			Shapes.or(Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D), Block.box(13.0D, 3.0D, 7.0D, 15.0D, 7.0D, 13.0D)),
 			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D),
 			Block.box(3.0D, 0.0D, 6.0D, 13.0D, 8.0D, 14.0D),
 			Block.box(3.0D, 0.0D, 10.0D, 13.0D, 8.0D, 14.0D)};
-	public static final VoxelShape[] WEST_SHAPE = new VoxelShape[]{Block.box(2.0D, 0.0D, 1.0D, 16.0D, 8.0D, 15.0D),
-			Block.box(2.0D, 0.0D, 3.0D, 16.0D, 8.0D, 15.0D),
-			Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D),
-			Block.box(2.0D, 0.0D, 3.0D, 10.0D, 8.0D, 13.0D),
-			Block.box(2.0D, 0.0D, 3.0D, 6.0D, 8.0D, 13.0D)};
-	public static final VoxelShape[] EAST_SHAPE = new VoxelShape[]{Block.box(0.0D, 0.0D, 1.0D, 14.0D, 8.0D, 15.0D),
-			Block.box(0.0D, 0.0D, 1.0D, 14.0D, 8.0D, 13.0D),
+	public static final VoxelShape[] SOUTH_SHAPE = new VoxelShape[]{Shapes.or(Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D), Block.box(1.0D, 3.0D, 3.0D, 15.0D, 7.0D, 9.0D)),
+			Shapes.or(Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D), Block.box(1.0D, 3.0D, 3.0D, 3.0D, 7.0D, 9.0D)),
+			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 14.0D),
+			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 10.0D),
+			Block.box(3.0D, 0.0D, 2.0D, 13.0D, 8.0D, 6.0D)};
+	public static final VoxelShape[] WEST_SHAPE = new VoxelShape[]{Shapes.or(Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D), Block.box(7.0D, 3.0D, 1.0D, 13.0D, 7.0D, 15.0D)),
+			Shapes.or(Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D), Block.box(7.0D, 3.0D, 1.0D, 13.0D, 7.0D, 3.0D)),
 			Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D),
 			Block.box(6.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D),
 			Block.box(10.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D)};
+	public static final VoxelShape[] EAST_SHAPE = new VoxelShape[]{Shapes.or(Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D), Block.box(3.0D, 3.0D, 1.0D, 9.0D, 7.0D, 15.0D)),
+			Shapes.or(Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D), Block.box(3.0D, 3.0D, 13.0D, 9.0D, 7.0D, 15.0D)),
+			Block.box(2.0D, 0.0D, 3.0D, 14.0D, 8.0D, 13.0D),
+			Block.box(2.0D, 0.0D, 3.0D, 10.0D, 8.0D, 13.0D),
+			Block.box(2.0D, 0.0D, 3.0D, 6.0D, 8.0D, 13.0D)};
 
 	public TurkeyBlock(Properties builder) {
 		super(builder);
@@ -149,7 +150,7 @@ public class TurkeyBlock extends BlueprintFallingBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 	}
 
 	@Override

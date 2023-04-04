@@ -1,6 +1,5 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.autumnity.common.entity.item.FallingHeadBlockEntity;
 import com.teamabnormals.autumnity.core.other.AutumnityEvents;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
@@ -10,9 +9,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import com.teamabnormals.blueprint.common.block.BlueprintFallingBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -80,20 +77,6 @@ public class TurkeyBlock extends BlueprintFallingBlock {
 			return WEST_SHAPE[i];
 		else
 			return EAST_SHAPE[i];
-	}
-
-	@Override
-	public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
-		if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinBuildHeight()) {
-			FallingHeadBlockEntity turkey;
-			if (state.getValue(CHUNKS) == 0) {
-				turkey = FallingHeadBlockEntity.fall(level, pos.offset(0.5D, 0.0D, 0.5D), state, true);
-			} else {
-				turkey = FallingHeadBlockEntity.fall(level, pos, state, false);
-			}
-
-			this.falling(turkey);
-		}
 	}
 
 	@Override

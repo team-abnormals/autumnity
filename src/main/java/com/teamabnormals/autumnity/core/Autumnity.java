@@ -2,7 +2,6 @@ package com.teamabnormals.autumnity.core;
 
 import com.teamabnormals.autumnity.client.model.SnailModel;
 import com.teamabnormals.autumnity.client.model.TurkeyModel;
-import com.teamabnormals.autumnity.client.renderer.entity.FallingHeadBlockRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.SnailRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
@@ -100,6 +99,7 @@ public class Autumnity {
 		generator.addProvider(includeServer, new AutumnityBannerPatternTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityPaintingVariantTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityStructureTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new AutumnityEntityTypeTagsProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityRecipeProvider(generator));
 		generator.addProvider(includeServer, new AutumnityAdvancementProvider(generator, existingFileHelper));
 		generator.addProvider(includeServer, new AutumnityLootTableProvider(generator));
@@ -123,6 +123,5 @@ public class Autumnity {
 		event.registerEntityRenderer(AutumnityEntityTypes.SNAIL.get(), SnailRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY.get(), TurkeyRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY_EGG.get(), TurkeyEggRenderer::new);
-		event.registerEntityRenderer(AutumnityEntityTypes.FALLING_HEAD_BLOCK.get(), FallingHeadBlockRenderer::new);
 	}
 }

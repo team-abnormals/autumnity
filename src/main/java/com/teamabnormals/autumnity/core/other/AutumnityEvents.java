@@ -2,13 +2,16 @@ package com.teamabnormals.autumnity.core.other;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
+import com.teamabnormals.autumnity.common.block.TurkeyBlock;
 import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
+import com.teamabnormals.blueprint.core.events.FallingBlockEvent.FallingBlockTickEvent;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;
 import net.minecraft.core.BlockPos;
@@ -27,6 +30,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.MushroomCow;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Pillager;
 import net.minecraft.world.entity.monster.Zombie;
@@ -43,6 +47,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
@@ -57,6 +63,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @EventBusSubscriber(modid = Autumnity.MOD_ID)
@@ -226,6 +233,32 @@ public class AutumnityEvents {
 		if (extension != null) {
 			if (effect.getEffect() != AutumnityMobEffects.EXTENSION.get()) {
 				effect.update(new MobEffectInstance(effect.getEffect(), effect.getDuration() + 300 + 300 * (extension.getAmplifier() + 1), effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon()));
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onFallingBlockTick(FallingBlockTickEvent event) {
+		FallingBlockEntity fallingblock = event.getEntity();
+		Level level = fallingblock.getLevel();
+		BlockState state = fallingblock.getBlockState();
+
+		if (!level.isClientSide() && state.getBlock() instanceof TurkeyBlock && state.getValue(TurkeyBlock.CHUNKS) == 0) {
+			AABB aabb = fallingblock.getBoundingBox().expandTowards(fallingblock.getDeltaMovement()).inflate(1.0D);
+			Vec3 vec3 = fallingblock.position();
+			Vec3 vec31 = vec3.add(fallingblock.getDeltaMovement());
+
+			for (Entity entity : level.getEntities(fallingblock, aabb, (entity) -> {
+				return entity.getType().is(AutumnityEntityTypeTags.CAN_WEAR_TURKEY) && ((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).isEmpty();
+			})) {
+				AABB aabb1 = entity.getBoundingBox().inflate(0.3D);
+				Optional<Vec3> optional = aabb1.clip(vec3, vec31);
+				if (optional.isPresent()) {
+					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(state.getBlock().asItem()));
+					fallingblock.discard();
+					event.setCanceled(true);
+					break;
+				}
 			}
 		}
 	}

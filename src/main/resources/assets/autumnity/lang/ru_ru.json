@@ -120,18 +120,18 @@
   "biome.autumnity.boreal_maple_forest": "Бореальный кленовый лес",
   "biome.autumnity.boreal_maple_forest_hills": "Бореальный холмистый кленовый лес",
   
-  "subtitles.entity.snail.eat": "Улитка ест",
-  "subtitles.entity.snail.hurt": "Улитке больно",
-  "subtitles.entity.snail.death": "Улитка умерает",
-  "subtitles.entity.snail.step": "Улитка ползёт",
+  "subtitles.autumnity.entity.snail.eat": "Улитка ест",
+  "subtitles.autumnity.entity.snail.hurt": "Улитке больно",
+  "subtitles.autumnity.entity.snail.death": "Улитка умерает",
+  "subtitles.autumnity.entity.snail.step": "Улитка ползёт",
   
-  "subtitles.entity.turkey.ambient": "Индюк кудахчет",
-  "subtitles.entity.turkey.aggro": "Индюк агрессивно кудахчет",
-  "subtitles.entity.turkey.hurt": "Индюку больно",
-  "subtitles.entity.turkey.death": "Индюк умерает",
-  "subtitles.entity.turkey.egg": "Индюк шлёпает",
+  "subtitles.autumnity.entity.turkey.ambient": "Индюк кудахчет",
+  "subtitles.autumnity.entity.turkey.aggro": "Индюк агрессивно кудахчет",
+  "subtitles.autumnity.entity.turkey.hurt": "Индюку больно",
+  "subtitles.autumnity.entity.turkey.death": "Индюк умерает",
+  "subtitles.autumnity.entity.turkey.egg": "Индюк шлёпает",
   
-  "subtitles.block.turkey.cut": "Резание индейки",
+  "subtitles.autumnity.block.turkey.cut": "Резание индейки",
   
   "_comment": "Compat Stuff",
   

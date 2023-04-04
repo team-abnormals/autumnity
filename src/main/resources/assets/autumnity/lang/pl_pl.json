@@ -130,18 +130,18 @@
   "biome.autumnity.boreal_maple_forest": "Północny las klonowy",
   "biome.autumnity.boreal_maple_forest_hills": "Wzgórza północnego klonowego lasu",
   
-  "subtitles.entity.snail.eat": "Ślimak je",
-  "subtitles.entity.snail.hurt": "Ślimak cierpi",
-  "subtitles.entity.snail.death": "Ślimak ginie",
-  "subtitles.entity.snail.step": "Ślimak pełznie",
+  "subtitles.autumnity.entity.snail.eat": "Ślimak je",
+  "subtitles.autumnity.entity.snail.hurt": "Ślimak cierpi",
+  "subtitles.autumnity.entity.snail.death": "Ślimak ginie",
+  "subtitles.autumnity.entity.snail.step": "Ślimak pełznie",
   
-  "subtitles.entity.turkey.ambient": "Indyk gulgocze",
-  "subtitles.entity.turkey.aggro": "Indyk wściekle gulgocze",
-  "subtitles.entity.turkey.hurt": "Indyk cierpi",
-  "subtitles.entity.turkey.death": "Indyk ginie",
-  "subtitles.entity.turkey.egg": "Indyk gdacze",
+  "subtitles.autumnity.entity.turkey.ambient": "Indyk gulgocze",
+  "subtitles.autumnity.entity.turkey.aggro": "Indyk wściekle gulgocze",
+  "subtitles.autumnity.entity.turkey.hurt": "Indyk cierpi",
+  "subtitles.autumnity.entity.turkey.death": "Indyk ginie",
+  "subtitles.autumnity.entity.turkey.egg": "Indyk gdacze",
   
-  "subtitles.block.turkey.cut": "Krojenie indyka",
+  "subtitles.autumnity.block.turkey.cut": "Krojenie indyka",
   
   "_comment": "Compat Stuff",
   

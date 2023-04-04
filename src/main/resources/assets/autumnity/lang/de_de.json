@@ -125,19 +125,19 @@
   "biome.autumnity.boreal_maple_forest": "Borealer Ahornwald",
   "biome.autumnity.boreal_maple_forest_hills": "Boreale Ahornwaldhügel",
   
-  "subtitles.entity.snail.eat": "Schnecke frisst",
-  "subtitles.entity.snail.hurt": "Schnecke nimmt Schaden",
-  "subtitles.entity.snail.death": "Schnecke stirbt",
-  "subtitles.entity.snail.step": "Schnecke kriecht",
+  "subtitles.autumnity.entity.snail.eat": "Schnecke frisst",
+  "subtitles.autumnity.entity.snail.hurt": "Schnecke nimmt Schaden",
+  "subtitles.autumnity.entity.snail.death": "Schnecke stirbt",
+  "subtitles.autumnity.entity.snail.step": "Schnecke kriecht",
 
-  "subtitles.entity.turkey.ambient": "Truthahn kollert",
-  "subtitles.entity.turkey.purr": "Truthahn schnurrt",
-  "subtitles.entity.turkey.aggro": "Truthahn kollert ärgerlich",
-  "subtitles.entity.turkey.hurt": "Truthahn nimmt Schaden",
-  "subtitles.entity.turkey.death": "Truthahn stirbt",
-  "subtitles.entity.turkey.egg": "Truthahn legt Ei",
+  "subtitles.autumnity.entity.turkey.ambient": "Truthahn kollert",
+  "subtitles.autumnity.entity.turkey.purr": "Truthahn schnurrt",
+  "subtitles.autumnity.entity.turkey.aggro": "Truthahn kollert ärgerlich",
+  "subtitles.autumnity.entity.turkey.hurt": "Truthahn nimmt Schaden",
+  "subtitles.autumnity.entity.turkey.death": "Truthahn stirbt",
+  "subtitles.autumnity.entity.turkey.egg": "Truthahn legt Ei",
   
-  "subtitles.block.turkey.cut": "Truthahn wird geschnitten",
+  "subtitles.autumnity.block.turkey.cut": "Truthahn wird geschnitten",
   
   "_comment": "Compat Stuff",
   

@@ -78,8 +78,8 @@
   "biome.autumnity.maple_forest_hills": "Javorový les v horách",
   "biome.autumnity.pumpkin_fields": "Dýòová louka",
   
-  "subtitles.entity.snail.eat": "Šnek jí",
-  "subtitles.entity.snail.hurt": "Šnek zranìn",
+  "subtitles.autumnity.entity.snail.eat": "Šnek jí",
+  "subtitles.autumnity.entity.snail.hurt": "Šnek zranìn",
   
   
   "_comment": "Vìci z Quarku",

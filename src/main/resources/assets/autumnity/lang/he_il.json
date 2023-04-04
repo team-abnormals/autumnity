@@ -125,18 +125,18 @@
   "biome.autumnity.boreal_maple_forest": "יער מייפל צפוני",
   "biome.autumnity.boreal_maple_forest_hills": "גבעות יער מייפל צפוני",
 
-  "subtitles.entity.snail.eat": "חילזון אוכל",
-  "subtitles.entity.snail.hurt": "חילזון נפצע",
-  "subtitles.entity.snail.death": "חילזון מת",
-  "subtitles.entity.snail.step": "חילזון זוחל",
+  "subtitles.autumnity.entity.snail.eat": "חילזון אוכל",
+  "subtitles.autumnity.entity.snail.hurt": "חילזון נפצע",
+  "subtitles.autumnity.entity.snail.death": "חילזון מת",
+  "subtitles.autumnity.entity.snail.step": "חילזון זוחל",
 
-  "subtitles.entity.turkey.ambient": "תרנגולת הודו מקרקרת",
-  "subtitles.entity.turkey.aggro": "תרנגולת הודו מקרקרת בכעס",
-  "subtitles.entity.turkey.hurt": "תרנגולת הודו נפצעת",
-  "subtitles.entity.turkey.death": "תרנגולת הודו מתה",
-  "subtitles.entity.turkey.egg": "תרנגולת הודו מטילה",
+  "subtitles.autumnity.entity.turkey.ambient": "תרנגולת הודו מקרקרת",
+  "subtitles.autumnity.entity.turkey.aggro": "תרנגולת הודו מקרקרת בכעס",
+  "subtitles.autumnity.entity.turkey.hurt": "תרנגולת הודו נפצעת",
+  "subtitles.autumnity.entity.turkey.death": "תרנגולת הודו מתה",
+  "subtitles.autumnity.entity.turkey.egg": "תרנגולת הודו מטילה",
 
-  "subtitles.block.turkey.cut": "Cutting turkey",
+  "subtitles.autumnity.block.turkey.cut": "Cutting turkey",
 
   "_comment": "Compat Stuff",
 

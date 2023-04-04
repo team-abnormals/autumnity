@@ -130,18 +130,18 @@
   "biome.autumnity.boreal_maple_forest": "Бореальний кленовий ліс",
   "biome.autumnity.boreal_maple_forest_hills": "Бореальний горбистий кленовий ліс",
   
-  "subtitles.entity.snail.eat": "Равлик їсть",
-  "subtitles.entity.snail.hurt": "Равлика поранено",
-  "subtitles.entity.snail.death": "Равлик гине",
-  "subtitles.entity.snail.step": "Равлик повзе",
+  "subtitles.autumnity.entity.snail.eat": "Равлик їсть",
+  "subtitles.autumnity.entity.snail.hurt": "Равлика поранено",
+  "subtitles.autumnity.entity.snail.death": "Равлик гине",
+  "subtitles.autumnity.entity.snail.step": "Равлик повзе",
   
-  "subtitles.entity.turkey.ambient": "Індик кудахче",
-  "subtitles.entity.turkey.aggro": "Індик агресивино кудахче",
-  "subtitles.entity.turkey.hurt": "Індика поранено",
-  "subtitles.entity.turkey.death": "Індик гине",
-  "subtitles.entity.turkey.egg": "Індик зносить яйце",
+  "subtitles.autumnity.entity.turkey.ambient": "Індик кудахче",
+  "subtitles.autumnity.entity.turkey.aggro": "Індик агресивино кудахче",
+  "subtitles.autumnity.entity.turkey.hurt": "Індика поранено",
+  "subtitles.autumnity.entity.turkey.death": "Індик гине",
+  "subtitles.autumnity.entity.turkey.egg": "Індик зносить яйце",
   
-  "subtitles.block.turkey.cut": "Різання індички",
+  "subtitles.autumnity.block.turkey.cut": "Різання індички",
   
   "_comment": "Compat Stuff",
   

@@ -121,18 +121,18 @@
   "biome.autumnity.boreal_maple_forest": "Floresta de bordos boreal",
   "biome.autumnity.boreal_maple_forest_hills": "Colinas da floresta de bordos boreal",
 
-  "subtitles.entity.snail.eat": "Caracol comendo",
-  "subtitles.entity.snail.hurt": "Caracol ferido",
-  "subtitles.entity.snail.death": "Caracol morre",
-  "subtitles.entity.snail.step": "Caracol rasteja",
+  "subtitles.autumnity.entity.snail.eat": "Caracol comendo",
+  "subtitles.autumnity.entity.snail.hurt": "Caracol ferido",
+  "subtitles.autumnity.entity.snail.death": "Caracol morre",
+  "subtitles.autumnity.entity.snail.step": "Caracol rasteja",
   
-  "subtitles.entity.turkey.ambient": "Peru gruguleja",
-  "subtitles.entity.turkey.aggro": "Peru gruguleja alto",
-  "subtitles.entity.turkey.hurt": "Peru ferido",
-  "subtitles.entity.turkey.death": "Peru morre",
-  "subtitles.entity.turkey.egg": "Peru bota um ovo",
+  "subtitles.autumnity.entity.turkey.ambient": "Peru gruguleja",
+  "subtitles.autumnity.entity.turkey.aggro": "Peru gruguleja alto",
+  "subtitles.autumnity.entity.turkey.hurt": "Peru ferido",
+  "subtitles.autumnity.entity.turkey.death": "Peru morre",
+  "subtitles.autumnity.entity.turkey.egg": "Peru bota um ovo",
   
-  "subtitles.block.turkey.cut": "Cortando um peru",
+  "subtitles.autumnity.block.turkey.cut": "Cortando um peru",
 
   "_comment": "Compat Stuff",
 

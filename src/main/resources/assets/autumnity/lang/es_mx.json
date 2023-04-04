@@ -125,18 +125,18 @@
   "biome.autumnity.boreal_maple_forest": "Bosque de arces boreal",
   "biome.autumnity.boreal_maple_forest_hills": "Colinas de bosque de arces boreal",
   
-  "subtitles.entity.snail.eat": "Caracol comiendo",
-  "subtitles.entity.snail.hurt": "Caracol herido",
-  "subtitles.entity.snail.death": "Caracol muerto",
-  "subtitles.entity.snail.step": "Caracol arrastrándose",
+  "subtitles.autumnity.entity.snail.eat": "Caracol comiendo",
+  "subtitles.autumnity.entity.snail.hurt": "Caracol herido",
+  "subtitles.autumnity.entity.snail.death": "Caracol muerto",
+  "subtitles.autumnity.entity.snail.step": "Caracol arrastrándose",
 
-  "subtitles.entity.turkey.ambient": "Glugluteo de pavo",
-  "subtitles.entity.turkey.aggro": "Glugluteo de pavo enojado",
-  "subtitles.entity.turkey.hurt": "Pavo herido",
-  "subtitles.entity.turkey.death": "Pavo muerto",
-  "subtitles.entity.turkey.egg": "Pavo poniendo un huevo",
+  "subtitles.autumnity.entity.turkey.ambient": "Glugluteo de pavo",
+  "subtitles.autumnity.entity.turkey.aggro": "Glugluteo de pavo enojado",
+  "subtitles.autumnity.entity.turkey.hurt": "Pavo herido",
+  "subtitles.autumnity.entity.turkey.death": "Pavo muerto",
+  "subtitles.autumnity.entity.turkey.egg": "Pavo poniendo un huevo",
 
-  "subtitles.block.turkey.cut": "Cortando pavo",
+  "subtitles.autumnity.block.turkey.cut": "Cortando pavo",
   
   "_comment": "Compat Stuff",
   

@@ -120,18 +120,18 @@
   "biome.autumnity.boreal_maple_forest": "아한대 단풍나무 숲",
   "biome.autumnity.boreal_maple_forest_hills": "아한대 단풍나무 숲 언덕",
   
-  "subtitles.entity.snail.eat": "달팽이가 먹이를 먹음",
-  "subtitles.entity.snail.hurt": "달팽이가 상처를 입음",
-  "subtitles.entity.snail.death": "달팽이가 죽음",
-  "subtitles.entity.snail.step": "달팽이가 기어감",
+  "subtitles.autumnity.entity.snail.eat": "달팽이가 먹이를 먹음",
+  "subtitles.autumnity.entity.snail.hurt": "달팽이가 상처를 입음",
+  "subtitles.autumnity.entity.snail.death": "달팽이가 죽음",
+  "subtitles.autumnity.entity.snail.step": "달팽이가 기어감",
   
-  "subtitles.entity.turkey.ambient": "칠면조가 욺",
-  "subtitles.entity.turkey.aggro": "칠면조가 화난 듯 욺",
-  "subtitles.entity.turkey.hurt": "칠면조가 상처를 입음",
-  "subtitles.entity.turkey.death": "칠면조가 죽음",
-  "subtitles.entity.turkey.egg": "칠면조가 알을 낳음",
+  "subtitles.autumnity.entity.turkey.ambient": "칠면조가 욺",
+  "subtitles.autumnity.entity.turkey.aggro": "칠면조가 화난 듯 욺",
+  "subtitles.autumnity.entity.turkey.hurt": "칠면조가 상처를 입음",
+  "subtitles.autumnity.entity.turkey.death": "칠면조가 죽음",
+  "subtitles.autumnity.entity.turkey.egg": "칠면조가 알을 낳음",
   
-  "subtitles.block.turkey.cut": "칠면조고기를 자름",
+  "subtitles.autumnity.block.turkey.cut": "칠면조고기를 자름",
   
   "_comment": "Compat Stuff",
   

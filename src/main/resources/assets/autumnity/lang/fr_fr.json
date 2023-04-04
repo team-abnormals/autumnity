@@ -77,8 +77,8 @@
   "biome.autumnity.maple_forest_hills": "Maple Forest Hills",
   "biome.autumnity.pumpkin_fields": "Pumpkin Fields",
   
-  "subtitles.entity.snail.eat": "Escargot qui mange",
-  "subtitles.entity.snail.hurt": "Escargot blessé",
+  "subtitles.autumnity.entity.snail.eat": "Escargot qui mange",
+  "subtitles.autumnity.entity.snail.hurt": "Escargot blessé",
   
   
   "_comment": "Quark Stuff",

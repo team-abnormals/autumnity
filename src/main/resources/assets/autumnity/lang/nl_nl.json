@@ -130,18 +130,18 @@
   "biome.autumnity.boreal_maple_forest": "Boreaal esdoornbos",
   "biome.autumnity.boreal_maple_forest_hills": "Boreale esdoornbosheuvels",
   
-  "subtitles.entity.snail.eat": "Slak eet",
-  "subtitles.entity.snail.hurt": "Slak lijdt",
-  "subtitles.entity.snail.death": "Slak sterft",
-  "subtitles.entity.snail.step": "Slak kruipt",
+  "subtitles.autumnity.entity.snail.eat": "Slak eet",
+  "subtitles.autumnity.entity.snail.hurt": "Slak lijdt",
+  "subtitles.autumnity.entity.snail.death": "Slak sterft",
+  "subtitles.autumnity.entity.snail.step": "Slak kruipt",
   
-  "subtitles.entity.turkey.ambient": "Kalkoen kraait",
-  "subtitles.entity.turkey.aggro": "Kalkoen kraait boos",
-  "subtitles.entity.turkey.hurt": "Kalkoen lijdt",
-  "subtitles.entity.turkey.death": "Kalkoen sterft",
-  "subtitles.entity.turkey.egg": "Kalkoen plopt",
+  "subtitles.autumnity.entity.turkey.ambient": "Kalkoen kraait",
+  "subtitles.autumnity.entity.turkey.aggro": "Kalkoen kraait boos",
+  "subtitles.autumnity.entity.turkey.hurt": "Kalkoen lijdt",
+  "subtitles.autumnity.entity.turkey.death": "Kalkoen sterft",
+  "subtitles.autumnity.entity.turkey.egg": "Kalkoen plopt",
   
-  "subtitles.block.turkey.cut": "Kalkoen gesneden",
+  "subtitles.autumnity.block.turkey.cut": "Kalkoen gesneden",
   
   "_comment": "Compat Stuff",
   

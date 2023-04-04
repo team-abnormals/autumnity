@@ -125,18 +125,18 @@
   "biome.autumnity.boreal_maple_forest": "Foggy woods o' fall",
   "biome.autumnity.boreal_maple_forest_hills": "Foggy woods o' Fall 'ills",
 
-  "subtitles.entity.snail.eat": "Landlubbin' Barnacle snackin'",
-  "subtitles.entity.snail.hurt": "Landlubbin' Barnacle hurtin'",
-  "subtitles.entity.snail.death": "Landlubbin' Barnacle walks th' plank",
-  "subtitles.entity.snail.step": "Landlubbin' Barnacle takes sail",
+  "subtitles.autumnity.entity.snail.eat": "Landlubbin' Barnacle snackin'",
+  "subtitles.autumnity.entity.snail.hurt": "Landlubbin' Barnacle hurtin'",
+  "subtitles.autumnity.entity.snail.death": "Landlubbin' Barnacle walks th' plank",
+  "subtitles.autumnity.entity.snail.step": "Landlubbin' Barnacle takes sail",
 
-  "subtitles.entity.turkey.ambient": "Foul Fowl gobbles",
-  "subtitles.entity.turkey.aggro": "Foul fowl gobblin' angrily",
-  "subtitles.entity.turkey.hurt": "Foul fowl be hurt",
-  "subtitles.entity.turkey.death": "Foul fowl walks th' plank",
-  "subtitles.entity.turkey.egg": "Fall fowl plops",
+  "subtitles.autumnity.entity.turkey.ambient": "Foul Fowl gobbles",
+  "subtitles.autumnity.entity.turkey.aggro": "Foul fowl gobblin' angrily",
+  "subtitles.autumnity.entity.turkey.hurt": "Foul fowl be hurt",
+  "subtitles.autumnity.entity.turkey.death": "Foul fowl walks th' plank",
+  "subtitles.autumnity.entity.turkey.egg": "Fall fowl plops",
 
-  "subtitles.block.turkey.cut": "Turkey be cut",
+  "subtitles.autumnity.block.turkey.cut": "Turkey be cut",
 
   "_comment": "Compat Stuff",
 

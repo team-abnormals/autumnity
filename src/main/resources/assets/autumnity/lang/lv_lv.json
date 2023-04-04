@@ -83,8 +83,8 @@
   "biome.autumnity.maple_forest_hills": "Kļavu mežu kalni",
   "biome.autumnity.pumpkin_fields": "Ķirbju lauki",
   
-  "subtitles.entity.snail.eat": "Gliemezis ēd",
-  "subtitles.entity.snail.hurt": "Gliemezis savainojas",
+  "subtitles.autumnity.entity.snail.eat": "Gliemezis ēd",
+  "subtitles.autumnity.entity.snail.hurt": "Gliemezis savainojas",
   
   
   "_comment": "Quark Stuff",

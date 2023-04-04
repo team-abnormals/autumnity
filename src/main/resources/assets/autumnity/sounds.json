@@ -9,7 +9,7 @@
       "autumnity:mob/snail/eat5",
       "autumnity:mob/snail/eat6"
     ],
-    "subtitle": "subtitles.entity.snail.eat"
+    "subtitle": "subtitles.autumnity.entity.snail.eat"
   },
   "entity.snail.hurt": {
     "category": "entity",
@@ -19,7 +19,7 @@
       "autumnity:mob/snail/hurt3",
       "autumnity:mob/snail/hurt4"
     ],
-    "subtitle": "subtitles.entity.snail.hurt"
+    "subtitle": "subtitles.autumnity.entity.snail.hurt"
   },
   "entity.snail.death": {
     "category": "entity",
@@ -29,7 +29,7 @@
       "autumnity:mob/snail/hurt3",
       "autumnity:mob/snail/hurt4"
     ],
-    "subtitle": "subtitles.entity.snail.death"
+    "subtitle": "subtitles.autumnity.entity.snail.death"
   },
   "entity.snail.step": {
     "category": "entity",
@@ -39,7 +39,7 @@
       "autumnity:mob/snail/step3",
       "autumnity:mob/snail/step4"
     ],
-    "subtitle": "subtitles.entity.snail.step"
+    "subtitle": "subtitles.autumnity.entity.snail.step"
   },
   "entity.turkey.ambient": {
     "category": "entity",
@@ -50,7 +50,7 @@
       "autumnity:mob/turkey/ambient4",
       "autumnity:mob/turkey/ambient5"
     ],
-    "subtitle": "subtitles.entity.turkey.ambient"
+    "subtitle": "subtitles.autumnity.entity.turkey.ambient"
   },
   "entity.turkey.aggro": {
     "category": "entity",
@@ -59,7 +59,7 @@
       "autumnity:mob/turkey/aggro2",
       "autumnity:mob/turkey/aggro3"
     ],
-    "subtitle": "subtitles.entity.turkey.aggro"
+    "subtitle": "subtitles.autumnity.entity.turkey.aggro"
   },
   "entity.turkey.hurt": {
     "category": "entity",
@@ -68,28 +68,28 @@
       "autumnity:mob/turkey/hurt2",
       "autumnity:mob/turkey/hurt3"
     ],
-    "subtitle": "subtitles.entity.turkey.hurt"
+    "subtitle": "subtitles.autumnity.entity.turkey.hurt"
   },
   "entity.turkey.death": {
     "category": "entity",
     "sounds": [
       "autumnity:mob/turkey/death"
     ],
-    "subtitle": "subtitles.entity.turkey.death"
+    "subtitle": "subtitles.autumnity.entity.turkey.death"
   },
   "entity.turkey.egg": {
     "category": "entity",
     "sounds": [
       "minecraft:mob/chicken/plop"
     ],
-    "subtitle": "subtitles.entity.turkey.egg"
+    "subtitle": "subtitles.autumnity.entity.turkey.egg"
   },
   "block.turkey.cut": {
     "sounds": [
       "autumnity:block/turkey/cut1",
       "autumnity:block/turkey/cut2"
     ],
-    "subtitle": "subtitles.block.turkey.cut"
+    "subtitle": "subtitles.autumnity.block.turkey.cut"
   },
   "item.armor.equip_snail": {
     "sounds": [
@@ -103,6 +103,6 @@
         "pitch": 1.1
       }
     ],
-    "subtitle": "subtitles.item.armor.equip_snail"
+    "subtitle": "subtitles.autumnity.item.armor.equip_snail"
   }
 }

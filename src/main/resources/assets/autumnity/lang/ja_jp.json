@@ -125,18 +125,18 @@
   "biome.autumnity.boreal_maple_forest": "亜寒帯のカエデの森",
   "biome.autumnity.boreal_maple_forest_hills": "亜寒帯のカエデの森の丘陵",
   
-  "subtitles.entity.snail.eat": "カタツムリが食べる",
-  "subtitles.entity.snail.hurt": "カタツムリがダメージを受ける",
-  "subtitles.entity.snail.death": "カタツムリが死ぬ",
-  "subtitles.entity.snail.step": "カタツムリが這う",
+  "subtitles.autumnity.entity.snail.eat": "カタツムリが食べる",
+  "subtitles.autumnity.entity.snail.hurt": "カタツムリがダメージを受ける",
+  "subtitles.autumnity.entity.snail.death": "カタツムリが死ぬ",
+  "subtitles.autumnity.entity.snail.step": "カタツムリが這う",
   
-  "subtitles.entity.turkey.ambient": "七面鳥が鳴く",
-  "subtitles.entity.turkey.aggro": "七面鳥が怒って鳴く",
-  "subtitles.entity.turkey.hurt": "七面鳥がダメージを受ける",
-  "subtitles.entity.turkey.death": "七面鳥が死ぬ",
-  "subtitles.entity.turkey.egg": "七面鳥が糞をする",
+  "subtitles.autumnity.entity.turkey.ambient": "七面鳥が鳴く",
+  "subtitles.autumnity.entity.turkey.aggro": "七面鳥が怒って鳴く",
+  "subtitles.autumnity.entity.turkey.hurt": "七面鳥がダメージを受ける",
+  "subtitles.autumnity.entity.turkey.death": "七面鳥が死ぬ",
+  "subtitles.autumnity.entity.turkey.egg": "七面鳥が糞をする",
   
-  "subtitles.block.turkey.cut": "七面鳥を切る",
+  "subtitles.autumnity.block.turkey.cut": "七面鳥を切る",
   
   "_comment": "Compat Stuff",
   

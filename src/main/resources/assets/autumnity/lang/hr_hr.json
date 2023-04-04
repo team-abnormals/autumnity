@@ -78,8 +78,8 @@
     "biome.autumnity.maple_forest_hills": "Planine javorove šume",
     "biome.autumnity.pumpkin_fields": "Polja bundeva",
     
-    "subtitles.entity.snail.eat": "Puž jede",
-    "subtitles.entity.snail.hurt": "Puž je ozlijeđen",
+    "subtitles.autumnity.entity.snail.eat": "Puž jede",
+    "subtitles.autumnity.entity.snail.hurt": "Puž je ozlijeđen",
     
     
     "_comment5": "Compat Stuff",

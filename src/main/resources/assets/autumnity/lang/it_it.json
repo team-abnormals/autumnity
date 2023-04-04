@@ -130,18 +130,18 @@
   "biome.autumnity.boreal_maple_forest": "Foresta d'acero boreale",
   "biome.autumnity.boreal_maple_forest_hills": "Colline della foresta d'acero",
   
-  "subtitles.entity.snail.eat": "Lumaca mangia",
-  "subtitles.entity.snail.hurt": "Lumaca ferita",
-  "subtitles.entity.snail.death": "Lumaca muore",
-  "subtitles.entity.snail.step": "Lumaca striscia",
+  "subtitles.autumnity.entity.snail.eat": "Lumaca mangia",
+  "subtitles.autumnity.entity.snail.hurt": "Lumaca ferita",
+  "subtitles.autumnity.entity.snail.death": "Lumaca muore",
+  "subtitles.autumnity.entity.snail.step": "Lumaca striscia",
   
-  "subtitles.entity.turkey.ambient": "Tacchino ingurgita",
-  "subtitles.entity.turkey.aggro": "Tacchino ingurgita ferocemente",
-  "subtitles.entity.turkey.hurt": "Tacchino ferito",
-  "subtitles.entity.turkey.death": "Tacchino muore",
-  "subtitles.entity.turkey.egg": "Tacchino depone uovo",
+  "subtitles.autumnity.entity.turkey.ambient": "Tacchino ingurgita",
+  "subtitles.autumnity.entity.turkey.aggro": "Tacchino ingurgita ferocemente",
+  "subtitles.autumnity.entity.turkey.hurt": "Tacchino ferito",
+  "subtitles.autumnity.entity.turkey.death": "Tacchino muore",
+  "subtitles.autumnity.entity.turkey.egg": "Tacchino depone uovo",
   
-  "subtitles.block.turkey.cut": "Taglio tacchino",
+  "subtitles.autumnity.block.turkey.cut": "Taglio tacchino",
   
   "_comment": "Compat Stuff",
   

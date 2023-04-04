@@ -41,9 +41,6 @@
   "block.autumnity.sappy_maple_log": "Tronco d'acero succoso",
   "block.autumnity.sappy_maple_wood": "Legno d'acero succoso",
   
-  "block.autumnity.maple_branch": "Ramo d'acero",
-  "block.autumnity.long_maple_branch": "Ramo d'acero lungo",
-  
   "block.autumnity.maple_planks": "Assi d'acero",
   "block.autumnity.maple_stairs": "Scalini d'acero",
   "block.autumnity.maple_slab": "Lastra d'acero",
@@ -54,7 +51,7 @@
   "block.autumnity.maple_door": "Porta d'acero",
   "block.autumnity.maple_trapdoor": "Botola d'acero",
   "block.autumnity.maple_sign": "Cartello d'acero",
-  "block.autumnity.maple_wall_sign": "Cartello d'acero su parete",
+  "block.autumnity.maple_wall_sign": "Cartello d'acero a parete",
   
   "block.autumnity.maple_leaves": "Foglie d'acero",
   "block.autumnity.yellow_maple_leaves": "Foglie d'acero gialle",
@@ -76,7 +73,15 @@
   "block.autumnity.orange_maple_leaf_carpet": "Tappeto di foglie d'acero arancioni",
   "block.autumnity.red_maple_leaf_carpet": "Tappeto di foglie d'acero rosse",
   
+  "block.autumnity.maple_leaf_pile": "Mucchio di foglie d'acero",
+  "block.autumnity.yellow_maple_leaf_pile": "Mucchio di foglie d'acero gialle",
+  "block.autumnity.orange_maple_leaf_pile": "Mucchio di foglie d'acero arancioni",
+  "block.autumnity.red_maple_leaf_pile": "Mucchio di foglie d'acero rosse",
+  
   "item.autumnity.maple_boat": "Barca d'acero",
+  "item.autumnity.maple_furnace_boat": "Barca d'acero con fornace",
+  "item.autumnity.maple_chest_boat": "Barca d'acero con baule",
+  "item.autumnity.large_maple_boat": "Barca grande d'acero",
   
   "item.autumnity.sap_bottle": "Ampolla di linfa",
   "item.autumnity.syrup_bottle": "Ampolla di sciroppo",
@@ -142,6 +147,7 @@
   
   "block.autumnity.maple_vertical_slab": "Lastra verticale d'acero",
   "block.autumnity.vertical_maple_planks": "Assi verticali d'acero",
+  "block.autumnity.maple_boards": "Tavole d'acero",
   "block.autumnity.maple_bookshelf": "Libreria d'acero",
   "block.autumnity.maple_ladder": "Scala a pioli d'acero",
   "block.autumnity.foul_berry_sack": "Sacco di bacche disgustose",

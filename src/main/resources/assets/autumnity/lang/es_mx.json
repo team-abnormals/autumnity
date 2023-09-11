@@ -75,8 +75,16 @@
   "block.autumnity.yellow_maple_leaf_carpet": "Alfombra de hojas de arce amarillas",
   "block.autumnity.orange_maple_leaf_carpet": "Alfombra de hojas de arce naranjas",
   "block.autumnity.red_maple_leaf_carpet": "Alfombra de hojas de arce rojas",
+
+  "block.autumnity.maple_leaf_pile": "Montón de hojas de arce",
+  "block.autumnity.yellow_maple_leaf_pile": "Montón de hojas de arce amarillas",
+  "block.autumnity.orange_maple_leaf_pile": "Montón de hojas de arce naranjas",
+  "block.autumnity.red_maple_leaf_pile": "Montón de hojas de arce rojas",
   
   "item.autumnity.maple_boat": "Bote de arce",
+  "item.autumnity.maple_furnace_boat": "Bote de arce con horno",
+  "item.autumnity.maple_chest_boat": "Bote de arce con cofre",
+  "item.autumnity.large_maple_boat": "Bote de arce grande",
 
   "item.autumnity.sap_bottle": "Botella de savia",
   "item.autumnity.syrup_bottle": "Botella de jarabe",
@@ -161,6 +169,7 @@
   "block.autumnity.large_cupric_jack_o_lantern_slice": "Porción de calabaza maldita grande",
   "block.autumnity.turkey_egg_crate": "Cajón de huevos de pavo",
   "block.autumnity.slime": "Slime",
+  "block.autumnity.maple_boards": "Tablones de arce",
   
   "_comment": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
   "advancements.autumnity.husbandry.sneaky_protection.title": "Protección sigilosa",

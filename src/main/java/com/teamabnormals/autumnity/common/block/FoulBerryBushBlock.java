@@ -2,6 +2,7 @@ package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.common.entity.animal.Turkey;
+import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
@@ -45,7 +46,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-		return new ItemStack(AutumnityItems.FOUL_BERRIES.get());
+		return new ItemStack(AutumnityConfig.COMMON.foulBerriesRequirePips.get() ? AutumnityItems.FOUL_BERRY_PIPS.get() : AutumnityItems.FOUL_BERRIES.get());
 	}
 
 	@Override

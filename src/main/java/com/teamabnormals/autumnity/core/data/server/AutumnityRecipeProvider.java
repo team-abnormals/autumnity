@@ -58,7 +58,7 @@ public class AutumnityRecipeProvider extends RecipeProvider {
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 		oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, AutumnityBlocks.AUTUMN_CROCUS.get(), "magenta_dye");
 		conditionalRecipe(consumer, BERRY_GOOD_LOADED, oneToOneConversionRecipeBuilder(AutumnityItems.FOUL_BERRY_PIPS.get(), AutumnityItems.FOUL_BERRIES.get(), 1));
-		conditionalNineBlockStorageRecipes(consumer, BERRY_SACK, AutumnityItems.FOUL_BERRIES.get(), AutumnityBlocks.FOUL_BERRY_SACK.get());
+		conditionalNineBlockStorageRecipes(consumer, BERRY_GOOD_LOADED, AutumnityItems.FOUL_BERRIES.get(), AutumnityBlocks.FOUL_BERRY_BASKET.get());
 		conditionalRecipe(consumer, ABNORMALS_DELIGHT_NOT_LOADED, ShapelessRecipeBuilder.shapeless(AutumnityItems.FOUL_SOUP.get()).requires(AutumnityItems.FOUL_BERRIES.get(), 2).requires(Items.SPIDER_EYE).requires(Items.BOWL, 1).unlockedBy("has_foul_berries", has(AutumnityItems.FOUL_BERRIES.get())));
 
 		foodCookingRecipes(consumer, AutumnityItems.TURKEY_PIECE.get(), AutumnityItems.COOKED_TURKEY_PIECE.get());

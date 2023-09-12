@@ -50,6 +50,8 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(ItemTags.CHEST_BOATS).add(AutumnityItems.MAPLE_BOAT.getSecond().get());
 		this.tag(BlueprintItemTags.FURNACE_BOATS).add(AutumnityItems.MAPLE_FURNACE_BOAT.get());
 		this.tag(BlueprintItemTags.LARGE_BOATS).add(AutumnityItems.LARGE_MAPLE_BOAT.get());
+		this.tag(ItemTags.FOX_FOOD).add(AutumnityItems.FOUL_BERRIES.get());
+		this.tag(BlueprintItemTags.CHICKEN_FOOD).add(AutumnityItems.FOUL_BERRY_PIPS.get());
 
 		this.copy(AutumnityBlockTags.MAPLE_LOGS, AutumnityItemTags.MAPLE_LOGS);
 		this.tag(AutumnityItemTags.SNAIL_FOOD).add(Items.MUSHROOM_STEW, Items.SUSPICIOUS_STEW);

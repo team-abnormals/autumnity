@@ -4,15 +4,15 @@
     {
       "conditions": [
         {
-          "type": "blueprint:quark_flag",
-          "flag": "berry_sack"
+          "type": "forge:mod_loaded",
+          "modid": "berry_good"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
         "ingredients": [
           {
-            "item": "autumnity:foul_berry_sack"
+            "item": "autumnity:foul_berry_basket"
           }
         ],
         "result": {

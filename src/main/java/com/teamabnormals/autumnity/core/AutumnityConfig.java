@@ -1,17 +1,18 @@
 package com.teamabnormals.autumnity.core;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModList;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class AutumnityConfig {
 	public static class Common {
-		public final ForgeConfigSpec.ConfigValue<Boolean> generateSpottedForests;
+		public final ForgeConfigSpec.ConfigValue<Boolean> foulBerriesRequirePips;
 
 		Common(ForgeConfigSpec.Builder builder) {
-			builder.push("generation");
-			generateSpottedForests = builder
-					.comment("If colored Maple Trees should generate sparsely in Forests, Dark Forests, and Taigas respectively")
-					.define("Generate Spotted Forests", true);
+			builder.push("tweaks");
+			builder.push("foul_berries");
+			foulBerriesRequirePips = builder.comment("If Foul Berry Bushes require pips to place, to prevent accidental placement").define("Foul Berries require pips", ModList.get().isLoaded("berry_good"));
+			builder.pop();
 			builder.pop();
 		}
 	}

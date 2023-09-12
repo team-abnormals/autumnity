@@ -44,7 +44,7 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 		this.entry("adventure/adventuring_time").selects("adventure/adventuring_time").addModifier(adventuringTime.requirements(RequirementsStrategy.AND).build());
 
 		this.entry("husbandry/plant_seed").selects("husbandry/plant_seed").addModifier(CriteriaModifier.builder(this.modId)
-				.addCriterion("foul_berry_bush_pips", PlacedBlockTrigger.TriggerInstance.placedBlock(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get()))
+				.addCriterion("foul_berry_bush_pips", PlacedBlockTrigger.TriggerInstance.placedBlock(AutumnityBlocks.FOUL_BERRY_BUSH.get()))
 				.addIndexedRequirements(0, false, "foul_berry_bush_pips").build());
 
 		CriteriaModifier.Builder breedAllAnimals = CriteriaModifier.builder(this.modId);

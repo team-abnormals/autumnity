@@ -26,7 +26,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autumnity:foul_berries"
+          "name": "autumnity:foul_berry_pips"
         }
       ],
       "rolls": 1.0

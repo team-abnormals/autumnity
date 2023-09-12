@@ -1,6 +1,5 @@
 {
   "values": [
-    "autumnity:foul_berry_bush_pips",
     "autumnity:foul_berry_bush",
     "autumnity:tall_foul_berry_bush",
     "autumnity:maple_boards",
@@ -26,6 +25,7 @@
     "autumnity:large_redstone_jack_o_lantern_slice",
     "autumnity:large_ender_jack_o_lantern_slice",
     "autumnity:large_cupric_jack_o_lantern_slice",
+    "autumnity:foul_berry_basket",
     "autumnity:turkey_egg_crate"
   ]
 }

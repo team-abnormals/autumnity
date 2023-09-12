@@ -1,6 +1,7 @@
 package com.teamabnormals.autumnity.core.registry;
 
 import com.mojang.datafixers.util.Pair;
+import com.teamabnormals.autumnity.common.item.BerryPipsBlockItem;
 import com.teamabnormals.autumnity.common.item.SnailShellChestplateItem;
 import com.teamabnormals.autumnity.common.item.SyrupBottleItem;
 import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
@@ -31,7 +32,7 @@ public class AutumnityItems {
 	public static final RegistryObject<Item> SAP_BOTTLE = HELPER.createItem("sap_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_MATERIALS)));
 	public static final RegistryObject<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.SYRUP_BOTTLE)));
 	public static final RegistryObject<Item> FOUL_BERRIES = HELPER.createItem("foul_berries", () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.FOUL_BERRIES)));
-	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), (new Item.Properties()).tab(AbstractSubRegistryHelper.areModsLoaded("berry_good") ? CreativeModeTab.TAB_MISC : null)));
+	public static final RegistryObject<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", () -> new BerryPipsBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).tab(AbstractSubRegistryHelper.areModsLoaded("berry_good") ? CreativeModeTab.TAB_MISC : null)));
 	public static final RegistryObject<Item> FOUL_SOUP = HELPER.createItem("foul_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.FOUL_SOUP)));
 	public static final RegistryObject<Item> PUMPKIN_BREAD = HELPER.createItem("pumpkin_bread", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_FOOD).food(AutumnityFoods.PUMPKIN_BREAD)));
 

@@ -15,9 +15,14 @@ import net.minecraft.world.level.block.DispenserBlock;
 public class AutumnityCompat {
 
 	public static void registerCompat() {
+		registerAnimalFoods();
 		registerCompostables();
 		registerFlammables();
 		registerDispenserBehaviors();
+	}
+
+	private static void registerAnimalFoods() {
+		DataUtil.addParrotFood(AutumnityItems.FOUL_BERRY_PIPS.get());
 	}
 
 	private static void registerCompostables() {
@@ -46,11 +51,10 @@ public class AutumnityCompat {
 		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAF_CARPET.get(), 0.3F);
 		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAF_CARPET.get(), 0.3F);
 
-		DataUtil.registerCompostable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 1.0F);
+		DataUtil.registerCompostable(AutumnityBlocks.FOUL_BERRY_BASKET.get(), 1.0F);
 	}
 
 	private static void registerFlammables() {
-		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH_PIPS.get(), 60, 100);
 		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_BUSH.get(), 60, 100);
 		DataUtil.registerFlammable(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get(), 60, 100);
 		DataUtil.registerFlammable(AutumnityBlocks.AUTUMN_CROCUS.get(), 60, 100);
@@ -96,7 +100,7 @@ public class AutumnityCompat {
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_BOOKSHELF.get(), 30, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.MAPLE_POST.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.STRIPPED_MAPLE_POST.get(), 5, 20);
-		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_SACK.get(), 30, 60);
+		DataUtil.registerFlammable(AutumnityBlocks.FOUL_BERRY_BASKET.get(), 5, 20);
 		DataUtil.registerFlammable(AutumnityBlocks.TURKEY_EGG_CRATE.get(), 5, 20);
 	}
 

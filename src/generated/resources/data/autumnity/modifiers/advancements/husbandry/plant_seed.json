@@ -6,7 +6,7 @@
         "criteria": {
           "autumnity:foul_berry_bush_pips": {
             "conditions": {
-              "block": "autumnity:foul_berry_bush_pips"
+              "block": "autumnity:foul_berry_bush"
             },
             "trigger": "minecraft:placed_block"
           }

@@ -6,6 +6,7 @@ import com.teamabnormals.autumnity.common.block.TurkeyBlock;
 import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
@@ -55,6 +56,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -69,6 +71,14 @@ import java.util.UUID;
 @EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityEvents {
 	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
+
+	@SubscribeEvent
+	public static void rightClickBlock(RightClickBlock event) {
+		ItemStack stack = event.getItemStack();
+		if (AutumnityConfig.COMMON.foulBerriesRequirePips.get() && stack.is(AutumnityItems.FOUL_BERRIES.get())) {
+			event.setUseItem(Event.Result.DENY);
+		}
+	}
 
 	@SubscribeEvent
 	public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
@@ -88,13 +98,13 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event) {
 		LevelAccessor level = event.getLevel();
-		LivingEntity livingentity = event.getEntity();
+		Mob entity = event.getEntity();
 
-		if (livingentity instanceof Zombie || livingentity instanceof AbstractSkeleton) {
-			if (livingentity.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-				if (level.getBiome(livingentity.blockPosition()).is(AutumnityBiomes.PUMPKIN_FIELDS.getKey().location()) && level.getRandom().nextFloat() < 0.05F) {
-					livingentity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
-					((Mob) livingentity).setDropChance(EquipmentSlot.HEAD, 0.0F);
+		if (entity instanceof Zombie || entity instanceof AbstractSkeleton) {
+			if (entity.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+				if (level.getBiome(entity.blockPosition()).is(AutumnityBiomes.PUMPKIN_FIELDS.getKey().location()) && level.getRandom().nextFloat() < 0.05F) {
+					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
+					entity.setDropChance(EquipmentSlot.HEAD, 0.0F);
 				}
 			}
 		}

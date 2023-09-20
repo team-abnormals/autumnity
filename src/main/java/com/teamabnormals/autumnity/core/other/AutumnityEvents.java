@@ -253,17 +253,13 @@ public class AutumnityEvents {
 		Level level = fallingblock.getLevel();
 		BlockState state = fallingblock.getBlockState();
 
-		if (!level.isClientSide() && state.getBlock() instanceof TurkeyBlock && state.getValue(TurkeyBlock.CHUNKS) == 0) {
-			AABB aabb = fallingblock.getBoundingBox().expandTowards(fallingblock.getDeltaMovement()).inflate(1.0D);
-			Vec3 vec3 = fallingblock.position();
-			Vec3 vec31 = vec3.add(fallingblock.getDeltaMovement());
+		if (!level.isClientSide() && state.getBlock() instanceof TurkeyBlock && state.getValue(TurkeyBlock.CHUNKS) == 0 && fallingblock.getDeltaMovement().y() < 0.0D) {
+			AABB aabb = fallingblock.getBoundingBox().inflate(0.0D, 0.2D, 0.0D);
 
 			for (Entity entity : level.getEntities(fallingblock, aabb, (entity) -> {
 				return entity.getType().is(AutumnityEntityTypeTags.CAN_WEAR_TURKEY) && ((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).isEmpty();
 			})) {
-				AABB aabb1 = entity.getBoundingBox().inflate(0.3D);
-				Optional<Vec3> optional = aabb1.clip(vec3, vec31);
-				if (optional.isPresent()) {
+				if (fallingblock.getY() >= entity.getEyeHeight()) {
 					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(state.getBlock().asItem()));
 					fallingblock.discard();
 					event.setCanceled(true);

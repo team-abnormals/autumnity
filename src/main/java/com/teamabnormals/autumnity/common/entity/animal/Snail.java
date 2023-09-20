@@ -95,11 +95,10 @@ public class Snail extends Animal {
 		this.goalSelector.addGoal(1, new Snail.EatGoal());
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
 		this.goalSelector.addGoal(3, new TemptGoal(this, 0.5D, Ingredient.of(AutumnityItemTags.SNAIL_TEMPT_ITEMS), false));
-		this.goalSelector.addGoal(4, new Snail.EatMushroomsGoal());
-		this.goalSelector.addGoal(5, new Snail.EatMooshroomMushroomsGoal());
-		this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.5D));
-		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
-		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(4, new Snail.EatMooshroomMushroomsGoal());
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.5D));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
+		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
@@ -155,12 +154,6 @@ public class Snail extends Animal {
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn) {
 		this.playSound(AutumnitySoundEvents.ENTITY_SNAIL_STEP.get(), 0.4F, 1.0F);
-	}
-
-	@Nullable
-	@Override
-	public SoundEvent getEatingSound(ItemStack itemStackIn) {
-		return null;
 	}
 
 	@Override
@@ -540,81 +533,6 @@ public class Snail extends Animal {
 		@Override
 		public boolean canContinueToUse() {
 			return Snail.this.hasSnack();
-		}
-	}
-
-	class EatMushroomsGoal extends Goal {
-		private double mushroomX;
-		private double mushroomY;
-		private double mushroomZ;
-
-		public EatMushroomsGoal() {
-			super();
-			this.setFlags(EnumSet.of(Goal.Flag.MOVE));
-		}
-
-		@Override
-		public boolean canUse() {
-			if (Snail.this.getRandom().nextInt(20) != 0) {
-				return false;
-			} else {
-				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this) && this.canMoveToMushroom();
-			}
-		}
-
-		@Override
-		public boolean canContinueToUse() {
-			return !Snail.this.getNavigation().isDone() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0;
-		}
-
-		@Override
-		public void start() {
-			Snail.this.getNavigation().moveTo(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
-		}
-
-		@Override
-		public void tick() {
-			if (!Snail.this.isBaby() && Snail.this.getGooAmount() <= 0) {
-				BlockPos blockpos = Snail.this.blockPosition();
-
-				if (this.isBlockMushroom(blockpos)) {
-					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level, Snail.this)) {
-						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Snail.this.level.getBlockState(blockpos).getBlock().asItem(), 1));
-						Snail.this.level.destroyBlock(blockpos, false);
-					}
-				}
-			}
-		}
-
-		@Nullable
-		private Vec3 findMushroom() {
-			RandomSource random = Snail.this.getRandom();
-			BlockPos blockpos = new BlockPos(Snail.this.getX(), Snail.this.getBoundingBox().minY, Snail.this.getZ());
-
-			for (int i = 0; i < 10; ++i) {
-				BlockPos blockpos1 = blockpos.offset(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
-				if (this.isBlockMushroom(blockpos1)) {
-					return new Vec3(blockpos1.getX(), blockpos1.getY(), blockpos1.getZ());
-				}
-			}
-
-			return null;
-		}
-
-		private boolean canMoveToMushroom() {
-			Vec3 vec3d = this.findMushroom();
-			if (vec3d == null) {
-				return false;
-			} else {
-				this.mushroomX = vec3d.x;
-				this.mushroomY = vec3d.y;
-				this.mushroomZ = vec3d.z;
-				return true;
-			}
-		}
-
-		private boolean isBlockMushroom(BlockPos pos) {
-			return Snail.this.level.getBlockState(pos).is(AutumnityBlockTags.SNAIL_SNACKS);
 		}
 	}
 

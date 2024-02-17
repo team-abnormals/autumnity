@@ -34,7 +34,7 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> SNAIL_GOO = HELPER.createBlock("snail_goo", () -> new SnailGooBlock(Block.Properties.of(Material.DECORATION, MaterialColor.TERRACOTTA_WHITE).noOcclusion().noCollission().sound(SoundType.HONEY_BLOCK)), CreativeModeTab.TAB_MISC);
 	public static final RegistryObject<Block> SNAIL_GOO_BLOCK = HELPER.createBlock("snail_goo_block", () -> new SnailGooFullBlock(Block.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_WHITE).noOcclusion().sound(SoundType.HONEY_BLOCK)), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> PANCAKE = HELPER.createBlock("pancake", () -> new PancakeBlock(Block.Properties.of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL)), CreativeModeTab.TAB_FOOD);
-	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new BlueprintFlowerBlock(AutumnityMobEffects.FOUL_TASTE, 16, Block.Properties.of(Material.PLANT).noCollission().strength(0.0F).sound(SoundType.GRASS)), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> AUTUMN_CROCUS = HELPER.createBlock("autumn_crocus", () -> new BlueprintFlowerBlock(AutumnityMobEffects.FOUL_TASTE, 16, PropertyUtil.flower()), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_AUTUMN_CROCUS = HELPER.createBlockNoItem("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), PropertyUtil.flowerPot()));
 
 	public static final RegistryObject<Block> TURKEY = HELPER.createBlock("turkey", () -> new TurkeyBlock(Block.Properties.of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL)), CreativeModeTab.TAB_FOOD);

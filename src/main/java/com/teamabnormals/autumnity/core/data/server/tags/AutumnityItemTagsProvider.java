@@ -75,6 +75,7 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(Tags.Items.SEEDS).addTag(AutumnityItemTags.SEEDS_FOUL_BERRY);
 		this.tag(BlueprintItemTags.EGGS).add(AutumnityItems.TURKEY_EGG.get());
 		this.tag(BlueprintItemTags.PUMPKINS).add(LARGE_PUMPKIN_SLICE.get().asItem());
+		this.tag(Tags.Items.ARMORS_CHESTPLATES).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
 
 		this.copy(BlueprintBlockTags.LADDERS, BlueprintItemTags.LADDERS);
 		this.copy(BlueprintBlockTags.HEDGES, BlueprintItemTags.HEDGES);

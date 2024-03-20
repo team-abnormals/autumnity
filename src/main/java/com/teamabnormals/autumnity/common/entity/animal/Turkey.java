@@ -233,7 +233,7 @@ public class Turkey extends Animal implements NeutralMob {
 		super.positionRider(passenger, function);
 		float f = Mth.sin(this.yBodyRot * ((float) Math.PI / 180F));
 		float f1 = Mth.cos(this.yBodyRot * ((float) Math.PI / 180F));
-		passenger.setPos(this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));
+		function.accept(passenger, this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));
 		if (passenger instanceof LivingEntity) {
 			((LivingEntity) passenger).yBodyRot = this.yBodyRot;
 		}

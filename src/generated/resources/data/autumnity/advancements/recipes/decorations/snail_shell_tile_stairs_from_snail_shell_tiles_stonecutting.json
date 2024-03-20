@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_snail_shell_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:snail_shell_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:snail_shell_tile_stairs_from_snail_shell_tiles_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_snail_shell_tiles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:snail_shell_tile_stairs_from_snail_shell_tiles_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

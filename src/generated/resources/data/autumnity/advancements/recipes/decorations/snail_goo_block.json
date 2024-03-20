@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:snail_goo_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

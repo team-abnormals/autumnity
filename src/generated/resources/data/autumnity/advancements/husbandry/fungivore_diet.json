@@ -70,5 +70,6 @@
     [
       "warped_fungus"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

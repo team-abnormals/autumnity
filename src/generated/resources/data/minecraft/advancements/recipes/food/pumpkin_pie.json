@@ -41,5 +41,6 @@
     "recipes": [
       "minecraft:pumpkin_pie"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -13,6 +13,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
+        "category": "misc",
         "ingredients": [
           {
             "item": "autumnity:foul_berries"

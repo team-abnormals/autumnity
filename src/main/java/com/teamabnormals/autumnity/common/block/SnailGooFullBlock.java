@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -71,7 +70,7 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 		if (entityIn.isShiftKeyDown()) {
 			super.fallOn(worldIn, state, pos, entityIn, fallDistance);
 		} else {
-			entityIn.causeFallDamage(fallDistance, 0.0F, DamageSource.FALL);
+			entityIn.causeFallDamage(fallDistance, 0.0F, worldIn.damageSources().fall());
 		}
 	}
 

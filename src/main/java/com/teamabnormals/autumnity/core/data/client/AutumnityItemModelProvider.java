@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.core.data.client;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -14,8 +14,8 @@ import static com.teamabnormals.autumnity.core.registry.AutumnityItems.*;
 
 public class AutumnityItemModelProvider extends ItemModelProvider {
 
-	public AutumnityItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, Autumnity.MOD_ID, existingFileHelper);
+	public AutumnityItemModelProvider(PackOutput output, ExistingFileHelper helper) {
+		super(output, Autumnity.MOD_ID, helper);
 	}
 
 	@Override

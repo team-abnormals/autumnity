@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:red_maple_leaves_from_red_maple_leaf_pile"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:cooked_turkey_piece"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

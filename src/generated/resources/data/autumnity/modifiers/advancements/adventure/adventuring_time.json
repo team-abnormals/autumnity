@@ -4,7 +4,7 @@
       "type": "criteria",
       "config": {
         "criteria": {
-          "autumnity:maple_forest": {
+          "autumnity:autumnity:maple_forest": {
             "conditions": {
               "player": [
                 {
@@ -20,7 +20,7 @@
             },
             "trigger": "minecraft:location"
           },
-          "autumnity:pumpkin_fields": {
+          "autumnity:autumnity:pumpkin_fields": {
             "conditions": {
               "player": [
                 {
@@ -39,10 +39,10 @@
         },
         "requirements": [
           [
-            "autumnity:maple_forest"
+            "autumnity:autumnity:maple_forest"
           ],
           [
-            "autumnity:pumpkin_fields"
+            "autumnity:autumnity:pumpkin_fields"
           ]
         ],
         "should_replace_requirements": false

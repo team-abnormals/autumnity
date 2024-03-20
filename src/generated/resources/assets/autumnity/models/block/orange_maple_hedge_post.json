@@ -1,7 +1,0 @@
-{
-  "parent": "blueprint:block/hedge_post",
-  "textures": {
-    "leaf": "autumnity:block/maple_leaves",
-    "log": "autumnity:block/maple_log"
-  }
-}

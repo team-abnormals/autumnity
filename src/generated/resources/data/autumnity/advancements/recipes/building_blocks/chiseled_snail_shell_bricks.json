@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:chiseled_snail_shell_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

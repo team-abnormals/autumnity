@@ -1,0 +1,50 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "autumnity:turkey_piece_from_turkey"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "has_turkey": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "autumnity:turkey"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "has_turkey",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "autumnity:turkey_piece_from_turkey"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "abnormals_delight"
+          }
+        }
+      ]
+    }
+  ]
+}

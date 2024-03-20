@@ -2,16 +2,13 @@ package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.core.util.BlockUtil;
-import com.teamabnormals.blueprint.core.util.item.filling.TargetedItemCategoryFiller;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,7 +23,6 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 public class SappyLogBlock extends RotatedPillarBlock {
-	private static final TargetedItemCategoryFiller FILLER = new TargetedItemCategoryFiller(() -> Items.STRIPPED_WARPED_STEM);
 	private final Supplier<Block> saplessBlock;
 
 	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties) {
@@ -57,10 +53,5 @@ public class SappyLogBlock extends RotatedPillarBlock {
 		}
 
 		return super.use(state, level, pos, player, hand, result);
-	}
-
-	@Override
-	public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-		FILLER.fillItem(this.asItem(), group, items);
 	}
 }

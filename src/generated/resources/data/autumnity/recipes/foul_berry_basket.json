@@ -10,6 +10,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "key": {
           "#": {
             "item": "autumnity:foul_berries"
@@ -22,7 +23,8 @@
         ],
         "result": {
           "item": "autumnity:foul_berry_basket"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

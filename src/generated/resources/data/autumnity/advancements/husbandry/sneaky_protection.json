@@ -34,5 +34,6 @@
     [
       "snail_shell_chestplate"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -6,28 +6,32 @@ import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.concurrent.CompletableFuture;
 
 import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityItemTagsProvider extends ItemTagsProvider {
 
-	public AutumnityItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper fileHelper) {
-		super(generator, blockTags, Autumnity.MOD_ID, fileHelper);
+	public AutumnityItemTagsProvider(PackOutput output, CompletableFuture<Provider> provider, CompletableFuture<TagsProvider.TagLookup<Block>> lookup, ExistingFileHelper helper) {
+		super(output, provider, lookup, Autumnity.MOD_ID, helper);
 	}
 
 	@Override
-	public void addTags() {
+	public void addTags(HolderLookup.Provider provider) {
 		this.copy(BlockTags.SLABS, ItemTags.SLABS);
 		this.copy(BlockTags.STAIRS, ItemTags.STAIRS);
 		this.copy(BlockTags.WALLS, ItemTags.WALLS);
@@ -44,7 +48,6 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
 		this.copy(BlockTags.LEAVES, ItemTags.LEAVES);
-		this.copy(BlockTags.OVERWORLD_NATURAL_LOGS, ItemTags.OVERWORLD_NATURAL_LOGS);
 		this.tag(ItemTags.PIGLIN_REPELLENTS).add(SOUL_JACK_O_LANTERN.get().asItem(), LARGE_SOUL_JACK_O_LANTERN_SLICE.get().asItem());
 		this.tag(ItemTags.BOATS).add(AutumnityItems.MAPLE_BOAT.getFirst().get());
 		this.tag(ItemTags.CHEST_BOATS).add(AutumnityItems.MAPLE_BOAT.getSecond().get());
@@ -73,15 +76,8 @@ public class AutumnityItemTagsProvider extends ItemTagsProvider {
 		this.tag(AutumnityItemTags.RAW_TURKEY).add(AutumnityBlocks.TURKEY.get().asItem(), AutumnityItems.TURKEY_PIECE.get());
 		this.tag(AutumnityItemTags.SEEDS_FOUL_BERRY).add(AutumnityItems.FOUL_BERRY_PIPS.get());
 		this.tag(Tags.Items.SEEDS).addTag(AutumnityItemTags.SEEDS_FOUL_BERRY);
-		this.tag(BlueprintItemTags.EGGS).add(AutumnityItems.TURKEY_EGG.get());
+		this.tag(Tags.Items.EGGS).add(AutumnityItems.TURKEY_EGG.get());
 		this.tag(BlueprintItemTags.PUMPKINS).add(LARGE_PUMPKIN_SLICE.get().asItem());
 		this.tag(Tags.Items.ARMORS_CHESTPLATES).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
-
-		this.copy(BlueprintBlockTags.LADDERS, BlueprintItemTags.LADDERS);
-		this.copy(BlueprintBlockTags.HEDGES, BlueprintItemTags.HEDGES);
-		this.copy(BlueprintBlockTags.VERTICAL_SLABS, BlueprintItemTags.VERTICAL_SLABS);
-		this.copy(BlueprintBlockTags.WOODEN_VERTICAL_SLABS, BlueprintItemTags.WOODEN_VERTICAL_SLABS);
-		this.tag(BlueprintItemTags.BOATABLE_CHESTS).add(MAPLE_CHEST.getFirst().get().asItem());
-		this.tag(BlueprintItemTags.REVERTABLE_CHESTS).add(MAPLE_CHEST.getFirst().get().asItem());
 	}
 }

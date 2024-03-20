@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:large_soul_jack_o_lantern_slice"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

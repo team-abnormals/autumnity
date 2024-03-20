@@ -33,7 +33,8 @@
           "recipes": [
             "autumnity:pumpkin_bread"
           ]
-        }
+        },
+        "sends_telemetry_event": false
       },
       "conditions": [
         {

@@ -106,7 +106,7 @@ public class Turkey extends Animal implements NeutralMob {
 	@Override
 	public boolean doHurtTarget(Entity entityIn) {
 		this.peckTicks = 8;
-		this.level.broadcastEntityEvent(this, (byte) 4);
+		this.level().broadcastEntityEvent(this, (byte) 4);
 
 		return super.doHurtTarget(entityIn);
 	}
@@ -115,13 +115,13 @@ public class Turkey extends Animal implements NeutralMob {
 	public void aiStep() {
 		super.aiStep();
 
-		if (this.level.isClientSide) {
+		if (this.level().isClientSide) {
 			// Wing rotation
 			this.oFlap = this.wingRotation;
 			this.oFlapSpeed = this.destPos;
-			this.destPos = (float) ((double) this.destPos + (double) (this.onGround ? -1 : 4) * 0.3D);
+			this.destPos = (float) ((double) this.destPos + (double) (this.onGround() ? -1 : 4) * 0.3D);
 			this.destPos = Mth.clamp(this.destPos, 0.0F, 1.0F);
-			if (!this.onGround && this.wingRotDelta < 1.0F) {
+			if (!this.onGround() && this.wingRotDelta < 1.0F) {
 				this.wingRotDelta = 1.0F;
 			}
 			this.wingRotDelta = (float) ((double) this.wingRotDelta * 0.9D);
@@ -137,18 +137,18 @@ public class Turkey extends Animal implements NeutralMob {
 
 		// Motion
 		Vec3 vector3d = this.getDeltaMovement();
-		if (!this.onGround && vector3d.y < 0.0D) {
+		if (!this.onGround() && vector3d.y < 0.0D) {
 			this.setDeltaMovement(vector3d.multiply(1.0D, 0.6D, 1.0D));
 		}
 
-		if (!this.level.isClientSide) {
+		if (!this.level().isClientSide) {
 			if (this.isAlive() && !this.isBaby() && !this.isTurkeyJockey() && --this.timeUntilNextEgg <= 0) {
 				this.playSound(AutumnitySoundEvents.ENTITY_TURKEY_EGG.get(), 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 				this.spawnAtLocation(AutumnityItems.TURKEY_EGG.get());
 				this.timeUntilNextEgg = this.getRandomNextEggTime(this.random);
 			}
 
-			this.updatePersistentAnger((ServerLevel) this.level, true);
+			this.updatePersistentAnger((ServerLevel) this.level(), true);
 		}
 	}
 
@@ -212,7 +212,7 @@ public class Turkey extends Animal implements NeutralMob {
 		if (compound.contains("EggLayTime")) {
 			this.timeUntilNextEgg = compound.getInt("EggLayTime");
 		}
-		this.readPersistentAngerSaveData(this.level, compound);
+		this.readPersistentAngerSaveData(this.level(), compound);
 	}
 
 	@Override
@@ -229,8 +229,8 @@ public class Turkey extends Animal implements NeutralMob {
 	}
 
 	@Override
-	public void positionRider(Entity passenger) {
-		super.positionRider(passenger);
+	public void positionRider(Entity passenger, Entity.MoveFunction function) {
+		super.positionRider(passenger, function);
 		float f = Mth.sin(this.yBodyRot * ((float) Math.PI / 180F));
 		float f1 = Mth.cos(this.yBodyRot * ((float) Math.PI / 180F));
 		passenger.setPos(this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));

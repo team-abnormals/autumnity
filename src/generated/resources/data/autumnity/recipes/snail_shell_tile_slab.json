@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "autumnity:snail_shell_tiles"
@@ -11,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "autumnity:snail_shell_tile_slab"
-  }
+  },
+  "show_notification": true
 }

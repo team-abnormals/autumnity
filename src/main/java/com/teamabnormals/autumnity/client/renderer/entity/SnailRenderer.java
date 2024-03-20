@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.teamabnormals.autumnity.client.model.SnailModel;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
@@ -43,6 +43,6 @@ public class SnailRenderer extends MobRenderer<Snail, SnailModel<Snail>> {
 		double d0 = entityLiving.getShakeAmount(partialTicks);
 		double d1 = d0 > 0 ? 2.0D : -2.0D;
 		double d2 = Math.sin(12.6D * d0) * d1 * d0;
-		matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(6.0F * (float) d2));
+		matrixStackIn.mulPose(Axis.ZP.rotationDegrees(6.0F * (float) d2));
 	}
 }

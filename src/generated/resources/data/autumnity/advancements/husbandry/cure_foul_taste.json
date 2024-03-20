@@ -24,5 +24,6 @@
     [
       "cure_foul_taste"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

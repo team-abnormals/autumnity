@@ -10,6 +10,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "building",
         "key": {
           "A": {
             "item": "minecraft:carved_pumpkin"
@@ -24,7 +25,8 @@
         ],
         "result": {
           "item": "autumnity:ender_jack_o_lantern"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

@@ -33,7 +33,8 @@
           "recipes": [
             "autumnity:foul_berry_basket"
           ]
-        }
+        },
+        "sends_telemetry_event": false
       },
       "conditions": [
         {

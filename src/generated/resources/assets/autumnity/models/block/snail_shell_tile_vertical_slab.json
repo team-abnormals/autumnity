@@ -1,8 +1,0 @@
-{
-  "parent": "blueprint:block/vertical_slab",
-  "textures": {
-    "bottom": "autumnity:block/snail_shell_tiles",
-    "side": "autumnity:block/snail_shell_tiles",
-    "top": "autumnity:block/snail_shell_tiles"
-  }
-}

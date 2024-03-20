@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
-import com.teamabnormals.blueprint.common.block.wood.LogBlock;
+import com.teamabnormals.blueprint.common.block.LogBlock;
 import com.teamabnormals.blueprint.core.util.BlockUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;

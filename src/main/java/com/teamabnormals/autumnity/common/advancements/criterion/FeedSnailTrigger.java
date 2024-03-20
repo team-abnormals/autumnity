@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.teamabnormals.autumnity.common.advancements.criterion.FeedSnailTrigger.TriggerInstance;
 import com.teamabnormals.autumnity.core.Autumnity;
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.advancements.critereon.EntityPredicate.Composite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +17,7 @@ public class FeedSnailTrigger extends SimpleCriterionTrigger<TriggerInstance> {
 		return ID;
 	}
 
-	public TriggerInstance createInstance(JsonObject json, Composite entityPredicate, DeserializationContext conditionsParser) {
+	public TriggerInstance createInstance(JsonObject json, ContextAwarePredicate entityPredicate, DeserializationContext conditionsParser) {
 		return new TriggerInstance(entityPredicate, ItemPredicate.fromJson(json.get("item")));
 	}
 
@@ -31,17 +30,17 @@ public class FeedSnailTrigger extends SimpleCriterionTrigger<TriggerInstance> {
 	public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 		private final ItemPredicate item;
 
-		public TriggerInstance(EntityPredicate.Composite p_i231522_1_, ItemPredicate p_i231522_2_) {
+		public TriggerInstance(ContextAwarePredicate p_i231522_1_, ItemPredicate p_i231522_2_) {
 			super(FeedSnailTrigger.ID, p_i231522_1_);
 			this.item = p_i231522_2_;
 		}
 
 		public static TriggerInstance any() {
-			return new TriggerInstance(EntityPredicate.Composite.ANY, ItemPredicate.ANY);
+			return new TriggerInstance(ContextAwarePredicate.ANY, ItemPredicate.ANY);
 		}
 
 		public static TriggerInstance forItem(ItemLike p_203913_0_) {
-			return new TriggerInstance(EntityPredicate.Composite.ANY, new ItemPredicate(null, ImmutableSet.of(p_203913_0_.asItem()), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
+			return new TriggerInstance(ContextAwarePredicate.ANY, new ItemPredicate(null, ImmutableSet.of(p_203913_0_.asItem()), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
 		}
 
 		public boolean test(ItemStack item) {

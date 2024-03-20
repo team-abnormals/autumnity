@@ -7,24 +7,28 @@ import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.advancements.AdvancementProvider;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
+import net.minecraftforge.common.data.ForgeAdvancementProvider.AdvancementGenerator;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class AutumnityAdvancementProvider extends AdvancementProvider {
+public class AutumnityAdvancementProvider implements AdvancementGenerator {
 
-	public AutumnityAdvancementProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-		super(generator, fileHelper);
+	public static ForgeAdvancementProvider create(PackOutput output, CompletableFuture<Provider> provider, ExistingFileHelper helper) {
+		return new ForgeAdvancementProvider(output, provider, helper, List.of(new AutumnityAdvancementProvider()));
 	}
 
 	@Override
-	protected void registerAdvancements(Consumer<Advancement> consumer, ExistingFileHelper fileHelper) {
+	public void generate(Provider provider, Consumer<Advancement> consumer, ExistingFileHelper helper) {
 		createAdvancement("sneaky_protection", "husbandry", new ResourceLocation("husbandry/breed_an_animal"), AutumnityItems.SNAIL_SHELL_CHESTPLATE.get(), FrameType.TASK, true, true, false)
 				.addCriterion("snail_shell_chestplate", InventoryChangeTrigger.TriggerInstance.hasItems(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get()))
 				.save(consumer, Autumnity.MOD_ID + ":husbandry/sneaky_protection");

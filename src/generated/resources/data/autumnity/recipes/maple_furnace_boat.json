@@ -10,6 +10,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
+        "category": "misc",
         "group": "furnace_boat",
         "ingredients": [
           {

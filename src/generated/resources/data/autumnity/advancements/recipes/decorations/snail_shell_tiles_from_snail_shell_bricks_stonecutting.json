@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_snail_shell_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "autumnity:snail_shell_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:snail_shell_tiles_from_snail_shell_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_snail_shell_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:snail_shell_tiles_from_snail_shell_bricks_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

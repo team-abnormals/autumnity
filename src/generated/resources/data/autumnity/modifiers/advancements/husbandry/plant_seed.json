@@ -6,7 +6,12 @@
         "criteria": {
           "autumnity:foul_berry_bush_pips": {
             "conditions": {
-              "block": "autumnity:foul_berry_bush"
+              "location": [
+                {
+                  "block": "autumnity:foul_berry_bush",
+                  "condition": "minecraft:block_state_property"
+                }
+              ]
             },
             "trigger": "minecraft:placed_block"
           }

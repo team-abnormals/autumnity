@@ -21,6 +21,6 @@ public class AutumnityParticleTypes {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void registerParticleTypes(RegisterParticleProvidersEvent event) {
-		event.register(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
+		event.registerSpriteSet(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
 	}
 }

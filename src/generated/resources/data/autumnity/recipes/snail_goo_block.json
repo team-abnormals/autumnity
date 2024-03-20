@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
       "item": "autumnity:snail_goo"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "autumnity:snail_goo_block"
-  }
+  },
+  "show_notification": true
 }

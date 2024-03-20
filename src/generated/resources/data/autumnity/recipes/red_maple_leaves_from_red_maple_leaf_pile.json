@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "group": "leaves",
   "key": {
     "#": {
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "autumnity:red_maple_leaves"
-  }
+  },
+  "show_notification": true
 }

@@ -52,8 +52,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -94,13 +94,13 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onLivingSpawn(LivingSpawnEvent.SpecialSpawn event) {
+	public static void onLivingSpawn(MobSpawnEvent.FinalizeSpawn event) {
 		LevelAccessor level = event.getLevel();
 		Mob entity = event.getEntity();
 
 		if (entity instanceof Zombie || entity instanceof AbstractSkeleton) {
 			if (entity.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-				if (level.getBiome(entity.blockPosition()).is(AutumnityBiomes.PUMPKIN_FIELDS.getKey().location()) && level.getRandom().nextFloat() < 0.05F) {
+				if (level.getBiome(entity.blockPosition()).is(AutumnityBiomes.PUMPKIN_FIELDS) && level.getRandom().nextFloat() < 0.05F) {
 					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Blocks.CARVED_PUMPKIN));
 					entity.setDropChance(EquipmentSlot.HEAD, 0.0F);
 				}
@@ -248,7 +248,7 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onFallingBlockTick(FallingBlockTickEvent event) {
 		FallingBlockEntity fallingblock = event.getEntity();
-		Level level = fallingblock.getLevel();
+		Level level = fallingblock.level();
 		BlockState state = fallingblock.getBlockState();
 
 		if (!level.isClientSide() && state.getBlock() instanceof TurkeyBlock && state.getValue(TurkeyBlock.CHUNKS) == 0 && fallingblock.getDeltaMovement().y() < 0.0D) {

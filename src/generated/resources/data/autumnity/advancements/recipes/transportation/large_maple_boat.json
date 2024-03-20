@@ -31,7 +31,8 @@
           "recipes": [
             "autumnity:large_maple_boat"
           ]
-        }
+        },
+        "sends_telemetry_event": false
       },
       "conditions": [
         {

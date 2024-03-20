@@ -175,5 +175,6 @@
         "min": 3.0
       }
     }
-  ]
+  ],
+  "random_sequence": "autumnity:chests/maple_hut"
 }

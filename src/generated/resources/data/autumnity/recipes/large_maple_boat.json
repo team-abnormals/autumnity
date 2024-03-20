@@ -10,6 +10,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "group": "large_boat",
         "key": {
           "#": {
@@ -25,7 +26,8 @@
         ],
         "result": {
           "item": "autumnity:large_maple_boat"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

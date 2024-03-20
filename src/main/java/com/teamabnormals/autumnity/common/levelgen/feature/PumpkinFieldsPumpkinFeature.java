@@ -107,6 +107,6 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 	}
 
 	private static boolean isAirOrReplaceable(WorldGenLevel worldIn, BlockPos pos) {
-		return worldIn.isEmptyBlock(pos) || worldIn.getBlockState(pos).getMaterial().isReplaceable();
+		return worldIn.isEmptyBlock(pos) || worldIn.getBlockState(pos).canBeReplaced();
 	}
 }

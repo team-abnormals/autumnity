@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "autumnity:carved_large_pumpkin_slice"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "autumnity:large_redstone_jack_o_lantern_slice"
-  }
+  },
+  "show_notification": true
 }

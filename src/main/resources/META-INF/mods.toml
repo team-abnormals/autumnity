@@ -20,20 +20,20 @@ license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 [[dependencies.autumnity]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.19.2,1.19.3)"
+    versionRange = "[1.20.1,1.21)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.autumnity]]
     modId = "forge"
     mandatory = true
-    versionRange = "[43.1.0,)"
+    versionRange = "[47.1.3,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.autumnity]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[6.2.0,)"
+    versionRange = "[7.0.1,)"
     ordering = "AFTER"
     side = "BOTH"

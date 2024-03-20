@@ -33,7 +33,8 @@
           "recipes": [
             "autumnity:turkey_egg"
           ]
-        }
+        },
+        "sends_telemetry_event": false
       },
       "conditions": [
         {

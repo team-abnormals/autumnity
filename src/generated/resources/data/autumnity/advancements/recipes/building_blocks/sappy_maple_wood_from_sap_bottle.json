@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:sappy_maple_wood_from_sap_bottle"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

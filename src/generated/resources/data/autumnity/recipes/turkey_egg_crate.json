@@ -10,6 +10,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "key": {
           "#": {
             "item": "autumnity:turkey_egg"
@@ -22,7 +23,8 @@
         ],
         "result": {
           "item": "autumnity:turkey_egg_crate"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

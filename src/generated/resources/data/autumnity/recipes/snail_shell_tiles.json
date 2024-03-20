@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:smooth_stone"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "autumnity:snail_shell_tiles"
-  }
+  },
+  "show_notification": true
 }

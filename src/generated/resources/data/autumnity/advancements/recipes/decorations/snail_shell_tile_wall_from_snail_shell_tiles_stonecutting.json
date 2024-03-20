@@ -30,5 +30,6 @@
     "recipes": [
       "autumnity:snail_shell_tile_wall_from_snail_shell_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

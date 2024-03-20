@@ -11,6 +11,8 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
@@ -23,9 +25,10 @@ public class AutumnityEntityTypes {
 	public static final RegistryObject<EntityType<Turkey>> TURKEY = HELPER.createLivingEntity("turkey", Turkey::new, MobCategory.CREATURE, 0.6F, 0.8F);
 	public static final RegistryObject<EntityType<ThrownTurkeyEgg>> TURKEY_EGG = HELPER.createEntity("turkey_egg", ThrownTurkeyEgg::new, ThrownTurkeyEgg::new, MobCategory.MISC, 0.25F, 0.25F);
 
-	public static void registerSpawns() {
-		SpawnPlacements.register(SNAIL.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
-		SpawnPlacements.register(TURKEY.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
+	@SubscribeEvent
+	public static void registerEntitySpawnPlacements(SpawnPlacementRegisterEvent event) {
+		event.register(SNAIL.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, Operation.AND);
+		event.register(TURKEY.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, Operation.AND);
 	}
 
 	@SubscribeEvent

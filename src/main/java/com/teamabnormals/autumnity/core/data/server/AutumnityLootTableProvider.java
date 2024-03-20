@@ -120,7 +120,8 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(STRIPPED_MAPLE_WOOD.get());
 			this.dropSelf(SAPPY_MAPLE_LOG.get());
 			this.dropSelf(SAPPY_MAPLE_WOOD.get());
-			this.dropSelf(MAPLE_SIGN.getFirst().get());
+			this.dropSelf(MAPLE_SIGNS.getFirst().get());
+			this.dropSelf(MAPLE_HANGING_SIGNS.getFirst().get());
 			this.dropSelf(MAPLE_PRESSURE_PLATE.get());
 			this.dropSelf(MAPLE_TRAPDOOR.get());
 			this.dropSelf(MAPLE_BUTTON.get());

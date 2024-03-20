@@ -12,7 +12,9 @@ import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.common.block.LeafPileBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.PropertyUtil.WoodSetProperties;
@@ -86,7 +88,8 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> MAPLE_FENCE_GATE = HELPER.createFuelBlock("maple_fence_gate", () -> new FenceGateBlock(AutumnityProperties.MAPLE.planks(), AutumnityProperties.MAPLE_WOOD_TYPE), 300);
 	public static final RegistryObject<Block> MAPLE_DOOR = HELPER.createBlock("maple_door", () -> new DoorBlock(AutumnityProperties.MAPLE.door(), AutumnityProperties.MAPLE_BLOCK_SET));
 	public static final RegistryObject<Block> MAPLE_TRAPDOOR = HELPER.createBlock("maple_trapdoor", () -> new TrapDoorBlock(AutumnityProperties.MAPLE.trapdoor(), AutumnityProperties.MAPLE_BLOCK_SET));
-	public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> MAPLE_SIGN = HELPER.createSignBlock("maple", AutumnityProperties.MAPLE_WOOD_TYPE, AutumnityProperties.MAPLE.sign());
+	public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> MAPLE_SIGNS = HELPER.createSignBlock("maple", AutumnityProperties.MAPLE_WOOD_TYPE, AutumnityProperties.MAPLE.sign());
+	public static final Pair<RegistryObject<BlueprintCeilingHangingSignBlock>, RegistryObject<BlueprintWallHangingSignBlock>> MAPLE_HANGING_SIGNS = HELPER.createHangingSignBlock("maple", AutumnityProperties.MAPLE_WOOD_TYPE, AutumnityProperties.MAPLE.hangingSign());
 
 	public static final RegistryObject<Block> MAPLE_BOARDS = HELPER.createFuelBlock("maple_boards", () -> new RotatedPillarBlock(AutumnityProperties.MAPLE.planks()), 300);
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = HELPER.createFuelBlock("maple_bookshelf", () -> new Block(AutumnityProperties.MAPLE.bookshelf()), 300);

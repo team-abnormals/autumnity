@@ -37,8 +37,10 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.WOODEN_TRAPDOORS).add(MAPLE_TRAPDOOR.get());
 		this.tag(BlockTags.WOODEN_BUTTONS).add(MAPLE_BUTTON.get());
 		this.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(MAPLE_PRESSURE_PLATE.get());
-		this.tag(BlockTags.STANDING_SIGNS).add(MAPLE_SIGN.getFirst().get());
-		this.tag(BlockTags.WALL_SIGNS).add(MAPLE_SIGN.getSecond().get());
+		this.tag(BlockTags.STANDING_SIGNS).add(MAPLE_SIGNS.getFirst().get());
+		this.tag(BlockTags.WALL_SIGNS).add(MAPLE_SIGNS.getSecond().get());
+		this.tag(BlockTags.CEILING_HANGING_SIGNS).add(MAPLE_HANGING_SIGNS.getFirst().get());
+		this.tag(BlockTags.WALL_HANGING_SIGNS).add(MAPLE_HANGING_SIGNS.getSecond().get());
 		this.tag(BlockTags.CLIMBABLE).add(MAPLE_LADDER.get());
 		this.tag(BlockTags.BEEHIVES).add(MAPLE_BEEHIVE.get());
 		this.tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(MAPLE_LOG.get());

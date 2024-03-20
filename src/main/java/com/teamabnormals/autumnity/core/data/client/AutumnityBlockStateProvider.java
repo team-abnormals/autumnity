@@ -1,6 +1,5 @@
 package com.teamabnormals.autumnity.core.data.client;
 
-import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityBlockFamilies;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
@@ -24,7 +23,6 @@ import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
 
@@ -45,6 +43,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.logBlocks(MAPLE_LOG.get(), MAPLE_WOOD.get());
 		this.logBlocks(STRIPPED_MAPLE_LOG.get(), STRIPPED_MAPLE_WOOD.get());
 		this.logBlocks(SAPPY_MAPLE_LOG.get(), SAPPY_MAPLE_WOOD.get());
+		this.hangingSigns(STRIPPED_MAPLE_LOG.get(), MAPLE_HANGING_SIGNS.getFirst().get(), MAPLE_HANGING_SIGNS.getSecond().get());
 
 		this.leavesBlock(MAPLE_LEAVES.get());
 		this.leavesBlock(YELLOW_MAPLE_LEAVES.get());
@@ -138,14 +137,20 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 
 		if (family.getVariants().containsKey(Variant.SIGN)) {
 			SignBlock sign = (SignBlock) family.get(Variant.SIGN);
-			this.simpleBlock(sign, particle(sign, blockTexture(block)));
+			ModelFile model = particle(sign, blockTexture(block));
+			this.simpleBlock(sign, model);
 			this.generatedItem(sign, "item");
+			if (family.getVariants().containsKey(Variant.WALL_SIGN)) {
+				this.simpleBlock(family.get(Variant.WALL_SIGN), model);
+			}
 		}
+	}
 
-		if (family.getVariants().containsKey(Variant.WALL_SIGN)) {
-			WallSignBlock wallSign = (WallSignBlock) family.get(Variant.WALL_SIGN);
-			this.simpleBlock(wallSign, particle(wallSign, blockTexture(block)));
-		}
+	public void hangingSigns(Block strippedLog, Block sign, Block wallSign) {
+		ModelFile model = particle(sign, blockTexture(strippedLog));
+		this.simpleBlock(sign, particle(sign, blockTexture(strippedLog)));
+		this.generatedItem(sign, "item");
+		this.simpleBlock(wallSign, model);
 	}
 
 	public void blockItem(Block block) {

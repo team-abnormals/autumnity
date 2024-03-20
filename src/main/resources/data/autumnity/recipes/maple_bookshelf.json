@@ -19,8 +19,17 @@
               ]
             },
             {
-              "flag": "variant_bookshelves",
-              "type": "blueprint:quark_flag"
+              "type": "blueprint:and",
+              "values": [
+                {
+                  "modid": "quark",
+                  "type": "forge:mod_loaded"
+                },
+                {
+                  "flag": "variant_bookshelves",
+                  "type": "quark:flag"
+                }
+              ]
             }
           ],
           "type": "forge:or"

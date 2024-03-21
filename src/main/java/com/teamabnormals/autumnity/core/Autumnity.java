@@ -12,8 +12,6 @@ import com.teamabnormals.autumnity.core.data.server.AutumnityDatapackBuiltinEntr
 import com.teamabnormals.autumnity.core.data.server.AutumnityLootTableProvider;
 import com.teamabnormals.autumnity.core.data.server.AutumnityRecipeProvider;
 import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityAdvancementModifierProvider;
-import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityBiomeModifierProvider;
-import com.teamabnormals.autumnity.core.other.AutumnityBiomeSlices;
 import com.teamabnormals.autumnity.core.data.server.tags.*;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
@@ -65,6 +63,8 @@ public class Autumnity {
 		bus.addListener(this::dataSetup);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+			AutumnityBlocks.setupTabEditors();
+			AutumnityItems.setupTabEditors();
 			bus.addListener(this::registerLayerDefinitions);
 			bus.addListener(this::registerRenderers);
 		});
@@ -94,9 +94,9 @@ public class Autumnity {
 
 		boolean includeServer = event.includeServer();
 
-		AutumnityDatapackBuiltinEntriesProvider builtIn = new AutumnityDatapackBuiltinEntriesProvider(output, provider);
-		generator.addProvider(includeServer, builtIn);
-		provider = builtIn.getRegistryProvider();
+		AutumnityDatapackBuiltinEntriesProvider datapackEntries = new AutumnityDatapackBuiltinEntriesProvider(output, provider);
+		generator.addProvider(includeServer, datapackEntries);
+		provider = datapackEntries.getRegistryProvider();
 
 		AutumnityBlockTagsProvider blockTags = new AutumnityBlockTagsProvider(output, provider, helper);
 		generator.addProvider(includeServer, blockTags);

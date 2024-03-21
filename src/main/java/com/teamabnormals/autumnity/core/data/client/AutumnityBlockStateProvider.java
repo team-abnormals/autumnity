@@ -56,7 +56,7 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.crossBlockWithPot(RED_MAPLE_SAPLING.get(), POTTED_RED_MAPLE_SAPLING.get());
 		this.crossBlockWithPot(AUTUMN_CROCUS.get(), POTTED_AUTUMN_CROCUS.get());
 
-		this.planksCompat(MAPLE_PLANKS.get(), MAPLE_BOARDS.get(), MAPLE_LADDER.get(), MAPLE_BOOKSHELF.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST.get(), MAPLE_TRAPPED_CHEST.get());
+		this.planksCompat(MAPLE_PLANKS.get(), MAPLE_BOARDS.get(), MAPLE_LADDER.get(), MAPLE_BOOKSHELF.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST.get(), TRAPPED_MAPLE_CHEST.get());
 		this.leavesCompat(MAPLE_LEAVES.get(), MAPLE_LEAF_PILE.get());
 		this.leavesCompat(MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAF_PILE.get());
 		this.leavesCompat(MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAF_PILE.get());

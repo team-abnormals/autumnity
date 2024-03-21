@@ -149,7 +149,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.add(MAPLE_DOOR.get(), this::createDoorTable);
 			this.add(MAPLE_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
 			this.add(MAPLE_CHEST.get(), this::createNameableBlockEntityTable);
-			this.add(MAPLE_TRAPPED_CHEST.get(), this::createNameableBlockEntityTable);
+			this.add(TRAPPED_MAPLE_CHEST.get(), this::createNameableBlockEntityTable);
 			this.add(MAPLE_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0F)));
 
 			this.add(MAPLE_LEAVES.get(), (block) -> createLeavesDrops(block, MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));

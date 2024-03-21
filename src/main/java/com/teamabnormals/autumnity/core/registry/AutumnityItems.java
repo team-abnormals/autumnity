@@ -5,9 +5,12 @@ import com.teamabnormals.autumnity.common.item.SnailShellChestplateItem;
 import com.teamabnormals.autumnity.common.item.SyrupBottleItem;
 import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.AutumnityConfig;
+import com.teamabnormals.autumnity.core.other.AutumnityConstants;
 import com.teamabnormals.autumnity.core.other.AutumnityTiers;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBannerPatternTags;
 import com.teamabnormals.autumnity.integration.boatload.AutumnityBoatTypes;
+import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.AbstractSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +21,12 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
+
+import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.modLoaded;
+import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.ofID;
+import static com.teamabnormals.blueprint.core.util.item.ItemStackUtil.is;
+import static net.minecraft.world.item.CreativeModeTabs.*;
+import static net.minecraft.world.item.crafting.Ingredient.of;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityItems {
@@ -46,6 +55,35 @@ public class AutumnityItems {
 
 	public static final RegistryObject<ForgeSpawnEggItem> SNAIL_SPAWN_EGG = HELPER.createSpawnEggItem("snail", AutumnityEntityTypes.SNAIL::get, 7355937, 14727558);
 	public static final RegistryObject<ForgeSpawnEggItem> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", AutumnityEntityTypes.TURKEY::get, 6765623, 5019859);
+
+	public static void setupTabEditors() {
+		CreativeModeTabContentsPopulator.mod(Autumnity.MOD_ID)
+				.tab(FOOD_AND_DRINKS)
+				.addItemsBefore(of(Items.RABBIT), AutumnityBlocks.TURKEY, AutumnityBlocks.COOKED_TURKEY, TURKEY_PIECE, COOKED_TURKEY_PIECE)
+				.addItemsAfter(of(Items.SWEET_BERRIES), FOUL_BERRIES)
+				.addItemsAfter(of(Items.BREAD), PUMPKIN_BREAD)
+				.addItemsAfter(of(Items.RABBIT_STEW), FOUL_SOUP)
+				.addItemsAfter(of(Items.HONEY_BOTTLE), SYRUP_BOTTLE)
+				.tab(NATURAL_BLOCKS)
+				.addItemsAfter(of(Items.SWEET_BERRIES), FOUL_BERRIES)
+				.tab(INGREDIENTS)
+				.addItemsAfter(of(Items.HONEYCOMB), SAP_BOTTLE)
+				.addItemsAfter(of(Items.EGG), TURKEY_EGG)
+				.addItemsAfter(of(Items.SCUTE), SNAIL_SHELL_PIECE)
+				.addItemsAfter(of(Items.GLOBE_BANNER_PATTERN), MAPLE_LEAF_BANNER_PATTERN, SWIRL_BANNER_PATTERN)
+				.tab(TOOLS_AND_UTILITIES)
+				.addItemsAfter(modLoaded(Items.CHERRY_BOAT, "forge"), MAPLE_FURNACE_BOAT, LARGE_MAPLE_BOAT)
+				.addItemsAfter(of(Items.CHERRY_BOAT), MAPLE_BOAT.getFirst(), MAPLE_BOAT.getSecond())
+				.tab(COMBAT)
+				.addItemsAfter(of(Items.TURTLE_HELMET), SNAIL_SHELL_CHESTPLATE)
+				.tab(SPAWN_EGGS)
+				.addItemsAlphabetically(is(SpawnEggItem.class), SNAIL_SPAWN_EGG, TURKEY_SPAWN_EGG);
+
+		CreativeModeTabContentsPopulator.mod("berry_good_1")
+				.predicate(event -> event.getTabKey() == NATURAL_BLOCKS && AutumnityConfig.COMMON.foulBerriesRequirePips.get())
+				.editor(event -> event.getEntries().remove(new ItemStack(FOUL_BERRIES.get())))
+				.addItemsAfter(AutumnityBlocks.ofID(AutumnityConstants.SWEET_BERRY_PIPS, Items.BEETROOT_SEEDS, "berry_good"), FOUL_BERRY_PIPS);
+	}
 
 	public static class AutumnityFoods {
 		public static final FoodProperties SYRUP_BOTTLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();

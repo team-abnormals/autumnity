@@ -7,6 +7,7 @@ import com.teamabnormals.autumnity.common.block.grower.OrangeMapleTreeGrower;
 import com.teamabnormals.autumnity.common.block.grower.RedMapleTreeGrower;
 import com.teamabnormals.autumnity.common.block.grower.YellowMapleTreeGrower;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.other.AutumnityConstants;
 import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.common.block.LeafPileBlock;
@@ -18,7 +19,12 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlo
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.PropertyUtil.WoodSetProperties;
+import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -26,9 +32,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
+
+import static net.minecraft.world.item.CreativeModeTabs.*;
+import static net.minecraft.world.item.crafting.Ingredient.of;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityBlocks {
@@ -96,7 +107,7 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> MAPLE_LADDER = HELPER.createFuelBlock("maple_ladder", () -> new LadderBlock(AutumnityProperties.MAPLE.ladder()), 300);
 	public static final RegistryObject<Block> MAPLE_BEEHIVE = HELPER.createBlock("maple_beehive", () -> new BlueprintBeehiveBlock(AutumnityProperties.MAPLE.beehive()));
 	public static final RegistryObject<BlueprintChestBlock> MAPLE_CHEST = HELPER.createChestBlock("maple", AutumnityProperties.MAPLE.chest());
-	public static final RegistryObject<BlueprintTrappedChestBlock> MAPLE_TRAPPED_CHEST = HELPER.createTrappedChestBlock("maple", AutumnityProperties.MAPLE.chest());
+	public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_MAPLE_CHEST = HELPER.createTrappedChestBlock("maple", AutumnityProperties.MAPLE.chest());
 
 	public static final RegistryObject<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.MAPLE.leaves()));
 	public static final RegistryObject<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new SaplingBlock(new MapleTreeGrower(), AutumnityProperties.MAPLE.sapling()));
@@ -117,6 +128,61 @@ public class AutumnityBlocks {
 	public static final RegistryObject<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new SaplingBlock(new RedMapleTreeGrower(), AutumnityProperties.RED_MAPLE.sapling()));
 	public static final RegistryObject<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final RegistryObject<Block> RED_MAPLE_LEAF_PILE = HELPER.createBlock("red_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.RED_MAPLE.leafPile()));
+
+	public static void setupTabEditors() {
+		CreativeModeTabContentsPopulator.mod(Autumnity.MOD_ID)
+				.tab(FOOD_AND_DRINKS)
+				.addItemsBefore(of(Items.CAKE), PANCAKE)
+				.tab(BUILDING_BLOCKS)
+				.addItemsAfter(of(Blocks.CHERRY_BUTTON), MAPLE_STAIRS, MAPLE_SLAB, MAPLE_FENCE, MAPLE_FENCE_GATE, MAPLE_DOOR, MAPLE_TRAPDOOR, MAPLE_PRESSURE_PLATE, MAPLE_BUTTON)
+				.addItemsAfter(modLoaded(Blocks.CHERRY_BUTTON, "woodworks"), MAPLE_BOARDS)
+				.addItemsAfter(of(Blocks.CHERRY_BUTTON), MAPLE_LOG, MAPLE_WOOD, STRIPPED_MAPLE_LOG, STRIPPED_MAPLE_WOOD, SAPPY_MAPLE_LOG, SAPPY_MAPLE_WOOD, MAPLE_PLANKS)
+				.addItems(SNAIL_SHELL_BLOCK,
+						SNAIL_SHELL_BRICKS, SNAIL_SHELL_BRICK_STAIRS, SNAIL_SHELL_BRICK_SLAB, SNAIL_SHELL_BRICK_WALL, CHISELED_SNAIL_SHELL_BRICKS,
+						SNAIL_SHELL_TILES, SNAIL_SHELL_TILE_STAIRS, SNAIL_SHELL_TILE_SLAB, SNAIL_SHELL_TILE_WALL
+				)
+				.tab(NATURAL_BLOCKS)
+				.addItemsAfter(of(Blocks.CHERRY_LOG), MAPLE_LOG)
+				.addItemsAfter(of(Blocks.CHERRY_LEAVES), MAPLE_LEAVES, MAPLE_LEAF_PILE, YELLOW_MAPLE_LEAVES, YELLOW_MAPLE_LEAF_PILE, ORANGE_MAPLE_LEAVES, ORANGE_MAPLE_LEAF_PILE, RED_MAPLE_LEAVES, RED_MAPLE_LEAF_PILE)
+				.addItemsAfter(of(Blocks.CHERRY_SAPLING), MAPLE_SAPLING, YELLOW_MAPLE_SAPLING, ORANGE_MAPLE_SAPLING, RED_MAPLE_SAPLING)
+				.addItemsAfter(of(Blocks.HONEY_BLOCK), SNAIL_GOO_BLOCK)
+				.addItemsAfter(of(Blocks.LILY_OF_THE_VALLEY), AUTUMN_CROCUS)
+				.addItemsAfter(of(Blocks.PUMPKIN), LARGE_PUMPKIN_SLICE)
+				.addItemsAfter(of(Blocks.CARVED_PUMPKIN), CARVED_LARGE_PUMPKIN_SLICE)
+				.addItemsAfter(of(Blocks.JACK_O_LANTERN), REDSTONE_JACK_O_LANTERN, LARGE_REDSTONE_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "caverns_and_chasms"), CUPRIC_JACK_O_LANTERN, LARGE_CUPRIC_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "endergetic"), ENDER_JACK_O_LANTERN, LARGE_ENDER_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(of(Blocks.JACK_O_LANTERN), LARGE_JACK_O_LANTERN_SLICE, SOUL_JACK_O_LANTERN, LARGE_SOUL_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(ofID(AutumnityConstants.SWEET_BERRY_BASKET), FOUL_BERRY_BASKET)
+				.tab(FUNCTIONAL_BLOCKS)
+				.addItemsAfter(of(Blocks.CHERRY_HANGING_SIGN), MAPLE_SIGNS.getFirst(), MAPLE_HANGING_SIGNS.getFirst())
+				.tab(REDSTONE_BLOCKS)
+				.addItemsAfter(of(Blocks.HONEY_BLOCK), SNAIL_GOO_BLOCK)
+				.tab(INGREDIENTS)
+				.addItemsAfter(of(Items.SLIME_BALL), SNAIL_GOO);
+
+
+		CreativeModeTabContentsPopulator.mod("woodworks_1")
+				.tab(FUNCTIONAL_BLOCKS)
+				.addItemsAfter(ofID(AutumnityConstants.CHERRY_LADDER), MAPLE_LADDER)
+				.addItemsAfter(ofID(AutumnityConstants.CHERRY_BEEHIVE), MAPLE_BEEHIVE)
+				.addItemsAfter(ofID(AutumnityConstants.CHISELED_CHERRY_BOOKSHELF), MAPLE_BOOKSHELF)
+				.addItemsAfter(ofID(AutumnityConstants.CHERRY_CHEST), MAPLE_CHEST)
+				.tab(REDSTONE_BLOCKS)
+				.addItemsAfter(ofID(AutumnityConstants.TRAPPED_CHERRY_CHEST), TRAPPED_MAPLE_CHEST);
+	}
+
+	public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
+		return stack -> of(item).test(stack) && BlockSubRegistryHelper.areModsLoaded(modids);
+	}
+
+	public static Predicate<ItemStack> ofID(ResourceLocation location, ItemLike fallback, String... modids) {
+		return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) ? of(ForgeRegistries.ITEMS.getValue(location)) : of(fallback)).test(stack);
+	}
+
+	public static Predicate<ItemStack> ofID(ResourceLocation location, String... modids) {
+		return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(ForgeRegistries.ITEMS.getValue(location)).test(stack));
+	}
 
 	public static final class AutumnityProperties {
 		public static final BlockSetType MAPLE_BLOCK_SET = BlockSetType.register(new BlockSetType(Autumnity.MOD_ID + ":maple"));

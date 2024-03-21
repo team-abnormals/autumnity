@@ -169,7 +169,7 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event) {
 		ItemStack itemstack = event.getItem();
-		if (event.getEntity().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntity() instanceof Player && itemstack.isEdible()) {
+		if (event.getEntity().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntity() instanceof Player player && itemstack.isEdible()) {
 			Item item = itemstack.getItem();
 			FoodProperties food = item.getFoodProperties();
 			boolean flag = true;
@@ -199,8 +199,6 @@ public class AutumnityEvents {
 			}
 
 			if (flag) {
-				Player player = (Player) event.getEntity();
-
 				int i = food.getNutrition();
 				int j = Math.max(1, (int) (i * 0.5F));
 

@@ -37,6 +37,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
+        "category": "redstone",
         "group": "wooden_trapped_chest",
         "ingredients": [
           {
@@ -47,8 +48,9 @@
           }
         ],
         "result": {
-          "item": "autumnity:maple_trapped_chest"
-        }
+          "item": "autumnity:trapped_maple_chest"
+        },
+        "show_notification": true
       }
     }
   ]

@@ -154,7 +154,6 @@ public class AutumnityFeatures {
 		public static void bootstrap(BootstapContext<PlacedFeature> context) {
 			HolderGetter<NoiseParameters> noise = context.lookup(Registries.NOISE);
 
-
 			register(context, MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.MAPLE_TREE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
 			register(context, RED_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.MAPLE_TREE_RED, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
 

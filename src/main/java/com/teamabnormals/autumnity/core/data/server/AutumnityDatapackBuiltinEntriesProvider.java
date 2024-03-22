@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.core.data.server;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityBiomeModifierProvider;
+import com.teamabnormals.autumnity.core.other.AutumnityBiomeModifiers;
 import com.teamabnormals.autumnity.core.other.AutumnityBiomeSlices;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConfiguredFeatures;
@@ -26,7 +26,7 @@ public class AutumnityDatapackBuiltinEntriesProvider extends DatapackBuiltinEntr
 			.add(Registries.NOISE, AutumnityNoiseParameters::bootstrap)
 			.add(Registries.BIOME, AutumnityBiomes::bootstrap)
 			.add(BlueprintDataPackRegistries.MODDED_BIOME_SLICES, AutumnityBiomeSlices::bootstrap)
-			.add(ForgeRegistries.Keys.BIOME_MODIFIERS, AutumnityBiomeModifierProvider::bootstrap);
+			.add(ForgeRegistries.Keys.BIOME_MODIFIERS, AutumnityBiomeModifiers::bootstrap);
 
 	public AutumnityDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<Provider> provider) {
 		super(output, provider, BUILDER, Set.of(Autumnity.MOD_ID));

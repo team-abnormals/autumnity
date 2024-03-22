@@ -37,6 +37,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "group": "wooden_chest",
         "pattern": [
           "###",
@@ -50,7 +51,8 @@
         },
         "result": {
           "item": "autumnity:maple_chest"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

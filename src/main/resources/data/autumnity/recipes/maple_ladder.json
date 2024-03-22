@@ -37,6 +37,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "group": "wooden_ladder",
         "pattern": [
           "S S",
@@ -54,7 +55,8 @@
         "result": {
           "item": "autumnity:maple_ladder",
           "count": 4
-        }
+        },
+        "show_notification": true
       }
     }
   ]

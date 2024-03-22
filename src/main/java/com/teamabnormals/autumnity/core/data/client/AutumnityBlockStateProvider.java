@@ -5,6 +5,7 @@ import com.teamabnormals.autumnity.core.other.AutumnityBlockFamilies;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
 import com.teamabnormals.blueprint.core.Blueprint;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.BlockFamily.Variant;
@@ -15,12 +16,10 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
-import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -29,6 +28,7 @@ import java.util.function.Function;
 import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityBlockStateProvider extends BlockStateProvider {
+	public static final String[] MAPLE_BOOKSHELF_POSITIONS = new String[]{"top_left", "top_right", "bottom_left", "bottom_mid_left", "bottom_mid_right", "bottom_right"};
 
 	public AutumnityBlockStateProvider(PackOutput output, ExistingFileHelper helper) {
 		super(output, Autumnity.MOD_ID, helper);
@@ -56,7 +56,8 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.crossBlockWithPot(RED_MAPLE_SAPLING.get(), POTTED_RED_MAPLE_SAPLING.get());
 		this.crossBlockWithPot(AUTUMN_CROCUS.get(), POTTED_AUTUMN_CROCUS.get());
 
-		this.planksCompat(MAPLE_PLANKS.get(), MAPLE_BOARDS.get(), MAPLE_LADDER.get(), MAPLE_BOOKSHELF.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST.get(), TRAPPED_MAPLE_CHEST.get());
+		this.planksCompat(MAPLE_PLANKS.get(), MAPLE_BOARDS.get(), MAPLE_LADDER.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST.get(), TRAPPED_MAPLE_CHEST.get());
+		this.bookshelfBlocks(MAPLE_PLANKS.get(), MAPLE_BOOKSHELF.get(), CHISELED_MAPLE_BOOKSHELF.get(), MAPLE_BOOKSHELF_POSITIONS, Autumnity.MOD_ID + ":block/chiseled_maple");
 		this.leavesCompat(MAPLE_LEAVES.get(), MAPLE_LEAF_PILE.get());
 		this.leavesCompat(MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAF_PILE.get());
 		this.leavesCompat(MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAF_PILE.get());
@@ -211,10 +212,9 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(modelFunc.apply(state)).build());
 	}
 
-	public void planksCompat(Block planks, Block boards, Block ladder, Block bookshelf, Block beehive, BlueprintChestBlock chest, BlueprintTrappedChestBlock trappedChest) {
+	public void planksCompat(Block planks, Block boards, Block ladder, Block beehive, BlueprintChestBlock chest, BlueprintTrappedChestBlock trappedChest) {
 		this.boardsBlock(boards);
 		this.ladderBlock(ladder);
-		this.bookshelfBlock(planks, bookshelf);
 		this.beehiveBlock(beehive);
 		this.chestBlocks(planks, chest, trappedChest);
 	}
@@ -269,6 +269,43 @@ public class AutumnityBlockStateProvider extends BlockStateProvider {
 		this.blockItem(wood);
 	}
 
+	public void bookshelfBlocks(Block planks, Block bookshelf, Block chiseledBookshelf, String[] parts, String parent) {
+		this.simpleBlock(bookshelf, this.models().cubeColumn(name(bookshelf), blockTexture(bookshelf), blockTexture(planks)));
+		this.blockItem(bookshelf);
+
+		BlockModelBuilder model = this.models().withExistingParent(name(chiseledBookshelf), "block/chiseled_bookshelf").texture("top", blockTexture(chiseledBookshelf) + "_top").texture("side", blockTexture(chiseledBookshelf) + "_side");
+		MultiPartBlockStateBuilder builder = getMultipartBuilder(chiseledBookshelf);
+		for (Direction direction : Direction.Plane.HORIZONTAL) {
+			int rotation = (int) (direction.toYRot() + 180) % 360;
+			builder.part().modelFile(model).rotationY(rotation).uvLock(true).addModel().condition(HorizontalDirectionalBlock.FACING, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[0], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_0_OCCUPIED, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[1], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_1_OCCUPIED, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[2], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_2_OCCUPIED, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[3], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_3_OCCUPIED, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[4], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_4_OCCUPIED, direction);
+			chiseledBookshelfParts(builder, chiseledBookshelf, parts[5], parent, BlockStateProperties.CHISELED_BOOKSHELF_SLOT_5_OCCUPIED, direction);
+		}
+
+		this.simpleBlockItem(chiseledBookshelf, this.models()
+				.withExistingParent(name(chiseledBookshelf) + "_inventory", "block/chiseled_bookshelf_inventory")
+				.texture("top", blockTexture(chiseledBookshelf) + "_top")
+				.texture("side", blockTexture(chiseledBookshelf) + "_side")
+				.texture("front", blockTexture(chiseledBookshelf) + "_empty"));
+	}
+
+	public void chiseledBookshelfParts(MultiPartBlockStateBuilder builder, Block chiseledBookshelf, String part, String parent, BooleanProperty property, Direction direction) {
+		int rotation = (int) (direction.toYRot() + 180) % 360;
+		builder.part().modelFile(this.models()
+						.withExistingParent(name(chiseledBookshelf) + "_occupied_slot_" + part, parent + "_bookshelf_slot_" + part)
+						.texture("texture", blockTexture(chiseledBookshelf) + "_occupied"))
+				.rotationY(rotation).uvLock(true)
+				.addModel().condition(HorizontalDirectionalBlock.FACING, direction).condition(property, true);
+		builder.part().modelFile(this.models()
+						.withExistingParent(name(chiseledBookshelf) + "_empty_slot_" + part, parent + "_bookshelf_slot_" + part)
+						.texture("texture", blockTexture(chiseledBookshelf) + "_empty"))
+				.rotationY(rotation).uvLock(true)
+				.addModel().condition(HorizontalDirectionalBlock.FACING, direction).condition(property, false);
+	}
 
 	private String name(Block block) {
 		return ForgeRegistries.BLOCKS.getKey(block).getPath();

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/chiseled_bookshelf_inventory",
+  "textures": {
+    "front": "autumnity:block/chiseled_maple_bookshelf_empty",
+    "side": "autumnity:block/chiseled_maple_bookshelf_side",
+    "top": "autumnity:block/chiseled_maple_bookshelf_top"
+  }
+}

@@ -66,7 +66,8 @@
             "has_stick",
             "has_the_recipe"
           ]
-        ]
+        ],
+        "sends_telemetry_event": false
       }
     }
   ]

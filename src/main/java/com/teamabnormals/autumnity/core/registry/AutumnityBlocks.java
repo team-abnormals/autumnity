@@ -104,10 +104,11 @@ public class AutumnityBlocks {
 
 	public static final RegistryObject<Block> MAPLE_BOARDS = HELPER.createFuelBlock("maple_boards", () -> new RotatedPillarBlock(AutumnityProperties.MAPLE.planks()), 300);
 	public static final RegistryObject<Block> MAPLE_BOOKSHELF = HELPER.createFuelBlock("maple_bookshelf", () -> new Block(AutumnityProperties.MAPLE.bookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_MAPLE_BOOKSHELF = HELPER.createFuelBlock("chiseled_maple_bookshelf", () -> new ChiseledMapleBookShelfBlock(AutumnityProperties.MAPLE.chiseledBookshelf()), 300);
 	public static final RegistryObject<Block> MAPLE_LADDER = HELPER.createFuelBlock("maple_ladder", () -> new LadderBlock(AutumnityProperties.MAPLE.ladder()), 300);
 	public static final RegistryObject<Block> MAPLE_BEEHIVE = HELPER.createBlock("maple_beehive", () -> new BlueprintBeehiveBlock(AutumnityProperties.MAPLE.beehive()));
 	public static final RegistryObject<BlueprintChestBlock> MAPLE_CHEST = HELPER.createChestBlock("maple", AutumnityProperties.MAPLE.chest());
-	public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_MAPLE_CHEST = HELPER.createTrappedChestBlock("maple", AutumnityProperties.MAPLE.chest());
+	public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_MAPLE_CHEST = HELPER.createTrappedChestBlockNamed("maple", AutumnityProperties.MAPLE.chest());
 
 	public static final RegistryObject<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.MAPLE.leaves()));
 	public static final RegistryObject<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new SaplingBlock(new MapleTreeGrower(), AutumnityProperties.MAPLE.sapling()));
@@ -166,7 +167,7 @@ public class AutumnityBlocks {
 				.tab(FUNCTIONAL_BLOCKS)
 				.addItemsAfter(ofID(AutumnityConstants.CHERRY_LADDER), MAPLE_LADDER)
 				.addItemsAfter(ofID(AutumnityConstants.CHERRY_BEEHIVE), MAPLE_BEEHIVE)
-				.addItemsAfter(ofID(AutumnityConstants.CHISELED_CHERRY_BOOKSHELF), MAPLE_BOOKSHELF)
+				.addItemsAfter(ofID(AutumnityConstants.CHISELED_CHERRY_BOOKSHELF), MAPLE_BOOKSHELF, CHISELED_MAPLE_BOOKSHELF)
 				.addItemsAfter(ofID(AutumnityConstants.CHERRY_CHEST), MAPLE_CHEST)
 				.tab(REDSTONE_BLOCKS)
 				.addItemsAfter(ofID(AutumnityConstants.TRAPPED_CHERRY_CHEST), TRAPPED_MAPLE_CHEST);

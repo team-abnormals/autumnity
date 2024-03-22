@@ -17,11 +17,11 @@
               "source": "block_entity"
             }
           ],
-          "name": "autumnity:maple_trapped_chest"
+          "name": "autumnity:trapped_maple_chest"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autumnity:blocks/maple_trapped_chest"
+  "random_sequence": "autumnity:blocks/trapped_maple_chest"
 }

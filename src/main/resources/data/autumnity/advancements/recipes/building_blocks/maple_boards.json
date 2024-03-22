@@ -48,7 +48,8 @@
             "has_maple_planks",
             "has_the_recipe"
           ]
-        ]
+        ],
+        "sends_telemetry_event": false
       }
     }
   ]

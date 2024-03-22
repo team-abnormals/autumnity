@@ -38,7 +38,7 @@
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "autumnity:maple_trapped_chest"
+            "autumnity:trapped_maple_chest"
           ]
         },
         "criteria": {
@@ -57,7 +57,7 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "autumnity:maple_trapped_chest"
+              "recipe": "autumnity:trapped_maple_chest"
             }
           }
         },
@@ -66,7 +66,8 @@
             "has_tripwire_hook",
             "has_the_recipe"
           ]
-        ]
+        ],
+        "sends_telemetry_event": false
       }
     }
   ]

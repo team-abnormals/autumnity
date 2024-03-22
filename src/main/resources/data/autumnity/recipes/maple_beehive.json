@@ -19,6 +19,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "misc",
         "group": "wooden_beehive",
         "pattern": [
           "###",
@@ -35,7 +36,8 @@
         },
         "result": {
           "item": "autumnity:maple_beehive"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

@@ -37,6 +37,7 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
+        "category": "building",
         "group": "wooden_bookshelf",
         "pattern": [
           "###",
@@ -53,7 +54,8 @@
         },
         "result": {
           "item": "autumnity:maple_bookshelf"
-        }
+        },
+        "show_notification": true
       }
     }
   ]

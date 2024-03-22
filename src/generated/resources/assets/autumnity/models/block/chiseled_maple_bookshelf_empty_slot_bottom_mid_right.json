@@ -1,0 +1,6 @@
+{
+  "parent": "autumnity:block/chiseled_maple_bookshelf_slot_bottom_mid_right",
+  "textures": {
+    "texture": "autumnity:block/chiseled_maple_bookshelf_empty"
+  }
+}

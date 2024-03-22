@@ -32,7 +32,7 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 public class AutumnityItems {
 	public static final ItemSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getItemSubHelper();
 
-	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> MAPLE_BOAT = HELPER.createBoatAndChestBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS, false);
+	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> MAPLE_BOAT = HELPER.createBoatAndChestBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
 	public static final RegistryObject<Item> MAPLE_FURNACE_BOAT = HELPER.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> LARGE_MAPLE_BOAT = HELPER.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties()));
 

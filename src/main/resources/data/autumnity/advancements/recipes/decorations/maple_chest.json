@@ -64,7 +64,8 @@
             "has_lots_of_items",
             "has_the_recipe"
           ]
-        ]
+        ],
+        "sends_telemetry_event": false
       }
     }
   ]

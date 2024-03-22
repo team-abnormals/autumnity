@@ -92,7 +92,7 @@
     "block.autumnity.potted_foul_berries": "Odvratne bobice u lončanici",
     "block.autumnity.maple_beehive": "Košnica od javora",
     "block.autumnity.maple_chest": "Škrinja od javora",
-    "block.autumnity.maple_trapped_chest": "Škrinja sa zamkom od javora",
+    "block.autumnity.trapped_maple_chest": "Škrinja sa zamkom od javora",
     
     "_comment6": "The name refers to the fact that the player needs to sneak to activate the special properties of the chestplate.",
     "advancements.autumnity.husbandry.sneaky_protection.title": "Šuljajuća zaštita",

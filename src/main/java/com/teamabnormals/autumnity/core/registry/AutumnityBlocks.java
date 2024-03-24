@@ -17,6 +17,7 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSign
 import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
+import com.teamabnormals.blueprint.core.api.WoodTypeRegistryHelper;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.PropertyUtil.WoodSetProperties;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
@@ -187,7 +188,7 @@ public class AutumnityBlocks {
 
 	public static final class AutumnityProperties {
 		public static final BlockSetType MAPLE_BLOCK_SET = BlockSetType.register(new BlockSetType(Autumnity.MOD_ID + ":maple"));
-		public static final WoodType MAPLE_WOOD_TYPE = WoodType.register(new WoodType(Autumnity.MOD_ID + ":maple", MAPLE_BLOCK_SET));
+		public static final WoodType MAPLE_WOOD_TYPE = WoodTypeRegistryHelper.registerWoodType(new WoodType(Autumnity.MOD_ID + ":maple", MAPLE_BLOCK_SET));
 
 		public static final WoodSetProperties MAPLE = WoodSetProperties.builder(MapColor.TERRACOTTA_ORANGE).build();
 		public static final WoodSetProperties YELLOW_MAPLE = WoodSetProperties.builder(MapColor.TERRACOTTA_ORANGE).leavesColor(MapColor.TERRACOTTA_YELLOW).build();

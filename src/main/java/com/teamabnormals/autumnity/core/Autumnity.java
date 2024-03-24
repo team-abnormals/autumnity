@@ -81,10 +81,6 @@ public class Autumnity {
 
 	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			Set<Block> validBlocks = Sets.newHashSet(BlockEntityType.CHISELED_BOOKSHELF.validBlocks);
-			validBlocks.add(AutumnityBlocks.CHISELED_MAPLE_BOOKSHELF.get());
-			BlockEntityType.CHISELED_BOOKSHELF.validBlocks = ImmutableSet.copyOf(validBlocks);
-
 			AutumnityCompat.registerCompat();
 			AutumnityPotions.registerBrewingRecipes();
 		});

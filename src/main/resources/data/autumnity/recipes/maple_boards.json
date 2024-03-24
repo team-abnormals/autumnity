@@ -19,21 +19,19 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "building",
+        "category": "misc",
         "group": "wooden_boards",
         "pattern": [
-          "#",
           "#",
           "#"
         ],
         "key": {
           "#": {
-            "item": "autumnity:maple_planks"
+            "item": "autumnity:maple_slab"
           }
         },
         "result": {
-          "item": "autumnity:maple_boards",
-          "count": 3
+          "item": "autumnity:maple_boards"
         },
         "show_notification": true
       }

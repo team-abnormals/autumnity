@@ -24,13 +24,13 @@
           ]
         },
         "criteria": {
-          "has_maple_planks": {
+          "has_maple_slab": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "autumnity:maple_planks"
+                    "autumnity:maple_slab"
                   ]
                 }
               ]
@@ -45,7 +45,7 @@
         },
         "requirements": [
           [
-            "has_maple_planks",
+            "has_maple_slab",
             "has_the_recipe"
           ]
         ],

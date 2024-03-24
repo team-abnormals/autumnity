@@ -33,7 +33,7 @@ public class AutumnityBiomeSlices {
 		List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> entries = new ArrayList<>();
 		new AutumnBiomeBuilder().addBiomesToSlice(entries::add);
 
-		context.register(AUTUMN, new ModdedBiomeSlice(3,
+		context.register(AUTUMN, new ModdedBiomeSlice(20,
 				MultiNoiseModdedBiomeProvider.builder()
 						.biomes(entries::forEach)
 						.area(MAPLE_FOREST_MIDDLE, AutumnityBiomes.MAPLE_FOREST)

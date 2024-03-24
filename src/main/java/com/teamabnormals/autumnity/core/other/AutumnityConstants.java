@@ -12,9 +12,9 @@ public class AutumnityConstants {
 
 	public static final ResourceLocation ENDER_TORCH = new ResourceLocation("endergetic", "ender_torch");
 
-	public static final ResourceLocation CHERRY_LADDER = new ResourceLocation("woodworks", "cherry_ladder");
-	public static final ResourceLocation CHERRY_BEEHIVE = new ResourceLocation("woodworks", "cherry_beehive");
-	public static final ResourceLocation CHISELED_CHERRY_BOOKSHELF = new ResourceLocation("woodworks", "chiseled_cherry_bookshelf");
-	public static final ResourceLocation CHERRY_CHEST = new ResourceLocation("woodworks", "cherry_chest");
-	public static final ResourceLocation TRAPPED_CHERRY_CHEST = new ResourceLocation("woodworks", "trapped_cherry_chest");
+	public static final ResourceLocation BAMBOO_LADDER = new ResourceLocation("woodworks", "bamboo_ladder");
+	public static final ResourceLocation BAMBOO_BEEHIVE = new ResourceLocation("woodworks", "bamboo_beehive");
+	public static final ResourceLocation CHISELED_BAMBOO_BOOKSHELF = new ResourceLocation("woodworks", "chiseled_bamboo_bookshelf");
+	public static final ResourceLocation BAMBOO_CLOSET = new ResourceLocation("woodworks", "bamboo_closet");
+	public static final ResourceLocation TRAPPED_BAMBOO_CLOSET = new ResourceLocation("woodworks", "trapped_bamboo_closet");
 }

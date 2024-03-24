@@ -139,7 +139,7 @@ public class AutumnityBlocks {
 				.addItemsBefore(of(Blocks.BAMBOO_BLOCK), MAPLE_LOG, MAPLE_WOOD, STRIPPED_MAPLE_LOG, STRIPPED_MAPLE_WOOD, SAPPY_MAPLE_LOG, SAPPY_MAPLE_WOOD, MAPLE_PLANKS)
 				.addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, "woodworks"), MAPLE_BOARDS)
 				.addItemsBefore(of(Blocks.BAMBOO_BLOCK), MAPLE_STAIRS, MAPLE_SLAB, MAPLE_FENCE, MAPLE_FENCE_GATE, MAPLE_DOOR, MAPLE_TRAPDOOR, MAPLE_PRESSURE_PLATE, MAPLE_BUTTON)
-				.addItems(SNAIL_SHELL_BLOCK,
+				.addItemsBefore(of(Blocks.SEA_LANTERN), SNAIL_SHELL_BLOCK,
 						SNAIL_SHELL_BRICKS, SNAIL_SHELL_BRICK_STAIRS, SNAIL_SHELL_BRICK_SLAB, SNAIL_SHELL_BRICK_WALL, CHISELED_SNAIL_SHELL_BRICKS,
 						SNAIL_SHELL_TILES, SNAIL_SHELL_TILE_STAIRS, SNAIL_SHELL_TILE_SLAB, SNAIL_SHELL_TILE_WALL
 				)
@@ -158,7 +158,7 @@ public class AutumnityBlocks {
 				.tab(FUNCTIONAL_BLOCKS)
 				.addItemsBefore(of(Blocks.BAMBOO_SIGN), MAPLE_SIGNS.getFirst(), MAPLE_HANGING_SIGNS.getFirst())
 				.tab(REDSTONE_BLOCKS)
-				.addItemsAfter(of(Blocks.HONEY_BLOCK), SNAIL_GOO_BLOCK)
+				.addItemsAfter(of(Blocks.SLIME_BLOCK), SNAIL_GOO_BLOCK)
 				.tab(INGREDIENTS)
 				.addItemsAfter(of(Items.SLIME_BALL), SNAIL_GOO);
 
@@ -170,7 +170,7 @@ public class AutumnityBlocks {
 				.tab(FUNCTIONAL_BLOCKS)
 				.addItemsBefore(ofID(AutumnityConstants.BAMBOO_LADDER), MAPLE_LADDER)
 				.addItemsBefore(ofID(AutumnityConstants.BAMBOO_BEEHIVE), MAPLE_BEEHIVE)
-				.addItemsBefore(ofID(AutumnityConstants.CHISELED_BAMBOO_BOOKSHELF), MAPLE_BOOKSHELF, CHISELED_MAPLE_BOOKSHELF)
+				.addItemsBefore(ofID(AutumnityConstants.BAMBOO_BOOKSHELF), MAPLE_BOOKSHELF, CHISELED_MAPLE_BOOKSHELF)
 				.addItemsBefore(ofID(AutumnityConstants.BAMBOO_CLOSET), MAPLE_CHEST)
 				.tab(REDSTONE_BLOCKS)
 				.addItemsBefore(ofID(AutumnityConstants.TRAPPED_BAMBOO_CLOSET), TRAPPED_MAPLE_CHEST);

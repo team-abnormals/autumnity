@@ -1,0 +1,26 @@
+{
+  "molding": "json",
+  "remolder": [
+    {
+      "type": "add",
+      "target": "overrides[]",
+      "value": {
+        "model": "autumnity:item/painting/snail",
+        "predicate": {
+          "autumnity:snail": 1.0
+        }
+      }
+    },
+    {
+      "type": "add",
+      "target": "overrides[]",
+      "value": {
+        "model": "autumnity:item/painting/pumpkin",
+        "predicate": {
+          "autumnity:pumpkin": 1.0
+        }
+      }
+    }
+  ],
+  "selector": "minecraft:models/item/painting"
+}

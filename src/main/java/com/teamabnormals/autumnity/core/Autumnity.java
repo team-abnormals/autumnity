@@ -18,6 +18,8 @@ import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;
 import com.teamabnormals.autumnity.core.registry.*;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import com.teamabnormals.gallery.core.data.client.GalleryAssetsRemolderProvider;
+import com.teamabnormals.gallery.core.data.client.GalleryItemModelProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -114,6 +116,9 @@ public class Autumnity {
 		boolean client = event.includeClient();
 		generator.addProvider(client, new AutumnityItemModelProvider(output, helper));
 		generator.addProvider(client, new AutumnityBlockStateProvider(output, helper));
+
+		generator.addProvider(client, new GalleryItemModelProvider(MOD_ID, output, helper));
+		generator.addProvider(client, new GalleryAssetsRemolderProvider(MOD_ID, output, provider));
 	}
 
 	@OnlyIn(Dist.CLIENT)

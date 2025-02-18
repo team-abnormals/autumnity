@@ -1,0 +1,45 @@
+{
+  "modifiers": [
+    {
+      "type": "pools",
+      "config": {
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "autumnity:foul_berry_pips"
+              }
+            ],
+            "name": "autumnity:foul_berry_pips",
+            "rolls": 1.0
+          }
+        ],
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": {
+    "type": "names",
+    "conditions": [
+      {
+        "type": "blueprint:and",
+        "values": [
+          {
+            "type": "forge:mod_loaded",
+            "modid": "berry_good"
+          },
+          {
+            "type": "autumnity:config",
+            "value": "foul_berries_require_pips"
+          }
+        ]
+      }
+    ],
+    "config": [
+      "autumnity:blocks/foul_berry_bush"
+    ]
+  }
+}

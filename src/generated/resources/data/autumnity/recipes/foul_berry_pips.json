@@ -4,8 +4,17 @@
     {
       "conditions": [
         {
-          "type": "forge:mod_loaded",
-          "modid": "berry_good"
+          "type": "blueprint:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "berry_good"
+            },
+            {
+              "type": "autumnity:config",
+              "value": "foul_berries_require_pips"
+            }
+          ]
         }
       ],
       "recipe": {

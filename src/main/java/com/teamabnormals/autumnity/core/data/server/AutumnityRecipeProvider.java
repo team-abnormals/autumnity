@@ -1,20 +1,26 @@
 package com.teamabnormals.autumnity.core.data.server;
 
+import com.google.common.collect.Maps;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.other.AutumnityBlockFamilies;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.integration.boatload.AutumnityBoatTypes;
+import com.teamabnormals.blueprint.core.api.conditions.BlueprintAndCondition;
+import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
+import com.teamabnormals.woodworks.core.WoodworksConfig;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
@@ -27,6 +33,9 @@ import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	public static final ModLoadedCondition BERRY_GOOD_LOADED = new ModLoadedCondition("berry_good");
+	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPES = new ConfigValueCondition(new ResourceLocation(Autumnity.MOD_ID, "config"), AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips", Maps.newHashMap(), false);
+	public static final BlueprintAndCondition BERRY_GOOD_AND_PIPS = new BlueprintAndCondition(BERRY_GOOD_LOADED, FOUL_BERRIES_REQUIRE_PIPES);
+
 	public static final ModLoadedCondition ENDERGETIC_LOADED = new ModLoadedCondition("endergetic");
 	public static final ModLoadedCondition INCUBATION_LOADED = new ModLoadedCondition("incubation");
 	public static final ModLoadedCondition CAVERNS_AND_CHASMS_LOADED = new ModLoadedCondition("caverns_and_chasms");
@@ -39,7 +48,7 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> consumer) {
 		conversionRecipe(consumer, Items.MAGENTA_DYE, AUTUMN_CROCUS.get(), "magenta_dye");
-		conditionalRecipe(consumer, BERRY_GOOD_LOADED, RecipeCategory.MISC, conversionRecipeBuilder(AutumnityItems.FOUL_BERRY_PIPS.get(), AutumnityItems.FOUL_BERRIES.get(), 1));
+		conditionalRecipe(consumer, BERRY_GOOD_AND_PIPS, RecipeCategory.MISC, conversionRecipeBuilder(AutumnityItems.FOUL_BERRY_PIPS.get(), AutumnityItems.FOUL_BERRIES.get(), 1));
 		conditionalStorageRecipes(consumer, BERRY_GOOD_LOADED, RecipeCategory.FOOD, AutumnityItems.FOUL_BERRIES.get(), RecipeCategory.DECORATIONS, FOUL_BERRY_BASKET.get());
 		conditionalRecipe(consumer, ABNORMALS_DELIGHT_NOT_LOADED, RecipeCategory.FOOD, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, AutumnityItems.FOUL_SOUP.get()).requires(AutumnityItems.FOUL_BERRIES.get(), 2).requires(Items.SPIDER_EYE).requires(Items.BOWL, 1).unlockedBy("has_foul_berries", has(AutumnityItems.FOUL_BERRIES.get())));
 

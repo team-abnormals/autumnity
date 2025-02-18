@@ -74,7 +74,7 @@ public class AutumnityEvents {
 	@SubscribeEvent
 	public static void rightClickBlock(RightClickBlock event) {
 		ItemStack stack = event.getItemStack();
-		if (AutumnityConfig.COMMON.foulBerriesRequirePips.get() && stack.is(AutumnityItems.FOUL_BERRIES.get())) {
+		if (stack.is(AutumnityItems.FOUL_BERRIES.get()) && ModList.get().isLoaded("berry_good") && AutumnityConfig.COMMON.foulBerriesRequirePips.get()) {
 			event.setUseItem(Event.Result.DENY);
 		}
 	}

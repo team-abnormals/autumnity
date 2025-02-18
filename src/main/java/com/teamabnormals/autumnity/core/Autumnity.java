@@ -12,6 +12,7 @@ import com.teamabnormals.autumnity.core.data.server.AutumnityDatapackBuiltinEntr
 import com.teamabnormals.autumnity.core.data.server.AutumnityLootTableProvider;
 import com.teamabnormals.autumnity.core.data.server.AutumnityRecipeProvider;
 import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityAdvancementModifierProvider;
+import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityLootModifierProvider;
 import com.teamabnormals.autumnity.core.data.server.tags.*;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
@@ -112,6 +113,7 @@ public class Autumnity {
 		generator.addProvider(server, AutumnityAdvancementProvider.create(output, provider, helper));
 		generator.addProvider(server, new AutumnityLootTableProvider(output));
 		generator.addProvider(server, new AutumnityAdvancementModifierProvider(output, provider));
+		generator.addProvider(server, new AutumnityLootModifierProvider(output, provider));
 
 		boolean client = event.includeClient();
 		generator.addProvider(client, new AutumnityItemModelProvider(output, helper));

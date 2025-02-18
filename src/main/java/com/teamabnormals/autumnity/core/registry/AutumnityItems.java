@@ -82,7 +82,7 @@ public class AutumnityItems {
 		CreativeModeTabContentsPopulator.mod("berry_good_1")
 				.predicate(event -> event.getTabKey() == NATURAL_BLOCKS && AutumnityConfig.COMMON.foulBerriesRequirePips.get())
 				.editor(event -> event.getEntries().remove(new ItemStack(FOUL_BERRIES.get())))
-				.addItemsAfter(AutumnityBlocks.ofID(AutumnityConstants.SWEET_BERRY_PIPS, Items.BEETROOT_SEEDS, "berry_good"), FOUL_BERRY_PIPS);
+				.addItemsAfter(AutumnityBlocks.ofID(AutumnityConstants.SWEET_BERRY_PIPS, "berry_good"), FOUL_BERRY_PIPS);
 	}
 
 	public static class AutumnityFoods {

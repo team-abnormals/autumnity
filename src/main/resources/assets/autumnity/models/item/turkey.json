@@ -1,15 +1,18 @@
 {
-    "parent": "forge:item/default",
-    "loader": "forge:separate_transforms",
-    "base": {
-		"parent": "item/generated",
-		"textures": {
-			"layer0": "autumnity:item/turkey"
-		}
-    },
-    "perspectives": {
-	    "head": {
-			"parent": "autumnity:block/turkey"
-		}
+  "parent": "item/generated",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "autumnity:item/turkey"
     }
+  },
+  "perspectives": {
+    "head": {
+      "parent": "autumnity:block/turkey"
+    }
+  },
+  "textures": {
+    "particle": "autumnity:item/turkey"
+  }
 }

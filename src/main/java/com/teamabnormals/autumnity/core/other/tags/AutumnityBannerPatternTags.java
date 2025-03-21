@@ -11,6 +11,6 @@ public class AutumnityBannerPatternTags {
 	public static final TagKey<BannerPattern> PATTERN_ITEM_SWIRL = bannerPatternTag("pattern_item/swirl");
 
 	private static TagKey<BannerPattern> bannerPatternTag(String name) {
-		return TagKey.create(Registries.BANNER_PATTERN, new ResourceLocation(Autumnity.MOD_ID, name));
+		return TagKey.create(Registries.BANNER_PATTERN, Autumnity.location(name));
 	}
 }

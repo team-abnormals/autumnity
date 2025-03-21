@@ -21,7 +21,7 @@ public class AutumnityPlugin implements IModPlugin {
 
 	@Override
 	public ResourceLocation getPluginUid() {
-		return new ResourceLocation(Autumnity.MOD_ID, Autumnity.MOD_ID);
+		return Autumnity.location(Autumnity.MOD_ID);
 	}
 
 
@@ -31,7 +31,7 @@ public class AutumnityPlugin implements IModPlugin {
 	}
 
 	private static Stream<RepairData> getRepairData() {
-		return Stream.of(new RepairData(AutumnityTiers.SNAIL_SHELL.getRepairIngredient(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
+		return Stream.of(new RepairData(AutumnityTiers.SNAIL.repairIngredient().get(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
 	}
 
 	private static Stream<IJeiAnvilRecipe> getRepairRecipes(IVanillaRecipeFactory vanillaRecipeFactory) {

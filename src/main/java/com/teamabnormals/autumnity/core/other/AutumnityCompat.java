@@ -15,14 +15,9 @@ import net.minecraft.world.level.block.DispenserBlock;
 public class AutumnityCompat {
 
 	public static void registerCompat() {
-		registerAnimalFoods();
 		registerCompostables();
 		registerFlammables();
 		registerDispenserBehaviors();
-	}
-
-	private static void registerAnimalFoods() {
-		DataUtil.addParrotFood(AutumnityItems.FOUL_BERRY_PIPS.get());
 	}
 
 	private static void registerCompostables() {

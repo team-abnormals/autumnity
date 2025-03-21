@@ -13,6 +13,6 @@ public class AutumnityModelLayers {
 	}
 
 	public static ModelLayerLocation register(String name, String layer) {
-		return new ModelLayerLocation(new ResourceLocation(Autumnity.MOD_ID, name), layer);
+		return new ModelLayerLocation(Autumnity.location(name), layer);
 	}
 }

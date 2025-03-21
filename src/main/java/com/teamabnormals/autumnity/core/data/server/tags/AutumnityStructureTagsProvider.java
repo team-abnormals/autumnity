@@ -19,7 +19,7 @@ public class AutumnityStructureTagsProvider extends StructureTagsProvider {
 
 	@Override
 	public void addTags(Provider provider) {
-		this.tag(StructureTags.CATS_SPAWN_IN).addOptional(new ResourceLocation(Autumnity.MOD_ID, "maple_hut"));
-		this.tag(StructureTags.CATS_SPAWN_AS_BLACK).addOptional(new ResourceLocation(Autumnity.MOD_ID, "maple_hut"));
+		this.tag(StructureTags.CATS_SPAWN_IN).addOptional(Autumnity.location("maple_hut"));
+		this.tag(StructureTags.CATS_SPAWN_AS_BLACK).addOptional(Autumnity.location("maple_hut"));
 	}
 }

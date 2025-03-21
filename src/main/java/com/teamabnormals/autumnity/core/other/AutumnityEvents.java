@@ -50,20 +50,17 @@ import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.event.entity.living.MobSpawnEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.util.TriState;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
 import java.util.UUID;
 
@@ -75,7 +72,7 @@ public class AutumnityEvents {
 	public static void rightClickBlock(RightClickBlock event) {
 		ItemStack stack = event.getItemStack();
 		if (stack.is(AutumnityItems.FOUL_BERRIES.get()) && ModList.get().isLoaded("berry_good") && AutumnityConfig.COMMON.foulBerriesRequirePips.get()) {
-			event.setUseItem(Event.Result.DENY);
+			event.setUseItem(TriState.FALSE);
 		}
 	}
 
@@ -236,7 +233,7 @@ public class AutumnityEvents {
 	public static void onPotionAdded(MobEffectEvent.Added event) {
 		LivingEntity livingentity = event.getEntity();
 		MobEffectInstance effect = event.getEffectInstance();
-		MobEffectInstance extension = livingentity.getEffect(AutumnityMobEffects.EXTENSION.get());
+		MobEffectInstance extension = livingentity.getEffect(AutumnityMobEffects.EXTENSION);
 
 		if (extension != null) {
 			if (effect.getEffect() != AutumnityMobEffects.EXTENSION.get()) {
@@ -257,8 +254,8 @@ public class AutumnityEvents {
 			for (Entity entity : level.getEntities(fallingblock, aabb, (entity) -> {
 				return entity.getType().is(AutumnityEntityTypeTags.CAN_WEAR_TURKEY) && ((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).isEmpty();
 			})) {
-				if (fallingblock.getY() >= entity.getEyeHeight()) {
-					entity.setItemSlot(EquipmentSlot.HEAD, new ItemStack(state.getBlock().asItem()));
+				if (entity instanceof LivingEntity living && fallingblock.getY() >= entity.getEyeHeight()) {
+					living.setItemSlot(EquipmentSlot.HEAD, new ItemStack(state.getBlock().asItem()));
 					fallingblock.discard();
 					event.setCanceled(true);
 					break;
@@ -268,11 +265,11 @@ public class AutumnityEvents {
 	}
 
 	public static void updateFoulTaste(Player player) {
-		MobEffectInstance effect = player.getEffect(AutumnityMobEffects.FOUL_TASTE.get());
+		MobEffectInstance effect = player.getEffect(AutumnityMobEffects.FOUL_TASTE);
 
-		player.removeEffect(AutumnityMobEffects.FOUL_TASTE.get());
+		player.removeEffect(AutumnityMobEffects.FOUL_TASTE);
 		if (effect.getAmplifier() > 0) {
-			player.addEffect(new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE.get(), effect.getDuration(), effect.getAmplifier() - 1));
+			player.addEffect(new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
 		}
 
 		if (player instanceof ServerPlayer serverplayerentity) {

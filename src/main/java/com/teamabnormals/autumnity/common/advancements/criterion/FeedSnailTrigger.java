@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 
 public class FeedSnailTrigger extends SimpleCriterionTrigger<TriggerInstance> {
-	private static final ResourceLocation ID = new ResourceLocation(Autumnity.MOD_ID, "feed_snail");
+	private static final ResourceLocation ID = Autumnity.location("feed_snail");
 
 	public ResourceLocation getId() {
 		return ID;

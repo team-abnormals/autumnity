@@ -12,8 +12,8 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class SnailModel<T extends Snail> extends EntityModel<T> {
@@ -88,40 +88,40 @@ public class SnailModel<T extends Snail> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack p_102034_, VertexConsumer p_102035_, int p_102036_, int p_102037_, float p_102038_, float p_102039_, float p_102040_, float p_102041_) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
 		if (this.young) {
-			p_102034_.pushPose();
-			p_102034_.scale(0.7F, 0.7F, 0.7F);
-			p_102034_.translate((double) (1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
-			this.leftEye.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
-			p_102034_.popPose();
-			p_102034_.pushPose();
-			p_102034_.scale(0.7F, 0.7F, 0.7F);
-			p_102034_.translate((double) (-1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
-			this.rightEye.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
-			p_102034_.popPose();
-			p_102034_.pushPose();
-			p_102034_.scale(0.5F, 0.5F, 0.5F);
-			p_102034_.translate(0.0D, (double) (24.0F / 16.0F), 0.0D);
+			poseStack.pushPose();
+			poseStack.scale(0.7F, 0.7F, 0.7F);
+			poseStack.translate((double) (1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
+			this.leftEye.render(poseStack, buffer, packedLight, packedOverlay, color);
+			poseStack.popPose();
+			poseStack.pushPose();
+			poseStack.scale(0.7F, 0.7F, 0.7F);
+			poseStack.translate((double) (-1.2F / 16.0F), (double) (13.0F / 16.0F), (double) (2.5F / 16.0F));
+			this.rightEye.render(poseStack, buffer, packedLight, packedOverlay, color);
+			poseStack.popPose();
+			poseStack.pushPose();
+			poseStack.scale(0.5F, 0.5F, 0.5F);
+			poseStack.translate(0.0D, (double) (24.0F / 16.0F), 0.0D);
 			ImmutableList.of(this.rightTentacle, this.leftTentacle, this.shell).forEach((p_103587_) -> {
-				p_103587_.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
+				p_103587_.render(poseStack, buffer, packedLight, packedOverlay, color);
 			});
-			p_102034_.pushPose();
-			p_102034_.scale(1.0F, 1.0F, 1.0F - 1.0F / 3.0F * this.hideAmount);
-			this.body.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
-			p_102034_.popPose();
-			p_102034_.popPose();
+			poseStack.pushPose();
+			poseStack.scale(1.0F, 1.0F, 1.0F - 1.0F / 3.0F * this.hideAmount);
+			this.body.render(poseStack, buffer, packedLight, packedOverlay, color);
+			poseStack.popPose();
+			poseStack.popPose();
 		} else {
 			ImmutableList.of(this.rightEye, this.leftEye).forEach((p_103587_) -> {
-				p_103587_.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
+				p_103587_.render(poseStack, buffer, packedLight, packedOverlay, color);
 			});
 			ImmutableList.of(this.rightTentacle, this.leftTentacle, this.shell).forEach((p_103587_) -> {
-				p_103587_.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
+				p_103587_.render(poseStack, buffer, packedLight, packedOverlay, color);
 			});
-			p_102034_.pushPose();
-			p_102034_.scale(1.0F, 1.0F, 1.0F - 1.0F / 3.0F * this.hideAmount);
-			this.body.render(p_102034_, p_102035_, p_102036_, p_102037_, p_102038_, p_102039_, p_102040_, p_102041_);
-			p_102034_.popPose();
+			poseStack.pushPose();
+			poseStack.scale(1.0F, 1.0F, 1.0F - 1.0F / 3.0F * this.hideAmount);
+			this.body.render(poseStack, buffer, packedLight, packedOverlay, color);
+			poseStack.popPose();
 		}
 	}
 }

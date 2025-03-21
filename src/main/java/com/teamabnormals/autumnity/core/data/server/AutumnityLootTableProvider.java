@@ -203,7 +203,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-			consumer.accept(new ResourceLocation(Autumnity.MOD_ID, "chests/maple_hut"), LootTable.lootTable()
+			consumer.accept(Autumnity.location("chests/maple_hut"), LootTable.lootTable()
 					.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 2.0F))
 							.add(LootItem.lootTableItem(SNAIL_GOO.get()).setWeight(9).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
 							.add(LootItem.lootTableItem(Items.GLASS_BOTTLE).setWeight(8).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))

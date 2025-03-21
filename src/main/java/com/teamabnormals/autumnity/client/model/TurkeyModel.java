@@ -10,13 +10,9 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
-/**
- * ModelTurkey - Undefined
- * Created using Tabula 8.0.0
- */
 @OnlyIn(Dist.CLIENT)
 public class TurkeyModel<T extends Turkey> extends AgeableListModel<T> {
 	private final ModelPart head;

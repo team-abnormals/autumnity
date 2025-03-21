@@ -5,11 +5,10 @@ import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlac
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -20,7 +19,7 @@ public class AutumnityBiomes {
 	public static final ResourceKey<Biome> MAPLE_FOREST = createKey("maple_forest");
 	public static final ResourceKey<Biome> PUMPKIN_FIELDS = createKey("pumpkin_fields");
 
-	public static void bootstrap(BootstapContext<Biome> context) {
+	public static void bootstrap(BootstrapContext<Biome> context) {
 		HolderGetter<PlacedFeature> features = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<ConfiguredWorldCarver<?>> carvers = context.lookup(Registries.CONFIGURED_CARVER);
 
@@ -29,7 +28,7 @@ public class AutumnityBiomes {
 	}
 
 	public static ResourceKey<Biome> createKey(String name) {
-		return ResourceKey.create(Registries.BIOME, new ResourceLocation(Autumnity.MOD_ID, name));
+		return ResourceKey.create(Registries.BIOME, Autumnity.location(name));
 	}
 
 	private static Biome mapleForest(HolderGetter<PlacedFeature> features, HolderGetter<ConfiguredWorldCarver<?>> carvers) {

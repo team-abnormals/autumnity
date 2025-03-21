@@ -1,4 +1,4 @@
-package com.teamabnormals.autumnity.core.other;
+package com.teamabnormals.autumnity.core.registry.datapack;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.core.Autumnity;
@@ -7,9 +7,8 @@ import com.teamabnormals.blueprint.common.world.modification.ModdedBiomeSlice;
 import com.teamabnormals.blueprint.core.registry.BlueprintBiomes;
 import com.teamabnormals.blueprint.core.registry.BlueprintDataPackRegistries;
 import com.teamabnormals.blueprint.core.util.BiomeUtil.MultiNoiseModdedBiomeProvider;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.dimension.LevelStem;
@@ -29,7 +28,7 @@ public class AutumnityBiomeSlices {
 	private static final ResourceKey<Biome> MAPLE_FOREST_PLATEAU_VARIANT = AutumnityBiomes.createKey("maple_forest_plateau_variant");
 	private static final ResourceKey<Biome> PUMPKIN_FIELDS_MIDDLE = AutumnityBiomes.createKey("pumpkin_fields_middle");
 
-	public static void bootstrap(BootstapContext<ModdedBiomeSlice> context) {
+	public static void bootstrap(BootstrapContext<ModdedBiomeSlice> context) {
 		List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> entries = new ArrayList<>();
 		new AutumnBiomeBuilder().addBiomesToSlice(entries::add);
 
@@ -45,7 +44,7 @@ public class AutumnityBiomeSlices {
 	}
 
 	public static ResourceKey<ModdedBiomeSlice> createKey(String name) {
-		return ResourceKey.create(BlueprintDataPackRegistries.MODDED_BIOME_SLICES, new ResourceLocation(Autumnity.MOD_ID, name));
+		return ResourceKey.create(BlueprintDataPackRegistries.MODDED_BIOME_SLICES, Autumnity.location(name));
 	}
 
 	//Modified version of OverworldBiomeBuilder to simplify Autumnity's slice

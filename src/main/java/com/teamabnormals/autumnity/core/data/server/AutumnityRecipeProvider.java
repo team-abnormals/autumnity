@@ -13,27 +13,27 @@ import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
-import com.teamabnormals.woodworks.core.WoodworksConfig;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.common.conditions.NotCondition;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	public static final ModLoadedCondition BERRY_GOOD_LOADED = new ModLoadedCondition("berry_good");
-	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPES = new ConfigValueCondition(new ResourceLocation(Autumnity.MOD_ID, "config"), AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips", Maps.newHashMap(), false);
+	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPES = new ConfigValueCondition(Autumnity.location("config"), AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips", Maps.newHashMap(), false);
 	public static final BlueprintAndCondition BERRY_GOOD_AND_PIPS = new BlueprintAndCondition(BERRY_GOOD_LOADED, FOUL_BERRIES_REQUIRE_PIPES);
 
 	public static final ModLoadedCondition ENDERGETIC_LOADED = new ModLoadedCondition("endergetic");
@@ -41,12 +41,12 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	public static final ModLoadedCondition CAVERNS_AND_CHASMS_LOADED = new ModLoadedCondition("caverns_and_chasms");
 	public static final NotCondition ABNORMALS_DELIGHT_NOT_LOADED = new NotCondition(new ModLoadedCondition("abnormals_delight"));
 
-	public AutumnityRecipeProvider(PackOutput output) {
-		super(Autumnity.MOD_ID, output);
+	public AutumnityRecipeProvider(PackOutput output, CompletableFuture<Provider> provider) {
+		super(Autumnity.MOD_ID, output, provider);
 	}
 
 	@Override
-	public void buildRecipes(Consumer<FinishedRecipe> consumer) {
+	public void buildRecipes(RecipeOutput consumer) {
 		conversionRecipe(consumer, Items.MAGENTA_DYE, AUTUMN_CROCUS.get(), "magenta_dye");
 		conditionalRecipe(consumer, BERRY_GOOD_AND_PIPS, RecipeCategory.MISC, conversionRecipeBuilder(AutumnityItems.FOUL_BERRY_PIPS.get(), AutumnityItems.FOUL_BERRIES.get(), 1));
 		conditionalStorageRecipes(consumer, BERRY_GOOD_LOADED, RecipeCategory.FOOD, AutumnityItems.FOUL_BERRIES.get(), RecipeCategory.DECORATIONS, FOUL_BERRY_BASKET.get());
@@ -83,14 +83,14 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AutumnityItems.SWIRL_BANNER_PATTERN.get()).requires(Items.PAPER).requires(AutumnityItems.SNAIL_SHELL_PIECE.get()).unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', AutumnityItems.SNAIL_SHELL_PIECE.get()).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(consumer);
-		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY);
+		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY, FeatureFlags.DEFAULT_FLAGS);
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_BRICK_SLAB.get(), SNAIL_SHELL_BRICKS.get(), 2);
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_BRICK_STAIRS.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(consumer, RecipeCategory.DECORATIONS, SNAIL_SHELL_BRICK_WALL.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, CHISELED_SNAIL_SHELL_BRICKS.get(), SNAIL_SHELL_BRICKS.get());
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILES.get(), 4).define('#', SNAIL_SHELL_BRICKS.get()).pattern("##").pattern("##").unlockedBy("has_snail_shell_bricks", has(SNAIL_SHELL_BRICKS.get())).save(consumer);
-		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY);
+		generateRecipes(consumer, AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY, FeatureFlags.DEFAULT_FLAGS);
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_SLAB.get(), SNAIL_SHELL_TILES.get(), 2);
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_STAIRS.get(), SNAIL_SHELL_TILES.get());
 		stonecutterRecipe(consumer, RecipeCategory.DECORATIONS, SNAIL_SHELL_TILE_WALL.get(), SNAIL_SHELL_TILES.get());
@@ -99,7 +99,7 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_STAIRS.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_WALL.get(), SNAIL_SHELL_BRICKS.get());
 
-		generateRecipes(consumer, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY);
+		generateRecipes(consumer, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY, FeatureFlags.DEFAULT_FLAGS);
 		planksFromLogs(consumer, MAPLE_PLANKS.get(), AutumnityItemTags.MAPLE_LOGS, 4);
 		woodFromLogs(consumer, MAPLE_WOOD.get(), MAPLE_LOG.get());
 		woodFromLogs(consumer, STRIPPED_MAPLE_WOOD.get(), STRIPPED_MAPLE_LOG.get());

@@ -2,17 +2,16 @@ package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.blueprint.common.effect.BlueprintMobEffect;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityMobEffects {
-	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Autumnity.MOD_ID);
+	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, Autumnity.MOD_ID);
 
-	public static final RegistryObject<MobEffect> EXTENSION = MOB_EFFECTS.register("extension", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 16767620));
-	public static final RegistryObject<MobEffect> FOUL_TASTE = MOB_EFFECTS.register("foul_taste", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 14722092));
+	public static final DeferredHolder<MobEffect, MobEffect> EXTENSION = MOB_EFFECTS.register("extension", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 16767620));
+	public static final DeferredHolder<MobEffect, MobEffect> FOUL_TASTE = MOB_EFFECTS.register("foul_taste", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 14722092));
 }

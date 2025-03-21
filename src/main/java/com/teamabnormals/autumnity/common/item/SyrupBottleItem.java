@@ -1,7 +1,10 @@
 package com.teamabnormals.autumnity.common.item;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -19,6 +22,10 @@ public class SyrupBottleItem extends Item {
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
 		super.finishUsingItem(stack, worldIn, entityLiving);
+		if (entityLiving instanceof ServerPlayer serverplayer) {
+			CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
+			serverplayer.awardStat(Stats.ITEM_USED.get(this));
+		}
 
 		if (stack.isEmpty()) {
 			return new ItemStack(Items.GLASS_BOTTLE);

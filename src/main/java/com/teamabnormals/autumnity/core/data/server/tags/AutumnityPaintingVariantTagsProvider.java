@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.core.data.server.tags;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.AutumnityPaintings;
+import com.teamabnormals.autumnity.core.registry.datapack.AutumnityPaintingVariants;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.PaintingVariantTagsProvider;
@@ -18,6 +18,6 @@ public class AutumnityPaintingVariantTagsProvider extends PaintingVariantTagsPro
 
 	@Override
 	public void addTags(Provider provider) {
-		this.tag(PaintingVariantTags.PLACEABLE).add(AutumnityPaintings.SNAIL.getKey(), AutumnityPaintings.PUMPKIN.getKey());
+		this.tag(PaintingVariantTags.PLACEABLE).add(AutumnityPaintingVariants.SNAIL.getKey(), AutumnityPaintingVariants.PUMPKIN.getKey());
 	}
 }

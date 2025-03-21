@@ -2,7 +2,7 @@ package com.teamabnormals.autumnity.core.data.server.tags;
 
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBannerPatternTags;
-import com.teamabnormals.autumnity.core.registry.AutumnityBannerPatterns;
+import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBannerPatterns;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BannerPatternTagsProvider;

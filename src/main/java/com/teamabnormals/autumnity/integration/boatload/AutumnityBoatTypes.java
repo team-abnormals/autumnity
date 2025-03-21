@@ -12,7 +12,7 @@ import net.minecraft.world.item.Item;
 import java.util.function.Supplier;
 
 public class AutumnityBoatTypes {
-	public static final BoatloadBoatType MAPLE = BoatloadBoatType.register(BoatloadBoatType.create(new ResourceLocation(Autumnity.MOD_ID, "maple"), () -> AutumnityBlocks.MAPLE_PLANKS.get().asItem(), () -> AutumnityItems.MAPLE_BOAT.getFirst().get(), () -> AutumnityItems.MAPLE_BOAT.getSecond().get(), () -> AutumnityItems.MAPLE_FURNACE_BOAT.get(), () -> AutumnityItems.LARGE_MAPLE_BOAT.get()));
+	public static final BoatloadBoatType MAPLE = BoatloadBoatType.register(BoatloadBoatType.create(Autumnity.location("maple"), () -> AutumnityBlocks.MAPLE_PLANKS.get().asItem(), () -> AutumnityItems.MAPLE_BOAT.getFirst().get(), () -> AutumnityItems.MAPLE_BOAT.getSecond().get(), () -> AutumnityItems.MAPLE_FURNACE_BOAT.get(), () -> AutumnityItems.LARGE_MAPLE_BOAT.get()));
 
 	public static final Supplier<Item> MAPLE_FURNACE_BOAT = () -> new FurnaceBoatItem(MAPLE);
 	public static final Supplier<Item> LARGE_MAPLE_BOAT = () -> new LargeBoatItem(MAPLE);

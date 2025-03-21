@@ -12,13 +12,12 @@ import com.teamabnormals.autumnity.core.Autumnity;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
@@ -34,21 +33,20 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise.NoiseParameters;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityFeatures {
-	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Autumnity.MOD_ID);
+	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, Autumnity.MOD_ID);
 
-	public static final RegistryObject<Feature<TreeConfiguration>> MAPLE_TREE = FEATURES.register("maple_tree", () -> new MapleTreeFeature(TreeConfiguration.CODEC));
-	public static final RegistryObject<Feature<TreeConfiguration>> FALLEN_LEAVES_MAPLE_TREE = FEATURES.register("fallen_leaves_maple_tree", () -> new FallenLeavesMapleTreeFeature(TreeConfiguration.CODEC));
-	public static final RegistryObject<Feature<NoneFeatureConfiguration>> FALLEN_LEAVES = FEATURES.register("fallen_leaves", () -> new FallenLeavesFeature(NoneFeatureConfiguration.CODEC));
-	public static final RegistryObject<Feature<NoneFeatureConfiguration>> PUMPKIN_FIELDS_PUMPKIN = FEATURES.register("pumpkin_fields_pumpkin", () -> new PumpkinFieldsPumpkinFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> MAPLE_TREE = FEATURES.register("maple_tree", () -> new MapleTreeFeature(TreeConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> FALLEN_LEAVES_MAPLE_TREE = FEATURES.register("fallen_leaves_maple_tree", () -> new FallenLeavesMapleTreeFeature(TreeConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_LEAVES = FEATURES.register("fallen_leaves", () -> new FallenLeavesFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PUMPKIN_FIELDS_PUMPKIN = FEATURES.register("pumpkin_fields_pumpkin", () -> new PumpkinFieldsPumpkinFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final class States {
 		private static final BlockState MAPLE_LOG = AutumnityBlocks.MAPLE_LOG.get().defaultBlockState();
@@ -72,13 +70,13 @@ public class AutumnityFeatures {
 	public static final class AutumnityNoiseParameters {
 		public static final ResourceKey<NoiseParameters> SPOTTED_MAPLES = createKey("spotted_maples");
 
-		public static void bootstrap(BootstapContext<NoiseParameters> context) {
+		public static void bootstrap(BootstrapContext<NoiseParameters> context) {
 			context.register(SPOTTED_MAPLES, new NoiseParameters(-8, 1.0D));
 
 		}
 
 		public static ResourceKey<NoiseParameters> createKey(String name) {
-			return ResourceKey.create(Registries.NOISE, new ResourceLocation(Autumnity.MOD_ID, name));
+			return ResourceKey.create(Registries.NOISE, Autumnity.location(name));
 		}
 	}
 
@@ -101,7 +99,7 @@ public class AutumnityFeatures {
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_MAPLE_FOREST = createKey("flower_maple_forest");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_PUMPKIN_FIELDS = createKey("flower_pumpkin_fields");
 
-		public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+		public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 			HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 			HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
@@ -125,10 +123,10 @@ public class AutumnityFeatures {
 		}
 
 		public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
-			return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Autumnity.MOD_ID, name));
+			return ResourceKey.create(Registries.CONFIGURED_FEATURE, Autumnity.location(name));
 		}
 
-		public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+		public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
 			context.register(key, new ConfiguredFeature<>(feature, config));
 		}
 	}
@@ -151,7 +149,7 @@ public class AutumnityFeatures {
 		public static final ResourceKey<PlacedFeature> PATCH_PUMPKIN_PUMPKIN_FIELDS = createKey("patch_pumpkin_pumpkin_fields");
 		public static final ResourceKey<PlacedFeature> FLOWER_PUMPKIN_FIELDS = createKey("flower_pumpkin_fields");
 
-		public static void bootstrap(BootstapContext<PlacedFeature> context) {
+		public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 			HolderGetter<NoiseParameters> noise = context.lookup(Registries.NOISE);
 
 			register(context, MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.MAPLE_TREE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
@@ -183,14 +181,14 @@ public class AutumnityFeatures {
 		}
 
 		public static ResourceKey<PlacedFeature> createKey(String name) {
-			return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(Autumnity.MOD_ID, name));
+			return ResourceKey.create(Registries.PLACED_FEATURE, Autumnity.location(name));
 		}
 
-		public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
+		public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
 			context.register(key, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(feature), modifiers));
 		}
 
-		public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier... modifiers) {
+		public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier... modifiers) {
 			register(context, key, feature, List.of(modifiers));
 		}
 	}

@@ -18,14 +18,14 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.function.Supplier;
 
 public class SappyLogBlock extends RotatedPillarBlock {
 	private final Supplier<Block> saplessBlock;
 
-	public SappyLogBlock(RegistryObject<Block> saplessBlockIn, Properties properties) {
+	public SappyLogBlock(DeferredBlock<Block> saplessBlockIn, Properties properties) {
 		super(properties);
 		this.saplessBlock = saplessBlockIn;
 	}

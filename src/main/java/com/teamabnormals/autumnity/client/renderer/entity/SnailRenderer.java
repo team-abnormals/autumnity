@@ -10,14 +10,14 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class SnailRenderer extends MobRenderer<Snail, SnailModel<Snail>> {
-	private static final ResourceLocation SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/snail.png");
-	private static final ResourceLocation SNAKE_SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/snake_snail.png");
-	private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = new ResourceLocation(Autumnity.MOD_ID, "textures/entity/snail/nautilus_snail.png");
+	private static final ResourceLocation SNAIL_TEXTURES = Autumnity.location("textures/entity/snail/snail.png");
+	private static final ResourceLocation SNAKE_SNAIL_TEXTURES = Autumnity.location("textures/entity/snail/snake_snail.png");
+	private static final ResourceLocation NAUTILUS_SNAIL_TEXTURES = Autumnity.location("textures/entity/snail/nautilus_snail.png");
 
 	public SnailRenderer(EntityRendererProvider.Context context) {
 		super(context, new SnailModel<>(context.bakeLayer(AutumnityModelLayers.SNAIL)), 0.5F);
@@ -38,9 +38,9 @@ public class SnailRenderer extends MobRenderer<Snail, SnailModel<Snail>> {
 	}
 
 	@Override
-	protected void setupRotations(Snail entityLiving, PoseStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
-		super.setupRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
-		double d0 = entityLiving.getShakeAmount(partialTicks);
+	protected void setupRotations(Snail entityLiving, PoseStack matrixStackIn, float bob, float yBodyRot, float partialTick, float scale) {
+		super.setupRotations(entityLiving, matrixStackIn, bob, yBodyRot, partialTick, scale);
+		double d0 = entityLiving.getShakeAmount(partialTick);
 		double d1 = d0 > 0 ? 2.0D : -2.0D;
 		double d2 = Math.sin(12.6D * d0) * d1 * d0;
 		matrixStackIn.mulPose(Axis.ZP.rotationDegrees(6.0F * (float) d2));

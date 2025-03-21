@@ -33,7 +33,7 @@ public class AutumnityLootModifierProvider extends LootModifierProvider {
 	protected void registerEntries(Provider provider) {
 		this.entry("foul_berry_bush")
 				.selector(new ConditionedResourceSelector(
-						new NamesResourceSelector(new ResourceLocation(Autumnity.MOD_ID, "blocks/foul_berry_bush")),
+						new NamesResourceSelector(Autumnity.location("blocks/foul_berry_bush")),
 						AutumnityRecipeProvider.BERRY_GOOD_AND_PIPS)
 				)
 				.addModifier(new LootPoolsModifier(List.of(LootPool.lootPool()
@@ -43,7 +43,7 @@ public class AutumnityLootModifierProvider extends LootModifierProvider {
 
 		this.entry("tall_foul_berry_bush")
 				.selector(new ConditionedResourceSelector(
-						new NamesResourceSelector(new ResourceLocation(Autumnity.MOD_ID, "blocks/tall_foul_berry_bush")),
+						new NamesResourceSelector(Autumnity.location("blocks/tall_foul_berry_bush")),
 						AutumnityRecipeProvider.BERRY_GOOD_AND_PIPS)
 				)
 				.addModifier(new LootPoolsModifier(List.of(LootPool.lootPool()

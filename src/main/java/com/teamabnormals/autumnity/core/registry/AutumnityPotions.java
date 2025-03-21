@@ -1,22 +1,24 @@
 package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.blueprint.core.util.DataUtil;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityPotions {
-	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, Autumnity.MOD_ID);
+	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, Autumnity.MOD_ID);
 
-	public static final RegistryObject<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(AutumnityMobEffects.EXTENSION.get(), 1800)));
+	public static final DeferredHolder<Potion, Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(AutumnityMobEffects.EXTENSION, 1800)));
 
-	public static void registerBrewingRecipes() {
-		DataUtil.addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_GOO.get().asItem(), EXTENSION.get());
+	@SubscribeEvent
+	public static void registerBrewingRecipes(RegisterBrewingRecipesEvent event) {
+		event.getBuilder().addMix(Potions.AWKWARD, AutumnityBlocks.SNAIL_GOO.get().asItem(), EXTENSION);
 	}
 }

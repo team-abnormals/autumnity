@@ -19,25 +19,23 @@ import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;
 import com.teamabnormals.autumnity.core.registry.*;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
-import com.teamabnormals.gallery.core.data.client.GalleryAssetsRemolderProvider;
 import com.teamabnormals.gallery.core.data.client.GalleryItemModelProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -46,39 +44,32 @@ public class Autumnity {
 	public static final String MOD_ID = "autumnity";
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
-	public Autumnity() {
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		ModLoadingContext context = ModLoadingContext.get();
-		MinecraftForge.EVENT_BUS.register(this);
-
+	public Autumnity(IEventBus bus, ModContainer container) {
 		REGISTRY_HELPER.register(bus);
-		AutumnityPaintings.PAINTINGS.register(bus);
 		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
 		AutumnityPlacementModifierTypes.PLACEMENT_MODIFIER_TYPES.register(bus);
 		AutumnityFeatures.FEATURES.register(bus);
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
-		AutumnityLootConditions.LOOT_CONDITION_TYPES.register(bus);
-		AutumnityBannerPatterns.BANNER_PATTERNS.register(bus);
+		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
 		bus.addListener(this::dataSetup);
 
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+		if (FMLEnvironment.dist == Dist.CLIENT) {
 			AutumnityBlocks.setupTabEditors();
 			AutumnityItems.setupTabEditors();
 			bus.addListener(this::registerLayerDefinitions);
 			bus.addListener(this::registerRenderers);
-		});
+		}
 
-		context.registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
+		container.registerConfig(ModConfig.Type.COMMON, AutumnityConfig.COMMON_SPEC);
 	}
 
 	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			AutumnityCompat.registerCompat();
-			AutumnityPotions.registerBrewingRecipes();
 		});
 	}
 
@@ -119,8 +110,7 @@ public class Autumnity {
 		generator.addProvider(client, new AutumnityItemModelProvider(output, helper));
 		generator.addProvider(client, new AutumnityBlockStateProvider(output, helper));
 
-		generator.addProvider(client, new GalleryItemModelProvider(MOD_ID, output, helper));
-		generator.addProvider(client, new GalleryAssetsRemolderProvider(MOD_ID, output, provider));
+		generator.addProvider(client, new GalleryItemModelProvider(MOD_ID, output, helper, provider));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -134,5 +124,9 @@ public class Autumnity {
 		event.registerEntityRenderer(AutumnityEntityTypes.SNAIL.get(), SnailRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY.get(), TurkeyRenderer::new);
 		event.registerEntityRenderer(AutumnityEntityTypes.TURKEY_EGG.get(), TurkeyEggRenderer::new);
+	}
+
+	public static ResourceLocation location(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 }

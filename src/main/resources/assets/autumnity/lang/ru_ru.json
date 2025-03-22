@@ -104,7 +104,7 @@
   "effect.autumnity.extension": "Продление",
   "effect.autumnity.extension.desc": "Во время действия, любой полученный эффект будет продлён на 30 секунд",
   "effect.autumnity.foul_taste": "Мерзкий привкус",
-  "effect.autumnity.foul_taste.desc": "Еда, съеденная во время действия эффект, сытна на 50% больше",
+  "effect.autumnity.foul_taste.desc": "Еда, съеденная во время действия эффекта, на 50% более питательна",
   
   "item.minecraft.potion.effect.extension": "Зелье продления",
   "item.minecraft.splash_potion.effect.extension": "Взрывное зелье продления",

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:yellow_maple_leaves_from_yellow_maple_leaf_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_maple_leaf_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "autumnity:yellow_maple_leaf_pile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yellow_maple_leaf_pile"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:yellow_maple_leaves_from_yellow_maple_leaf_pile"
+    ]
+  }
+}

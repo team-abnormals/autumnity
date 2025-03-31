@@ -1,0 +1,101 @@
+{
+  "parent": "minecraft:husbandry/breed_an_animal",
+  "criteria": {
+    "brown_mushroom": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "autumnity:snail"
+            }
+          }
+        ],
+        "item": {
+          "items": "minecraft:brown_mushroom"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    },
+    "crimson_fungus": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "autumnity:snail"
+            }
+          }
+        ],
+        "item": {
+          "items": "minecraft:crimson_fungus"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    },
+    "red_mushroom": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "autumnity:snail"
+            }
+          }
+        ],
+        "item": {
+          "items": "minecraft:red_mushroom"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    },
+    "warped_fungus": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "autumnity:snail"
+            }
+          }
+        ],
+        "item": {
+          "items": "minecraft:warped_fungus"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.autumnity.husbandry.fungivore_diet.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:crimson_fungus"
+    },
+    "title": {
+      "translate": "advancements.autumnity.husbandry.fungivore_diet.title"
+    }
+  },
+  "requirements": [
+    [
+      "red_mushroom"
+    ],
+    [
+      "brown_mushroom"
+    ],
+    [
+      "crimson_fungus"
+    ],
+    [
+      "warped_fungus"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

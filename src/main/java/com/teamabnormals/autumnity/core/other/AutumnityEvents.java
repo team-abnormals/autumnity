@@ -1,6 +1,5 @@
 package com.teamabnormals.autumnity.core.other;
 
-import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.teamabnormals.autumnity.common.block.TurkeyBlock;
 import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
@@ -8,25 +7,22 @@ import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
-import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
-import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
+import com.teamabnormals.autumnity.core.registry.*;
 import com.teamabnormals.blueprint.core.events.FallingBlockEvent.FallingBlockTickEvent;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -38,9 +34,10 @@ import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.FoodProperties.PossibleEffect;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SuspiciousStewItem;
+import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
@@ -55,18 +52,17 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
-import java.util.UUID;
-
 @EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityEvents {
-	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(UUID.fromString("98D5CD1F-601F-47E6-BEEC-5997E1C4216F"), "Knockback modifier", 1.0D, AttributeModifier.Operation.ADDITION));
+	private static final AttributeModifier KNOCKBACK_MODIFIER = (new AttributeModifier(Autumnity.location("knockback_modifier"), 1.0D, Operation.ADD_VALUE));
 
 	@SubscribeEvent
 	public static void rightClickBlock(RightClickBlock event) {
@@ -92,7 +88,7 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onLivingSpawn(MobSpawnEvent.FinalizeSpawn event) {
+	public static void onLivingSpawn(FinalizeSpawnEvent event) {
 		LevelAccessor level = event.getLevel();
 		Mob entity = event.getEntity();
 
@@ -108,17 +104,17 @@ public class AutumnityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onSnailShellChestplateSneak(LivingTickEvent event) {
-		LivingEntity entity = event.getEntity();
-
-		entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
-		if (entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isShiftKeyDown()) {
-			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(KNOCKBACK_MODIFIER);
+	public static void onSnailShellChestplateSneak(EntityTickEvent.Post event) {
+		if (event.getEntity() instanceof LivingEntity entity && entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE) != null) {
+			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
+			if (entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isCrouching()) {
+				entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(KNOCKBACK_MODIFIER);
+			}
 		}
 	}
 
 	@SubscribeEvent
-	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+	public static void onRightClickBlock(RightClickBlock event) {
 		Level level = event.getLevel();
 		Player player = event.getEntity();
 		ItemStack itemstack = event.getItemStack();
@@ -129,8 +125,8 @@ public class AutumnityEvents {
 
 		if (!player.isSpectator()) {
 			if (item == AutumnityItems.FOUL_BERRIES.get() && ModList.get().isLoaded("berry_good")) {
-				event.setUseItem(Event.Result.DENY);
-			} else if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == ForgeRegistries.BLOCKS.getValue(AutumnityConstants.YUCCA_GATEAU)))) {
+				event.setUseItem(TriState.FALSE);
+			} else if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE) && player.canEat(false) && (block instanceof CakeBlock || (ModList.get().isLoaded("atmospheric") && block == BuiltInRegistries.BLOCK.get(AutumnityConstants.YUCCA_GATEAU)))) {
 				if (player.getFoodData().getFoodLevel() < 19) {
 					player.getFoodData().eat(1, 0.0F);
 				}
@@ -167,43 +163,24 @@ public class AutumnityEvents {
 
 	@SubscribeEvent
 	public static void onFoulBerriesEaten(LivingEntityUseItemEvent.Finish event) {
-		ItemStack itemstack = event.getItem();
-		if (event.getEntity().hasEffect(AutumnityMobEffects.FOUL_TASTE.get()) && event.getEntity() instanceof Player player && itemstack.isEdible()) {
-			Item item = itemstack.getItem();
-			FoodProperties food = item.getFoodProperties();
-			boolean flag = true;
-
-			if (item instanceof SuspiciousStewItem) {
-				CompoundTag compoundnbt = itemstack.getTag();
-				if (compoundnbt != null && compoundnbt.contains("Effects", 9)) {
-					ListTag listnbt = compoundnbt.getList("Effects", 10);
-
-					for (int i = 0; i < listnbt.size(); ++i) {
-						CompoundTag compoundnbt1 = listnbt.getCompound(i);
-
-						MobEffect effect = MobEffect.byId(compoundnbt1.getByte("EffectId"));
-						if (effect == AutumnityMobEffects.FOUL_TASTE.get()) {
-							flag = false;
-							break;
-						}
-					}
-				}
-			} else {
-				for (Pair<MobEffectInstance, Float> pair : food.getEffects()) {
-					if (pair.getFirst().getEffect() == AutumnityMobEffects.FOUL_TASTE.get()) {
-						flag = false;
-						break;
-					}
+		ItemStack stack = event.getItem();
+		FoodProperties food = stack.getFoodProperties(event.getEntity());
+		if (event.getEntity() instanceof Player player && player.hasEffect(AutumnityMobEffects.FOUL_TASTE) && food != null) {
+			for (PossibleEffect effect : food.effects()) {
+				if (effect.effect().is(AutumnityMobEffects.FOUL_TASTE)) {
+					return;
 				}
 			}
 
-			if (flag) {
-				int i = food.getNutrition();
-				int j = Math.max(1, (int) (i * 0.5F));
-
-				player.getFoodData().eat(j, 0.0F);
-				updateFoulTaste(player);
+			SuspiciousStewEffects stewEffects = stack.getOrDefault(DataComponents.SUSPICIOUS_STEW_EFFECTS, SuspiciousStewEffects.EMPTY);
+			for (SuspiciousStewEffects.Entry entry : stewEffects.effects()) {
+				if (entry.effect().is(AutumnityMobEffects.FOUL_TASTE)) {
+					return;
+				}
 			}
+
+			player.getFoodData().eat(Math.max(1, (int) (food.nutrition() * 0.5F)), 0.0F);
+			updateFoulTaste(player);
 		}
 	}
 
@@ -272,9 +249,9 @@ public class AutumnityEvents {
 			player.addEffect(new MobEffectInstance(AutumnityMobEffects.FOUL_TASTE, effect.getDuration(), effect.getAmplifier() - 1));
 		}
 
-		if (player instanceof ServerPlayer serverplayerentity) {
+		if (player instanceof ServerPlayer serverPlayer) {
 			if (!player.getCommandSenderWorld().isClientSide()) {
-				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.trigger((serverplayerentity));
+				AutumnityCriteriaTriggers.CURE_FOUL_TASTE.get().trigger(serverPlayer);
 			}
 		}
 	}

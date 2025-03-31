@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Autumnity.MOD_ID)
 public class AutumnityPotions {
 	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, Autumnity.MOD_ID);
 

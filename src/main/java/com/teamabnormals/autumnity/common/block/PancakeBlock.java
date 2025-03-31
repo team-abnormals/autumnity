@@ -6,7 +6,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -74,9 +74,7 @@ public class PancakeBlock extends Block {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(handIn);
-
+	public ItemInteractionResult useItemOn(ItemStack itemstack, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
 		if (player.isShiftKeyDown()) {
 			if (worldIn.getBlockState(pos.above()).getBlock() != this) {
 				if (state.getValue(PANCAKES) > 1) {
@@ -91,7 +89,7 @@ public class PancakeBlock extends Block {
 							worldIn.removeBlock(pos, false);
 						}
 					}
-					return InteractionResult.SUCCESS;
+					return ItemInteractionResult.SUCCESS;
 				} else if (worldIn.getBlockState(pos.below()).getBlock() == this && worldIn.getBlockState(pos.below()).getValue(PANCAKES) == 32) {
 					if (!worldIn.isClientSide) {
 						popResource(worldIn, pos, new ItemStack(this.asItem()));
@@ -99,34 +97,34 @@ public class PancakeBlock extends Block {
 						worldIn.setBlock(pos.below(), state.setValue(PANCAKES, 31), 3);
 						worldIn.removeBlock(pos, false);
 					}
-					return InteractionResult.SUCCESS;
+					return ItemInteractionResult.SUCCESS;
 				}
 			}
 		} else if (player.getItemInHand(handIn).getItem() != AutumnityBlocks.PANCAKE.get().asItem()) {
 			if (worldIn.isClientSide) {
-				if (this.eatCake(worldIn, pos, state, player, itemstack) == InteractionResult.SUCCESS) {
-					return InteractionResult.SUCCESS;
+				if (this.eatCake(worldIn, pos, state, player, itemstack) == ItemInteractionResult.SUCCESS) {
+					return ItemInteractionResult.SUCCESS;
 				}
 
 				if (itemstack.isEmpty()) {
-					return InteractionResult.CONSUME;
+					return ItemInteractionResult.CONSUME;
 				}
 			}
 
 			return this.eatCake(worldIn, pos, state, player, itemstack);
 		}
 
-		return InteractionResult.PASS;
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	private InteractionResult eatCake(Level worldIn, BlockPos pos, BlockState state, Player player, ItemStack itemstack) {
+	private ItemInteractionResult eatCake(Level worldIn, BlockPos pos, BlockState state, Player player, ItemStack itemstack) {
 		int i = state.getValue(PANCAKES);
 		if (!player.canEat(false)) {
-			return InteractionResult.PASS;
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		} else if (i < 31 && itemstack.getItem() == this.asItem()) {
-			return InteractionResult.PASS;
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		} else if (worldIn.getBlockState(pos.above()).getBlock() == this) {
-			return InteractionResult.PASS;
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		} else {
 			ItemStack stack = this.getCloneItemStack(state, null, worldIn, pos, player);
 			player.playSound(player.getEatingSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
@@ -137,12 +135,12 @@ public class PancakeBlock extends Block {
 				worldIn.removeBlock(pos, false);
 			}
 
-			if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get())) {
+			if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE)) {
 				player.getFoodData().eat(2, 0.0F);
 				AutumnityEvents.updateFoulTaste(player);
 			}
 
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
 	}
 
@@ -172,7 +170,7 @@ public class PancakeBlock extends Block {
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
+	public boolean isPathfindable(BlockState state, PathComputationType type) {
 		return false;
 	}
 

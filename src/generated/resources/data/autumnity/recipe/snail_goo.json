@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "autumnity:snail_goo_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "autumnity:snail_goo"
+  }
+}

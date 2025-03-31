@@ -12,7 +12,7 @@
                   "entity": "this",
                   "predicate": {
                     "location": {
-                      "biome": "autumnity:maple_forest"
+                      "biomes": "autumnity:maple_forest"
                     }
                   }
                 }
@@ -28,7 +28,7 @@
                   "entity": "this",
                   "predicate": {
                     "location": {
-                      "biome": "autumnity:pumpkin_fields"
+                      "biomes": "autumnity:pumpkin_fields"
                     }
                   }
                 }
@@ -37,6 +37,7 @@
             "trigger": "minecraft:location"
           }
         },
+        "indexed_requirements": [],
         "requirements": [
           [
             "autumnity:autumnity:maple_forest"

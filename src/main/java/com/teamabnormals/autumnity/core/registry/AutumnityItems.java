@@ -30,7 +30,6 @@ import static com.teamabnormals.blueprint.core.util.item.ItemStackUtil.is;
 import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityItems {
 	public static final ItemSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getItemSubHelper();
 

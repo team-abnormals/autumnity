@@ -8,7 +8,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -23,9 +24,8 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(handIn);
-		if (itemstack.getItem() == Items.SHEARS || itemstack.is(AutumnityItemTags.KNIVES)) {
+	public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+		if (stack.getItem() == Items.SHEARS || stack.is(AutumnityItemTags.KNIVES)) {
 			Direction hitface = hit.getDirection().getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : hit.getDirection();
 			Direction facing = state.getValue(FACING);
 
@@ -39,15 +39,13 @@ public class LargePumpkinSliceBlock extends AbstractLargePumpkinSliceBlock {
 					ItemEntity itementity = new ItemEntity(level, (double) pos.getX() + 0.5D + (double) hitface.getStepX() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) hitface.getStepZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
 					itementity.setDeltaMovement(0.05D * (double) hitface.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) hitface.getStepZ() + level.random.nextDouble() * 0.02D);
 					level.addFreshEntity(itementity);
-					itemstack.hurtAndBreak(1, player, (p_220282_1_) -> {
-						p_220282_1_.broadcastBreakEvent(handIn);
-					});
+					stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
 				}
 
-				return InteractionResult.sidedSuccess(level.isClientSide);
+				return ItemInteractionResult.sidedSuccess(level.isClientSide);
 			}
 		}
 
-		return super.use(state, level, pos, player, handIn, hit);
+		return super.useItemOn(stack, state, level, pos, player, hand, hit);
 	}
 }

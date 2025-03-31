@@ -11,8 +11,8 @@ import com.teamabnormals.autumnity.core.data.server.AutumnityAdvancementProvider
 import com.teamabnormals.autumnity.core.data.server.AutumnityDatapackBuiltinEntriesProvider;
 import com.teamabnormals.autumnity.core.data.server.AutumnityLootTableProvider;
 import com.teamabnormals.autumnity.core.data.server.AutumnityRecipeProvider;
-import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityAdvancementModifierProvider;
-import com.teamabnormals.autumnity.core.data.server.modifiers.AutumnityLootModifierProvider;
+import com.teamabnormals.autumnity.core.data.server.AutumnityAdvancementModifierProvider;
+import com.teamabnormals.autumnity.core.data.server.AutumnityDataRemolderProvider;
 import com.teamabnormals.autumnity.core.data.server.tags.*;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
@@ -52,6 +52,7 @@ public class Autumnity {
 		AutumnityFeatures.FEATURES.register(bus);
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);
+		AutumnityCriteriaTriggers.TRIGGERS.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
@@ -100,11 +101,11 @@ public class Autumnity {
 		generator.addProvider(server, new AutumnityPaintingVariantTagsProvider(output, provider, helper));
 		generator.addProvider(server, new AutumnityStructureTagsProvider(output, provider, helper));
 		generator.addProvider(server, new AutumnityEntityTypeTagsProvider(output, provider, helper));
-		generator.addProvider(server, new AutumnityRecipeProvider(output));
+		generator.addProvider(server, new AutumnityRecipeProvider(output, provider));
 		generator.addProvider(server, AutumnityAdvancementProvider.create(output, provider, helper));
-		generator.addProvider(server, new AutumnityLootTableProvider(output));
+		generator.addProvider(server, new AutumnityLootTableProvider(output, provider));
 		generator.addProvider(server, new AutumnityAdvancementModifierProvider(output, provider));
-		generator.addProvider(server, new AutumnityLootModifierProvider(output, provider));
+		generator.addProvider(server, new AutumnityDataRemolderProvider(output, provider));
 
 		boolean client = event.includeClient();
 		generator.addProvider(client, new AutumnityItemModelProvider(output, helper));

@@ -3,7 +3,7 @@ package com.teamabnormals.autumnity.core.data.client;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.blueprint.core.data.client.BlueprintItemModelProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import static com.teamabnormals.autumnity.core.registry.AutumnityItems.*;
 

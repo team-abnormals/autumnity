@@ -24,7 +24,8 @@
               "autumnity:foul_berry_bush_pips"
             ]
           }
-        ]
+        ],
+        "should_replace_requirements": false
       }
     }
   ],

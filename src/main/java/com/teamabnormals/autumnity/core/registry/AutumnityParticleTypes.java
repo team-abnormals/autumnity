@@ -6,7 +6,6 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -19,7 +18,7 @@ public class AutumnityParticleTypes {
 
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FALLING_MAPLE_LEAF = PARTICLE_TYPES.register("falling_maple_leaf", () -> new SimpleParticleType(false));
 
-	@SubscribeEvent(priority = EventPriority.LOWEST)
+	@SubscribeEvent
 	public static void registerParticleTypes(RegisterParticleProvidersEvent event) {
 		event.registerSpriteSet(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
 	}

@@ -3,16 +3,19 @@ package com.teamabnormals.autumnity.common.block;
 import com.teamabnormals.blueprint.common.block.BlueprintChiseledBookShelfBlock;
 import net.minecraft.world.phys.Vec2;
 
+import java.util.OptionalInt;
+
 public class ChiseledMapleBookShelfBlock extends BlueprintChiseledBookShelfBlock {
 
 	public ChiseledMapleBookShelfBlock(Properties properties) {
 		super(properties);
 	}
 
-	public int getHitSlot(Vec2 vec2) {
+	@Override
+	public OptionalInt getHitSlot(Vec2 vec2) {
 		int i = vec2.y >= 0.5F ? 0 : 1;
 		int j = getSection(i, vec2.x);
-		return j + i;
+		return OptionalInt.of(j + i);
 	}
 
 	public static int getSection(int i, float x) {

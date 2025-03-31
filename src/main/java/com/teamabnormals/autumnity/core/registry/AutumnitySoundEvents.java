@@ -1,13 +1,19 @@
 package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.blueprint.core.events.LoadThisClassEvent;
 import com.teamabnormals.blueprint.core.util.registry.SoundSubRegistryHelper;
 import net.minecraft.sounds.SoundEvent;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnitySoundEvents {
+	@SubscribeEvent
+	public static void $(LoadThisClassEvent event) {
+	}
+
 	public static final SoundSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getSoundSubHelper();
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> ENTITY_SNAIL_EAT = HELPER.createSoundEvent("entity.snail.eat");

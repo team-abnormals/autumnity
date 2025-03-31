@@ -2,12 +2,9 @@ package com.teamabnormals.autumnity.core.registry;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.common.block.*;
-import com.teamabnormals.autumnity.common.block.grower.MapleTreeGrower;
-import com.teamabnormals.autumnity.common.block.grower.OrangeMapleTreeGrower;
-import com.teamabnormals.autumnity.common.block.grower.RedMapleTreeGrower;
-import com.teamabnormals.autumnity.common.block.grower.YellowMapleTreeGrower;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.AutumnityConstants;
+import com.teamabnormals.autumnity.core.other.AutumnityTreeGrowers;
 import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.common.block.LeafPileBlock;
@@ -31,7 +28,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.BlockSetType.PressurePlateSensitivity;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -45,7 +41,6 @@ import java.util.function.ToIntFunction;
 import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityBlocks {
 	public static final BlockSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getBlockSubHelper();
 
@@ -115,22 +110,22 @@ public class AutumnityBlocks {
 	public static final DeferredBlock<BlueprintTrappedChestBlock> TRAPPED_MAPLE_CHEST = HELPER.createTrappedChestBlock("maple", AutumnityProperties.MAPLE.chest());
 
 	public static final DeferredBlock<Block> MAPLE_LEAVES = HELPER.createBlock("maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.MAPLE.leaves()));
-	public static final DeferredBlock<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new SaplingBlock(new MapleTreeGrower(), AutumnityProperties.MAPLE.sapling()));
+	public static final DeferredBlock<Block> MAPLE_SAPLING = HELPER.createBlock("maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE, AutumnityProperties.MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> MAPLE_LEAF_PILE = HELPER.createBlock("maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.MAPLE.leafPile()));
 
 	public static final DeferredBlock<Block> YELLOW_MAPLE_LEAVES = HELPER.createBlock("yellow_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.YELLOW_MAPLE.leaves(), 16766735));
-	public static final DeferredBlock<Block> YELLOW_MAPLE_SAPLING = HELPER.createBlock("yellow_maple_sapling", () -> new SaplingBlock(new YellowMapleTreeGrower(), AutumnityProperties.YELLOW_MAPLE.sapling()));
+	public static final DeferredBlock<Block> YELLOW_MAPLE_SAPLING = HELPER.createBlock("yellow_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_YELLOW, AutumnityProperties.YELLOW_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_YELLOW_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> YELLOW_MAPLE_LEAF_PILE = HELPER.createBlock("yellow_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.YELLOW_MAPLE.leafPile()));
 
 	public static final DeferredBlock<Block> ORANGE_MAPLE_LEAVES = HELPER.createBlock("orange_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.ORANGE_MAPLE.leaves(), 16745768));
-	public static final DeferredBlock<Block> ORANGE_MAPLE_SAPLING = HELPER.createBlock("orange_maple_sapling", () -> new SaplingBlock(new OrangeMapleTreeGrower(), AutumnityProperties.ORANGE_MAPLE.sapling()));
+	public static final DeferredBlock<Block> ORANGE_MAPLE_SAPLING = HELPER.createBlock("orange_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_ORANGE, AutumnityProperties.ORANGE_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_ORANGE_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> ORANGE_MAPLE_LEAF_PILE = HELPER.createBlock("orange_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.ORANGE_MAPLE.leafPile()));
 
 	public static final DeferredBlock<Block> RED_MAPLE_LEAVES = HELPER.createBlock("red_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.RED_MAPLE.leaves(), 12665871));
-	public static final DeferredBlock<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new SaplingBlock(new RedMapleTreeGrower(), AutumnityProperties.RED_MAPLE.sapling()));
+	public static final DeferredBlock<Block> RED_MAPLE_SAPLING = HELPER.createBlock("red_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_RED, AutumnityProperties.RED_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_RED_MAPLE_SAPLING = HELPER.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> RED_MAPLE_LEAF_PILE = HELPER.createBlock("red_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.RED_MAPLE.leafPile()));
 

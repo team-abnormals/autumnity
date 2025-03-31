@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import java.util.function.Predicate;
 
 public class AutumnityJackOLanternBlock extends CarvedPumpkinBlock {
-
 	private static final Predicate<BlockState> IS_PUMPKIN = (state) -> state != null && (state.is(AutumnityBlocks.SOUL_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.REDSTONE_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.ENDER_JACK_O_LANTERN.get()) || state.is(AutumnityBlocks.CUPRIC_JACK_O_LANTERN.get()));
 
 	public AutumnityJackOLanternBlock(Properties properties) {

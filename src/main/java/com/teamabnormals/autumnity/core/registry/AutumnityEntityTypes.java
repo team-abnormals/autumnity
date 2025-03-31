@@ -10,6 +10,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -21,9 +22,12 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class AutumnityEntityTypes {
 	public static final EntitySubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getEntitySubHelper();
 
-	public static final DeferredHolder<EntityType<?>, EntityType<Snail>> SNAIL = HELPER.createEntity("snail", Snail::new, MobCategory.CREATURE, 0.8F, 0.9F);
-	public static final DeferredHolder<EntityType<?>, EntityType<Turkey>> TURKEY = HELPER.createEntity("turkey", Turkey::new, MobCategory.CREATURE, 0.6F, 0.8F);
-	public static final DeferredHolder<EntityType<?>, EntityType<ThrownTurkeyEgg>> TURKEY_EGG = HELPER.createEntity("turkey_egg", ThrownTurkeyEgg::new, ThrownTurkeyEgg::new, MobCategory.MISC, 0.25F, 0.25F);
+	public static final DeferredHolder<EntityType<?>, EntityType<Snail>> SNAIL = HELPER.createEntity("snail", Snail::new, MobCategory.CREATURE, builder -> builder
+			.sized(0.8F, 0.9F).eyeHeight(0.45F).clientTrackingRange(10));
+	public static final DeferredHolder<EntityType<?>, EntityType<Turkey>> TURKEY = HELPER.createEntity("turkey", Turkey::new, MobCategory.CREATURE, builder -> builder
+			.sized(0.6F, 0.8F).eyeHeight(0.45F).passengerAttachments(new Vec3(0.0, 0.7, -0.1)).clientTrackingRange(10));
+	public static final DeferredHolder<EntityType<?>, EntityType<ThrownTurkeyEgg>> TURKEY_EGG = HELPER.createEntity("turkey_egg", ThrownTurkeyEgg::new, MobCategory.MISC, builder -> builder
+			.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10));
 
 	@SubscribeEvent
 	public static void registerEntitySpawnPlacements(RegisterSpawnPlacementsEvent event) {

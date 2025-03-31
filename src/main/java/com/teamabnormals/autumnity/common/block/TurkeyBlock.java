@@ -11,9 +11,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
@@ -35,7 +36,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 public class TurkeyBlock extends BlueprintFallingBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -81,31 +82,28 @@ public class TurkeyBlock extends BlueprintFallingBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(handIn);
+	public ItemInteractionResult useItemOn(ItemStack itemstack, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
 		if (worldIn.isClientSide) {
-			if (this.eatTurkey(worldIn, pos, state, player, itemstack, handIn) == InteractionResult.SUCCESS) {
-				return InteractionResult.SUCCESS;
+			if (this.eatTurkey(worldIn, pos, state, player, itemstack, handIn) == ItemInteractionResult.SUCCESS) {
+				return ItemInteractionResult.SUCCESS;
 			}
 
 			if (itemstack.isEmpty()) {
-				return InteractionResult.CONSUME;
+				return ItemInteractionResult.CONSUME;
 			}
 		}
 
 		return this.eatTurkey(worldIn, pos, state, player, itemstack, handIn);
 	}
 
-	private InteractionResult eatTurkey(Level worldIn, BlockPos pos, BlockState state, Player player, ItemStack itemstack, InteractionHand hand) {
+	private ItemInteractionResult eatTurkey(Level worldIn, BlockPos pos, BlockState state, Player player, ItemStack itemstack, InteractionHand hand) {
 		int i = state.getValue(CHUNKS);
 		boolean flag = ModList.get().isLoaded("farmersdelight") ? itemstack.is(AutumnityItemTags.KNIVES) : itemstack.getItem() instanceof AxeItem;
 		if (player.canEat(false) || flag) {
 			if (flag) {
 				popResource(worldIn, pos, new ItemStack(this.getLeg()));
 				worldIn.playSound(player, pos, AutumnitySoundEvents.BLOCK_TURKEY_CUT.get(), SoundSource.BLOCKS, 1.0F, (worldIn.random.nextFloat() - worldIn.random.nextFloat()) * 0.2F + 1.0F);
-				itemstack.hurtAndBreak(1, player, (playerIn) -> {
-					playerIn.broadcastBreakEvent(hand);
-				});
+				itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
 			} else {
 				ItemStack stack = this.getCloneItemStack(state, null, worldIn, pos, player);
 				player.playSound(player.getEatingSound(stack), 1.0F, 1.0F + (worldIn.getRandom().nextFloat() - worldIn.getRandom().nextFloat()) * 0.4F);
@@ -117,24 +115,21 @@ public class TurkeyBlock extends BlueprintFallingBlock {
 				worldIn.removeBlock(pos, false);
 			}
 
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		} else {
-			return InteractionResult.PASS;
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		}
 	}
 
 	protected void restoreHunger(LevelAccessor worldIn, Player player) {
-		player.getFoodData().eat(AutumnityFoods.TURKEY.getNutrition(), AutumnityFoods.TURKEY.getSaturationModifier());
+		player.getFoodData().eat(AutumnityFoods.TURKEY.nutrition(), AutumnityFoods.TURKEY.saturation());
 
 		if (!worldIn.isClientSide() && worldIn.getRandom().nextFloat() < 0.1F) {
 			player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0));
 		}
 
-		int i = AutumnityFoods.TURKEY.getNutrition();
-		int j = i == 1 ? i : (int) (i * 0.5F);
-
-		if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get())) {
-			player.getFoodData().eat(j, 0.0F);
+		if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE)) {
+			player.getFoodData().eat(Math.max(1, (int) (AutumnityFoods.TURKEY.nutrition() * 0.5F)), 0.0F);
 			AutumnityEvents.updateFoulTaste(player);
 		}
 	}
@@ -154,7 +149,7 @@ public class TurkeyBlock extends BlueprintFallingBlock {
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
+	public boolean isPathfindable(BlockState state, PathComputationType type) {
 		return false;
 	}
 

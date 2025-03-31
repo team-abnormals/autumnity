@@ -7,13 +7,14 @@ import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -35,14 +36,15 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import javax.annotation.Nullable;
 
@@ -57,7 +59,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+	public ItemStack getCloneItemStack(LevelReader worldIn, BlockPos pos, BlockState state) {
 		return new ItemStack(ModList.get().isLoaded("berry_good") && AutumnityConfig.COMMON.foulBerriesRequirePips.get() ? AutumnityItems.FOUL_BERRY_PIPS.get() : AutumnityItems.FOUL_BERRIES.get());
 	}
 
@@ -79,23 +81,23 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 			double d0 = (double) pos.getX() + vector3d.x;
 			double d1 = (double) pos.getZ() + vector3d.z;
 
-			int i = MobEffects.POISON.getColor();
-			double d2 = (double) (i >> 16 & 255) / 255.0D;
-			double d3 = (double) (i >> 8 & 255) / 255.0D;
-			double d4 = (double) (i >> 0 & 255) / 255.0D;
+			int i = MobEffects.POISON.value().getColor();
+			float f = (float) (i >> 16 & 0xFF) / 255.0F;
+			float f1 = (float) (i >> 8 & 0xFF) / 255.0F;
+			float f2 = (float) (i >> 0 & 0xFF) / 255.0F;
 
-			worldIn.addParticle(ParticleTypes.ENTITY_EFFECT, d0 + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), d1 + (double) (rand.nextFloat() / 5.0F), d2, d3, d4);
+			worldIn.addParticle(ColorParticleOption.create(ParticleTypes.ENTITY_EFFECT, f, f1, f2), d0 + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), d1 + (double) (rand.nextFloat() / 5.0F), 0.0, 0.0, 0.0);
 		}
 	}
 
 	@Override
 	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
 		int i = state.getValue(AGE);
-		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(4) == 0)) {
+		if (i < 3 && state.getValue(HALF) == DoubleBlockHalf.LOWER && worldIn.getRawBrightness(pos.above(), 0) >= 9 && CommonHooks.canCropGrow(worldIn, pos, state, rand.nextInt(4) == 0)) {
 			worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
 			setHalfState(worldIn, pos, state, i + 1);
 
-			net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+			CommonHooks.fireCropGrowPost(worldIn, pos, state);
 		}
 	}
 
@@ -111,19 +113,19 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult p_225533_6_) {
+	public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult p_225533_6_) {
 		int i = state.getValue(AGE);
 		boolean flag = i == 3;
 		if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
-			return InteractionResult.PASS;
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		} else if (i > 1) {
 			popResource(worldIn, pos, new ItemStack(AutumnityItems.FOUL_BERRIES.get(), 2));
 			worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
 			worldIn.setBlock(pos, state.setValue(AGE, i - 1), 2);
 			setHalfState(worldIn, pos, state, i - 1);
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		} else {
-			return super.use(state, worldIn, pos, player, handIn, p_225533_6_);
+			return super.useItemOn(stack, state, worldIn, pos, player, handIn, p_225533_6_);
 		}
 	}
 
@@ -142,7 +144,7 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
 		return state.getValue(AGE) < 3;
 	}
 
@@ -172,9 +174,10 @@ public class TallFoulBerryBushBlock extends DoublePlantBlock implements Bonemeal
 
 	@Nullable
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
+		// TODO: Tag
 		if (!(entity instanceof Snail) && !(entity instanceof Turkey)) {
-			return BlockPathTypes.DAMAGE_OTHER;
+			return PathType.DAMAGE_OTHER;
 		}
 		return super.getBlockPathType(state, world, pos, entity);
 	}

@@ -16,8 +16,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -45,14 +45,14 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.tag(BlueprintItemTags.FURNACE_BOATS).add(AutumnityItems.MAPLE_FURNACE_BOAT.get());
 		this.tag(BlueprintItemTags.LARGE_BOATS).add(AutumnityItems.LARGE_MAPLE_BOAT.get());
 		this.tag(ItemTags.FOX_FOOD).add(AutumnityItems.FOUL_BERRIES.get());
-		this.tag(BlueprintItemTags.CHICKEN_FOOD).add(AutumnityItems.FOUL_BERRY_PIPS.get());
+		this.tag(ItemTags.CHICKEN_FOOD).add(AutumnityItems.FOUL_BERRY_PIPS.get());
 		this.tag(ItemTags.TRIMMABLE_ARMOR).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
 
 		this.copy(AutumnityBlockTags.MAPLE_LOGS, AutumnityItemTags.MAPLE_LOGS);
 		this.tag(AutumnityItemTags.SNAIL_FOOD).add(Items.MUSHROOM_STEW, Items.SUSPICIOUS_STEW);
 		this.tag(AutumnityItemTags.SNAIL_SNACKS).add(Items.RED_MUSHROOM, Items.BROWN_MUSHROOM).addTag(AutumnityItemTags.SNAIL_SPEED_SNACKS).addTag(AutumnityItemTags.SNAIL_GLOW_SNACKS);
 		this.tag(AutumnityItemTags.SNAIL_SPEED_SNACKS).add(Items.CRIMSON_FUNGUS, Items.WARPED_FUNGUS);
-		this.tag(AutumnityItemTags.SNAIL_GLOW_SNACKS).addOptional(new ResourceLocation("quark", "glow_shroom"));
+		this.tag(AutumnityItemTags.SNAIL_GLOW_SNACKS).addOptional(ResourceLocation.fromNamespaceAndPath("quark", "glow_shroom"));
 		this.tag(AutumnityItemTags.TURKEY_FOOD).add(AutumnityItems.FOUL_BERRIES.get());
 		this.tag(AutumnityItemTags.SNAIL_TEMPT_ITEMS).add(Items.WARPED_FUNGUS_ON_A_STICK).addTag(AutumnityItemTags.SNAIL_FOOD).addTag(AutumnityItemTags.SNAIL_SNACKS);
 		this.tag(AutumnityItemTags.KNIVES);
@@ -65,6 +65,6 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.tag(Tags.Items.SEEDS).addTag(AutumnityItemTags.SEEDS_FOUL_BERRY);
 		this.tag(Tags.Items.EGGS).add(AutumnityItems.TURKEY_EGG.get());
 		this.tag(BlueprintItemTags.PUMPKINS).add(LARGE_PUMPKIN_SLICE.get().asItem());
-		this.tag(Tags.Items.ARMORS_CHESTPLATES).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
+		this.tag(ItemTags.CHEST_ARMOR).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
 	}
 }

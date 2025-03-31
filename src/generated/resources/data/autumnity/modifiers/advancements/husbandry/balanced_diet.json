@@ -7,9 +7,7 @@
           "autumnity:cooked_turkey_piece": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:cooked_turkey_piece"
-                ]
+                "items": "autumnity:cooked_turkey_piece"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -17,9 +15,7 @@
           "autumnity:foul_berries": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:foul_berries"
-                ]
+                "items": "autumnity:foul_berries"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -27,9 +23,7 @@
           "autumnity:foul_soup": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:foul_soup"
-                ]
+                "items": "autumnity:foul_soup"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -37,9 +31,7 @@
           "autumnity:pumpkin_bread": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:pumpkin_bread"
-                ]
+                "items": "autumnity:pumpkin_bread"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -47,9 +39,7 @@
           "autumnity:syrup_bottle": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:syrup_bottle"
-                ]
+                "items": "autumnity:syrup_bottle"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -57,14 +47,13 @@
           "autumnity:turkey_piece": {
             "conditions": {
               "item": {
-                "items": [
-                  "autumnity:turkey_piece"
-                ]
+                "items": "autumnity:turkey_piece"
               }
             },
             "trigger": "minecraft:consume_item"
           }
         },
+        "indexed_requirements": [],
         "requirements": [
           [
             "autumnity:syrup_bottle"

@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "incubation"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:turkey_egg_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_turkey_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": "autumnity:turkey_egg"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_turkey_egg"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:turkey_egg_crate"
+    ]
+  }
+}

@@ -33,8 +33,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.UUID;
 
@@ -78,9 +78,11 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 		this.targetSelector.addGoal(4, new ResetUniversalAngerTargetGoal<>(this, true));
 	}
 
+	private static final EntityDimensions BABY_DIMENSIONS = AutumnityEntityTypes.TURKEY.get().getDimensions().scale(0.5F).withEyeHeight(0.2975F);
+
 	@Override
-	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-		return this.isBaby() ? sizeIn.height * 0.85F : sizeIn.height * 0.92F;
+	public EntityDimensions getDefaultDimensions(Pose pose) {
+		return this.isBaby() ? BABY_DIMENSIONS : super.getDefaultDimensions(pose);
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
@@ -90,9 +92,9 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(ANGER_TIME, 0);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(ANGER_TIME, 0);
 	}
 
 	@Override
@@ -109,7 +111,6 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 	public boolean doHurtTarget(Entity entityIn) {
 		this.peckTicks = 8;
 		this.level().broadcastEntityEvent(this, (byte) 4);
-
 		return super.doHurtTarget(entityIn);
 	}
 
@@ -199,12 +200,12 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return Ingredient.of(AutumnityItemTags.TURKEY_FOOD).test(stack);
+		return stack.is(AutumnityItemTags.TURKEY_FOOD);
 	}
 
 	@Override
-	public int getExperienceReward() {
-		return this.isBirdJockey() ? 10 : super.getExperienceReward();
+	public int getBaseExperienceReward() {
+		return this.isBirdJockey() ? 10 : super.getBaseExperienceReward();
 	}
 
 	@Override
@@ -233,9 +234,6 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 	@Override
 	public void positionRider(Entity passenger, Entity.MoveFunction function) {
 		super.positionRider(passenger, function);
-		float f = Mth.sin(this.yBodyRot * ((float) Math.PI / 180F));
-		float f1 = Mth.cos(this.yBodyRot * ((float) Math.PI / 180F));
-		function.accept(passenger, this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));
 		if (passenger instanceof LivingEntity) {
 			((LivingEntity) passenger).yBodyRot = this.yBodyRot;
 		}

@@ -15,12 +15,12 @@ public class CookedTurkeyBlock extends TurkeyBlock {
 
 	@Override
 	protected void restoreHunger(LevelAccessor worldIn, Player player) {
-		player.getFoodData().eat(AutumnityFoods.COOKED_TURKEY.getNutrition(), AutumnityFoods.COOKED_TURKEY.getSaturationModifier());
+		player.getFoodData().eat(AutumnityFoods.COOKED_TURKEY.nutrition(), AutumnityFoods.COOKED_TURKEY.saturation());
 
-		int i = AutumnityFoods.COOKED_TURKEY.getNutrition();
+		int i = AutumnityFoods.COOKED_TURKEY.nutrition();
 		int j = i == 1 ? i : (int) (i * 0.5F);
 
-		if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE.get())) {
+		if (player.hasEffect(AutumnityMobEffects.FOUL_TASTE)) {
 			player.getFoodData().eat(j, 0.0F);
 			AutumnityEvents.updateFoulTaste(player);
 		}

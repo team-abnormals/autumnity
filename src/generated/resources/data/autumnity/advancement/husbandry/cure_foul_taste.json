@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "cure_foul_taste": {
+      "trigger": "autumnity:cure_foul_taste"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.autumnity.husbandry.cure_foul_taste.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "autumnity:foul_berries"
+    },
+    "title": {
+      "translate": "advancements.autumnity.husbandry.cure_foul_taste.title"
+    }
+  },
+  "requirements": [
+    [
+      "cure_foul_taste"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

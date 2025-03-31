@@ -7,42 +7,51 @@ import com.teamabnormals.autumnity.common.block.TurkeyBlock;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
+import com.teamabnormals.autumnity.core.other.AutumnityLootTables;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.HolderLookup.RegistryLookup;
+import net.minecraft.core.WritableRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.storage.loot.*;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
+import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.Tags;
 
-import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,28 +60,30 @@ import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityLootTableProvider extends LootTableProvider {
 
-	public AutumnityLootTableProvider(PackOutput output) {
+	public AutumnityLootTableProvider(PackOutput output, CompletableFuture<Provider> provider) {
 		super(output, BuiltInLootTables.all(), ImmutableList.of(
 				new LootTableProvider.SubProviderEntry(AutumnityBlockLoot::new, LootContextParamSets.BLOCK),
 				new LootTableProvider.SubProviderEntry(AutumnityEntityLoot::new, LootContextParamSets.ENTITY),
 				new LootTableProvider.SubProviderEntry(AutumnityChestLoot::new, LootContextParamSets.CHEST)
-		));
+		), provider);
 	}
 
 	@Override
-	protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {
+	protected void validate(WritableRegistry<LootTable> registry, ValidationContext context, ProblemReporter.Collector collector) {
 	}
 
 	private static class AutumnityBlockLoot extends BlockLootSubProvider {
 		private static final Set<Item> EXPLOSION_RESISTANT = Stream.of(Blocks.DRAGON_EGG, Blocks.BEACON, Blocks.CONDUIT, Blocks.SKELETON_SKULL, Blocks.WITHER_SKELETON_SKULL, Blocks.PLAYER_HEAD, Blocks.ZOMBIE_HEAD, Blocks.CREEPER_HEAD, Blocks.DRAGON_HEAD, Blocks.PIGLIN_HEAD, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX).map(ItemLike::asItem).collect(Collectors.toSet());
 		private static final float[] NORMAL_LEAVES_SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
 
-		protected AutumnityBlockLoot() {
-			super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags());
+		protected AutumnityBlockLoot(Provider provider) {
+			super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags(), provider);
 		}
 
 		@Override
 		public void generate() {
+			RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
 			this.dropSelf(SNAIL_GOO.get());
 			this.dropSelf(SNAIL_GOO_BLOCK.get());
 			this.add(PANCAKE.get(), this::createPancakeDrops);
@@ -84,7 +95,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(TURKEY_EGG_CRATE.get());
 
 			this.add(FOUL_BERRY_BUSH.get(), noDrop());
-			this.add(TALL_FOUL_BERRY_BUSH.get(), (block) -> applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 3).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))).withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 2).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+			this.add(TALL_FOUL_BERRY_BUSH.get(), (block) -> applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 3).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F))).apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE)))).withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 2).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))).apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE))))));
 			this.dropPottedContents(POTTED_FOUL_BERRIES.get());
 			this.dropSelf(FOUL_BERRY_BASKET.get());
 
@@ -146,7 +157,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(MAPLE_LADDER.get());
 			this.add(MAPLE_SLAB.get(), this::createSlabItemTable);
 			this.add(MAPLE_DOOR.get(), this::createDoorTable);
-			this.add(MAPLE_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
+			this.add(MAPLE_BEEHIVE.get(), this::createBeeHiveDrop);
 			this.add(MAPLE_CHEST.get(), this::createNameableBlockEntityTable);
 			this.add(TRAPPED_MAPLE_CHEST.get(), this::createNameableBlockEntityTable);
 			this.add(MAPLE_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0F)));
@@ -159,9 +170,8 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 		}
 
 		protected LootTable.Builder createLeafPileDrops(Block block) {
-			return createMultifaceBlockDrops(block, MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS)));
+			return createMultifaceBlockDrops(block, MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.TOOLS_SHEAR)));
 		}
-
 
 		protected static LootTable.Builder createTurkeyDrops(Block block, Item piece) {
 			return LootTable.lootTable().withPool(LootPool.lootPool().add(AlternativesEntry.alternatives(LootItem.lootTableItem(block).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TurkeyBlock.CHUNKS, 0))), AlternativesEntry.alternatives(LootItem.lootTableItem(piece).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TurkeyBlock.CHUNKS, 4))), LootItem.lootTableItem(piece).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TurkeyBlock.CHUNKS, 3))), LootItem.lootTableItem(piece).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TurkeyBlock.CHUNKS, 2))), LootItem.lootTableItem(piece).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TurkeyBlock.CHUNKS, 1)))))));
@@ -177,33 +187,33 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 
 		@Override
 		public Iterable<Block> getKnownBlocks() {
-			return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> ForgeRegistries.BLOCKS.getKey(block).getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
+			return BuiltInRegistries.BLOCK.stream().filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(Autumnity.MOD_ID)).collect(Collectors.toSet());
 		}
 	}
 
 	private static class AutumnityEntityLoot extends EntityLootSubProvider {
 
-		protected AutumnityEntityLoot() {
-			super(FeatureFlags.REGISTRY.allFlags());
+		protected AutumnityEntityLoot(Provider provider) {
+			super(FeatureFlags.REGISTRY.allFlags(), provider);
 		}
 
 		@Override
 		public void generate() {
-			this.add(AutumnityEntityTypes.SNAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(SNAIL_GOO.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
-			this.add(AutumnityEntityTypes.TURKEY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Items.FEATHER).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(TURKEY.get()).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+			this.add(AutumnityEntityTypes.SNAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(SNAIL_GOO.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
+			this.add(AutumnityEntityTypes.TURKEY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Items.FEATHER).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(TURKEY.get()).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
 		}
 
 		@Override
 		public Stream<EntityType<?>> getKnownEntityTypes() {
-			return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(entity -> ForgeRegistries.ENTITY_TYPES.getKey(entity).getNamespace().equals(Autumnity.MOD_ID));
+			return BuiltInRegistries.ENTITY_TYPE.stream().filter(entity -> BuiltInRegistries.ENTITY_TYPE.getKey(entity).getNamespace().equals(Autumnity.MOD_ID));
 		}
 	}
 
-	private static class AutumnityChestLoot implements LootTableSubProvider {
+	private record AutumnityChestLoot(Provider provider) implements LootTableSubProvider {
 
 		@Override
-		public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-			consumer.accept(Autumnity.location("chests/maple_hut"), LootTable.lootTable()
+		public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
+			consumer.accept(AutumnityLootTables.MAPLE_HUT, LootTable.lootTable()
 					.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 2.0F))
 							.add(LootItem.lootTableItem(SNAIL_GOO.get()).setWeight(9).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
 							.add(LootItem.lootTableItem(Items.GLASS_BOTTLE).setWeight(8).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))

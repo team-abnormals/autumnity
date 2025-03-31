@@ -39,7 +39,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, Autumnity.MOD_ID);
 

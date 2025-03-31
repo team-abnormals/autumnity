@@ -4,6 +4,7 @@ import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -104,11 +104,12 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 
 	@Override
 	public boolean canStickTo(BlockState state, BlockState other) {
+		// TODO: Blueprint Tag
 		if (other.getBlock() == Blocks.SLIME_BLOCK) return false;
 		if (other.getBlock() == Blocks.HONEY_BLOCK) return false;
-		if (other.getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation("upgrade_aquatic", "mulberry_jam_block")))
+		if (other.getBlock() == BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("upgrade_aquatic", "mulberry_jam_block")))
 			return false;
-		if (other.getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", "aloe_gel_block")))
+		if (other.getBlock() == BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("atmospheric", "aloe_gel_block")))
 			return false;
 
 		return super.canStickTo(state, other);

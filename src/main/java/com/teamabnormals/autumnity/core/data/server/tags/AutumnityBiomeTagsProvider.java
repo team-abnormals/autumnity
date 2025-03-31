@@ -3,13 +3,12 @@ package com.teamabnormals.autumnity.core.data.server.tags;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBiomeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
-import com.teamabnormals.blueprint.core.other.tags.BlueprintBiomeTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,11 +28,12 @@ public class AutumnityBiomeTagsProvider extends BiomeTagsProvider {
 		this.tag(AutumnityBiomeTags.HAS_ORANGE_MAPLE_TREE).add(Biomes.DARK_FOREST);
 		this.tag(AutumnityBiomeTags.HAS_RED_MAPLE_TREE).add(Biomes.TAIGA, Biomes.WINDSWEPT_FOREST);
 
-		this.tag(BlueprintBiomeTags.IS_GRASSLAND).add(AutumnityBiomes.PUMPKIN_FIELDS);
 		this.tag(BiomeTags.IS_FOREST).add(AutumnityBiomes.MAPLE_FOREST);
 		this.tag(BiomeTags.IS_OVERWORLD).add(AutumnityBiomes.MAPLE_FOREST, AutumnityBiomes.PUMPKIN_FIELDS);
 		this.tag(BiomeTags.HAS_RUINED_PORTAL_STANDARD).add(AutumnityBiomes.PUMPKIN_FIELDS);
 		this.tag(BiomeTags.HAS_MINESHAFT).add(AutumnityBiomes.PUMPKIN_FIELDS);
 		this.tag(BiomeTags.STRONGHOLD_BIASED_TO).add(AutumnityBiomes.MAPLE_FOREST, AutumnityBiomes.PUMPKIN_FIELDS);
+
+		// TODO: Forge biome tags + grassland tag hmm
 	}
 }

@@ -1,15 +1,8 @@
 package com.teamabnormals.autumnity.core.other;
 
-import com.teamabnormals.autumnity.common.entity.projectile.ThrownTurkeyEgg;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.core.util.DataUtil;
-import net.minecraft.Util;
-import net.minecraft.core.Position;
-import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 
 public class AutumnityCompat {
@@ -81,13 +74,6 @@ public class AutumnityCompat {
 	}
 
 	private static void registerDispenserBehaviors() {
-		DispenserBlock.registerBehavior(AutumnityItems.TURKEY_EGG.get(), new AbstractProjectileDispenseBehavior() {
-			@Override
-			protected Projectile getProjectile(Level worldIn, Position position, ItemStack stackIn) {
-				return Util.make(new ThrownTurkeyEgg(worldIn, position.x(), position.y(), position.z()), (egg) -> {
-					egg.setItem(stackIn);
-				});
-			}
-		});
+		DispenserBlock.registerProjectileBehavior(AutumnityItems.TURKEY_EGG.get());
 	}
 }

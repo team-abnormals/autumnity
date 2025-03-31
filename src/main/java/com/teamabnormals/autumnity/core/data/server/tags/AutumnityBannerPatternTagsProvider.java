@@ -6,7 +6,7 @@ import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBannerPattern
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BannerPatternTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,7 +18,7 @@ public class AutumnityBannerPatternTagsProvider extends BannerPatternTagsProvide
 
 	@Override
 	public void addTags(Provider provider) {
-		this.tag(AutumnityBannerPatternTags.PATTERN_ITEM_MAPLE_LEAF).add(AutumnityBannerPatterns.MAPLE_LEAF.getKey());
-		this.tag(AutumnityBannerPatternTags.PATTERN_ITEM_SWIRL).add(AutumnityBannerPatterns.SWIRL.getKey());
+		this.tag(AutumnityBannerPatternTags.PATTERN_ITEM_MAPLE_LEAF).add(AutumnityBannerPatterns.MAPLE_LEAF);
+		this.tag(AutumnityBannerPatternTags.PATTERN_ITEM_SWIRL).add(AutumnityBannerPatterns.SWIRL);
 	}
 }

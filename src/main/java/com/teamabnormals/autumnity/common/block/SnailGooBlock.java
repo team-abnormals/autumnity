@@ -1,5 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
+import com.mojang.serialization.MapCodec;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,8 +17,8 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class SnailGooBlock extends DirectionalBlock {
 	protected static final VoxelShape UP_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
@@ -30,6 +31,11 @@ public class SnailGooBlock extends DirectionalBlock {
 	public SnailGooBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
+	}
+
+	@Override
+	protected MapCodec<? extends DirectionalBlock> codec() {
+		return null;
 	}
 
 	@Override

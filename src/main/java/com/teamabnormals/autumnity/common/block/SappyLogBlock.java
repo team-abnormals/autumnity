@@ -7,9 +7,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -31,9 +30,7 @@ public class SappyLogBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-		ItemStack stack = player.getItemInHand(hand);
-		Item item = stack.getItem();
+	public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if (stack.is(Items.GLASS_BOTTLE)) {
 			stack.shrink(1);
 			level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
@@ -45,13 +42,13 @@ public class SappyLogBlock extends RotatedPillarBlock {
 
 			level.gameEvent(player, GameEvent.FLUID_PICKUP, pos);
 			if (!level.isClientSide()) {
-				player.awardStat(Stats.ITEM_USED.get(item));
+				player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
 			}
 
 			level.setBlockAndUpdate(pos, BlockUtil.transferAllBlockStates(state, this.saplessBlock.get().defaultBlockState()));
-			return InteractionResult.sidedSuccess(level.isClientSide);
+			return ItemInteractionResult.sidedSuccess(level.isClientSide);
 		}
 
-		return super.use(state, level, pos, player, hand, result);
+		return super.useItemOn(stack, state, level, pos, player, hand, result);
 	}
 }

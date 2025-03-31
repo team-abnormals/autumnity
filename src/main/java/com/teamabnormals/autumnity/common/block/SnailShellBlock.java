@@ -1,5 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
+import com.mojang.serialization.MapCodec;
 import com.teamabnormals.autumnity.common.block.properties.SnailShellOrientation;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,6 +18,11 @@ public class SnailShellBlock extends HorizontalDirectionalBlock {
 
 	public SnailShellBlock(BlockBehaviour.Properties builder) {
 		super(builder);
+	}
+
+	@Override
+	protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+		return null;
 	}
 
 	@Override

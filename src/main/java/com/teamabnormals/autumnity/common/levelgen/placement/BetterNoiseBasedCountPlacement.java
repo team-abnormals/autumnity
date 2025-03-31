@@ -1,6 +1,7 @@
 package com.teamabnormals.autumnity.common.levelgen.placement;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.teamabnormals.autumnity.core.registry.AutumnityPlacementModifierTypes;
 import net.minecraft.core.BlockPos;
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
 
 //TODO: Probably should move to Blueprint
 public final class BetterNoiseBasedCountPlacement extends PlacementModifier {
-	public static final Codec<BetterNoiseBasedCountPlacement> CODEC = RecordCodecBuilder.create(instance -> {
+	public static final MapCodec<BetterNoiseBasedCountPlacement> CODEC = RecordCodecBuilder.mapCodec(instance -> {
 		return instance.group(
 				NormalNoise.NoiseParameters.CODEC.fieldOf("noise").forGetter(placement -> placement.noiseParameters),
 				Codec.INT.fieldOf("noise_to_count_ratio").forGetter((placement) -> placement.noiseToCountRatio),

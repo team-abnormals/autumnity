@@ -1,6 +1,6 @@
 package com.teamabnormals.autumnity.common.entity.animal;
 
-import com.teamabnormals.autumnity.core.other.AutumnityCriteriaTriggers;
+import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
@@ -15,7 +15,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -27,6 +26,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -35,7 +35,6 @@ import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.BowlFoodItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -43,19 +42,22 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class Snail extends Animal {
-	private static final UUID HIDING_ARMOR_BONUS_ID = UUID.fromString("73BF0604-4235-4D4C-8A74-6A633E526E24");
-	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(HIDING_ARMOR_BONUS_ID, "Hiding armor bonus", 20.0D, AttributeModifier.Operation.ADDITION);
+	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(Autumnity.location("hiding_armor_bonus"), 20.0D, Operation.ADD_VALUE);
 	private static final EntityDataAccessor<Integer> GOO_AMOUNT = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Byte> ACTION = SynchedEntityData.defineId(Snail.class, EntityDataSerializers.BYTE);
 	private int hidingTime = 0;
@@ -86,8 +88,8 @@ public class Snail extends Animal {
 
 	public Snail(EntityType<? extends Snail> type, Level worldIn) {
 		super(type, worldIn);
-		this.setPathfindingMalus(BlockPathTypes.DANGER_OTHER, 0.0F);
-		this.setPathfindingMalus(BlockPathTypes.DAMAGE_OTHER, 0.0F);
+		this.setPathfindingMalus(PathType.DANGER_OTHER, 0.0F);
+		this.setPathfindingMalus(PathType.DAMAGE_OTHER, 0.0F);
 	}
 
 	@Override
@@ -111,10 +113,10 @@ public class Snail extends Animal {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(GOO_AMOUNT, 0);
-		this.entityData.define(ACTION, (byte) 0);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(GOO_AMOUNT, 0);
+		builder.define(ACTION, (byte) 0);
 	}
 
 	@Override
@@ -129,11 +131,6 @@ public class Snail extends Animal {
 		super.readAdditionalSaveData(compound);
 		this.setGooAmount(compound.getInt("GooAmount"));
 		this.setHidingTime(compound.getInt("HidingTime"));
-	}
-
-	@Override
-	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-		return sizeIn.height * 0.5F;
 	}
 
 	@Override
@@ -204,7 +201,7 @@ public class Snail extends Animal {
 				this.spitOutItem();
 			}
 
-			if (this.getGooAmount() > 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this)) {
+			if (this.getGooAmount() > 0 && EventHooks.canEntityGrief(this.level(), this)) {
 				BlockState blockstate = AutumnityBlocks.SNAIL_GOO.get().defaultBlockState();
 				BlockPos blockpos = this.blockPosition();
 				if (this.getGooAmount() > 0 && this.level().isEmptyBlock(blockpos) && blockstate.canSurvive(this.level(), blockpos)) {
@@ -253,7 +250,6 @@ public class Snail extends Animal {
 							ItemStack itemstack1 = itemstack.copy();
 							itemstack1.setCount(1);
 							this.setItemSlot(EquipmentSlot.MAINHAND, itemstack1);
-							AutumnityCriteriaTriggers.FEED_SNAIL.trigger((ServerPlayer) player, itemstack1);
 							this.usePlayerItem(player, hand, itemstack);
 						}
 						return InteractionResult.sidedSuccess(this.level().isClientSide());
@@ -271,21 +267,8 @@ public class Snail extends Animal {
 
 					if (flag) {
 						if (!this.level().isClientSide && !player.getAbilities().instabuild) {
-							ItemStack container = itemstack.getCraftingRemainingItem();
-							if (container.isEmpty() && itemstack.getItem() instanceof BowlFoodItem)
-								container = new ItemStack(Items.BOWL);
-
-							itemstack.shrink(1);
-
-							if (!container.isEmpty()) {
-								if (itemstack.isEmpty()) {
-									player.setItemInHand(hand, container);
-								} else {
-									if (!player.getInventory().add(container)) {
-										player.drop(container, false);
-									}
-								}
-							}
+							//TODO: Confirm this works
+							itemstack.finishUsingItem(this.level(), this);
 						}
 
 						return InteractionResult.sidedSuccess(this.level().isClientSide());
@@ -327,7 +310,7 @@ public class Snail extends Animal {
 		if (!itemstack.isEmpty() && !this.level().isClientSide) {
 			ItemEntity itementity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + this.getEyeHeight(), this.getZ() + this.getLookAngle().z, itemstack);
 			itementity.setPickUpDelay(40);
-			itementity.setThrower(this.getUUID());
+			itementity.setThrower(this);
 			this.level().addFreshEntity(itementity);
 			this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
 		}
@@ -559,7 +542,7 @@ public class Snail extends Animal {
 			if (Snail.this.getRandom().nextInt(20) != 0) {
 				return false;
 			} else {
-				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0 && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level(), Snail.this) && this.canMoveToMushroom();
+				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0 && EventHooks.canEntityGrief(Snail.this.level(), Snail.this) && this.canMoveToMushroom();
 			}
 		}
 
@@ -579,7 +562,7 @@ public class Snail extends Animal {
 				BlockPos blockpos = Snail.this.blockPosition();
 
 				if (this.isBlockMushroom(blockpos)) {
-					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(Snail.this.level(), Snail.this)) {
+					if (EventHooks.canEntityGrief(Snail.this.level(), Snail.this)) {
 						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Snail.this.level().getBlockState(blockpos).getBlock().asItem(), 1));
 						Snail.this.level().destroyBlock(blockpos, false);
 					}

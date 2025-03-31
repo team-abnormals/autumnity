@@ -31,7 +31,7 @@ public class AutumnityPlugin implements IModPlugin {
 	}
 
 	private static Stream<RepairData> getRepairData() {
-		return Stream.of(new RepairData(AutumnityTiers.SNAIL.repairIngredient().get(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
+		return Stream.of(new RepairData(AutumnityTiers.SNAIL.get().repairIngredient().get(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
 	}
 
 	private static Stream<IJeiAnvilRecipe> getRepairRecipes(IVanillaRecipeFactory vanillaRecipeFactory) {

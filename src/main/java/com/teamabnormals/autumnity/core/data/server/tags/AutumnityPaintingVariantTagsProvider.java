@@ -6,7 +6,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.PaintingVariantTagsProvider;
 import net.minecraft.tags.PaintingVariantTags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,6 +18,6 @@ public class AutumnityPaintingVariantTagsProvider extends PaintingVariantTagsPro
 
 	@Override
 	public void addTags(Provider provider) {
-		this.tag(PaintingVariantTags.PLACEABLE).add(AutumnityPaintingVariants.SNAIL.getKey(), AutumnityPaintingVariants.PUMPKIN.getKey());
+		this.tag(PaintingVariantTags.PLACEABLE).add(AutumnityPaintingVariants.SNAIL, AutumnityPaintingVariants.PUMPKIN);
 	}
 }

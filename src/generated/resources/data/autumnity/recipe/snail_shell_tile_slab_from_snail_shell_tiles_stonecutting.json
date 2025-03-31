@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "autumnity:snail_shell_tiles"
+  },
+  "result": {
+    "count": 2,
+    "id": "autumnity:snail_shell_tile_slab"
+  }
+}

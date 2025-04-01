@@ -19,15 +19,15 @@
   "block.autumnity.large_redstone_jack_o_lantern_slice": "Кусок большого редстоунового светильника Джека",
   
   "block.autumnity.snail_shell_block": "Блок улиточной раковины",
-  "block.autumnity.snail_shell_bricks": "Улиточно-раковинные кирпичи",
-  "block.autumnity.snail_shell_brick_stairs": "Ступеньки из улиточно-раковинных кирпичей",
-  "block.autumnity.snail_shell_brick_slab": "Плита из улиточно-раковинных кирпичей",
-  "block.autumnity.snail_shell_brick_wall": "Ограда из улиточно-раковинных кирпичей",
-  "block.autumnity.chiseled_snail_shell_bricks": "Резные улиточно-раковинные кирпичи",
-  "block.autumnity.snail_shell_tiles": "Улиточно-раковинный плитняк",
-  "block.autumnity.snail_shell_tile_stairs": "Ступеньки из улиточно-раковинного плитняка",
-  "block.autumnity.snail_shell_tile_slab": "Плита из улиточно-раковинного плитняка",
-  "block.autumnity.snail_shell_tile_wall": "Ограда из улиточно-раковинного плитняка",
+  "block.autumnity.snail_shell_bricks": "Улиточнораковинные кирпичи",
+  "block.autumnity.snail_shell_brick_stairs": "Ступеньки из улиточнораковинного кирпича",
+  "block.autumnity.snail_shell_brick_slab": "Плита из улиточнораковинного кирпича",
+  "block.autumnity.snail_shell_brick_wall": "Ограда из улиточнораковинного кирпича",
+  "block.autumnity.chiseled_snail_shell_bricks": "Резные улиточнораковинные кирпичи",
+  "block.autumnity.snail_shell_tiles": "Улиточнораковинный плитняк",
+  "block.autumnity.snail_shell_tile_stairs": "Ступеньки из улиточнораковинного плитняка",
+  "block.autumnity.snail_shell_tile_slab": "Плита из улиточнораковинного плитняка",
+  "block.autumnity.snail_shell_tile_wall": "Ограда из улиточнораковинного плитняка",
   
   "block.autumnity.maple_log": "Кленовое бревно",
   "block.autumnity.maple_wood": "Клён",
@@ -62,8 +62,7 @@
   "block.autumnity.potted_yellow_maple_sapling": "Саженец жёлтого клёна в горшке",
   "block.autumnity.potted_orange_maple_sapling": "Саженец оранжевого клёна в горшке",
   "block.autumnity.potted_red_maple_sapling": "Саженец красного клёна в горшке",
-  
-  
+
   "block.autumnity.maple_leaf_pile": "Кучка кленовых листьев",
   "block.autumnity.yellow_maple_leaf_pile": "Кучка листьев жёлтого клёна",
   "block.autumnity.orange_maple_leaf_pile": "Кучка листьев оранжевого клёна",
@@ -103,7 +102,9 @@
   "entity.autumnity.turkey_egg": "Брошенное индюшиное яйцо",
   
   "effect.autumnity.extension": "Продление",
+  "effect.autumnity.extension.desc": "Во время действия, любой полученный эффект будет продлён на 30 секунд",
   "effect.autumnity.foul_taste": "Мерзкий привкус",
+  "effect.autumnity.foul_taste.desc": "Еда, съеденная во время действия эффекта, на 50% более питательна",
   
   "item.minecraft.potion.effect.extension": "Зелье продления",
   "item.minecraft.splash_potion.effect.extension": "Взрывное зелье продления",

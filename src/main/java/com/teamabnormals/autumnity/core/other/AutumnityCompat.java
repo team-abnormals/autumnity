@@ -7,34 +7,9 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 public class AutumnityCompat {
 
-	public static void registerCompat() {
-		registerCompostables();
+	public static void register() {
 		registerFlammables();
 		registerDispenserBehaviors();
-	}
-
-	private static void registerCompostables() {
-		DataUtil.registerCompostable(AutumnityItems.FOUL_BERRIES.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityItems.FOUL_BERRY_PIPS.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityItems.PUMPKIN_BREAD.get(), 0.85F);
-		DataUtil.registerCompostable(AutumnityBlocks.AUTUMN_CROCUS.get(), 0.65F);
-
-		DataUtil.registerCompostable(AutumnityBlocks.PANCAKE.get(), 0.85F);
-
-		DataUtil.registerCompostable(AutumnityBlocks.LARGE_PUMPKIN_SLICE.get(), 0.65F);
-		DataUtil.registerCompostable(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get(), 0.65F);
-
-		DataUtil.registerCompostable(AutumnityBlocks.MAPLE_LEAVES.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_LEAVES.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_LEAVES.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_LEAVES.get(), 0.3F);
-
-		DataUtil.registerCompostable(AutumnityBlocks.MAPLE_SAPLING.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
-		DataUtil.registerCompostable(AutumnityBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
-
-		DataUtil.registerCompostable(AutumnityBlocks.FOUL_BERRY_BASKET.get(), 1.0F);
 	}
 
 	private static void registerFlammables() {

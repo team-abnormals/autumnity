@@ -1,6 +1,14 @@
 package com.teamabnormals.autumnity.core.other;
 
+import com.teamabnormals.autumnity.client.model.SnailModel;
+import com.teamabnormals.autumnity.client.model.TurkeyModel;
+import com.teamabnormals.autumnity.client.renderer.entity.SnailRenderer;
+import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
+import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
+import com.teamabnormals.autumnity.core.registry.AutumnityItems;
+import com.teamabnormals.woodworks.core.Woodworks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
@@ -10,10 +18,23 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers;
 
+@EventBusSubscriber(modid = Woodworks.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class AutumnityClientCompat {
 
-	public static void registerRenderLayers() {
+	public static void register() {
+		AutumnityBlocks.setupTabEditors();
+		AutumnityItems.setupTabEditors();
+		registerRenderLayers();
+		registerBlockColors();
+	}
+
+	private static void registerRenderLayers() {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_GOO.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.SNAIL_GOO_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.FOUL_BERRY_BUSH.get(), RenderType.cutout());
@@ -37,7 +58,7 @@ public class AutumnityClientCompat {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_FOUL_BERRIES.get(), RenderType.cutout());
 	}
 
-	public static void registerBlockColors() {
+	private static void registerBlockColors() {
 		BlockColors blockcolors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemcolors = Minecraft.getInstance().getItemColors();
 

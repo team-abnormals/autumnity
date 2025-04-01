@@ -63,6 +63,7 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(AutumnityBlockTags.SLIPPERY_SNAIL_GOO_BLOCKS).add(Blocks.WET_SPONGE);
 		this.tag(AutumnityBlockTags.SNAIL_SNACKS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, Blocks.CRIMSON_FUNGUS, Blocks.WARPED_FUNGUS);
 
+		this.tag(BlueprintBlockTags.ATTACHES_BLOCKS_TO_PISTONS).add(SNAIL_GOO_BLOCK.get());
 		this.tag(BlueprintBlockTags.WOODEN_BOARDS).add(MAPLE_BOARDS.get());
 		this.tag(BlueprintBlockTags.WOODEN_CHESTS).add(MAPLE_CHEST.get());
 		this.tag(BlueprintBlockTags.WOODEN_TRAPPED_CHESTS).add(TRAPPED_MAPLE_CHEST.get());

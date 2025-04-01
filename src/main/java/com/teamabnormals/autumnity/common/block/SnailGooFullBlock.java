@@ -102,7 +102,6 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 
 	@Override
 	public boolean canStickTo(BlockState state, BlockState other) {
-		// TODO: Piston Sticky Blocks tag
-		return (other.is(this) || !other.is(BlueprintBlockTags.NOTE_BLOCK_TOP_INSTRUMENTS)) && super.canStickTo(state, other);
+		return (other.is(this) || !other.is(BlueprintBlockTags.ATTACHES_BLOCKS_TO_PISTONS)) && super.canStickTo(state, other);
 	}
 }

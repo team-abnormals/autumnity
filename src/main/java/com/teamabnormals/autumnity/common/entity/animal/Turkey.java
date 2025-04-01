@@ -294,6 +294,11 @@ public class Turkey extends Animal implements NeutralMob, EggLayer {
 	}
 
 	@Override
+	public void setBirdJockey(boolean jockey) {
+		this.setTurkeyJockey(jockey);
+	}
+
+	@Override
 	public Item getEggItem() {
 		return AutumnityItems.TURKEY_EGG.get();
 	}

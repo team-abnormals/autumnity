@@ -1,6 +1,5 @@
 {
   "values": [
-    "autumnity:maple_forest",
-    "autumnity:pumpkin_fields"
+    "#autumnity:is_autumnal"
   ]
 }

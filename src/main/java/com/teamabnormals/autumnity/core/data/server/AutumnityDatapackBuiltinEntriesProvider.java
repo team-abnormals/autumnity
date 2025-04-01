@@ -1,14 +1,11 @@
 package com.teamabnormals.autumnity.core.data.server;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomeModifiers;
-import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomeSlices;
 import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConfiguredFeatures;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityNoiseParameters;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;
-import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBannerPatterns;
-import com.teamabnormals.autumnity.core.registry.datapack.AutumnityPaintingVariants;
+import com.teamabnormals.autumnity.core.registry.datapack.*;
 import com.teamabnormals.blueprint.core.registry.BlueprintDataPackRegistries;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.RegistrySetBuilder;
@@ -29,6 +26,7 @@ public class AutumnityDatapackBuiltinEntriesProvider extends DatapackBuiltinEntr
 			.add(Registries.PLACED_FEATURE, AutumnityPlacedFeatures::bootstrap)
 			.add(Registries.NOISE, AutumnityNoiseParameters::bootstrap)
 			.add(Registries.BIOME, AutumnityBiomes::bootstrap)
+			.add(Registries.WOLF_VARIANT, AutumnityWolfVariants::bootstrap)
 			.add(BlueprintDataPackRegistries.MODDED_BIOME_SLICES, AutumnityBiomeSlices::bootstrap)
 			.add(Keys.BIOME_MODIFIERS, AutumnityBiomeModifiers::bootstrap);
 

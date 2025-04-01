@@ -6,10 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 
 public class AutumnityBiomeTags {
+	public static final TagKey<Biome> IS_AUTUMNAL = biomeTag("is_autumnal");
 	public static final TagKey<Biome> HAS_MAPLE_HUT = biomeTag("has_structure/maple_hut");
-
-	public static final TagKey<Biome> HAS_SNAIL = biomeTag("has_animal/snail");
-	public static final TagKey<Biome> HAS_TURKEY = biomeTag("has_animal/turkey");
 
 	public static final TagKey<Biome> HAS_MAPLE_TREE = biomeTag("has_feature/maple_tree");
 	public static final TagKey<Biome> HAS_YELLOW_MAPLE_TREE = biomeTag("has_feature/spotted_maple_tree/yellow");

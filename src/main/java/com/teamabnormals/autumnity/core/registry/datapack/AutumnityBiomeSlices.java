@@ -2,7 +2,6 @@ package com.teamabnormals.autumnity.core.registry.datapack;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
 import com.teamabnormals.blueprint.common.world.modification.ModdedBiomeSlice;
 import com.teamabnormals.blueprint.core.registry.BlueprintBiomes;
 import com.teamabnormals.blueprint.core.registry.BlueprintDataPackRegistries;

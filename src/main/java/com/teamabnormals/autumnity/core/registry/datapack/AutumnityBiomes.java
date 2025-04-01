@@ -1,6 +1,7 @@
-package com.teamabnormals.autumnity.core.registry;
+package com.teamabnormals.autumnity.core.registry.datapack;
 
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;

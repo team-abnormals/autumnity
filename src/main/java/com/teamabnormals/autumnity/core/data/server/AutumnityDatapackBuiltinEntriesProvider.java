@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.core.data.server;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.AutumnityBiomes;
+import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityConfiguredFeatures;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityNoiseParameters;
 import com.teamabnormals.autumnity.core.registry.AutumnityFeatures.AutumnityPlacedFeatures;

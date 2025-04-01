@@ -8,6 +8,7 @@ import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.*;
+import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomes;
 import com.teamabnormals.blueprint.core.events.FallingBlockEvent.FallingBlockTickEvent;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;

@@ -6,6 +6,7 @@
   "refmap": "autumnity.refmap.json",
   "mixins": [
     "BlockMixin",
+    "FoxEatBerriesGoalMixin",
     "LakeFeatureMixin"
   ],
   "client": [],

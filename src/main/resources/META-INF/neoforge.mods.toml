@@ -3,6 +3,9 @@ loaderVersion = "[1,)"
 issueTrackerURL = "https://github.com/team-abnormals/autumnity/issues"
 license = "https://github.com/team-abnormals/autumnity/blob/main/LICENSE.txt"
 
+[[mixins]]
+    config = "autumnity.mixins.json"
+
 [[mods]]
     modId = "autumnity"
     version = "${mod_version}"

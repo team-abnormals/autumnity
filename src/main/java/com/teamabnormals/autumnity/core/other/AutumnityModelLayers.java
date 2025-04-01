@@ -7,7 +7,6 @@ import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
-import com.teamabnormals.woodworks.core.Woodworks;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,7 +14,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers;
 
-@EventBusSubscriber(modid = Woodworks.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = Autumnity.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class AutumnityModelLayers {
 	public static final ModelLayerLocation SNAIL = register("snail");
 	public static final ModelLayerLocation TURKEY = register("turkey");

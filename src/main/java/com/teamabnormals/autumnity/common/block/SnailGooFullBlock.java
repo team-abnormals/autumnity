@@ -2,10 +2,9 @@ package com.teamabnormals.autumnity.common.block;
 
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
+import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -104,14 +102,7 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 
 	@Override
 	public boolean canStickTo(BlockState state, BlockState other) {
-		// TODO: Blueprint Tag
-		if (other.getBlock() == Blocks.SLIME_BLOCK) return false;
-		if (other.getBlock() == Blocks.HONEY_BLOCK) return false;
-		if (other.getBlock() == BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("upgrade_aquatic", "mulberry_jam_block")))
-			return false;
-		if (other.getBlock() == BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("atmospheric", "aloe_gel_block")))
-			return false;
-
-		return super.canStickTo(state, other);
+		// TODO: Piston Sticky Blocks tag
+		return (other.is(this) || !other.is(BlueprintBlockTags.NOTE_BLOCK_TOP_INSTRUMENTS)) && super.canStickTo(state, other);
 	}
 }

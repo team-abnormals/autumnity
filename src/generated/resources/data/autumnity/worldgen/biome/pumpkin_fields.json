@@ -115,7 +115,7 @@
         "weight": 10
       },
       {
-        "type": "autumnity:turkey",
+        "type": "minecraft:chicken",
         "maxCount": 4,
         "minCount": 4,
         "weight": 10
@@ -125,12 +125,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 8
-      },
-      {
-        "type": "autumnity:snail",
-        "maxCount": 2,
-        "minCount": 2,
-        "weight": 10
       }
     ],
     "misc": [],

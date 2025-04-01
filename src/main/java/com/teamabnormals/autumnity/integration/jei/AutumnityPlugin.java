@@ -1,7 +1,7 @@
 package com.teamabnormals.autumnity.integration.jei;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.other.AutumnityTiers;
+import com.teamabnormals.autumnity.core.registry.AutumnityArmorMaterials;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -31,7 +31,7 @@ public class AutumnityPlugin implements IModPlugin {
 	}
 
 	private static Stream<RepairData> getRepairData() {
-		return Stream.of(new RepairData(AutumnityTiers.SNAIL.get().repairIngredient().get(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
+		return Stream.of(new RepairData(AutumnityArmorMaterials.SNAIL.get().repairIngredient().get(), new ItemStack(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())));
 	}
 
 	private static Stream<IJeiAnvilRecipe> getRepairRecipes(IVanillaRecipeFactory vanillaRecipeFactory) {

@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries.Keys;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-public class AutumnityDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesProvider {
+public class AutumnityDatapackProvider extends DatapackBuiltinEntriesProvider {
 
 	public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
 			.add(Registries.BANNER_PATTERN, AutumnityBannerPatterns::bootstrap)
@@ -30,7 +30,7 @@ public class AutumnityDatapackBuiltinEntriesProvider extends DatapackBuiltinEntr
 			.add(BlueprintDataPackRegistries.MODDED_BIOME_SLICES, AutumnityBiomeSlices::bootstrap)
 			.add(Keys.BIOME_MODIFIERS, AutumnityBiomeModifiers::bootstrap);
 
-	public AutumnityDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<Provider> provider) {
+	public AutumnityDatapackProvider(PackOutput output, CompletableFuture<Provider> provider) {
 		super(output, provider, BUILDER, Set.of(Autumnity.MOD_ID));
 	}
 }

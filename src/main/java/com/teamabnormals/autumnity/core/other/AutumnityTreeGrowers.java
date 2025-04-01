@@ -10,5 +10,4 @@ public class AutumnityTreeGrowers {
 	public static final TreeGrower MAPLE_RED = new TreeGrower("autumnity:maple_red", Optional.empty(), Optional.of(AutumnityConfiguredFeatures.MAPLE_TREE_RED), Optional.empty());
 	public static final TreeGrower MAPLE_ORANGE = new TreeGrower("autumnity:maple_orange", Optional.empty(), Optional.of(AutumnityConfiguredFeatures.MAPLE_TREE_ORANGE), Optional.empty());
 	public static final TreeGrower MAPLE_YELLOW = new TreeGrower("autumnity:maple_yellow", Optional.empty(), Optional.of(AutumnityConfiguredFeatures.MAPLE_TREE_YELLOW), Optional.empty());
-
 }

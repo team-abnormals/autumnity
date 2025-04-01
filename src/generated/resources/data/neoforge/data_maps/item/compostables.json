@@ -1,0 +1,49 @@
+{
+  "values": {
+    "autumnity:autumn_crocus": {
+      "chance": 0.65
+    },
+    "autumnity:carved_large_pumpkin_slice": {
+      "chance": 0.65
+    },
+    "autumnity:foul_berries": {
+      "chance": 0.3
+    },
+    "autumnity:foul_berry_pips": {
+      "chance": 0.3
+    },
+    "autumnity:large_pumpkin_slice": {
+      "chance": 0.65
+    },
+    "autumnity:maple_leaves": {
+      "chance": 0.3
+    },
+    "autumnity:maple_sapling": {
+      "chance": 0.3
+    },
+    "autumnity:orange_maple_leaves": {
+      "chance": 0.3
+    },
+    "autumnity:orange_maple_sapling": {
+      "chance": 0.3
+    },
+    "autumnity:pancake": {
+      "chance": 0.85
+    },
+    "autumnity:pumpkin_bread": {
+      "chance": 0.85
+    },
+    "autumnity:red_maple_leaves": {
+      "chance": 0.3
+    },
+    "autumnity:red_maple_sapling": {
+      "chance": 0.3
+    },
+    "autumnity:yellow_maple_leaves": {
+      "chance": 0.3
+    },
+    "autumnity:yellow_maple_sapling": {
+      "chance": 0.3
+    }
+  }
+}

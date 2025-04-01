@@ -1,12 +1,9 @@
-package com.teamabnormals.autumnity.core.other;
+package com.teamabnormals.autumnity.core.registry;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorItem.Type;
@@ -20,7 +17,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class AutumnityTiers {
+public class AutumnityArmorMaterials {
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, Autumnity.MOD_ID);
 
 	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> SNAIL = register("snail", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {

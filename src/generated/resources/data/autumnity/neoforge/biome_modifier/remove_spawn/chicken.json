@@ -1,0 +1,5 @@
+{
+  "type": "neoforge:remove_spawns",
+  "biomes": "#autumnity:has_animal/turkey",
+  "entity_types": "minecraft:chicken"
+}

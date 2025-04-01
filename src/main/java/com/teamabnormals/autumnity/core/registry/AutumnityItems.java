@@ -7,7 +7,6 @@ import com.teamabnormals.autumnity.common.item.TurkeyEggItem;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.autumnity.core.other.AutumnityConstants;
-import com.teamabnormals.autumnity.core.other.AutumnityTiers;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityBannerPatternTags;
 import com.teamabnormals.autumnity.integration.boatload.AutumnityBoatTypes;
 import com.teamabnormals.blueprint.common.item.BlueprintBoatItem;
@@ -21,7 +20,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -31,31 +29,31 @@ import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
 public class AutumnityItems {
-	public static final ItemSubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getItemSubHelper();
+	public static final ItemSubRegistryHelper ITEMS = Autumnity.REGISTRY_HELPER.getItemSubHelper();
 
-	public static final Pair<DeferredItem<BlueprintBoatItem>, DeferredItem<BlueprintBoatItem>> MAPLE_BOAT = HELPER.createBoatAndChestBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
-	public static final DeferredItem<Item> MAPLE_FURNACE_BOAT = HELPER.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties()));
-	public static final DeferredItem<Item> LARGE_MAPLE_BOAT = HELPER.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties()));
+	public static final Pair<DeferredItem<BlueprintBoatItem>, DeferredItem<BlueprintBoatItem>> MAPLE_BOAT = ITEMS.createBoatAndChestBoatItem("maple", AutumnityBlocks.MAPLE_PLANKS);
+	public static final DeferredItem<Item> MAPLE_FURNACE_BOAT = ITEMS.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties()));
+	public static final DeferredItem<Item> LARGE_MAPLE_BOAT = ITEMS.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties()));
 
-	public static final DeferredItem<Item> SAP_BOTTLE = HELPER.createItem("sap_bottle", () -> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
-	public static final DeferredItem<Item> SYRUP_BOTTLE = HELPER.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(AutumnityFoods.SYRUP_BOTTLE)));
-	public static final DeferredItem<Item> FOUL_BERRIES = HELPER.createItem("foul_berries", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new Item((new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)) : () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)));
-	public static final DeferredItem<Item> FOUL_BERRY_PIPS = HELPER.createItem("foul_berry_pips", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties())) : () -> new Item(new Item.Properties()));
-	public static final DeferredItem<Item> FOUL_SOUP = HELPER.createItem("foul_soup", () -> new Item(new Item.Properties().stacksTo(1).food(AutumnityFoods.FOUL_SOUP)));
-	public static final DeferredItem<Item> PUMPKIN_BREAD = HELPER.createItem("pumpkin_bread", () -> new Item(new Item.Properties().food(AutumnityFoods.PUMPKIN_BREAD)));
+	public static final DeferredItem<Item> SAP_BOTTLE = ITEMS.createItem("sap_bottle", () -> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
+	public static final DeferredItem<Item> SYRUP_BOTTLE = ITEMS.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(AutumnityFoods.SYRUP_BOTTLE)));
+	public static final DeferredItem<Item> FOUL_BERRIES = ITEMS.createItem("foul_berries", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new Item((new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)) : () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)));
+	public static final DeferredItem<Item> FOUL_BERRY_PIPS = ITEMS.createItem("foul_berry_pips", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties())) : () -> new Item(new Item.Properties()));
+	public static final DeferredItem<Item> FOUL_SOUP = ITEMS.createItem("foul_soup", () -> new Item(new Item.Properties().stacksTo(1).food(AutumnityFoods.FOUL_SOUP)));
+	public static final DeferredItem<Item> PUMPKIN_BREAD = ITEMS.createItem("pumpkin_bread", () -> new Item(new Item.Properties().food(AutumnityFoods.PUMPKIN_BREAD)));
 
-	public static final DeferredItem<Item> SNAIL_SHELL_PIECE = HELPER.createItem("snail_shell_piece", () -> new Item((new Item.Properties())));
-	public static final DeferredItem<Item> SNAIL_SHELL_CHESTPLATE = HELPER.createItem("snail_shell_chestplate", () -> new SnailShellChestplateItem(AutumnityTiers.SNAIL, ArmorItem.Type.CHESTPLATE, (new Item.Properties().durability(Type.CHESTPLATE.getDurability(23)))));
+	public static final DeferredItem<Item> SNAIL_SHELL_PIECE = ITEMS.createItem("snail_shell_piece", () -> new Item((new Item.Properties())));
+	public static final DeferredItem<Item> SNAIL_SHELL_CHESTPLATE = ITEMS.createItem("snail_shell_chestplate", () -> new SnailShellChestplateItem(AutumnityArmorMaterials.SNAIL, ArmorItem.Type.CHESTPLATE, (new Item.Properties().durability(Type.CHESTPLATE.getDurability(23)))));
 
-	public static final DeferredItem<Item> TURKEY_EGG = HELPER.createItem("turkey_egg", () -> new TurkeyEggItem(new Item.Properties().stacksTo(16)));
-	public static final DeferredItem<Item> TURKEY_PIECE = HELPER.createItem("turkey_piece", () -> new Item((new Item.Properties()).food(AutumnityFoods.TURKEY)));
-	public static final DeferredItem<Item> COOKED_TURKEY_PIECE = HELPER.createItem("cooked_turkey_piece", () -> new Item((new Item.Properties()).food(AutumnityFoods.COOKED_TURKEY)));
+	public static final DeferredItem<Item> TURKEY_EGG = ITEMS.createItem("turkey_egg", () -> new TurkeyEggItem(new Item.Properties().stacksTo(16)));
+	public static final DeferredItem<Item> TURKEY_PIECE = ITEMS.createItem("turkey_piece", () -> new Item((new Item.Properties()).food(AutumnityFoods.TURKEY)));
+	public static final DeferredItem<Item> COOKED_TURKEY_PIECE = ITEMS.createItem("cooked_turkey_piece", () -> new Item((new Item.Properties()).food(AutumnityFoods.COOKED_TURKEY)));
 
-	public static final DeferredItem<Item> MAPLE_LEAF_BANNER_PATTERN = HELPER.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBannerPatternTags.PATTERN_ITEM_MAPLE_LEAF, new Item.Properties().stacksTo(1)));
-	public static final DeferredItem<Item> SWIRL_BANNER_PATTERN = HELPER.createItem("swirl_banner_pattern", () -> new BannerPatternItem(AutumnityBannerPatternTags.PATTERN_ITEM_SWIRL, new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<Item> MAPLE_LEAF_BANNER_PATTERN = ITEMS.createItem("maple_leaf_banner_pattern", () -> new BannerPatternItem(AutumnityBannerPatternTags.PATTERN_ITEM_MAPLE_LEAF, new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<Item> SWIRL_BANNER_PATTERN = ITEMS.createItem("swirl_banner_pattern", () -> new BannerPatternItem(AutumnityBannerPatternTags.PATTERN_ITEM_SWIRL, new Item.Properties().stacksTo(1)));
 
-	public static final DeferredItem<DeferredSpawnEggItem> SNAIL_SPAWN_EGG = HELPER.createSpawnEggItem("snail", AutumnityEntityTypes.SNAIL::get, 7355937, 14727558);
-	public static final DeferredItem<DeferredSpawnEggItem> TURKEY_SPAWN_EGG = HELPER.createSpawnEggItem("turkey", AutumnityEntityTypes.TURKEY::get, 6765623, 5019859);
+	public static final DeferredItem<DeferredSpawnEggItem> SNAIL_SPAWN_EGG = ITEMS.createSpawnEggItem("snail", AutumnityEntityTypes.SNAIL::get, 7355937, 14727558);
+	public static final DeferredItem<DeferredSpawnEggItem> TURKEY_SPAWN_EGG = ITEMS.createSpawnEggItem("turkey", AutumnityEntityTypes.TURKEY::get, 6765623, 5019859);
 
 	public static void setupTabEditors() {
 		CreativeModeTabContentsPopulator.mod(Autumnity.MOD_ID)

@@ -7,17 +7,12 @@ import com.teamabnormals.autumnity.client.renderer.entity.TurkeyEggRenderer;
 import com.teamabnormals.autumnity.client.renderer.entity.TurkeyRenderer;
 import com.teamabnormals.autumnity.core.data.client.AutumnityBlockStateProvider;
 import com.teamabnormals.autumnity.core.data.client.AutumnityItemModelProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityAdvancementProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityDatapackBuiltinEntriesProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityLootTableProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityRecipeProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityAdvancementModifierProvider;
-import com.teamabnormals.autumnity.core.data.server.AutumnityDataRemolderProvider;
+import com.teamabnormals.autumnity.core.data.server.*;
 import com.teamabnormals.autumnity.core.data.server.tags.*;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;
-import com.teamabnormals.autumnity.core.other.AutumnityTiers;
+import com.teamabnormals.autumnity.core.registry.AutumnityArmorMaterials;
 import com.teamabnormals.autumnity.core.registry.*;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import com.teamabnormals.gallery.core.data.client.GalleryItemModelProvider;
@@ -46,7 +41,10 @@ public class Autumnity {
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
 	public Autumnity(IEventBus bus, ModContainer container) {
-		REGISTRY_HELPER.register(bus);
+		AutumnityBlocks.BLOCKS.register(bus);
+		AutumnityItems.ITEMS.register(bus);
+		AutumnityEntityTypes.ENTITY_TYPES.register(bus);
+		AutumnitySoundEvents.SOUND_EVENTS.register(bus);
 		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
 		AutumnityPlacementModifierTypes.PLACEMENT_MODIFIER_TYPES.register(bus);
@@ -54,7 +52,7 @@ public class Autumnity {
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);
 		AutumnityCriteriaTriggers.TRIGGERS.register(bus);
-		AutumnityTiers.ARMOR_MATERIALS.register(bus);
+		AutumnityArmorMaterials.ARMOR_MATERIALS.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
@@ -91,7 +89,7 @@ public class Autumnity {
 
 		boolean server = event.includeServer();
 
-		AutumnityDatapackBuiltinEntriesProvider datapackEntries = new AutumnityDatapackBuiltinEntriesProvider(output, provider);
+		AutumnityDatapackProvider datapackEntries = new AutumnityDatapackProvider(output, provider);
 		generator.addProvider(server, datapackEntries);
 		provider = datapackEntries.getRegistryProvider();
 
@@ -108,6 +106,7 @@ public class Autumnity {
 		generator.addProvider(server, new AutumnityLootTableProvider(output, provider));
 		generator.addProvider(server, new AutumnityAdvancementModifierProvider(output, provider));
 		generator.addProvider(server, new AutumnityDataRemolderProvider(output, provider));
+		generator.addProvider(server, new AutumnityDataMapProvider(output, provider));
 
 		boolean client = event.includeClient();
 		generator.addProvider(client, new AutumnityItemModelProvider(output, helper));

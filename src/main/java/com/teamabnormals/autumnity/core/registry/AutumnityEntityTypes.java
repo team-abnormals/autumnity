@@ -20,13 +20,13 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class AutumnityEntityTypes {
-	public static final EntitySubRegistryHelper HELPER = Autumnity.REGISTRY_HELPER.getEntitySubHelper();
+	public static final EntitySubRegistryHelper ENTITY_TYPES = Autumnity.REGISTRY_HELPER.getEntitySubHelper();
 
-	public static final DeferredHolder<EntityType<?>, EntityType<Snail>> SNAIL = HELPER.createEntity("snail", Snail::new, MobCategory.CREATURE, builder -> builder
+	public static final DeferredHolder<EntityType<?>, EntityType<Snail>> SNAIL = ENTITY_TYPES.createEntity("snail", Snail::new, MobCategory.CREATURE, builder -> builder
 			.sized(0.8F, 0.9F).eyeHeight(0.45F).clientTrackingRange(10));
-	public static final DeferredHolder<EntityType<?>, EntityType<Turkey>> TURKEY = HELPER.createEntity("turkey", Turkey::new, MobCategory.CREATURE, builder -> builder
+	public static final DeferredHolder<EntityType<?>, EntityType<Turkey>> TURKEY = ENTITY_TYPES.createEntity("turkey", Turkey::new, MobCategory.CREATURE, builder -> builder
 			.sized(0.6F, 0.8F).eyeHeight(0.45F).passengerAttachments(new Vec3(0.0, 0.7, -0.1)).clientTrackingRange(10));
-	public static final DeferredHolder<EntityType<?>, EntityType<ThrownTurkeyEgg>> TURKEY_EGG = HELPER.createEntity("turkey_egg", ThrownTurkeyEgg::new, MobCategory.MISC, builder -> builder
+	public static final DeferredHolder<EntityType<?>, EntityType<ThrownTurkeyEgg>> TURKEY_EGG = ENTITY_TYPES.createEntity("turkey_egg", ThrownTurkeyEgg::new, MobCategory.MISC, builder -> builder
 			.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10));
 
 	@SubscribeEvent

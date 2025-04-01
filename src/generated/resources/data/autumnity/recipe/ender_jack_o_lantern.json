@@ -12,7 +12,7 @@
       "item": "minecraft:carved_pumpkin"
     },
     "B": {
-      "tag": "forge:torches/ender"
+      "tag": "c:torches/ender"
     }
   },
   "pattern": [

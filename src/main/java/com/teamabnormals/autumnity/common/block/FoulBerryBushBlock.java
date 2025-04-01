@@ -1,11 +1,9 @@
 package com.teamabnormals.autumnity.common.block;
 
 import com.mojang.serialization.MapCodec;
-import com.teamabnormals.autumnity.common.entity.animal.Snail;
-import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
+import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
-import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -15,7 +13,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ItemStack;
@@ -96,11 +93,11 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-		if (entityIn instanceof LivingEntity livingentity && entityIn.getType() != EntityType.BEE && entityIn.getType() != AutumnityEntityTypes.SNAIL.get() && entityIn.getType() != AutumnityEntityTypes.TURKEY.get()) {
-			entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
-			if (!worldIn.isClientSide && !livingentity.hasEffect(MobEffects.POISON) && !livingentity.isShiftKeyDown()) {
-				livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 60));
+	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entity) {
+		if (entity instanceof LivingEntity living && !entity.getType().is(AutumnityEntityTypeTags.FOUL_BERRY_IMMUNE)) {
+			entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
+			if (!worldIn.isClientSide && !living.hasEffect(MobEffects.POISON) && !living.isSteppingCarefully()) {
+				living.addEffect(new MobEffectInstance(MobEffects.POISON, 60));
 			}
 		}
 	}
@@ -133,8 +130,7 @@ public class FoulBerryBushBlock extends BushBlock implements BonemealableBlock {
 	@Nullable
 	@Override
 	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
-		//TODO: Entity tag?
-		if (!(entity instanceof Snail) && !(entity instanceof Turkey)) {
+		if (entity == null || !entity.getType().is(AutumnityEntityTypeTags.FOUL_BERRY_IMMUNE)) {
 			return PathType.DAMAGE_OTHER;
 		}
 		return super.getBlockPathType(state, world, pos, entity);

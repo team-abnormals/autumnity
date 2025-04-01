@@ -35,6 +35,7 @@ import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -50,10 +51,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class Snail extends Animal {
@@ -75,11 +73,10 @@ public class Snail extends Animal {
 		if (livingentity == null) {
 			return false;
 		} else {
-			livingentity.getItemBySlot(EquipmentSlot.CHEST);
-			if (livingentity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get()) {
+			if (livingentity.getItemBySlot(EquipmentSlot.CHEST).is(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())) {
 				return false;
-			} else if (livingentity instanceof Player) {
-				return !livingentity.isShiftKeyDown() && !livingentity.isSpectator() && !((Player) livingentity).isCreative();
+			} else if (livingentity instanceof Player player) {
+				return !player.isSteppingCarefully() && !livingentity.isSpectator() && !player.isCreative();
 			} else {
 				return !(livingentity instanceof Snail) && !(livingentity instanceof MushroomCow);
 			}
@@ -242,19 +239,19 @@ public class Snail extends Animal {
 	@Override
 	public InteractionResult mobInteract(Player player, InteractionHand hand) {
 		if (this.getAction() == Action.DEFAULT) {
-			ItemStack itemstack = player.getItemInHand(hand);
-			if (!itemstack.isEmpty() && !this.hasSnack()) {
-				if (this.isSnack(itemstack)) {
+			ItemStack stack = player.getItemInHand(hand);
+			if (!stack.isEmpty() && !this.hasSnack()) {
+				if (this.isSnack(stack)) {
 					if (!this.isBaby() && this.getGooAmount() <= 0) {
 						if (!this.level().isClientSide) {
-							ItemStack itemstack1 = itemstack.copy();
+							ItemStack itemstack1 = stack.copy();
 							itemstack1.setCount(1);
 							this.setItemSlot(EquipmentSlot.MAINHAND, itemstack1);
-							this.usePlayerItem(player, hand, itemstack);
+							this.usePlayerItem(player, hand, stack);
 						}
 						return InteractionResult.sidedSuccess(this.level().isClientSide());
 					}
-				} else if (this.isSnailBreedingItem(itemstack)) {
+				} else if (this.isSnailBreedingItem(stack)) {
 					boolean flag = false;
 
 					if (!this.level().isClientSide && this.getAge() == 0 && this.canFallInLove()) {
@@ -266,9 +263,20 @@ public class Snail extends Animal {
 					}
 
 					if (flag) {
-						if (!this.level().isClientSide && !player.getAbilities().instabuild) {
-							//TODO: Confirm this works
-							itemstack.finishUsingItem(this.level(), this);
+						FoodProperties properties = stack.getFoodProperties(this);
+						if (properties != null) {
+							stack.consume(1, player);
+							Optional<ItemStack> optional = properties.usingConvertsTo();
+							if (optional.isPresent() && !this.hasInfiniteMaterials()) {
+								if (stack.isEmpty()) {
+									player.setItemInHand(hand, optional.get().copy());
+								} else if (!this.level().isClientSide()) {
+									ItemStack container = optional.get().copy();
+									if (!player.getInventory().add(container)) {
+										player.drop(container, false);
+									}
+								}
+							}
 						}
 
 						return InteractionResult.sidedSuccess(this.level().isClientSide());

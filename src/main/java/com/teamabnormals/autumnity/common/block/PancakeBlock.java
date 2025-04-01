@@ -75,7 +75,7 @@ public class PancakeBlock extends Block {
 
 	@Override
 	public ItemInteractionResult useItemOn(ItemStack itemstack, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		if (player.isShiftKeyDown()) {
+		if (player.isSecondaryUseActive()) {
 			if (worldIn.getBlockState(pos.above()).getBlock() != this) {
 				if (state.getValue(PANCAKES) > 1) {
 					if (!worldIn.isClientSide) {

@@ -107,7 +107,7 @@ public class AutumnityEvents {
 	public static void onSnailShellChestplateSneak(EntityTickEvent.Post event) {
 		if (event.getEntity() instanceof LivingEntity entity && entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE) != null) {
 			entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).removeModifier(KNOCKBACK_MODIFIER);
-			if (entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isCrouching()) {
+			if (entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == AutumnityItems.SNAIL_SHELL_CHESTPLATE.get() && entity.isSteppingCarefully()) {
 				entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(KNOCKBACK_MODIFIER);
 			}
 		}

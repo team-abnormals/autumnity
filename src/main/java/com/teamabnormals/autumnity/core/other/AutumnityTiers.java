@@ -32,7 +32,7 @@ public class AutumnityTiers {
 	}), 9, AutumnitySoundEvents.ITEM_ARMOR_EQUIP_SNAIL, 0.0F, 0.0F, () -> Ingredient.of(AutumnityItems.SNAIL_SHELL_PIECE.get()));
 
 	private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(String name, EnumMap<Type, Integer> defense, int enchantmentValue, Holder<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-		List<Layer> list = List.of(new ArmorMaterial.Layer(ResourceLocation.withDefaultNamespace(name)));
+		List<Layer> list = List.of(new ArmorMaterial.Layer(Autumnity.location(name)));
 		return register(name, defense, enchantmentValue, equipSound, toughness, knockbackResistance, repairIngredient, list);
 	}
 

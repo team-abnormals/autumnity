@@ -12,7 +12,7 @@
       "item": "autumnity:carved_large_pumpkin_slice"
     },
     "B": {
-      "tag": "forge:torches/ender"
+      "tag": "c:torches/ender"
     }
   },
   "pattern": [

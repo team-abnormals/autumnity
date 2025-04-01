@@ -17,6 +17,7 @@ import com.teamabnormals.autumnity.core.data.server.tags.*;
 import com.teamabnormals.autumnity.core.other.AutumnityClientCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityCompat;
 import com.teamabnormals.autumnity.core.other.AutumnityModelLayers;
+import com.teamabnormals.autumnity.core.other.AutumnityTiers;
 import com.teamabnormals.autumnity.core.registry.*;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import com.teamabnormals.gallery.core.data.client.GalleryItemModelProvider;
@@ -53,6 +54,7 @@ public class Autumnity {
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);
 		AutumnityCriteriaTriggers.TRIGGERS.register(bus);
+		AutumnityTiers.ARMOR_MATERIALS.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);

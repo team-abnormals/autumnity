@@ -12,7 +12,7 @@
       "item": "minecraft:carved_pumpkin"
     },
     "B": {
-      "tag": "forge:torches/cupric"
+      "tag": "c:torches/cupric"
     }
   },
   "pattern": [

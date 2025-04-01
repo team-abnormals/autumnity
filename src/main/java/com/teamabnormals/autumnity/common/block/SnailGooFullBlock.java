@@ -67,7 +67,7 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 
 	@Override
 	public void fallOn(Level worldIn, BlockState state, BlockPos pos, Entity entityIn, float fallDistance) {
-		if (entityIn.isShiftKeyDown()) {
+		if (entityIn.isSuppressingBounce()) {
 			super.fallOn(worldIn, state, pos, entityIn, fallDistance);
 		} else {
 			entityIn.causeFallDamage(fallDistance, 0.0F, worldIn.damageSources().fall());
@@ -78,7 +78,7 @@ public class SnailGooFullBlock extends HalfTransparentBlock {
 	public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
 		if (!state.getValue(SLIPPERY) && !(entityIn instanceof Snail)) {
 			if (entityIn.getBoundingBox().maxY <= pos.getY() + 0.0625D) {
-				if (!entityIn.isShiftKeyDown()) {
+				if (!entityIn.isSteppingCarefully()) {
 					entityIn.makeStuckInBlock(state, new Vec3(1.0D, 0.0F, 1.0D));
 				}
 			} else {

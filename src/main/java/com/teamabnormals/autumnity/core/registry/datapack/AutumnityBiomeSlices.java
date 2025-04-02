@@ -64,10 +64,34 @@ public class AutumnityBiomeSlices {
 		private final Climate.Parameter midInlandContinentalness = Climate.Parameter.span(0.03F, 0.3F);
 		private final Climate.Parameter farInlandContinentalness = Climate.Parameter.span(0.3F, 1.0F);
 		private final ResourceKey<Biome> VANILLA = BlueprintBiomes.ORIGINAL_SOURCE_MARKER;
-		private final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}, {PUMPKIN_FIELDS_MIDDLE, PUMPKIN_FIELDS_MIDDLE, MAPLE_FOREST_MIDDLE, VANILLA, VANILLA}, {VANILLA, PUMPKIN_FIELDS_MIDDLE, VANILLA, VANILLA, VANILLA}, {VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}, {VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}};
-		private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{{VANILLA, null, VANILLA, null, null}, {MAPLE_FOREST_MIDDLE_VARIANT, null, null, null, VANILLA}, {VANILLA, MAPLE_FOREST_MIDDLE_VARIANT, null, VANILLA, null}, {null, null, VANILLA, VANILLA, VANILLA}, {null, null, null, null, null}};
-		private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}, {VANILLA, VANILLA, MAPLE_FOREST_PLATEAU, VANILLA, VANILLA}, {VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}, {VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}, {VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}};
-		private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{{VANILLA, null, null, null, null}, {null, null, VANILLA, VANILLA, VANILLA}, {null, null, MAPLE_FOREST_PLATEAU_VARIANT, VANILLA, null}, {null, null, null, null, null}, {VANILLA, VANILLA, null, null, null}};
+		private final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
+				{PUMPKIN_FIELDS_MIDDLE, PUMPKIN_FIELDS_MIDDLE, MAPLE_FOREST_MIDDLE, VANILLA, VANILLA},
+				{VANILLA, PUMPKIN_FIELDS_MIDDLE, VANILLA, VANILLA, VANILLA},
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}
+		};
+		private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
+				{null, null, null, null, null},
+				{MAPLE_FOREST_MIDDLE_VARIANT, null, null, null, null},
+				{null, MAPLE_FOREST_MIDDLE_VARIANT, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null}
+		};
+		private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
+				{VANILLA, VANILLA, MAPLE_FOREST_PLATEAU, VANILLA, VANILLA},
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
+				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}
+		};
+		private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, MAPLE_FOREST_PLATEAU_VARIANT, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null}
+		};
 
 		private void addBiomesToSlice(Consumer<Pair<ParameterPoint, ResourceKey<Biome>>> consumer) {
 			this.addOffCoastBiomes(consumer);

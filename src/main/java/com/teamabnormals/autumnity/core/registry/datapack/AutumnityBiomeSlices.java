@@ -21,11 +21,8 @@ import static net.minecraft.world.level.biome.Climate.ParameterPoint;
 public class AutumnityBiomeSlices {
 	public static final ResourceKey<ModdedBiomeSlice> AUTUMN = createKey("autumn");
 
-	private static final ResourceKey<Biome> MAPLE_FOREST_MIDDLE = AutumnityBiomes.createKey("maple_forest_middle");
-	private static final ResourceKey<Biome> MAPLE_FOREST_MIDDLE_VARIANT = AutumnityBiomes.createKey("maple_forest_middle_variant");
-	private static final ResourceKey<Biome> MAPLE_FOREST_PLATEAU = AutumnityBiomes.createKey("maple_forest_plateau");
-	private static final ResourceKey<Biome> MAPLE_FOREST_PLATEAU_VARIANT = AutumnityBiomes.createKey("maple_forest_plateau_variant");
-	private static final ResourceKey<Biome> PUMPKIN_FIELDS_MIDDLE = AutumnityBiomes.createKey("pumpkin_fields_middle");
+	private static final ResourceKey<Biome> MAPLE_FOREST = AutumnityBiomes.createKey("maple_forest");
+	private static final ResourceKey<Biome> PUMPKIN_FIELDS = AutumnityBiomes.createKey("pumpkin_fields");
 
 	public static void bootstrap(BootstrapContext<ModdedBiomeSlice> context) {
 		List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> entries = new ArrayList<>();
@@ -34,11 +31,8 @@ public class AutumnityBiomeSlices {
 		context.register(AUTUMN, new ModdedBiomeSlice(20,
 				MultiNoiseModdedBiomeProvider.builder()
 						.biomes(entries::forEach)
-						.area(MAPLE_FOREST_MIDDLE, AutumnityBiomes.MAPLE_FOREST)
-						.area(PUMPKIN_FIELDS_MIDDLE, AutumnityBiomes.PUMPKIN_FIELDS)
-						.area(MAPLE_FOREST_MIDDLE_VARIANT, AutumnityBiomes.MAPLE_FOREST)
-						.area(MAPLE_FOREST_PLATEAU, AutumnityBiomes.MAPLE_FOREST)
-						.area(MAPLE_FOREST_PLATEAU_VARIANT, AutumnityBiomes.MAPLE_FOREST)
+						.area(MAPLE_FOREST, AutumnityBiomes.MAPLE_FOREST)
+						.area(PUMPKIN_FIELDS, AutumnityBiomes.PUMPKIN_FIELDS)
 						.build(), LevelStem.OVERWORLD));
 	}
 
@@ -66,21 +60,21 @@ public class AutumnityBiomeSlices {
 		private final ResourceKey<Biome> VANILLA = BlueprintBiomes.ORIGINAL_SOURCE_MARKER;
 		private final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
-				{PUMPKIN_FIELDS_MIDDLE, PUMPKIN_FIELDS_MIDDLE, MAPLE_FOREST_MIDDLE, VANILLA, VANILLA},
-				{VANILLA, PUMPKIN_FIELDS_MIDDLE, VANILLA, VANILLA, VANILLA},
+				{PUMPKIN_FIELDS, PUMPKIN_FIELDS, MAPLE_FOREST, VANILLA, VANILLA},
+				{VANILLA, PUMPKIN_FIELDS, VANILLA, VANILLA, VANILLA},
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}
 		};
 		private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
 				{null, null, null, null, null},
-				{MAPLE_FOREST_MIDDLE_VARIANT, null, null, null, null},
-				{null, MAPLE_FOREST_MIDDLE_VARIANT, null, null, null},
+				{MAPLE_FOREST, null, null, null, null},
+				{null, MAPLE_FOREST, null, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null}
 		};
 		private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
-				{VANILLA, VANILLA, MAPLE_FOREST_PLATEAU, VANILLA, VANILLA},
+				{VANILLA, VANILLA, MAPLE_FOREST, VANILLA, VANILLA},
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA},
 				{VANILLA, VANILLA, VANILLA, VANILLA, VANILLA}
@@ -88,7 +82,7 @@ public class AutumnityBiomeSlices {
 		private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
 				{null, null, null, null, null},
 				{null, null, null, null, null},
-				{null, null, MAPLE_FOREST_PLATEAU_VARIANT, null, null},
+				{null, null, MAPLE_FOREST, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null}
 		};

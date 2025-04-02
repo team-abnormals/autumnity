@@ -5,11 +5,8 @@
   "provider": {
     "type": "blueprint:multi_noise",
     "areas": {
-      "autumnity:maple_forest_middle": "autumnity:maple_forest",
-      "autumnity:maple_forest_middle_variant": "autumnity:maple_forest",
-      "autumnity:maple_forest_plateau": "autumnity:maple_forest",
-      "autumnity:maple_forest_plateau_variant": "autumnity:maple_forest",
-      "autumnity:pumpkin_fields_middle": "autumnity:pumpkin_fields"
+      "autumnity:maple_forest": "autumnity:maple_forest",
+      "autumnity:pumpkin_fields": "autumnity:pumpkin_fields"
     },
     "biomes": [
       {
@@ -4819,7 +4816,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -4846,7 +4843,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -4927,7 +4924,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -4954,7 +4951,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -4981,7 +4978,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5008,7 +5005,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5089,7 +5086,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -5116,7 +5113,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -5143,7 +5140,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5170,7 +5167,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5251,7 +5248,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5278,7 +5275,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5359,7 +5356,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5386,7 +5383,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5575,7 +5572,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5602,7 +5599,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5683,7 +5680,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5710,7 +5707,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -5737,7 +5734,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5764,7 +5761,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5845,7 +5842,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -5872,7 +5869,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -5899,7 +5896,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -5926,7 +5923,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -6007,7 +6004,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6034,7 +6031,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6115,7 +6112,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6142,7 +6139,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6331,7 +6328,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6358,7 +6355,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6385,7 +6382,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -6412,7 +6409,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -6439,7 +6436,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6466,7 +6463,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6493,7 +6490,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -6520,7 +6517,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -6547,7 +6544,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -6574,7 +6571,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -6601,7 +6598,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -6628,7 +6625,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -6655,7 +6652,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -6682,7 +6679,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -6763,7 +6760,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6790,7 +6787,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6871,7 +6868,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -6898,7 +6895,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9355,7 +9352,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9382,7 +9379,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9463,7 +9460,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9490,7 +9487,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9517,7 +9514,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -9544,7 +9541,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -9625,7 +9622,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -9652,7 +9649,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -9679,7 +9676,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -9706,7 +9703,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -9787,7 +9784,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9814,7 +9811,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9895,7 +9892,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -9922,7 +9919,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -23395,7 +23392,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23422,7 +23419,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23557,7 +23554,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -23584,7 +23581,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -23665,7 +23662,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23692,7 +23689,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23773,7 +23770,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -23800,7 +23797,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -23881,7 +23878,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23908,7 +23905,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23935,7 +23932,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -23962,7 +23959,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24043,7 +24040,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24070,7 +24067,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24097,7 +24094,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24124,7 +24121,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24259,7 +24256,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -24286,7 +24283,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -24367,7 +24364,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24394,7 +24391,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24475,7 +24472,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -24502,7 +24499,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -24583,7 +24580,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24610,7 +24607,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24637,7 +24634,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24664,7 +24661,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24745,7 +24742,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24772,7 +24769,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24799,7 +24796,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24826,7 +24823,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -24961,7 +24958,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -24988,7 +24985,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -25069,7 +25066,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25096,7 +25093,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25123,7 +25120,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -25150,7 +25147,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -25177,7 +25174,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -25204,7 +25201,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -25231,7 +25228,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -25258,7 +25255,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -25285,7 +25282,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25312,7 +25309,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25339,7 +25336,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25366,7 +25363,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25447,7 +25444,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -25474,7 +25471,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -27607,7 +27604,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -27634,7 +27631,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -27769,7 +27766,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -27796,7 +27793,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -27877,7 +27874,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -27904,7 +27901,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -27985,7 +27982,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -28012,7 +28009,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -28093,7 +28090,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -28120,7 +28117,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -28147,7 +28144,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -28174,7 +28171,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -28255,7 +28252,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -28282,7 +28279,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40459,7 +40456,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40486,7 +40483,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40567,7 +40564,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40594,7 +40591,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40675,7 +40672,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -40702,7 +40699,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -40783,7 +40780,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40810,7 +40807,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40945,7 +40942,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -40972,7 +40969,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41053,7 +41050,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41080,7 +41077,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41161,7 +41158,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41188,7 +41185,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41269,7 +41266,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41296,7 +41293,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41377,7 +41374,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41404,7 +41401,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41539,7 +41536,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41566,7 +41563,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41647,7 +41644,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41674,7 +41671,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41755,7 +41752,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41782,7 +41779,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41809,7 +41806,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41836,7 +41833,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41863,7 +41860,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41890,7 +41887,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -41917,7 +41914,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -41944,7 +41941,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -41971,7 +41968,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -41998,7 +41995,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -42133,7 +42130,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -42160,7 +42157,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44023,7 +44020,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44050,7 +44047,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44131,7 +44128,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44158,7 +44155,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44239,7 +44236,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -44266,7 +44263,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -44347,7 +44344,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44374,7 +44371,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44509,7 +44506,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -44536,7 +44533,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -55795,7 +55792,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -55822,7 +55819,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -55957,7 +55954,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -55984,7 +55981,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -56065,7 +56062,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56092,7 +56089,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56173,7 +56170,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -56200,7 +56197,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -56281,7 +56278,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56308,7 +56305,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56335,7 +56332,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56362,7 +56359,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56443,7 +56440,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56470,7 +56467,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56497,7 +56494,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56524,7 +56521,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56659,7 +56656,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -56686,7 +56683,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -56767,7 +56764,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56794,7 +56791,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -56875,7 +56872,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -56902,7 +56899,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -56983,7 +56980,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57010,7 +57007,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57037,7 +57034,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57064,7 +57061,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57145,7 +57142,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57172,7 +57169,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57199,7 +57196,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57226,7 +57223,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57361,7 +57358,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -57388,7 +57385,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -57469,7 +57466,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57496,7 +57493,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57523,7 +57520,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -57550,7 +57547,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -57577,7 +57574,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -57604,7 +57601,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -57631,7 +57628,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -57658,7 +57655,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -57685,7 +57682,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57712,7 +57709,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57739,7 +57736,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57766,7 +57763,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57847,7 +57844,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -57874,7 +57871,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60007,7 +60004,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60034,7 +60031,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60169,7 +60166,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -60196,7 +60193,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -60277,7 +60274,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60304,7 +60301,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60385,7 +60382,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -60412,7 +60409,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -60493,7 +60490,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60520,7 +60517,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60547,7 +60544,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60574,7 +60571,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60655,7 +60652,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -60682,7 +60679,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -74047,7 +74044,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74074,7 +74071,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74155,7 +74152,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74182,7 +74179,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74209,7 +74206,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -74236,7 +74233,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -74317,7 +74314,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -74344,7 +74341,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -74371,7 +74368,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -74398,7 +74395,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -74479,7 +74476,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74506,7 +74503,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74587,7 +74584,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74614,7 +74611,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74803,7 +74800,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74830,7 +74827,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74911,7 +74908,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74938,7 +74935,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -74965,7 +74962,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -74992,7 +74989,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75073,7 +75070,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -75100,7 +75097,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -75127,7 +75124,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75154,7 +75151,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75235,7 +75232,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75262,7 +75259,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75343,7 +75340,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75370,7 +75367,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75559,7 +75556,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75586,7 +75583,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75613,7 +75610,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -75640,7 +75637,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -75667,7 +75664,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75694,7 +75691,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -75721,7 +75718,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75748,7 +75745,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75775,7 +75772,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -75802,7 +75799,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -75829,7 +75826,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -75856,7 +75853,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -75883,7 +75880,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75910,7 +75907,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -75991,7 +75988,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -76018,7 +76015,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -76099,7 +76096,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -76126,7 +76123,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -78583,7 +78580,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -78610,7 +78607,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -78691,7 +78688,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -78718,7 +78715,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -78745,7 +78742,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -78772,7 +78769,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -78853,7 +78850,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -78880,7 +78877,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -78907,7 +78904,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -78934,7 +78931,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -79015,7 +79012,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -79042,7 +79039,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -79123,7 +79120,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -79150,7 +79147,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92191,7 +92188,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92218,7 +92215,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92245,7 +92242,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92272,7 +92269,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92299,7 +92296,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92326,7 +92323,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92353,7 +92350,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92380,7 +92377,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92461,7 +92458,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92488,7 +92485,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92569,7 +92566,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92596,7 +92593,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92623,7 +92620,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92650,7 +92647,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92731,7 +92728,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92758,7 +92755,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92785,7 +92782,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92812,7 +92809,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92839,7 +92836,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92866,7 +92863,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -92893,7 +92890,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -92920,7 +92917,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93001,7 +92998,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93028,7 +93025,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93109,7 +93106,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93136,7 +93133,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93163,7 +93160,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93190,7 +93187,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93271,7 +93268,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93298,7 +93295,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93325,7 +93322,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93352,7 +93349,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93379,7 +93376,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93406,7 +93403,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93433,7 +93430,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93460,7 +93457,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93541,7 +93538,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93568,7 +93565,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93649,7 +93646,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93676,7 +93673,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -93703,7 +93700,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -93730,7 +93727,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95431,7 +95428,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95458,7 +95455,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95485,7 +95482,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95512,7 +95509,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95539,7 +95536,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95566,7 +95563,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95593,7 +95590,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95620,7 +95617,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95701,7 +95698,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95728,7 +95725,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95809,7 +95806,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95836,7 +95833,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -95863,7 +95860,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -95890,7 +95887,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103801,7 +103798,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103828,7 +103825,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103855,7 +103852,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103882,7 +103879,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103909,7 +103906,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -103936,7 +103933,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -104125,7 +104122,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -104152,7 +104149,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -107959,7 +107956,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -107986,7 +107983,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108013,7 +108010,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108040,7 +108037,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108067,7 +108064,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108094,7 +108091,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108121,7 +108118,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108148,7 +108145,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108229,7 +108226,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108256,7 +108253,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108283,7 +108280,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -108310,7 +108307,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -108337,7 +108334,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108364,7 +108361,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108391,7 +108388,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108418,7 +108415,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108499,7 +108496,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108526,7 +108523,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108553,7 +108550,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108580,7 +108577,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108607,7 +108604,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108634,7 +108631,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108661,7 +108658,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108688,7 +108685,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108769,7 +108766,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108796,7 +108793,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108823,7 +108820,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -108850,7 +108847,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -108877,7 +108874,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108904,7 +108901,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -108931,7 +108928,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -108958,7 +108955,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109039,7 +109036,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109066,7 +109063,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109093,7 +109090,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109120,7 +109117,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109147,7 +109144,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109174,7 +109171,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109201,7 +109198,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109228,7 +109225,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109309,7 +109306,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109336,7 +109333,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109363,7 +109360,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -109390,7 +109387,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -109417,7 +109414,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109444,7 +109441,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -109471,7 +109468,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -109498,7 +109495,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111199,7 +111196,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111226,7 +111223,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111253,7 +111250,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111280,7 +111277,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111307,7 +111304,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111334,7 +111331,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111361,7 +111358,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111388,7 +111385,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111469,7 +111466,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111496,7 +111493,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -111631,7 +111628,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -111658,7 +111655,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -122701,7 +122698,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -122728,7 +122725,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -122809,7 +122806,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -122836,7 +122833,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -122863,7 +122860,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -122890,7 +122887,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -122971,7 +122968,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -122998,7 +122995,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123025,7 +123022,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123052,7 +123049,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123079,7 +123076,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123106,7 +123103,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123133,7 +123130,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123160,7 +123157,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123187,7 +123184,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123214,7 +123211,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123295,7 +123292,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123322,7 +123319,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123403,7 +123400,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123430,7 +123427,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123511,7 +123508,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123538,7 +123535,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123565,7 +123562,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123592,7 +123589,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123673,7 +123670,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123700,7 +123697,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123727,7 +123724,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123754,7 +123751,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -123781,7 +123778,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123808,7 +123805,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123835,7 +123832,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123862,7 +123859,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -123889,7 +123886,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123916,7 +123913,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -123997,7 +123994,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124024,7 +124021,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124105,7 +124102,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124132,7 +124129,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124159,7 +124156,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -124186,7 +124183,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -124213,7 +124210,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124240,7 +124237,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124267,7 +124264,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -124294,7 +124291,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -124321,7 +124318,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -124348,7 +124345,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -124375,7 +124372,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124402,7 +124399,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124429,7 +124426,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -124456,7 +124453,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -124483,7 +124480,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124510,7 +124507,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124537,7 +124534,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124564,7 +124561,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124591,7 +124588,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124618,7 +124615,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -124699,7 +124696,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -124726,7 +124723,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -126913,7 +126910,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -126940,7 +126937,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -127021,7 +127018,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -127048,7 +127045,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -127075,7 +127072,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -127102,7 +127099,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -127183,7 +127180,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127210,7 +127207,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127237,7 +127234,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -127264,7 +127261,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -127291,7 +127288,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127318,7 +127315,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127507,7 +127504,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127534,7 +127531,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -127669,7 +127666,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -127696,7 +127693,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -127831,7 +127828,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -127858,7 +127855,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -140197,7 +140194,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140224,7 +140221,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140359,7 +140356,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -140386,7 +140383,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -140467,7 +140464,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140494,7 +140491,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140575,7 +140572,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -140602,7 +140599,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -140683,7 +140680,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140710,7 +140707,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140737,7 +140734,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140764,7 +140761,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140845,7 +140842,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140872,7 +140869,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140899,7 +140896,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -140926,7 +140923,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141061,7 +141058,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -141088,7 +141085,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -141169,7 +141166,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141196,7 +141193,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141277,7 +141274,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -141304,7 +141301,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -141385,7 +141382,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141412,7 +141409,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141439,7 +141436,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141466,7 +141463,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141547,7 +141544,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141574,7 +141571,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141601,7 +141598,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141628,7 +141625,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141763,7 +141760,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -141790,7 +141787,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -141871,7 +141868,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141898,7 +141895,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -141925,7 +141922,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -141952,7 +141949,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -141979,7 +141976,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -142006,7 +142003,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -142033,7 +142030,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -142060,7 +142057,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -142087,7 +142084,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -142114,7 +142111,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -142141,7 +142138,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -142168,7 +142165,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -142249,7 +142246,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -142276,7 +142273,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144409,7 +144406,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144436,7 +144433,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144571,7 +144568,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -144598,7 +144595,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -144679,7 +144676,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144706,7 +144703,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144787,7 +144784,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -144814,7 +144811,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -144895,7 +144892,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -144922,7 +144919,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -145057,7 +145054,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -145084,7 +145081,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -145435,7 +145432,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -145462,7 +145459,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -145543,7 +145540,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -145570,7 +145567,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -157261,7 +157258,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157288,7 +157285,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157369,7 +157366,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157396,7 +157393,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157477,7 +157474,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -157504,7 +157501,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -157585,7 +157582,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157612,7 +157609,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157747,7 +157744,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157774,7 +157771,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157855,7 +157852,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157882,7 +157879,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157963,7 +157960,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -157990,7 +157987,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158071,7 +158068,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158098,7 +158095,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158179,7 +158176,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158206,7 +158203,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158341,7 +158338,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158368,7 +158365,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158449,7 +158446,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158476,7 +158473,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158557,7 +158554,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158584,7 +158581,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158611,7 +158608,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158638,7 +158635,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158665,7 +158662,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158692,7 +158689,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -158719,7 +158716,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -158746,7 +158743,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -158773,7 +158770,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158800,7 +158797,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158935,7 +158932,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -158962,7 +158959,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -160825,7 +160822,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -160852,7 +160849,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -160933,7 +160930,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -160960,7 +160957,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -161041,7 +161038,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -161068,7 +161065,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -161149,7 +161146,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -161176,7 +161173,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -161311,7 +161308,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -161338,7 +161335,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -161581,7 +161578,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -161608,7 +161605,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -161689,7 +161686,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -161716,7 +161713,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -172597,7 +172594,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -172624,7 +172621,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -172759,7 +172756,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -172786,7 +172783,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -172867,7 +172864,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -172894,7 +172891,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -172975,7 +172972,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -173002,7 +172999,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -173083,7 +173080,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173110,7 +173107,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173137,7 +173134,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173164,7 +173161,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173245,7 +173242,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173272,7 +173269,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173299,7 +173296,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173326,7 +173323,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173461,7 +173458,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -173488,7 +173485,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -173569,7 +173566,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173596,7 +173593,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173677,7 +173674,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -173704,7 +173701,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -173785,7 +173782,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173812,7 +173809,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173839,7 +173836,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173866,7 +173863,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173947,7 +173944,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -173974,7 +173971,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174001,7 +173998,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174028,7 +174025,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174163,7 +174160,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -174190,7 +174187,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -174271,7 +174268,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174298,7 +174295,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174325,7 +174322,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -174352,7 +174349,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -174379,7 +174376,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -174406,7 +174403,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -174433,7 +174430,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -174460,7 +174457,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -174487,7 +174484,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174514,7 +174511,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174541,7 +174538,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174568,7 +174565,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174649,7 +174646,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -174676,7 +174673,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -176809,7 +176806,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -176836,7 +176833,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -176971,7 +176968,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -176998,7 +176995,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -177079,7 +177076,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177106,7 +177103,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177187,7 +177184,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -177214,7 +177211,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -177295,7 +177292,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177322,7 +177319,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177457,7 +177454,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177484,7 +177481,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -177835,7 +177832,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -177862,7 +177859,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -177943,7 +177940,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -177970,7 +177967,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -190579,7 +190576,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -190606,7 +190603,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -190687,7 +190684,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -190714,7 +190711,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -190741,7 +190738,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -190768,7 +190765,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -190849,7 +190846,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -190876,7 +190873,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -190903,7 +190900,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -190930,7 +190927,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -190957,7 +190954,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -190984,7 +190981,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191011,7 +191008,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191038,7 +191035,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191065,7 +191062,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191092,7 +191089,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191173,7 +191170,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191200,7 +191197,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191281,7 +191278,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191308,7 +191305,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191389,7 +191386,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191416,7 +191413,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191443,7 +191440,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -191470,7 +191467,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -191551,7 +191548,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191578,7 +191575,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191605,7 +191602,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -191632,7 +191629,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             0.03,
@@ -191659,7 +191656,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191686,7 +191683,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191713,7 +191710,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191740,7 +191737,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191767,7 +191764,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191794,7 +191791,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -191875,7 +191872,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191902,7 +191899,7 @@
         }
       },
       {
-        "biome": "autumnity:pumpkin_fields_middle",
+        "biome": "autumnity:pumpkin_fields",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -191983,7 +191980,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192010,7 +192007,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192037,7 +192034,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -192064,7 +192061,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -192091,7 +192088,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192118,7 +192115,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192145,7 +192142,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -192172,7 +192169,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -192199,7 +192196,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -192226,7 +192223,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -192253,7 +192250,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192280,7 +192277,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192307,7 +192304,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -192334,7 +192331,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -192361,7 +192358,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192388,7 +192385,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192415,7 +192412,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192442,7 +192439,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192469,7 +192466,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192496,7 +192493,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -192577,7 +192574,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -192604,7 +192601,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -194791,7 +194788,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -194818,7 +194815,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -194899,7 +194896,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -194926,7 +194923,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.11,
@@ -194953,7 +194950,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -194980,7 +194977,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -195061,7 +195058,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195088,7 +195085,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195115,7 +195112,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -195142,7 +195139,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.03,
@@ -195169,7 +195166,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195196,7 +195193,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195385,7 +195382,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195412,7 +195409,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_middle_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             -0.19,
@@ -195547,7 +195544,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -195574,7 +195571,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -195709,7 +195706,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,
@@ -195736,7 +195733,7 @@
         }
       },
       {
-        "biome": "autumnity:maple_forest_plateau_variant",
+        "biome": "autumnity:maple_forest",
         "parameters": {
           "continentalness": [
             0.3,

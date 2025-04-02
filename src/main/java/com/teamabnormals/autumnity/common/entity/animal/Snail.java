@@ -1,7 +1,10 @@
 package com.teamabnormals.autumnity.common.entity.animal;
 
+import com.teamabnormals.autumnity.common.entity.ai.goal.SnailEatGoal;
+import com.teamabnormals.autumnity.common.entity.ai.goal.SnailEatMooshroomMushroomsGoal;
+import com.teamabnormals.autumnity.common.entity.ai.goal.SnailEatMushroomsGoal;
+import com.teamabnormals.autumnity.common.entity.ai.goal.SnailHideGoal;
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.other.tags.AutumnityBlockTags;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityItemTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
@@ -17,7 +20,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -31,14 +33,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
@@ -51,8 +51,9 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.Nullable;
-import java.util.*;
-import java.util.function.Predicate;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Optional;
 
 public class Snail extends Animal {
 	private static final AttributeModifier HIDING_ARMOR_BONUS_MODIFIER = new AttributeModifier(Autumnity.location("hiding_armor_bonus"), 20.0D, Operation.ADD_VALUE);
@@ -69,20 +70,6 @@ public class Snail extends Animal {
 	// This exists so snails would work with Quark feeding troughs
 	private boolean canBreed = true;
 
-	private static final Predicate<LivingEntity> ENEMY_MATCHER = (livingentity) -> {
-		if (livingentity == null) {
-			return false;
-		} else {
-			if (livingentity.getItemBySlot(EquipmentSlot.CHEST).is(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get())) {
-				return false;
-			} else if (livingentity instanceof Player player) {
-				return !player.isSteppingCarefully() && !livingentity.isSpectator() && !player.isCreative();
-			} else {
-				return !(livingentity instanceof Snail) && !(livingentity instanceof MushroomCow);
-			}
-		}
-	};
-
 	public Snail(EntityType<? extends Snail> type, Level worldIn) {
 		super(type, worldIn);
 		this.setPathfindingMalus(PathType.DANGER_OTHER, 0.0F);
@@ -91,12 +78,12 @@ public class Snail extends Animal {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new Snail.HideGoal());
-		this.goalSelector.addGoal(1, new Snail.EatGoal());
+		this.goalSelector.addGoal(0, new SnailHideGoal(this));
+		this.goalSelector.addGoal(1, new SnailEatGoal(this));
 		this.goalSelector.addGoal(2, new BreedGoal(this, 0.5D));
 		this.goalSelector.addGoal(3, new TemptGoal(this, 0.5D, Ingredient.of(AutumnityItemTags.SNAIL_TEMPT_ITEMS), false));
-		this.goalSelector.addGoal(4, new Snail.EatMushroomsGoal());
-		this.goalSelector.addGoal(5, new Snail.EatMooshroomMushroomsGoal());
+		this.goalSelector.addGoal(4, new SnailEatMushroomsGoal(this));
+		this.goalSelector.addGoal(5, new SnailEatMooshroomMushroomsGoal(this));
 		this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.5D));
 		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
 		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -313,7 +300,7 @@ public class Snail extends Animal {
 		}
 	}
 
-	private void spitOutItem() {
+	public void spitOutItem() {
 		ItemStack itemstack = this.getItemBySlot(EquipmentSlot.MAINHAND);
 		if (!itemstack.isEmpty() && !this.level().isClientSide) {
 			ItemEntity itementity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + this.getEyeHeight(), this.getZ() + this.getLookAngle().z, itemstack);
@@ -324,7 +311,7 @@ public class Snail extends Animal {
 		}
 	}
 
-	private void eatSnack() {
+	public void eatSnack() {
 		ItemStack itemstack = this.getMainHandItem();
 
 		if (Ingredient.of(AutumnityItemTags.SNAIL_GLOW_SNACKS).test(itemstack)) {
@@ -348,23 +335,23 @@ public class Snail extends Animal {
 		this.setGooAmount(4);
 	}
 
-	private boolean hasSnack() {
+	public boolean hasSnack() {
 		return this.isSnack(this.getMainHandItem());
 	}
 
-	private int getGooAmount() {
+	public int getGooAmount() {
 		return this.entityData.get(GOO_AMOUNT);
 	}
 
-	private void setGooAmount(int amount) {
+	public void setGooAmount(int amount) {
 		this.entityData.set(GOO_AMOUNT, amount);
 	}
 
-	private int getHidingTime() {
+	public int getHidingTime() {
 		return this.hidingTime;
 	}
 
-	private void setHidingTime(int hidingTimeIn) {
+	public void setHidingTime(int hidingTimeIn) {
 		this.hidingTime = hidingTimeIn;
 	}
 
@@ -372,7 +359,7 @@ public class Snail extends Animal {
 		return Action.byId(this.entityData.get(ACTION));
 	}
 
-	private void setAction(Action action) {
+	public void setAction(Action action) {
 		this.entityData.set(ACTION, (byte) action.getId());
 
 		if (!this.level().isClientSide) {
@@ -438,257 +425,6 @@ public class Snail extends Animal {
 			}
 
 			return VALUES[indexIn];
-		}
-	}
-
-	public class HideGoal extends Goal {
-		public HideGoal() {
-			super();
-			this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
-		}
-
-		@Override
-		public boolean canUse() {
-			return Snail.this.getHidingTime() > 0 || Snail.this.getLastHurtByMob() != null || this.shouldHideFromMob();
-		}
-
-		@Override
-		public void start() {
-			this.hide();
-			Snail.this.getNavigation().stop();
-			Snail.this.getMoveControl().setWantedPosition(Snail.this.getX(), Snail.this.getY(), Snail.this.getZ(), 0.0D);
-			Snail.this.setAction(Action.HIDING);
-		}
-
-		@Override
-		public void stop() {
-			Snail.this.setAction(Action.DEFAULT);
-		}
-
-		@Override
-		public void tick() {
-			if ((Snail.this.getLastHurtByMob() != null || this.shouldHideFromMob()) && Snail.this.getHidingTime() < 120) {
-				this.hide();
-			} else {
-				Snail.this.setHidingTime(Snail.this.getHidingTime() - 1);
-			}
-		}
-
-		@Override
-		public boolean canContinueToUse() {
-			return Snail.this.getHidingTime() > 0;
-		}
-
-		private void hide() {
-			Snail.this.setHidingTime(120 + Snail.this.random.nextInt(120));
-		}
-
-		private boolean shouldHideFromMob() {
-			for (LivingEntity livingentity : Snail.this.level().getEntitiesOfClass(LivingEntity.class, Snail.this.getBoundingBox().inflate(0.5D), ENEMY_MATCHER)) {
-				if (livingentity.isAlive() && livingentity.getBbHeight() > Snail.this.getBbHeight()) {
-					return true;
-				}
-			}
-
-			return false;
-		}
-	}
-
-	class EatGoal extends Goal {
-		private int eatTime;
-
-		public EatGoal() {
-			super();
-			this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.JUMP));
-		}
-
-		@Override
-		public boolean canUse() {
-			return Snail.this.hasSnack();
-		}
-
-		@Override
-		public void start() {
-			this.eatTime = this.adjustedTickDelay(192);
-			Snail.this.getNavigation().stop();
-			Snail.this.getMoveControl().setWantedPosition(Snail.this.getX(), Snail.this.getY(), Snail.this.getZ(), 0.0D);
-			Snail.this.setAction(Action.EATING);
-		}
-
-		@Override
-		public void stop() {
-			Snail.this.setAction(Action.DEFAULT);
-		}
-
-		@Override
-		public void tick() {
-			--this.eatTime;
-
-			if (this.eatTime <= 0) {
-				Snail.this.eatSnack();
-			}
-		}
-
-		@Override
-		public boolean canContinueToUse() {
-			return Snail.this.hasSnack();
-		}
-	}
-
-	class EatMushroomsGoal extends Goal {
-		private double mushroomX;
-		private double mushroomY;
-		private double mushroomZ;
-
-		public EatMushroomsGoal() {
-			super();
-			this.setFlags(EnumSet.of(Goal.Flag.MOVE));
-		}
-
-		@Override
-		public boolean canUse() {
-			if (Snail.this.getRandom().nextInt(20) != 0) {
-				return false;
-			} else {
-				return !Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0 && EventHooks.canEntityGrief(Snail.this.level(), Snail.this) && this.canMoveToMushroom();
-			}
-		}
-
-		@Override
-		public boolean canContinueToUse() {
-			return !Snail.this.getNavigation().isDone() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0;
-		}
-
-		@Override
-		public void start() {
-			Snail.this.getNavigation().moveTo(this.mushroomX, this.mushroomY, this.mushroomZ, 0.5D);
-		}
-
-		@Override
-		public void tick() {
-			if (!Snail.this.isBaby() && Snail.this.getGooAmount() <= 0) {
-				BlockPos blockpos = Snail.this.blockPosition();
-
-				if (this.isBlockMushroom(blockpos)) {
-					if (EventHooks.canEntityGrief(Snail.this.level(), Snail.this)) {
-						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Snail.this.level().getBlockState(blockpos).getBlock().asItem(), 1));
-						Snail.this.level().destroyBlock(blockpos, false);
-					}
-				}
-			}
-		}
-
-		@Nullable
-		private Vec3 findMushroom() {
-			RandomSource random = Snail.this.getRandom();
-			BlockPos blockpos = BlockPos.containing(Snail.this.getX(), Snail.this.getBoundingBox().minY, Snail.this.getZ());
-
-			for (int i = 0; i < 10; ++i) {
-				BlockPos blockpos1 = blockpos.offset(random.nextInt(20) - 10, random.nextInt(6) - 3, random.nextInt(20) - 10);
-				if (this.isBlockMushroom(blockpos1)) {
-					return new Vec3(blockpos1.getX(), blockpos1.getY(), blockpos1.getZ());
-				}
-			}
-
-			return null;
-		}
-
-		private boolean canMoveToMushroom() {
-			Vec3 vec3d = this.findMushroom();
-			if (vec3d == null) {
-				return false;
-			} else {
-				this.mushroomX = vec3d.x;
-				this.mushroomY = vec3d.y;
-				this.mushroomZ = vec3d.z;
-				return true;
-			}
-		}
-
-		private boolean isBlockMushroom(BlockPos pos) {
-			return Snail.this.level().getBlockState(pos).is(AutumnityBlockTags.SNAIL_SNACKS);
-		}
-	}
-
-	public class EatMooshroomMushroomsGoal extends Goal {
-		private MushroomCow targetMooshroom;
-		private int timeToRecalcPath;
-
-		public EatMooshroomMushroomsGoal() {
-			super();
-		}
-
-		@Override
-		public boolean canUse() {
-			if (!Snail.this.isBaby() && !Snail.this.hasSnack() && Snail.this.getGooAmount() <= 0) {
-				List<MushroomCow> list = Snail.this.level().getEntitiesOfClass(MushroomCow.class, Snail.this.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
-				MushroomCow mooshroom = null;
-				double d0 = Double.MAX_VALUE;
-
-				for (MushroomCow mooshroom1 : list) {
-					if (mooshroom1.getAge() >= 0) {
-						double d1 = Snail.this.distanceToSqr(mooshroom1);
-						if (!(d1 > d0)) {
-							d0 = d1;
-							mooshroom = mooshroom1;
-						}
-					}
-				}
-
-				if (mooshroom == null) {
-					return false;
-				} else {
-					this.targetMooshroom = mooshroom;
-					return true;
-				}
-			} else {
-				return false;
-			}
-		}
-
-		@Override
-		public boolean canContinueToUse() {
-			if (!this.targetMooshroom.isAlive()) {
-				return false;
-			} else if (Snail.this.hasSnack()) {
-				return false;
-			} else if (Snail.this.getGooAmount() > 0) {
-				return false;
-			} else {
-				double d0 = this.targetMooshroom.distanceToSqr(Snail.this);
-				return !(d0 > 256.0D);
-			}
-		}
-
-		@Override
-		public void start() {
-			this.timeToRecalcPath = 0;
-		}
-
-		@Override
-		public void stop() {
-			this.targetMooshroom = null;
-		}
-
-		@Override
-		public void tick() {
-			if (--this.timeToRecalcPath <= 0) {
-				this.timeToRecalcPath = this.adjustedTickDelay(10);
-				Snail.this.getNavigation().moveTo(this.targetMooshroom, 0.5D);
-			}
-
-			if (this.targetMooshroom != null && this.targetMooshroom.isAlive()) {
-				double d0 = this.targetMooshroom.distanceToSqr(Snail.this);
-				if (d0 < 2.0D) {
-					if (this.targetMooshroom.getVariant() == MushroomCow.MushroomType.BROWN) {
-						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BROWN_MUSHROOM, 1));
-					} else {
-						Snail.this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.RED_MUSHROOM, 1));
-					}
-
-					this.targetMooshroom.hurt(Snail.this.damageSources().mobAttack(Snail.this), 0.0F);
-				}
-			}
 		}
 	}
 }

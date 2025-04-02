@@ -26,10 +26,13 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise.NoiseParameters;
@@ -54,17 +57,6 @@ public class AutumnityFeatures {
 		private static final BlockState RED_MAPLE_LEAVES = AutumnityBlocks.RED_MAPLE_LEAVES.get().defaultBlockState();
 	}
 
-	public static final class Configs {
-		public static final TreeConfiguration MAPLE_TREE_CONFIG = createMaple(States.MAPLE_LEAVES).build();
-		public static final TreeConfiguration YELLOW_MAPLE_TREE_CONFIG = createMaple(States.YELLOW_MAPLE_LEAVES).build();
-		public static final TreeConfiguration ORANGE_MAPLE_TREE_CONFIG = createMaple(States.ORANGE_MAPLE_LEAVES).build();
-		public static final TreeConfiguration RED_MAPLE_TREE_CONFIG = createMaple(States.RED_MAPLE_LEAVES).build();
-
-		private static TreeConfiguration.TreeConfigurationBuilder createMaple(BlockState leavesState) {
-			return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(States.MAPLE_LOG), new StraightTrunkPlacer(5, 1, 0), BlockStateProvider.simple(leavesState), new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0), new TwoLayersFeatureSize(0, 0, 0)).ignoreVines();
-		}
-	}
-
 	public static final class AutumnityNoiseParameters {
 		public static final ResourceKey<NoiseParameters> SPOTTED_MAPLES = createKey("spotted_maples");
 
@@ -80,17 +72,32 @@ public class AutumnityFeatures {
 
 	public static final class AutumnityConfiguredFeatures {
 		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE = createKey("maple_tree");
-		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE_YELLOW = createKey("maple_tree_yellow");
-		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE_ORANGE = createKey("maple_tree_orange");
-		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE_RED = createKey("maple_tree_red");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE_BEES_0002 = createKey("maple_tree_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE_BEES_005 = createKey("maple_tree_bees_005");
 
-		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_YELLOW = createKey("fallen_leaves_maple_tree_yellow");
-		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_ORANGE = createKey("fallen_leaves_maple_tree_orange");
-		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_RED = createKey("fallen_leaves_maple_tree_red");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_TREE = createKey("yellow_maple_tree");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_TREE_BEES_0002 = createKey("yellow_maple_tree_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_TREE_BEES_005 = createKey("yellow_maple_tree_bees_005");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("yellow_maple_tree_fallen_leaves_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("yellow_maple_tree_fallen_leaves_bees_005");
+
+		public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_TREE = createKey("orange_maple_tree");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_TREE_BEES_0002 = createKey("orange_maple_tree_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_TREE_BEES_005 = createKey("orange_maple_tree_bees_005");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("orange_maple_tree_fallen_leaves_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("orange_maple_tree_fallen_leaves_bees_005");
+
+		public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE = createKey("red_maple_tree");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE_BEES_0002 = createKey("red_maple_tree_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE_BEES_005 = createKey("red_maple_tree_bees_005");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("red_maple_tree_fallen_leaves_bees_0002");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("red_maple_tree_fallen_leaves_bees_005");
 
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE_LEAVES_YELLOW = createKey("fallen_maple_leaves_yellow");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE_LEAVES_ORANGE = createKey("fallen_maple_leaves_orange");
+
 		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_FOREST_VEGETATION = createKey("maple_forest_vegetation");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> PUMPKIN_FIELDS_VEGETATION = createKey("pumpkin_fields_vegetation");
 
 		public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = createKey("patch_tall_grass");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FOUL_BERRY_BUSH = createKey("patch_foul_berry_bush");
@@ -103,18 +110,36 @@ public class AutumnityFeatures {
 			HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 			HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
-			register(context, MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), Configs.MAPLE_TREE_CONFIG);
-			register(context, MAPLE_TREE_YELLOW, AutumnityFeatures.MAPLE_TREE.get(), Configs.YELLOW_MAPLE_TREE_CONFIG);
-			register(context, MAPLE_TREE_ORANGE, AutumnityFeatures.MAPLE_TREE.get(), Configs.ORANGE_MAPLE_TREE_CONFIG);
-			register(context, MAPLE_TREE_RED, AutumnityFeatures.MAPLE_TREE.get(), Configs.RED_MAPLE_TREE_CONFIG);
+			ImmutableList<TreeDecorator> bees0002 = ImmutableList.of(new BeehiveDecorator(0.002F));
+			ImmutableList<TreeDecorator> bees005 = ImmutableList.of(new BeehiveDecorator(0.05F));
+			
+			register(context, MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), maple().build());
+			register(context, MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(bees0002).build());
+			register(context, MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(bees005).build());
 
-			register(context, FALLEN_LEAVES_MAPLE_TREE_YELLOW, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.YELLOW_MAPLE_TREE_CONFIG);
-			register(context, FALLEN_LEAVES_MAPLE_TREE_ORANGE, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.ORANGE_MAPLE_TREE_CONFIG);
-			register(context, FALLEN_LEAVES_MAPLE_TREE_RED, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.RED_MAPLE_TREE_CONFIG);
+			register(context, YELLOW_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().build());
+			register(context, YELLOW_MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(bees0002).build());
+			register(context, YELLOW_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(bees005).build());
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), yellowMaple().decorators(bees0002).build());
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), yellowMaple().decorators(bees005).build());
 
-			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), Configs.YELLOW_MAPLE_TREE_CONFIG);
-			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), Configs.ORANGE_MAPLE_TREE_CONFIG);
-			register(context, MAPLE_FOREST_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM)), 0.025F), new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM)), 0.05F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED), 0.3F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED), 0.4F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED), 0.2F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_CHECKED)));
+			register(context, ORANGE_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().build());
+			register(context, ORANGE_MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(bees0002).build());
+			register(context, ORANGE_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(bees005).build());
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), orangeMaple().decorators(bees0002).build());
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), orangeMaple().decorators(bees005).build());
+
+			register(context, RED_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), redMaple().build());
+			register(context, RED_MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(bees0002).build());
+			register(context, RED_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(bees005).build());
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), redMaple().decorators(bees0002).build());
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), redMaple().decorators(bees005).build());
+
+			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), yellowMaple().build());
+			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), redMaple().build());
+
+			register(context, MAPLE_FOREST_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM)), 0.025F), new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM)), 0.05F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.3F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.4F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.2F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_BEES_0002)));
+			register(context, PUMPKIN_FIELDS_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM)), 0.025F), new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM)), 0.05F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005), 0.3F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005), 0.4F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005), 0.2F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_BEES_005)));
 
 			register(context, PATCH_TALL_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.TALL_GRASS))));
 			register(context, PATCH_FOUL_BERRY_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get().defaultBlockState().setValue(TallFoulBerryBushBlock.AGE, 3))), List.of(Blocks.GRASS_BLOCK)));
@@ -122,6 +147,26 @@ public class AutumnityFeatures {
 
 			register(context, FLOWER_MAPLE_FOREST, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH)))), PlacementUtils.inlinePlaced(Feature.NO_BONEMEAL_FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(AutumnityBlocks.AUTUMN_CROCUS.get())))))));
 			register(context, FLOWER_PUMPKIN_FIELDS, Feature.FLOWER, FeatureUtils.simpleRandomPatchConfiguration(64, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(AutumnityBlocks.AUTUMN_CROCUS.get().defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.CORNFLOWER.defaultBlockState(), 1))))));
+		}
+		
+		private static TreeConfigurationBuilder maple() {
+			return maple(States.MAPLE_LEAVES);
+		}
+
+		private static TreeConfigurationBuilder yellowMaple() {
+			return maple(States.YELLOW_MAPLE_LEAVES);
+		}
+
+		private static TreeConfigurationBuilder orangeMaple() {
+			return maple(States.ORANGE_MAPLE_LEAVES);
+		}
+
+		private static TreeConfigurationBuilder redMaple() {
+			return maple(States.RED_MAPLE_LEAVES);
+		}
+
+		private static TreeConfigurationBuilder maple(BlockState leavesState) {
+			return new TreeConfigurationBuilder(BlockStateProvider.simple(States.MAPLE_LOG), new StraightTrunkPlacer(5, 1, 0), BlockStateProvider.simple(leavesState), new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0), new TwoLayersFeatureSize(0, 0, 0)).ignoreVines();
 		}
 
 		public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -134,11 +179,15 @@ public class AutumnityFeatures {
 	}
 
 	public static final class AutumnityPlacedFeatures {
-		public static final ResourceKey<PlacedFeature> MAPLE_TREE_CHECKED = createKey("maple_tree_checked");
-		public static final ResourceKey<PlacedFeature> RED_MAPLE_TREE_CHECKED = createKey("red_maple_tree_checked");
-		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED = createKey("fallen_leaves_yellow_maple_tree_checked");
-		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED = createKey("fallen_leaves_orange_maple_tree_checked");
-		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED = createKey("fallen_leaves_red_maple_tree_checked");
+		public static final ResourceKey<PlacedFeature> MAPLE_TREE_BEES_0002 = createKey("maple_tree_bees_0002");
+		public static final ResourceKey<PlacedFeature> YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("yellow_maple_tree_fallen_leaves_bees_0002");
+		public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("orange_maple_tree_fallen_leaves_bees_0002");
+		public static final ResourceKey<PlacedFeature> RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002 = createKey("red_maple_tree_fallen_leaves_bees_0002");
+		
+		public static final ResourceKey<PlacedFeature> MAPLE_TREE_BEES_005 = createKey("maple_tree_bees_005");
+		public static final ResourceKey<PlacedFeature> YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("yellow_maple_tree_fallen_leaves_bees_005");
+		public static final ResourceKey<PlacedFeature> RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("red_maple_tree_fallen_leaves_bees_005");
+		public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005 = createKey("orange_maple_tree_fallen_leaves_bees_005");
 
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE = createKey("trees_maple");
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE_YELLOW = createKey("trees_maple_yellow");
@@ -160,19 +209,22 @@ public class AutumnityFeatures {
 		public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 			HolderGetter<NoiseParameters> noise = context.lookup(Registries.NOISE);
 
-			register(context, MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.MAPLE_TREE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
-			register(context, RED_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.MAPLE_TREE_RED, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+			register(context, MAPLE_TREE_BEES_0002, AutumnityConfiguredFeatures.MAPLE_TREE_BEES_0002, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.MAPLE_SAPLING.get()));
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityConfiguredFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get()));
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get()));
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityConfiguredFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.RED_MAPLE_SAPLING.get()));
 
-			register(context, FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_YELLOW, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
-			register(context, FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_ORANGE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
-			register(context, FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_RED, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+			register(context, MAPLE_TREE_BEES_005, AutumnityConfiguredFeatures.MAPLE_TREE_BEES_005, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.MAPLE_SAPLING.get()));
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityConfiguredFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_005, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.YELLOW_MAPLE_SAPLING.get()));
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityConfiguredFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_005, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.ORANGE_MAPLE_SAPLING.get()));
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_005, PlacementUtils.filteredByBlockSurvival(AutumnityBlocks.RED_MAPLE_SAPLING.get()));
 
 			register(context, TREES_MAPLE, AutumnityConfiguredFeatures.MAPLE_TREE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 
 			BetterNoiseBasedCountPlacement spottedMaplesCount = new BetterNoiseBasedCountPlacement(noise.get(AutumnityNoiseParameters.SPOTTED_MAPLES).get(), 12, -0.4F);
-			register(context, TREES_MAPLE_YELLOW, AutumnityConfiguredFeatures.MAPLE_TREE_YELLOW, treePlacementBase(spottedMaplesCount).build());
-			register(context, TREES_MAPLE_ORANGE, AutumnityConfiguredFeatures.MAPLE_TREE_ORANGE, treePlacementBase(spottedMaplesCount).build());
-			register(context, TREES_MAPLE_RED, AutumnityConfiguredFeatures.MAPLE_TREE_RED, treePlacementBase(spottedMaplesCount).build());
+			register(context, TREES_MAPLE_YELLOW, AutumnityConfiguredFeatures.YELLOW_MAPLE_TREE, treePlacementBase(spottedMaplesCount).build());
+			register(context, TREES_MAPLE_ORANGE, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE, treePlacementBase(spottedMaplesCount).build());
+			register(context, TREES_MAPLE_RED, AutumnityConfiguredFeatures.RED_MAPLE_TREE, treePlacementBase(spottedMaplesCount).build());
 
 			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityConfiguredFeatures.FALLEN_MAPLE_LEAVES_YELLOW, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityConfiguredFeatures.FALLEN_MAPLE_LEAVES_ORANGE, CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
@@ -180,7 +232,7 @@ public class AutumnityFeatures {
 			register(context, FLOWER_MAPLE_FOREST, AutumnityConfiguredFeatures.FLOWER_MAPLE_FOREST, RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
 			register(context, MAPLE_FOREST_VEGETATION, AutumnityConfiguredFeatures.MAPLE_FOREST_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(12, 0.1F, 1)));
-			register(context, PUMPKIN_FIELDS_VEGETATION, AutumnityConfiguredFeatures.MAPLE_FOREST_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
+			register(context, PUMPKIN_FIELDS_VEGETATION, AutumnityConfiguredFeatures.PUMPKIN_FIELDS_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
 			register(context, PATCH_TALL_GRASS_PUMPKIN_FIELDS, AutumnityConfiguredFeatures.PATCH_TALL_GRASS, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, PATCH_PUMPKIN_PUMPKIN_FIELDS, AutumnityConfiguredFeatures.PATCH_PUMPKINS_PUMPKIN_FIELDS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 			register(context, FLOWER_PUMPKIN_FIELDS, AutumnityConfiguredFeatures.FLOWER_PUMPKIN_FIELDS, NoiseThresholdCountPlacement.of(-0.8D, 15, 4), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());

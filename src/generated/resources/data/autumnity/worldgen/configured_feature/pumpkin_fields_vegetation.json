@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "autumnity:maple_tree_bees_0002",
+    "default": "autumnity:maple_tree_bees_005",
     "features": [
       {
         "chance": 0.025,
@@ -19,15 +19,15 @@
       },
       {
         "chance": 0.3,
-        "feature": "autumnity:red_maple_tree_fallen_leaves_bees_0002"
+        "feature": "autumnity:orange_maple_tree_fallen_leaves_bees_005"
       },
       {
         "chance": 0.4,
-        "feature": "autumnity:orange_maple_tree_fallen_leaves_bees_0002"
+        "feature": "autumnity:red_maple_tree_fallen_leaves_bees_005"
       },
       {
         "chance": 0.2,
-        "feature": "autumnity:yellow_maple_tree_fallen_leaves_bees_0002"
+        "feature": "autumnity:yellow_maple_tree_fallen_leaves_bees_005"
       }
     ]
   }

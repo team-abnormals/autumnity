@@ -1,10 +1,11 @@
 package com.teamabnormals.autumnity.core.data.server;
 
 import com.teamabnormals.autumnity.core.Autumnity;
-import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomes;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityEntityTypes;
+import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnityMobEffects;
+import com.teamabnormals.autumnity.core.registry.datapack.AutumnityBiomes;
 import com.teamabnormals.blueprint.common.advancement.modification.AdvancementModifierProvider;
 import com.teamabnormals.blueprint.common.advancement.modification.modifiers.CriteriaModifier;
 import com.teamabnormals.blueprint.common.advancement.modification.modifiers.EffectsChangedModifier;
@@ -19,14 +20,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import static com.teamabnormals.autumnity.core.registry.AutumnityItems.*;
-
 public class AutumnityAdvancementModifierProvider extends AdvancementModifierProvider {
-	private static final Item[] EDIBLE_ITEMS = new Item[]{SYRUP_BOTTLE.get(), FOUL_BERRIES.get(), FOUL_SOUP.get(), PUMPKIN_BREAD.get(), TURKEY_PIECE.get(), COOKED_TURKEY_PIECE.get()};
 	private static final EntityType<?>[] BREEDABLE_ANIMALS = new EntityType[]{AutumnityEntityTypes.SNAIL.get(), AutumnityEntityTypes.TURKEY.get()};
 
 	public AutumnityAdvancementModifierProvider(PackOutput output, CompletableFuture<Provider> provider) {
@@ -39,9 +39,10 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 		this.entry("nether/all_effects").selects("nether/all_effects").addModifier(new EffectsChangedModifier("all_effects", false, MobEffectsPredicate.Builder.effects().and(AutumnityMobEffects.EXTENSION).and(AutumnityMobEffects.FOUL_TASTE).build().get()));
 
 		CriteriaModifier.Builder balancedDiet = CriteriaModifier.builder(this.modId);
-		for (Item item : EDIBLE_ITEMS) {
-			balancedDiet.addCriterion(BuiltInRegistries.ITEM.getKey(item).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item));
-		}
+		Collection<DeferredHolder<Item, ? extends Item>> items = AutumnityItems.ITEMS.getDeferredRegister().getEntries().stream().filter(i -> i.get().getDefaultInstance().getFoodProperties(null) != null).toList();
+		items.forEach(item -> {
+			balancedDiet.addCriterion(BuiltInRegistries.ITEM.getKey(item.get()).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item.get()));
+		});
 		this.entry("husbandry/balanced_diet").selects("husbandry/balanced_diet").addModifier(balancedDiet.requirements(Strategy.AND).build());
 
 		CriteriaModifier.Builder adventuringTime = CriteriaModifier.builder(this.modId);

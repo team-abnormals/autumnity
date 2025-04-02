@@ -1,7 +1,12 @@
 {
-  "type": "autumnity:fallen_maple_leaves",
+  "type": "autumnity:maple_tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "minecraft:beehive",
+        "probability": 0.05
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -17,7 +22,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "autumnity:red_maple_leaves",
+        "Name": "autumnity:maple_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",

@@ -1,12 +1,12 @@
 {
-  "feature": "autumnity:fallen_leaves_maple_tree_red",
+  "feature": "autumnity:maple_tree_bees_0002",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:oak_sapling",
+          "Name": "autumnity:maple_sapling",
           "Properties": {
             "stage": "0"
           }

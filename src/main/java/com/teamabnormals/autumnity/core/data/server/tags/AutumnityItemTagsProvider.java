@@ -37,6 +37,8 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.copy(BlockTags.STAIRS, ItemTags.STAIRS);
 		this.copy(BlockTags.WALLS, ItemTags.WALLS);
 		this.copy(Tags.Blocks.FENCE_GATES_WOODEN, Tags.Items.FENCE_GATES_WOODEN);
+		this.copy(Tags.Blocks.STRIPPED_LOGS, Tags.Items.STRIPPED_LOGS);
+		this.copy(Tags.Blocks.STRIPPED_WOODS, Tags.Items.STRIPPED_WOODS);
 
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
 		this.tag(ItemTags.PIGLIN_REPELLENTS).add(SOUL_JACK_O_LANTERN.get().asItem(), LARGE_SOUL_JACK_O_LANTERN_SLICE.get().asItem());

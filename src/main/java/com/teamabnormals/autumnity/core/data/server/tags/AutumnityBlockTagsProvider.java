@@ -29,6 +29,8 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 
 		this.tag(BlockTags.PLANKS).add(MAPLE_PLANKS.get());
 		this.tag(BlockTags.LOGS_THAT_BURN).addTag(AutumnityBlockTags.MAPLE_LOGS);
+		this.tag(Tags.Blocks.STRIPPED_LOGS).add(STRIPPED_MAPLE_LOG.get(), SAPPY_MAPLE_LOG.get());
+		this.tag(Tags.Blocks.STRIPPED_WOODS).add(STRIPPED_MAPLE_WOOD.get(), SAPPY_MAPLE_WOOD.get());
 		this.tag(BlockTags.WOODEN_SLABS).add(MAPLE_SLAB.get());
 		this.tag(BlockTags.WOODEN_STAIRS).add(MAPLE_STAIRS.get());
 		this.tag(BlockTags.WOODEN_FENCES).add(MAPLE_FENCE.get());

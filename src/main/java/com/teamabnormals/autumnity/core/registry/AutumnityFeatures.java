@@ -3,7 +3,7 @@ package com.teamabnormals.autumnity.core.registry;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.teamabnormals.autumnity.common.block.TallFoulBerryBushBlock;
-import com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesFeature;
+import com.teamabnormals.autumnity.common.levelgen.feature.FallenMapleLeavesFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesMapleTreeFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.MapleTreeFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.PumpkinFieldsPumpkinFeature;
@@ -33,7 +33,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise.NoiseParameters;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -44,7 +43,7 @@ public class AutumnityFeatures {
 
 	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> MAPLE_TREE = FEATURES.register("maple_tree", () -> new MapleTreeFeature(TreeConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> FALLEN_LEAVES_MAPLE_TREE = FEATURES.register("fallen_leaves_maple_tree", () -> new FallenLeavesMapleTreeFeature(TreeConfiguration.CODEC));
-	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_LEAVES = FEATURES.register("fallen_leaves", () -> new FallenLeavesFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> FALLEN_MAPLE_LEAVES = FEATURES.register("fallen_maple_leaves", () -> new FallenMapleLeavesFeature(TreeConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PUMPKIN_FIELDS_PUMPKIN = FEATURES.register("pumpkin_fields_pumpkin", () -> new PumpkinFieldsPumpkinFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final class States {
@@ -87,8 +86,10 @@ public class AutumnityFeatures {
 
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_YELLOW = createKey("fallen_leaves_maple_tree_yellow");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_ORANGE = createKey("fallen_leaves_maple_tree_orange");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES_MAPLE_TREE_RED = createKey("fallen_leaves_maple_tree_red");
 
-		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES = createKey("fallen_leaves");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE_LEAVES_YELLOW = createKey("fallen_maple_leaves_yellow");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE_LEAVES_ORANGE = createKey("fallen_maple_leaves_orange");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_FOREST_VEGETATION = createKey("maple_forest_vegetation");
 
 		public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = createKey("patch_tall_grass");
@@ -109,9 +110,11 @@ public class AutumnityFeatures {
 
 			register(context, FALLEN_LEAVES_MAPLE_TREE_YELLOW, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.YELLOW_MAPLE_TREE_CONFIG);
 			register(context, FALLEN_LEAVES_MAPLE_TREE_ORANGE, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.ORANGE_MAPLE_TREE_CONFIG);
+			register(context, FALLEN_LEAVES_MAPLE_TREE_RED, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), Configs.RED_MAPLE_TREE_CONFIG);
 
-			register(context, FALLEN_LEAVES, AutumnityFeatures.FALLEN_LEAVES.get(), FeatureConfiguration.NONE);
-			register(context, MAPLE_FOREST_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM)), 0.025F), new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM)), 0.05F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.RED_MAPLE_TREE_CHECKED), 0.3F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED), 0.4F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED), 0.2F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_CHECKED)));
+			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), Configs.YELLOW_MAPLE_TREE_CONFIG);
+			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), Configs.ORANGE_MAPLE_TREE_CONFIG);
+			register(context, MAPLE_FOREST_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM)), 0.025F), new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM)), 0.05F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED), 0.3F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED), 0.4F), new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED), 0.2F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_CHECKED)));
 
 			register(context, PATCH_TALL_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.TALL_GRASS))));
 			register(context, PATCH_FOUL_BERRY_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get().defaultBlockState().setValue(TallFoulBerryBushBlock.AGE, 3))), List.of(Blocks.GRASS_BLOCK)));
@@ -135,14 +138,20 @@ public class AutumnityFeatures {
 		public static final ResourceKey<PlacedFeature> RED_MAPLE_TREE_CHECKED = createKey("red_maple_tree_checked");
 		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED = createKey("fallen_leaves_yellow_maple_tree_checked");
 		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED = createKey("fallen_leaves_orange_maple_tree_checked");
+		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED = createKey("fallen_leaves_red_maple_tree_checked");
+
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE = createKey("trees_maple");
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE_YELLOW = createKey("trees_maple_yellow");
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE_ORANGE = createKey("trees_maple_orange");
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE_RED = createKey("trees_maple_red");
-		public static final ResourceKey<PlacedFeature> FALLEN_LEAVES = createKey("fallen_leaves");
+
+		public static final ResourceKey<PlacedFeature> FALLEN_MAPLE_LEAVES_YELLOW = createKey("fallen_maple_leaves_yellow");
+		public static final ResourceKey<PlacedFeature> FALLEN_MAPLE_LEAVES_ORANGE = createKey("fallen_maple_leaves_orange");
+
 		public static final ResourceKey<PlacedFeature> PATCH_FOUL_BERRY_BUSH = createKey("patch_foul_berry_bush");
 		public static final ResourceKey<PlacedFeature> FLOWER_MAPLE_FOREST = createKey("flower_maple_forest");
 		public static final ResourceKey<PlacedFeature> MAPLE_FOREST_VEGETATION = createKey("maple_forest_vegetation");
+
 		public static final ResourceKey<PlacedFeature> PUMPKIN_FIELDS_VEGETATION = createKey("pumpkin_fields_vegetation");
 		public static final ResourceKey<PlacedFeature> PATCH_TALL_GRASS_PUMPKIN_FIELDS = createKey("patch_tall_grass_pumpkin_fields");
 		public static final ResourceKey<PlacedFeature> PATCH_PUMPKIN_PUMPKIN_FIELDS = createKey("patch_pumpkin_pumpkin_fields");
@@ -156,6 +165,7 @@ public class AutumnityFeatures {
 
 			register(context, FALLEN_LEAVES_YELLOW_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_YELLOW, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
 			register(context, FALLEN_LEAVES_ORANGE_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_ORANGE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+			register(context, FALLEN_LEAVES_RED_MAPLE_TREE_CHECKED, AutumnityConfiguredFeatures.FALLEN_LEAVES_MAPLE_TREE_RED, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
 
 			register(context, TREES_MAPLE, AutumnityConfiguredFeatures.MAPLE_TREE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 
@@ -164,11 +174,12 @@ public class AutumnityFeatures {
 			register(context, TREES_MAPLE_ORANGE, AutumnityConfiguredFeatures.MAPLE_TREE_ORANGE, treePlacementBase(spottedMaplesCount).build());
 			register(context, TREES_MAPLE_RED, AutumnityConfiguredFeatures.MAPLE_TREE_RED, treePlacementBase(spottedMaplesCount).build());
 
-			register(context, FALLEN_LEAVES, AutumnityConfiguredFeatures.FALLEN_LEAVES, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityConfiguredFeatures.FALLEN_MAPLE_LEAVES_YELLOW, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityConfiguredFeatures.FALLEN_MAPLE_LEAVES_ORANGE, CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, PATCH_FOUL_BERRY_BUSH, AutumnityConfiguredFeatures.PATCH_FOUL_BERRY_BUSH, RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, FLOWER_MAPLE_FOREST, AutumnityConfiguredFeatures.FLOWER_MAPLE_FOREST, RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
-			register(context, MAPLE_FOREST_VEGETATION, AutumnityConfiguredFeatures.MAPLE_FOREST_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
+			register(context, MAPLE_FOREST_VEGETATION, AutumnityConfiguredFeatures.MAPLE_FOREST_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(12, 0.1F, 1)));
 			register(context, PUMPKIN_FIELDS_VEGETATION, AutumnityConfiguredFeatures.MAPLE_FOREST_VEGETATION, VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
 			register(context, PATCH_TALL_GRASS_PUMPKIN_FIELDS, AutumnityConfiguredFeatures.PATCH_TALL_GRASS, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, PATCH_PUMPKIN_PUMPKIN_FIELDS, AutumnityConfiguredFeatures.PATCH_PUMPKINS_PUMPKIN_FIELDS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());

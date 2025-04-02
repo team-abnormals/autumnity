@@ -1,10 +1,6 @@
 {
-  "feature": "autumnity:fallen_leaves",
+  "feature": "autumnity:fallen_maple_leaves_yellow",
   "placement": [
-    {
-      "type": "minecraft:rarity_filter",
-      "chance": 1
-    },
     {
       "type": "minecraft:in_square"
     },

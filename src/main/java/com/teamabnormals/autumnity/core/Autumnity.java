@@ -36,7 +36,6 @@ public class Autumnity {
 		AutumnitySoundEvents.SOUND_EVENTS.register(bus);
 		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
-		AutumnityPlacementModifierTypes.PLACEMENT_MODIFIER_TYPES.register(bus);
 		AutumnityFeatures.FEATURES.register(bus);
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);

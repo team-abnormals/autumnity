@@ -7,8 +7,8 @@ import com.teamabnormals.autumnity.common.levelgen.feature.FallenMapleLeavesFeat
 import com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesMapleTreeFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.MapleTreeFeature;
 import com.teamabnormals.autumnity.common.levelgen.feature.PumpkinFieldsPumpkinFeature;
-import com.teamabnormals.autumnity.common.levelgen.placement.BetterNoiseBasedCountPlacement;
 import com.teamabnormals.autumnity.core.Autumnity;
+import com.teamabnormals.blueprint.common.levelgen.placement.BetterNoiseBasedCountPlacement;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;

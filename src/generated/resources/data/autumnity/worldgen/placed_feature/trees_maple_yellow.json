@@ -2,7 +2,7 @@
   "feature": "autumnity:yellow_maple_tree",
   "placement": [
     {
-      "type": "autumnity:better_noise_based_count",
+      "type": "blueprint:better_noise_based_count",
       "noise": "autumnity:spotted_maples",
       "noise_offset": -0.4000000059604645,
       "noise_to_count_ratio": 12

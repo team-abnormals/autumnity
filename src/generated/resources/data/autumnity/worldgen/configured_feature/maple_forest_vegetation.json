@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "autumnity:maple_tree_bees_0002",
+    "default": "autumnity:trees_maple_forest",
     "features": [
       {
         "chance": 0.025,
@@ -16,18 +16,6 @@
           "feature": "minecraft:huge_red_mushroom",
           "placement": []
         }
-      },
-      {
-        "chance": 0.3,
-        "feature": "autumnity:red_maple_tree_fallen_leaves_bees_0002"
-      },
-      {
-        "chance": 0.4,
-        "feature": "autumnity:orange_maple_tree_fallen_leaves_bees_0002"
-      },
-      {
-        "chance": 0.2,
-        "feature": "autumnity:yellow_maple_tree_fallen_leaves_bees_0002"
       }
     ]
   }

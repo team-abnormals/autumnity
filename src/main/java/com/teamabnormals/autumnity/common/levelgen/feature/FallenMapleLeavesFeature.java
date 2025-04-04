@@ -36,20 +36,18 @@ public class FallenMapleLeavesFeature extends Feature<TreeConfiguration> {
 			radius++;
 		if (random.nextInt(4) == 0)
 			radius--;
-		MutableBlockPos mutable = new MutableBlockPos();
+		int ditheroffset = random.nextBoolean() ? 1 : 0;
 
+		MutableBlockPos mutable = new MutableBlockPos();
 		for (int x = -radius; x <= radius; ++x) {
 			for (int z = -radius; z <= radius; ++z) {
 				if ((Math.abs(x) < radius || Math.abs(z) < radius - 1) && (Math.abs(x) < radius - 1 || Math.abs(z) < radius)) {
-					int x1 = origin.getX() + x;
-					int z1 = origin.getZ() + z;
-
 					for (int y = -3; y <= 3; ++y) {
-						mutable.set(x1, origin.getY() + y, z1);
+						mutable.set(origin.getX() + x, origin.getY() + y, origin.getZ() + z);
 
 						float leafdensity = 1.0F - (float) Math.sqrt(x * x + z * z) / (radius * 2.0F - 1.0F);
 						leafdensity += random.nextFloat() * 0.2F;
-						if ((x1 + z1) % 2 == 0)
+						if ((x + z) % 2 == ditheroffset)
 							leafdensity -= 0.3F;
 
 						if (leafdensity >= 0.5F && level.isEmptyBlock(mutable) && mutable.getY() < level.getMaxBuildHeight() && level.getBlockState(mutable.below()).getBlock() == Blocks.GRASS_BLOCK) {

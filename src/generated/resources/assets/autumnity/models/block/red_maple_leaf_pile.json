@@ -2,6 +2,6 @@
   "parent": "blueprint:block/tinted_leaf_pile",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "autumnity:block/maple_leaves"
+    "all": "autumnity:block/red_maple_leaves"
   }
 }

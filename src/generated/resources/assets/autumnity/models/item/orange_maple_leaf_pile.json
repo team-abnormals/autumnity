@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "autumnity:block/maple_leaves"
+    "layer0": "autumnity:block/orange_maple_leaves"
   }
 }

@@ -6,11 +6,11 @@
     "features": [
       {
         "feature": "autumnity:orange_maple_tree_fallen_leaves_bees_0002",
-        "threshold": -0.2
+        "threshold": -0.35
       },
       {
         "feature": "autumnity:yellow_maple_tree_fallen_leaves_bees_0002",
-        "threshold": 0.2
+        "threshold": 0.1
       }
     ],
     "noise": "autumnity:maple_gradient"

@@ -1,0 +1,18 @@
+{
+  "type": "autumnity:noise_selector",
+  "config": {
+    "blending": 0.0,
+    "default": "autumnity:yellow_maple_tree_fallen_leaves_bees_002",
+    "features": [
+      {
+        "feature": "autumnity:red_maple_tree_fallen_leaves_bees_002",
+        "threshold": 0.2
+      },
+      {
+        "feature": "autumnity:orange_maple_tree_fallen_leaves_bees_002",
+        "threshold": 0.8
+      }
+    ],
+    "noise": "autumnity:maple_gradient"
+  }
+}

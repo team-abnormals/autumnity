@@ -12,8 +12,8 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 public class NoiseThresholdPlacedFeature {
 	public static final Codec<NoiseThresholdPlacedFeature> CODEC = RecordCodecBuilder.create(
 			p_191187_ -> p_191187_.group(
-					PlacedFeature.CODEC.fieldOf("feature").forGetter(p_204789_ -> p_204789_.feature),
-					Codec.floatRange(-1.0F, 1.0F).fieldOf("threshold").forGetter(p_191189_ -> p_191189_.threshold))
+					PlacedFeature.CODEC.fieldOf("feature").forGetter(placedFeature -> placedFeature.feature),
+					Codec.floatRange(-1.0F, 1.0F).fieldOf("threshold").forGetter(placedFeature -> placedFeature.threshold))
 					.apply(p_191187_, NoiseThresholdPlacedFeature::new)
 	);
 	public final Holder<PlacedFeature> feature;

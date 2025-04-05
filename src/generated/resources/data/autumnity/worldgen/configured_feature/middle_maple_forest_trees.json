@@ -1,6 +1,7 @@
 {
   "type": "autumnity:noise_selector",
   "config": {
+    "blending": 0.0,
     "default": "autumnity:maple_tree_bees_0002",
     "features": [
       {

@@ -1,15 +1,16 @@
 {
   "type": "autumnity:noise_selector",
   "config": {
+    "blending": 0.3,
     "default": "autumnity:late_maple_forest_fallen_leaves",
     "features": [
       {
         "feature": "autumnity:early_maple_forest_fallen_leaves",
-        "threshold": -0.4
+        "threshold": -0.3
       },
       {
         "feature": "autumnity:middle_maple_forest_fallen_leaves",
-        "threshold": 0.4
+        "threshold": 0.3
       }
     ],
     "noise": "autumnity:autumn_progress"

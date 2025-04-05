@@ -25,7 +25,7 @@ public class NoiseSelectorFeature extends Feature<NoiseSelectorFeatureConfigurat
 
 		double value = config.getNoise(level).getValue(origin.getX(), origin.getY(), origin.getZ());
 		for (NoiseThresholdPlacedFeature feature : config.features) {
-			if (value < feature.threshold) {
+			if (value < feature.threshold - config.blending || (value < feature.threshold + config.blending && random.nextFloat() < 1.0F - (value - feature.threshold + config.blending) / (2 * config.blending))) {
 				return feature.place(level, chunkgenerator, random, origin);
 			}
 		}

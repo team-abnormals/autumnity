@@ -17,23 +17,30 @@ import java.util.stream.Stream;
 
 public class NoiseSelectorFeatureConfiguration implements FeatureConfiguration {
 	public static final Codec<NoiseSelectorFeatureConfiguration> CODEC = RecordCodecBuilder.create(
-			p_67898_ -> p_67898_.apply3(
+			p_67898_ -> p_67898_.apply4(
 					NoiseSelectorFeatureConfiguration::new,
-					NoiseParameters.CODEC.fieldOf("noise").forGetter(p_191433_ -> p_191433_.parameters),
-					NoiseThresholdPlacedFeature.CODEC.listOf().fieldOf("features").forGetter(p_161053_ -> p_161053_.features),
-					PlacedFeature.CODEC.fieldOf("default").forGetter(p_204816_ -> p_204816_.defaultFeature)
+					NoiseParameters.CODEC.fieldOf("noise").forGetter(config -> config.parameters),
+					Codec.floatRange(0.0F, 2.0F).fieldOf("blending").forGetter(config -> config.blending),
+					NoiseThresholdPlacedFeature.CODEC.listOf().fieldOf("features").forGetter(config -> config.features),
+					PlacedFeature.CODEC.fieldOf("default").forGetter(config -> config.defaultFeature)
 			)
 	);
 	public final Holder<NoiseParameters> parameters;
+	public final float blending;
 	public final List<NoiseThresholdPlacedFeature> features;
 	public final Holder<PlacedFeature> defaultFeature;
 	private volatile NormalNoise noise;
 	private volatile boolean initialized;
 
-	public NoiseSelectorFeatureConfiguration(Holder<NoiseParameters> parameters, List<NoiseThresholdPlacedFeature> features, Holder<PlacedFeature> defaultFeature) {
+	public NoiseSelectorFeatureConfiguration(Holder<NoiseParameters> parameters, float blending, List<NoiseThresholdPlacedFeature> features, Holder<PlacedFeature> defaultFeature) {
 		this.parameters = parameters;
+		this.blending = blending;
 		this.features = features;
 		this.defaultFeature = defaultFeature;
+	}
+
+	public NoiseSelectorFeatureConfiguration(Holder<NoiseParameters> parameters, List<NoiseThresholdPlacedFeature> features, Holder<PlacedFeature> defaultFeature) {
+		this(parameters, 0.0F, features, defaultFeature);
 	}
 
 	public NormalNoise getNoise(WorldGenLevel level) {

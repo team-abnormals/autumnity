@@ -1,0 +1,25 @@
+{
+  "feature": "autumnity:maple_forest_fallen_leaves",
+  "placement": [
+    {
+      "type": "blueprint:better_noise_based_count",
+      "noise": "autumnity:autumn_progress",
+      "noise_offset": 0.4000000059604645,
+      "noise_to_count_ratio": 1
+    },
+    {
+      "type": "minecraft:count",
+      "count": 5
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

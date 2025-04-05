@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "autumnity:trees_maple_forest",
+    "default": "autumnity:maple_forest_trees",
     "features": [
       {
         "chance": 0.025,

@@ -24,9 +24,9 @@ public class NoiseSelectorFeature extends Feature<NoiseSelectorFeatureConfigurat
 		BlockPos origin = context.origin();
 
 		double value = config.getNoise(level).getValue(origin.getX(), origin.getY(), origin.getZ());
-		for (NoiseThresholdPlacedFeature noisethresholdplacedfeature : config.features) {
-			if (value < noisethresholdplacedfeature.threshold) {
-				return noisethresholdplacedfeature.place(level, chunkgenerator, random, origin);
+		for (NoiseThresholdPlacedFeature feature : config.features) {
+			if (value < feature.threshold) {
+				return feature.place(level, chunkgenerator, random, origin);
 			}
 		}
 

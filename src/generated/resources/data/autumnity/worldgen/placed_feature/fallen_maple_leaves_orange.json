@@ -1,19 +1,4 @@
 {
   "feature": "autumnity:fallen_maple_leaves_orange",
-  "placement": [
-    {
-      "type": "minecraft:count",
-      "count": 4
-    },
-    {
-      "type": "minecraft:in_square"
-    },
-    {
-      "type": "minecraft:heightmap",
-      "heightmap": "WORLD_SURFACE_WG"
-    },
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "autumnity:fallen_maple_leaves_yellow",
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "autumnity:fallen_maple_leaves_orange"
+      }
+    ]
+  }
+}

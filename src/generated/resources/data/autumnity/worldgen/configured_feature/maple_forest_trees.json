@@ -1,0 +1,17 @@
+{
+  "type": "autumnity:noise_selector",
+  "config": {
+    "default": "autumnity:late_maple_forest",
+    "features": [
+      {
+        "feature": "autumnity:early_maple_forest",
+        "threshold": -0.4
+      },
+      {
+        "feature": "autumnity:trees_maple_forest",
+        "threshold": 0.4
+      }
+    ],
+    "noise": "autumnity:autumn_progress"
+  }
+}

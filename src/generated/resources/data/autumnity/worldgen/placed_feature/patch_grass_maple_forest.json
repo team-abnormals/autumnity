@@ -1,9 +1,9 @@
 {
-  "feature": "autumnity:maple_forest_fallen_leaves",
+  "feature": "autumnity:patch_maple_forest_grass",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 4
+      "count": 3
     },
     {
       "type": "minecraft:in_square"

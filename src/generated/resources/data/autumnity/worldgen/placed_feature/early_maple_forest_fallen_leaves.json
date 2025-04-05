@@ -1,4 +1,9 @@
 {
   "feature": "autumnity:early_maple_forest_fallen_leaves",
-  "placement": []
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 3
+    }
+  ]
 }

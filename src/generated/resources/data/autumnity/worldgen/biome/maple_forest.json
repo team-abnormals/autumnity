@@ -75,7 +75,7 @@
     [
       "minecraft:glow_lichen",
       "minecraft:flower_default",
-      "minecraft:patch_grass_forest",
+      "autumnity:patch_grass_maple_forest",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",

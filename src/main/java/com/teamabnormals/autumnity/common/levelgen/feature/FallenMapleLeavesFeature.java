@@ -31,11 +31,7 @@ public class FallenMapleLeavesFeature extends Feature<TreeConfiguration> {
 
 	public static boolean placeLeaves(BlockState leafpile, BlockPos origin, WorldGenLevel level, RandomSource random) {
 		int i = 0;
-		int radius = 3;
-		if (random.nextInt(3) == 0)
-			radius++;
-		if (random.nextInt(4) == 0)
-			radius--;
+		int radius = random.nextInt(4) == 0 ? 2 : 3;
 		int ditheroffset = random.nextBoolean() ? 1 : 0;
 
 		MutableBlockPos mutable = new MutableBlockPos();
@@ -48,7 +44,7 @@ public class FallenMapleLeavesFeature extends Feature<TreeConfiguration> {
 						float leafdensity = 1.0F - (float) Math.sqrt(x * x + z * z) / (radius * 2.0F - 1.0F);
 						leafdensity += random.nextFloat() * 0.2F;
 						if ((x + z) % 2 == ditheroffset)
-							leafdensity -= 0.3F;
+							leafdensity -= 0.35F;
 
 						if (leafdensity >= 0.5F && level.isEmptyBlock(mutable) && mutable.getY() < level.getMaxBuildHeight() && level.getBlockState(mutable.below()).getBlock() == Blocks.GRASS_BLOCK) {
 							level.setBlock(mutable, leafpile.setValue(PipeBlock.DOWN, true), 2);

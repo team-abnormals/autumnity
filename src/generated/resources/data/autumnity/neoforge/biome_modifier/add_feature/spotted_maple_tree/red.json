@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
   "biomes": "#autumnity:has_feature/spotted_maple_tree/red",
-  "features": "autumnity:trees_maple_red",
+  "features": "autumnity:spotted_maples_red",
   "step": "vegetal_decoration"
 }

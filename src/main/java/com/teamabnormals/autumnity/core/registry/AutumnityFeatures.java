@@ -62,9 +62,9 @@ public class AutumnityFeatures {
 		public static final ResourceKey<NoiseParameters> AUTUMN_PROGRESS = createKey("autumn_progress");
 
 		public static void bootstrap(BootstrapContext<NoiseParameters> context) {
-			context.register(SPOTTED_MAPLES, new NoiseParameters(-8, 1.0D));
+			context.register(SPOTTED_MAPLES, new NoiseParameters(-9, 1.0D, 1.5D));
 			context.register(MAPLE_GRADIENT, new NoiseParameters(-1, 1.0D));
-			context.register(AUTUMN_PROGRESS, new NoiseParameters(-8, 1.0D));
+			context.register(AUTUMN_PROGRESS, new NoiseParameters(-9, 1.0D, 1.5D));
 		}
 
 		public static ResourceKey<NoiseParameters> createKey(String name) {

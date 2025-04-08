@@ -63,7 +63,7 @@ public class AutumnityFeatures {
 
 		public static void bootstrap(BootstrapContext<NoiseParameters> context) {
 			context.register(SPOTTED_MAPLES, new NoiseParameters(-9, 1.0D, 1.5D));
-			context.register(MAPLE_GRADIENT, new NoiseParameters(-1, 1.0D));
+			context.register(MAPLE_GRADIENT, new NoiseParameters(-1, 1.0D, 1.0D));
 			context.register(AUTUMN_PROGRESS, new NoiseParameters(-9, 1.0D, 1.5D));
 		}
 
@@ -292,7 +292,7 @@ public class AutumnityFeatures {
 
 			register(context, TREES_MAPLE, AutumnityConfiguredFeatures.TREES_MAPLE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 
-			BetterNoiseBasedCountPlacement spottedMaplesCount = new BetterNoiseBasedCountPlacement(noise.get(AutumnityNoiseParameters.SPOTTED_MAPLES).get(), 12, -0.4F);
+			BetterNoiseBasedCountPlacement spottedMaplesCount = new BetterNoiseBasedCountPlacement(noise.get(AutumnityNoiseParameters.SPOTTED_MAPLES).get(), 1, -0.4F);
 			register(context, SPOTTED_MAPLES_YELLOW, AutumnityConfiguredFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 			register(context, SPOTTED_MAPLES_ORANGE, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 			register(context, SPOTTED_MAPLES_RED, AutumnityConfiguredFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());

@@ -28,7 +28,7 @@ public class SnailHideGoal extends Goal {
 	};
 
 	private final Snail snail;
-	
+
 	public SnailHideGoal(Snail snail) {
 		super();
 		this.snail = snail;

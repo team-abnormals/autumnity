@@ -2,7 +2,6 @@ package com.teamabnormals.autumnity.core.other.tags;
 
 import com.teamabnormals.autumnity.core.Autumnity;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.entity.BannerPattern;
 

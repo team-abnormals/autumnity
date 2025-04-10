@@ -76,7 +76,7 @@ public class AutumnityItems {
 				.tab(COMBAT)
 				.addItemsAfter(of(Items.TURTLE_HELMET), SNAIL_SHELL_CHESTPLATE)
 				.tab(SPAWN_EGGS)
-				.addItemsAlphabetically(is(SpawnEggItem.class), SNAIL_SPAWN_EGG, TURKEY_SPAWN_EGG);
+				.addSpawnEggsAlphabetically(SNAIL_SPAWN_EGG, TURKEY_SPAWN_EGG);
 
 		CreativeModeTabContentsPopulator.mod("berry_good_1")
 				.predicate(event -> event.getTabKey() == NATURAL_BLOCKS && AutumnityConfig.COMMON.foulBerriesRequirePips.get())

@@ -16,10 +16,16 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class AutumnityParticleTypes {
 	public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, Autumnity.MOD_ID);
 
-	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FALLING_MAPLE_LEAF = PARTICLE_TYPES.register("falling_maple_leaf", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MAPLE_LEAVES = PARTICLE_TYPES.register("maple_leaves", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> YELLOW_MAPLE_LEAVES = PARTICLE_TYPES.register("yellow_maple_leaves", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ORANGE_MAPLE_LEAVES = PARTICLE_TYPES.register("orange_maple_leaves", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> RED_MAPLE_LEAVES = PARTICLE_TYPES.register("red_maple_leaves", () -> new SimpleParticleType(false));
 
 	@SubscribeEvent
 	public static void registerParticleTypes(RegisterParticleProvidersEvent event) {
-		event.registerSpriteSet(FALLING_MAPLE_LEAF.get(), FallingMapleLeafParticle.Factory::new);
+		event.registerSpriteSet(MAPLE_LEAVES.get(), FallingMapleLeafParticle.Factory::new);
+		event.registerSpriteSet(YELLOW_MAPLE_LEAVES.get(), FallingMapleLeafParticle.Factory::new);
+		event.registerSpriteSet(ORANGE_MAPLE_LEAVES.get(), FallingMapleLeafParticle.Factory::new);
+		event.registerSpriteSet(RED_MAPLE_LEAVES.get(), FallingMapleLeafParticle.Factory::new);
 	}
 }

@@ -113,17 +113,17 @@ public class AutumnityBlocks {
 	public static final DeferredBlock<Block> POTTED_MAPLE_SAPLING = BLOCKS.createBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> MAPLE_LEAF_PILE = BLOCKS.createBlock("maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.MAPLE.leafPile()));
 
-	public static final DeferredBlock<Block> YELLOW_MAPLE_LEAVES = BLOCKS.createBlock("yellow_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.YELLOW_MAPLE.leaves(), 16766735));
+	public static final DeferredBlock<Block> YELLOW_MAPLE_LEAVES = BLOCKS.createBlock("yellow_maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.YELLOW_MAPLE.leaves()));
 	public static final DeferredBlock<Block> YELLOW_MAPLE_SAPLING = BLOCKS.createBlock("yellow_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_YELLOW, AutumnityProperties.YELLOW_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_YELLOW_MAPLE_SAPLING = BLOCKS.createBlockNoItem("potted_yellow_maple_sapling", () -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> YELLOW_MAPLE_LEAF_PILE = BLOCKS.createBlock("yellow_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.YELLOW_MAPLE.leafPile()));
 
-	public static final DeferredBlock<Block> ORANGE_MAPLE_LEAVES = BLOCKS.createBlock("orange_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.ORANGE_MAPLE.leaves(), 16745768));
+	public static final DeferredBlock<Block> ORANGE_MAPLE_LEAVES = BLOCKS.createBlock("orange_maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.ORANGE_MAPLE.leaves()));
 	public static final DeferredBlock<Block> ORANGE_MAPLE_SAPLING = BLOCKS.createBlock("orange_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_ORANGE, AutumnityProperties.ORANGE_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_ORANGE_MAPLE_SAPLING = BLOCKS.createBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> ORANGE_MAPLE_LEAF_PILE = BLOCKS.createBlock("orange_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.ORANGE_MAPLE.leafPile()));
 
-	public static final DeferredBlock<Block> RED_MAPLE_LEAVES = BLOCKS.createBlock("red_maple_leaves", () -> new ColoredMapleLeavesBlock(AutumnityProperties.RED_MAPLE.leaves(), 12665871));
+	public static final DeferredBlock<Block> RED_MAPLE_LEAVES = BLOCKS.createBlock("red_maple_leaves", () -> new MapleLeavesBlock(AutumnityProperties.RED_MAPLE.leaves()));
 	public static final DeferredBlock<Block> RED_MAPLE_SAPLING = BLOCKS.createBlock("red_maple_sapling", () -> new SaplingBlock(AutumnityTreeGrowers.MAPLE_RED, AutumnityProperties.RED_MAPLE.sapling()));
 	public static final DeferredBlock<Block> POTTED_RED_MAPLE_SAPLING = BLOCKS.createBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> RED_MAPLE_LEAF_PILE = BLOCKS.createBlock("red_maple_leaf_pile", () -> new LeafPileBlock(AutumnityProperties.RED_MAPLE.leafPile()));

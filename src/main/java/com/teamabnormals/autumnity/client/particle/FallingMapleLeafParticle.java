@@ -10,8 +10,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 public class FallingMapleLeafParticle extends TextureSheetParticle {
 	private final float rotSpeed;
 
-	private FallingMapleLeafParticle(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double particleRedIn, double particleGreenIn, double particleBlueIn) {
-		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
+	private FallingMapleLeafParticle(ClientLevel level, double x, double y, double z, double red, double green, double blue) {
+		super(level, x, y, z);
 		this.quadSize *= 1.2F;
 		this.lifetime = 80;
 		this.rotSpeed = ((float) Math.random() - 0.5F) * 0.1F;
@@ -57,8 +57,8 @@ public class FallingMapleLeafParticle extends TextureSheetParticle {
 		}
 
 		@Override
-		public Particle createParticle(SimpleParticleType typeIn, ClientLevel worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			FallingMapleLeafParticle particle = new FallingMapleLeafParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
+		public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+			FallingMapleLeafParticle particle = new FallingMapleLeafParticle(level, x, y, z, xSpeed, ySpeed, zSpeed);
 			particle.setColor((float) xSpeed, (float) ySpeed, (float) zSpeed);
 			particle.pickSprite(this.spriteSet);
 			return particle;

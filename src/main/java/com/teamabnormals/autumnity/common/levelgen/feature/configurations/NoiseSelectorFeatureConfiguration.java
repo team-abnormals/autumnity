@@ -48,6 +48,7 @@ public class NoiseSelectorFeatureConfiguration implements FeatureConfiguration {
 			synchronized (this) {
 				if (!this.initialized) {
 					this.noise = NormalNoise.create(WorldgenRandom.Algorithm.LEGACY.newInstance(level.getSeed()).forkPositional().fromHashOf(this.parameters.unwrapKey().orElseThrow().location()), this.parameters.value());
+					this.initialized = true;
 				}
 			}
 		}

@@ -1,10 +1,30 @@
 {
-  "type": "autumnity:fallen_leaves_maple_tree",
+  "type": "autumnity:maple_tree",
   "config": {
     "decorators": [
       {
         "type": "minecraft:beehive",
         "probability": 0.02
+      },
+      {
+        "type": "autumnity:fallen_leaves",
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "autumnity:yellow_maple_leaf_pile",
+            "Properties": {
+              "down": "true",
+              "east": "false",
+              "north": "false",
+              "south": "false",
+              "up": "false",
+              "waterlogged": "false",
+              "west": "false"
+            }
+          }
+        },
+        "radius": 3,
+        "y_spread": 3
       }
     ],
     "dirt_provider": {

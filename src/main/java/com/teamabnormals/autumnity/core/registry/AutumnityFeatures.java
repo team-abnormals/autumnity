@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.teamabnormals.autumnity.common.block.TallFoulBerryBushBlock;
 import com.teamabnormals.autumnity.common.levelgen.feature.*;
+import com.teamabnormals.autumnity.common.levelgen.feature.configurations.FallenLeavesConfiguration;
 import com.teamabnormals.autumnity.common.levelgen.feature.configurations.NoiseSelectorFeatureConfiguration;
+import com.teamabnormals.autumnity.common.levelgen.feature.treedecorators.FallenLeavesDecorator;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.blueprint.common.levelgen.placement.BetterNoiseBasedCountPlacement;
 import net.minecraft.core.HolderGetter;
@@ -19,6 +21,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -31,6 +34,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise.NoiseParameters;
@@ -41,12 +45,14 @@ import java.util.List;
 
 public class AutumnityFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, Autumnity.MOD_ID);
+	public static final DeferredRegister<TreeDecoratorType<?>> TREE_DECORATOR_TYPES = DeferredRegister.create(Registries.TREE_DECORATOR_TYPE, Autumnity.MOD_ID);
 
 	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> MAPLE_TREE = FEATURES.register("maple_tree", () -> new MapleTreeFeature(TreeConfiguration.CODEC));
-	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> FALLEN_LEAVES_MAPLE_TREE = FEATURES.register("fallen_leaves_maple_tree", () -> new FallenLeavesMapleTreeFeature(TreeConfiguration.CODEC));
-	public static final DeferredHolder<Feature<?>, Feature<TreeConfiguration>> FALLEN_MAPLE_LEAVES = FEATURES.register("fallen_maple_leaves", () -> new FallenMapleLeavesFeature(TreeConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<FallenLeavesConfiguration>> FALLEN_LEAVES = FEATURES.register("fallen_leaves", () -> new FallenLeavesFeature(FallenLeavesConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PUMPKIN_FIELDS_PUMPKIN = FEATURES.register("pumpkin_fields_pumpkin", () -> new PumpkinFieldsPumpkinFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoiseSelectorFeatureConfiguration>> NOISE_SELECTOR = FEATURES.register("noise_selector", () -> new NoiseSelectorFeature(NoiseSelectorFeatureConfiguration.CODEC));
+
+	public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<?>> FALLEN_LEAVES_DECORATOR = TREE_DECORATOR_TYPES.register("fallen_leaves", () -> new TreeDecoratorType<>(FallenLeavesDecorator.CODEC));
 
 	public static final class States {
 		private static final BlockState MAPLE_LOG = AutumnityBlocks.MAPLE_LOG.get().defaultBlockState();
@@ -54,6 +60,9 @@ public class AutumnityFeatures {
 		private static final BlockState YELLOW_MAPLE_LEAVES = AutumnityBlocks.YELLOW_MAPLE_LEAVES.get().defaultBlockState();
 		private static final BlockState ORANGE_MAPLE_LEAVES = AutumnityBlocks.ORANGE_MAPLE_LEAVES.get().defaultBlockState();
 		private static final BlockState RED_MAPLE_LEAVES = AutumnityBlocks.RED_MAPLE_LEAVES.get().defaultBlockState();
+		private static final BlockState YELLOW_MAPLE_LEAF_PILE = AutumnityBlocks.YELLOW_MAPLE_LEAF_PILE.get().defaultBlockState();
+		private static final BlockState ORANGE_MAPLE_LEAF_PILE = AutumnityBlocks.ORANGE_MAPLE_LEAF_PILE.get().defaultBlockState();
+		private static final BlockState RED_MAPLE_LEAF_PILE = AutumnityBlocks.RED_MAPLE_LEAF_PILE.get().defaultBlockState();
 	}
 
 	public static final class AutumnityNoiseParameters {
@@ -129,29 +138,33 @@ public class AutumnityFeatures {
 			HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 			HolderGetter<NoiseParameters> noise = context.lookup(Registries.NOISE);
 
-			ImmutableList<TreeDecorator> bees0002 = ImmutableList.of(new BeehiveDecorator(0.002F));
-			ImmutableList<TreeDecorator> bees002 = ImmutableList.of(new BeehiveDecorator(0.02F));
-			ImmutableList<TreeDecorator> bees005 = ImmutableList.of(new BeehiveDecorator(0.05F));
+			TreeDecorator bees0002 = new BeehiveDecorator(0.002F);
+			TreeDecorator bees002 = new BeehiveDecorator(0.02F);
+			TreeDecorator bees005 = new BeehiveDecorator(0.05F);
+
+			TreeDecorator yellowleaves = fallenLeavesDecorator(States.YELLOW_MAPLE_LEAF_PILE);
+			TreeDecorator orangeleaves = fallenLeavesDecorator(States.ORANGE_MAPLE_LEAF_PILE);
+			TreeDecorator redleaves = fallenLeavesDecorator(States.RED_MAPLE_LEAF_PILE);
 
 			register(context, MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), maple().build());
-			register(context, MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(bees0002).build());
-			register(context, MAPLE_TREE_BEES_002, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(bees002).build());
-			register(context, MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(bees005).build());
+			register(context, MAPLE_TREE_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(ImmutableList.of(bees0002)).build());
+			register(context, MAPLE_TREE_BEES_002, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(ImmutableList.of(bees002)).build());
+			register(context, MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), maple().decorators(ImmutableList.of(bees005)).build());
 
 			register(context, YELLOW_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().build());
-			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), yellowMaple().decorators(bees0002).build());
-			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), yellowMaple().decorators(bees002).build());
-			register(context, YELLOW_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(bees005).build());
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(ImmutableList.of(bees0002, yellowleaves)).build());
+			register(context, YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(ImmutableList.of(bees002, yellowleaves)).build());
+			register(context, YELLOW_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), yellowMaple().decorators(ImmutableList.of(bees005)).build());
 
 			register(context, ORANGE_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().build());
-			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), orangeMaple().decorators(bees0002).build());
-			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), orangeMaple().decorators(bees002).build());
-			register(context, ORANGE_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(bees005).build());
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(ImmutableList.of(bees0002, orangeleaves)).build());
+			register(context, ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(ImmutableList.of(bees002, orangeleaves)).build());
+			register(context, ORANGE_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), orangeMaple().decorators(ImmutableList.of(bees005)).build());
 
 			register(context, RED_MAPLE_TREE, AutumnityFeatures.MAPLE_TREE.get(), redMaple().build());
-			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), redMaple().decorators(bees0002).build());
-			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.FALLEN_LEAVES_MAPLE_TREE.get(), redMaple().decorators(bees002).build());
-			register(context, RED_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(bees005).build());
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(ImmutableList.of(bees0002, redleaves)).build());
+			register(context, RED_MAPLE_TREE_FALLEN_LEAVES_BEES_002, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(ImmutableList.of(bees002, redleaves)).build());
+			register(context, RED_MAPLE_TREE_BEES_005, AutumnityFeatures.MAPLE_TREE.get(), redMaple().decorators(ImmutableList.of(bees005)).build());
 
 			register(context, EARLY_MAPLE_FOREST_TREES, AutumnityFeatures.NOISE_SELECTOR.get(), new NoiseSelectorFeatureConfiguration(noise.get(AutumnityNoiseParameters.MAPLE_GRADIENT).get(), List.of(new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), -0.35F), new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.1F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_BEES_0002)));
 			register(context, MIDDLE_MAPLE_FOREST_TREES, AutumnityFeatures.NOISE_SELECTOR.get(), new NoiseSelectorFeatureConfiguration(noise.get(AutumnityNoiseParameters.MAPLE_GRADIENT).get(), List.of(new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), -0.2F), new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.15F), new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002), 0.25F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.MAPLE_TREE_BEES_0002)));
@@ -163,9 +176,9 @@ public class AutumnityFeatures {
 			register(context, LATE_PUMPKIN_FIELDS_TREES, AutumnityFeatures.NOISE_SELECTOR.get(), new NoiseSelectorFeatureConfiguration(noise.get(AutumnityNoiseParameters.MAPLE_GRADIENT).get(), List.of(new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_002), 0.2F), new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_002), 0.8F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_002)));
 			register(context, PUMPKIN_FIELDS_TREES, AutumnityFeatures.NOISE_SELECTOR.get(), new NoiseSelectorFeatureConfiguration(noise.get(AutumnityNoiseParameters.AUTUMN_PROGRESS).get(), 0.3F, List.of(new NoiseThresholdPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.EARLY_PUMPKIN_FIELDS_TREES), -0.4F), new NoiseThresholdPlacedFeature((placedFeatures.getOrThrow(AutumnityPlacedFeatures.MIDDLE_PUMPKIN_FIELDS_TREES)), 0.4F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.LATE_PUMPKIN_FIELDS_TREES)));
 
-			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), yellowMaple().build());
-			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), orangeMaple().build());
-			register(context, FALLEN_MAPLE_LEAVES_RED, AutumnityFeatures.FALLEN_MAPLE_LEAVES.get(), redMaple().build());
+			register(context, FALLEN_MAPLE_LEAVES_YELLOW, AutumnityFeatures.FALLEN_LEAVES.get(), fallenLeaves(States.YELLOW_MAPLE_LEAF_PILE, 3, 3));
+			register(context, FALLEN_MAPLE_LEAVES_ORANGE, AutumnityFeatures.FALLEN_LEAVES.get(), fallenLeaves(States.ORANGE_MAPLE_LEAF_PILE, 3, 3));
+			register(context, FALLEN_MAPLE_LEAVES_RED, AutumnityFeatures.FALLEN_LEAVES.get(), fallenLeaves(States.RED_MAPLE_LEAF_PILE, 3, 3));
 
 			register(context, EARLY_MAPLE_FOREST_FALLEN_LEAVES, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_MAPLE_LEAVES_ORANGE), 0.4F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_MAPLE_LEAVES_YELLOW)));
 			register(context, MIDDLE_MAPLE_FOREST_FALLEN_LEAVES, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_MAPLE_LEAVES_ORANGE), 0.8F)), placedFeatures.getOrThrow(AutumnityPlacedFeatures.FALLEN_MAPLE_LEAVES_YELLOW)));
@@ -203,6 +216,14 @@ public class AutumnityFeatures {
 
 		private static TreeConfigurationBuilder maple(BlockState leavesState) {
 			return new TreeConfigurationBuilder(BlockStateProvider.simple(States.MAPLE_LOG), new StraightTrunkPlacer(5, 1, 0), BlockStateProvider.simple(leavesState), new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0), new TwoLayersFeatureSize(0, 0, 0)).ignoreVines();
+		}
+
+		private static FallenLeavesConfiguration fallenLeaves(BlockState leafPileState, int radius, int ySpread) {
+			return new FallenLeavesConfiguration(BlockStateProvider.simple(leafPileState.setValue(PipeBlock.DOWN, true)), radius, ySpread);
+		}
+
+		private static TreeDecorator fallenLeavesDecorator(BlockState leafPileState) {
+			return new FallenLeavesDecorator(BlockStateProvider.simple(leafPileState.setValue(PipeBlock.DOWN, true)), 3, 3);
 		}
 
 		public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {

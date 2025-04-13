@@ -37,6 +37,7 @@ public class Autumnity {
 		AutumnityMobEffects.MOB_EFFECTS.register(bus);
 		AutumnityPotions.POTIONS.register(bus);
 		AutumnityFeatures.FEATURES.register(bus);
+		AutumnityFeatures.TREE_DECORATOR_TYPES.register(bus);
 		AutumnityParticleTypes.PARTICLE_TYPES.register(bus);
 		AutumnityConditions.CONDITION_SERIALIZERS.register(bus);
 		AutumnityCriteriaTriggers.TRIGGERS.register(bus);

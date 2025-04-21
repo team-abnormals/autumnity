@@ -266,7 +266,6 @@ public class AutumnityFeatures {
 		public static final ResourceKey<PlacedFeature> MAPLE_FOREST_FALLEN_LEAVES = createKey("maple_forest_fallen_leaves");
 
 		public static final ResourceKey<PlacedFeature> TREES_MAPLE = createKey("trees_maple");
-		public static final ResourceKey<PlacedFeature> SPOTTED_MAPLES_YELLOW = createKey("spotted_maples_yellow");
 		public static final ResourceKey<PlacedFeature> SPOTTED_MAPLES_ORANGE = createKey("spotted_maples_orange");
 		public static final ResourceKey<PlacedFeature> SPOTTED_MAPLES_RED = createKey("spotted_maples_red");
 
@@ -314,7 +313,6 @@ public class AutumnityFeatures {
 			register(context, TREES_MAPLE, AutumnityConfiguredFeatures.TREES_MAPLE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 
 			BetterNoiseBasedCountPlacement spottedMaplesCount = new BetterNoiseBasedCountPlacement(noise.get(AutumnityNoiseParameters.SPOTTED_MAPLES).get(), 1, -0.4F);
-			register(context, SPOTTED_MAPLES_YELLOW, AutumnityConfiguredFeatures.YELLOW_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 			register(context, SPOTTED_MAPLES_ORANGE, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 			register(context, SPOTTED_MAPLES_RED, AutumnityConfiguredFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 

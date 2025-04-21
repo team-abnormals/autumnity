@@ -31,9 +31,8 @@ public class AutumnityBiomeModifiers {
 
 	public static void bootstrap(BootstrapContext<BiomeModifier> context) {
 		addFeature(context, "maple_tree", AutumnityBiomeTags.HAS_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.TREES_MAPLE);
-		addFeature(context, "spotted_maple_tree/yellow", AutumnityBiomeTags.HAS_YELLOW_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_MAPLES_YELLOW);
-		addFeature(context, "spotted_maple_tree/orange", AutumnityBiomeTags.HAS_ORANGE_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_MAPLES_ORANGE);
-		addFeature(context, "spotted_maple_tree/red", AutumnityBiomeTags.HAS_RED_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_MAPLES_RED);
+		addFeature(context, "orange_spotted_maple_tree", AutumnityBiomeTags.HAS_ORANGE_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_MAPLES_ORANGE);
+		addFeature(context, "red_spotted_maple_tree", AutumnityBiomeTags.HAS_RED_MAPLE_TREE, GenerationStep.Decoration.VEGETAL_DECORATION, AutumnityPlacedFeatures.SPOTTED_MAPLES_RED);
 
 		removeSpawn(context, "chicken", AutumnityBiomeTags.HAS_TURKEY, EntityType.CHICKEN);
 		addSpawn(context, "turkey", AutumnityBiomeTags.HAS_TURKEY, new MobSpawnSettings.SpawnerData(AutumnityEntityTypes.TURKEY.get(), 10, 4, 4));

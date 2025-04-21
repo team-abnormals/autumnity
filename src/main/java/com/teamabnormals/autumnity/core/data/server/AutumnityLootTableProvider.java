@@ -94,7 +94,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.add(COOKED_TURKEY.get(), createTurkeyDrops(COOKED_TURKEY.get(), AutumnityItems.COOKED_TURKEY_PIECE.get()));
 			this.dropSelf(TURKEY_EGG_CRATE.get());
 
-			this.add(FOUL_BERRY_BUSH.get(), noDrop());
+			this.add(FOUL_BERRY_BUSH.get(), LootTable.lootTable().withPool(LootPool.lootPool()));
 			this.add(TALL_FOUL_BERRY_BUSH.get(), (block) -> applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 3).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F))).apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE)))).withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_FOUL_BERRY_BUSH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallFoulBerryBushBlock.AGE, 2).hasProperty(TallFoulBerryBushBlock.HALF, DoubleBlockHalf.LOWER))).add(LootItem.lootTableItem(AutumnityItems.FOUL_BERRIES.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))).apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE))))));
 			this.dropPottedContents(POTTED_FOUL_BERRIES.get());
 			this.dropSelf(FOUL_BERRY_BASKET.get());

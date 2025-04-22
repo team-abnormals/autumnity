@@ -318,7 +318,7 @@ public class AutumnityFeatures {
 			register(context, SPOTTED_MAPLES_ORANGE, AutumnityConfiguredFeatures.ORANGE_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 			register(context, SPOTTED_MAPLES_RED, AutumnityConfiguredFeatures.RED_MAPLE_TREE_FALLEN_LEAVES_BEES_0002, treePlacementBase(spottedMaplesCount).build());
 
-			register(context, MAPLE_FOREST_FALLEN_LEAVES, AutumnityConfiguredFeatures.MAPLE_FOREST_FALLEN_LEAVES, CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+			register(context, MAPLE_FOREST_FALLEN_LEAVES, AutumnityConfiguredFeatures.MAPLE_FOREST_FALLEN_LEAVES, CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, PATCH_FOUL_BERRY_BUSH, AutumnityConfiguredFeatures.PATCH_FOUL_BERRY_BUSH, RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 			register(context, FLOWER_MAPLE_FOREST, AutumnityConfiguredFeatures.FLOWER_MAPLE_FOREST, RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 

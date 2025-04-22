@@ -35,7 +35,6 @@ public class MapleTreeFeature extends BlueprintTreeFeature {
 				}
 			}
 		}
-
 	}
 
 	@Override

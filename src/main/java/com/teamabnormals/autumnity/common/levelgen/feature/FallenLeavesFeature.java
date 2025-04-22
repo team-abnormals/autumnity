@@ -46,10 +46,10 @@ public class FallenLeavesFeature extends Feature<FallenLeavesConfiguration> {
 					for (int y = ySpread; y >= -ySpread; --y) {
 						mutable.set(origin.getX() + x, origin.getY() + y, origin.getZ() + z);
 
-						float leafdensity = 1.0F - (float) Math.sqrt(x * x + z * z) / (radius * 2.0F - 1.0F);
-						leafdensity += random.nextFloat() * 0.2F;
-						if ((x + z) % 2 == ditheroffset)
-							leafdensity -= 0.35F;
+						float leafdensity = 1.0F - (float) Math.max(Math.abs(x), Math.abs(z)) / (radius * 2.0F);
+						leafdensity += random.nextFloat() * 0.35F;
+						if (Math.abs(x + z + 2 * radius) % 2 == ditheroffset)
+							leafdensity -= 0.45F;
 
 						if (leafdensity >= 0.5F && level.isStateAtPosition(mutable, BlockBehaviour.BlockStateBase::isAir) && Feature.isGrassOrDirt(level, mutable.below())) {
 							positions.add(mutable.immutable());

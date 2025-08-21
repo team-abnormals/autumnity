@@ -149,7 +149,7 @@ public class AutumnityEvents {
 				if (hitface == facing) {
 					if (!level.isClientSide()) {
 						BlockState blockstate = jackolantern.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, facing);
-						if (jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()) {
+						if (jackolantern == AutumnityBlocks.GIANT_REDSTONE_JACK_O_LANTERN_CHUNK.get()) {
 							blockstate = blockstate.setValue(RedstoneJackOLanternBlock.LIT, level.hasNeighborSignal(pos));
 						}
 

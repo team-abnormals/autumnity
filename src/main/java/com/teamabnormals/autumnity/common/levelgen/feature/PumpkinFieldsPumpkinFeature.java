@@ -2,8 +2,8 @@ package com.teamabnormals.autumnity.common.levelgen.feature;
 
 import com.mojang.serialization.Codec;
 import com.teamabnormals.autumnity.common.block.AbstractLargePumpkinSliceBlock;
-import com.teamabnormals.autumnity.common.block.CarvedLargePumpkinSliceBlock;
-import com.teamabnormals.autumnity.common.block.LargePumpkinSliceBlock;
+import com.teamabnormals.autumnity.common.block.GiantCarvedPumpkinChunkBlock;
+import com.teamabnormals.autumnity.common.block.GiantPumpkinChunkBlock;
 import com.teamabnormals.autumnity.common.block.properties.CarvedSide;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import net.minecraft.core.BlockPos;
@@ -27,7 +27,7 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
 		RandomSource rand = context.random();
 		BlockPos blockpos = context.origin();
-		WorldGenLevel worldIn = context.level();
+		WorldGenLevel level = context.level();
 
 		int i = 0;
 		int j = 0;
@@ -37,9 +37,9 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 
 		for (int k = 0; k < 64; ++k) {
 			blockpos$mutable.setWithOffset(blockpos, rand.nextInt(10) - rand.nextInt(10), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(10) - rand.nextInt(10));
-			if (j <= 2 && rand.nextInt(8) == 0 && checkPositions(worldIn, blockpos$mutable)) {
-				createLargePumpkinHalf(worldIn, blockpos$mutable, Half.BOTTOM);
-				createLargePumpkinHalf(worldIn, blockpos$mutable.above(), Half.TOP);
+			if (j <= 2 && rand.nextInt(8) == 0 && checkPositions(level, blockpos$mutable)) {
+				createGiantPumpkinHalf(level, blockpos$mutable, Half.BOTTOM);
+				createGiantPumpkinHalf(level, blockpos$mutable.above(), Half.TOP);
 
 				if (spooky) {
 					BlockPos blockpos1;
@@ -54,16 +54,16 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 					else
 						blockpos1 = blockpos$mutable.north().east();
 
-					carveLargePumpkin(worldIn, blockpos1);
-					carveLargePumpkin(worldIn, blockpos1.above());
+					carveGaintPumpkin(level, blockpos1);
+					carveGaintPumpkin(level, blockpos1.above());
 				}
 
 				++j;
 				++i;
-			} else if (isAirOrReplaceable(worldIn, blockpos$mutable) && worldIn.getBlockState(blockpos$mutable.below()).getBlock() == Blocks.GRASS_BLOCK) {
+			} else if (isAirOrReplaceable(level, blockpos$mutable) && level.getBlockState(blockpos$mutable.below()).getBlock() == Blocks.GRASS_BLOCK) {
 				BlockState blockstate = spooky ? Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)) : Blocks.PUMPKIN.defaultBlockState();
 
-				worldIn.setBlock(blockpos$mutable, blockstate, 2);
+				level.setBlock(blockpos$mutable, blockstate, 2);
 
 				++i;
 			}
@@ -72,41 +72,41 @@ public class PumpkinFieldsPumpkinFeature extends Feature<NoneFeatureConfiguratio
 		return i > 0;
 	}
 
-	private static void createLargePumpkinHalf(WorldGenLevel worldIn, BlockPos pos, Half half) {
-		BlockState blockstate = AutumnityBlocks.LARGE_PUMPKIN_SLICE.get().defaultBlockState();
+	private static void createGiantPumpkinHalf(WorldGenLevel level, BlockPos pos, Half half) {
+		BlockState blockstate = AutumnityBlocks.GIANT_PUMPKIN_CHUNK.get().defaultBlockState();
 
-		worldIn.setBlock(pos, blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, Direction.WEST).setValue(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlock(pos.north(), blockstate.setValue(LargePumpkinSliceBlock.FACING, Direction.NORTH).setValue(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlock(pos.east(), blockstate.setValue(LargePumpkinSliceBlock.FACING, Direction.SOUTH).setValue(LargePumpkinSliceBlock.HALF, half), 2);
-		worldIn.setBlock(pos.north().east(), blockstate.setValue(LargePumpkinSliceBlock.FACING, Direction.EAST).setValue(LargePumpkinSliceBlock.HALF, half), 2);
+		level.setBlock(pos, blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, Direction.WEST).setValue(GiantPumpkinChunkBlock.HALF, half), 2);
+		level.setBlock(pos.north(), blockstate.setValue(GiantPumpkinChunkBlock.FACING, Direction.NORTH).setValue(GiantPumpkinChunkBlock.HALF, half), 2);
+		level.setBlock(pos.east(), blockstate.setValue(GiantPumpkinChunkBlock.FACING, Direction.SOUTH).setValue(GiantPumpkinChunkBlock.HALF, half), 2);
+		level.setBlock(pos.north().east(), blockstate.setValue(GiantPumpkinChunkBlock.FACING, Direction.EAST).setValue(GiantPumpkinChunkBlock.HALF, half), 2);
 	}
 
-	private static void carveLargePumpkin(WorldGenLevel worldIn, BlockPos pos) {
-		BlockState blockstate = AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.get().defaultBlockState();
+	private static void carveGaintPumpkin(WorldGenLevel level, BlockPos pos) {
+		BlockState blockstate = AutumnityBlocks.GIANT_CARVED_PUMPKIN_CHUNK.get().defaultBlockState();
 
-		BlockState blockstate1 = worldIn.getBlockState(pos);
-		BlockState newblockstate1 = blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, blockstate1.getValue(AbstractLargePumpkinSliceBlock.FACING)).setValue(LargePumpkinSliceBlock.HALF, blockstate1.getValue(AbstractLargePumpkinSliceBlock.HALF));
+		BlockState blockstate1 = level.getBlockState(pos);
+		BlockState newblockstate1 = blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, blockstate1.getValue(AbstractLargePumpkinSliceBlock.FACING)).setValue(GiantPumpkinChunkBlock.HALF, blockstate1.getValue(AbstractLargePumpkinSliceBlock.HALF));
 
 		Direction direction = blockstate1.getValue(AbstractLargePumpkinSliceBlock.FACING);
 		BlockPos blockpos = pos.relative(direction.getClockWise());
-		BlockState blockstate2 = worldIn.getBlockState(blockpos);
-		BlockState newblockstate2 = blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, blockstate2.getValue(AbstractLargePumpkinSliceBlock.FACING)).setValue(LargePumpkinSliceBlock.HALF, blockstate2.getValue(AbstractLargePumpkinSliceBlock.HALF));
+		BlockState blockstate2 = level.getBlockState(blockpos);
+		BlockState newblockstate2 = blockstate.setValue(AbstractLargePumpkinSliceBlock.FACING, blockstate2.getValue(AbstractLargePumpkinSliceBlock.FACING)).setValue(GiantPumpkinChunkBlock.HALF, blockstate2.getValue(AbstractLargePumpkinSliceBlock.HALF));
 
 		CarvedSide carvedside = CarvedSide.getCarvedSide(direction.getAxis());
 
-		worldIn.setBlock(pos, newblockstate1.setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside), 2);
-		worldIn.setBlock(blockpos, newblockstate2.setValue(CarvedLargePumpkinSliceBlock.CARVED_SIDE, carvedside), 2);
+		level.setBlock(pos, newblockstate1.setValue(GiantCarvedPumpkinChunkBlock.CARVED_SIDE, carvedside), 2);
+		level.setBlock(blockpos, newblockstate2.setValue(GiantCarvedPumpkinChunkBlock.CARVED_SIDE, carvedside), 2);
 	}
 
-	private static boolean checkPositions(WorldGenLevel worldIn, BlockPos pos) {
-		return isValidPosition(worldIn, pos) && isValidPosition(worldIn, pos.north()) && isValidPosition(worldIn, pos.east()) && isValidPosition(worldIn, pos.north().east());
+	private static boolean checkPositions(WorldGenLevel level, BlockPos pos) {
+		return isValidPosition(level, pos) && isValidPosition(level, pos.north()) && isValidPosition(level, pos.east()) && isValidPosition(level, pos.north().east());
 	}
 
-	private static boolean isValidPosition(WorldGenLevel worldIn, BlockPos pos) {
-		return isAirOrReplaceable(worldIn, pos) && isAirOrReplaceable(worldIn, pos.above()) && worldIn.getBlockState(pos.below()).getBlock() == Blocks.GRASS_BLOCK;
+	private static boolean isValidPosition(WorldGenLevel level, BlockPos pos) {
+		return isAirOrReplaceable(level, pos) && isAirOrReplaceable(level, pos.above()) && level.getBlockState(pos.below()).getBlock() == Blocks.GRASS_BLOCK;
 	}
 
-	private static boolean isAirOrReplaceable(WorldGenLevel worldIn, BlockPos pos) {
-		return worldIn.isEmptyBlock(pos) || worldIn.getBlockState(pos).canBeReplaced();
+	private static boolean isAirOrReplaceable(WorldGenLevel level, BlockPos pos) {
+		return level.isEmptyBlock(pos) || level.getBlockState(pos).canBeReplaced();
 	}
 }

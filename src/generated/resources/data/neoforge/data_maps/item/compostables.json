@@ -3,16 +3,16 @@
     "autumnity:autumn_crocus": {
       "chance": 0.65
     },
-    "autumnity:carved_large_pumpkin_slice": {
-      "chance": 0.65
-    },
     "autumnity:foul_berries": {
       "chance": 0.3
     },
     "autumnity:foul_berry_pips": {
       "chance": 0.3
     },
-    "autumnity:large_pumpkin_slice": {
+    "autumnity:giant_carved_pumpkin_chunk": {
+      "chance": 0.65
+    },
+    "autumnity:giant_pumpkin_chunk": {
       "chance": 0.65
     },
     "autumnity:maple_leaves": {

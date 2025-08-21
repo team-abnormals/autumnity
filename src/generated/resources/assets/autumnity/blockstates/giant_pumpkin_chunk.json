@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=east,half=bottom,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_northeast"
+    },
+    "facing=east,half=bottom,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_northeast"
+    },
+    "facing=east,half=top,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_northeast"
+    },
+    "facing=east,half=top,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_northeast"
+    },
+    "facing=north,half=bottom,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_northwest"
+    },
+    "facing=north,half=bottom,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_northwest"
+    },
+    "facing=north,half=top,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_northwest"
+    },
+    "facing=north,half=top,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_northwest"
+    },
+    "facing=south,half=bottom,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_southeast"
+    },
+    "facing=south,half=bottom,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_southeast"
+    },
+    "facing=south,half=top,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_southeast"
+    },
+    "facing=south,half=top,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_southeast"
+    },
+    "facing=west,half=bottom,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_southwest"
+    },
+    "facing=west,half=bottom,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_bottom_southwest"
+    },
+    "facing=west,half=top,powered=false": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_southwest"
+    },
+    "facing=west,half=top,powered=true": {
+      "model": "autumnity:block/giant_pumpkin_chunk_top_southwest"
+    }
+  }
+}

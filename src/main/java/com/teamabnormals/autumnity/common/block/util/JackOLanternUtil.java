@@ -23,11 +23,11 @@ public class JackOLanternUtil {
 	});
 
 	private static final Map<ResourceLocation, Block> LARGE_JACK_O_LANTERNS = Util.make(Maps.newHashMap(), (jackolanterns) -> {
-		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.TORCH), AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE.get());
-		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.SOUL_TORCH), AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.get());
-		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.REDSTONE_TORCH), AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get());
-		jackolanterns.put(AutumnityConstants.ENDER_TORCH, AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE.get());
-		jackolanterns.put(AutumnityConstants.CUPRIC_TORCH, AutumnityBlocks.LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get());
+		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.TORCH), AutumnityBlocks.GIANT_JACK_O_LANTERN_CHUNK.get());
+		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.SOUL_TORCH), AutumnityBlocks.GIANT_SOUL_JACK_O_LANTERN_CHUNK.get());
+		jackolanterns.put(BuiltInRegistries.ITEM.getKey(Items.REDSTONE_TORCH), AutumnityBlocks.GIANT_REDSTONE_JACK_O_LANTERN_CHUNK.get());
+		jackolanterns.put(AutumnityConstants.ENDER_TORCH, AutumnityBlocks.GIANT_ENDER_JACK_O_LANTERN_CHUNK.get());
+		jackolanterns.put(AutumnityConstants.CUPRIC_TORCH, AutumnityBlocks.GIANT_CUPRIC_JACK_O_LANTERN_CHUNK.get());
 	});
 
 	public static Block getJackOLantern(ItemStack stack) {

@@ -41,7 +41,7 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.copy(Tags.Blocks.STRIPPED_WOODS, Tags.Items.STRIPPED_WOODS);
 
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
-		this.tag(ItemTags.PIGLIN_REPELLENTS).add(SOUL_JACK_O_LANTERN.get().asItem(), LARGE_SOUL_JACK_O_LANTERN_SLICE.get().asItem());
+		this.tag(ItemTags.PIGLIN_REPELLENTS).add(SOUL_JACK_O_LANTERN.get().asItem(), GIANT_SOUL_JACK_O_LANTERN_CHUNK.get().asItem());
 		this.tag(ItemTags.BOATS).add(AutumnityItems.MAPLE_BOAT.getFirst().get());
 		this.tag(ItemTags.CHEST_BOATS).add(AutumnityItems.MAPLE_BOAT.getSecond().get());
 		this.tag(BlueprintItemTags.FURNACE_BOATS).add(AutumnityItems.MAPLE_FURNACE_BOAT.get());
@@ -66,7 +66,7 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.tag(AutumnityItemTags.SEEDS_FOUL_BERRY).add(AutumnityItems.FOUL_BERRY_PIPS.get());
 		this.tag(Tags.Items.SEEDS).addTag(AutumnityItemTags.SEEDS_FOUL_BERRY);
 		this.tag(Tags.Items.EGGS).add(AutumnityItems.TURKEY_EGG.get());
-		this.tag(BlueprintItemTags.PUMPKINS).add(LARGE_PUMPKIN_SLICE.get().asItem());
+		this.tag(BlueprintItemTags.PUMPKINS).add(GIANT_PUMPKIN_CHUNK.get().asItem());
 		this.tag(ItemTags.CHEST_ARMOR).add(AutumnityItems.SNAIL_SHELL_CHESTPLATE.get());
 	}
 }

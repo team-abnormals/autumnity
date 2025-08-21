@@ -12,13 +12,13 @@
   "block.autumnity.turkey": "익히지 않은 칠면조고기",
   "block.autumnity.cooked_turkey": "익힌 칠면조고기",
   
-  "block.autumnity.large_pumpkin_slice": "큰 호박 조각",
-  "block.autumnity.carved_large_pumpkin_slice": "조각된 큰 호박 조각",
-  "block.autumnity.large_jack_o_lantern_slice": "큰 잭오랜턴 조각",
+  "block.autumnity.giant_pumpkin_chunk": "큰 호박 조각",
+  "block.autumnity.giant_carved_pumpkin_chunk": "조각된 큰 호박 조각",
+  "block.autumnity.giant_jack_o_lantern_chunk": "큰 잭오랜턴 조각",
   "block.autumnity.soul_jack_o_lantern": "영혼 잭오랜턴",
-  "block.autumnity.large_soul_jack_o_lantern_slice": "큰 영혼 잭오랜턴 조각",
+  "block.autumnity.giant_soul_jack_o_lantern_chunk": "큰 영혼 잭오랜턴 조각",
   "block.autumnity.redstone_jack_o_lantern": "레드스톤 잭오랜턴",
-  "block.autumnity.large_redstone_jack_o_lantern_slice": "큰 레드스톤 잭오랜턴 조각",
+  "block.autumnity.giant_redstone_jack_o_lantern_chunk": "큰 레드스톤 잭오랜턴 조각",
   
   "block.autumnity.snail_shell_block": "달팽이 껍데기 블록",
   "block.autumnity.snail_shell_bricks": "달팽이 껍데기 벽돌",
@@ -145,7 +145,7 @@
   "block.autumnity.maple_chest": "단풍나무 상자",
   "block.autumnity.trapped_maple_chest": "단풍나무 덫 상자",
   "block.autumnity.ender_jack_o_lantern": "엔더 잭오랜턴",
-  "block.autumnity.large_ender_jack_o_lantern_slice": "큰 엔더 잭오랜턴 조각",
+  "block.autumnity.giant_ender_jack_o_lantern_chunk": "큰 엔더 잭오랜턴 조각",
   "block.autumnity.turkey_egg_crate": "칠면조 알 상자",
   "block.autumnity.slime": "슬라임",
   

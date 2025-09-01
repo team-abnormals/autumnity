@@ -104,13 +104,13 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(ENDER_JACK_O_LANTERN.get());
 			this.dropSelf(CUPRIC_JACK_O_LANTERN.get());
 
-			this.dropSelf(GIANT_PUMPKIN_CHUNK.get());
-			this.dropSelf(GIANT_CARVED_PUMPKIN_CHUNK.get());
-			this.dropSelf(GIANT_JACK_O_LANTERN_CHUNK.get());
-			this.dropSelf(GIANT_SOUL_JACK_O_LANTERN_CHUNK.get());
-			this.dropSelf(GIANT_REDSTONE_JACK_O_LANTERN_CHUNK.get());
-			this.dropSelf(GIANT_ENDER_JACK_O_LANTERN_CHUNK.get());
-			this.dropSelf(GIANT_CUPRIC_JACK_O_LANTERN_CHUNK.get());
+			this.dropSelf(LARGE_PUMPKIN_SLICE.get());
+			this.dropSelf(CARVED_LARGE_PUMPKIN_SLICE.get());
+			this.dropSelf(LARGE_JACK_O_LANTERN_SLICE.get());
+			this.dropSelf(LARGE_SOUL_JACK_O_LANTERN_SLICE.get());
+			this.dropSelf(LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get());
+			this.dropSelf(LARGE_ENDER_JACK_O_LANTERN_SLICE.get());
+			this.dropSelf(LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get());
 
 			this.dropSelf(SNAIL_SHELL_BLOCK.get());
 			this.dropSelf(SNAIL_SHELL_BRICKS.get());

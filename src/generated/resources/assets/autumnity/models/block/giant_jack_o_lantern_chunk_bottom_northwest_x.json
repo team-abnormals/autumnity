@@ -1,9 +1,0 @@
-{
-  "parent": "autumnity:block/template_giant_pumpkin_chunk_bottom_northwest_x",
-  "textures": {
-    "face": "autumnity:block/giant_jack_o_lantern",
-    "inside": "autumnity:block/giant_pumpkin_inside_seedless",
-    "side": "autumnity:block/giant_pumpkin_side",
-    "top": "autumnity:block/giant_pumpkin_top"
-  }
-}

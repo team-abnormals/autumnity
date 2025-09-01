@@ -63,13 +63,13 @@ public class AutumnityBlocks {
 	public static final DeferredBlock<Block> ENDER_JACK_O_LANTERN = BLOCKS.createBlock("ender_jack_o_lantern", () -> new AutumnityJackOLanternBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getMaxLightValue())));
 	public static final DeferredBlock<Block> CUPRIC_JACK_O_LANTERN = BLOCKS.createBlock("cupric_jack_o_lantern", () -> new AutumnityJackOLanternBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLowerLightValue())));
 
-	public static final DeferredBlock<Block> GIANT_PUMPKIN_CHUNK = BLOCKS.createBlock("giant_pumpkin_chunk", () -> new GiantPumpkinChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN)));
-	public static final DeferredBlock<Block> GIANT_CARVED_PUMPKIN_CHUNK = BLOCKS.createBlock("giant_carved_pumpkin_chunk", () -> new GiantCarvedPumpkinChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN)));
-	public static final DeferredBlock<Block> GIANT_JACK_O_LANTERN_CHUNK = BLOCKS.createBlock("giant_jack_o_lantern_chunk", () -> new GiantJackOLanternChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getMaxLightValue())));
-	public static final DeferredBlock<Block> GIANT_SOUL_JACK_O_LANTERN_CHUNK = BLOCKS.createBlock("giant_soul_jack_o_lantern_chunk", () -> new GiantJackOLanternChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLowerLightValue())));
-	public static final DeferredBlock<Block> GIANT_REDSTONE_JACK_O_LANTERN_CHUNK = BLOCKS.createBlock("giant_redstone_jack_o_lantern_chunk", () -> new GiantRedstoneJackOLanternChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLightValueLit(7))));
-	public static final DeferredBlock<Block> GIANT_ENDER_JACK_O_LANTERN_CHUNK = BLOCKS.createBlock("giant_ender_jack_o_lantern_chunk", () -> new GiantJackOLanternChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getMaxLightValue())));
-	public static final DeferredBlock<Block> GIANT_CUPRIC_JACK_O_LANTERN_CHUNK = BLOCKS.createBlock("giant_cupric_jack_o_lantern_chunk", () -> new GiantJackOLanternChunkBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLowerLightValue())));
+	public static final DeferredBlock<Block> LARGE_PUMPKIN_SLICE = BLOCKS.createBlock("large_pumpkin_slice", () -> new LargePumpkinSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN)));
+	public static final DeferredBlock<Block> CARVED_LARGE_PUMPKIN_SLICE = BLOCKS.createBlock("carved_large_pumpkin_slice", () -> new CarvedLargePumpkinSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN)));
+	public static final DeferredBlock<Block> LARGE_JACK_O_LANTERN_SLICE = BLOCKS.createBlock("large_jack_o_lantern_slice", () -> new LargeJackOLanternSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getMaxLightValue())));
+	public static final DeferredBlock<Block> LARGE_SOUL_JACK_O_LANTERN_SLICE = BLOCKS.createBlock("large_soul_jack_o_lantern_slice", () -> new LargeJackOLanternSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLowerLightValue())));
+	public static final DeferredBlock<Block> LARGE_REDSTONE_JACK_O_LANTERN_SLICE = BLOCKS.createBlock("large_redstone_jack_o_lantern_slice", () -> new LargeRedstoneJackOlanternSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLightValueLit(7))));
+	public static final DeferredBlock<Block> LARGE_ENDER_JACK_O_LANTERN_SLICE = BLOCKS.createBlock("large_ender_jack_o_lantern_slice", () -> new LargeJackOLanternSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getMaxLightValue())));
+	public static final DeferredBlock<Block> LARGE_CUPRIC_JACK_O_LANTERN_SLICE = BLOCKS.createBlock("large_cupric_jack_o_lantern_slice", () -> new LargeJackOLanternSliceBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(AutumnityProperties.getLowerLightValue())));
 
 	public static final DeferredBlock<Block> SNAIL_SHELL_BLOCK = BLOCKS.createBlock("snail_shell_block", () -> new SnailShellBlock(AutumnityProperties.SNAIL_SHELL));
 	public static final DeferredBlock<Block> SNAIL_SHELL_BRICKS = BLOCKS.createBlock("snail_shell_bricks", () -> new Block(AutumnityProperties.SNAIL_SHELL));
@@ -146,12 +146,12 @@ public class AutumnityBlocks {
 				.addItemsBefore(of(Blocks.AZALEA), MAPLE_SAPLING, YELLOW_MAPLE_SAPLING, ORANGE_MAPLE_SAPLING, RED_MAPLE_SAPLING)
 				.addItemsAfter(of(Blocks.HONEY_BLOCK), SNAIL_GOO_BLOCK)
 				.addItemsAfter(of(Blocks.LILY_OF_THE_VALLEY), AUTUMN_CROCUS)
-				.addItemsAfter(of(Blocks.PUMPKIN), GIANT_PUMPKIN_CHUNK)
-				.addItemsAfter(of(Blocks.CARVED_PUMPKIN), GIANT_CARVED_PUMPKIN_CHUNK)
-				.addItemsAfter(of(Blocks.JACK_O_LANTERN), REDSTONE_JACK_O_LANTERN, GIANT_REDSTONE_JACK_O_LANTERN_CHUNK)
-				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "caverns_and_chasms"), CUPRIC_JACK_O_LANTERN, GIANT_CUPRIC_JACK_O_LANTERN_CHUNK)
-				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "endergetic"), ENDER_JACK_O_LANTERN, GIANT_ENDER_JACK_O_LANTERN_CHUNK)
-				.addItemsAfter(of(Blocks.JACK_O_LANTERN), GIANT_JACK_O_LANTERN_CHUNK, SOUL_JACK_O_LANTERN, GIANT_SOUL_JACK_O_LANTERN_CHUNK)
+				.addItemsAfter(of(Blocks.PUMPKIN), LARGE_PUMPKIN_SLICE)
+				.addItemsAfter(of(Blocks.CARVED_PUMPKIN), CARVED_LARGE_PUMPKIN_SLICE)
+				.addItemsAfter(of(Blocks.JACK_O_LANTERN), REDSTONE_JACK_O_LANTERN, LARGE_REDSTONE_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "caverns_and_chasms"), CUPRIC_JACK_O_LANTERN, LARGE_CUPRIC_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(modLoaded(Blocks.JACK_O_LANTERN, "endergetic"), ENDER_JACK_O_LANTERN, LARGE_ENDER_JACK_O_LANTERN_SLICE)
+				.addItemsAfter(of(Blocks.JACK_O_LANTERN), LARGE_JACK_O_LANTERN_SLICE, SOUL_JACK_O_LANTERN, LARGE_SOUL_JACK_O_LANTERN_SLICE)
 				.tab(FUNCTIONAL_BLOCKS)
 				.addItemsBefore(of(Blocks.BAMBOO_SIGN), MAPLE_SIGNS.getFirst(), MAPLE_HANGING_SIGNS.getFirst())
 				.tab(REDSTONE_BLOCKS)

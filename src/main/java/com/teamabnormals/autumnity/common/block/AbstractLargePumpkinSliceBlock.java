@@ -54,8 +54,8 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 
 		for (BlockPos blockpos : slices) {
 			BlockState blockstate = level.getBlockState(blockpos);
-			if (blockstate.getBlock() instanceof GiantRedstoneJackOLanternChunkBlock && blockstate.getValue(GiantRedstoneJackOLanternChunkBlock.LIT) != pumpkinpowered)
-				level.setBlock(blockpos, blockstate.setValue(GiantRedstoneJackOLanternChunkBlock.LIT, pumpkinpowered), 2);
+			if (blockstate.getBlock() instanceof LargeRedstoneJackOlanternSliceBlock && blockstate.getValue(LargeRedstoneJackOlanternSliceBlock.LIT) != pumpkinpowered)
+				level.setBlock(blockpos, blockstate.setValue(LargeRedstoneJackOlanternSliceBlock.LIT, pumpkinpowered), 2);
 		}
 	}
 
@@ -82,8 +82,8 @@ public abstract class AbstractLargePumpkinSliceBlock extends Block {
 
 				for (BlockPos blockpos1 : slices) {
 					BlockState blockstate1 = level.getBlockState(blockpos1);
-					if (blockstate1.getBlock() instanceof GiantRedstoneJackOLanternChunkBlock && blockstate1.getValue(GiantRedstoneJackOLanternChunkBlock.LIT) != pumpkinpowered)
-						level.setBlock(blockpos1, blockstate1.setValue(GiantRedstoneJackOLanternChunkBlock.LIT, pumpkinpowered), 2);
+					if (blockstate1.getBlock() instanceof LargeRedstoneJackOlanternSliceBlock && blockstate1.getValue(LargeRedstoneJackOlanternSliceBlock.LIT) != pumpkinpowered)
+						level.setBlock(blockpos1, blockstate1.setValue(LargeRedstoneJackOlanternSliceBlock.LIT, pumpkinpowered), 2);
 				}
 			}
 		}

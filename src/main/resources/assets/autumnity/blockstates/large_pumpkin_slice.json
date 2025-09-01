@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "half=bottom,facing=east": {
+      "model": "autumnity:block/large_pumpkin_slice_bottom_northeast"
+    },
+    "half=bottom,facing=north": {
+      "model": "autumnity:block/large_pumpkin_slice_bottom_northwest"
+    },
+    "half=bottom,facing=west": {
+      "model": "autumnity:block/large_pumpkin_slice_bottom_southwest"
+    },
+    "half=bottom,facing=south": {
+      "model": "autumnity:block/large_pumpkin_slice_bottom_southeast"
+    },
+    "half=top,facing=east": {
+      "model": "autumnity:block/large_pumpkin_slice_top_northeast"
+    },
+    "half=top,facing=north": {
+      "model": "autumnity:block/large_pumpkin_slice_top_northwest"
+    },
+    "half=top,facing=west": {
+      "model": "autumnity:block/large_pumpkin_slice_top_southwest"
+    },
+    "half=top,facing=south": {
+      "model": "autumnity:block/large_pumpkin_slice_top_southeast"
+    }
+  }
+}

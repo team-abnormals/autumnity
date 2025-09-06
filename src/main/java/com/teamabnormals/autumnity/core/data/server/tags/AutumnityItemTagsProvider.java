@@ -61,6 +61,9 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.tag(AutumnityItemTags.TORCHES_ENDER).addOptional(AutumnityConstants.ENDER_TORCH);
 		this.tag(AutumnityItemTags.TORCHES_CUPRIC).addOptional(AutumnityConstants.CUPRIC_TORCH);
 
+		this.tag(ItemTags.MEAT).add(AutumnityBlocks.TURKEY.get().asItem(), AutumnityItems.TURKEY_PIECE.get(), AutumnityBlocks.COOKED_TURKEY.get().asItem(), AutumnityItems.COOKED_TURKEY_PIECE.get());
+		this.tag(Tags.Items.FOODS_COOKED_MEAT).addTag(AutumnityItemTags.COOKED_TURKEY);
+		this.tag(Tags.Items.FOODS_RAW_MEAT).addTag(AutumnityItemTags.RAW_TURKEY);
 		this.tag(AutumnityItemTags.COOKED_TURKEY).add(AutumnityBlocks.COOKED_TURKEY.get().asItem(), AutumnityItems.COOKED_TURKEY_PIECE.get());
 		this.tag(AutumnityItemTags.RAW_TURKEY).add(AutumnityBlocks.TURKEY.get().asItem(), AutumnityItems.TURKEY_PIECE.get());
 		this.tag(AutumnityItemTags.SEEDS_FOUL_BERRY).add(AutumnityItems.FOUL_BERRY_PIPS.get());

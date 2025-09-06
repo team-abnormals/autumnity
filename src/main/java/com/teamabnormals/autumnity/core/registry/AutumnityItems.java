@@ -24,7 +24,6 @@ import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.modLoaded;
-import static com.teamabnormals.blueprint.core.util.item.ItemStackUtil.is;
 import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 

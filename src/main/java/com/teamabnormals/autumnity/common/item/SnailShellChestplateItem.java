@@ -26,7 +26,7 @@ public class SnailShellChestplateItem extends ArmorItem {
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean selected) {
-		if (slotId == EquipmentSlot.CHEST.getIndex() && entity instanceof LivingEntity living && !level.isClientSide() && entity.isSteppingCarefully() && !entity.isSpectator()) {
+		if (entity instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.CHEST).equals(stack) && !level.isClientSide() && entity.isCrouching() && !entity.isSpectator()) {
 			living.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 2, false, false, true));
 		}
 	}

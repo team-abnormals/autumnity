@@ -1,0 +1,37 @@
+{
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "criteria": {
+          "autumnity:autumnity:spicy": {
+            "conditions": {
+              "entity": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:wolf",
+                      "variant": "autumnity:spicy"
+                    }
+                  }
+                }
+              ]
+            },
+            "trigger": "minecraft:tame_animal"
+          }
+        },
+        "indexed_requirements": [],
+        "requirements": [
+          [
+            "autumnity:autumnity:spicy"
+          ]
+        ],
+        "should_replace_requirements": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/whole_pack"
+}

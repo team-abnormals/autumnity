@@ -11,18 +11,23 @@ import com.teamabnormals.blueprint.common.advancement.modification.modifiers.Cri
 import com.teamabnormals.blueprint.common.advancement.modification.modifiers.EffectsChangedModifier;
 import net.minecraft.advancements.AdvancementRequirements.Strategy;
 import net.minecraft.advancements.critereon.*;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.HolderLookup.RegistryLookup;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.WolfVariant;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -63,5 +68,20 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 		}
 		this.entry("husbandry/bred_all_animals").selects("husbandry/bred_all_animals").addModifier(breedAllAnimals.requirements(Strategy.AND).build());
 
+		this.entry("husbandry/whole_pack").selects("husbandry/whole_pack").addModifier(addTamedWolfVariants(provider).requirements(Strategy.AND).build());
+	}
+	
+	private CriteriaModifier.Builder addTamedWolfVariants(HolderLookup.Provider registries) {
+		CriteriaModifier.Builder builder = CriteriaModifier.builder(this.modId);
+		HolderLookup.RegistryLookup<WolfVariant> registrylookup = registries.lookupOrThrow(Registries.WOLF_VARIANT);
+		registrylookup.listElementIds()
+				.filter(key -> key.location().getNamespace().equals(Autumnity.MOD_ID))
+				.sorted(Comparator.comparing(ResourceKey::location))
+				.forEach(variant -> {
+							Holder<WolfVariant> holder = registrylookup.getOrThrow(variant);
+							builder.addCriterion(variant.location().toString(), TameAnimalTrigger.TriggerInstance.tamedAnimal(EntityPredicate.Builder.entity().subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(holder)))));
+						}
+				);
+		return builder;
 	}
 }

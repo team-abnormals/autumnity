@@ -34,8 +34,8 @@ import static com.teamabnormals.autumnity.core.registry.AutumnityBlocks.*;
 
 public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	public static final ModLoadedCondition BERRY_GOOD_LOADED = new ModLoadedCondition("berry_good");
-	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPES = config(AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips");
-	public static final BlueprintAndCondition BERRY_GOOD_AND_PIPS = new BlueprintAndCondition(BERRY_GOOD_LOADED, FOUL_BERRIES_REQUIRE_PIPES);
+	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPS = config(AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips");
+	public static final BlueprintAndCondition BERRY_GOOD_AND_PIPS = new BlueprintAndCondition(BERRY_GOOD_LOADED, FOUL_BERRIES_REQUIRE_PIPS);
 
 	public static final ModLoadedCondition ENDERGETIC_LOADED = new ModLoadedCondition("endergetic");
 	public static final ModLoadedCondition INCUBATION_LOADED = new ModLoadedCondition("incubation");

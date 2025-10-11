@@ -19,6 +19,7 @@ public class AutumnityItemTags {
 
 	public static final TagKey<Item> COOKED_TURKEY = TagUtil.itemTag("c", "foods/cooked_turkey");
 	public static final TagKey<Item> RAW_TURKEY = TagUtil.itemTag("c", "foods/raw_turkey");
+	public static final TagKey<Item> DRINKS_SYRUP = TagUtil.itemTag("c", "drinks/syrup");
 	public static final TagKey<Item> SEEDS_FOUL_BERRY = TagUtil.itemTag("c", "seeds/foul_berry");
 
 	public static final TagKey<Item> KNIVES = TagUtil.itemTag("farmersdelight", "tools/knives");

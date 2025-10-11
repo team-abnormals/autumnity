@@ -70,7 +70,7 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 
 		this.entry("husbandry/whole_pack").selects("husbandry/whole_pack").addModifier(addTamedWolfVariants(provider).requirements(Strategy.AND).build());
 	}
-	
+
 	private CriteriaModifier.Builder addTamedWolfVariants(HolderLookup.Provider registries) {
 		CriteriaModifier.Builder builder = CriteriaModifier.builder(this.modId);
 		HolderLookup.RegistryLookup<WolfVariant> registrylookup = registries.lookupOrThrow(Registries.WOLF_VARIANT);

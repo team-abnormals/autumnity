@@ -26,15 +26,15 @@ public class AutumnityBiomeTagsProvider extends BiomeTagsProvider {
 	public void addTags(Provider provider) {
 		this.tag(AutumnityBiomes.MAPLE_FOREST,
 				BiomeTags.IS_OVERWORLD, BiomeTags.IS_FOREST,
-				BiomeTags.STRONGHOLD_BIASED_TO,
+				BiomeTags.STRONGHOLD_BIASED_TO, BiomeTags.HAS_TRIAL_CHAMBERS,
 				AutumnityBiomeTags.IS_AUTUMNAL,
 				Tags.Biomes.IS_TEMPERATE_OVERWORLD, Tags.Biomes.IS_DECIDUOUS_TREE
 		);
 
 		this.tag(AutumnityBiomes.PUMPKIN_FIELDS,
 				BiomeTags.IS_OVERWORLD,
-				BiomeTags.HAS_MINESHAFT, BiomeTags.HAS_RUINED_PORTAL_STANDARD, BiomeTags.STRONGHOLD_BIASED_TO,
-				AutumnityBiomeTags.IS_AUTUMNAL,
+				BiomeTags.HAS_MINESHAFT, BiomeTags.HAS_RUINED_PORTAL_STANDARD, BiomeTags.STRONGHOLD_BIASED_TO, BiomeTags.HAS_TRIAL_CHAMBERS,
+				AutumnityBiomeTags.IS_AUTUMNAL, Tags.Biomes.IS_PLAINS,
 				Tags.Biomes.IS_TEMPERATE_OVERWORLD, Tags.Biomes.IS_SPARSE_VEGETATION_OVERWORLD, Tags.Biomes.IS_DECIDUOUS_TREE
 		);
 

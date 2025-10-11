@@ -45,6 +45,12 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.CEILING_HANGING_SIGNS).add(MAPLE_HANGING_SIGNS.getFirst().get());
 		this.tag(BlockTags.WALL_HANGING_SIGNS).add(MAPLE_HANGING_SIGNS.getSecond().get());
 		this.tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(MAPLE_LOG.get());
+		this.tag(BlockTags.SWORD_EFFICIENT).add(
+				FOUL_BERRY_BUSH.get(), TALL_FOUL_BERRY_BUSH.get(),
+				LARGE_PUMPKIN_SLICE.get(), CARVED_LARGE_PUMPKIN_SLICE.get(), LARGE_JACK_O_LANTERN_SLICE.get(),
+				SOUL_JACK_O_LANTERN.get(), REDSTONE_JACK_O_LANTERN.get(), ENDER_JACK_O_LANTERN.get(), CUPRIC_JACK_O_LANTERN.get(),
+				LARGE_SOUL_JACK_O_LANTERN_SLICE.get(), LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get(), LARGE_ENDER_JACK_O_LANTERN_SLICE.get(), LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get()
+		);
 
 		this.tag(BlockTags.SMALL_FLOWERS).add(AUTUMN_CROCUS.get());
 		this.tag(BlockTags.LEAVES).add(MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAVES.get(), RED_MAPLE_LEAVES.get());
@@ -74,5 +80,13 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlueprintBlockTags.WOODEN_BOOKSHELVES).add(MAPLE_BOOKSHELF.get());
 		this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_MAPLE_BOOKSHELF.get());
 		this.tag(BlueprintBlockTags.LEAF_PILES).add(MAPLE_LEAF_PILE.get(), YELLOW_MAPLE_LEAF_PILE.get(), ORANGE_MAPLE_LEAF_PILE.get(), RED_MAPLE_LEAF_PILE.get());
+
+		this.tag(Tags.Blocks.STORAGE_BLOCKS).add(SNAIL_SHELL_BLOCK.get(), SNAIL_GOO_BLOCK.get(), FOUL_BERRY_BASKET.get(), TURKEY_EGG_CRATE.get());
+		this.tag(Tags.Blocks.PUMPKINS_NORMAL).add(LARGE_PUMPKIN_SLICE.get());
+		this.tag(Tags.Blocks.PUMPKINS_CARVED).add(CARVED_LARGE_PUMPKIN_SLICE.get());
+		this.tag(Tags.Blocks.PUMPKINS_JACK_O_LANTERNS).add(
+				SOUL_JACK_O_LANTERN.get(), REDSTONE_JACK_O_LANTERN.get(), ENDER_JACK_O_LANTERN.get(), CUPRIC_JACK_O_LANTERN.get(),
+				LARGE_JACK_O_LANTERN_SLICE.get(), LARGE_SOUL_JACK_O_LANTERN_SLICE.get(), LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get(), LARGE_ENDER_JACK_O_LANTERN_SLICE.get(), LARGE_CUPRIC_JACK_O_LANTERN_SLICE.get()
+		);
 	}
 }

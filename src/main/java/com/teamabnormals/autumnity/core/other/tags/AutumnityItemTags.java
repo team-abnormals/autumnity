@@ -17,8 +17,9 @@ public class AutumnityItemTags {
 	public static final TagKey<Item> TORCHES_ENDER = TagUtil.itemTag("c", "torches/ender");
 	public static final TagKey<Item> TORCHES_CUPRIC = TagUtil.itemTag("c", "torches/cupric");
 
-	public static final TagKey<Item> COOKED_TURKEY = TagUtil.itemTag("c", "foods/cooked_turkey");
-	public static final TagKey<Item> RAW_TURKEY = TagUtil.itemTag("c", "foods/raw_turkey");
+	public static final TagKey<Item> FOODS_COOKED_TURKEY = TagUtil.itemTag("c", "foods/cooked_turkey");
+	public static final TagKey<Item> FOODS_RAW_TURKEY = TagUtil.itemTag("c", "foods/raw_turkey");
+	public static final TagKey<Item> FOODS_PASTRY = TagUtil.itemTag("c", "foods/pastry");
 	public static final TagKey<Item> DRINKS_SYRUP = TagUtil.itemTag("c", "drinks/syrup");
 	public static final TagKey<Item> SEEDS_FOUL_BERRY = TagUtil.itemTag("c", "seeds/foul_berry");
 

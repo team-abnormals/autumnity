@@ -64,20 +64,20 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 
 		this.tag(ItemTags.MEAT).add(AutumnityBlocks.TURKEY.asItem(), TURKEY_PIECE.get(), AutumnityBlocks.COOKED_TURKEY.asItem(), COOKED_TURKEY_PIECE.get());
 
-		this.tag(Tags.Items.FOODS).add(SYRUP_BOTTLE.get());
-		this.tag(Tags.Items.FOODS_COOKED_MEAT).addTag(COOKED_TURKEY);
-		this.tag(Tags.Items.FOODS_RAW_MEAT).addTag(RAW_TURKEY);
+		this.tag(Tags.Items.FOODS).addTag(FOODS_PASTRY).add(SYRUP_BOTTLE.get());
+		this.tag(Tags.Items.FOODS_COOKED_MEAT).addTag(FOODS_COOKED_TURKEY);
+		this.tag(Tags.Items.FOODS_RAW_MEAT).addTag(FOODS_RAW_TURKEY);
 		this.tag(Tags.Items.FOODS_EDIBLE_WHEN_PLACED).add(AutumnityBlocks.TURKEY.asItem(), AutumnityBlocks.COOKED_TURKEY.asItem(), AutumnityBlocks.PANCAKE.asItem());
 		this.tag(Tags.Items.FOODS_FOOD_POISONING).add(AutumnityBlocks.TURKEY.asItem(), TURKEY_PIECE.get());
-		this.tag(Tags.Items.FOODS_BREAD).add(PUMPKIN_BREAD.get());
 		this.tag(Tags.Items.FOODS_SOUP).add(FOUL_SOUP.get());
 		this.tag(Tags.Items.ANIMAL_FOODS).addTags(SNAIL_FOOD, TURKEY_FOOD);
+		this.tag(FOODS_PASTRY).add(PUMPKIN_BREAD.get());
 
 		this.tag(Tags.Items.DRINKS).addTags(DRINKS_SYRUP);
 		this.tag(DRINKS_SYRUP).add(SYRUP_BOTTLE.get());
 
-		this.tag(COOKED_TURKEY).add(AutumnityBlocks.COOKED_TURKEY.asItem(), COOKED_TURKEY_PIECE.get());
-		this.tag(RAW_TURKEY).add(AutumnityBlocks.TURKEY.asItem(), TURKEY_PIECE.get());
+		this.tag(FOODS_COOKED_TURKEY).add(AutumnityBlocks.COOKED_TURKEY.asItem(), COOKED_TURKEY_PIECE.get());
+		this.tag(FOODS_RAW_TURKEY).add(AutumnityBlocks.TURKEY.asItem(), TURKEY_PIECE.get());
 
 		this.tag(SEEDS_FOUL_BERRY).add(FOUL_BERRY_PIPS.get());
 		this.tag(Tags.Items.SEEDS).addTag(SEEDS_FOUL_BERRY);

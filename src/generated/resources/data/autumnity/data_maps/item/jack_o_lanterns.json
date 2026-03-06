@@ -1,0 +1,36 @@
+{
+  "values": {
+    "caverns_and_chasms:cupric_torch": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "caverns_and_chasms"
+        }
+      ],
+      "jack_o_lantern": "autumnity:cupric_jack_o_lantern",
+      "large_jack_o_lantern_slice": "autumnity:large_cupric_jack_o_lantern_slice"
+    },
+    "endergetic:ender_torch": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "endergetic"
+        }
+      ],
+      "jack_o_lantern": "autumnity:ender_jack_o_lantern",
+      "large_jack_o_lantern_slice": "autumnity:large_ender_jack_o_lantern_slice"
+    },
+    "minecraft:redstone_torch": {
+      "jack_o_lantern": "autumnity:redstone_jack_o_lantern",
+      "large_jack_o_lantern_slice": "autumnity:large_redstone_jack_o_lantern_slice"
+    },
+    "minecraft:soul_torch": {
+      "jack_o_lantern": "autumnity:soul_jack_o_lantern",
+      "large_jack_o_lantern_slice": "autumnity:large_soul_jack_o_lantern_slice"
+    },
+    "minecraft:torch": {
+      "jack_o_lantern": "minecraft:jack_o_lantern",
+      "large_jack_o_lantern_slice": "autumnity:large_jack_o_lantern_slice"
+    }
+  }
+}

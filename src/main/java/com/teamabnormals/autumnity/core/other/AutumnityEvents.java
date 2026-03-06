@@ -2,10 +2,10 @@ package com.teamabnormals.autumnity.core.other;
 
 import com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock;
 import com.teamabnormals.autumnity.common.block.TurkeyBlock;
-import com.teamabnormals.autumnity.common.block.util.JackOLanternUtil;
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.core.Autumnity;
 import com.teamabnormals.autumnity.core.AutumnityConfig;
+import com.teamabnormals.autumnity.core.other.AutumnityDataMaps.JackOLantern;
 import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityCriteriaTriggers;
@@ -19,6 +19,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -121,8 +122,8 @@ public class AutumnityEvents {
 	public static void onRightClickBlock(RightClickBlock event) {
 		Level level = event.getLevel();
 		Player player = event.getEntity();
-		ItemStack itemstack = event.getItemStack();
-		Item item = itemstack.getItem();
+		ItemStack stack = event.getItemStack();
+		Item item = stack.getItem();
 		BlockPos pos = event.getPos();
 		BlockState state = level.getBlockState(pos);
 		Block block = state.getBlock();
@@ -139,27 +140,28 @@ public class AutumnityEvents {
 		}
 
 
-		if (block == Blocks.CARVED_PUMPKIN) {
-			Block jackolantern = JackOLanternUtil.getJackOLantern(itemstack);
+		if (block == Blocks.CARVED_PUMPKIN && stack.getItemHolder().getKey() != null) {
+			JackOLantern jackolantern = level.registryAccess().registryOrThrow(Registries.ITEM).getData(AutumnityDataMaps.JACK_O_LANTERNS, stack.getItemHolder().getKey());
+			if (jackolantern != null && jackolantern.jackOLantern() != null) {
+				if (jackolantern.jackOLantern().value() instanceof CarvedPumpkinBlock carved) {
+					Direction hitface = event.getFace();
+					Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
 
-			if (jackolantern instanceof CarvedPumpkinBlock) {
-				Direction hitface = event.getFace();
-				Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
+					if (hitface == facing) {
+						if (!level.isClientSide()) {
+							BlockState blockstate = carved.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, facing);
+							if (carved == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()) {
+								blockstate = blockstate.setValue(RedstoneJackOLanternBlock.LIT, level.hasNeighborSignal(pos));
+							}
 
-				if (hitface == facing) {
-					if (!level.isClientSide()) {
-						BlockState blockstate = jackolantern.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, facing);
-						if (jackolantern == AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE.get()) {
-							blockstate = blockstate.setValue(RedstoneJackOLanternBlock.LIT, level.hasNeighborSignal(pos));
+							level.setBlock(pos, blockstate, 11);
+							level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 						}
 
-						level.setBlock(pos, blockstate, 11);
-						level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+						if (!player.getAbilities().instabuild) stack.shrink(1);
+						event.setCanceled(true);
+						event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
 					}
-
-					if (!player.getAbilities().instabuild) itemstack.shrink(1);
-					event.setCanceled(true);
-					event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
 				}
 			}
 		}

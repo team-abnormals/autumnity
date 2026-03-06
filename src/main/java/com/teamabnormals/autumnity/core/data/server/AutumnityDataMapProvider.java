@@ -1,9 +1,16 @@
 package com.teamabnormals.autumnity.core.data.server;
 
+import com.teamabnormals.autumnity.core.other.AutumnityConstants;
+import com.teamabnormals.autumnity.core.other.AutumnityDataMaps;
+import com.teamabnormals.autumnity.core.other.AutumnityDataMaps.JackOLantern;
 import com.teamabnormals.autumnity.core.registry.AutumnityBlocks;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
@@ -34,5 +41,12 @@ public class AutumnityDataMapProvider extends DataMapProvider {
 				.add(AutumnityBlocks.YELLOW_MAPLE_SAPLING.getId(), new Compostable(0.3F), false)
 				.add(AutumnityBlocks.ORANGE_MAPLE_SAPLING.getId(), new Compostable(0.3F), false)
 				.add(AutumnityBlocks.RED_MAPLE_SAPLING.getId(), new Compostable(0.3F), false);
+
+		this.builder(AutumnityDataMaps.JACK_O_LANTERNS)
+				.add(Items.TORCH.builtInRegistryHolder(), new JackOLantern(Blocks.JACK_O_LANTERN.builtInRegistryHolder(), AutumnityBlocks.LARGE_JACK_O_LANTERN_SLICE), false)
+				.add(Items.SOUL_TORCH.builtInRegistryHolder(), new JackOLantern(AutumnityBlocks.SOUL_JACK_O_LANTERN, AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE), false)
+				.add(Items.REDSTONE_TORCH.builtInRegistryHolder(), new JackOLantern(AutumnityBlocks.REDSTONE_JACK_O_LANTERN, AutumnityBlocks.LARGE_REDSTONE_JACK_O_LANTERN_SLICE), false)
+				.add(AutumnityConstants.ENDER_TORCH, new JackOLantern(AutumnityBlocks.ENDER_JACK_O_LANTERN, AutumnityBlocks.LARGE_ENDER_JACK_O_LANTERN_SLICE), false, new ModLoadedCondition(AutumnityConstants.ENDERGETIC))
+				.add(AutumnityConstants.CUPRIC_TORCH, new JackOLantern(AutumnityBlocks.CUPRIC_JACK_O_LANTERN, AutumnityBlocks.LARGE_CUPRIC_JACK_O_LANTERN_SLICE), false, new ModLoadedCondition(AutumnityConstants.CAVERNS_AND_CHASMS));
 	}
 }

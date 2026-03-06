@@ -8,8 +8,10 @@ public class AutumnityConstants {
 	public static final ResourceLocation SWEET_BERRY_PIPS = ResourceLocation.fromNamespaceAndPath("berry_good", "sweet_berry_pips");
 	public static final ResourceLocation SWEET_BERRY_BASKET = ResourceLocation.fromNamespaceAndPath("berry_good", "sweet_berry_basket");
 
+	public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
 	public static final ResourceLocation CUPRIC_TORCH = ResourceLocation.fromNamespaceAndPath("caverns_and_chasms", "cupric_torch");
 
+	public static final String ENDERGETIC = "endergetic";
 	public static final ResourceLocation ENDER_TORCH = ResourceLocation.fromNamespaceAndPath("endergetic", "ender_torch");
 
 	public static final ResourceLocation CHICKEN_EGG_CRATE = ResourceLocation.fromNamespaceAndPath("incubation", "chicken_egg_crate");

@@ -41,6 +41,7 @@ public class AutumnityItemTagsProvider extends BlueprintItemTagsProvider {
 		this.copy(Tags.Blocks.STRIPPED_WOODS, Tags.Items.STRIPPED_WOODS);
 
 		this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
+		this.copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
 		this.tag(ItemTags.PIGLIN_REPELLENTS).add(AutumnityBlocks.SOUL_JACK_O_LANTERN.asItem(), AutumnityBlocks.LARGE_SOUL_JACK_O_LANTERN_SLICE.asItem());
 		this.tag(ItemTags.BOATS).add(MAPLE_BOAT.getFirst().get());
 		this.tag(ItemTags.CHEST_BOATS).add(MAPLE_BOAT.getSecond().get());

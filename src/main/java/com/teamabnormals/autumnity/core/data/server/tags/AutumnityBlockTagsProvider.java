@@ -53,9 +53,10 @@ public class AutumnityBlockTagsProvider extends BlockTagsProvider {
 		);
 
 		this.tag(BlockTags.SMALL_FLOWERS).add(AUTUMN_CROCUS.get());
+		this.tag(BlockTags.TALL_FLOWERS).add(DAHLIA.get(), BLACK_DAHLIA.get());
 		this.tag(BlockTags.LEAVES).add(MAPLE_LEAVES.get(), YELLOW_MAPLE_LEAVES.get(), ORANGE_MAPLE_LEAVES.get(), RED_MAPLE_LEAVES.get());
 		this.tag(BlockTags.SAPLINGS).add(MAPLE_SAPLING.get(), YELLOW_MAPLE_SAPLING.get(), ORANGE_MAPLE_SAPLING.get(), RED_MAPLE_SAPLING.get());
-		this.tag(BlockTags.FLOWER_POTS).add(POTTED_AUTUMN_CROCUS.get(), POTTED_FOUL_BERRIES.get(), POTTED_MAPLE_SAPLING.get(), POTTED_YELLOW_MAPLE_SAPLING.get(), POTTED_ORANGE_MAPLE_SAPLING.get(), POTTED_RED_MAPLE_SAPLING.get());
+		this.tag(BlockTags.FLOWER_POTS).add(POTTED_AUTUMN_CROCUS.get(), POTTED_DAHLIA.get(), POTTED_BLACK_DAHLIA.get(), POTTED_FOUL_BERRIES.get(), POTTED_MAPLE_SAPLING.get(), POTTED_YELLOW_MAPLE_SAPLING.get(), POTTED_ORANGE_MAPLE_SAPLING.get(), POTTED_RED_MAPLE_SAPLING.get());
 
 		this.tag(BlockTags.FALL_DAMAGE_RESETTING).add(FOUL_BERRY_BUSH.get());
 		this.tag(BlockTags.BEE_GROWABLES).add(FOUL_BERRY_BUSH.get(), TALL_FOUL_BERRY_BUSH.get());

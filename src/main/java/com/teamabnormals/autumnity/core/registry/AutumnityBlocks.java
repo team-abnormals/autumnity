@@ -47,7 +47,11 @@ public class AutumnityBlocks {
 	public static final DeferredBlock<Block> SNAIL_GOO_BLOCK = BLOCKS.createBlock("snail_goo_block", () -> new SnailGooFullBlock(Block.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).noOcclusion().sound(SoundType.HONEY_BLOCK)));
 	public static final DeferredBlock<Block> PANCAKE = BLOCKS.createBlock("pancake", () -> new PancakeBlock(Block.Properties.of().strength(0.5F).sound(SoundType.WOOL)));
 	public static final DeferredBlock<Block> AUTUMN_CROCUS = BLOCKS.createBlock("autumn_crocus", () -> new FlowerBlock(AutumnityMobEffects.FOUL_TASTE, 16, PropertyUtil.flower()));
+	public static final DeferredBlock<Block> DAHLIA = BLOCKS.createBlock("dahlia", () -> new TallFlowerBlock(Block.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
+	public static final DeferredBlock<Block> BLACK_DAHLIA = BLOCKS.createBlock("black_dahlia", () -> new TallFlowerBlock(Block.Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.TERRACOTTA_BLACK)));
 	public static final DeferredBlock<Block> POTTED_AUTUMN_CROCUS = BLOCKS.createBlockNoItem("potted_autumn_crocus", () -> new FlowerPotBlock(AUTUMN_CROCUS.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> POTTED_DAHLIA = BLOCKS.createBlockNoItem("potted_dahlia", () -> new FlowerPotBlock(DAHLIA.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> POTTED_BLACK_DAHLIA = BLOCKS.createBlockNoItem("potted_black_dahlia", () -> new FlowerPotBlock(BLACK_DAHLIA.get(), PropertyUtil.flowerPot()));
 
 	public static final DeferredBlock<Block> TURKEY = BLOCKS.createBlock("turkey", () -> new TurkeyBlock(Block.Properties.of().strength(0.5F).sound(SoundType.WOOL)));
 	public static final DeferredBlock<Block> COOKED_TURKEY = BLOCKS.createBlock("cooked_turkey", () -> new CookedTurkeyBlock(Block.Properties.of().strength(0.5F).sound(SoundType.WOOL)));
@@ -146,6 +150,7 @@ public class AutumnityBlocks {
 				.addItemsBefore(of(Blocks.AZALEA), MAPLE_SAPLING, YELLOW_MAPLE_SAPLING, ORANGE_MAPLE_SAPLING, RED_MAPLE_SAPLING)
 				.addItemsAfter(of(Blocks.HONEY_BLOCK), SNAIL_GOO_BLOCK)
 				.addItemsAfter(of(Blocks.LILY_OF_THE_VALLEY), AUTUMN_CROCUS)
+				.addItemsAfter(of(Blocks.ROSE_BUSH), DAHLIA, BLACK_DAHLIA)
 				.addItemsAfter(of(Blocks.PUMPKIN), LARGE_PUMPKIN_SLICE)
 				.addItemsAfter(of(Blocks.CARVED_PUMPKIN), CARVED_LARGE_PUMPKIN_SLICE)
 				.addItemsAfter(of(Blocks.JACK_O_LANTERN), REDSTONE_JACK_O_LANTERN, LARGE_REDSTONE_JACK_O_LANTERN_SLICE)

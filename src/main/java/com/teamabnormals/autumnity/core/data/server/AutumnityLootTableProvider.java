@@ -32,6 +32,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -88,6 +89,8 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(SNAIL_GOO_BLOCK.get());
 			this.add(PANCAKE.get(), this::createPancakeDrops);
 			this.dropSelf(AUTUMN_CROCUS.get());
+			this.add(DAHLIA.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+			this.add(BLACK_DAHLIA.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 			this.dropPottedContents(POTTED_AUTUMN_CROCUS.get());
 
 			this.add(TURKEY.get(), createTurkeyDrops(TURKEY.get(), AutumnityItems.TURKEY_PIECE.get()));

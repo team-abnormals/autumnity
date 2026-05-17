@@ -30,6 +30,8 @@ public class AutumnityDataMapProvider extends DataMapProvider {
 				.add(AutumnityItems.FOUL_BERRY_PIPS, new Compostable(0.3F), false)
 				.add(AutumnityItems.PUMPKIN_BREAD, new Compostable(0.85F), false)
 				.add(AutumnityBlocks.AUTUMN_CROCUS.getId(), new Compostable(0.65F), false)
+				.add(AutumnityBlocks.DAHLIA.getId(), new Compostable(0.65F), false)
+				.add(AutumnityBlocks.BLACK_DAHLIA.getId(), new Compostable(0.65F), false)
 				.add(AutumnityBlocks.PANCAKE.getId(), new Compostable(0.85F), false)
 				.add(AutumnityBlocks.LARGE_PUMPKIN_SLICE.getId(), new Compostable(0.65F), false)
 				.add(AutumnityBlocks.CARVED_LARGE_PUMPKIN_SLICE.getId(), new Compostable(0.65F), false)

@@ -31,6 +31,11 @@ public class AutumnityClientCompat {
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.TALL_FOUL_BERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.AUTUMN_CROCUS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_AUTUMN_CROCUS.get(), RenderType.cutout());
+		
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.DAHLIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_DAHLIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.BLACK_DAHLIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.POTTED_BLACK_DAHLIA.get(), RenderType.cutout());
 
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_DOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(AutumnityBlocks.MAPLE_TRAPDOOR.get(), RenderType.cutout());

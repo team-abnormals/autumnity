@@ -49,6 +49,8 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	@Override
 	public void buildRecipes(RecipeOutput output) {
 		conversionRecipe(output, Items.MAGENTA_DYE, AUTUMN_CROCUS.get(), "magenta_dye");
+		conversionRecipe(output, Items.RED_DYE, DAHLIA.get(), "red_dye", 2);
+		conversionRecipe(output, Items.PURPLE_DYE, BLACK_DAHLIA.get(), "purple_dye", 2);
 		conversionRecipeBuilder(AutumnityItems.FOUL_BERRY_PIPS.get(), AutumnityItems.FOUL_BERRIES.get(), 1).save(output.withConditions(BERRY_GOOD_AND_PIPS));
 		conditionalStorageRecipes(output, BERRY_GOOD_LOADED, RecipeCategory.FOOD, AutumnityItems.FOUL_BERRIES.get(), RecipeCategory.DECORATIONS, FOUL_BERRY_BASKET.get());
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, AutumnityItems.FOUL_SOUP.get()).requires(AutumnityItems.FOUL_BERRIES.get(), 2).requires(Items.SPIDER_EYE).requires(Items.BOWL, 1).unlockedBy("has_foul_berries", has(AutumnityItems.FOUL_BERRIES.get())).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED));

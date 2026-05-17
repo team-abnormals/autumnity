@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "autumnity:block/dahlia_bottom" },
+        "half=upper":    { "model": "autumnity:block/dahlia_top" }
+    }
+}

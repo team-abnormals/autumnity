@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dahlia": {
+      "conditions": {
+        "items": [
+          {
+            "items": "autumnity:dahlia"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "autumnity:red_dye_from_dahlia"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dahlia"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "autumnity:red_dye_from_dahlia"
+    ]
+  }
+}

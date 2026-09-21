@@ -43,7 +43,7 @@ public class AutumnityBiomeTagsProvider extends BiomeTagsProvider {
 		this.tag(AutumnityBiomeTags.HAS_TURKEY).addTag(AutumnityBiomeTags.IS_AUTUMNAL);
 		this.tag(AutumnityBiomeTags.HAS_SNAIL).addTag(AutumnityBiomeTags.IS_AUTUMNAL);
 
-		this.tag(AutumnityBiomeTags.HAS_MAPLE_TREE).add(Biomes.FOREST, Biomes.WINDSWEPT_FOREST, Biomes.FLOWER_FOREST);
+		this.tag(AutumnityBiomeTags.HAS_MAPLE_TREE).add(Biomes.FOREST, Biomes.FLOWER_FOREST);
 		this.tag(AutumnityBiomeTags.HAS_ORANGE_MAPLE_TREE).add(Biomes.DARK_FOREST);
 		this.tag(AutumnityBiomeTags.HAS_RED_MAPLE_TREE).add(Biomes.TAIGA, Biomes.WINDSWEPT_FOREST);
 	}

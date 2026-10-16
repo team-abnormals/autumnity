@@ -3,7 +3,13 @@
     "autumnity:autumn_crocus": {
       "chance": 0.65
     },
+    "autumnity:black_dahlia": {
+      "chance": 0.65
+    },
     "autumnity:carved_large_pumpkin_slice": {
+      "chance": 0.65
+    },
+    "autumnity:dahlia": {
       "chance": 0.65
     },
     "autumnity:foul_berries": {

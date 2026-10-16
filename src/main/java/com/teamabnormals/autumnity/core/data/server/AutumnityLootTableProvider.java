@@ -89,9 +89,11 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 			this.dropSelf(SNAIL_GOO_BLOCK.get());
 			this.add(PANCAKE.get(), this::createPancakeDrops);
 			this.dropSelf(AUTUMN_CROCUS.get());
+			this.dropPottedContents(POTTED_AUTUMN_CROCUS.get());
 			this.add(DAHLIA.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 			this.add(BLACK_DAHLIA.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
-			this.dropPottedContents(POTTED_AUTUMN_CROCUS.get());
+			this.dropPottedContents(POTTED_DAHLIA.get());
+			this.dropPottedContents(POTTED_BLACK_DAHLIA.get());
 
 			this.add(TURKEY.get(), createTurkeyDrops(TURKEY.get(), AutumnityItems.TURKEY_PIECE.get()));
 			this.add(COOKED_TURKEY.get(), createTurkeyDrops(COOKED_TURKEY.get(), AutumnityItems.COOKED_TURKEY_PIECE.get()));

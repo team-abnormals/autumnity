@@ -177,7 +177,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "autumnity:sap_bottle",
+          "name": "autumnity:syrup_bottle",
           "weight": 5
         }
       ],

@@ -35,9 +35,9 @@ public class SappyLogBlock extends RotatedPillarBlock {
 			stack.shrink(1);
 			level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
 			if (stack.isEmpty()) {
-				player.setItemInHand(hand, new ItemStack(AutumnityItems.SAP_BOTTLE.get()));
-			} else if (!player.getInventory().add(new ItemStack(AutumnityItems.SAP_BOTTLE.get()))) {
-				player.drop(new ItemStack(AutumnityItems.SAP_BOTTLE.get()), false);
+				player.setItemInHand(hand, new ItemStack(AutumnityItems.SYRUP_BOTTLE.get()));
+			} else if (!player.getInventory().add(new ItemStack(AutumnityItems.SYRUP_BOTTLE.get()))) {
+				player.drop(new ItemStack(AutumnityItems.SYRUP_BOTTLE.get()), false);
 			}
 
 			level.gameEvent(player, GameEvent.FLUID_PICKUP, pos);

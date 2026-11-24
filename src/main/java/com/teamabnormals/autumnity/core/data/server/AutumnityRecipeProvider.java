@@ -16,12 +16,11 @@ import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.Tags;
@@ -55,16 +54,15 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		conditionalStorageRecipes(output, BERRY_GOOD_LOADED, RecipeCategory.FOOD, AutumnityItems.FOUL_BERRIES.get(), RecipeCategory.DECORATIONS, FOUL_BERRY_BASKET.get());
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, AutumnityItems.FOUL_SOUP.get()).requires(AutumnityItems.FOUL_BERRIES.get(), 2).requires(Items.SPIDER_EYE).requires(Items.BOWL, 1).unlockedBy("has_foul_berries", has(AutumnityItems.FOUL_BERRIES.get())).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED));
 
-		foodCookingRecipes(output, AutumnityItems.TURKEY_PIECE.get(), AutumnityItems.COOKED_TURKEY_PIECE.get());
-		foodCookingRecipes(output, TURKEY.get(), COOKED_TURKEY.get());
+		BlueprintRecipeProvider.foodCookingRecipes(output, AutumnityItems.TURKEY_PIECE.get(), AutumnityItems.COOKED_TURKEY_PIECE.get());
+		BlueprintRecipeProvider.foodCookingRecipes(output, TURKEY.get(), COOKED_TURKEY.get());
 		conversionRecipeBuilder(RecipeCategory.FOOD, AutumnityItems.TURKEY_PIECE.get(), TURKEY.get(), 5).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED), getModConversionRecipeName(AutumnityItems.TURKEY_PIECE.get(), TURKEY.get()));
 		conversionRecipeBuilder(RecipeCategory.FOOD, AutumnityItems.COOKED_TURKEY_PIECE.get(), COOKED_TURKEY.get(), 5).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED), getModConversionRecipeName(AutumnityItems.COOKED_TURKEY_PIECE.get(), COOKED_TURKEY.get()));
 		conditionalStorageRecipes(output, INCUBATION_LOADED, RecipeCategory.MISC, AutumnityItems.TURKEY_EGG.get(), RecipeCategory.DECORATIONS, TURKEY_EGG_CRATE.get());
 
-		foodCookingRecipes(output, AutumnityItems.SAP_BOTTLE.get(), AutumnityItems.SYRUP_BOTTLE.get());
-		conversionRecipe(output, Items.SUGAR, AutumnityItems.SAP_BOTTLE.get(), "sugar");
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_LOG.get()).requires(AutumnityItems.SAP_BOTTLE.get()).requires(STRIPPED_MAPLE_LOG.get()).unlockedBy("has_sap_bottle", has(AutumnityItems.SAP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_LOG.get(), AutumnityItems.SAP_BOTTLE.get()));
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_WOOD.get()).requires(AutumnityItems.SAP_BOTTLE.get()).requires(STRIPPED_MAPLE_WOOD.get()).unlockedBy("has_sap_bottle", has(AutumnityItems.SAP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_WOOD.get(), AutumnityItems.SAP_BOTTLE.get()));
+		foodCookingRecipes(output, AutumnityItems.SYRUP_BOTTLE.get(), Items.SUGAR);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_LOG.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_LOG.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_LOG.get(), AutumnityItems.SYRUP_BOTTLE.get()));
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_WOOD.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_WOOD.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_WOOD.get(), AutumnityItems.SYRUP_BOTTLE.get()));
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PANCAKE.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(Tags.Items.DRINKS_MILK).requires(Tags.Items.EGGS).requires(Items.WHEAT, 2).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output);
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, AutumnityItems.PUMPKIN_BREAD.get(), 2).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(Tags.Items.PUMPKINS_NORMAL).requires(Items.WHEAT, 2).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED));
 
@@ -86,14 +84,14 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AutumnityItems.SWIRL_BANNER_PATTERN.get()).requires(Items.PAPER).requires(AutumnityItems.SNAIL_SHELL_PIECE.get()).unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(output);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AutumnityBlocks.SNAIL_SHELL_BRICKS.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', AutumnityItems.SNAIL_SHELL_PIECE.get()).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_snail_shell_piece", has(AutumnityItems.SNAIL_SHELL_PIECE.get())).save(output);
-		generateRecipes(output, AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY, FeatureFlags.DEFAULT_FLAGS);
+		generateRecipes(output, AutumnityBlockFamilies.SNAIL_SHELL_BRICKS_FAMILY);
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_BRICK_SLAB.get(), SNAIL_SHELL_BRICKS.get(), 2);
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_BRICK_STAIRS.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(output, RecipeCategory.DECORATIONS, SNAIL_SHELL_BRICK_WALL.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, CHISELED_SNAIL_SHELL_BRICKS.get(), SNAIL_SHELL_BRICKS.get());
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILES.get(), 4).define('#', SNAIL_SHELL_BRICKS.get()).pattern("##").pattern("##").unlockedBy("has_snail_shell_bricks", has(SNAIL_SHELL_BRICKS.get())).save(output);
-		generateRecipes(output, AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY, FeatureFlags.DEFAULT_FLAGS);
+		generateRecipes(output, AutumnityBlockFamilies.SNAIL_SHELL_TILES_FAMILY);
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_SLAB.get(), SNAIL_SHELL_TILES.get(), 2);
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_STAIRS.get(), SNAIL_SHELL_TILES.get());
 		stonecutterRecipe(output, RecipeCategory.DECORATIONS, SNAIL_SHELL_TILE_WALL.get(), SNAIL_SHELL_TILES.get());
@@ -102,7 +100,7 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_STAIRS.get(), SNAIL_SHELL_BRICKS.get());
 		stonecutterRecipe(output, RecipeCategory.BUILDING_BLOCKS, SNAIL_SHELL_TILE_WALL.get(), SNAIL_SHELL_BRICKS.get());
 
-		generateRecipes(output, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY, FeatureFlags.DEFAULT_FLAGS);
+		generateRecipes(output, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY);
 		planksFromLogs(output, MAPLE_PLANKS.get(), AutumnityItemTags.MAPLE_LOGS, 4);
 		woodFromLogs(output, MAPLE_WOOD.get(), MAPLE_LOG.get());
 		woodFromLogs(output, STRIPPED_MAPLE_WOOD.get(), STRIPPED_MAPLE_LOG.get());
@@ -116,6 +114,17 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		BoatloadRecipeProvider.boatRecipes(output, AutumnityBoatTypes.MAPLE);
 		WoodworksRecipeProvider.baseRecipes(output, MAPLE_PLANKS.get(), MAPLE_SLAB.get(), MAPLE_BOARDS.get(), MAPLE_BOOKSHELF.get(), CHISELED_MAPLE_BOOKSHELF.get(), MAPLE_LADDER.get(), MAPLE_BEEHIVE.get(), MAPLE_CHEST.get(), TRAPPED_MAPLE_CHEST.get(), Autumnity.MOD_ID);
 		WoodworksRecipeProvider.sawmillRecipes(output, AutumnityBlockFamilies.MAPLE_PLANKS_FAMILY, AutumnityItemTags.MAPLE_LOGS, MAPLE_BOARDS.get(), MAPLE_LADDER.get(), Autumnity.MOD_ID);
+	}
+
+	public static void foodCookingRecipes(RecipeOutput recipeOutput, ItemLike input, ItemLike output) {
+		foodCookingRecipes(recipeOutput, input, output, 0.35F, 200);
+	}
+
+	public static void foodCookingRecipes(RecipeOutput recipeOutput, ItemLike input, ItemLike output, float xp, int baseCookTime) {
+		String recipeName = Autumnity.location(RecipeBuilder.getDefaultRecipeId(output).getPath()).toString();
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.FOOD, output, xp, baseCookTime).unlockedBy(getHasName(input), has(input)).save(recipeOutput, recipeName);
+		SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.FOOD, output, xp, baseCookTime / 2).unlockedBy(getHasName(input), has(input)).save(recipeOutput, recipeName + "_from_smoking");
+		SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(input), RecipeCategory.FOOD, output, xp, baseCookTime * 3).unlockedBy(getHasName(input), has(input)).save(recipeOutput, recipeName + "_from_campfire_cooking");
 	}
 
 	public static ConfigValueCondition config(ModConfigSpec.ConfigValue<?> value, String key, boolean inverted) {

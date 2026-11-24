@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sap_bottle": {
+    "has_syrup_bottle": {
       "conditions": {
         "items": [
           {
-            "items": "autumnity:sap_bottle"
+            "items": "autumnity:syrup_bottle"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "autumnity:sappy_maple_log_from_sap_bottle"
+        "recipe": "autumnity:sugar_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sap_bottle"
+      "has_syrup_bottle"
     ]
   ],
   "rewards": {
     "recipes": [
-      "autumnity:sappy_maple_log_from_sap_bottle"
+      "autumnity:sugar_from_smoking"
     ]
   }
 }

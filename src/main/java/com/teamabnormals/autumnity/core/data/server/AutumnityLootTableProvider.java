@@ -232,7 +232,7 @@ public class AutumnityLootTableProvider extends LootTableProvider {
 							.add(LootItem.lootTableItem(Items.PUMPKIN).setWeight(5))
 							.add(LootItem.lootTableItem(Items.GLOWSTONE_DUST).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
 							.add(LootItem.lootTableItem(Items.REDSTONE).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))
-							.add(LootItem.lootTableItem(AutumnityItems.SAP_BOTTLE.get()).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))));
+							.add(LootItem.lootTableItem(AutumnityItems.SYRUP_BOTTLE.get()).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))));
 		}
 	}
 }

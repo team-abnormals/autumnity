@@ -34,7 +34,6 @@ public class AutumnityItems {
 	public static final DeferredItem<Item> MAPLE_FURNACE_BOAT = ITEMS.createItem("maple_furnace_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.MAPLE_FURNACE_BOAT : () -> new Item(new Item.Properties()));
 	public static final DeferredItem<Item> LARGE_MAPLE_BOAT = ITEMS.createItem("large_maple_boat", ModList.get().isLoaded("boatload") ? AutumnityBoatTypes.LARGE_MAPLE_BOAT : () -> new Item(new Item.Properties()));
 
-	public static final DeferredItem<Item> SAP_BOTTLE = ITEMS.createItem("sap_bottle", () -> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
 	public static final DeferredItem<Item> SYRUP_BOTTLE = ITEMS.createItem("syrup_bottle", () -> new SyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(AutumnityFoods.SYRUP_BOTTLE)));
 	public static final DeferredItem<Item> FOUL_BERRIES = ITEMS.createItem("foul_berries", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new Item((new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)) : () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties()).food(AutumnityFoods.FOUL_BERRIES)));
 	public static final DeferredItem<Item> FOUL_BERRY_PIPS = ITEMS.createItem("foul_berry_pips", AbstractSubRegistryHelper.areModsLoaded("berry_good") ? () -> new ItemNameBlockItem(AutumnityBlocks.FOUL_BERRY_BUSH.get(), (new Item.Properties())) : () -> new Item(new Item.Properties()));
@@ -65,7 +64,6 @@ public class AutumnityItems {
 				.tab(NATURAL_BLOCKS)
 				.addItemsAfter(of(Items.SWEET_BERRIES), FOUL_BERRIES)
 				.tab(INGREDIENTS)
-				.addItemsAfter(of(Items.HONEYCOMB), SAP_BOTTLE)
 				.addItemsAfter(of(Items.EGG), TURKEY_EGG)
 				.addItemsAfter(of(Items.TURTLE_SCUTE), SNAIL_SHELL_PIECE)
 				.addItemsAfter(of(Items.GLOBE_BANNER_PATTERN), MAPLE_LEAF_BANNER_PATTERN, SWIRL_BANNER_PATTERN)

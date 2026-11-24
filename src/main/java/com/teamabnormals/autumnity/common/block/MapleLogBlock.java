@@ -1,5 +1,6 @@
 package com.teamabnormals.autumnity.common.block;
 
+import com.teamabnormals.autumnity.core.AutumnityConfig;
 import com.teamabnormals.blueprint.common.block.LogBlock;
 import com.teamabnormals.blueprint.core.util.BlockUtil;
 import net.minecraft.core.registries.Registries;
@@ -29,10 +30,18 @@ public class MapleLogBlock extends LogBlock {
 	public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility toolAction, boolean simulate) {
 		ItemStack stack = context.getItemInHand();
 		Level level = context.getLevel();
-		if (toolAction == ItemAbilities.AXE_STRIP) {
-			int i = EnchantmentHelper.getTagEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.FORTUNE), stack);
-			float f = -1.0F / (i * (1.0F / 3.0F) + (4.0F / 3.0F)) + 1.0F;
-			return block != null ? BlockUtil.transferAllBlockStates(state, !level.isClientSide() && level.getRandom().nextFloat() <= f ? this.sappyBlock.get().defaultBlockState() : this.block.get().defaultBlockState()) : null;
+		if (toolAction == ItemAbilities.AXE_STRIP && block != null && sappyBlock != null) {
+			boolean sappy = AutumnityConfig.COMMON.sappyMapleLogs.get();
+			if (sappy) {
+				float f = (float) AutumnityConfig.COMMON.sappyMapleLogChance.getAsDouble();
+				if (AutumnityConfig.COMMON.fortuneAffectsMapleLogs.get()) {
+					int i = EnchantmentHelper.getTagEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.FORTUNE), stack);
+					f = 1.0F - (1.0F - f) * (4.0F / (i + 4.0F));
+				}
+
+				sappy = !level.isClientSide() && level.getRandom().nextFloat() <= f;
+			}
+			return BlockUtil.transferAllBlockStates(state, sappy ? this.sappyBlock.get().defaultBlockState() : this.block.get().defaultBlockState());
 		}
 		return super.getToolModifiedState(state, context, toolAction, simulate);
 	}

@@ -2,6 +2,7 @@ package com.teamabnormals.autumnity.common.entity.ai.goal;
 
 import com.teamabnormals.autumnity.common.entity.animal.Snail;
 import com.teamabnormals.autumnity.common.entity.animal.Snail.Action;
+import com.teamabnormals.autumnity.core.other.tags.AutumnityEntityTypeTags;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +23,7 @@ public class SnailHideGoal extends Goal {
 			} else if (livingentity instanceof Player player) {
 				return !player.isSteppingCarefully() && !livingentity.isSpectator() && !player.isCreative();
 			} else {
-				return !(livingentity instanceof Snail) && !(livingentity instanceof MushroomCow);
+				return !livingentity.getType().is(AutumnityEntityTypeTags.NOT_SCARY_FOR_SNAILS);
 			}
 		}
 	};

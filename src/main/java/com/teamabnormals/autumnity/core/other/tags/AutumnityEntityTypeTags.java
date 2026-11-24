@@ -6,6 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 
 public class AutumnityEntityTypeTags {
+	public static final TagKey<EntityType<?>> NOT_SCARY_FOR_SNAILS = entityTypeTag("not_scary_for_snails");
 	public static final TagKey<EntityType<?>> CAN_WEAR_TURKEY = entityTypeTag("can_wear_turkey");
 	public static final TagKey<EntityType<?>> FOUL_BERRY_IMMUNE = entityTypeTag("foul_berry_immune");
 

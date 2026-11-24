@@ -23,5 +23,6 @@ public class AutumnityEntityTypeTagsProvider extends EntityTypeTagsProvider {
 		//TODO: Humanoid? Entity type tag
 		this.tag(AutumnityEntityTypeTags.CAN_WEAR_TURKEY).add(EntityType.PLAYER, EntityType.ZOMBIE, EntityType.HUSK, EntityType.DROWNED, EntityType.PIGLIN, EntityType.PIGLIN_BRUTE, EntityType.ZOMBIFIED_PIGLIN).addTag(EntityTypeTags.SKELETONS);
 		this.tag(AutumnityEntityTypeTags.FOUL_BERRY_IMMUNE).add(EntityType.BEE, EntityType.FOX, AutumnityEntityTypes.TURKEY.get(), AutumnityEntityTypes.SNAIL.get());
+		this.tag(AutumnityEntityTypeTags.NOT_SCARY_FOR_SNAILS).add(AutumnityEntityTypes.SNAIL.get(), EntityType.MOOSHROOM, EntityType.ARMOR_STAND);
 	}
 }

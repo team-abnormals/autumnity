@@ -36,6 +36,8 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 	public static final ConfigValueCondition FOUL_BERRIES_REQUIRE_PIPS = config(AutumnityConfig.COMMON.foulBerriesRequirePips, "foul_berries_require_pips");
 	public static final BlueprintAndCondition BERRY_GOOD_AND_PIPS = new BlueprintAndCondition(BERRY_GOOD_LOADED, FOUL_BERRIES_REQUIRE_PIPS);
 
+	public static final ConfigValueCondition SAPPY_MAPLE_LOGS = config(AutumnityConfig.COMMON.sappyMapleLogs, "sappy_maple_logs");
+
 	public static final ModLoadedCondition ENDERGETIC_LOADED = new ModLoadedCondition("endergetic");
 	public static final ModLoadedCondition INCUBATION_LOADED = new ModLoadedCondition("incubation");
 	public static final ModLoadedCondition CAVERNS_AND_CHASMS_LOADED = new ModLoadedCondition("caverns_and_chasms");
@@ -61,8 +63,8 @@ public class AutumnityRecipeProvider extends BlueprintRecipeProvider {
 		conditionalStorageRecipes(output, INCUBATION_LOADED, RecipeCategory.MISC, AutumnityItems.TURKEY_EGG.get(), RecipeCategory.DECORATIONS, TURKEY_EGG_CRATE.get());
 
 		foodCookingRecipes(output, AutumnityItems.SYRUP_BOTTLE.get(), Items.SUGAR);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_LOG.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_LOG.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_LOG.get(), AutumnityItems.SYRUP_BOTTLE.get()));
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_WOOD.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_WOOD.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output, getModConversionRecipeName(SAPPY_MAPLE_WOOD.get(), AutumnityItems.SYRUP_BOTTLE.get()));
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_LOG.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_LOG.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output.withConditions(SAPPY_MAPLE_LOGS), getModConversionRecipeName(SAPPY_MAPLE_LOG.get(), AutumnityItems.SYRUP_BOTTLE.get()));
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SAPPY_MAPLE_WOOD.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(STRIPPED_MAPLE_WOOD.get()).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output.withConditions(SAPPY_MAPLE_LOGS), getModConversionRecipeName(SAPPY_MAPLE_WOOD.get(), AutumnityItems.SYRUP_BOTTLE.get()));
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PANCAKE.get()).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(Tags.Items.DRINKS_MILK).requires(Tags.Items.EGGS).requires(Items.WHEAT, 2).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output);
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, AutumnityItems.PUMPKIN_BREAD.get(), 2).requires(AutumnityItems.SYRUP_BOTTLE.get()).requires(Tags.Items.PUMPKINS_NORMAL).requires(Items.WHEAT, 2).unlockedBy("has_syrup_bottle", has(AutumnityItems.SYRUP_BOTTLE.get())).save(output.withConditions(ABNORMALS_DELIGHT_NOT_LOADED));
 

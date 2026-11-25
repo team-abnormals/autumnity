@@ -12,6 +12,7 @@ public class AutumnityConfig {
 		@ConfigKey("foul_berries_require_pips")
 		public final BooleanValue foulBerriesRequirePips;
 
+		@ConfigKey("sappy_maple_logs")
 		public final BooleanValue sappyMapleLogs;
 		public final DoubleValue sappyMapleLogChance;
 		public final BooleanValue fortuneAffectsMapleLogs;

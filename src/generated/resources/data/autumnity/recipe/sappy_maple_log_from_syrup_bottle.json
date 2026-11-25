@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "autumnity:config",
+      "value": "sappy_maple_logs"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [

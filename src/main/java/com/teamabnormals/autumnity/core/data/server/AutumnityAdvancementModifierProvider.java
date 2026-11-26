@@ -53,7 +53,7 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 		CriteriaModifier.Builder adventuringTime = CriteriaModifier.builder(this.modId);
 		RegistryLookup<Biome> biomes = provider.lookupOrThrow(Registries.BIOME);
 		for (ResourceKey<Biome> biome : List.of(AutumnityBiomes.MAPLE_FOREST, AutumnityBiomes.PUMPKIN_FIELDS)) {
-			adventuringTime.addCriterion(biome.location().toString(), PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inBiome(biomes.getOrThrow(biome))));
+			adventuringTime.addCriterion(biome.location().getPath(), PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inBiome(biomes.getOrThrow(biome))));
 		}
 
 		this.entry("adventure/adventuring_time").selects("adventure/adventuring_time").addModifier(adventuringTime.requirements(Strategy.AND).build());
@@ -79,7 +79,7 @@ public class AutumnityAdvancementModifierProvider extends AdvancementModifierPro
 				.sorted(Comparator.comparing(ResourceKey::location))
 				.forEach(variant -> {
 							Holder<WolfVariant> holder = registrylookup.getOrThrow(variant);
-							builder.addCriterion(variant.location().toString(), TameAnimalTrigger.TriggerInstance.tamedAnimal(EntityPredicate.Builder.entity().subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(holder)))));
+							builder.addCriterion(variant.location().getPath(), TameAnimalTrigger.TriggerInstance.tamedAnimal(EntityPredicate.Builder.entity().subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(holder)))));
 						}
 				);
 		return builder;

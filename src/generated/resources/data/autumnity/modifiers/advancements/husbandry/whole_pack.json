@@ -4,7 +4,7 @@
       "type": "criteria",
       "config": {
         "criteria": {
-          "autumnity:autumnity:spicy": {
+          "autumnity:spicy": {
             "conditions": {
               "entity": [
                 {
@@ -25,7 +25,7 @@
         "indexed_requirements": [],
         "requirements": [
           [
-            "autumnity:autumnity:spicy"
+            "autumnity:spicy"
           ]
         ],
         "should_replace_requirements": false
